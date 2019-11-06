@@ -2,7 +2,7 @@
 // react
 import React from 'react';
 
-function App() {
+const App = props => {
   return (
     <React.Fragment>
         hello world!
