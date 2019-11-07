@@ -31,7 +31,8 @@ const MobileMenu = () => {
 
                 </Drawer>
             </DrawerContainer>
-            <PlaceholderButton onClick={menuToggle}>Hi</PlaceholderButton>
+            <PlaceholderButton onClick={menuToggle}><i class="fas fa-bars"></i></PlaceholderButton>
+            
         </Wrapper>
     );
 
@@ -49,11 +50,21 @@ const Container = styled.div`
     height: 5rem;
     ${flex.flexRowNoWrapAround}
     z-index: 1;
+
+        button:active {
+            border: none;
+            text-decoration: none;
+            outline: none;
+        }
 `
 
 const PlaceholderButton = styled.button`
     width: 3rem;
     height: 3rem;
+    background-color: transparent;
+    border: none;
+    color: #FFF;
+    font-size: 2rem;
     margin: 2rem auto 2rem 2rem;
 `
 
