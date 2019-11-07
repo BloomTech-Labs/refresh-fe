@@ -117,10 +117,10 @@ const Drawer = styled.div`
 const UserHud = styled.div`
     width: 100%;
     height: 20rem;
-    margin-top: 10rem;
+    margin-top: 5rem;
     margin-bottom: auto;
     ${flex.flexRowNoWrapAround}
-    background-color: red;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 `
 
 const Navigation = styled.div`
@@ -131,8 +131,8 @@ const Navigation = styled.div`
 `
 
 const Avatar = styled.div`
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
     border-radius: 10px;
@@ -140,7 +140,7 @@ const Avatar = styled.div`
 
 const UserInfo = styled.div`
     width: 60%;
-    height: 15rem;
+    height: 10rem;
     padding: 1rem;
     background-color: green;
 `
