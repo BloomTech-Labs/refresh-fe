@@ -39,7 +39,10 @@ const MobileMenu = () => {
                     </UserHud>
 
                     <Navigation>
-
+                        <NavButton><i class="fas fa-caret-square-down"></i>Home</NavButton>
+                        <NavButton><i class="fas fa-caret-square-down"></i>Leaderboard</NavButton>
+                        <NavButton><i class="fas fa-caret-square-down"></i>Team</NavButton>
+                        <NavButton><i class="fas fa-caret-square-down"></i>Weekly Challenge</NavButton>
                     </Navigation>
                 </Drawer>
             </DrawerContainer>
@@ -125,7 +128,6 @@ const UserHud = styled.div`
 
 const Navigation = styled.div`
     width: 100%;
-    height: 10rem;
     margin-bottom: auto;
     background-color: blue;
 `
@@ -143,6 +145,23 @@ const UserInfo = styled.div`
     height: 10rem;
     padding: 1rem;
     background-color: green;
+`
+
+const NavButton = styled.div`
+        width: 100%;
+        height: 5rem;
+        margin: 2rem 0;
+        font-size: 3rem;
+        color: #FFF;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: left;
+        align-items: center;
+        background-color: red;
+
+            i {
+                margin: 1rem;
+            }
 `
 
 // EXPORT
