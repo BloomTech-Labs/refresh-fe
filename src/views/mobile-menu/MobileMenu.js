@@ -28,9 +28,13 @@ const MobileMenu = () => {
         <Wrapper>
             <DrawerContainer>
                 <Drawer className={menu.status}>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                    <UserInfo>
+                        <Avatar></Avatar>
+                    </UserInfo>
+
+                    <Navigation>
+
+                    </Navigation>
                 </Drawer>
             </DrawerContainer>
             <PlaceholderButton onClick={menuToggle}><i class="fas fa-bars"></i></PlaceholderButton>
@@ -97,16 +101,34 @@ const DrawerContainer = styled.div`
 `
 
 const Drawer = styled.div`
-        positon: relative;
-        ${flex.flexCol}
+    positon: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+`
 
-            div {
-                width: 80%;
-                height: 25rem;
-                margin: 0 auto;
-                margin: 2rem;
-                ${test.redBg}
-            }
+const UserInfo = styled.div`
+    width: 100%;
+    height: 20rem;
+    margin-top: 10rem;
+    margin-bottom: auto;
+    ${flex.flexRowNoWrapAround}
+    background-color: red;
+`
+
+const Navigation = styled.div`
+    width: 100%;
+    height: 10rem;
+    margin-bottom: auto;
+    background-color: blue;
+`
+
+const Avatar = styled.div`
+    width: 150px;
+    height: 150px;
+    background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
+    background-size: cover;
 `
 
 // EXPORT
