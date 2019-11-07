@@ -77,11 +77,24 @@ const Button = styled.a`
   background: #6487ff;
   color: white;
   font-size:1.6rem;
+  transition: .4s;
+
+  &:hover {
+    cursor: pointer;
+    background: #4a73ff;
+}
 }
 `
 const ButtonNoColor = styled.a`
     margin:auto;
     font-size:1.6rem;
+    padding: 10px;
+    transition: .4s;
+
+    &:hover {
+        cursor: pointer;
+        color: lightgrey;
+    }
 `
 
 const FlexHolder = styled.div`
@@ -98,7 +111,8 @@ const Logo = styled.img`
 width:100%;
 max-width:82%;
 height:auto;
-margin:auto;`
+margin:auto;
+margin-top: 40px`
 
 
 export default Landing; 
