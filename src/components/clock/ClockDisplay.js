@@ -1,25 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-return (
-    <div className="clock-display">
-        <h1>Pomodoro Clock</h1>
-        <div className="timer">
-            <span> /TIMER/ </span>
-            <span> /CURRENT SESSION/ </span>
+export default function ClockDisplay() {
+
+    return (
+        <div className="clock-display">
+            <h1>Pomodoro Clock</h1>
+            <Timer />
+            <TimerControllers />
         </div>
-        <div className="timer-controls">
-            <WorkController />
-                <div className="work-buttons">
-                    <button> + </button>
-                    <span> /WORKTIME/ </span>
-                    <button> - </button>
-                </div>
-            <BreakController />
-                <div className="break-buttons">
-                    <button> + </button>
-                    <span> /BREAKTIME/ </span>
-                    <button> - </button> 
-                </div>
-        </div>
-    </div>
-)
+    )
+
+}
