@@ -16,17 +16,17 @@ const MobileMenu = () => {
     // use effect
     // todo
 
-   if (menu.status === 'open') {
+    if (menu.status === 'open') {
 
-   } else {
-    return (
-        <Wrapper>
-            <Container>
-                <PlaceholderButton>Hi</PlaceholderButton>
-            </Container>
-        </Wrapper>
-    );
-   }
+    } else {
+        return (
+            <Wrapper>
+                <Container>
+                    <PlaceholderButton>Hi</PlaceholderButton>
+                </Container>
+            </Wrapper>
+        );
+    }
 
 };
 
