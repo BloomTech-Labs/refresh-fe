@@ -7,16 +7,16 @@ const CreateAccount = (props) => {
     return(
         <OnBoardWrapper>
             <OnBoardContainer>
-                <FlexHolder>
+                <TopHolder>
                 <ButtonNoColor>&lt;</ButtonNoColor>
                 <ButtonNoColor>Log In</ButtonNoColor>
-                </FlexHolder>
-                <Header>Create <br /> Account</Header>
+                </TopHolder>
+                <Header>Create <br /> Account.</Header>
                 <FlexHolder>
                 <FBButton>Sign up with Facebook <img src={fblogo} /> </FBButton>
                 <Button>Sign up with Google <img src={googlelogo} /></Button>
                 </FlexHolder>
-                <OnboardTxt>OR</OnboardTxt>
+                <OnboardTxt>OR<hr /></OnboardTxt>
                 <FlexHolder>
                 <Button>Sign up with Email <img src={emailogo} /></Button>
                 </FlexHolder>
@@ -65,6 +65,15 @@ width:100%;
 padding: 2.5rem 4rem;
 `
 
+const TopHolder = styled.div`
+display: flex;
+justify-content: space-between;
+margin: auto;
+padding: 2.5rem 0;
+align-items: flex-start;
+width:100%;
+`
+
 const Button = styled.a`
   display: inline-block;
   border-radius: 0.5rem;
@@ -75,6 +84,7 @@ const Button = styled.a`
   background: #6487ff;
   color: white;
   font-size:1.6rem;
+  letter-spacing:0.1rem;
 }
 `
 const FBButton = styled.a`
@@ -83,16 +93,19 @@ const FBButton = styled.a`
   padding: 1.5rem 0.8rem;
   width:100%;
   text-align:center;
-  margin: auto;
+  margin: 2rem auto;
   background: #4A639E;
   color: white;
   font-size:1.6rem;
+  letter-spacing:0.1rem;
 }
 `
 
 const ButtonNoColor = styled.a`
-    margin:auto;
+    margin:auto 4rem;
     font-size:1.6rem;
+    font-style: medium;
+    color: #CCC9FF;
 `
 
 export default CreateAccount;
