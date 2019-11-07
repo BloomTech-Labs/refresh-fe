@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 // components
 import Landing from './views/onboarding/Landing';
 import CreateAccount from "./views/onboarding/CreateAccount";
-import MobileMenu from './components/MobileMenu';
+import MobileMenu from './views/mobile-menu/MobileMenu';
 
 
 // COMPONENT
