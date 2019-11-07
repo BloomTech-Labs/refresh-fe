@@ -1,12 +1,13 @@
 // IMPORTS
 // react
 import React from 'react';
+import Landing from './views/onboarding/Landing';
 
 // COMPONENT
 const App = props => {
   return (
     <React.Fragment>
-        <h3>hello world!</h3>
+      <Landing />
     </React.Fragment>
   );
 }
