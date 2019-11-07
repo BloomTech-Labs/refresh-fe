@@ -1,4 +1,6 @@
 import React from 'react';
+import Timer from './Timer';
+import TimerControllers from './TimerControllers';
 
 export default function ClockDisplay() {
 
