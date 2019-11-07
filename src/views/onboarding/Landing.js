@@ -5,7 +5,15 @@ import React from 'react';
 import styled from 'styled-components';
 // images
 import onboardlogo from '../../images/refresh-yo-guy.svg';
-const Landing = () => {
+const Landing = (props) => {
+    const routeToSignUp = e => {
+        e.preventDefault();
+        props.history.push("/signup");
+    };
+    const routeToLogin = e => {
+        e.preventDefault();
+        props.history.push("/login");
+    };
     return(
         <OnBoardWrapper>
         <OnBoardContainer>
@@ -17,8 +25,8 @@ const Landing = () => {
                 <OnboardTxt>Because success starts with the <br /> body in mind.</OnboardTxt>
             </FlexHolder>
             <FlexHolder>
-                <Button>Get Started</Button>
-                <ButtonNoColor>I already have an account</ButtonNoColor>
+                <Button onClick = {routeToSignUp}>Get Started</Button>
+                <ButtonNoColor onClick = {routeToLogin}>I already have an account</ButtonNoColor>
             </FlexHolder>
       </OnBoardContainer>
       </OnBoardWrapper>
