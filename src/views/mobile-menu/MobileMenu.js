@@ -28,6 +28,7 @@ const MobileMenu = () => {
         <Wrapper>
             <DrawerContainer>
                 <Drawer className={menu.status}>
+                    <div>
                     <UserHud>
                         <Avatar></Avatar>
 
@@ -44,6 +45,7 @@ const MobileMenu = () => {
                         <NavButton><i class="fas fa-caret-square-down"></i>Team</NavButton>
                         <NavButton><i class="fas fa-caret-square-down"></i>Weekly Challenge</NavButton>
                     </Navigation>
+                    </div>
                 </Drawer>
             </DrawerContainer>
             <PlaceholderButton onClick={menuToggle}><i class="fas fa-bars"></i></PlaceholderButton>
@@ -115,21 +117,26 @@ const Drawer = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
+        div:first-child {
+            margin-bottom: auto;
+        }
 `
 
 const UserHud = styled.div`
     width: 100%;
     height: 20rem;
     margin-top: 5rem;
-    margin-bottom: auto;
-    ${flex.flexRowNoWrapAround}
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    ${test.redBg}
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 `
 
 const Navigation = styled.div`
     width: 100%;
-    margin-bottom: auto;
-    background-color: blue;
 `
 
 const Avatar = styled.div`
@@ -141,7 +148,7 @@ const Avatar = styled.div`
 `
 
 const UserInfo = styled.div`
-    width: 60%;
+    width: 50%;
     height: 10rem;
     padding: 1rem;
     background-color: green;
@@ -151,16 +158,17 @@ const NavButton = styled.div`
         width: 100%;
         height: 5rem;
         margin: 2rem 0;
+        padding: 1rem;
         font-size: 3rem;
         color: #FFF;
         display: flex;
         flex-flow: row nowrap;
         justify-content: left;
         align-items: center;
-        background-color: red;
+     
 
             i {
-                margin: 1rem;
+                margin: 2rem 4rem 2rem 2rem;
             }
 `
 
