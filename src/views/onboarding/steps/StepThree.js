@@ -1,0 +1,99 @@
+// IMPORTS
+// react
+import React from 'react';
+// styled components
+import styled from 'styled-components';
+// images
+
+const StepThree = (props) => {
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.onSubmit();
+    };
+    
+    return(
+        <OnBoardWrapper>
+        <OnBoardContainer>
+            
+            <FlexHolder>
+                <Question>How often do you feel overwhelmed?</Question>
+                
+               
+            </FlexHolder>
+            <FlexHolder>
+                <Option>Never</Option>
+                <Option>Sometimes</Option>
+                <Option>Always</Option>
+            </FlexHolder>
+            <FlexHolder>
+                <Button onClick = {handleSubmit}>Continue</Button>
+            </FlexHolder>
+      </OnBoardContainer>
+      </OnBoardWrapper>
+    )
+}
+// STYLED COMPONENTS
+//Onboarding Reusable Styles 
+// we abstract out reusable global styles later on -JC
+const Option = styled.p`
+font-size: 2.2rem;
+letter-spacing: 3.5px;
+color: #FFFFFF;
+margin-top: 140px;
+`
+const OnBoardWrapper = styled.div`
+background-color: #3a3699;
+width: 100vw;
+height:100vh;
+max-height:100vh;
+`
+const OnBoardContainer = styled.div`
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+font-family: 'Catamaran', sans-serif;
+margin:auto;
+line-height:1.5;
+background-color: #3a3699;
+color: #7f7cca;
+`
+const Question = styled.h1`
+font-weight: bold;
+font-size: 4rem;
+line-height: 62px;
+letter-spacing: 3.5px;
+color: #FFFFFF;
+margin-top: 140px;
+`
+const OnboardTxt = styled.p`
+font-size: 2rem;
+line-height: 33px;
+letter-spacing: 0.035em;
+color: #CCC9FF;
+`
+const Button = styled.a`
+  display: inline-block;
+  border-radius: 0.5rem;
+  padding: 1.5rem 0.8rem;
+  width:100%;
+  text-align:center;
+  margin: auto;
+  background: #6487ff;
+  color: white;
+  font-size:1.6rem;
+}
+`
+const ButtonNoColor = styled.a`
+    margin:auto;
+    font-size:1.6rem;
+`
+const FlexHolder = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin:auto;
+align-items: flex-start;
+width:100%;
+padding: 2.5rem 4rem;
+`
+export default StepThree; 
