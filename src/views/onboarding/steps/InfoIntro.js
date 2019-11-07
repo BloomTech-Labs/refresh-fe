@@ -10,9 +10,11 @@ const InfoIntro = (props) => {
 return(
     <OnBoardWrapper>
     <OnBoardContainer>
-        <Refresh>We need to learn a little more about you</Refresh>
+        <FlexHolder>
+        <Refresh>We need to learn a little more about <GreenSpan>you</GreenSpan></Refresh>
         <OnboardTxt>We just need some data to set up your profile. All of your information will stay private.</OnboardTxt>
         <Button onClick={handleSubmit}>Continue</Button>
+        </FlexHolder>
     </OnBoardContainer>
 </OnBoardWrapper>
 )
@@ -20,6 +22,9 @@ return(
 
 // STYLED COMPONENTS
 //Onboarding Reusable Styles 
+const GreenSpan = styled.span`
+color: #28C96C;
+`
 
 const OnBoardWrapper = styled.div`
 background-color: #3a3699;
