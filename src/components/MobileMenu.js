@@ -16,17 +16,22 @@ const MobileMenu = () => {
     // use effect
     // todo
 
-    if (menu.status === 'open') {
+    // handlers
+    const menuToggle = () => {
+        menu.status === 'closed' ?
+        setMenu({ ...menu, status: 'open' }) :
+        setMenu({ ...menu, status: 'closed' })
+    };
 
-    } else {
-        return (
-            <Wrapper>
-                <Container>
-                    <PlaceholderButton>Hi</PlaceholderButton>
-                </Container>
-            </Wrapper>
-        );
-    }
+    // RENDER
+    return (
+        <Wrapper>
+            <Container>
+                <PlaceholderButton onClick={menuToggle}>Hi</PlaceholderButton>
+                {console.log(menu)}
+            </Container>
+        </Wrapper>
+    );
 
 };
 
@@ -47,6 +52,13 @@ const PlaceholderButton = styled.button`
     width: 3rem;
     height: 3rem;
     margin: 2rem auto 2rem 2rem;
+`
+
+const Drawer = styled.div`
+    width: 70vw;
+    height: 100vh;
+    position: fixed;
+    ${test.blueBg}
 `
 
 // EXPORT
