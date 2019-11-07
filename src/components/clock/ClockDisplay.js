@@ -6,6 +6,9 @@ export default class ClockDisplay extends Component {
     constructor() {
         super();
         this.state = {
+            timerId: 0,
+            timerRunning: false,
+            currentTime: "25 : 00",
             cycle: "Work",
             workTime: 25,
             breakTime: 5
@@ -35,6 +38,20 @@ export default class ClockDisplay extends Component {
             breakTime: this.state.breakTime - 1
         })
     };
+
+    setCurrentTime = () => {
+        this.setState({
+            // Confused about what to put here, may need help
+        })
+    }
+
+    setTimerRunning = () => {
+        this.setState({
+            timerRunning: this.state.timerRunning.toggle
+            // Same here, that's my best guess
+            // (Tutorial skips over these two parts for some odd reason :-/ )
+        })
+    }
 
     render() {
 
