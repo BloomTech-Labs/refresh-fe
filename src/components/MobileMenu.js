@@ -10,7 +10,7 @@ import { test, flex } from '../styles/global/Mixins'
 const MobileMenu = () => {
     // state hooks
     const [menu, setMenu] = useState({
-        status: 'closed'
+        status: 'open'
     });
 
     // use effect
@@ -26,16 +26,12 @@ const MobileMenu = () => {
     // RENDER
     return (
         <Wrapper>
-            <Container>
-                <PlaceholderButton onClick={menuToggle}>Hi</PlaceholderButton>
-                {console.log(menu)}
-            </Container>
-
             <DrawerContainer>
                 <Drawer className={menu.status}>
 
                 </Drawer>
             </DrawerContainer>
+            <PlaceholderButton onClick={menuToggle}>Hi</PlaceholderButton>
         </Wrapper>
     );
 
@@ -65,7 +61,6 @@ const DrawerContainer = styled.div`
     width: 70vw;
     height: 90vh;
     position: fixed;
-    bottom: 5rem;
     z-index: -3;
 
     .closed {
@@ -73,7 +68,7 @@ const DrawerContainer = styled.div`
         height: 100vh;
         position: fixed;
         right: 100vw;
-        background-color: blue;
+        background-color: #6487FF;
         transition: 0.5s ease-in-out;
     }
 
@@ -82,13 +77,13 @@ const DrawerContainer = styled.div`
             height: 100vh;
             position: fixed;
             right: 50vw;
-            background-color: blue;
+            background-color: #6487FF;
             transition: 0.5s ease-in-out;
         }
 `
 
 const Drawer = styled.div`
-
+        positon: relative;
 `
 
 // EXPORT
