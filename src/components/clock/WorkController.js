@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default function WorkController () {
-    return (
-        <div className="work-buttons">
-                    <button> + </button>
-                    <span> /WORKTIME/ </span>
-                    <button> - </button>
-        </div>
-    )
+export default class WorkController extends Component {
+    
+    handleWorkIncrement = () => {
+        this.props.incrementWorkTime()
+    };
+
+    handleWorkDecrement = () => {
+        this.props.decrementWorkTime()
+    }
+
+    render() {
+    
+        return (
+            <div className="work-buttons">
+                <p>CURRENT SPRINT</p>
+                <button onClick={this.handleWorkIncrement}> + </button>
+                <span> {this.props.workTime} </span>
+                <button onClick={this.handleWorkDecrement}> - </button>
+            </div>
+        )
+
+    }
 }
