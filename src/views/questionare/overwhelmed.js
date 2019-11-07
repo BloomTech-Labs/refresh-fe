@@ -16,9 +16,14 @@ const Landing = (props) => {
         <OnBoardContainer>
             
             <FlexHolder>
-                <Question>overwhelmed?</Question>
-                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+                <Question>How often do you feel overwhelmed?</Question>
+                
                
+            </FlexHolder>
+            <FlexHolder>
+                <Option>Never</Option>
+                <Option>Sometimes</Option>
+                <Option>Always</Option>
             </FlexHolder>
             <FlexHolder>
                 <Button onClick = {routeToHeight}>Continue</Button>
@@ -32,6 +37,15 @@ const Landing = (props) => {
 // STYLED COMPONENTS
 //Onboarding Reusable Styles 
 // we abstract out reusable global styles later on -JC
+const Option = styled.p`
+
+font-size: 2.2rem;
+
+letter-spacing: 3.5px;
+color: #FFFFFF;
+margin-top: 140px;
+`
+
 const OnBoardWrapper = styled.div`
 background-color: #3a3699;
 width: 100vw;
@@ -51,8 +65,8 @@ color: #7f7cca;
 `
 const Question = styled.h1`
 font-weight: bold;
-font-size: 5rem;
-line-height: 82px;
+font-size: 4rem;
+line-height: 62px;
 letter-spacing: 3.5px;
 color: #FFFFFF;
 margin-top: 140px;

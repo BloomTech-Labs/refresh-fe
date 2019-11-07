@@ -16,7 +16,7 @@ const Landing = (props) => {
         <OnBoardContainer>
             
             <FlexHolder>
-                <Question>height?</Question>
+                <Question>How tall are you?</Question>
                 <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
                
             </FlexHolder>
@@ -51,18 +51,21 @@ color: #7f7cca;
 `
 const Question = styled.h1`
 font-weight: bold;
-font-size: 5rem;
+font-size: 4rem;
 line-height: 82px;
 letter-spacing: 3.5px;
 color: #FFFFFF;
 margin-top: 140px;
+margin-left: 20px;
+width: fit-content;
 `
 
 const OnboardTxt = styled.p`
-font-size: 2rem;
+font-size: 2.2rem;
 line-height: 33px;
-letter-spacing: 0.035em;
+letter-spacing: 0.095em;
 color: #CCC9FF;
+margin: 0 auto;
 `
 const Button = styled.a`
   display: inline-block;
@@ -78,7 +81,9 @@ const Button = styled.a`
 `
 const ButtonNoColor = styled.a`
     margin:auto;
-    font-size:1.6rem;
+    font-size:1.8rem;
+    padding: 15px;
+    letter-spacing: 0.090em;
 `
 
 const FlexHolder = styled.div`
