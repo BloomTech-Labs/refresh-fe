@@ -4,23 +4,22 @@ import Badge from '../../components/atoms/badge/badge';
 import Input from '../../components/atoms/input/input';
 import Link from '../../components/atoms/link/link';
 
+const google = 'https://www.google.com/';
 const Atoms = props => {
   return (
     <div>
-      <Button width={150}>
-        Imma button yo
-      </Button>
+      <Button width={150}>Imma button yo</Button>
       <Badge text={22} />
       <Input
-        width={500}
+        width={200}
         placeholder={'base input'}
         type={'text'}
         name={'firstname'}
         value={'First Name'}
       />
       <Link
-        className="baseInput"
-        href={'https://google.com'}
+        className="baseLink"
+        href={google}
         width={200}
         text={"I'm a link!"}
       ></Link>

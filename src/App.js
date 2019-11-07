@@ -11,8 +11,6 @@ const App = props => {
   return (
     <React.Fragment>
       <Landing {...props} />
-      {/* Atom overview currently over top of landing page. Comment out if needed */}
-      <Atoms {...props} /> 
     </React.Fragment>
   );
 };

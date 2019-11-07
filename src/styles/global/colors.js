@@ -3,6 +3,7 @@ const primary = '#717171';
 const secondary = '#333333';
 const lightGrey = '#d3d3d3';
 const white = '#ffffff';
+const blue = 'blue'
 
 const Colors = {
   primary: primary,
@@ -11,7 +12,8 @@ const Colors = {
     muted: lightGrey
   },
   font: {
-    white: white
+    white: white,
+    basic: blue
   }
 };
 

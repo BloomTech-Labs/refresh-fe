@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 // Fonts
 import Fonts from './fonts';
 // Colors

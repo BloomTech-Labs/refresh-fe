@@ -1,19 +1,27 @@
 import React from 'react';
+import styled from 'styled-components';
 import StyledLink from '../../../styles/global/components.css';
 
-const Link = ({ text, linkURL, ...props }) => {
-  const { width, height, color } = props;
+const Link = ({ text, linkUrl, ...props }) => {
+  const { width, height, color, fontSize } = props;
   return (
-    <StyledLink
-      className="linkBase"
-      href={linkURL}
+    <BaseLink
+      className="baseLink"
+      href={linkUrl}
       width={width}
       height={height}
       color={color}
+      fontSize={fontSize}
     >
       {text}
-    </StyledLink>
+    </BaseLink>
   );
 };
+
+const BaseLink = styled.a`
+  ${StyledLink} + & {
+    ${'' /* stuff */}
+  }
+`;
 
 export default Link;

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
-import StyledInput from '../../../styles/global/inputs.css';
+import styled from 'styled-components';
 import { inputTypes } from '../../../styles/global/constants';
+import StyledInput from '../../../styles/global/components.css';
 
 const Input = ({ callback = () => {}, ...props }) => {
   const [value, setValue] = useState('');
@@ -38,7 +39,7 @@ const Input = ({ callback = () => {}, ...props }) => {
   };
 
   return (
-    <StyledInput
+    <BaseInput
       className="baseInput"
       id={id}
       form={form}
@@ -68,5 +69,11 @@ const Input = ({ callback = () => {}, ...props }) => {
     />
   );
 };
+
+const BaseInput = styled.input`
+  ${StyledInput} + & {
+    ${'' /* stuff */}
+  }
+`;
 
 export default Input;
