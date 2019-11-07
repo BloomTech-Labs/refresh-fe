@@ -3,22 +3,36 @@ import styled from 'styled-components';
 import fblogo from '../../images/facebook-icon.png';
 import googlelogo from '../../images/flat-color-icons_google.png';
 import emailogo from '../../images/email.png';
+import cubes from '../../images/two_cubes.png';
+
 const CreateAccount = (props) => {
+    const routeToHome = e => {
+        e.preventDefault();
+        props.history.push("/");
+    };
+
+    const routeToLogin = e => {
+        e.preventDefault();
+        props.history.push("/login");
+    };
     return(
         <OnBoardWrapper>
             <OnBoardContainer>
                 <TopHolder>
-                <ButtonNoColor>&lt;</ButtonNoColor>
-                <ButtonNoColor>Log In</ButtonNoColor>
+                <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
+                <ButtonNoColor onClick={routeToHome}>Log In</ButtonNoColor>
                 </TopHolder>
+                <HeaderHolder>
                 <Header>Create <br /> Account.</Header>
+                <Cubes src={cubes} />
+                </HeaderHolder>
                 <FlexHolder>
-                <FBButton>Sign up with Facebook <img src={fblogo} /> </FBButton>
-                <Button>Sign up with Google <img src={googlelogo} /></Button>
+                <FBButton>Sign up with Facebook <Logo src={fblogo} /> </FBButton>
+                <Button>Sign up with Google <Logo src={googlelogo} /></Button>
                 </FlexHolder>
-                <OnboardTxt>OR<hr /></OnboardTxt>
+                <OnboardTxt>OR ------------------------------------</OnboardTxt>
                 <FlexHolder>
-                <Button>Sign up with Email <img src={emailogo} /></Button>
+                <Button>Sign up with Email <Logo src={emailogo} /></Button>
                 </FlexHolder>
             </OnBoardContainer>
         </OnBoardWrapper>
@@ -49,7 +63,14 @@ line-height: 82px;
 letter-spacing: 3.5px;
 color: #FFFFFF;
 `
+const HeaderHolder = styled.div`
+display:flex;
+margin:auto 4rem;
+padding-right:5rem;
+`
+
 const OnboardTxt = styled.p`
+margin:auto;
 font-size: 2rem;
 line-height: 33px;
 letter-spacing: 0.035em;
@@ -75,7 +96,8 @@ width:100%;
 `
 
 const Button = styled.a`
-  display: inline-block;
+  display: flex;
+  justify-content: space-evenly;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
   width:100%;
@@ -88,7 +110,8 @@ const Button = styled.a`
 }
 `
 const FBButton = styled.a`
-  display: inline-block;
+display: flex;
+justify-content: space-evenly;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
   width:100%;
@@ -106,6 +129,16 @@ const ButtonNoColor = styled.a`
     font-size:1.6rem;
     font-style: medium;
     color: #CCC9FF;
+`
+const Cubes = styled.img`
+width:100%;
+max-width:50%;
+height:auto;
+margin:auto;
+padding-top:5rem`
+
+const Logo = styled.img`
+
 `
 
 export default CreateAccount;
