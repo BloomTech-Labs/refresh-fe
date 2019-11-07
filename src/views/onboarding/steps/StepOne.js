@@ -1,14 +1,25 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, {useState} from 'react';
 // styled components
 import styled from 'styled-components';
-// images
+
 
 const StepOne = (props) => {
+    const [profile, setProfile] = useState({
+        weight:"",
+    });
+
+    const handleChanges = e => {
+        setProfile({
+            ...profile,
+            [e.target.name]: e.target.value
+        })
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
-        props.onSubmit();
+        props.onSubmit(profile);
     };
     
     return(
@@ -16,7 +27,7 @@ const StepOne = (props) => {
         <OnBoardContainer>
             
             <FlexHolder>
-                <Question>What do you currently weigh?</Question>
+                <Question>What do you <br /> currently weigh?</Question>
                 <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
                
             </FlexHolder>

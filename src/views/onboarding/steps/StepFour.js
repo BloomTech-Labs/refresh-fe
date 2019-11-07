@@ -1,14 +1,25 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, {useState} from 'react';
 // styled components
 import styled from 'styled-components';
 // images
 
 const StepFour = (props) => {
+    const [profile, setProfile] = useState({
+        sleep:"",
+    });
+
+    const handleChanges = e => {
+        setProfile({
+            ...profile,
+            [e.target.name]: e.target.value
+        })
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
-        props.onSubmit();
+        props.onSubmit(profile);
     };
     
     return(
