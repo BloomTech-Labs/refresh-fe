@@ -76,48 +76,23 @@ const DrawerContainer = styled.div`
     position: fixed;
     z-index: -3;
 
-        // mobile styles
-        @media only screen and (max-width: 800px) {
-            .closed {
-                width: 100vw;
-                height: 95vh;
-                position: fixed;
-                bottom: 100vh;
-                background-color: #6487FF;
-                transition: 0.5s ease-in-out;
-            }
-    
-            .open {
-                width: 100vw;
-                height: 95vh;
-                position: fixed;
-                bottom: 15vw;
-                background-color: #6487FF;
-                transition: 0.5s ease-in-out;
-                box-shadow: 2px 3px 15px 2px black;
-            }
-        }
+    .closed {
+        width: 70vw;
+        height: 100vh;
+        position: fixed;
+        right: 100vw;
+        background-color: #6487FF;
+        transition: 0.5s ease-in-out;
+    }
 
-        // tablet+ styles
-        @media only screen and (min-width: 800px) {
-            .closed {
-                width: 70vw;
-                height: 100vh;
-                position: fixed;
-                right: 100vw;
-                background-color: #6487FF;
-                transition: 0.5s ease-in-out;
-            }
-        
-                .open {
-                    width: 70vw;
-                    height: 100vh;
-                    position: fixed;
-                    right: 30vw;
-                    background-color: #6487FF;
-                    transition: 0.5s ease-in-out;
-                    box-shadow: 2px 3px 15px 2px black;
-                }
+        .open {
+            width: 70vw;
+            height: 100vh;
+            position: fixed;
+            right: 30vw;
+            background-color: #6487FF;
+            transition: 0.5s ease-in-out;
+            box-shadow: 2px 3px 15px 2px black;
         }
 `
 
