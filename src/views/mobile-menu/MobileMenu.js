@@ -28,9 +28,15 @@ const MobileMenu = () => {
         <Wrapper>
             <DrawerContainer>
                 <Drawer className={menu.status}>
-                    <UserInfo>
+                    <UserHud>
                         <Avatar></Avatar>
-                    </UserInfo>
+
+                        <UserInfo>
+                            <h2>Josh Cooter</h2>
+                            <h2>Labs 18 - Megan</h2>
+                            <h3>69 points</h3>
+                        </UserInfo>
+                    </UserHud>
 
                     <Navigation>
 
@@ -108,7 +114,7 @@ const Drawer = styled.div`
     align-items: center;
 `
 
-const UserInfo = styled.div`
+const UserHud = styled.div`
     width: 100%;
     height: 20rem;
     margin-top: 10rem;
@@ -129,6 +135,14 @@ const Avatar = styled.div`
     height: 150px;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
+    border-radius: 10px;
+`
+
+const UserInfo = styled.div`
+    width: 60%;
+    height: 15rem;
+    padding: 1rem;
+    background-color: green;
 `
 
 // EXPORT
