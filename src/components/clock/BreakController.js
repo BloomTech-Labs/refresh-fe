@@ -4,10 +4,16 @@ export default class BreakController extends Component {
     
     handleBreakIncrement = () => {
         this.props.incrementBreakTime()
+        if (this.props.timerRunning === false) {
+            this.props.setCurrentTime(this.props.breakTime)
+        }
     };
 
     handleBreakDecrement = () => {
         this.props.decrementBreakTime()
+        if (this.props.timerRunning === false) {
+            this.props.setCurrentTime(this.props.breakTime)
+        }
     };
     
     render() {
