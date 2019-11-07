@@ -28,7 +28,9 @@ const MobileMenu = () => {
         <Wrapper>
             <DrawerContainer>
                 <Drawer className={menu.status}>
-
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </Drawer>
             </DrawerContainer>
             <PlaceholderButton onClick={menuToggle}><i class="fas fa-bars"></i></PlaceholderButton>
@@ -111,7 +113,7 @@ const DrawerContainer = styled.div`
                     width: 70vw;
                     height: 100vh;
                     position: fixed;
-                    right: 50vw;
+                    right: 30vw;
                     background-color: #6487FF;
                     transition: 0.5s ease-in-out;
                     box-shadow: 2px 3px 15px 2px black;
@@ -121,6 +123,15 @@ const DrawerContainer = styled.div`
 
 const Drawer = styled.div`
         positon: relative;
+        ${flex.flexCol}
+
+            div {
+                width: 80%;
+                height: 25rem;
+                margin: 0 auto;
+                margin: 2rem;
+                ${test.redBg}
+            }
 `
 
 // EXPORT
