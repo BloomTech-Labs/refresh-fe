@@ -33,8 +33,8 @@ const StyledAtom = styled.div.attrs(props => ({
 }))`
 
 ${'' /* Currently set to px for global, can go rem, %, etc */}
-  height: ${props => (props.height ? `${props.height}px` : '40px')};
-  width: ${props => (props.width ? `${props.width}px` : `40px`)};
+  height: ${props => (props.height ? `${props.height}%` : '100%')};
+  width: ${props => (props.width ? `${props.width}%` : `100%`)};
   border: ${props => (props.border ? props.border : 'none')};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};

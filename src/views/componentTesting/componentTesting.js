@@ -1,8 +1,10 @@
 import React from "react";
+import Colors from "../../styles/global/colors";
 import Button from "../../components/atoms/button/button";
 import Badge from "../../components/atoms/badge/badge";
 import Input from "../../components/atoms/input/input";
 import Link from "../../components/atoms/link/link";
+import Row from "../../components/atoms/row/row";
 
 const google = "https://www.google.com/";
 const Atoms = props => {
@@ -19,6 +21,9 @@ const Atoms = props => {
         value={"First Name"}
       />
       <Link className="baseLink" href={google} text={"I'm a link!"}></Link>
+      <Row backgroundColor={Colors.red}>
+        <p>I'm a row</p>
+      </Row>
     </div>
   );
 };

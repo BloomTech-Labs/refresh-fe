@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import StyledRow from "../../../styles/global/components.css";
-import Fonts from "../../../styles/global/fonts";
 import Colors from "../../../styles/global/colors";
-import { defaultCipherList } from "constants";
+import StyledAtom from "../../../styles/global/components.css";
 
 const Row = ({ ...props }) => {
   const {
@@ -19,15 +17,19 @@ const Row = ({ ...props }) => {
     borderRadiusTopRight,
     borderRadiusBottomRight,
     boxShadow,
+    backgroundColor,
     color,
     fontSize,
     margin,
     padding,
-    justifyContent
+    justifyContent,
+    flex,
+    flexFlow
   } = props;
 
   return (
-    <StyledRow
+    <StyledAtom
+      className="baseRow"
       display={display}
       width={width}
       height={height}
@@ -40,14 +42,17 @@ const Row = ({ ...props }) => {
       borderRadiusTopRight={borderRadiusTopRight}
       borderRadiusBottomRight={borderRadiusBottomRight}
       boxShadow={boxShadow}
+      backgroundColor={backgroundColor}
       color={color}
       fontSize={fontSize}
       margin={margin}
       padding={padding}
       justifyContent={justifyContent}
+      flex={flex}
+      flexFlow={flexFlow}
     >
-      {/* stuff */}
-    </StyledRow>
+      {props.children}
+    </StyledAtom>
   );
 };
 
