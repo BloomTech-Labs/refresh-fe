@@ -16,7 +16,7 @@ const App = props => {
       <Landing {...props}/>
     </React.Fragment>
   );
-}
+};
 
 // STYLED COMPONENTS
 // todo
