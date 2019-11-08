@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React, { useState } from 'react';
+// router
+import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -57,11 +59,11 @@ const MobileMenu = () => {
                     </UserHud>
 
                     <Navigation>
-                        <NavButton><i class="fas fa-home"></i>Home</NavButton>
-                        <NavButton><i class="fas fa-gamepad"></i>Leaderboard</NavButton>
-                        <NavButton><i class="fas fa-users"></i>Team</NavButton>
-                        <NavButton><i class="fas fa-calendar-alt"></i>Weekly Challenge</NavButton>
-                        <NavButton><i class="fas fa-stopwatch"></i>Pomodoro Clock</NavButton>
+                        <NavButton><Link to='/'><i class="fas fa-home"></i>Home</Link></NavButton>
+                        <NavButton><Link to='/leaderboard'><i class="fas fa-gamepad"></i>Leaderboard</Link></NavButton>
+                        <NavButton><Link to='/team'><i class="fas fa-users"></i>Team</Link></NavButton>
+                        <NavButton><Link to='/weekly-challenge'><i class="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
+                        <NavButton><Link to='/pomodoro'><i class="fas fa-stopwatch"></i>Pomodoro Clock</Link></NavButton>
                     </Navigation>
                     </Column>
                 </Drawer>
@@ -89,6 +91,11 @@ const Wrapper = styled.div`
     .inactive {
         background-color: rgba(0, 0, 0, 0);
         transition: 0.5s
+    }
+
+    a {
+        text-decoration: none;
+        color: #FFF;
     }
 `
 
