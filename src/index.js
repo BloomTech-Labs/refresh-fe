@@ -11,6 +11,7 @@ import GlobalStyle from './styles/global/GlobalStyle';
 import App from './App';
 import CreateAccount from "./views/onboarding/CreateAccount";
 import StepStart from "./views/onboarding/StepStart";
+import StepOne from "./views/onboarding/steps/StepOne";
 
 // RENDER
 ReactDOM.render(
@@ -27,7 +28,7 @@ ReactDOM.render(
             exact
             path="/profileinfo"
             render={props => <StepStart {...props} />}
-    />
+            />
     </Router>,
 document.getElementById('root'));
 

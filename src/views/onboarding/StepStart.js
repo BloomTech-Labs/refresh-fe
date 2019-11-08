@@ -23,16 +23,18 @@ const context = useContext(UserContext);
 const [form, setForm] = useState([]);
 const [currentStep, setCurrentStep] = useState(0);
 
-const onSubmit = form => {
-    if(currentStep > 10){
+const onSubmit = formdata => {
+    if(currentStep >= 10){
+        console.log(form);
         props.onboarding(form).then(() => props.history.push('/dashboard'))
     }
-    // setForm(form), 
+    setForm([...form, formdata]); 
     setCurrentStep(currentStep + 1);
 }
 
     return(
         <>
+        <UserContext.Provider value = {form} >
         {currentStep === 0 && <InfoIntro onSubmit={onSubmit} />}
         {currentStep === 1 && <StepOne onSubmit={onSubmit} />}
         {currentStep === 2 && <StepTwo onSubmit={onSubmit} />}
@@ -43,11 +45,8 @@ const onSubmit = form => {
         {currentStep === 7 && <StepSeven onSubmit={onSubmit} />}
         {currentStep === 8 && <StepEight onSubmit={onSubmit} />}
         {currentStep === 9 && <StepNine onSubmit={onSubmit} />}
-        {currentStep === 10 && 
-        <>
-        <StepTen  />
-        <button onClick={this.onSubmit}>Continue</button>
-        </>}
+        {currentStep === 10 &&<StepTen onSubmit={onSubmit} />}
+        </UserContext.Provider>
         </>
     )
 }

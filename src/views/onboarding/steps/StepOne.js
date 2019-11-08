@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 // styled components
 import styled from 'styled-components';
 
@@ -8,6 +8,7 @@ import Slider from '../sliders/WeightSlider'
 
 
 const StepOne = (props) => {
+
     const [profile, setProfile] = useState({
         weight:"",
     });
@@ -27,17 +28,13 @@ const StepOne = (props) => {
     return(
         <OnBoardWrapper>
         <OnBoardContainer>
-            
-            <FlexHolder>
+            <form>
                 <Question>What do you <br /> currently weigh?</Question>
-                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-               
-            </FlexHolder>
-            <Slider color='crimson' />
-            <FlexHolder>
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>    
+               <Slider />
                 <Button onClick = {handleSubmit}>Continue</Button>
                 <ButtonNoColor onClick = {handleSubmit}>I don't feel comfortable answering</ButtonNoColor>
-            </FlexHolder>
+            </form>
       </OnBoardContainer>
       </OnBoardWrapper>
     )
@@ -60,45 +57,43 @@ margin:auto;
 line-height:1.5;
 background-color: #3a3699;
 color: #7f7cca;
+height:100vh;
+padding: 2.5rem 4rem;
 `
 const Question = styled.h1`
-font-weight: bold;
-font-size: 4rem;
-line-height: 60px;
+font-weight: 600;
+font-size: 3rem;
+line-height: 4.9rem;
 letter-spacing: 3.5px;
 color: #FFFFFF;
-dispay: flex;
-justify-content: center;
-align-items: center;
-align-content: center;
-margin-top: 140px;
-margin-left: 20px;
-width: fit-content;
+margin: 6rem 0 2rem;
 `
 const OnboardTxt = styled.p`
-font-size: 2.2rem;
-line-height: 33px;
-letter-spacing: 0.095em;
-color: #CCC9FF;
+font-size: 1.6rem;
+line-height: 2.6rem;
+letter-spacing: 2px;
+text-align:center
+color: #A7A4E6;
 margin: 0 auto;
 `
 const Button = styled.a`
-  display: inline-block;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
-  text-align:center;
-  margin: auto;
-  background: #6487ff;
-  color: white;
-  font-size:1.6rem;
-}
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width:100%;
+text-align:center;
+margin: auto;
+background: #6487ff;
+color: white;
+font-size:1.6rem;
+letter-spacing:0.1rem;
 `
 const ButtonNoColor = styled.a`
-    margin:auto;
-    font-size:1.8rem;
-    padding: 15px;
-    letter-spacing: 0.090em;
+    font-weight:500;
+    font-size:1.6rem;
+    letter-spacing: 2px;
+    color: #A7A4E6;
 `
 const FlexHolder = styled.div`
 display: flex;
