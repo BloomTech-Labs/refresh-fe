@@ -10,7 +10,7 @@ import { test, flex } from '../../styles/global/Mixins'
 const MobileMenu = () => {
     // state hooks
     const [menu, setMenu] = useState({
-        status: 'open'
+        status: 'closed'
     });
 
     // use effect
@@ -35,15 +35,16 @@ const MobileMenu = () => {
                         <UserInfo>
                             <h2>Josh Cooter</h2>
                             <h2>Labs 18 - Megan</h2>
-                            <h3>69 points</h3>
+                            <h3 className='points'>69 points</h3>
                         </UserInfo>
                     </UserHud>
 
                     <Navigation>
-                        <NavButton><i class="fas fa-caret-square-down"></i>Home</NavButton>
-                        <NavButton><i class="fas fa-caret-square-down"></i>Leaderboard</NavButton>
-                        <NavButton><i class="fas fa-caret-square-down"></i>Team</NavButton>
-                        <NavButton><i class="fas fa-caret-square-down"></i>Weekly Challenge</NavButton>
+                        <NavButton><i class="fas fa-home"></i>Home</NavButton>
+                        <NavButton><i class="fas fa-gamepad"></i>Leaderboard</NavButton>
+                        <NavButton><i class="fas fa-users"></i>Team</NavButton>
+                        <NavButton><i class="fas fa-calendar-alt"></i>Weekly Challenge</NavButton>
+                        <NavButton><i class="fas fa-stopwatch"></i>Pomodoro Clock</NavButton>
                     </Navigation>
                     </Column>
                 </Drawer>
@@ -142,6 +143,7 @@ const Navigation = styled.div`
 const Avatar = styled.div`
     width: 100px;
     height: 100px;
+    margin: 3rem;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
     background-color: red;
@@ -152,6 +154,13 @@ const UserInfo = styled.div`
     width: 50%;
     height: 10rem;
     padding: 1rem;
+    color: #FFF;
+    margin: 1rem;
+    margin-right: auto;
+
+        .points {
+            color: #28C96C;
+        }
 `
 
 const NavButton = styled.div`
@@ -159,7 +168,7 @@ const NavButton = styled.div`
         height: 5rem;
         margin: 2rem 0;
         padding: 1rem;
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: #FFF;
         display: flex;
         flex-flow: row nowrap;
@@ -169,6 +178,7 @@ const NavButton = styled.div`
 
             i {
                 margin: 2rem 4rem 2rem 2rem;
+                font-size: 3rem;
             }
 `
 
