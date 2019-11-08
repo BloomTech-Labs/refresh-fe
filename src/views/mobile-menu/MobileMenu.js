@@ -25,7 +25,7 @@ const dummyUser = {
 const MobileMenu = () => {
     // state hooks
     const [menu, setMenu] = useState({
-        status: 'closed',
+        status: 'open',
         darken: 'inactive'
     });
 
@@ -171,25 +171,26 @@ const Navigation = styled.div`
 `
 
 const Avatar = styled.div`
-    width: 100px;
-    height: 100px;
-    margin: 3rem;
+    width: 80px;
+    height: 80px;
+    margin: 1rem;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
-    background-color: red;
     border-radius: 10px;
 `
 
 const UserInfo = styled.div`
-    width: 50%;
+    width: 70%;
     height: 10rem;
     padding: 1rem;
     color: #FFF;
     margin: 1rem;
     margin-right: auto;
 
-        h2 {
+        h2, h3 {
             margin: 1rem;
+            font-size: 1.25rem;
+            letter-spacing: 0.15rem;
         }
     
         .points {
