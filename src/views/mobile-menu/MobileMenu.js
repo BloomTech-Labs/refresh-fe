@@ -28,7 +28,7 @@ const MobileMenu = () => {
         <Wrapper>
             <DrawerContainer>
                 <Drawer className={menu.status}>
-                    <div>
+                    <Column>
                     <UserHud>
                         <Avatar></Avatar>
 
@@ -45,7 +45,7 @@ const MobileMenu = () => {
                         <NavButton><i class="fas fa-caret-square-down"></i>Team</NavButton>
                         <NavButton><i class="fas fa-caret-square-down"></i>Weekly Challenge</NavButton>
                     </Navigation>
-                    </div>
+                    </Column>
                 </Drawer>
             </DrawerContainer>
             <PlaceholderButton onClick={menuToggle}><i class="fas fa-bars"></i></PlaceholderButton>
@@ -117,10 +117,11 @@ const Drawer = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+`
 
-        div:first-child {
-            margin-bottom: auto;
-        }
+const Column = styled.div`
+    margin-bottom: auto;
+    width: 100%;
 `
 
 const UserHud = styled.div`
@@ -131,7 +132,6 @@ const UserHud = styled.div`
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    ${test.redBg}
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 `
 
@@ -144,6 +144,7 @@ const Avatar = styled.div`
     height: 100px;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
+    background-color: red;
     border-radius: 10px;
 `
 
@@ -151,7 +152,6 @@ const UserInfo = styled.div`
     width: 50%;
     height: 10rem;
     padding: 1rem;
-    background-color: green;
 `
 
 const NavButton = styled.div`
