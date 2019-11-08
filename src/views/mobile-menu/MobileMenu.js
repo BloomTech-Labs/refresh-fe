@@ -10,7 +10,8 @@ import { test, flex } from '../../styles/global/Mixins'
 const MobileMenu = () => {
     // state hooks
     const [menu, setMenu] = useState({
-        status: 'closed'
+        status: 'closed',
+        darken: 'inactive'
     });
 
     // use effect
@@ -19,8 +20,8 @@ const MobileMenu = () => {
     // handlers
     const menuToggle = () => {
         menu.status === 'closed' ?
-        setMenu({ ...menu, status: 'open' }) :
-        setMenu({ ...menu, status: 'closed' })
+        setMenu({ ...menu, status: 'open', darken: 'active' }) :
+        setMenu({ ...menu, status: 'closed', darken: 'inactive' })
     };
 
     // RENDER
@@ -50,7 +51,7 @@ const MobileMenu = () => {
                 </Drawer>
             </DrawerContainer>
             <PlaceholderButton onClick={menuToggle}><i class="fas fa-bars"></i></PlaceholderButton>
-            
+            <Darken className={menu.darken}></Darken>
         </Wrapper>
     );
 
@@ -60,6 +61,20 @@ const MobileMenu = () => {
 const Wrapper = styled.div`
     width: 100vw;
     position: fixed;
+
+    .active {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        z-index: -5;
+        transition: 0.5s;
+    }
+
+    .inactive {
+        background-color: rgba(0, 0, 0, 0);
+        transition: 0.5s
+    }
 `
 
 const Container = styled.div`
@@ -180,6 +195,10 @@ const NavButton = styled.div`
                 margin: 2rem 4rem 2rem 2rem;
                 font-size: 3rem;
             }
+`
+
+const Darken = styled.div`
+    
 `
 
 // EXPORT
