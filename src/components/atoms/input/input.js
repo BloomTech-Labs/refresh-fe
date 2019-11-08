@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react';
-import styled from 'styled-components';
-import { inputTypes } from '../../../styles/global/constants';
-import StyledInput from '../../../styles/global/components.css';
-import Colors from '../../../styles/global/colors';
+import React, { useState, useRef } from "react";
+import styled from "styled-components";
+import { inputTypes } from "../../../styles/global/constants";
+import StyledInput from "../../../styles/global/components.css";
+import Colors from "../../../styles/global/colors";
 
 const Input = ({ callback = () => {}, ...props }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const node = useRef();
 
   const {
@@ -83,31 +83,31 @@ const Input = ({ callback = () => {}, ...props }) => {
 
 const BaseInput = styled.input`
   ${StyledInput} + & {
-    ${'' /* stuff */}
+    ${"" /* stuff */}
   }
-  height: ${props => (props.height ? `${props.height}px` : '40px')};
+  height: ${props => (props.height ? `${props.height}px` : "40px")};
   width: ${props => (props.width ? `${props.width}px` : `50%`)};
-  border: ${props => (props.border ? props.border : '1px solid primary')};
+  border: ${props => (props.border ? props.border : "1px solid primary")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
   border-right: ${props => props.borderRight};
   border-bottom: ${props => props.borderBottom};
   border-bottom-left-radius: ${props =>
-    props.borderRadiusBottomLeft ? props.borderRadiusBottomLeft : '5px'};
+    props.borderRadiusBottomLeft ? props.borderRadiusBottomLeft : "5px"};
   border-top-left-radius: ${props =>
-    props.borderRadiusTopLeft ? props.borderRadiusTopLeft : '5px'};
+    props.borderRadiusTopLeft ? props.borderRadiusTopLeft : "5px"};
   border-top-right-radius: ${props =>
-    props.borderRadiusTopRight ? props.borderRadiusTopRight : '5px'};
+    props.borderRadiusTopRight ? props.borderRadiusTopRight : "5px"};
   border-bottom-right-radius: ${props =>
-    props.borderRadiusBottomRight ? props.borderRadiusBottomRight : '5px'};
+    props.borderRadiusBottomRight ? props.borderRadiusBottomRight : "5px"};
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : Colors.white};
   color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: text;
-  ${'' /* I prefer to work in rems. Y'all? */}
-  margin: ${props => (props.margin ? `${props.margin}rem` : '.5rem')};
-  padding: ${props => (props.padding ? `${props.margin}rem` : '.25rem')};
+  ${"" /* I prefer to work in rems. Y'all? */}
+  margin: ${props => (props.margin ? `${props.margin}rem` : ".5rem")};
+  padding: ${props => (props.padding ? `${props.margin}rem` : ".25rem")};
 `;
 
 export default Input;

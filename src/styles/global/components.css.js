@@ -27,7 +27,9 @@ const StyledAtom = styled.div.attrs(props => ({
   margin: props.margin,
   padding: props.padding,
   width: props.width,
-  href: props.href
+  href: props.href,
+  display: props.display,
+  flexFlow: props.flexFlow
 }))`
 
 ${'' /* Currently set to px for global, can go rem, %, etc */}
@@ -56,6 +58,7 @@ ${'' /* Currently set to px for global, can go rem, %, etc */}
   padding: ${props => (props.padding ? `${props.margin}rem` : '.25rem')};
   ${'' /* I want to create props passing for deeper flex options */}
   display: flex;
+  flex-flow: row wrap;
   flex-wrap: nowrap;
   justify-content: ${props =>
     props.justifyContent ? props.justifyContent : 'center'};

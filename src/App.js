@@ -1,10 +1,10 @@
 // IMPORTS
 // react
-import React from 'react';
-import { Route } from 'react-router-dom';
-import Landing from './views/onboarding/Landing';
-import CreateAccount from './views/onboarding/CreateAccount';
-import Atoms from './views/componentTesting/componentTesting';
+import React from "react";
+import { Route } from "react-router-dom";
+import Landing from "./views/onboarding/Landing";
+import CreateAccount from "./views/onboarding/CreateAccount";
+import Atoms from "./views/componentTesting/componentTesting";
 
 // COMPONENT
 const App = props => {

@@ -1,5 +1,5 @@
-import React from 'react';
-import StyledButton from '../../../styles/global/components.css';
+import React from "react";
+import StyledButton from "../../../styles/global/components.css";
 
 const Button = ({ callback = () => {}, ...props }) => {
   const {
@@ -25,7 +25,7 @@ const Button = ({ callback = () => {}, ...props }) => {
     margin,
     padding,
     width,
-    type = 'button'
+    type = "button"
   } = props;
 
   const handleClick = event => {

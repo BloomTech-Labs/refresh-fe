@@ -1,10 +1,10 @@
-import React from 'react';
-import Button from '../../components/atoms/button/button';
-import Badge from '../../components/atoms/badge/badge';
-import Input from '../../components/atoms/input/input';
-import Link from '../../components/atoms/link/link';
+import React from "react";
+import Button from "../../components/atoms/button/button";
+import Badge from "../../components/atoms/badge/badge";
+import Input from "../../components/atoms/input/input";
+import Link from "../../components/atoms/link/link";
 
-const google = 'https://www.google.com/';
+const google = "https://www.google.com/";
 const Atoms = props => {
   return (
     <div>
@@ -13,10 +13,10 @@ const Atoms = props => {
       <Input
         // width={350}
         margin={2}
-        placeholder={'base input'}
-        type={'text'}
-        name={'firstname'}
-        value={'First Name'}
+        placeholder={"base input"}
+        type={"text"}
+        name={"firstname"}
+        value={"First Name"}
       />
       <Link className="baseLink" href={google} text={"I'm a link!"}></Link>
     </div>
