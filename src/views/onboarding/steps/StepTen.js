@@ -31,9 +31,9 @@ const StepTen = (props) => {
                 <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
                
             </FlexHolder>
-            <FlexHolder>
+            {/* <FlexHolder>
                 <Button onClick = {handleSubmit}>Continue</Button>
-            </FlexHolder>
+            </FlexHolder> */}
       </OnBoardContainer>
       </OnBoardWrapper>
     )

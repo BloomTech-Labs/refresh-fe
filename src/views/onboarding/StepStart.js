@@ -20,14 +20,15 @@ import StepTen from './steps/StepTen';
 const StepStart =(props) =>{
 const context = useContext(UserContext);
 
-const [form, setForm] = useState([]);
+const [formdata, setForm] = useState([]);
 const [currentStep, setCurrentStep] = useState(0);
 
 const onSubmit = form => {
-    if(currentStep > 10){
+    if(currentStep >= 10){
+        console.log(formdata);
         props.onboarding(form).then(() => props.history.push('/dashboard'))
     }
-    // setForm(form), 
+    setForm([...formdata, form]); 
     setCurrentStep(currentStep + 1);
 }
 
@@ -46,7 +47,7 @@ const onSubmit = form => {
         {currentStep === 10 && 
         <>
         <StepTen  />
-        <button onClick={this.onSubmit}>Continue</button>
+        <button onClick={onSubmit}>Continue</button>
         </>}
         </>
     )
