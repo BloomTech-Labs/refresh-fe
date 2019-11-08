@@ -44,11 +44,7 @@ const onSubmit = form => {
         {currentStep === 7 && <StepSeven onSubmit={onSubmit} />}
         {currentStep === 8 && <StepEight onSubmit={onSubmit} />}
         {currentStep === 9 && <StepNine onSubmit={onSubmit} />}
-        {currentStep === 10 && 
-        <>
-        <StepTen  />
-        <button onClick={onSubmit}>Continue</button>
-        </>}
+        {currentStep === 10 &&<StepTen onSubmit={onSubmit} />}
         </>
     )
 }
