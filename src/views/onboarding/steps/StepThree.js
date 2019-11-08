@@ -24,20 +24,13 @@ const StepThree = (props) => {
     return(
         <OnBoardWrapper>
         <OnBoardContainer>
-            
-            <FlexHolder>
                 <Question>How often do you feel overwhelmed?</Question>
-                
-               
-            </FlexHolder>
             <FlexHolder>
                 <Option>Never</Option>
                 <Option>Sometimes</Option>
                 <Option>Always</Option>
             </FlexHolder>
-            <FlexHolder>
                 <Button onClick = {handleSubmit}>Continue</Button>
-            </FlexHolder>
       </OnBoardContainer>
       </OnBoardWrapper>
     )
@@ -45,11 +38,15 @@ const StepThree = (props) => {
 // STYLED COMPONENTS
 //Onboarding Reusable Styles 
 // we abstract out reusable global styles later on -JC
-const Option = styled.p`
-font-size: 2.2rem;
-letter-spacing: 3.5px;
+const Option = styled.a`
+font-size: 1.6rem;
+line-height:26px;
+letter-spacing: 2px;
 color: #FFFFFF;
-margin-top: 140px;
+
+&:hover {
+    background: #28C96C;
+  }
 `
 const OnBoardWrapper = styled.div`
 background-color: #3a3699;
@@ -66,32 +63,37 @@ margin:auto;
 line-height:1.5;
 background-color: #3a3699;
 color: #7f7cca;
+height:100vh;
+padding: 2.5rem 4rem;
 `
 const Question = styled.h1`
-font-weight: bold;
-font-size: 4rem;
-line-height: 62px;
+font-weight: 600;
+font-size: 3rem;
+line-height: 4.9rem;
 letter-spacing: 3.5px;
 color: #FFFFFF;
-margin-top: 140px;
+margin: 6rem 0 2rem;
 `
 const OnboardTxt = styled.p`
-font-size: 2rem;
-line-height: 33px;
-letter-spacing: 0.035em;
-color: #CCC9FF;
+font-size: 1.6rem;
+line-height: 2.6rem;
+letter-spacing: 2px;
+text-align:center
+color: #A7A4E6;
+margin: 0 auto;
 `
 const Button = styled.a`
-  display: inline-block;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
-  text-align:center;
-  margin: auto;
-  background: #6487ff;
-  color: white;
-  font-size:1.6rem;
-}
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width:100%;
+text-align:center;
+margin: auto;
+background: #6487ff;
+color: white;
+font-size:1.6rem;
+letter-spacing:0.1rem;
 `
 const ButtonNoColor = styled.a`
     margin:auto;
@@ -99,10 +101,10 @@ const ButtonNoColor = styled.a`
 `
 const FlexHolder = styled.div`
 display: flex;
-flex-direction: column;
 justify-content: center;
 margin:auto;
 align-items: flex-start;
+justify-content:space-around;
 width:100%;
 padding: 2.5rem 4rem;
 `

@@ -25,13 +25,8 @@ const StepFour = (props) => {
     return(
         <OnBoardWrapper>
         <OnBoardContainer>
-            <FlexHolder>
-                <Question>Sleep?</Question>
-                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-            </FlexHolder>
-            <FlexHolder>
+                <Question>How many times did you sleep over 6 hours this week?</Question>
                 <Button onClick = {handleSubmit}>Continue</Button>
-            </FlexHolder>
       </OnBoardContainer>
       </OnBoardWrapper>
     )
@@ -54,14 +49,16 @@ margin:auto;
 line-height:1.5;
 background-color: #3a3699;
 color: #7f7cca;
+height:100vh;
+padding: 2.5rem 4rem;
 `
 const Question = styled.h1`
-font-weight: bold;
-font-size: 5rem;
-line-height: 82px;
-letter-spacing: 3.5px;
+font-weight: 600;
+font-size: 2.5rem;
+line-height: 4.1rem;
+letter-spacing: 0.035em;
 color: #FFFFFF;
-margin-top: 140px;
+margin: 10rem 0 2rem;
 `
 const OnboardTxt = styled.p`
 font-size: 2rem;
@@ -70,16 +67,17 @@ letter-spacing: 0.035em;
 color: #CCC9FF;
 `
 const Button = styled.a`
-  display: inline-block;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
-  text-align:center;
-  margin: auto;
-  background: #6487ff;
-  color: white;
-  font-size:1.6rem;
-}
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width:100%;
+text-align:center;
+margin: auto;
+background: #6487ff;
+color: white;
+font-size:1.6rem;
+letter-spacing:0.1rem;
 `
 const ButtonNoColor = styled.a`
     margin:auto;

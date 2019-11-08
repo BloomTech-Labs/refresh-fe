@@ -20,20 +20,21 @@ import StepTen from './steps/StepTen';
 const StepStart =(props) =>{
 const context = useContext(UserContext);
 
-const [formdata, setForm] = useState([]);
+const [form, setForm] = useState([]);
 const [currentStep, setCurrentStep] = useState(0);
 
-const onSubmit = form => {
+const onSubmit = formdata => {
     if(currentStep >= 10){
-        console.log(formdata);
+        console.log(form);
         props.onboarding(form).then(() => props.history.push('/dashboard'))
     }
-    setForm([...formdata, form]); 
+    setForm([...form, formdata]); 
     setCurrentStep(currentStep + 1);
 }
 
     return(
         <>
+        <UserContext.Provider value = {form} >
         {currentStep === 0 && <InfoIntro onSubmit={onSubmit} />}
         {currentStep === 1 && <StepOne onSubmit={onSubmit} />}
         {currentStep === 2 && <StepTwo onSubmit={onSubmit} />}
@@ -45,6 +46,7 @@ const onSubmit = form => {
         {currentStep === 8 && <StepEight onSubmit={onSubmit} />}
         {currentStep === 9 && <StepNine onSubmit={onSubmit} />}
         {currentStep === 10 &&<StepTen onSubmit={onSubmit} />}
+        </UserContext.Provider>
         </>
     )
 }
