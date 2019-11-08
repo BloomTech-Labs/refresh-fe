@@ -6,6 +6,18 @@ import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins'
 
+// DUMMY DATA
+// hard coding some dummy data directly into the component to avoid too many unncessary files
+// will come back and clean all of this up later when we wire up FE/BE - JC
+
+const dummyUser = {
+    username: 'JohnDoe',
+    first_name: 'John',
+    last_name: 'Doe',
+    email: 'johndoe@gmail.com',
+    points: 69
+};
+
 // COMPONENT
 const MobileMenu = () => {
     // state hooks
