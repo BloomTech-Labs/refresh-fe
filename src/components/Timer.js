@@ -18,20 +18,29 @@ export const Timer = () => {
 
     useEffect(() => {
         let interval = null;
+        let intervalMin = null;
         if (isActive) {
             interval = setInterval(() => {
                 setSeconds(seconds => seconds + 1);
             }, 1000);
-        } else if (!isActive && seconds !== 0) {
-            clearInterval(interval);
+            intervalMin = setTimeout(() => {
+                setMinutes(minutes => minutes + 1)
+            }, 10000)
+        } else if (isActive && seconds === 10) {
+            setSeconds(0);
+        } else if (!isActive && seconds !== 0 && minutes !== 0) {
+            clearInterval(interval, intervalMin);
         }
-        return () => clearInterval(interval);
-    }, [isActive, seconds]);
+        return () => clearInterval(interval, intervalMin);
+    }, [isActive, seconds, minutes]);
 
     return (
         <>
             <div className="seconds">
-                {seconds}s
+                {seconds}s :
+            </div>
+            <div className="minutes">
+                {minutes}m
             </div>
             <button className="start-button" onClick={toggle}>
                 {isActive ? 'Pause' : 'Start'}
