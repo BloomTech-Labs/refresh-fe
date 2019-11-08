@@ -26,7 +26,8 @@ const StyledAtom = styled.div.attrs(props => ({
   height: props.height,
   margin: props.margin,
   padding: props.padding,
-  width: props.width
+  width: props.width,
+  href: props.href
 }))`
 
 ${'' /* Currently set to px for global, can go rem, %, etc */}
@@ -51,8 +52,8 @@ ${'' /* Currently set to px for global, can go rem, %, etc */}
   outline: none;
   cursor: pointer;
   ${'' /* I prefer to work in rems. Y'all? */}
-  margin: ${props => (props.margin ? props.margin : '.5rem')};
-  padding: ${props => (props.padding ? props.padding : '.25rem')};
+  margin: ${props => (props.margin ? `${props.margin}rem` : '.5rem')};
+  padding: ${props => (props.padding ? `${props.margin}rem` : '.25rem')};
   ${'' /* I want to create props passing for deeper flex options */}
   display: flex;
   flex-wrap: nowrap;
@@ -65,10 +66,15 @@ ${'' /* Currently set to px for global, can go rem, %, etc */}
     filter: ${props => (props.color ? props.color : Colors.white)};
   }
 
-  .base-font {
+  ${
+    '' /* .base-font {
     font-size: ${props =>
       props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
+  } */
   }
+
+  font-size: ${props =>
+    props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
 
   &:hover,
   &:focus {

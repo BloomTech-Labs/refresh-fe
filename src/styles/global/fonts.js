@@ -1,10 +1,13 @@
 const fontFamily = 'sans-serif';
 
+const fontSizeBaseSm = '12px';
+const fontSizeBase = '16px';
+
 const Fonts = {
   fontFamily,
   fontSize: {
-    baseSm: '10px',
-    baseMd: '20px'
+    baseSm: fontSizeBaseSm,
+    base: fontSizeBase
   }
 };
 

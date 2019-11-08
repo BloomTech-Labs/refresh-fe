@@ -11,18 +11,14 @@ const Atoms = props => {
       <Button width={150}>Imma button yo</Button>
       <Badge text={22} />
       <Input
-        width={200}
+        // width={350}
+        margin={2}
         placeholder={'base input'}
         type={'text'}
         name={'firstname'}
         value={'First Name'}
       />
-      <Link
-        className="baseLink"
-        href={google}
-        width={200}
-        text={"I'm a link!"}
-      ></Link>
+      <Link className="baseLink" href={google} text={"I'm a link!"}></Link>
     </div>
   );
 };
