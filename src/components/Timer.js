@@ -23,16 +23,11 @@ export const Timer = () => {
             interval = setInterval(() => {
                 setSeconds(seconds => seconds + 1);
             }, 1000);
-            // intervalMin = setTimeout(() => {
-            //     setMinutes(minutes => minutes + 1)
-            // }, 10 * 1000)
-        } else if (isActive && seconds === 10) {
-            setSeconds(seconds => seconds === 0);
-        } else if (!isActive && seconds !== 0 && minutes !== 0) {
+        } else if (!isActive && seconds !== 0) {
             clearInterval(interval, intervalMin);
         }
-        return () => clearInterval(interval, intervalMin);
-    }, [isActive, seconds, minutes]);
+        return () => clearInterval(interval);
+    }, [isActive, seconds]);
 
     return (
         <>
