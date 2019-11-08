@@ -18,7 +18,7 @@ export const Timer = () => {
         let interval = null;
         if (isActive) {
             interval = setInterval(() => {
-                setTimer(timer => timer - 0.01);
+                setTimer(timer => timer - 0.0166666667);
             }, 1000);
         } else if (!isActive && timer !== 0) {
             clearInterval(interval);
