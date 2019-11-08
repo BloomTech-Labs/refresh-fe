@@ -15,6 +15,9 @@ const dummyUser = {
     first_name: 'John',
     last_name: 'Doe',
     email: 'johndoe@gmail.com',
+    cohort: 'Labs 18',
+    team_lead: 'Dayton',
+    section_lead: 'Megan'
     points: 69
 };
 
