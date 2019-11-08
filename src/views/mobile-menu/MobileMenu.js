@@ -17,7 +17,7 @@ const dummyUser = {
     email: 'johndoe@gmail.com',
     cohort: 'Labs 18',
     team_lead: 'Dayton',
-    section_lead: 'Megan'
+    section_lead: 'Megan',
     points: 69
 };
 
@@ -50,9 +50,9 @@ const MobileMenu = () => {
                         <Avatar></Avatar>
 
                         <UserInfo>
-                            <h2>Josh Cooter</h2>
-                            <h2>Labs 18 - Megan</h2>
-                            <h3 className='points'>69 points</h3>
+                            <h2>{dummyUser.first_name} {dummyUser.last_name}</h2>
+                            <h2>{dummyUser.cohort} - {dummyUser.section_lead}</h2>
+                            <h3 className='points'><i class="fas fa-piggy-bank"></i> {dummyUser.points} Points</h3>
                         </UserInfo>
                     </UserHud>
 
@@ -188,8 +188,17 @@ const UserInfo = styled.div`
     margin: 1rem;
     margin-right: auto;
 
+        h2 {
+            margin: 1rem;
+        }
+    
         .points {
             color: #28C96C;
+            margin-left: 1.5rem;
+        }
+
+        i {
+            font-size: 1.5rem;
         }
 `
 
