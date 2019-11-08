@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export const Timer = () => {
 
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
+    const [timer, setTimer] = useState(25.00);
     const [isActive, setIsActive] = useState(false);
 
     function toggle() {
@@ -11,34 +10,26 @@ export const Timer = () => {
     }
 
     function reset() {
-        setSeconds(0);
-        setMinutes(0);
+        setTimer(25.00);
         setIsActive(false);
     }
 
     useEffect(() => {
         let interval = null;
-        let intervalMin = null;
         if (isActive) {
             interval = setInterval(() => {
-                setSeconds(seconds => seconds + 1);
+                setTimer(timer => timer - 0.01);
             }, 1000);
-        } else if (!isActive && seconds !== 0) {
-            clearInterval(interval, intervalMin);
+        } else if (!isActive && timer !== 0) {
+            clearInterval(interval);
         }
         return () => clearInterval(interval);
-    }, [isActive, seconds]);
+    }, [isActive, timer]);
 
     return (
         <>
-            <div className="milliseconds">
-                {seconds * 60}ms :
-            </div>
-            <div className="seconds">
-                {seconds}s :
-            </div>
-            <div className="minutes">
-                {seconds / 60}m
+            <div className="timer">
+                {timer.toFixed(2)}
             </div>
             <button className="start-button" onClick={toggle}>
                 {isActive ? 'Pause' : 'Start'}
