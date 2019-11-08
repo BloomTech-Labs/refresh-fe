@@ -213,7 +213,7 @@ const NavButton = styled.div`
         height: 5rem;
         margin: 1rem 0;
         padding: 1rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: #FFF;
         display: flex;
         flex-flow: row nowrap;
