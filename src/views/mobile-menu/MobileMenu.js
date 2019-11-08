@@ -123,7 +123,7 @@ const DrawerContainer = styled.div`
     z-index: -3;
 
     .closed {
-        width: 70vw;
+        width: 90vw;
         height: 100vh;
         position: fixed;
         right: 100vw;
@@ -132,10 +132,10 @@ const DrawerContainer = styled.div`
     }
 
         .open {
-            width: 70vw;
+            width: 90vw;
             height: 100vh;
             position: fixed;
-            right: 30vw;
+            right: 10vw;
             background-color: rgb(100,135,255, 0.9);
             transition: 0.5s ease-in-out;
         }
