@@ -4,6 +4,8 @@ import React, {useState} from 'react';
 // styled components
 import styled from 'styled-components';
 
+import Slider from '../sliders/WeightSlider'
+
 
 const StepOne = (props) => {
     const [profile, setProfile] = useState({
@@ -31,6 +33,7 @@ const StepOne = (props) => {
                 <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
                
             </FlexHolder>
+            <Slider color='crimson' />
             <FlexHolder>
                 <Button onClick = {handleSubmit}>Continue</Button>
                 <ButtonNoColor onClick = {handleSubmit}>I don't feel comfortable answering</ButtonNoColor>

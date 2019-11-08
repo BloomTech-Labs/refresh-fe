@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 // styled components
 import styled from 'styled-components';
 // images
+import SevenDaySlider from '../sliders/SleepSlider'
 
 const StepFour = (props) => {
     const [profile, setProfile] = useState({
@@ -29,6 +30,7 @@ const StepFour = (props) => {
                 <Question>Sleep?</Question>
                 <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
             </FlexHolder>
+            <SevenDaySlider color='crimson' />
             <FlexHolder>
                 <Button onClick = {handleSubmit}>Continue</Button>
             </FlexHolder>

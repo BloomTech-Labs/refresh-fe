@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 // styled components
 import styled from 'styled-components';
 // images
+import HeightSlider from '../sliders/HeightSlider'
 
 const StepTwo = (props) => {
     const [profile, setProfile] = useState({
@@ -26,10 +27,11 @@ const StepTwo = (props) => {
         <OnBoardContainer>
             
             <FlexHolder>
-                <Question>How tall are you?</Question>
+                <Question>How tall are you? (inches)</Question>
                 <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
                
             </FlexHolder>
+            <HeightSlider  color='crimson'  />
             <FlexHolder>
                 <Button onClick = {handleSubmit}>Continue</Button>
                 <ButtonNoColor onClick = {handleSubmit}>I don't feel comfortable answering</ButtonNoColor>
@@ -59,7 +61,7 @@ color: #7f7cca;
 `
 const Question = styled.h1`
 font-weight: bold;
-font-size: 4rem;
+font-size: 3.0rem;
 line-height: 82px;
 letter-spacing: 3.5px;
 color: #FFFFFF;
