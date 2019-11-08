@@ -64,6 +64,7 @@ const MobileMenu = () => {
                         <NavButton><Link to='/team'><i class="fas fa-users"></i>Team</Link></NavButton>
                         <NavButton><Link to='/weekly-challenge'><i class="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
                         <NavButton><Link to='/pomodoro'><i class="fas fa-stopwatch"></i>Pomodoro Clock</Link></NavButton>
+                        <NavButton><Link to='/rewards'><i class="fas fa-gem"></i>Rewards</Link></NavButton>
                     </Navigation>
                     </Column>
                 </Drawer>
