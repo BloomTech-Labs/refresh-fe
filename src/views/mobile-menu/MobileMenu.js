@@ -127,7 +127,7 @@ const DrawerContainer = styled.div`
         height: 100vh;
         position: fixed;
         right: 100vw;
-        background-color: rgb(100,135,255, 0.9);
+        background-color: rgb(100,135,255, 0.95);
         transition: 0.5s ease-in-out;
     }
 
@@ -136,7 +136,7 @@ const DrawerContainer = styled.div`
             height: 100vh;
             position: fixed;
             right: 10vw;
-            background-color: rgb(100,135,255, 0.9);
+            background-color: rgb(100,135,255, 0.95);
             transition: 0.5s ease-in-out;
         }
 `
@@ -166,9 +166,6 @@ const UserHud = styled.div`
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 `
 
-const Navigation = styled.div`
-    width: 100%;
-`
 
 const Avatar = styled.div`
     width: 80px;
@@ -176,37 +173,45 @@ const Avatar = styled.div`
     margin: 1rem;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
-    border-radius: 10px;
-`
-
-const UserInfo = styled.div`
+    border-radius: 3px;
+    `
+    
+    const UserInfo = styled.div`
     width: 70%;
     height: 10rem;
     padding: 1rem;
     color: #FFF;
     margin: 1rem;
     margin-right: auto;
-
-        h2, h3 {
-            margin: 1rem;
-            font-size: 1.25rem;
-            letter-spacing: 0.15rem;
-        }
     
-        .points {
-            color: #28C96C;
-            margin-left: 1.5rem;
-        }
-
-        i {
-            font-size: 1.5rem;
-        }
+    h2, h3 {
+        margin: 1rem;
+        font-size: 1.25rem;
+        letter-spacing: 0.15rem;
+    }
+    
+    .points {
+        color: #28C96C;
+        margin-left: 1.5rem;
+    }
+    
+    i {
+        font-size: 1rem;
+    }
+`
+    
+const Navigation = styled.div`
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 `
 
 const NavButton = styled.div`
-        width: 100%;
+        width: 90%;
         height: 5rem;
-        margin: 2rem 0;
+        margin: 1rem 0;
         padding: 1rem;
         font-size: 2rem;
         color: #FFF;
@@ -214,11 +219,17 @@ const NavButton = styled.div`
         flex-flow: row nowrap;
         justify-content: left;
         align-items: center;
+        border-radius: 2px;
      
 
             i {
-                margin: 2rem 3rem 2rem 2rem;
+                margin: 2rem 3rem 2rem 1rem;
                 font-size: 2rem;
+            }
+
+            &:hover {
+                background-color: #3A3699;
+                box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1)
             }
 `
 
