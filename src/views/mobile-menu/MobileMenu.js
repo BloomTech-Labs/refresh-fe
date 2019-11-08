@@ -97,7 +97,7 @@ const DrawerContainer = styled.div`
         height: 100vh;
         position: fixed;
         right: 100vw;
-        background-color: #6487FF;
+        background-color: rgb(100,135,255, 0.9);
         transition: 0.5s ease-in-out;
     }
 
@@ -106,7 +106,7 @@ const DrawerContainer = styled.div`
             height: 100vh;
             position: fixed;
             right: 30vw;
-            background-color: #6487FF;
+            background-color: rgb(100,135,255, 0.9);
             transition: 0.5s ease-in-out;
             box-shadow: 2px 3px 15px 2px black;
         }
