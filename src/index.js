@@ -10,6 +10,7 @@ import GlobalStyle from './styles/global/GlobalStyle';
 // components
 import App from './App';
 import CreateAccount from "./views/onboarding/CreateAccount";
+import StepStart from "./views/onboarding/StepStart";
 
 // RENDER
 ReactDOM.render(
@@ -22,6 +23,11 @@ ReactDOM.render(
             path = "/signup" 
             render ={props => <CreateAccount {...props} />}
              />
+        <Route
+            exact
+            path="/profileinfo"
+            render={props => <StepStart {...props} />}
+    />
     </Router>,
 document.getElementById('root'));
 
