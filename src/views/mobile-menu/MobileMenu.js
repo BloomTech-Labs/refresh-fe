@@ -27,6 +27,7 @@ const MobileMenu = () => {
     // RENDER
     return (
         <Wrapper>
+            <Darken className={menu.darken}></Darken>
             <DrawerContainer>
                 <Drawer className={menu.status}>
                     <Column>
@@ -51,7 +52,6 @@ const MobileMenu = () => {
                 </Drawer>
             </DrawerContainer>
             <PlaceholderButton onClick={menuToggle}><i class="fas fa-bars"></i></PlaceholderButton>
-            <Darken className={menu.darken}></Darken>
         </Wrapper>
     );
 
@@ -123,7 +123,6 @@ const DrawerContainer = styled.div`
             right: 30vw;
             background-color: rgb(100,135,255, 0.9);
             transition: 0.5s ease-in-out;
-            box-shadow: 2px 3px 15px 2px black;
         }
 `
 
@@ -144,6 +143,7 @@ const UserHud = styled.div`
     width: 100%;
     height: 20rem;
     margin-top: 5rem;
+    padding: 1rem 1rem 1rem 3rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -182,7 +182,7 @@ const NavButton = styled.div`
         width: 100%;
         height: 5rem;
         margin: 2rem 0;
-        padding: 1rem;
+        padding: 1rem 1rem 1rem 5rem;
         font-size: 2.5rem;
         color: #FFF;
         display: flex;
@@ -198,7 +198,7 @@ const NavButton = styled.div`
 `
 
 const Darken = styled.div`
-    
+
 `
 
 // EXPORT
