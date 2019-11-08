@@ -27,7 +27,7 @@ const dummyUser = {
 const MobileMenu = () => {
     // state hooks
     const [menu, setMenu] = useState({
-        status: 'open',
+        status: 'closed',
         darken: 'inactive'
     });
 
