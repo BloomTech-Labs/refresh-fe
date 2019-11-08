@@ -23,11 +23,11 @@ export const Timer = () => {
             interval = setInterval(() => {
                 setSeconds(seconds => seconds + 1);
             }, 1000);
-            intervalMin = setTimeout(() => {
-                setMinutes(minutes => minutes + 1)
-            }, 10000)
+            // intervalMin = setTimeout(() => {
+            //     setMinutes(minutes => minutes + 1)
+            // }, 10 * 1000)
         } else if (isActive && seconds === 10) {
-            setSeconds(0);
+            setSeconds(seconds => seconds === 0);
         } else if (!isActive && seconds !== 0 && minutes !== 0) {
             clearInterval(interval, intervalMin);
         }
@@ -36,11 +36,14 @@ export const Timer = () => {
 
     return (
         <>
+            <div className="milliseconds">
+                {seconds * 60}ms :
+            </div>
             <div className="seconds">
                 {seconds}s :
             </div>
             <div className="minutes">
-                {minutes}m
+                {seconds / 60}m
             </div>
             <button className="start-button" onClick={toggle}>
                 {isActive ? 'Pause' : 'Start'}
