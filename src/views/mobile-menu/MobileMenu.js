@@ -207,8 +207,8 @@ const NavButton = styled.div`
         width: 100%;
         height: 5rem;
         margin: 2rem 0;
-        padding: 1rem 1rem 1rem 5rem;
-        font-size: 2.5rem;
+        padding: 1rem;
+        font-size: 2rem;
         color: #FFF;
         display: flex;
         flex-flow: row nowrap;
@@ -217,8 +217,8 @@ const NavButton = styled.div`
      
 
             i {
-                margin: 2rem 4rem 2rem 2rem;
-                font-size: 3rem;
+                margin: 2rem 3rem 2rem 2rem;
+                font-size: 2rem;
             }
 `
 
