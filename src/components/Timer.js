@@ -37,7 +37,7 @@ function Timer ({ expiryTimestamp }) {
  
 export default function Display() {
   var t = new Date();
-  t.setSeconds(t.getSeconds() + 1500); // 10 minutes timer
+  t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
   return (
     <div>
       <Timer expiryTimestamp={t} />
