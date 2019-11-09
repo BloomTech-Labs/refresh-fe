@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Seconds } from './TimerSeconds';
+import { Minutes } from './TimerMinutes';
 
-export const Timer = () => {
+export const Timer = (props) => {
 
-    const [timer, setTimer] = useState(25.00);
+    const [timer, setTimer] = useState(0);
     const [isActive, setIsActive] = useState(false);
 
     function toggle() {
@@ -30,6 +32,9 @@ export const Timer = () => {
         <>
             <div className="timer">
                 {timer.toFixed(2)}
+            </div>
+            <div className="min-and-sec">
+                <Minutes /> : <Seconds />
             </div>
             <button className="start-button" onClick={toggle}>
                 {isActive ? 'Pause' : 'Start'}
