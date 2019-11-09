@@ -7,16 +7,21 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
-const Dashboard = () => {
+const Dashboard = props => {
     return (
-        <div>
+        <DashboardView>
             hi from dashboard
-        </div>
+        </DashboardView>
     );
 };
 
 // STYLED COMPONENTS
-// todo
+const DashboardView = styled.div`
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    background-color: #3a3699;
+`
 
 // EXPORT
 export default Dashboard;
