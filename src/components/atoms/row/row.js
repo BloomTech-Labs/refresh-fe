@@ -1,6 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-import Colors from "../../../styles/global/colors";
 import StyledAtom from "../../../styles/global/components.css";
 
 const Row = ({ ...props }) => {
