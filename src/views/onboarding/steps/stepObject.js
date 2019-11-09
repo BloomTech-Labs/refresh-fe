@@ -11,7 +11,9 @@ export const Step1 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <Question>{i.question}</Question>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <input
                 type="number"
                 name="weight"
@@ -19,7 +21,7 @@ export const Step1 = profile => {
                 onChange={profile.handleChanges}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -40,7 +42,9 @@ export const Step2 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <Question>{i.question}</Question>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <input
                 type="number"
                 name="height"
@@ -48,7 +52,7 @@ export const Step2 = profile => {
                 onChange={profile.handleChanges}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -69,9 +73,17 @@ export const Step3 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <Question>{i.question}</Question>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
+            <FlexHolder>
+                <Option>Never</Option>
+                <Option>Sometimes</Option>
+                <Option>Always</Option>
+            </FlexHolder>
+
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -91,10 +103,12 @@ export const Step4 = profile => {
         i.currentStep === profile.currentStep && (
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
+              <LongQuestion>{i.question}</LongQuestion>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -114,10 +128,12 @@ export const Step5 = profile => {
         i.currentStep === profile.currentStep && (
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
+              <LongQuestion>{i.question}</LongQuestion>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -137,10 +153,12 @@ export const Step6 = profile => {
         i.currentStep === profile.currentStep && (
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
+              <LongQuestion>{i.question}</LongQuestion>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -160,10 +178,12 @@ export const Step7 = profile => {
         i.currentStep === profile.currentStep && (
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
+              <LongQuestion>{i.question}</LongQuestion>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -183,10 +203,12 @@ export const Step8 = profile => {
         i.currentStep === profile.currentStep && (
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
+              <LongQuestion>{i.question}</LongQuestion>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -206,10 +228,12 @@ export const Step9 = profile => {
         i.currentStep === profile.currentStep && (
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
+              <LongQuestion>{i.question}</LongQuestion>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
+              {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
@@ -229,8 +253,10 @@ export const Step10 = profile => {
         i.currentStep === profile.currentStep && (
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
+              <LongQuestion>{i.question}</LongQuestion>
+              {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              }
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 3 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -272,6 +298,21 @@ const Question = styled.h1`
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
+
+const LongQuestion = styled.h1`
+font-weight: bold;
+font-size: 5rem;
+line-height: 82px;
+letter-spacing: 3.5px;
+font-weight: 600;
+font-size: 2.5rem;
+line-height: 4.1rem;
+letter-spacing: 0.035em;
+color: #FFFFFF;
+margin-top: 140px;
+margin: 10rem 0 2rem;`
+
+
 const OnboardTxt = styled.p`
 font-size: 1.6rem;
 line-height: 2.6rem;
@@ -280,6 +321,17 @@ text-align:center
 color: #A7A4E6;
 margin: 0 auto;
 `;
+
+const Option = styled.p`
+font-size: 1.6rem;
+line-height:26px;
+letter-spacing: 2px;
+color: #FFFFFF;
+&:hover {
+    background: #28C96C;
+  }
+`
+
 const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
@@ -301,8 +353,7 @@ const ButtonNoColor = styled.a`
 `;
 const FlexHolder = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   margin: auto;
   align-items: flex-start;
   width: 100%;

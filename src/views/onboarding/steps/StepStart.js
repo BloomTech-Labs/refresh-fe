@@ -58,13 +58,13 @@ let profilequestions = [
 
 const StepStart = props => {
   const [form, setForm] = useState(profilequestions);
-
+  const [user, setUser] = useState();
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleChanges = e => {
     e.preventDefault();
-    console.log({ [e.target.name]: e.target.value });
-    setForm([...form, { [e.target.name]: e.target.value }]);
+    console.log(user);
+    setUser({...user, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = form => {
