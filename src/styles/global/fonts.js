@@ -1,7 +1,7 @@
-const fontFamily = 'sans-serif';
+const fontFamily = "sans-serif";
 
-const fontSizeBaseSm = '12px';
-const fontSizeBase = '16px';
+const fontSizeBaseSm = "12px";
+const fontSizeBase = "16px";
 
 const Fonts = {
   fontFamily,
@@ -9,6 +9,8 @@ const Fonts = {
     baseSm: fontSizeBaseSm,
     base: fontSizeBase
   }
+  // font weight
+  // etc
 };
 
 export default Fonts;

@@ -35,7 +35,7 @@ const StyledAtom = styled.div.attrs(props => ({
 
 ${"" /* Currently set to px for global, can go rem, %, etc */}
   height: ${props => (props.height ? `${props.height}%` : "100%")};
-  width: ${props => (props.width ? `${props.width}%` : `100%`)};
+  width: ${props => (props.width ? `${props.width}%` : `94vw`)};
   border: ${props => (props.border ? props.border : "none")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
@@ -74,6 +74,17 @@ ${"" /* Currently set to px for global, can go rem, %, etc */}
     height: ${props => (props.height ? `${props.height}px` : "100px")};
     width: ${props => (props.width ? `${props.width}px` : "100px")};
   }
+
+.styled-text {
+  color: ${props => (props.color ? props.color : Colors.primary)};
+  font-size: ${props =>
+    props.fontSize ? props.fontSize : Fonts.fontSize.base};
+  ${
+    "" /* font-weight: ${props =>
+    props.fontWeight ? props.fontWeight : Fonts.fontWeight.normal}; */
+  }
+  margin: 0;
+}
 
   img {
     height: ${props => (props.height ? `${props.height}px` : "100%")};
