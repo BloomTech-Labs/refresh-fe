@@ -84,6 +84,8 @@ ${"" /* Currently set to px for global, can go rem, %, etc */}
     props.fontWeight ? props.fontWeight : Fonts.fontWeight.normal}; */
   }
   margin: 0;
+  background-color: ${props =>
+    props.backgroundColor ? props.backgroundColor : Colors.white};
 }
 
   img {

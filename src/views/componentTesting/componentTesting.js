@@ -60,9 +60,9 @@ const Atoms = props => {
       </Row>
 
       <Image src={testImage} alt={"stuff"} />
-      <Row>
-        <Col>
-         <Text text={text} />
+      <Row backgroundColor={"white"}>
+        <Col backgroundColor={"white"}>
+          <Text text={text} />
         </Col>
       </Row>
     </div>
