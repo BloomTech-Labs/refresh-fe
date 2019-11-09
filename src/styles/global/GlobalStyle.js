@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         height:100%;
         font-family: sans-serif;
+        font-size: 1.25rem;
 
         h1,h2,h3,h4,h5 {
             font-size: 2rem;
