@@ -7,13 +7,14 @@ import Link from "../../components/atoms/link/link";
 import Row from "../../components/atoms/row/row";
 import Card from "../../components/atoms/card/card";
 import Col from "../../components/atoms/col/col";
+import LoadingSpinner from "../../components/atoms/spinner/spinner.js";
 
 const google = "https://www.google.com/";
 const Atoms = props => {
   return (
     <div>
       <Button width={50}>Imma button yo</Button>
-      <Badge width={15} text={"I am a badge"} />
+      <Badge width={15} textAlign={"center"} text={"I am a badge"} />
       <Input
         // width={350}
         margin={2}
@@ -47,6 +48,9 @@ const Atoms = props => {
         <Col>
           <p>Me three!</p>
         </Col>
+      </Row>
+      <Row>
+        <LoadingSpinner height={10} width={10} />
       </Row>
     </div>
   );

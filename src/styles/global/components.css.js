@@ -55,8 +55,8 @@ ${"" /* Currently set to px for global, can go rem, %, etc */}
   outline: none;
   cursor: pointer;
   ${"" /* I prefer to work in rems. Y'all? */}
-  margin: ${props => (props.margin ? `${props.margin}rem` : ".1rem")};
-  padding: ${props => (props.padding ? `${props.margin}rem` : ".1rem")};
+  margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
+  padding: ${props => (props.padding ? `${props.margin}rem` : "1rem")};
   ${"" /* I want to create props passing for deeper flex options */}
   display: flex;
   flex-flow: row wrap;

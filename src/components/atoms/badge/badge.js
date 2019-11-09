@@ -1,8 +1,12 @@
-import React from 'react';
-import StyledBadge from '../../../styles/global/components.css';
+import React from "react";
+import StyledBadge from "../../../styles/global/components.css";
 
 const Badge = ({ text, ...props }) => {
-  const { borderRadius, backgroundColor, color,  width,
+  const {
+    borderRadius,
+    backgroundColor,
+    color,
+    width,
     height,
     border,
     borderLeft,
@@ -16,7 +20,9 @@ const Badge = ({ text, ...props }) => {
     fontSize,
     margin,
     padding,
-    justifyContent, } = props;
+    justifyContent,
+    textAlign
+  } = props;
   return (
     <StyledBadge
       className="baseBadge"
@@ -38,6 +44,7 @@ const Badge = ({ text, ...props }) => {
       margin={margin}
       padding={padding}
       justifyContent={justifyContent}
+      textAlign={textAlign}
     >
       {text}
     </StyledBadge>
