@@ -8,6 +8,8 @@ import Row from "../../components/atoms/row/row";
 import Card from "../../components/atoms/card/card";
 import Col from "../../components/atoms/col/col";
 import LoadingSpinner from "../../components/atoms/spinner/spinner.js";
+import Image from "../../components/atoms/image/image";
+import testImage from "../../images/two_cubes.png";
 
 const google = "https://www.google.com/";
 const Atoms = props => {
@@ -49,8 +51,11 @@ const Atoms = props => {
           <p>Me three!</p>
         </Col>
       </Row>
+      <Row backgroundColor={"white"}>
+        <LoadingSpinner backgroundColor={"white"} height={75} width={75} />
+      </Row>
       <Row>
-        <LoadingSpinner height={10} width={10} />
+        <Image src={testImage} alt={"stuff"} />
       </Row>
     </div>
   );

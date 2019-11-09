@@ -70,6 +70,16 @@ ${"" /* Currently set to px for global, can go rem, %, etc */}
     filter: ${props => (props.color ? props.color : Colors.white)};
   }
 
+  .loading-spinner {
+    height: ${props => (props.height ? `${props.height}px` : "100px")};
+    width: ${props => (props.width ? `${props.width}px` : "100px")};
+  }
+
+  img {
+    height: ${props => (props.height ? `${props.height}px` : "100%")};
+    width: ${props => (props.width ? `${props.width}px` : "100%")};
+  }
+
   font-size: ${props =>
     props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
 
