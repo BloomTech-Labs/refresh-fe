@@ -1,47 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import { Seconds } from './TimerSeconds';
-import { Minutes } from './TimerMinutes';
-
-export const Timer = (props) => {
-
-    const [timer, setTimer] = useState(0);
-    const [isActive, setIsActive] = useState(false);
-
-    function toggle() {
-        setIsActive(!isActive)
-    }
-
-    function reset() {
-        setTimer(25.00);
-        setIsActive(false);
-    }
-
-    useEffect(() => {
-        let interval = null;
-        if (isActive) {
-            interval = setInterval(() => {
-                setTimer(timer => timer - 0.0166666667);
-            }, 1000);
-        } else if (!isActive && timer !== 0) {
-            clearInterval(interval);
-        }
-        return () => clearInterval(interval);
-    }, [isActive, timer]);
-
-    return (
-        <>
-            <div className="timer">
-                {timer.toFixed(2)}
-            </div>
-            <div className="min-and-sec">
-                <Minutes /> : <Seconds />
-            </div>
-            <button className="start-button" onClick={toggle}>
-                {isActive ? 'Pause' : 'Start'}
-            </button>
-            <button className="stop-button" onClick={reset}>
-                Stop
-            </button>
-        </>
-    )
+import React from 'react';
+import { useTimer } from 'react-timer-hook';
+ 
+function Timer ({ expiryTimestamp }) {
+  const {
+    seconds,
+    minutes,
+    pause,
+    resume,
+    restart
+  } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
+ 
+ 
+  return (
+    <div style={{textAlign: 'center'}}>
+      <h1>Pomodoro Clock</h1>
+      <div style={{fontSize: '100px'}}>
+        <span>{minutes}</span>:<span>{seconds}</span>
+      </div>
+      <button onClick={() => {
+        // Restarts to 25 minutes timer
+        var t = new Date();
+        t.setSeconds(t.getSeconds() + 1500);
+        restart(t)
+      }}>Start Sprint</button>
+      <button onClick={() => {
+        // Restarts to 5 minutes timer
+        var t = new Date();
+        t.setSeconds(t.getSeconds() + 300);
+        restart(t)
+      }}>Start Break</button>
+      <button onClick={pause}>Pause</button>
+      <button onClick={resume}>Resume</button>
+    </div>
+  );
+}
+ 
+export default function Display() {
+  var t = new Date();
+  t.setSeconds(t.getSeconds() + 1500); // 10 minutes timer
+  return (
+    <div>
+      <Timer expiryTimestamp={t} />
+    </div>
+  );
 }
