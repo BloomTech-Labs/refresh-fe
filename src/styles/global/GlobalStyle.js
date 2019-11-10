@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         height:100%;
-        font-family: sans-serif;
+        font-family: 'Catamaran', sans-serif;
         font-size: 1.25rem;
         background-color: #3a3699;
 
