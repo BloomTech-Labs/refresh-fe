@@ -1,5 +1,5 @@
 import React from "react";
-import StyledAtom from "../../../styles/global/components.css";
+
 
 const Text = ({ text, ...props }) => {
   const { fontSize, color, backgroundColor } = props;

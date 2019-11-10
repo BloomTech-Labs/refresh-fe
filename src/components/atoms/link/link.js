@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import StyledLink from "../../../styles/global/components.css";
 import Fonts from "../../../styles/global/fonts";
 import Colors from "../../../styles/global/colors";
 

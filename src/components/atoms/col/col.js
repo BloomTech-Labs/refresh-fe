@@ -1,5 +1,10 @@
 import React from "react";
-import StyledAtom from "../../../styles/global/components.css";
+import styled from "styled-components";
+// Fonts
+import Fonts from "../../../styles/global/fonts";
+// Colors
+import Colors from "../../../styles/global/colors";
+// Theme
 
 const Col = ({ ...props }) => {
   const {
@@ -27,7 +32,7 @@ const Col = ({ ...props }) => {
   } = props;
 
   return (
-    <StyledAtom
+    <StyledCol
       className="baseCol"
       display={display}
       width={width}
@@ -52,8 +57,67 @@ const Col = ({ ...props }) => {
       textAlign={textAlign}
     >
       {props.children}
-    </StyledAtom>
+    </StyledCol>
   );
 };
 
+const StyledCol = styled.div.attrs(props => ({
+  actionColor: props.actionColor,
+  actionBackground: props.actionBackground,
+  actionOpacity: props.actionOpacity,
+  backgroundColor: props.backgroundColor,
+  border: props.border,
+  borderLeft: props.borderLeft,
+  borderTop: props.borderTop,
+  borderRight: props.borderRight,
+  borderBottom: props.borderBottom,
+  borderRadiusBottomLeft: props.borderRadiusBottomLeft,
+  borderRadiusTopLeft: props.borderRadiusTopLeft,
+  borderRadiusTopRight: props.borderRadiusTopRight,
+  borderRadiusBottomRight: props.borderRadiusBottomRight,
+  boxShadow: props.boxShadow,
+  color: props.color,
+  fontSize: props.fontSize,
+  justifyContent: props.justifyContent,
+  height: props.height,
+  margin: props.margin,
+  padding: props.padding,
+  width: props.width,
+  href: props.href,
+  display: props.display,
+  flexFlow: props.flexFlow,
+  textAlign: props.textAlign
+}))`
+  height: ${props => (props.height ? `${props.height}rem` : "100%")};
+  width: ${props => (props.width ? `${props.width}rem` : `94vw`)};
+  border: ${props => (props.border ? props.border : "none")};
+  border-left: ${props => props.borderLeft};
+  border-top: ${props => props.borderTop};
+  border-right: ${props => props.borderRight};
+  border-bottom: ${props => props.borderBottom};
+  border-bottom-left-radius: ${props =>
+    props.borderRadiusBottomLeft ? props.borderRadiusBottomLeft : "5px"};
+  border-top-left-radius: ${props =>
+    props.borderRadiusTopLeft ? props.borderRadiusTopLeft : "5px"};
+  border-top-right-radius: ${props =>
+    props.borderRadiusTopRight ? props.borderRadiusTopRight : "5px"};
+  border-bottom-right-radius: ${props =>
+    props.borderRadiusBottomRight ? props.borderRadiusBottomRight : "5px"};
+  background-color: ${props =>
+    props.backgroundColor ? props.backgroundColor : Colors.white};
+  color: ${props => (props.color ? props.color : Colors.font.primary)};
+  outline: none;
+  cursor: auto;
+  margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
+  padding: ${props => (props.padding ? `${props.margin}rem` : "1rem")};
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  justify-content: ${props =>
+    props.justifyContent ? props.justifyContent : "space-around"};
+  align-items: center;
+  font-size: ${props =>
+    props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
+  text-align: ${props => (props.textAlign ? props.textAlign : "left")};
+`;
 export default Col;

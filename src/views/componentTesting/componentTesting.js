@@ -5,14 +5,14 @@ import Badge from "../../components/atoms/badge/badge";
 import ButtonLink from "../../components/atoms/button/buttonLink";
 import Input from "../../components/atoms/input/input";
 import Link from "../../components/atoms/link/link";
-// import Row from "../../components/atoms/row/row";
-// import Card from "../../components/atoms/card/card";
-// import Col from "../../components/atoms/col/col";
+import Row from "../../components/atoms/row/row";
+import Card from "../../components/atoms/card/card";
+import Col from "../../components/atoms/col/col";
 // import LoadingSpinner from "../../components/atoms/spinner/spinner.js";
 // import Image from "../../components/atoms/image/image";
 // import Text from "../../components/atoms/text/text";
 
-// import Colors from "../../styles/global/colors";
+import Colors from "../../styles/global/colors";
 // import testImage from "../../images/two_cubes.png";
 
 // const text =
@@ -39,7 +39,7 @@ const Atoms = props => {
         value={"First Name"}
       />
       <Link href={google} text={"I'm a link!"}></Link>
-      {/* <Row backgroundColor={Colors.red} color={Colors.white}>
+      <Row height={10} backgroundColor={Colors.primary} color={"Colors.white"}>
         <p>I'm a row</p>
       </Row>
       <Row backgroundColor={Colors.primary}>
@@ -64,16 +64,16 @@ const Atoms = props => {
           <p>Me three!</p>
         </Col>
       </Row>
-      <Row>
+      {/* <Row>
         <LoadingSpinner height={75} width={75} />
-      </Row>
+      </Row> */}
 
-      <Image src={testImage} alt={"stuff"} />
-      <Row>
+      {/* <Image src={testImage} alt={"stuff"} /> */}
+      {/* <Row>
         <Col>
           <Text text={text} />
         </Col>
-      </Row> */} 
+      </Row>  */}
     </div>
   );
 };

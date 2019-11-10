@@ -1,6 +1,6 @@
 import React from "react";
 
-import StyledSpinner from "../../../styles/global/components.css";
+
 const spinner = require("../../../images/two_cubes.gif");
 
 const LoadingSpinner = ({ ...props }) => {

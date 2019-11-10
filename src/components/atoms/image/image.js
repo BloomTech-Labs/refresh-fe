@@ -1,6 +1,5 @@
 import React from "react";
 
-import StyledAtom from "../../../styles/global/components.css";
 
 const Image = ({ src, altText, ...props }) => {
   const { height, width } = props;
