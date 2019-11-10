@@ -69,7 +69,9 @@ const Dashboard = props => {
                 <h2 className='mission-message'>Your missions today</h2>
 
                 <MissionHub>
-                    <MissionCard />
+                    {dummyMissions.map(mission => {
+                            return <MissionCard />
+                        })}
                 </MissionHub>
 
                 <AddMission>
@@ -149,6 +151,7 @@ const Avatar = styled.div`
 
 const MissionHub = styled.div`
     width: 100%;
+    ${flex.flexRowWrapAround}
 ` 
 
 const AddMission = styled.div`
