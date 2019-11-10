@@ -13,15 +13,14 @@ const Dashboard = props => {
             <DashboardWrapper>
             <DashboardContainer>
                 <Header>
-                    <div>
+                    <Greeting>
                         <h1 className='greeting'>Hello Josh!</h1>
-                    </div>
+                    </Greeting>
 
-                    <div>
-                        
-                    </div>
-
-                    <div></div>
+                    <User>
+                        <i class="fas fa-bell"></i>
+                        <Avatar>test</Avatar>
+                    </User>
                 </Header>
             </DashboardContainer>    
             </DashboardWrapper>
@@ -46,24 +45,30 @@ const DashboardContainer = styled.div`
     width: 90%;
     height: 80vh;
     margin: 0 auto;
-    ${test.greenBg}
 `
 
 const Header = styled.div`
-    ${flex.flexRowWrapBetween}    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;  
+    ${test.greenBg}  
+`
 
-        div {
-            width: 40%;
-            height: 10rem;
-            margin: 1rem;
-            ${test.redBg}
-        }
+const Greeting = styled.div`
+    color: #FFF;
+    font-size: 3.5rem;
+    word-spacing: 100rem;
+`
 
-        .greeting {
-            color: #FFF;
-            font-size: 3.5rem;
-            word-spacing: 100rem;
-        }
+const Avatar = styled.div`
+    width: 2rem;
+    height: 2rem;
+    background-color: blue;
+`
+
+const User = styled.div`
+
 `
 
 // EXPORT
