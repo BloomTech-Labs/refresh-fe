@@ -110,7 +110,6 @@ const Avatar = styled.div`
 
 const MissionHub = styled.div`
     width: 100%;
-    height: 40rem;
 ` 
 
 const AddMission = styled.div`
