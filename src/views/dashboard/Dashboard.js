@@ -12,7 +12,17 @@ const Dashboard = props => {
         <DashboardView>
             <DashboardWrapper>
             <DashboardContainer>
-                hi from dashboard
+                <Header>
+                    <div>
+                        <h1 className='greeting'>Hello Josh!</h1>
+                    </div>
+
+                    <div>
+                        
+                    </div>
+
+                    <div></div>
+                </Header>
             </DashboardContainer>    
             </DashboardWrapper>
         </DashboardView>
@@ -36,7 +46,24 @@ const DashboardContainer = styled.div`
     width: 90%;
     height: 80vh;
     margin: 0 auto;
-    ${test.redBg}
+    ${test.greenBg}
+`
+
+const Header = styled.div`
+    ${flex.flexRowWrapBetween}    
+
+        div {
+            width: 40%;
+            height: 10rem;
+            margin: 1rem;
+            ${test.redBg}
+        }
+
+        .greeting {
+            color: #FFF;
+            font-size: 3.5rem;
+            word-spacing: 100rem;
+        }
 `
 
 // EXPORT
