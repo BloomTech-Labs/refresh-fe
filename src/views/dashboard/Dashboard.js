@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React from 'react';
+// router
+import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -19,7 +21,7 @@ const Dashboard = props => {
                     </Greeting>
 
                     <User>
-                        <i class="fas fa-bell"></i>
+                        <Link to='/dashboard'><i class="fas fa-bell"></i></Link>
                         <Avatar></Avatar>
                     </User>
                 </Header>
@@ -53,15 +55,14 @@ const Header = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;  
-    ${test.greenBg}  
 `
 
 const Greeting = styled.div`
     color: #FFF;
-    ${test.redBg}
 
         h1 {
             font-size: 4.5rem;
+            letter-spacing: 0.25rem;
         }
 `
 
@@ -69,22 +70,23 @@ const Greeting = styled.div`
 const User = styled.div`
     width: 10rem;
     height: 5rem;
-    background-color: blue;
     ${flex.flexRowNoWrapAround}
-    ${test.redBg}
 
         i {
             font-size: 2rem;
         }
+
+        a {
+            color: #CCC9FF;
+        }
 `
 
 const Avatar = styled.div`
-   width: 5rem;
-   height: 5rem;
-   border-radius: 3px;
-   background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
+    width: 5rem;
+    height: 5rem;
+    border-radius: 3px;
+    background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
-   ${test.blueBg}
 `
 
 // EXPORT
