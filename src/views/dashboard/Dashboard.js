@@ -111,7 +111,6 @@ const Avatar = styled.div`
 const MissionHub = styled.div`
     width: 100%;
     height: 40rem;
-    ${test.redBg}
 ` 
 
 const AddMission = styled.div`
@@ -122,7 +121,6 @@ const AddMission = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    ${test.greenBg}
 `
 
 const MissionButton = styled.button`
