@@ -74,7 +74,11 @@ const Dashboard = props => {
 
                 <MissionHub>
                     {dummyMissions.map(mission => {
-                            return <MissionCard />
+                            return (
+                                <MissionCard 
+                                    color={mission.color}
+                                />
+                            )
                         })}
                 </MissionHub>
 
