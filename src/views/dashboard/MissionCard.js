@@ -12,7 +12,8 @@ const MissionCard = props => {
     
     return (
         <Container color={props.color}>
-            hi from mission card
+            <p>{props.description}</p>
+            <span>{props.points} Points</span>
         </Container>
     );
 };

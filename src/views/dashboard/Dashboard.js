@@ -77,6 +77,8 @@ const Dashboard = props => {
                             return (
                                 <MissionCard 
                                     color={mission.color}
+                                    description={mission.description}
+                                    points={mission.pointValue}
                                 />
                             )
                         })}
