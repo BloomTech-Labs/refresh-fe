@@ -6,7 +6,7 @@ import Fonts from "../../../styles/global/fonts";
 import Colors from "../../../styles/global/colors";
 // Theme
 
-const Button = ({ callback = () => {}, ...props }) => {
+const ButtonLink = ({ callback = () => {}, ...props }) => {
   const {
     href,
     actionBackground,
@@ -27,6 +27,7 @@ const Button = ({ callback = () => {}, ...props }) => {
     disabled,
     cursor,
     fontSize,
+    textDecoration,
     height,
     display,
     alignItems,
@@ -75,6 +76,7 @@ const Button = ({ callback = () => {}, ...props }) => {
       height={height}
       display={display}
       alignItems={alignItems}
+      textDecoration={textDecoration}
       justifyContent={justifyContent}
       margin={margin}
       padding={padding}
@@ -91,7 +93,7 @@ const Button = ({ callback = () => {}, ...props }) => {
   );
 };
 
-const StyledButton = styled.button.attrs(props => ({
+const StyledButton = styled.a.attrs(props => ({
   actionColor: props.actionColor,
   actionBackground: props.actionBackground,
   actionOpacity: props.actionOpacity,
@@ -117,6 +119,7 @@ const StyledButton = styled.button.attrs(props => ({
   justifyContent: props.justifyContent,
   alignItems: props.alignItems,
   textAlign: props.textAlign,
+  textDecoration: props.textDecoration,
   cursor: props.cursor
 }))`
   height: ${props => (props.height ? `${props.height}rem` : "5rem")};
@@ -140,7 +143,7 @@ const StyledButton = styled.button.attrs(props => ({
       : ".5rem"};
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : Colors.primary};
-  color: ${props => (props.color ? props.color : Colors.font.white)};
+  color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: pointer;
   margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
@@ -153,7 +156,9 @@ const StyledButton = styled.button.attrs(props => ({
   align-items: center;
   font-size: ${props =>
     props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
-  text-align: ${props => (props.textAlign ? props.textAlign : "left")};
+  text-align: ${props => (props.textAlign ? props.textAlign : "center")};
+  text-decoration: ${props =>
+    props.textDecoration ? props.textDecoration : "none"};
 
   .icon-object-svg,
   .icon-img-svg {
@@ -185,4 +190,4 @@ const StyledButton = styled.button.attrs(props => ({
   }
 `;
 
-export default Button;
+export default ButtonLink;

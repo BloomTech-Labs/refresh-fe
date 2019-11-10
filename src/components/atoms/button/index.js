@@ -1,2 +1,3 @@
 // If we want to import with {}
-export default './button';
+export { Button } from "./button";
+export { ButtonLink } from "./buttonLink";

@@ -6,8 +6,6 @@ import Colors from "../../../styles/global/colors";
 
 const Link = ({ text, linkUrl, ...props }) => {
   const {
-    borderRadius,
-    backgroundColor,
     margin,
     padding,
     color,
@@ -20,8 +18,6 @@ const Link = ({ text, linkUrl, ...props }) => {
       href={href}
       color={color}
       fontSize={fontSize}
-      borderRadius={borderRadius}
-      backgroundColor={backgroundColor}
       margin={margin}
       padding={padding}
     >
@@ -31,14 +27,35 @@ const Link = ({ text, linkUrl, ...props }) => {
 };
 
 const BaseLink = styled.a.attrs(props => ({
-  // Do I need this?
+  actionColor: props.actionColor,
+  actionBackground: props.actionBackground,
+  actionOpacity: props.actionOpacity,
+  backgroundColor: props.backgroundColor,
+  border: props.border,
+  borderLeft: props.borderLeft,
+  borderTop: props.borderTop,
+  borderRight: props.borderRight,
+  borderBottom: props.borderBottom,
+  borderRadiusBottomLeft: props.borderRadiusBottomLeft,
+  borderRadiusTopLeft: props.borderRadiusTopLeft,
+  borderRadiusTopRight: props.borderRadiusTopRight,
+  borderRadiusBottomRight: props.borderRadiusBottomRight,
+  boxShadow: props.boxShadow,
+  color: props.color,
+  fontSize: props.fontSize,
+  height: props.height,
+  margin: props.margin,
+  padding: props.padding,
+  width: props.width,
+  href: props.href,
+  display: props.display,
+  justifyContent: props.justifyContent,
+  alignItems: props.alignItems,
+  textAlign: props.textAlign,
+  cursor: props.cursor
 }))`
-  ${StyledLink} + & {
-    ${"" /* stuff */}
-  }
-${"" /* Link Specific */}
-text-decoration: ${props => (props.textDecoration ? `underline` : `none`)};
-height: ${props => (props.height ? `${props.height}px` : "40px")};
+  text-decoration: ${props => (props.textDecoration ? `underline` : `none`)};
+  height: ${props => (props.height ? `${props.height}px` : "40px")};
   width: ${props => (props.width ? `${props.width}px` : `50%`)};
   border: ${props => (props.border ? props.border : "none")};
   border-left: ${props => props.borderLeft};
@@ -59,10 +76,8 @@ height: ${props => (props.height ? `${props.height}px` : "40px")};
   color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: pointer;
-  ${"" /* I prefer to work in rems. Y'all? */}
   margin: ${props => (props.margin ? `${props.margin}rem` : ".5rem")};
   padding: ${props => (props.padding ? `${props.margin}rem` : ".25rem")};
-  ${"" /* I want to create props passing for deeper flex options */}
   display: flex;
   flex-wrap: nowrap;
   justify-content: ${props =>
