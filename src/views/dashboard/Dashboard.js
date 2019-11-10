@@ -14,6 +14,7 @@ const Dashboard = props => {
         <DashboardView>
             <DashboardWrapper>
             <DashboardContainer>
+
                 <Header>
                     <Greeting>
                         <h1>Hello</h1>
@@ -25,6 +26,9 @@ const Dashboard = props => {
                         <Avatar></Avatar>
                     </User>
                 </Header>
+
+                <h2 className='missions'>Your missions today</h2>
+                
             </DashboardContainer>    
             </DashboardWrapper>
         </DashboardView>
@@ -48,6 +52,13 @@ const DashboardContainer = styled.div`
     width: 90%;
     height: 80vh;
     margin: 0 auto;
+
+        .missions {
+            color: #CCC9FF;
+            font-size: 2.5rem;
+            letter-spacing: 0.25rem;
+            margin: 3rem 0;
+        }
 `
 
 const Header = styled.div`
