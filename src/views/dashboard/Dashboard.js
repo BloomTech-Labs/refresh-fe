@@ -22,28 +22,32 @@ const dummyMissions = [
         vertical: 'health',
         name: 'water',
         description: '2 more glasses of water',
-        pointValue: 20
+        pointValue: 20,
+        color: '#CEE2FF'
     },
     {
         id: 2,
         vertical: 'health',
         name: 'sleep',
         description: 'get 6+ hours of sleep tonight',
-        pointValue: 30
+        pointValue: 30,
+        color: '#FECDF9'
     },
     {
         id: 3,
         vertical: 'fitness',
         name: 'activity',
         description: 'physical activity for at least 30 minutes',
-        pointValue: 70
+        pointValue: 70,
+        color: '#FECDCD'
     },
     {
         id: 4,
         vertical: 'mental',
         name: 'zoom break',
         description: 'take a zoom break',
-        pointValue: 15
+        pointValue: 15,
+        color: '#FFE2CC'
     }
 ];
 
