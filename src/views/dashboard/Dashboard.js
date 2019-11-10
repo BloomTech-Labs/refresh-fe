@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// components
+import MissionCard from './MissionCard';
 
 // COMPONENT
 const Dashboard = props => {
@@ -30,7 +32,7 @@ const Dashboard = props => {
                 <h2 className='mission-message'>Your missions today</h2>
 
                 <MissionHub>
-
+                    <MissionCard />
                 </MissionHub>
 
                 <AddMission>
