@@ -16,7 +16,7 @@ const Link = ({ text, linkUrl, ...props }) => {
   } = props;
   return (
     <BaseLink
-      className="baseLink"
+      className="base-link"
       href={href}
       color={color}
       fontSize={fontSize}

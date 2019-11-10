@@ -19,8 +19,10 @@ const google = "https://www.google.com/";
 const Atoms = props => {
   return (
     <div>
-      <Button width={50}>Imma button yo</Button>
-      <Badge width={15} textAlign={"center"} text={"I am a badge"} />
+      <Button backgroundColor={Colors.primary} width={50}>
+        Imma button yo
+      </Button>
+      <Badge text={"Badge"}/>
       <Input
         // width={350}
         margin={2}
@@ -29,11 +31,11 @@ const Atoms = props => {
         name={"firstname"}
         value={"First Name"}
       />
-      <Link className="baseLink" href={google} text={"I'm a link!"}></Link>
-      <Row backgroundColor={Colors.red}>
+      <Link href={google} text={"I'm a link!"}></Link>
+      <Row backgroundColor={Colors.red} color={Colors.white}>
         <p>I'm a row</p>
       </Row>
-      <Row backgroundColor={"white"}>
+      <Row backgroundColor={Colors.primary}>
         <Card textAlign={"center"}>
           <p>Hi! I am a card inside of a row!</p>
         </Card>
@@ -55,13 +57,13 @@ const Atoms = props => {
           <p>Me three!</p>
         </Col>
       </Row>
-      <Row backgroundColor={"white"}>
-        <LoadingSpinner backgroundColor={"white"} height={75} width={75} />
+      <Row>
+        <LoadingSpinner height={75} width={75} />
       </Row>
 
       <Image src={testImage} alt={"stuff"} />
-      <Row backgroundColor={"white"}>
-        <Col backgroundColor={"white"}>
+      <Row>
+        <Col>
           <Text text={text} />
         </Col>
       </Row>

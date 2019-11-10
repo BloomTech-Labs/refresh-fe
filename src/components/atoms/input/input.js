@@ -49,7 +49,7 @@ const Input = ({ callback = () => {}, ...props }) => {
 
   return (
     <BaseInput
-      className="baseInput"
+      className="base-input"
       id={id}
       form={form}
       name={name}

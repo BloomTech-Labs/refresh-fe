@@ -45,7 +45,7 @@ const Button = ({ callback = () => {}, ...props }) => {
 
   return (
     <StyledButton
-      className="baseButton"
+      className="base-button"
       actionBackground={actionBackground}
       actionColor={actionColor}
       actionOpacity={actionOpacity}

@@ -34,8 +34,8 @@ const StyledAtom = styled.div.attrs(props => ({
 }))`
 
 ${"" /* Currently set to px for global, can go rem, %, etc */}
-  height: ${props => (props.height ? `${props.height}%` : "100%")};
-  width: ${props => (props.width ? `${props.width}%` : `94vw`)};
+  height: ${props => (props.height ? `${props.height}rem` : "100%")};
+  width: ${props => (props.width ? `${props.width}rem` : `94vw`)};
   border: ${props => (props.border ? props.border : "none")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
@@ -50,10 +50,10 @@ ${"" /* Currently set to px for global, can go rem, %, etc */}
   border-bottom-right-radius: ${props =>
     props.borderRadiusBottomRight ? props.borderRadiusBottomRight : "5px"};
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : Colors.primary};
-  color: ${props => (props.color ? props.color : Colors.font.white)};
+    props.backgroundColor ? props.backgroundColor : Colors.white};
+  color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
-  cursor: pointer;
+  cursor: auto;
   ${"" /* I prefer to work in rems. Y'all? */}
   margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
   padding: ${props => (props.padding ? `${props.margin}rem` : "1rem")};
@@ -64,6 +64,9 @@ ${"" /* Currently set to px for global, can go rem, %, etc */}
   justify-content: ${props =>
     props.justifyContent ? props.justifyContent : "space-around"};
   align-items: center;
+  font-size: ${props =>
+    props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
+text-align: ${props => (props.textAlign ? props.textAlign : "left")};
 
   .icon-object-svg,
   .icon-img-svg {
@@ -79,33 +82,23 @@ ${"" /* Currently set to px for global, can go rem, %, etc */}
   color: ${props => (props.color ? props.color : Colors.primary)};
   font-size: ${props =>
     props.fontSize ? props.fontSize : Fonts.fontSize.base};
-  ${
-    "" /* font-weight: ${props =>
-    props.fontWeight ? props.fontWeight : Fonts.fontWeight.normal}; */
-  }
   margin: 0;
-  background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : Colors.white};
 }
 
-  img {
+  .base-image {
     height: ${props => (props.height ? `${props.height}px` : "100%")};
     width: ${props => (props.width ? `${props.width}px` : "100%")};
-  }
+                }
+                
 
-  font-size: ${props =>
-    props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
-
-    text-align: ${props => (props.textAlign ? props.textAlign : "left")}
-
-  &:hover,
+ &:hover,
   &:focus {
     background-color: ${props =>
-      props.actionBackground ? props.actionBackground : Colors.secondary};
+      props.actionBackground ? props.actionBackground : Colors.white};
     color: ${props => props.actionColor};
     opacity: ${props => (props.actionOpacity ? props.actionOpacity : 0.85)};
     box-shadow: ${props =>
-      props.boxShadow ? props.boxShadow : "0 1px 1px 1px rgba(84,84,84,0.4)"};
+      props.boxShadow ? props.boxShadow : "0 1px 1px 2px rgba(0,0,0,0.2)"};
   }
 
   &:active {
@@ -121,6 +114,10 @@ ${"" /* Currently set to px for global, can go rem, %, etc */}
     opacity: 1;
     outline: none;
   }
+
+
+
+
 `;
 
 export default StyledAtom;
