@@ -14,12 +14,13 @@ const Dashboard = props => {
             <DashboardContainer>
                 <Header>
                     <Greeting>
-                        <h1 className='greeting'>Hello Josh!</h1>
+                        <h1>Hello</h1>
+                        <h1>Josh!</h1>
                     </Greeting>
 
                     <User>
                         <i class="fas fa-bell"></i>
-                        <Avatar>test</Avatar>
+                        <Avatar></Avatar>
                     </User>
                 </Header>
             </DashboardContainer>    
@@ -57,18 +58,33 @@ const Header = styled.div`
 
 const Greeting = styled.div`
     color: #FFF;
-    font-size: 3.5rem;
-    word-spacing: 100rem;
+    ${test.redBg}
+
+        h1 {
+            font-size: 4.5rem;
+        }
+`
+
+
+const User = styled.div`
+    width: 10rem;
+    height: 5rem;
+    background-color: blue;
+    ${flex.flexRowNoWrapAround}
+    ${test.redBg}
+
+        i {
+            font-size: 2rem;
+        }
 `
 
 const Avatar = styled.div`
-    width: 2rem;
-    height: 2rem;
-    background-color: blue;
-`
-
-const User = styled.div`
-
+   width: 5rem;
+   height: 5rem;
+   border-radius: 3px;
+   background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
+    background-size: cover;
+   ${test.blueBg}
 `
 
 // EXPORT
