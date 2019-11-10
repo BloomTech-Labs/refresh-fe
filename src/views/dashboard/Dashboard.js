@@ -27,7 +27,15 @@ const Dashboard = props => {
                     </User>
                 </Header>
 
-                <h2 className='missions'>Your missions today</h2>
+                <h2 className='mission-message'>Your missions today</h2>
+
+                <MissionHub>
+
+                </MissionHub>
+
+                <AddMission>
+                    <MissionButton>+</MissionButton>
+                </AddMission>
                 
             </DashboardContainer>    
             </DashboardWrapper>
@@ -53,7 +61,7 @@ const DashboardContainer = styled.div`
     height: 80vh;
     margin: 0 auto;
 
-        .missions {
+        .mission-message {
             color: #CCC9FF;
             font-size: 2.5rem;
             letter-spacing: 0.25rem;
@@ -98,6 +106,29 @@ const Avatar = styled.div`
     border-radius: 3px;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
+`
+
+const MissionHub = styled.div`
+    width: 100%;
+    height: 40rem;
+    ${test.redBg}
+` 
+
+const AddMission = styled.div`
+    width: 100%;
+    height: 10rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    ${test.greenBg}
+`
+
+const MissionButton = styled.button`
+    width: 7rem;
+    height: 7rem;
+    margin-left: auto;
 `
 
 // EXPORT
