@@ -126,9 +126,15 @@ const AddMission = styled.div`
 `
 
 const MissionButton = styled.button`
-    width: 7rem;
-    height: 7rem;
+    width: 56px;
+    height: 56px;
     margin-left: auto;
+    background-color: #6487FF;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+    font-size: 5rem;
+    color: #FFF;
 `
 
 // EXPORT
