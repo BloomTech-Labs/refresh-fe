@@ -12,7 +12,9 @@ const MissionCard = props => {
     
     return (
         <Container color={props.color}>
+            <Gauge>
             <i class="fas fa-tint"></i>
+            </Gauge>
             <p>{props.description}</p>
             <span>{props.points} Points</span>
         </Container>
@@ -39,7 +41,7 @@ const Container = styled.div`
         }
     
         p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             letter-spacing: 0.025rem;
             align-self: flex-start;
         }
@@ -49,6 +51,16 @@ const Container = styled.div`
             align-self: flex-start;
             margin-top: auto;
         }
+`
+
+const Gauge = styled.div`
+        width: 60px;
+        height: 60px;
+        border: 3px solid black;
+        border-radius: 100px;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        ${flex.flexCol}
 `
 
 // EXPORT

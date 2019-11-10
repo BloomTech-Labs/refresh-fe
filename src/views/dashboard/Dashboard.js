@@ -133,6 +133,7 @@ const Greeting = styled.div`
         h1 {
             font-size: 4.5rem;
             letter-spacing: 0.25rem;
+            font-weight: bold;
         }
 `
 
