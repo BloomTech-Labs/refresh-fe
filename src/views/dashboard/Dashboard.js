@@ -10,6 +10,43 @@ import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
 
+// DUMMY DATA
+// adding dummy data to use with props drilling and prep for state
+// will remove this stuff once we have everything ready server side
+// these are probably totally different from what the model will look like
+// and they will need to be adjusted in the children components later on - JC
+
+const dummyMissions = [
+    {
+        id: 1,
+        vertical: 'health',
+        name: 'water',
+        description: '2 more glasses of water',
+        pointValue: 20
+    },
+    {
+        id: 2,
+        vertical: 'health',
+        name: 'sleep',
+        description: 'get 6+ hours of sleep tonight',
+        pointValue: 30
+    },
+    {
+        id: 3,
+        vertical: 'fitness',
+        name: 'activity',
+        description: 'physical activity for at least 30 minutes',
+        pointValue: 70
+    },
+    {
+        id: 4,
+        vertical: 'mental',
+        name: 'zoom break',
+        description: 'take a zoom break',
+        pointValue: 15
+    }
+];
+
 // COMPONENT
 const Dashboard = props => {
     return (
