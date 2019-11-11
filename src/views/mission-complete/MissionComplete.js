@@ -52,7 +52,7 @@ const MissionComplete = () => {
         <MCView>
         <MCWrapper>
             <MCContainer>
-                    <h2 className='mission-message'>What mission did you complete</h2>
+                    <h2 className='mission-message'>What mission did you complete?</h2>
 
                     <MissionsWrapper>
                         {dummyMissions.map(mission => {
@@ -91,10 +91,11 @@ const MCContainer = styled.div`
     margin: 0 auto;
 
         .mission-message {
-            color: #CCC9FF;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             letter-spacing: 0.25rem;
-            margin: 3rem 0;
+            font-weight: bold;
+            color: #FFF;
+            margin: 3rem 2rem;
         }
 `
 
