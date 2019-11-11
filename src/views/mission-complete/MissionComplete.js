@@ -23,6 +23,11 @@ const MissionComplete = () => {
 
                     <MissionsWrapper>
                         <MissionCard />
+                        <MissionCard />
+                        <MissionCard />
+                        <MissionCard />
+                        <MissionCard />
+                        <MissionCard />
                     </MissionsWrapper>
             </MCContainer>
         </MCWrapper>
@@ -60,6 +65,10 @@ const MCContainer = styled.div`
 const MissionsWrapper = styled.div`
     width: 100%;
     height: 50rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: top;
     ${test.greenBg}
 `
 
