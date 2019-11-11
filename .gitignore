@@ -12,8 +12,8 @@
 /build
 
 #SERVERS
-.staging
-.production
+*.staging
+*.production
 
 # misc
 .DS_Store
