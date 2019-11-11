@@ -51,7 +51,10 @@ const MissionComplete = () => {
                     <MissionsWrapper>
                         {dummyMissions.map(mission => {
                             return (
-                                <MissionCard />
+                                <MissionCard 
+                                    key={mission.id}
+                                    description={mission.description}
+                                />
                             )
                         })}
                     </MissionsWrapper>

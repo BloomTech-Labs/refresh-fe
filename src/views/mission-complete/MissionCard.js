@@ -7,10 +7,10 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
-const MissionCard = () => {
+const MissionCard = props => {
     return (
         <CardContainer>
-            mission card
+            <p>{props.description}</p>
         </CardContainer>
     );
 };
