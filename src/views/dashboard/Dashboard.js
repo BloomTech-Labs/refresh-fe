@@ -44,7 +44,7 @@ const dummyMissions = [
     {
         id: 4,
         vertical: 'mental',
-        name: 'zoom break',
+        name: 'break',
         description: 'take a zoom break',
         pointValue: 15,
         color: '#FFE2CC'
