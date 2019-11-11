@@ -9,9 +9,13 @@ import { test, flex } from '../../styles/global/Mixins';
 // COMPONENT
 const MissionComplete = () => {
     return (
-        <div>
-            hi from component
-        </div>
+        <MCView>
+        <MCWrapper>
+            <MCContainer>
+                    <h2 className='mission-message'>What mission did you complete</h2>
+            </MCContainer>
+        </MCWrapper>
+        </MCView>
     );
 };
 
