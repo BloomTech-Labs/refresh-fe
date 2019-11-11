@@ -60,6 +60,7 @@ const MissionComplete = () => {
                                 <MissionCard 
                                     key={mission.id}
                                     description={mission.description}
+                                    color={mission.color}
                                 />
                             )
                         })}
@@ -104,7 +105,6 @@ const MissionsWrapper = styled.div`
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: top;
-    ${test.greenBg}
 `
 
 

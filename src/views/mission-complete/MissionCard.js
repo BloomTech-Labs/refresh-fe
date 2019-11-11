@@ -9,7 +9,7 @@ import { test, flex } from '../../styles/global/Mixins';
 // COMPONENT
 const MissionCard = props => {
     return (
-        <CardContainer>
+        <CardContainer color={props.color}>
             <i class="fas fa-tint"></i>
 
             <p>{props.description}</p>
@@ -23,10 +23,10 @@ const CardContainer = styled.div`
     height: 115px;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 3px;
+    background-color: ${props => props.color}
     margin: 0 2rem;
     padding: 1rem;
     ${flex.flexCol}
-    ${test.redBg}
 
         i {
             font-size: 2rem;
