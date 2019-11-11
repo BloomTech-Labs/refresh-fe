@@ -6,33 +6,30 @@ import Fonts from "../../../styles/global/fonts";
 import Colors from "../../../styles/global/colors";
 // Theme
 
-const Label = ({ forId, ...props }) => {
-  const { fontSize, color, backgroundColor, padding } = props;
+const Text = ({ text, ...props }) => {
+  const { fontSize, color, backgroundColor } = props;
   return (
-    <StyledLabel
-      className="styled-label"
+    <StyledText
+      className="styled-text"
       fontSize={fontSize}
       color={color}
       backgroundColor={backgroundColor}
-      padding={padding}
     >
-      This is a styled label for the following input
-    </StyledLabel>
+      {text}
+    </StyledText>
   );
 };
 
-const StyledLabel = styled.label.attrs(props => ({
+const StyledText = styled.p.attrs(props => ({
   fontSize: props.fontSize,
   color: props.color,
-  backgroundColor: props.backgroundColor,
-  padding: props.padding
+  backgroundColor: props.backgroundColor
 }))`
   font-size: ${props =>
-    props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
+    props.fontSize ? props.fontSize : Fonts.fontSize.baseMd};
   color: ${props => (props.color ? props.color : Colors.primary)};
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : Colors.white};
-  padding: ${props => (props.padding ? `${props.margin}rem` : ".5rem")};
 `;
 
-export default Label;
+export default Text;

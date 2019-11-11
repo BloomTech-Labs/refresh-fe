@@ -1,8 +1,8 @@
 // IMPORTS
 // react
-import React from 'react';
+import React from "react";
 // styled components
-import styled from 'styled-components';
+import styled from "styled-components";
 // images
 import onboardlogo from '../../images/refresh-yo-guy.svg';
 const Landing = props => {
@@ -14,10 +14,10 @@ const Landing = props => {
     e.preventDefault();
     props.history.push('/login');
   };
-  const routeToComponentTesting = e => {
-    e.preventDefault();
-    props.history.push('/atoms');
-  };
+  // const routeToComponentTesting = e => {
+  //   e.preventDefault();
+  //   props.history.push('/atoms');
+  // };
   return (
     <OnBoardWrapper>
       <OnBoardContainer>
