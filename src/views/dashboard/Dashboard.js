@@ -85,7 +85,7 @@ const Dashboard = props => {
                 </MissionHub>
 
                 <AddMission>
-                    <MissionButton>+</MissionButton>
+                    <Link to='/mission-complete'><MissionButton>+</MissionButton></Link>
                 </AddMission>
                 
             </DashboardContainer>    
@@ -173,6 +173,10 @@ const AddMission = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+
+        a {
+            margin-left: auto;
+        }
 `
 
 const MissionButton = styled.button`
