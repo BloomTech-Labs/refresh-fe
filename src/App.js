@@ -4,7 +4,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 // components
 import Landing from './views/onboarding/Landing';
-import Timer from './components/Timer';
+import Timer from './views/Timer/Timer';
 import CreateAccount from "./views/onboarding/CreateAccount";
 import MobileMenu from './views/mobile-menu/MobileMenu';
 import Dashboard from './views/dashboard/Dashboard';
