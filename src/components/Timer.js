@@ -1,20 +1,30 @@
 import React from 'react';
+import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
  
 function Timer ({ expiryTimestamp }) {
-  const {
+  let {
     seconds,
     minutes,
     pause,
     resume,
     restart
   } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
- 
+
+  if (seconds === 9) seconds = '09';
+  if (seconds === 8) seconds = '08';
+  if (seconds === 7) seconds = '07';
+  if (seconds === 6) seconds = '06';
+  if (seconds === 5) seconds = '05';
+  if (seconds === 4) seconds = '04';
+  if (seconds === 3) seconds = '03';
+  if (seconds === 2) seconds = '02';
+  if (seconds === 1) seconds = '01';
  
   return (
-    <div style={{textAlign: 'center'}}>
+    <div className="clock">
       <h1>Pomodoro Clock</h1>
-      <div style={{fontSize: '100px'}}>
+      <div className="time">
         <span>{minutes}</span>:<span>{seconds}</span>
       </div>
       <button onClick={() => {

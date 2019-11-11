@@ -3,15 +3,15 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Landing from './views/onboarding/Landing';
+import Timer from './components/Timer';
 import CreateAccount from "./views/onboarding/CreateAccount";
-// import Timer from './components/Timer';
 
 // COMPONENT
 const App = props => {
   return (
     <React.Fragment>
       <Timer />
-      <Landing {...props}/>
+      {/* <Landing {...props}/> */}
     </React.Fragment>
   );
 }

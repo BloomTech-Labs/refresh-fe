@@ -1,0 +1,26 @@
+body {
+    background: #3A3699;
+}
+
+div {
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: Catamaran;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: white;
+}
+
+.clock {
+    display: flex;
+}
+
+.time {
+    font-size: 100px;
+    color: white;
+    justify-content: center;
+}
