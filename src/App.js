@@ -18,7 +18,11 @@ const App = props => {
       <Route exact path='/' component={Landing} />
       <Route path='/dashboard' component={Dashboard} />
       <Route path='/mission-complete' component={MissionComplete} />
+<<<<<<< HEAD
       <Route path ='/pomodoro-timer' component={Timer} />
+=======
+      <Route path='/signup' component={CreateAccount} />
+>>>>>>> 4a52cc2b86de0113b3d1882cb47150d2ef6652b9
     </React.Fragment>
   );
 };

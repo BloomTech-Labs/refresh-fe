@@ -12,11 +12,12 @@
 /build
 
 #SERVERS
-.staging
-.production
 
+*.staging
+*.production
 
 package-lock.json
+
 # misc
 .DS_Store
 .env.local

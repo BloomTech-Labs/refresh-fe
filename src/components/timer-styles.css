@@ -69,7 +69,7 @@ p {
     font-weight: 600;
 }
 
-@media screen and (max-width:500px) {
+/* @media screen and (max-width:500px) {
     .buttons {
         display: flex;
         flex-direction: column;
@@ -81,4 +81,4 @@ p {
     .instructions {
         margin-top: 20px;
     }
-}
+} */

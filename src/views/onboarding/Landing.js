@@ -39,7 +39,6 @@ const Landing = props => {
             I already have an account
           </ButtonNoColor>
         </FlexHolder>
-        <Button onClick={routeToComponentTesting}>Component Testing</Button>
       </OnBoardContainer>
     </OnBoardWrapper>
   );
