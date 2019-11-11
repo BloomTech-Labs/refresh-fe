@@ -15,14 +15,14 @@ border-radius: 3px;
 `
 const WaterFont = styled.div`
 position: absolute;
-width: 112px;
+width: 120px;
 height: 20px;
 left: 76px;
 top: 492px;
 
 /* h5/Regular 18px */
 
-font-family: 'Roboto', sans-serif;;
+font-family: 'Roboto', sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -39,11 +39,11 @@ position: absolute;
 width: 106px;
 height: 22px;
 left: 79px;
-top: 606px;
+top: 565px;
 
 /* h5/Medium 18px */
 
-font-family: 'Roboto', sans-serif;;
+font-family: 'Roboto', sans-serif;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
@@ -60,7 +60,7 @@ position: absolute;
 width: 50px;
 height: 16px;
 left: 105px;
-top: 632px;
+top: 600px;
 
 /* Text/Regular 14px */
 
