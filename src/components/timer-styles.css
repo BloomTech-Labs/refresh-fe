@@ -40,6 +40,14 @@ button {
     color: #3A3699;
     background: white;
     margin-left: 20px;
+    transition: 0.6s;
+}
+
+button:hover {
+    color: white;
+    background: #3A3699;
+    border: 1px solid white;
+    cursor: pointer;
 }
 
 .last {
