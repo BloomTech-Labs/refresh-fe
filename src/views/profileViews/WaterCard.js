@@ -76,9 +76,17 @@ align-items: center;
 
 color: #959595;
 `
+const Waterglass = styled.img`
+position: absolute;
+width: 62px;
+height: 58px;
+left: 101px;
+top: 528px;
+border: 1px solid red;
+
+` 
 //This component tracks user water intake
 const WaterCard = () => {
-  
   return (
     <div>  
     <Rectangle14/>
@@ -91,6 +99,7 @@ const WaterCard = () => {
       <Of8Text>
         out of 8
       </Of8Text>
+      <Waterglass/>
     </div>
       
     
