@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ActivityCard from './ActivityCard';
+import PercentageCard from '../profileViews/PercentageCard';
 //import ActivityCard from '../profileViews/ActivityCard';
 
 const Rectangle = styled.div` 
@@ -22,6 +23,7 @@ const Container = () => {
       <div>
          <Rectangle/>
          <ActivityCard/>
+         <PercentageCard/>
       </div>
   );
     
