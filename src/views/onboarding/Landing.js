@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React from 'react';
+/*import React from 'react';
 // styled components
 import styled from 'styled-components';
 // images
@@ -101,4 +101,4 @@ height:auto;
 margin:auto;`
 
 
-export default Landing; 
+export default Landing; */

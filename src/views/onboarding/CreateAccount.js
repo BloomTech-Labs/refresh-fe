@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import styled from 'styled-components';
 import fblogo from '../../images/facebook-icon.png';
 import googlelogo from '../../images/flat-color-icons_google.png';
@@ -95,4 +95,4 @@ const ButtonNoColor = styled.a`
     font-size:1.6rem;
 `
 
-export default CreateAccount;
+export default CreateAccount;  */
