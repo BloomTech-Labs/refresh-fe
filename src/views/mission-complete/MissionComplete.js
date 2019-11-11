@@ -13,6 +13,10 @@ const MissionComplete = () => {
         <MCWrapper>
             <MCContainer>
                     <h2 className='mission-message'>What mission did you complete</h2>
+
+                    <MissionsWrapper>
+                        
+                    </MissionsWrapper>
             </MCContainer>
         </MCWrapper>
         </MCView>
@@ -44,6 +48,12 @@ const MCContainer = styled.div`
             letter-spacing: 0.25rem;
             margin: 3rem 0;
         }
+`
+
+const MissionsWrapper = styled.div`
+    width: 100%;
+    height: 50rem;
+    ${test.greenBg}
 `
 
 
