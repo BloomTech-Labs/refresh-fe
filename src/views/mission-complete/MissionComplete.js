@@ -10,12 +10,37 @@ import { test, flex } from '../../styles/global/Mixins';
 const MissionComplete = () => {
     return (
         <div>
-            hi from missioncomplete
+            hi from component
         </div>
     );
 };
 
 // STYLED COMPONENTS
+
+const MCView = styled.div`
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    padding-top: 10rem;
+    background-color: #3a3699;
+`
+
+const MCWrapper = styled.div`
+    width: 100%;
+`
+
+const MCContainer = styled.div`
+    width: 90%;
+    height: 80vh;
+    margin: 0 auto;
+
+        .mission-message {
+            color: #CCC9FF;
+            font-size: 2.5rem;
+            letter-spacing: 0.25rem;
+            margin: 3rem 0;
+        }
+`
 
 
 // EXPORT
