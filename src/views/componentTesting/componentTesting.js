@@ -9,14 +9,14 @@ import Row from "../../components/atoms/row/row";
 import Card from "../../components/atoms/card/card";
 import Col from "../../components/atoms/col/col";
 import LoadingSpinner from "../../components/atoms/spinner/spinner.js";
-// import Image from "../../components/atoms/image/image";
-// import Text from "../../components/atoms/text/text";
+import Image from "../../components/atoms/image/image";
+import Text from "../../components/atoms/text/text";
 
 import Colors from "../../styles/global/colors";
-// import testImage from "../../images/two_cubes.png";
+import testImage from "../../images/two_cubes.png";
 
-// const text =
-//   "Terrorize the hundred-and-twenty-pound rottweiler and steal his bed, not sorry leave dead animals as gifts who's the baby, cat fur is the new black destroy the blinds or please stop looking at your phone and pet me for run off table persian cat jump eat fish. Fat baby cat best buddy little guy kitty poochy so scratch me there, elevator butt favor packaging over toy somehow manage to catch a bird but have no idea what to do next, so play with it until it dies of shock stick butt in face scratch at the door then walk away. Experiences short bursts of poo-phoria after going to the loo sleep yet you call this cat food, or sit in a box for hours groom forever, stretch tongue and leave it slightly out, blep make meme, make cute face.";
+const text =
+  "Terrorize the hundred-and-twenty-pound rottweiler and steal his bed, not sorry leave dead animals as gifts who's the baby, cat fur is the new black destroy the blinds or please stop looking at your phone and pet me for run off table persian cat jump eat fish. Fat baby cat best buddy little guy kitty poochy so scratch me there, elevator butt favor packaging over toy somehow manage to catch a bird but have no idea what to do next, so play with it until it dies of shock stick butt in face scratch at the door then walk away. Experiences short bursts of poo-phoria after going to the loo sleep yet you call this cat food, or sit in a box for hours groom forever, stretch tongue and leave it slightly out, blep make meme, make cute face.";
 const google = "https://www.google.com/";
 const Atoms = props => {
   return (
@@ -68,12 +68,12 @@ const Atoms = props => {
         <LoadingSpinner height={75} width={75} />
       </Row>
 
-      {/* <Image src={testImage} alt={"stuff"} /> */}
-      {/* <Row>
+      <Image src={testImage} alt={"stuff"} />
+      <Row>
         <Col>
           <Text text={text} />
         </Col>
-      </Row>  */}
+      </Row> 
     </div>
   );
 };
