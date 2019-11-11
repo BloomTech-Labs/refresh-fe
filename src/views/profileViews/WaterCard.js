@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+//This component tracks user water intake
+
+const WaterCard = (props) => {
+
 const Rectangle14 = styled.div`
 position: absolute;
 width: 147px;
@@ -12,6 +16,7 @@ top: 467px;
 
 background: #EAEAEA;
 border-radius: 3px;
+
 `
 const WaterFont = styled.div`
 position: absolute;
@@ -85,10 +90,9 @@ top: 528px;
 border: 1px solid red;
 
 ` 
-//This component tracks user water intake
-const WaterCard = () => {
+ 
   return (
-    <div>  
+    <div onClick={() => {alert('DUMMY CLICK CONFIRMED')}}>  
     <Rectangle14/>
       <WaterFont>
         Water Tracker

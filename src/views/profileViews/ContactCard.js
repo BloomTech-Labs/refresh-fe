@@ -36,14 +36,29 @@ align-items: center;
 
 color: #959595;
 `
+const PlusVectorBox =styled.div`
+position: relative;
+left: 135.56%;
+right: 5.56%;
+top: oo.56%;
+bottom: 5.56%;
+
+
+/* #959595 - Mid Grey 2 */
+
+background: #959595;
+`
 //This component contains user contact info e.g. user handle etc...
 const ContactCard = () => {
   
     return (
     <div>   
+    
     <Rectangle21/>  
+    
       <ContactText>
-        Contact
+      <PlusVectorBox/> 
+        Contact 
         Information
       </ContactText>  
       </div> 

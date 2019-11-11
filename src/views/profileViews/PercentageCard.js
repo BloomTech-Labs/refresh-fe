@@ -115,7 +115,7 @@ align-items: center;
 
 color: #959595;
 `
-const PercentageCard = () => {
+const PercentageCard = (props) => {
   
   return (
       <div>
