@@ -18,12 +18,13 @@ const ContactText = styled.h5`
 position: absolute;
 width: 96px;
 height: 52px;
-left: 62px;
-top: 233px;
+left: 56px;
+top: 213px;
+
 
 /* h5/Regular 18px */
 
-font-family: Roboto;
+font-family: 'Roboto', sans-serif;;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -36,7 +37,7 @@ align-items: center;
 color: #959595;
 `
 //This component contains user contact info e.g. user handle etc...
-const ContactCard =()=> {
+const ContactCard = () => {
   
     return (
     <div>   

@@ -18,12 +18,12 @@ const MissionsText = styled.h5`
 position: absolute;
 width: 89px;
 height: 77px;
-left: 24px;
-top: 10px;
+left: 74px;
+top: 360px;
 
-/* Text/Regular 16px */
+/* Text/Regular 16px *
 
-font-family: 'Roboto';
+font-family: 'Roboto', sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
@@ -39,13 +39,14 @@ color: #959595;
 const MissionsCard = () => {
   
   return (
-     <Rectangle13>
+    <div>
+     <Rectangle13/>
        <MissionsText>
          3 Missions
          completed
          today
        </MissionsText>
-     </Rectangle13>
+     </div>
 );
   
 }

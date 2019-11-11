@@ -14,6 +14,8 @@ left: 28.69px;
 right: 29.02px;
 top: 26px;
 bottom: 26px;
+width: 375.29px;
+height: 812px;
 
 background: #c4c4c4;
 opacity: 0.5;

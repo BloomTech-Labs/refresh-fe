@@ -6,11 +6,11 @@ position: absolute;
 width: 231px;
 height: 149px;
 left: 51px;
-top: 2px;
+top: 51px;
 
 /* h2/Regular 30px */
 
-font-family: 'Roboto';
+font-family:'Roboto', sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 30px;
@@ -23,13 +23,16 @@ align-items: center;
 color: #959595;
 `
 
-function HeaderCard () {
+const HeaderCard = () => {
   
     return (
 
-      <YourProfile>
-         Your Profile
-      </YourProfile>
+      <div>
+        <YourProfile>Your Profile</YourProfile>
+      </div>
+
+      
+         
   );
     
   }

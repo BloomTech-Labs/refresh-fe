@@ -22,7 +22,7 @@ top: 492px;
 
 /* h5/Regular 18px */
 
-font-family: 'Roboto';
+font-family: 'Roboto', sans-serif;;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -43,7 +43,7 @@ top: 606px;
 
 /* h5/Medium 18px */
 
-font-family: Roboto;
+font-family: 'Roboto', sans-serif;;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
@@ -64,7 +64,7 @@ top: 632px;
 
 /* Text/Regular 14px */
 
-font-family: Roboto;
+font-family: 'Roboto', sans-serif;;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
