@@ -65,6 +65,8 @@ const MissionComplete = () => {
                             )
                         })}
                     </MissionsWrapper>
+
+                    <ContinueButton>Continue</ContinueButton>
             </MCContainer>
         </MCWrapper>
         </MCView>
@@ -89,6 +91,7 @@ const MCContainer = styled.div`
     width: 90%;
     height: 80vh;
     margin: 0 auto;
+    ${flex.flexCol}
 
         .mission-message {
             font-size: 3.5rem;
@@ -106,6 +109,19 @@ const MissionsWrapper = styled.div`
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: top;
+`
+
+const ContinueButton = styled.button`
+    width: 80%;
+    height: 5rem;
+    background-color: #6487FF;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+    font-size: 1.5rem;
+    color: #FFF;
+    font-weight: normal;
+    letter-spacing: 0.15rem;
 `
 
 
