@@ -16,27 +16,33 @@ import MissionCard from './MissionCard';
 const dummyMissions = [
     {
         id: 1,
-        description: 'drank a glass of water'
+        description: 'drank a glass of water',
+        color: '#CEE2FF'
     },
     {
         id: 2,
-        description: 'got active'
+        description: 'got active',
+        color: '#FECDCD'
     },
     {
         id: 3,
-        description: 'ate healthy'
+        description: 'ate healthy',
+        color: '#D5F6E3'
     },
     {
         id: 4,
-        description: 'took a break'
+        description: 'took a break',
+        color: '#FFE2CC'
     },
     {
         id: 5,
-        description: 'got some sleep'
+        description: 'got some sleep',
+        color: '#FECDF9'
     },
     {
         id: 6,
-        description: 'pet quality time'
+        description: 'pet quality time',
+        color: '#DFC5F7'
     }
 ];
 
