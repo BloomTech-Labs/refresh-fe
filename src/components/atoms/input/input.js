@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { inputTypes } from "../../../styles/global/constants";
-import StyledInput from "../../../styles/global/components.css";
 import Colors from "../../../styles/global/colors";
 
 const Input = ({ callback = () => {}, ...props }) => {
@@ -49,7 +48,8 @@ const Input = ({ callback = () => {}, ...props }) => {
 
   return (
     <BaseInput
-      className="baseInput"
+    
+      className="base-input"
       id={id}
       form={form}
       name={name}
@@ -62,7 +62,6 @@ const Input = ({ callback = () => {}, ...props }) => {
       disabled={disabled}
       onChange={updateValue}
       onKeyUp={removeFocus}
-      //
       autoComplete={autocomplete.toString()}
       autoFocus={autofocus}
       border={border}
@@ -81,12 +80,37 @@ const Input = ({ callback = () => {}, ...props }) => {
   );
 };
 
-const BaseInput = styled.input`
-  ${StyledInput} + & {
-    ${"" /* stuff */}
-  }
-  height: ${props => (props.height ? `${props.height}px` : "40px")};
-  width: ${props => (props.width ? `${props.width}px` : `50%`)};
+const BaseInput = styled.input.attrs(props => ({
+  actionColor: props.actionColor,
+  actionBackground: props.actionBackground,
+  actionOpacity: props.actionOpacity,
+  backgroundColor: props.backgroundColor,
+  border: props.border,
+  borderLeft: props.borderLeft,
+  borderTop: props.borderTop,
+  borderRight: props.borderRight,
+  borderBottom: props.borderBottom,
+  borderRadiusBottomLeft: props.borderRadiusBottomLeft,
+  borderRadiusTopLeft: props.borderRadiusTopLeft,
+  borderRadiusTopRight: props.borderRadiusTopRight,
+  borderRadiusBottomRight: props.borderRadiusBottomRight,
+  boxShadow: props.boxShadow,
+  color: props.color,
+  fontSize: props.fontSize,
+  height: props.height,
+  margin: props.margin,
+  padding: props.padding,
+  width: props.width,
+  href: props.href,
+  display: props.display,
+  justifyContent: props.justifyContent,
+  alignItems: props.alignItems,
+  textAlign: props.textAlign,
+  cursor: props.cursor
+}))`
+
+  height: ${props => (props.height ? `${props.height}rem` : "4rem")};
+  width: ${props => (props.width ? `${props.width}rem` : `50%`)};
   border: ${props => (props.border ? props.border : "1px solid primary")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
@@ -105,7 +129,6 @@ const BaseInput = styled.input`
   color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: text;
-  ${"" /* I prefer to work in rems. Y'all? */}
   margin: ${props => (props.margin ? `${props.margin}rem` : ".5rem")};
   padding: ${props => (props.padding ? `${props.margin}rem` : ".25rem")};
 `;
