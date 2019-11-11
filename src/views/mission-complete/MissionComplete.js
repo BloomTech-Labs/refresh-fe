@@ -89,7 +89,6 @@ const MCWrapper = styled.div`
 
 const MCContainer = styled.div`
     width: 90%;
-    height: 80vh;
     margin: 0 auto;
     ${flex.flexCol}
 
@@ -104,7 +103,6 @@ const MCContainer = styled.div`
 
 const MissionsWrapper = styled.div`
     width: 100%;
-    height: 50rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -118,6 +116,7 @@ const ContinueButton = styled.button`
     border: none;
     border-radius: 3px;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+    margin: 2rem 0;
     font-size: 1.5rem;
     color: #FFF;
     font-weight: normal;
