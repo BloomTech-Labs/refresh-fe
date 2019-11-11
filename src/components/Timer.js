@@ -20,6 +20,7 @@ function Timer ({ expiryTimestamp }) {
   if (seconds === 3) seconds = '03';
   if (seconds === 2) seconds = '02';
   if (seconds === 1) seconds = '01';
+  if (seconds === 0) seconds = '00';
  
   return (
     <div className="clock">
@@ -27,20 +28,22 @@ function Timer ({ expiryTimestamp }) {
       <div className="time">
         <span>{minutes}</span>:<span>{seconds}</span>
       </div>
-      <button onClick={() => {
-        // Restarts to 25 minutes timer
-        var t = new Date();
-        t.setSeconds(t.getSeconds() + 1500);
-        restart(t)
-      }}>Start Sprint</button>
-      <button onClick={() => {
-        // Restarts to 5 minutes timer
-        var t = new Date();
-        t.setSeconds(t.getSeconds() + 300);
-        restart(t)
-      }}>Start Break</button>
-      <button onClick={pause}>Pause</button>
-      <button onClick={resume}>Resume</button>
+      <div className="buttons">
+        <button onClick={() => {
+          // Restarts to 25 minutes timer
+          var t = new Date();
+          t.setSeconds(t.getSeconds() + 1500);
+          restart(t)
+        }}>Start Sprint</button>
+        <button onClick={() => {
+          // Restarts to 5 minutes timer
+          var t = new Date();
+          t.setSeconds(t.getSeconds() + 300);
+          restart(t)
+        }}>Start Break</button>
+        <button onClick={pause}>Pause</button>
+        <button onClick={resume}>Resume</button>
+      </div>
     </div>
   );
 }

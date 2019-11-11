@@ -17,10 +17,22 @@ h1 {
 
 .clock {
     display: flex;
+    flex-direction: column;
 }
 
 .time {
     font-size: 100px;
     color: white;
     justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 20vw;
+    color: #3A3699;
+    background: white;
 }
