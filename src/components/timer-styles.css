@@ -36,7 +36,6 @@ h1 {
 }
 
 button {
-    width: 20vw;
     color: white;
     background: #6487FF;
     margin-left: 20px;
@@ -52,10 +51,6 @@ button:hover {
     background: white;
     border: 1px solid #6487FF;
     cursor: pointer;
-}
-
-.last {
-    margin-right: 20px;
 }
 
 .instructions {

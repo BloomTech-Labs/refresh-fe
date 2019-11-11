@@ -42,7 +42,7 @@ function Timer ({ expiryTimestamp }) {
           restart(t)
         }}>Start Break</button>
         <button onClick={pause}>Pause</button>
-        <button className="last" onClick={resume}>Resume</button>
+        <button onClick={resume}>Resume</button>
         {/* Last button needs a mobile rule but not sure what -- looks wrong when I inspect in small screen format */}
       </div>
       <div className="instructions">
