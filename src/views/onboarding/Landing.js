@@ -4,15 +4,19 @@ import React from "react";
 // styled components
 import styled from "styled-components";
 // images
-import onboardlogo from "../../images/refresh-yo-guy.svg";
+import onboardlogo from '../../images/refresh-yo-guy.svg';
 const Landing = props => {
   const routeToSignUp = e => {
     e.preventDefault();
-    props.history.push("/signup");
+    props.history.push('/signup');
   };
   const routeToLogin = e => {
     e.preventDefault();
-    props.history.push("/login");
+    props.history.push('/login');
+  };
+  const routeToComponentTesting = e => {
+    e.preventDefault();
+    props.history.push('/atoms');
   };
   return (
     <OnBoardWrapper>
@@ -35,6 +39,7 @@ const Landing = props => {
             I already have an account
           </ButtonNoColor>
         </FlexHolder>
+        <Button onClick={routeToComponentTesting}>Component Testing</Button>
       </OnBoardContainer>
     </OnBoardWrapper>
   );
@@ -54,7 +59,7 @@ const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-family: "Catamaran", sans-serif;
+  font-family: 'Catamaran', sans-serif;
   margin: auto;
   line-height: 1.5;
   background-color: #3a3699;
