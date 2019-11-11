@@ -37,8 +37,8 @@ h1 {
 
 button {
     width: 20vw;
-    color: #3A3699;
-    background: white;
+    color: white;
+    background: #6487FF;
     margin-left: 20px;
     transition: 0.6s;
     font-size: 16px;
@@ -48,9 +48,9 @@ button {
 }
 
 button:hover {
-    color: white;
-    background: #6487FF;
-    border: 1px solid white;
+    color: #6487FF;
+    background: white;
+    border: 1px solid #6487FF;
     cursor: pointer;
 }
 
