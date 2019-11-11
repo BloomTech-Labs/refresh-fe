@@ -27,7 +27,7 @@ const dummyMissions = [
     },
     {
         id: 2,
-        vertical: 'health',
+        vertical: 'sleep',
         name: 'sleep',
         description: 'get 6+ hours of sleep tonight',
         pointValue: 30,
