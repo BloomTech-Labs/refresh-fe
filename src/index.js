@@ -17,13 +17,7 @@ ReactDOM.render(
   <Router>
     <Reset />
     <GlobalStyle />
-    <Route exact path="/" render={props => <App {...props} />} />
-    <Route
-      exact
-      path="/signup"
-      render={props => <CreateAccount {...props} />}
-    />
-    <Route exact path="/atoms" render={props => <Atoms {...props} />} />
+    <App />
   </Router>,
   document.getElementById('root')
 );
