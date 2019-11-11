@@ -11,6 +11,13 @@
 # production
 /build
 
+#SERVERS
+
+*.staging
+*.production
+
+package-lock.json
+
 # misc
 .DS_Store
 .env.local
@@ -21,3 +28,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# lockfiles
+package-lock.json
+yarn.lock
