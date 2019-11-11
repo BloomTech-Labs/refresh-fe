@@ -58,7 +58,6 @@ const StyledIcon = styled.div.attrs(props => ({
   display: flex;
   justify-content: center;
   align-items: center;
-
   .icon-object-svg,
   .icon-img-svg {
     filter: ${props => props.color};
