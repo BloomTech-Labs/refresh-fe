@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 // Fonts
-import Fonts from "../../../styles/global/fonts";
+// import Fonts from "../../../styles/global/fonts";
 // Colors
-import Colors from "../../../styles/global/colors";
+// import Colors from "../../../styles/global/colors";
 // Theme
 
 const Icon = ({ ...props }) => {
