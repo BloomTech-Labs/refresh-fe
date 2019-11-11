@@ -4,6 +4,7 @@ import ActivityCard from './ActivityCard';
 import PercentageCard from '../profileViews/PercentageCard';
 import HeaderCard from '../profileViews/HeaderCard';
 import MissionsCard from '../profileViews/MissionsCard';
+import WaterCard from '../profileViews/WaterCard';
 
 
 const Rectangle = styled.div` 
@@ -28,6 +29,7 @@ const Container = () => {
          <PercentageCard/>
          <HeaderCard/>
          <MissionsCard/>
+         <WaterCard/>
       </div>
   );
     
