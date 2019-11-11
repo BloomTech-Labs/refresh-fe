@@ -7,6 +7,8 @@ div {
 }
 
 h1 {
+    margin-top: 20vh;
+    margin-bottom: 40px;
     font-family: Catamaran;
     font-size: 18px;
     line-height: 30px;
@@ -27,6 +29,7 @@ h1 {
 }
 
 .buttons {
+    margin-top: 40px;
     display: flex;
     justify-content: center;
 }
@@ -35,4 +38,5 @@ button {
     width: 20vw;
     color: #3A3699;
     background: white;
+    margin-left: 20px;
 }
