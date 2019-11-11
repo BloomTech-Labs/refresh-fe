@@ -45,6 +45,13 @@ function Timer ({ expiryTimestamp }) {
         <button className="last" onClick={resume}>Resume</button>
         {/* Last button needs a mobile rule but not sure what -- looks wrong when I inspect in small screen format */}
       </div>
+      <div className="instructions">
+        <p>1. Evidence shows people are more productive when they work in <span className="bold">short bursts</span> with <span className="bold">frequent breaks</span>.</p>
+        <br></br>
+        <p>2. The <span className="bold">Pomodoro Technique</span> is a strategy that utilizes this theory. First, work in a sprint of <span className="bold">25 minutes</span>.</p>
+        <br></br>
+        <p>3. Next, take a <span className="bold">5 minute</span> break. Get up, take a <span classname="bold">walk</span>, refill your <span className="bold">water</span>, <span className="bold">stretch</span>, and take <span className="bold">5 deep breaths</span> in and out.</p>
+      </div>
     </div>
   );
 }
