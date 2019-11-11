@@ -76,6 +76,7 @@ const Dashboard = props => {
                     {dummyMissions.map(mission => {
                             return (
                                 <MissionCard 
+                                    key={mission.id}
                                     color={mission.color}
                                     description={mission.description}
                                     points={mission.pointValue}
