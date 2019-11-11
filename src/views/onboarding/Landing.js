@@ -14,10 +14,10 @@ const Landing = props => {
     e.preventDefault();
     props.history.push('/login');
   };
-  const routeToComponentTesting = e => {
-    e.preventDefault();
-    props.history.push('/atoms');
-  };
+  // const routeToComponentTesting = e => {
+  //   e.preventDefault();
+  //   props.history.push('/atoms');
+  // };
   return (
     <OnBoardWrapper>
       <OnBoardContainer>
