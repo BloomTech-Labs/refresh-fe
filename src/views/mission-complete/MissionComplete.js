@@ -15,22 +15,28 @@ import MissionCard from './MissionCard';
 
 const dummyMissions = [
     {
-        id: 1
+        id: 1,
+        description: 'drank a glass of water'
     },
     {
-        id: 2
+        id: 2,
+        description: 'got active'
     },
     {
-        id: 3
+        id: 3,
+        description: 'ate healthy'
     },
     {
-        id: 4
+        id: 4,
+        description: 'took a break'
     },
     {
-        id: 5
+        id: 5,
+        description: 'got some sleep'
     },
     {
-        id: 6
+        id: 6,
+        description: 'pet quality time'
     }
 ];
 
