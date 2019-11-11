@@ -20,7 +20,7 @@ const Text = ({ text, ...props }) => {
   );
 };
 
-const StyledText = styled.img.attrs(props => ({
+const StyledText = styled.p.attrs(props => ({
   fontSize: props.fontSize,
   color: props.color,
   backgroundColor: props.backgroundColor
