@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ActivityCard from './ActivityCard';
 import PercentageCard from '../profileViews/PercentageCard';
 import HeaderCard from '../profileViews/HeaderCard';
+import ContactCard from '../profileViews/ContactCard';
 import MissionsCard from '../profileViews/MissionsCard';
 import WaterCard from '../profileViews/WaterCard';
 
@@ -28,6 +29,7 @@ const Container = () => {
          <ActivityCard/>
          <PercentageCard/>
          <HeaderCard/>
+         <ContactCard/>
          <MissionsCard/>
          <WaterCard/>
       </div>
