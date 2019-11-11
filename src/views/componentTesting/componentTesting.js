@@ -8,7 +8,7 @@ import Link from "../../components/atoms/link/link";
 import Row from "../../components/atoms/row/row";
 import Card from "../../components/atoms/card/card";
 import Col from "../../components/atoms/col/col";
-// import LoadingSpinner from "../../components/atoms/spinner/spinner.js";
+import LoadingSpinner from "../../components/atoms/spinner/spinner.js";
 // import Image from "../../components/atoms/image/image";
 // import Text from "../../components/atoms/text/text";
 
@@ -64,9 +64,9 @@ const Atoms = props => {
           <p>Me three!</p>
         </Col>
       </Row>
-      {/* <Row>
+      <Row>
         <LoadingSpinner height={75} width={75} />
-      </Row> */}
+      </Row>
 
       {/* <Image src={testImage} alt={"stuff"} /> */}
       {/* <Row>

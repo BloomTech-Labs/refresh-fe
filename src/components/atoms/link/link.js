@@ -4,13 +4,7 @@ import Fonts from "../../../styles/global/fonts";
 import Colors from "../../../styles/global/colors";
 
 const Link = ({ text, linkUrl, ...props }) => {
-  const {
-    margin,
-    padding,
-    color,
-    fontSize,
-    href
-  } = props;
+  const { margin, padding, color, fontSize, href } = props;
   return (
     <BaseLink
       className="base-link"

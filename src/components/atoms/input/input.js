@@ -128,7 +128,6 @@ const BaseInput = styled.input.attrs(props => ({
   color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: text;
-  ${"" /* I prefer to work in rems. Y'all? */}
   margin: ${props => (props.margin ? `${props.margin}rem` : ".5rem")};
   padding: ${props => (props.padding ? `${props.margin}rem` : ".25rem")};
 `;
