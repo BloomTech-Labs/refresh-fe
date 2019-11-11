@@ -18,6 +18,7 @@ const App = props => {
       <Route exact path='/' component={Landing} />
       <Route path='/dashboard' component={Dashboard} />
       <Route path='/mission-complete' component={MissionComplete} />
+      <Route path='/signup' component={CreateAccount} />
     </React.Fragment>
   );
 };
