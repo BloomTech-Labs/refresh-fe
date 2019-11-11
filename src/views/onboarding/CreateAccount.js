@@ -17,13 +17,12 @@ const CreateAccount = (props) => {
         },false);
       };
 
-      
-    
       const authSuccess = userObject => {
+        localStorage.setItem('token', userObject.token);
         props.history.push('/dashboard');
-       
       };
       user && console.log('Logged in as:',user)
+
     return(
         <OnBoardWrapper>
             <OnBoardContainer>
