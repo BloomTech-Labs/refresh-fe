@@ -13,6 +13,27 @@ import MissionCard from './MissionCard';
 // this will probably change a lot after BE figures out all of the data models
 // but we can use it for now to move forward on FE -JC
 
+const dummyMissions = [
+    {
+        id: 1
+    },
+    {
+        id: 2
+    },
+    {
+        id: 3
+    },
+    {
+        id: 4
+    },
+    {
+        id: 5
+    },
+    {
+        id: 6
+    }
+];
+
 // COMPONENT
 const MissionComplete = () => {
     return (
@@ -22,12 +43,11 @@ const MissionComplete = () => {
                     <h2 className='mission-message'>What mission did you complete</h2>
 
                     <MissionsWrapper>
-                        <MissionCard />
-                        <MissionCard />
-                        <MissionCard />
-                        <MissionCard />
-                        <MissionCard />
-                        <MissionCard />
+                        {dummyMissions.map(mission => {
+                            return (
+                                <MissionCard />
+                            )
+                        })}
                     </MissionsWrapper>
             </MCContainer>
         </MCWrapper>
