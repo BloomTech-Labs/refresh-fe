@@ -12,8 +12,11 @@
 /build
 
 #SERVERS
+
 *.staging
 *.production
+
+package-lock.json
 
 # misc
 .DS_Store
