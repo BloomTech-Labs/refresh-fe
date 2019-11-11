@@ -7,6 +7,7 @@ import Landing from './views/onboarding/Landing';
 import CreateAccount from "./views/onboarding/CreateAccount";
 import MobileMenu from './views/mobile-menu/MobileMenu';
 import Dashboard from './views/dashboard/Dashboard';
+import MissionComplete from './views/mission-complete/MissionComplete';
 
 
 // COMPONENT
@@ -16,6 +17,7 @@ const App = props => {
       <MobileMenu />
       <Route exact path='/' component={Landing} />
       <Route path='/dashboard' component={Dashboard} />
+      <Route path='/mission-complete' component={MissionComplete} />
     </React.Fragment>
   );
 };
