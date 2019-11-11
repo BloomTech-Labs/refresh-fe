@@ -5,6 +5,13 @@ import React from 'react';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// components
+import MissionCard from './MissionCard';
+
+// DUMMY DATA
+// adding some dummy data so that i can work out basic props drilling
+// this will probably change a lot after BE figures out all of the data models
+// but we can use it for now to move forward on FE -JC
 
 // COMPONENT
 const MissionComplete = () => {
@@ -15,7 +22,7 @@ const MissionComplete = () => {
                     <h2 className='mission-message'>What mission did you complete</h2>
 
                     <MissionsWrapper>
-                        
+                        <MissionCard />
                     </MissionsWrapper>
             </MCContainer>
         </MCWrapper>
