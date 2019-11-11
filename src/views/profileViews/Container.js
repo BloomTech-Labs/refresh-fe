@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import ActivityCard from './ActivityCard';
 import PercentageCard from '../profileViews/PercentageCard';
-//import ActivityCard from '../profileViews/ActivityCard';
+import HeaderCard from '../profileViews/HeaderCard';
+
 
 const Rectangle = styled.div` 
 position: absolute;
@@ -24,6 +25,7 @@ const Container = () => {
          <Rectangle/>
          <ActivityCard/>
          <PercentageCard/>
+         <HeaderCard/>
       </div>
   );
     
