@@ -1,9 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
 import fblogo from '../../images/facebook-icon.png';
 import googlelogo from '../../images/flat-color-icons_google.png';
 import emailogo from '../../images/email.png';
 const CreateAccount = (props) => {
+    const [user,setUser] = useState()
+    const auth = (e) => {
+        //Open Popup and declare Size
+        window.open(
+          `https://apidevnow.com/${e.target.name}`,
+          "Sign In With Facebook ;)",
+          "width=400,height=500"
+        );
+        window.addEventListener("message", response => {
+          authSuccess(response.data); // e.data hold the message
+        },false);
+      };
+
+      const authSuccess = userObject => {
+        userObject = JSON.parse(userObject)
+        localStorage.setItem('token', userObject.token);
+        props.history.push('/dashboard');
+      };
+      user && console.log('Logged in as:',user)
+
     return(
         <OnBoardWrapper>
             <OnBoardContainer>
@@ -13,8 +33,8 @@ const CreateAccount = (props) => {
                 </FlexHolder>
                 <Header>Create <br /> Account</Header>
                 <FlexHolder>
-                <FBButton>Sign up with Facebook <img src={fblogo} /> </FBButton>
-                <Button>Sign up with Google <img src={googlelogo} /></Button>
+                <FBButton name="facebookAuth" onClick={auth}>Sign up with Facebook <img src={fblogo} /> </FBButton>
+                <Button name="googleAuth" onClick={auth}>Sign up with Google <img src={googlelogo} /></Button>
                 </FlexHolder>
                 <OnboardTxt>OR</OnboardTxt>
                 <FlexHolder>
