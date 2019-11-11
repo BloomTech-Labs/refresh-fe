@@ -20,6 +20,7 @@ const App = props => {
       <Route path='/dashboard' component={Dashboard} />
       <Route path='/mission-complete' component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />
+      <Route path='/signup' component={CreateAccount} />
     </React.Fragment>
   );
 };
