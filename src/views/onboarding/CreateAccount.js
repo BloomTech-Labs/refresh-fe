@@ -4,7 +4,7 @@ import fblogo from "../../images/facebook-icon.png";
 import googlelogo from "../../images/flat-color-icons_google.png";
 import emailogo from "../../images/email.png";
 import cubes from "../../images/two_cubes.png";
-import GoogleSignIn from "./GoogleSignInButton";
+
 const CreateAccount = (props) => {
     const routeToHome = e => {
         e.preventDefault();
@@ -30,8 +30,9 @@ const CreateAccount = (props) => {
 
       const authSuccess = userObject => {
         userObject = JSON.parse(userObject)
+        console.log('user',userObject)
         localStorage.setItem('token', userObject.token);
-        props.history.push('/dashboard');
+        props.history.push('/dashboard')
       };
 
       return (
@@ -165,6 +166,19 @@ const Cubes = styled.img`
   margin: auto;
   padding-top: 5rem;
 `;
+
+const GoogleSignIn = styled.a`
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width:100%;
+text-align:center;
+margin: auto;
+background: #6487ff;
+color: white;
+font-size:1.6rem;
+letter-spacing:0.1rem;`
 
 const Logo = styled.img``;
 
