@@ -1,7 +1,9 @@
 //Sign in Canvas
 import React from "react";
 import styled from "styled-components";
-import googlelogo from "../../images/flat-color-icons_google.png";
+import googlelogo from "../../images/google-icon.jpg";
+import Image from "../../components/atoms/image/image";
+
 
 const GoogleSignInButton = () => {
   console.log("googleCalled");
@@ -25,7 +27,7 @@ const GoogleSignInButton = () => {
     console.log(JSON.parse(userObject));
   };
 
-  return <Button onClick={auth}>Sign up with Google <img src={googlelogo} /></Button>;
+  return <Button onClick={auth}>Sign up with Google <Image src={googlelogo} alt={"google image"}  /></Button>;
 };
 
 const Button = styled.a`

@@ -10,8 +10,8 @@ const StyledImage = styled.img.attrs(props => ({
   height: props.height,
   width: props.width
 }))`
-  height: ${props => (props.height ? `${props.height}%` : "50%")};
-  width: ${props => (props.width ? `${props.width}%` : `50%`)};
+  height: ${props => (props.height ? `${props.height}%` : "100%")};
+  width: ${props => (props.width ? `${props.width}%` : `100%`)};
 `;
 
 export default Image;

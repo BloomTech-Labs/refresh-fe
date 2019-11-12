@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import fblogo from "../../images/facebook-icon.png";
-import googlelogo from "../../images/flat-color-icons_google.png";
 import emailogo from "../../images/email.png";
 import cubes from "../../images/two_cubes.png";
 import GoogleSignIn from "./GoogleSignInButton";
+import Row  from '../../components/atoms/row/row';
+import Col from '../../components/atoms/col/col';
+
 const CreateAccount = (props) => {
     const routeToHome = e => {
         e.preventDefault();
@@ -52,10 +54,15 @@ const CreateAccount = (props) => {
                 Sign up with Facebook <Logo src={fblogo} />{" "}
               </FBButton>
               <GoogleSignIn name="googleAuth" onClick={auth}>
-                Sign up with Google <Logo src={googlelogo} />
-              </GoogleSignIn>
+               
+            </GoogleSignIn>
             </FlexHolder>
-            <OnboardTxt>-------------------- OR ----------------</OnboardTxt>
+            <Row>
+            <OnboardTxt>
+            <Col>OR</Col>
+            <Col width={6}><hr/></Col>
+            </OnboardTxt>
+            </Row>
             <FlexHolder>
               <Button>
                 Sign up with Email <Logo src={emailogo} />
@@ -166,6 +173,11 @@ const Cubes = styled.img`
   padding-top: 5rem;
 `;
 
-const Logo = styled.img``;
+const Logo = styled.img`
+`;
+
+const GoogleLogo = styled(Logo)`
+border-radius:50%;
+`;
 
 export default CreateAccount;
