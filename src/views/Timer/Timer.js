@@ -5,6 +5,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
  
 function Timer ({ expiryTimestamp }) {
+
   let {
     seconds,
     minutes,
@@ -30,10 +31,14 @@ function Timer ({ expiryTimestamp }) {
 
   let percentage = 0;
 
+  let [min, setMinutes] = useState(0);
+  let [sec, setSeconds] = useState(0);
+  let [sprint, setSprint] = useState(0);
+
   // Below effect doesn't register but I feel like it might be close to what's needed so I'm gonna leave it.
   useEffect(() => {
-    percentage = minutes / 25;
-  }, [minutes])
+    percentage = setMinutes(minutes) / 25;
+  }, [])
  
   return (
     <div className="clock">
@@ -46,7 +51,7 @@ function Timer ({ expiryTimestamp }) {
           trailColor: 'white',
           textColor: 'white',
           textSize: '16px',
-          pathTransitionDuration: 0.5,
+          // pathTransitionDuration: 0.5,
         })}
       > 
         <div className="time">
