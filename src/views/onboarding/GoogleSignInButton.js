@@ -27,7 +27,7 @@ const GoogleSignInButton = () => {
     console.log(JSON.parse(userObject));
   };
 
-  return <Button onClick={auth}>Sign up with Google <Image src={googlelogo} alt={"google image"}  /></Button>;
+  return <Button onClick={auth}>Sign up with Google <Image src={googlelogo} alt={"google image"} height={2} width={2}  /></Button>;
 };
 
 const Button = styled.a`

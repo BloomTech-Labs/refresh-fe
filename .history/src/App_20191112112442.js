@@ -10,14 +10,12 @@ import Dashboard from "./views/dashboard/Dashboard";
 import MissionComplete from "./views/mission-complete/MissionComplete";
 import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
-import StepStart from "./views/onboarding/steps/StepStart";
 
 // COMPONENT
 const App = props => {
   return (
     <React.Fragment>
-      {/* <MobileMenu /> */}
-      <Route path='/firstlogin' component={StepStart} />
+      <MobileMenu />
       <Route exact path="/" component={Landing} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />

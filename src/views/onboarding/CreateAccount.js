@@ -159,6 +159,23 @@ justify-content: space-evenly;
 }
 `;
 
+// const GoogleSignIn = styled.a`
+// display: flex;
+// justify-content: space-evenly;
+//   border-radius: 0.5rem;
+//   padding: 1.5rem 0.8rem;
+//   width:100%;
+//   text-align:center;
+//   margin: 2rem auto;
+//   background: #4A639E;
+//   color: white;
+//   font-size:1.6rem;
+//   letter-spacing:0.1rem;
+// }
+// `;
+
+
+
 const ButtonNoColor = styled.a`
   margin: auto 4rem;
   font-size: 1.6rem;

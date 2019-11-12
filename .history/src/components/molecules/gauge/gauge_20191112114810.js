@@ -27,7 +27,11 @@ const Gauge = () => {
       <StyledGauge className="container rectangle37">
         {/* SVG url should be derived from state */}
         <MobileCardWater>
-          <Icon svg={step4} alt={"Step 6"} />
+
+            <WaterCard>
+              <Icon svg={step4} alt={"Step 6"} />
+            </WaterCard>
+          </Rectangle37>
         </MobileCardWater>
       </StyledGauge>
     </>
@@ -69,5 +73,6 @@ const WaterCard = styled.div`
   top: 9.52%;
   bottom: 48.98%;
 `;
+
 
 export default Gauge;

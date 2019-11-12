@@ -54,22 +54,22 @@ const MobileMenu = () => {
                         <UserInfo>
                             <h2>{dummyUser.first_name} {dummyUser.last_name}</h2>
                             <h2>{dummyUser.cohort} - {dummyUser.section_lead}</h2>
-                            <h3 className='points'><i class="fas fa-piggy-bank"></i> {dummyUser.points} Points</h3>
+                            <h3 className='points'><i className="fas fa-piggy-bank"></i> {dummyUser.points} Points</h3>
                         </UserInfo>
                     </UserHud>
 
                     <Navigation>
-                        <NavButton><Link to='/'><i class="fas fa-home"></i>Home</Link></NavButton>
-                        <NavButton><Link to='/leaderboard'><i class="fas fa-gamepad"></i>Leaderboard</Link></NavButton>
-                        <NavButton><Link to='/team'><i class="fas fa-users"></i>Team</Link></NavButton>
-                        <NavButton><Link to='/weekly-challenge'><i class="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
-                        <NavButton><Link to='/pomodoro'><i class="fas fa-stopwatch"></i>Pomodoro Clock</Link></NavButton>
-                        <NavButton><Link to='/rewards'><i class="fas fa-gem"></i>Rewards</Link></NavButton>
+                        <NavButton><Link to='/'><i className="fas fa-home"></i>Home</Link></NavButton>
+                        <NavButton><Link to='/leaderboard'><i className="fas fa-gamepad"></i>Leaderboard</Link></NavButton>
+                        <NavButton><Link to='/team'><i className="fas fa-users"></i>Team</Link></NavButton>
+                        <NavButton><Link to='/weekly-challenge'><i className="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
+                        <NavButton><Link to='/pomodoro'><i className="fas fa-stopwatch"></i>Pomodoro Clock</Link></NavButton>
+                        <NavButton><Link to='/rewards'><i className="fas fa-gem"></i>Rewards</Link></NavButton>
                     </Navigation>
                     </Column>
                 </Drawer>
             </DrawerContainer>
-            <PlaceholderButton onClick={menuToggle}><i class="fas fa-bars"></i></PlaceholderButton>
+            <PlaceholderButton onClick={menuToggle}><i className="fas fa-bars"></i></PlaceholderButton>
         </Wrapper>
     );
 
@@ -125,7 +125,6 @@ const PlaceholderButton = styled.button`
 `
 
 const DrawerContainer = styled.div`
-    width: 70vw;
     height: 90vh;
     position: fixed;
     z-index: -3;
