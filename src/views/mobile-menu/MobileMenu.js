@@ -135,7 +135,7 @@ const DrawerContainer = styled.div`
         position: fixed;
         right: 100vw;
         background-color: rgb(100,135,255, 0.95);
-        transition: 0.5s ease-in-out;
+        transition: 0.3s ease-in-out;
     }
 
         .open {
@@ -144,7 +144,7 @@ const DrawerContainer = styled.div`
             position: fixed;
             right: 10vw;
             background-color: rgb(100,135,255, 0.95);
-            transition: 0.5s ease-in-out;
+            transition: 0.3s ease-in-out;
         }
 `
 
