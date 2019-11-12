@@ -51,21 +51,22 @@ const dummyMissions = [
 const MissionComplete = () => {
     // state hooks
     const [drawer, setDrawer] = useState({
-        status: 'open'
+        status: 'open',
+        darken: 'active'
     })
 
     // handlers
     const handleDrawerClose = e => {
         drawer.status === 'closed' ?
-        setDrawer({ ...drawer, status: 'open' }) :
-        setDrawer({ ...drawer, status: 'closed' });
+        setDrawer({ ...drawer, status: 'open', darken: 'active' }) :
+        setDrawer({ ...drawer, status: 'closed', darken: 'inactive' });
         console.log('checking drawer state:', drawer);
     };
 
     // render
     return (
         <MCView>
-            <Darken />
+            <Darken className={drawer.darken} />
         <MCWrapper>
             <MCContainer>
                     <h2 className='mission-message'>What mission did you complete?</h2>
@@ -145,11 +146,21 @@ const ContinueButton = styled.button`
 `
 
 const Darken = styled.div`
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    bottom: 10rem;
-    background-color: rgba(0, 0, 0, 0.5);
+    &.active {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        bottom: 10rem;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &.inactive {
+        width: 0;
+        height: 0;
+        position: fixed;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0);
+    }
 `
 
 
