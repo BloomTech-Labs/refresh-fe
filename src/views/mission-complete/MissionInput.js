@@ -9,14 +9,19 @@ import { test, flex } from '../../styles/global/Mixins';
 // COMPONENT
 const MissionInput = () => {
     return (
-        <div>
-            hi from mission input
-        </div>
+        <React.Fragment>
+            <Darken />
+        </React.Fragment>
     );
 };
 
 // STYLED COMPONENTS
-// todo
+const Darken = styled.div`
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+`
 
 // EXPORT
 export default MissionInput;
