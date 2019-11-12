@@ -9,7 +9,7 @@ import { test, flex } from '../../styles/global/Mixins';
 // COMPONENT
 const MissionInput = props => {
     // props
-    const { handleClose } = props;
+    const { handleClose, status } = props;
     // state hooks
 
 

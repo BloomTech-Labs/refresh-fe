@@ -86,6 +86,7 @@ const MissionComplete = () => {
             </MCContainer>
             <MissionInput 
                 handleClose={handleDrawerClose}
+                status={drawer.status}
             />
 
         </MCWrapper>
