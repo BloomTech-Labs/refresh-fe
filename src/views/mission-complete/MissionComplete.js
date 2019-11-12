@@ -83,7 +83,9 @@ const MissionComplete = () => {
 
                     <ContinueButton>Continue</ContinueButton>
             </MCContainer>
-            <MissionInput />
+            <MissionInput 
+                handleClose={handleDrawerClose}
+            />
 
         </MCWrapper>
         </MCView>
