@@ -4,7 +4,7 @@ import fblogo from "../../images/facebook-icon.png";
 import googlelogo from "../../images/flat-color-icons_google.png";
 import emailogo from "../../images/email.png";
 import cubes from "../../images/two_cubes.png";
-import GoogleSignIn from "./GoogleSignInButton";
+
 const CreateAccount = (props) => {
     const routeToHome = e => {
         e.preventDefault();
@@ -151,6 +151,23 @@ justify-content: space-evenly;
   letter-spacing:0.1rem;
 }
 `;
+
+const GoogleSignIn = styled.a`
+display: flex;
+justify-content: space-evenly;
+  border-radius: 0.5rem;
+  padding: 1.5rem 0.8rem;
+  width:100%;
+  text-align:center;
+  margin: 2rem auto;
+  background: #4A639E;
+  color: white;
+  font-size:1.6rem;
+  letter-spacing:0.1rem;
+}
+`;
+
+
 
 const ButtonNoColor = styled.a`
   margin: auto 4rem;
