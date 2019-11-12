@@ -14,12 +14,6 @@ export const Step1 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-              <input
-                type="number"
-                name="weight"
-                placeholder="Enter your weight here"
-                onChange={profile.handleChanges}
-              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -45,12 +39,6 @@ export const Step2 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-              <input
-                type="number"
-                name="height"
-                placeholder="Enter your height here"
-                onChange={profile.handleChanges}
-              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -272,12 +260,6 @@ export const Step10 = profile => {
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
-const OnBoardWrapper = styled.div`
-  background-color: #3a3699;
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-`;
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -287,7 +269,9 @@ const OnBoardContainer = styled.div`
   line-height: 1.5;
   background-color: #3a3699;
   color: #7f7cca;
+  width: 100vw;
   height: 100vh;
+  max-height: 100vh;
   padding: 2.5rem 4rem;
 `;
 const Question = styled.h1`
@@ -300,17 +284,12 @@ const Question = styled.h1`
 `;
 
 const LongQuestion = styled.h1`
-font-weight: bold;
-font-size: 5rem;
-line-height: 82px;
-letter-spacing: 3.5px;
 font-weight: 600;
 font-size: 2.5rem;
 line-height: 4.1rem;
 letter-spacing: 0.035em;
-color: #FFFFFF;
-margin-top: 140px;
-margin: 10rem 0 2rem;`
+color: #ffffff;
+margin: 6rem 0 2rem;`
 
 
 const OnboardTxt = styled.p`
@@ -322,13 +301,15 @@ color: #A7A4E6;
 margin: 0 auto;
 `;
 
-const Option = styled.p`
+const Option = styled.a`
 font-size: 1.6rem;
 line-height:26px;
 letter-spacing: 2px;
 color: #FFFFFF;
 &:hover {
     background: #28C96C;
+    padding: 0 1rem;
+    border-radius: 0.3rem;
   }
 `
 
@@ -354,8 +335,8 @@ const ButtonNoColor = styled.a`
 const FlexHolder = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: auto;
+  margin: 5rem auto;
   align-items: flex-start;
   width: 100%;
-  padding: 2.5rem 4rem;
+  padding: 2.5rem 0 9rem;
 `;
