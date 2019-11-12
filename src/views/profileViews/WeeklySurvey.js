@@ -60,9 +60,8 @@ color: #CCC9FF;
 const WeeklySurvey = () => {
   
   return (
-    <div>
+   <div>
      <Rectangle48/>
-    
        <Survey>survey of the week</Survey>
        <SurveyComplete>0% complete</SurveyComplete>
 

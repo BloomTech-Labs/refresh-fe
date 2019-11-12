@@ -15,7 +15,6 @@ width: 375px;
 height: 822px;
 
 background: #3A3699;
-
 ` 
 
 
@@ -33,10 +32,8 @@ const Container = () => {
          <WaterCard/>
          <Badges/>
          <YourReminders/>
-
       </div>
   );
-    
 }
 
 export default Container;
