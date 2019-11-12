@@ -1,4 +1,4 @@
-// IMPORTS
+/* IMPORTS
 // react
 import React from 'react';
 // styled components
@@ -125,4 +125,4 @@ const ContinueButton = styled.button`
 
 
 // EXPORT
-export default MissionComplete;
+export default MissionComplete; */

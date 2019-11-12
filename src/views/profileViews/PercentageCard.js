@@ -1,130 +1,131 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Rectangle15 = styled.div`
+const Rectangle50 = styled.div`
 position: absolute;
-width: 153px;
-height: 210px;
-left: 226px;
-top: 263px;
+width: 134px;
+height: 207px;
+left: 221px;
+top: 233px;
 
-/* #EAEAEA - Background Grey */
+/* primary / disabled */
 
-background: #EAEAEA;
-border-radius: 3px;
+background: #CCC9FF;
+/* mobile / dashboard dropshadow */
+
+box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+border-radius: 2px;
 ` 
 
 const ProfileText = styled.h5`
 position: absolute;
-width: 52px;
-height: 20px;
-left: 281px;
-top: 260px;
+width: 46px;
+height: 9px;
+left: 265px;
+top: 232px;
 
-/* h5/Regular 18px */
-
-font-family: 'Roboto', sans-serif;
+font-family: 'Catamaran', sans-serif;
 font-style: normal;
 font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-display: flex;
-align-items: center;
+font-size: 16px;
+line-height: 44%;
+/* or 7px */
 
-/* #959595 - Mid Grey 2 */
+letter-spacing: 0.02em;
 
-color: #959595;
+/* primary / purple */
+
+color: #6762E3;
+
 `
+
 const PercentageText = styled.h1`
 position: absolute;
-width: 72px;
-height: 45px;
-left: 274px;
-top: 300px;
+width: 35px;
+height: 15px;
+left: 270px;
+top: 320px;
 
-/* h1/Bold 38px */
-
-font-family: 'Roboto', sans-serif;
+font-family: 'Catamaran', sans-serif;
 font-style: normal;
-font-weight: bold;
-font-size: 38px;
-line-height: 45px;
-/* identical to box height */
+font-weight: 500;
+font-size: 35px;
+line-height: 44%;
+/* or 15px */
 
-display: flex;
-align-items: center;
-text-align: center;
+letter-spacing: 0.02em;
 
-/* #959595 - Mid Grey 2 */
+/* primary / purple */
 
-color: #959595;
+color: #6762E3;
 `
 
 const CompleteText=styled.h1`
 position: absolute;
-width: 83px;
-height: 18px;
-left: 264px;
+width: 66px;
+height: 6px;
+left: 255px;
 top: 375px;
 
-/* Text/Bold 16px */
-
-font-family: 'Roboto', sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 16px;
-line-height: 19px;
-display: flex;
-align-items: center;
-text-align: center;
-
-/* #959595 - Mid Grey 2 */
-
-color: #959595;
-`
-const Rectangle20 = styled.div`
-position: absolute;
-width: 153px;
-height: 33px;
-left: 226px;
-top: 440px;
-
-/* #D4D4D4 - Light Grey */
-
-background: #D4D4D4;
-border-radius: 3px;
-`
-const MetricsLeft = styled.text`
-position: absolute;
-width: 83px;
-height: 13px;
-left: 236px;
-top: 450px;
-
-/* Text/Regular 14px */
-
-font-family: Roboto;
+font-family: 'Catamaran', sans-serif;
 font-style: normal;
 font-weight: normal;
-font-size: 14px;
-line-height: 16px;
-display: flex;
-align-items: center;
+font-size: 13px;
+line-height: 44%;
+/* identical to box height, or 6px */
 
-/* #959595 - Mid Grey 2 */
+letter-spacing: 0.02em;
 
-color: #959595;
+/* primary / purple */
+
+color: #6762E3;
+
+`
+const Rectangle58 = styled.div`
+position: absolute;
+width: 134px;
+height: 34px;
+left: 221px;
+top: 406px;
+
+/* primary / purple */
+
+background: #6762E3;
+/* mobile / dashboard dropshadow */
+
+box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+border-radius: 0px 0px 2px 2px;
+`
+const FinishNowText = styled.text`
+position: absolute;
+width: 57px;
+height: 7px;
+left: 236px;
+top: 419px;
+
+font-family: 'Catamaran', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 44%;
+/* or 5px */
+
+letter-spacing: 0.02em;
+
+/* primary / disabled */
+
+color: #CCC9FF;
 `
 const PercentageCard = (props) => {
   
   return (
       <div>
-        <Rectangle15/>
+        <Rectangle50/>
         <ProfileText>Profile</ProfileText>
         <PercentageText>75%</PercentageText>
-        <CompleteText>COMPLETE</CompleteText>
-        <Rectangle20/>
-        <MetricsLeft>2 metrics left</MetricsLeft>
+        <CompleteText>completion</CompleteText>
+        <Rectangle58/>
+        <FinishNowText>finish now</FinishNowText>
       </div>
 
 );

@@ -4,36 +4,36 @@ import ActivityCard from './ActivityCard';
 import PercentageCard from '../profileViews/PercentageCard';
 import HeaderCard from '../profileViews/HeaderCard';
 import ContactCard from '../profileViews/ContactCard';
-import MissionsCard from '../profileViews/MissionsCard';
+import WeeklySurvey from '../profileViews/WeeklySurvey';
 import WaterCard from '../profileViews/WaterCard';
+import Badges from '../profileViews/Badges';
+import YourReminders from '../profileViews/YourReminders';
 
+const ProfileContainer = styled.div` 
+position: relative;
+width: 375px;
+height: 822px;
 
-const Rectangle = styled.div` 
-position: absolute;
-left: 28.69px;
-right: 29.02px;
-top: 26px;
-bottom: 26px;
-width: 375.29px;
-height: 812px;
+background: #3A3699;
 
-background: #c4c4c4;
-opacity: 0.5;
-border-radius: 30px;
 ` 
+
 
 
 const Container = () => {
   
     return (
       <div>
-         <Rectangle/>
+         <ProfileContainer/>
          <ActivityCard/>
          <PercentageCard/>
          <HeaderCard/>
          <ContactCard/>
-         <MissionsCard/>
+         <WeeklySurvey/>
          <WaterCard/>
+         <Badges/>
+         <YourReminders/>
+
       </div>
   );
     

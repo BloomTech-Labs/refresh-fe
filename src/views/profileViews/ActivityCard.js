@@ -2,72 +2,84 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Rectangle16 = styled.div`
-position: relative;
-width: 171px;
-height: 234px;
-left: 220px;
-top: 511px;
+const Rectangle68 = styled.div`
+position: absolute;
+width: 158px;
+height: 160px;
+left: 200px;
+top: 453px;
 
-/* #EAEAEA - Background Grey */
+/* primary / purple */
 
-background: #EAEAEA;
-border-radius: 3px;
+background: #6762E3;
+border-radius: 2px;
 ` 
 
-const ActivityText = styled.h4`
+const YourActivity = styled.h4`
 position: absolute;
-width: 69px;
-height: 33px;
-left: 281px;
-top: 536px;
+width: 158px;
+height: 47px;
+left: 200px;
+top: 470px;
 
-/* h4/Regular 20px */
-
-font-family: 'Roboto', sans-serif;
+font-family: 'Catamaran', sans-serif;
 font-style: normal;
 font-weight: normal;
-font-size: 20px;
-line-height: 23px;
-display: flex;
-align-items: center;
+font-size: 15px;
+line-height: 25px;
+text-align: center;
+letter-spacing: 0.035em;
 
-/* #959595 - Mid Grey 2 */
+/* primary / white */
 
-color: #959595;
+color: #FFFFFF;
 `
 
-const ThisWeekText = styled.h4`
+const ThisWeek = styled.h4`
 position: absolute;
-width: 100px;
-height: 33px;
-left: 260px;
-top: 680px;
+width: 158px;
+height: 13px;
+left: 200px;
+top: 494px;
 
-/* h4/Regular 20px */
-
-font-family: 'Roboto', sans-serif;
+font-family: 'Catamaran', sans-serif;
 font-style: normal;
 font-weight: normal;
-font-size: 20px;
-line-height: 23px;
-display: flex;
-align-items: center;
+font-size: 10px;
+line-height: 16px;
+text-align: center;
+letter-spacing: 0.035em;
 
+/* primary / disabled */
 
-/* #959595 - Mid Grey 2 */
-
-color: #959595;
+color: #CCC9FF;
 `
+const VectorPlaceholder = styled.div`
+position: absolute;
+width: 158px;
+height: 76px;
+left: 200px;
+top: 537px;
 
+background: #3A3699;
+border: 0.5px solid #6762E3;
+box-sizing: border-box;
+border-radius: 3px;
+border: 1px solid darkblue;
+font-family: 'Catamaran', sans-serif;
+font-size: 14px;
+color: white;
+
+` 
 //This Component helps the user track their weekly activity
 const ActivityCard = () => {
   
     return (
      <div>
-        <Rectangle16/>
-        <ActivityText>Activity</ActivityText>
-        <ThisWeekText>This Week</ThisWeekText>  
+        <Rectangle68/>
+        <YourActivity>your activity</YourActivity>
+        <ThisWeek>this week</ThisWeek>  
+        <VectorPlaceholder>vector placeholder</VectorPlaceholder>
      </div>  
        
   );

@@ -1,23 +1,27 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-// components
+
+/*import { Route } from 'react-router-dom';
+components
 import Landing from './views/onboarding/Landing';
 import CreateAccount from "./views/onboarding/CreateAccount";
 import MobileMenu from './views/mobile-menu/MobileMenu';
 import Dashboard from './views/dashboard/Dashboard';
 import MissionComplete from './views/mission-complete/MissionComplete';
-import Gauge from './components/molecules/gauge/gauge';
+import Gauge from './components/molecules/gauge/gauge'; */
+import Container from './views/profileViews/Container'; 
 
 const App = () => {
-  return(  
-     
-       <Container/>
-    
+  return (
+    <div>
+      <Container/>,
+    </div>
   )
-};
+}
+
+export default App;
   
 
-// COMPONENT
+/*COMPONENT
 const App = props => {
   return (
     <React.Fragment>
@@ -27,11 +31,13 @@ const App = props => {
       <Route path='/mission-complete' component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />
       <Route path='/signup' component={CreateAccount} />
+      <Container/>
     </React.Fragment>
   );
 };
 
 // STYLED COMPONENTS
-// todo
+// todo  
 
 export default App;
+*/

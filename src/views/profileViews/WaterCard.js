@@ -2,112 +2,136 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Rectangle14 = styled.div`
+const Rectangle49 = styled.div`
 position: absolute;
-width: 147px;
-height: 204px;
-left: 58px;
-top: 467px;
+width: 153px;
+height: 190px;
+left: 30px;
+top: 464px;
 
-/* #EAEAEA - Background Grey */
+/* water / background blue */
 
-background: #EAEAEA;
-border-radius: 3px;
+background: #CEE2FF;
+/* mobile / dashboard dropshadow */
 
+box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+border-radius: 2px;
 `
-const WaterFont = styled.div`
+const HydrationStation = styled.div`
 position: absolute;
-width: 120px;
+width: 99px;
 height: 20px;
-left: 76px;
-top: 492px;
+left: 45px;
+top: 491px;
 
-/* h5/Regular 18px */
-
-font-family: 'Roboto', sans-serif;
+font-family: Catamaran;
 font-style: normal;
 font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-display: flex;
-align-items: center;
+font-size: 15px;
+line-height: 93.19%;
+/* or 14px */
 
-/* #959595 - Mid Grey 2 */
+letter-spacing: 0.02em;
 
-color: #959595;
+/* water / text blue */
+
+color: #6091D6;
+
 `
-const CupsText=styled.h5`
+const SixCups = styled.h5`
 position: absolute;
-width: 106px;
-height: 22px;
-left: 79px;
-top: 565px;
+width: 26px;
+height: 48px;
+left: 72px;
+top: 496px;
 
-/* h5/Medium 18px */
-
-font-family: 'Roboto', sans-serif;
+font-family: 'Catamaran', sans-serif;
 font-style: normal;
 font-weight: 500;
-font-size: 18px;
-line-height: 21px;
-display: flex;
-align-items: center;
+font-size: 45px;
+line-height: 120%;
+/* or 54px */
 
-/* #959595 - Mid Grey 2 */
+letter-spacing: 0.02em;
 
-color: #959595;
+/* water / primary */
+
+color: #1575FF;
+
 `
-const Of8Text =styled.h6`
+const OfWaterText =styled.h6`
 position: absolute;
-width: 50px;
-height: 16px;
-left: 105px;
-top: 600px;
+width: 43px;
+height: 22px;
+left: 98px;
+top: 555px;
 
-/* Text/Regular 14px */
+font-family: 'Catamaran', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 86%;
+/* or 11px */
 
-font-family: 'Roboto', sans-serif;;
+letter-spacing: 0.02em;
+
+/* water / text blue */
+
+color: #6091D6;
+
+`
+
+const WaterBottle = styled.img`
+position: absolute;
+left: 25.6%;
+right: 68.71%;
+top: 63.68%;
+bottom: 29.68%;
+
+background: #84DBFF;
+
+border: 1px solid red;
+` 
+const Of8Text = styled.text`
+position: absolute;
+width: 22px;
+height: 9px;
+left: 96px;
+top: 626px;
+
+font-family: Catamaran;
 font-style: normal;
 font-weight: normal;
-font-size: 14px;
-line-height: 16px;
-display: flex;
-align-items: center;
+font-size: 13px;
+line-height: 86%;
+/* or 11px */
 
-/* #959595 - Mid Grey 2 */
+letter-spacing: 0.02em;
 
-color: #959595;
+/* water / text blue */
+
+color: #6091D6;
+opacity: 0.5;
+
 `
-
-const Waterglass = styled.img`
-position: absolute;
-width: 62px;
-height: 58px;
-left: 101px;
-top: 528px;
-border: 1px solid red;
-
-` 
 //This component tracks user water intake
 
 const WaterCard = (props) => {
-
-
-
  
   return (
     <div onClick={() => {alert('DUMMY CLICK CONFIRMED')}}>  
-    <Rectangle14/>
-      <WaterFont>
-        Water Tracker
-      </WaterFont>
-      <CupsText>
-        6 cups so far
-      </CupsText>
-      <Of8Text>
-        out of 8
-      </Of8Text>
-      <Waterglass/>
+    <Rectangle49/>
+      <HydrationStation>
+        hydration station
+      </HydrationStation>
+      <SixCups>
+        6 
+      </SixCups>
+      <OfWaterText>
+       cups of water
+      </OfWaterText>
+      <Of8Text>of 8</Of8Text>
+      <WaterBottle/>
     </div>
       
     

@@ -3,24 +3,25 @@ import styled from 'styled-components';
 
 const YourProfile = styled.h2`
 position: absolute;
-width: 231px;
-height: 149px;
-left: 51px;
-top: 51px;
+width: 240px;
+height: 56px;
+left: 30px;
+top: 136px;
 
-/* h2/Regular 30px */
 
-font-family:'Roboto', sans-serif;
+font-family: 'Catamaran', sans-serif;
 font-style: normal;
-font-weight: normal;
-font-size: 30px;
-line-height: 35px;
-display: flex;
-align-items: center;
+font-weight: bold;
+font-size: 35px;
+line-height: 44%;
+/* or 15px */
 
-/* #959595 - Mid Grey 2 */
+letter-spacing: 3.5px;
 
-color: #959595;
+/* primary / white */
+
+color: #FFFFFF;
+
 `
 
 const HeaderCard = () => {
@@ -29,9 +30,7 @@ const HeaderCard = () => {
 
       <div>
         <YourProfile>Your Profile</YourProfile>
-      </div>
-
-      
+      </div>   
          
   );
     
