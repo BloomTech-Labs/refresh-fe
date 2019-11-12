@@ -33,6 +33,8 @@ function Timer ({ expiryTimestamp }) {
   return (
     <div className="clock">
       <h1>Pomodoro Clock</h1>
+      <div className="timer">
+      <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
           pathColor: `#6487FF, ${percentage}`,
@@ -46,6 +48,8 @@ function Timer ({ expiryTimestamp }) {
           <span>{minutes}</span>:<span>{seconds}</span>
         </div>
       </CircularProgressbar>
+      </>
+      </div>
       <div className="buttons">
         <button onClick={() => {
           // Restarts to 25 minutes timer
@@ -59,8 +63,8 @@ function Timer ({ expiryTimestamp }) {
           t.setSeconds(t.getSeconds() + 300);
           restart(t)
         }}>Start Break</button>
-        <button onClick={pause}>Pause</button>
-        <button onClick={resume}>Resume</button>
+        <i className="far fa-play-circle" onClick={resume}></i>
+        <i className="far fa-pause-circle" onClick={pause}></i>
         {/* Last button needs a mobile rule but not sure what -- looks wrong when I inspect in small screen format */}
       </div>
       <div className="instructions">

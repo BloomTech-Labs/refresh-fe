@@ -63,13 +63,15 @@ p {
     font-weight: 600;
 }
 
-/* .CircularProgressbar {
-   
+.timer {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-text.CircularProgressbar-text {
-    fill: white;
-} */
+i {
+    color: #6487FF;
+    font-size: 50px;
+}
 
 @media screen and (max-width:500px) {
     .buttons {
