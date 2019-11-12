@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
  
 function Timer ({ expiryTimestamp }) {
   let {
@@ -21,6 +23,10 @@ function Timer ({ expiryTimestamp }) {
   if (seconds === 2) seconds = '02';
   if (seconds === 1) seconds = '01';
   if (seconds === 0) seconds = '00';
+
+  if (seconds === '00') {
+    // state logic to set sprints 1-4 goes here
+  }
  
   return (
     <div className="clock">
