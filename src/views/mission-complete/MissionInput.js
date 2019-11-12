@@ -7,12 +7,18 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
-const MissionInput = () => {
+const MissionInput = props => {
+    // props
+    const { handleClose } = props;
+    // state hooks
+
+
+    //render
     return (
         <React.Fragment>
             <InputDrawer>
                 <DrawerAccent />
-                <CloseButton>X</CloseButton>
+                <CloseButton onClick={handleClose}>X</CloseButton>
                 <InputMessage>
                     <i class="fas fa-tint"></i>
                     <p>This is some placeholder text</p>

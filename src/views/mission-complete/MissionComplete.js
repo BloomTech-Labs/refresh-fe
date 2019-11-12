@@ -56,9 +56,10 @@ const MissionComplete = () => {
 
     // handlers
     const handleDrawerClose = e => {
-        drawer === 'closed' ?
+        drawer.status === 'closed' ?
         setDrawer({ ...drawer, status: 'open' }) :
-        setDrawer({ ...drawer, status: 'closed' })
+        setDrawer({ ...drawer, status: 'closed' });
+        console.log('checking drawer state:', drawer);
     };
 
     // render
