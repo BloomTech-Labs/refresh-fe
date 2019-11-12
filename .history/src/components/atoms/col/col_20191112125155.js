@@ -85,7 +85,7 @@ const StyledCol = styled.div.attrs(props => ({
   width: props.width,
   href: props.href,
   display: props.display,
-  // flexFlow: props.flexFlow,
+  flexFlow: props.flexFlow,
   textAlign: props.textAlign
 }))`
   height: ${props => (props.height ? `${props.height}rem` : "100%")};
@@ -111,7 +111,7 @@ const StyledCol = styled.div.attrs(props => ({
   margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
   padding: ${props => (props.padding ? `${props.margin}rem` : "1rem")};
   display: flex;
-  /* flex-flow: row wrap; */
+  flex-flow: row wrap;
   flex-wrap: nowrap;
   justify-content: ${props =>
     props.justifyContent ? props.justifyContent : "space-around"};
