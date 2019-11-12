@@ -70,8 +70,8 @@ const MissionComplete = () => {
 
                     <ContinueButton>Continue</ContinueButton>
             </MCContainer>
-
             <MissionInput />
+
         </MCWrapper>
         </MCView>
     );

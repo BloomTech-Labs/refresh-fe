@@ -10,13 +10,23 @@ import { test, flex } from '../../styles/global/Mixins';
 const MissionInput = () => {
     return (
         <React.Fragment>
-            hi hi hi
+            <InputDrawer>
+
+            </InputDrawer>
         </React.Fragment>
     );
 };
 
 // STYLED COMPONENTS
-
+const InputDrawer = styled.div`
+    width: 100vw;
+    height: 40vh;
+    margin: 0 auto;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    background-color: #6762E3;
+`
 
 // EXPORT
 export default MissionInput;
