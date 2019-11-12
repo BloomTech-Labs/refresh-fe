@@ -16,7 +16,7 @@ const MissionInput = props => {
     //render
     return (
         <React.Fragment>
-            <InputDrawer>
+            <InputDrawer className={status}>
                 <DrawerAccent />
                 <CloseButton onClick={handleClose}>X</CloseButton>
                 <InputMessage>
@@ -32,17 +32,35 @@ const MissionInput = props => {
 
 // STYLED COMPONENTS
 const InputDrawer = styled.div`
-    width: 100vw;
-    height: 40vh;
-    margin: 0 auto;
-    border-radius: 5px;
-    position: fixed;
-    bottom: 0;
-    background-color: #6762E3;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+    &.open {
+        width: 100vw;
+        height: 40vh;
+        margin: 0 auto;
+        border-radius: 5px;
+        position: fixed;
+        bottom: 0;
+        background-color: #6762E3;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        transition: 1s;
+    }
+
+    &.closed {
+        width: 100vw;
+        height: 40vh;
+        margin: 0 auto;
+        border-radius: 5px;
+        position: fixed;
+        bottom: -50vh;
+        background-color: #6762E3;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        transition: 1s;
+    }
 
         button {
             align-self: flex-end;
