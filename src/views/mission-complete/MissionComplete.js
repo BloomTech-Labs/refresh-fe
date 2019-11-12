@@ -51,6 +51,7 @@ const dummyMissions = [
 const MissionComplete = () => {
     return (
         <MCView>
+            <Darken />
         <MCWrapper>
             <MCContainer>
                     <h2 className='mission-message'>What mission did you complete?</h2>
@@ -124,6 +125,14 @@ const ContinueButton = styled.button`
     color: #FFF;
     font-weight: normal;
     letter-spacing: 0.15rem;
+`
+
+const Darken = styled.div`
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    bottom: 10rem;
+    background-color: rgba(0, 0, 0, 0.5);
 `
 
 
