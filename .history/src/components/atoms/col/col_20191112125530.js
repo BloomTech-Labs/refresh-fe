@@ -89,7 +89,7 @@ const StyledCol = styled.div.attrs(props => ({
   textAlign: props.textAlign
 }))`
   height: ${props => (props.height ? `${props.height}%` : "100%")};
-  width: ${props => (props.width ? `${props.width}%` : `100%`)};
+  width: ${props => (props.width ? `${props.width}rem` : `94vw`)};
   border: ${props => (props.border ? props.border : "none")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
