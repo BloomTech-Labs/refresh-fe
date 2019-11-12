@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import step1 from "../../../images/gauge/gaugeSteps/step1.svg";
+
 const Gauge = () => {
   const [percentComplete, setPercentComplete] = useState(0);
   const [completeOne, setCompleteOne] = useState(0.125);
@@ -18,7 +20,7 @@ const Gauge = () => {
   );
 };
 
-const StyledGauge = styled.div`
+const StyledGauge = styled.div.attrs(props => ({}))`
   .container {
     position: absolute;
     left: 0%;
