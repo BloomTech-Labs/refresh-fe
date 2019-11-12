@@ -150,7 +150,7 @@ const DrawerContainer = styled.div`
 `
 
 const Drawer = styled.div`
-    positon: relative;
+    position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
