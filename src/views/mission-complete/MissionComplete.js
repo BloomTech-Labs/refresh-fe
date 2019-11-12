@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useState } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -49,6 +49,19 @@ const dummyMissions = [
 
 // COMPONENT
 const MissionComplete = () => {
+    // state hooks
+    const [drawer, setDrawer] = useState({
+        status: 'open'
+    })
+
+    // handlers
+    const handleDrawerClose = e => {
+        drawer === 'closed' ?
+        setDrawer({ ...drawer, status: 'open' }) :
+        setDrawer({ ...drawer, status: 'closed' })
+    };
+
+    // render
     return (
         <MCView>
             <Darken />
