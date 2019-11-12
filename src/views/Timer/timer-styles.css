@@ -23,12 +23,6 @@ h1 {
     flex-direction: column;
 }
 
-.time {
-    font-size: 100px;
-    color: white;
-    justify-content: center;
-}
-
 .buttons {
     margin-top: 40px;
     display: flex;
@@ -68,6 +62,14 @@ p {
 .bold {
     font-weight: 600;
 }
+
+/* .CircularProgressbar {
+   
+}
+
+text.CircularProgressbar-text {
+    fill: white;
+} */
 
 @media screen and (max-width:500px) {
     .buttons {

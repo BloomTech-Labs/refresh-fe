@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
  
 function Timer ({ expiryTimestamp }) {
@@ -33,7 +33,15 @@ function Timer ({ expiryTimestamp }) {
   return (
     <div className="clock">
       <h1>Pomodoro Clock</h1>
-      <CircularProgressbar value={percentage} text={`${minutes}:${seconds}`}> 
+      <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
+        styles={buildStyles({
+          pathColor: `#6487FF, ${percentage}`,
+          trailColor: 'white',
+          textColor: 'white',
+          textSize: '16px',
+          pathTransitionDuration: 0.5,
+        })}
+      > 
         <div className="time">
           <span>{minutes}</span>:<span>{seconds}</span>
         </div>
