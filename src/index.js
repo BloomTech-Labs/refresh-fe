@@ -10,7 +10,6 @@ import GlobalStyle from "./styles/global/GlobalStyle";
 // components
 import App from './App';
 import CreateAccount from './views/onboarding/CreateAccount';
-import Atoms from './views/componentTesting/componentTesting';
 
 // RENDER
 ReactDOM.render(

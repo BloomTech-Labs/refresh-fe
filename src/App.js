@@ -8,7 +8,7 @@ import CreateAccount from "./views/onboarding/CreateAccount";
 import MobileMenu from './views/mobile-menu/MobileMenu';
 import Dashboard from './views/dashboard/Dashboard';
 import MissionComplete from './views/mission-complete/MissionComplete';
-import StepOne from './views/onboarding/steps/InfoIntro'
+import Gauge from './components/molecules/gauge/gauge';
 
 
 // COMPONENT
@@ -19,6 +19,7 @@ const App = props => {
       <Route exact path='/' component={Landing} />
       <Route path='/dashboard' component={Dashboard} />
       <Route path='/mission-complete' component={MissionComplete} />
+      <Route path="/gauge" component={Gauge} />
       <Route path='/signup' component={CreateAccount} />
       <Route path='profile-info' component={StepOne} />
     </React.Fragment>
