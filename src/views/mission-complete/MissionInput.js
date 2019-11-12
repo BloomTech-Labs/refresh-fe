@@ -44,7 +44,7 @@ const InputDrawer = styled.div`
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        transition: 1s;
+        transition: 0.5s;
     }
 
     &.closed {
@@ -59,7 +59,7 @@ const InputDrawer = styled.div`
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        transition: 1s;
+        transition: 0.5s;
     }
 
         button {

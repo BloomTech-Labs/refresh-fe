@@ -146,6 +146,9 @@ const ContinueButton = styled.button`
 `
 
 const Darken = styled.div`
+    transition-property: all;
+    transition: 0.5s;
+
     &.active {
         width: 100%;
         height: 100vh;
@@ -153,12 +156,12 @@ const Darken = styled.div`
         bottom: 10rem;
         background-color: rgba(0, 0, 0, 0.5);
     }
-
+    
     &.inactive {
-        width: 0;
-        height: 0;
+        width: 100%;
+        height: 0vh;
         position: fixed;
-        bottom: 0;
+        bottom: 10rem;
         background-color: rgba(0, 0, 0, 0);
     }
 `
