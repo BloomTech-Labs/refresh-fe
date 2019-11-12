@@ -27,6 +27,9 @@ function Timer ({ expiryTimestamp }) {
   if (seconds === '00') {
     // state logic to set sprints 1-4 goes here
   }
+
+  const percentage = 0;
+
  
   return (
     <div className="clock">
