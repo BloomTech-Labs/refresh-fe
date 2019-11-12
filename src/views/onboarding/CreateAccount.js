@@ -4,68 +4,68 @@ import fblogo from "../../images/facebook-icon.png";
 import googlelogo from "../../images/flat-color-icons_google.png";
 import emailogo from "../../images/email.png";
 import cubes from "../../images/two_cubes.png";
-import GoogleSignIn from "./GoogleSignInButton"
+import GoogleSignIn from "./GoogleSignInButton";
+const CreateAccount = (props) => {
+    const routeToHome = e => {
+        e.preventDefault();
+        props.history.push("/");
+      };
+    
+      const routeToLogin = e => {
+        e.preventDefault();
+        props.history.push("/login");
+      };
+      
+    const auth = (e) => {
+        //Open Popup and declare Size
+        window.open(
+          `https://apidevnow.com/${e.target.name}`,
+          "Sign In With Facebook ;)",
+          "width=400,height=500"
+        );
+        window.addEventListener("message", response => {
+          authSuccess(response.data); // e.data hold the message
+        },false);
+      };
 
-const CreateAccount = props => {
-  const routeToHome = e => {
-    e.preventDefault();
-    props.history.push("/");
-  };
+      const authSuccess = userObject => {
+        userObject = JSON.parse(userObject)
+        localStorage.setItem('token', userObject.token);
+        props.history.push('/dashboard');
+      };
 
-  const routeToLogin = e => {
-    e.preventDefault();
-    props.history.push("/login");
-  };
+      return (
+        <OnBoardWrapper>
+          <OnBoardContainer>
+            <TopHolder>
+              <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
+              <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
+            </TopHolder>
+            <HeaderHolder>
+              <Header>
+                Create <br /> Account.
+              </Header>
+              <Cubes src={cubes} />
+            </HeaderHolder>
+            <FlexHolder>
+              <FBButton name="facebookAuth" onClick={auth}>
+                Sign up with Facebook <Logo src={fblogo} />{" "}
+              </FBButton>
+              <GoogleSignIn name="googleAuth" onClick={auth}>
+                Sign up with Google <Logo src={googlelogo} />
+              </GoogleSignIn>
+            </FlexHolder>
+            <OnboardTxt>-------------------- OR ----------------</OnboardTxt>
+            <FlexHolder>
+              <Button>
+                Sign up with Email <Logo src={emailogo} />
+              </Button>
+            </FlexHolder>
+          </OnBoardContainer>
+        </OnBoardWrapper>
+      );
 
-  const fbAuth = () => {
-    window.open(
-      "https://apidevnow.com/facebookAuth",
-      "Sign In With Facebook ;)",
-      "width=400,height=500"
-    );
-    window.addEventListener(
-      "message",
-      response => {
-        authSuccess(response.data); // e.data hold the message
-      },
-      false
-    );
   };
-  const authSuccess = userObject => {
-    console.log(JSON.parse(userObject));
-  };
-
-  return (
-    <OnBoardWrapper>
-      <OnBoardContainer>
-        <TopHolder>
-          <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
-          <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
-        </TopHolder>
-        <HeaderHolder>
-          <Header>
-            Create <br /> Account.
-          </Header>
-          <Cubes src={cubes} />
-        </HeaderHolder>
-        <FlexHolder>
-          <FBButton onClick={fbAuth}>
-            Sign up with Facebook <Logo src={fblogo} />{" "}
-          </FBButton>
-          <GoogleSignIn>
-            Sign up with Google <Logo src={googlelogo} />
-          </GoogleSignIn>
-        </FlexHolder>
-        <OnboardTxt>-------------------- OR ----------------</OnboardTxt>
-        <FlexHolder>
-          <Button>
-            Sign up with Email <Logo src={emailogo} />
-          </Button>
-        </FlexHolder>
-      </OnBoardContainer>
-    </OnBoardWrapper>
-  );
-};
 
 const OnBoardWrapper = styled.div`
   background-color: #3a3699;

@@ -1,8 +1,10 @@
 //Sign in Canvas
 import React from "react";
+import styled from "styled-components";
+import googlelogo from "../../images/flat-color-icons_google.png";
 
 const GoogleSignInButton = () => {
-  console.log('googleCalled')
+  console.log("googleCalled");
   //Auth and Auth Success can be thought of like Fire and Air
   const auth = () => {
     window.open(
@@ -17,13 +19,28 @@ const GoogleSignInButton = () => {
       },
       false
     );
-  }
+  };
 
   const authSuccess = userObject => {
     console.log(JSON.parse(userObject));
   };
 
-  return <button onClick={auth}>GOOGLE</button>;
+  return <Button onClick={auth}>Sign up with Google <img src={googlelogo} /></Button>;
 };
 
+const Button = styled.a`
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width:100%;
+text-align:center;
+margin: auto;
+background: #6487ff;
+color: white;
+font-size:1.6rem;
+letter-spacing:0.1rem;`
+
+
 export default GoogleSignInButton;
+
