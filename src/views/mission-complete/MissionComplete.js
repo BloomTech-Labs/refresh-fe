@@ -60,7 +60,6 @@ const MissionComplete = () => {
         drawer.status === 'closed' ?
         setDrawer({ ...drawer, status: 'open', darken: 'active' }) :
         setDrawer({ ...drawer, status: 'closed', darken: 'inactive' });
-        console.log('checking drawer state:', drawer);
     };
 
     // render
