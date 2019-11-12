@@ -11,6 +11,7 @@ const MissionInput = () => {
     return (
         <React.Fragment>
             <InputDrawer>
+                <DrawerAccent />
                 <CloseButton>X</CloseButton>
                 <InputMessage>
                     <i class="fas fa-tint"></i>
@@ -35,10 +36,19 @@ const InputDrawer = styled.div`
     justify-content: center;
     align-items: center;
 
-        button:first-child {
+        button {
             align-self: flex-end;
             margin-bottom: auto;
         }
+`
+
+const DrawerAccent = styled.div`
+    width: 40px;
+    height: 3px;
+    border-radius: 50px;
+    background-color: #FFF;
+    opacity: 0.5;
+    margin: 0.2rem;
 `
 
 const CloseButton = styled.button`
