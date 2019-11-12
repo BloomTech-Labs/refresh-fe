@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 // components
 import Landing from './views/onboarding/Landing';
 import CreateAccount from "./views/onboarding/CreateAccount";
+import Login from './views/onboarding/Login';
 import MobileMenu from './views/mobile-menu/MobileMenu';
 import Dashboard from './views/dashboard/Dashboard';
 import MissionComplete from './views/mission-complete/MissionComplete';
@@ -22,6 +23,7 @@ const App = props => {
       <Route path='/mission-complete' component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />
       <Route path='/signup' component={CreateAccount} />
+      <Route path='/login' component={Login} />
       <Route path='/firstlogin' component={StepStart} />
     </React.Fragment>
   );

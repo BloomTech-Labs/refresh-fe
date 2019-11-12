@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import googlelogo from "../../images/flat-color-icons_google.png";
 
-const GoogleSignInButton = () => {
+const GoogleSignInButton = ({text}) => {
   console.log("googleCalled");
   //Auth and Auth Success can be thought of like Fire and Air
   const auth = () => {
