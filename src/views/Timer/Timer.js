@@ -51,7 +51,7 @@ function Timer ({ expiryTimestamp }) {
       </>
       </div>
       <div className="buttons">
-        <button onClick={() => {
+        {/* <button onClick={() => {
           // Restarts to 25 minutes timer
           var t = new Date();
           t.setSeconds(t.getSeconds() + 1500);
@@ -62,10 +62,10 @@ function Timer ({ expiryTimestamp }) {
           var t = new Date();
           t.setSeconds(t.getSeconds() + 300);
           restart(t)
-        }}>Start Break</button>
+        }}>Start Break</button> */}
+    
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
-        {/* Last button needs a mobile rule but not sure what -- looks wrong when I inspect in small screen format */}
       </div>
       <div className="sprints">
         <div className="sprint one">

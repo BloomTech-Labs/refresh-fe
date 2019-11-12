@@ -69,8 +69,14 @@ p {
 }
 
 i {
+    display: inline-block;
     color: #6487FF;
     font-size: 50px;
+    margin-bottom: 60px;
+}
+
+.fa-play-circle {
+    margin-right: 40px;
 }
 
 .sprints {
@@ -89,16 +95,23 @@ i {
 }
 
 @media screen and (max-width:500px) {
-    .buttons {
+    /* .buttons {
         display: flex;
         flex-direction: column;
         margin-top: 0;
-    }
-    button {
+    } */
+    /* button {
         margin-top: 20px;
         margin-left: 0;
-    }
+    } */
+   i {
+       margin-bottom: 20px;
+       margin-top: 0;
+   }
     .instructions {
         margin-top: 20px;
+    }
+    .timer {
+        margin-bottom: 0;
     }
 }
