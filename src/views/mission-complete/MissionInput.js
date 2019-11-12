@@ -42,7 +42,12 @@ const InputDrawer = styled.div`
 `
 
 const CloseButton = styled.button`
-
+    width: 25px;
+    height: 25px;
+    border-radius: 150px;
+    border: none;
+    margin: 1rem;
+    opacity: 0.5;
 `
 
 const InputMessage = styled.div`
