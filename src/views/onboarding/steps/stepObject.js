@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Slider } from "../sliders/Slider";
 
 export const Step1 = profile => {
   console.log(profile);
@@ -11,15 +12,16 @@ export const Step1 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <Question>{i.question}</Question>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-              <input
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              {/* <input
                 type="number"
                 name="weight"
                 placeholder="Enter your weight here"
                 onChange={profile.handleChanges}
-              />
+              /> */}
+              <Slider initialSize={150} minSize={75} maxSize={475} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -42,15 +44,16 @@ export const Step2 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <Question>{i.question}</Question>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-              <input
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              {/* <input
                 type="number"
                 name="height"
                 placeholder="Enter your height here"
                 onChange={profile.handleChanges}
-              />
+              /> */}
+              <Slider initialSize={66} minSize={52.8} maxSize={92.4} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -73,14 +76,14 @@ export const Step3 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <Question>{i.question}</Question>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-            <FlexHolder>
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              <FlexHolder>
                 <Option>Never</Option>
                 <Option>Sometimes</Option>
                 <Option>Always</Option>
-            </FlexHolder>
+              </FlexHolder>
 
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
@@ -104,9 +107,10 @@ export const Step4 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              <Slider initialSize={3} minSize={0} maxSize={7} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -129,9 +133,10 @@ export const Step5 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              <Slider initialSize={3} minSize={0} maxSize={7} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -154,9 +159,10 @@ export const Step6 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              <Slider initialSize={3} minSize={0} maxSize={7} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -179,9 +185,10 @@ export const Step7 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              <Slider initialSize={3} minSize={0} maxSize={7} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -204,9 +211,10 @@ export const Step8 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              <Slider initialSize={3} minSize={0} maxSize={7} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -229,9 +237,10 @@ export const Step9 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              <Slider initialSize={3} minSize={0} maxSize={7} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -254,9 +263,10 @@ export const Step10 = profile => {
           <OnBoardContainer key={i.currentStep}>
             <form onSubmit={profile.handleSubmit}>
               <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
+              {profile.currentStep <= 2 && (
+                <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              )}
+              <Slider initialSize={3} minSize={0} maxSize={7} />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 3 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -300,18 +310,18 @@ const Question = styled.h1`
 `;
 
 const LongQuestion = styled.h1`
-font-weight: bold;
-font-size: 5rem;
-line-height: 82px;
-letter-spacing: 3.5px;
-font-weight: 600;
-font-size: 2.5rem;
-line-height: 4.1rem;
-letter-spacing: 0.035em;
-color: #FFFFFF;
-margin-top: 140px;
-margin: 10rem 0 2rem;`
-
+  font-weight: bold;
+  font-size: 5rem;
+  line-height: 82px;
+  letter-spacing: 3.5px;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 4.1rem;
+  letter-spacing: 0.035em;
+  color: #ffffff;
+  margin-top: 140px;
+  margin: 10rem 0 2rem;
+`;
 
 const OnboardTxt = styled.p`
 font-size: 1.6rem;
@@ -323,14 +333,14 @@ margin: 0 auto;
 `;
 
 const Option = styled.p`
-font-size: 1.6rem;
-line-height:26px;
-letter-spacing: 2px;
-color: #FFFFFF;
-&:hover {
-    background: #28C96C;
+  font-size: 1.6rem;
+  line-height: 26px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  &:hover {
+    background: #28c96c;
   }
-`
+`;
 
 const Button = styled.a`
   display: flex;
