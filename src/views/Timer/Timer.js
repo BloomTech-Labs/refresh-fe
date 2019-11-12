@@ -44,9 +44,11 @@ function Timer ({ expiryTimestamp }) {
   return (
     <div className="clock">
       <h1>Pomodoro Clock</h1>
-      <div className="time">
-        <span>{minutes}</span>:<span>{seconds}</span>
-      </div>
+      <CircularProgressbar value={percentage} text={`${minutes}:${seconds}`}> 
+        <div className="time">
+          <span>{minutes}</span>:<span>{seconds}</span>
+        </div>
+      </CircularProgressbar>
       <div className="buttons">
         <button onClick={() => {
           // Restarts to 25 minutes timer
