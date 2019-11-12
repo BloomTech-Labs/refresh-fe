@@ -47,6 +47,18 @@ const CloseButton = styled.button`
 
 const InputMessage = styled.div`
     margin-bottom: auto;
+    color: #FFF;
+    font-size: 1.5rem;
+    letter-spacing: 0.025rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+        i {
+            font-size: 3rem;
+            margin: 1rem;
+        }
 `
 
 // EXPORT
