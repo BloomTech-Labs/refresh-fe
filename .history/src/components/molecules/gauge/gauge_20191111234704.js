@@ -24,17 +24,13 @@ const Gauge = () => {
   const [completeEight, setCompleteEight] = useState(1);
   return (
     <>
-      <Wrapper>
-        <StyledGauge className="container rectangle37">
-          <Icon className="water-card" svg={step0} alt={"Step zero"} />
-        </StyledGauge>
-      </Wrapper>
+    <Wrapper
+     
     </>
   );
 };
 
 const Wrapper = styled.div`
-  position: relative;
   height: 163px;
   width: 132px;
 `;

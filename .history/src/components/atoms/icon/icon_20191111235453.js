@@ -61,14 +61,12 @@ const StyledIcon = styled.div.attrs(props => ({
   justify-content: center;
   align-items: center;
   .object-svg,
-  .img-svg {
+  .icon-img-svg {
     filter: ${props => props.color};
     cursor: ${props => (props.cursor ? props.cursor : "pointer")};
     pointer-events: ${props => (props.cursor ? props.cursor : "none")};
     color: ${props => props.color};
     padding: ${props => (props.padding ? `${props.padding}rem` : "1rem")};
-    height: 100%;
-    width: 100%;
   }
 `;
 

@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Icon from "../../atoms/icon/icon";
 
-import step0 from "../../../images/gauge/gaugeSteps/step0.svg";
 import step1 from "../../../images/gauge/gaugeSteps/step1.svg";
-import step2 from "../../../images/gauge/gaugeSteps/step2.svg";
-import step3 from "../../../images/gauge/gaugeSteps/step3.svg";
-import step4 from "../../../images/gauge/gaugeSteps/step4.svg";
-import step5 from "../../../images/gauge/gaugeSteps/step5.svg";
-import step6 from "../../../images/gauge/gaugeSteps/step6.svg";
-import step7 from "../../../images/gauge/gaugeSteps/step7.svg";
-import step8 from "../../../images/gauge/gaugeSteps/step8.svg";
 
 const Gauge = () => {
   const [percentComplete, setPercentComplete] = useState(0);
@@ -24,29 +16,16 @@ const Gauge = () => {
   const [completeEight, setCompleteEight] = useState(1);
   return (
     <>
-      <Wrapper>
-        <StyledGauge className="container rectangle37">
-          <Icon className="water-card" svg={step0} alt={"Step zero"} />
-        </StyledGauge>
-      </Wrapper>
+      <StyledGauge className="container rectangle37">
+        <Icon data={step1} alt={"Step one icon"} />
+
+      </StyledGauge>
     </>
   );
 };
 
-const Wrapper = styled.div`
-  position: relative;
-  height: 163px;
-  width: 132px;
-`;
-
-const StyledGauge = styled.div.attrs(props => ({
-  position: props.position,
-  left: props.left,
-  right: props.right,
-  top: props.top,
-  bottom: props.bottom
-}))`
-  .rectangle-37 {
+const StyledGauge = styled.div.attrs(props => ({}))`
+  .container {
     position: absolute;
     left: 0%;
     right: 0%;
@@ -56,7 +35,7 @@ const StyledGauge = styled.div.attrs(props => ({
     /* water / background blue */
 
     background: #cee2ff;
-    /* mobile / dashboard / dropshadow */
+    /* mobile / dashboard dropshadow */
 
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 3px;

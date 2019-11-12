@@ -24,29 +24,16 @@ const Gauge = () => {
   const [completeEight, setCompleteEight] = useState(1);
   return (
     <>
-      <Wrapper>
-        <StyledGauge className="container rectangle37">
-          <Icon className="water-card" svg={step0} alt={"Step zero"} />
-        </StyledGauge>
-      </Wrapper>
+      <StyledGauge className="container rectangle37">
+        <Icon svg={step0} alt={"Step zero"} />
+
+      </StyledGauge>
     </>
   );
 };
 
-const Wrapper = styled.div`
-  position: relative;
-  height: 163px;
-  width: 132px;
-`;
-
-const StyledGauge = styled.div.attrs(props => ({
-  position: props.position,
-  left: props.left,
-  right: props.right,
-  top: props.top,
-  bottom: props.bottom
-}))`
-  .rectangle-37 {
+const StyledGauge = styled.div.attrs(props => ({}))`
+  .rectangle {
     position: absolute;
     left: 0%;
     right: 0%;
@@ -56,7 +43,7 @@ const StyledGauge = styled.div.attrs(props => ({
     /* water / background blue */
 
     background: #cee2ff;
-    /* mobile / dashboard / dropshadow */
+    /* mobile / dashboard dropshadow */
 
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 3px;

@@ -34,7 +34,6 @@ const Gauge = () => {
 };
 
 const Wrapper = styled.div`
-  position: relative;
   height: 163px;
   width: 132px;
 `;
