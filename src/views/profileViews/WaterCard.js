@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-//This component tracks user water intake
-
-const WaterCard = (props) => {
 
 const Rectangle14 = styled.div`
 position: absolute;
@@ -81,6 +78,7 @@ align-items: center;
 
 color: #959595;
 `
+
 const Waterglass = styled.img`
 position: absolute;
 width: 62px;
@@ -90,6 +88,12 @@ top: 528px;
 border: 1px solid red;
 
 ` 
+//This component tracks user water intake
+
+const WaterCard = (props) => {
+
+
+
  
   return (
     <div onClick={() => {alert('DUMMY CLICK CONFIRMED')}}>  
