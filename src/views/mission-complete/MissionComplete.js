@@ -56,7 +56,7 @@ const MissionComplete = () => {
     })
 
     // handlers
-    const handleDrawerClose = e => {
+    const handleDrawer = e => {
         drawer.status === 'closed' ?
         setDrawer({ ...drawer, status: 'open', darken: 'active' }) :
         setDrawer({ ...drawer, status: 'closed', darken: 'inactive' });
@@ -78,6 +78,7 @@ const MissionComplete = () => {
                                     key={mission.id}
                                     description={mission.description}
                                     color={mission.color}
+                                    handleDrawer={handleDrawer}
                                 />
                             )
                         })}
@@ -86,7 +87,7 @@ const MissionComplete = () => {
                     <ContinueButton>Continue</ContinueButton>
             </MCContainer>
             <MissionInput 
-                handleClose={handleDrawerClose}
+                handleDrawer={handleDrawer}
                 status={drawer.status}
             />
 

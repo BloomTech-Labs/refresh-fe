@@ -9,7 +9,7 @@ import { test, flex } from '../../styles/global/Mixins';
 // COMPONENT
 const MissionInput = props => {
     // props
-    const { handleClose, status } = props;
+    const { handleDrawer, status } = props;
     // state hooks
 
 
@@ -17,8 +17,8 @@ const MissionInput = props => {
     return (
         <React.Fragment>
             <InputDrawer className={status}>
-                <DrawerAccent onClick={handleClose} />
-                <CloseButton onClick={handleClose}>X</CloseButton>
+                <DrawerAccent onClick={handleDrawer} />
+                <CloseButton onClick={handleDrawer}>X</CloseButton>
                 <InputMessage>
                     <i class="fas fa-tint"></i>
                     <p>This is some placeholder text</p>
