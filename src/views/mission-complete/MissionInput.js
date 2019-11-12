@@ -17,7 +17,7 @@ const MissionInput = props => {
     return (
         <React.Fragment>
             <InputDrawer className={status}>
-                <DrawerAccent />
+                <DrawerAccent onClick={handleClose} />
                 <CloseButton onClick={handleClose}>X</CloseButton>
                 <InputMessage>
                     <i class="fas fa-tint"></i>
