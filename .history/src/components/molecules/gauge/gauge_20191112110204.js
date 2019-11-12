@@ -27,7 +27,11 @@ const Gauge = () => {
       <StyledGauge className="container rectangle37">
         {/* SVG url should be derived from state */}
         <MobileCardWater>
-          <Icon svg={step4} alt={"Step 6"} />
+          <Rectangle37>
+            <WaterCard>
+              <Icon svg={step6} alt={"Step 6"} />
+            </WaterCard>
+          </Rectangle37>
         </MobileCardWater>
       </StyledGauge>
     </>
@@ -70,4 +74,48 @@ const WaterCard = styled.div`
   bottom: 48.98%;
 `;
 
+// const WaterIntake = styled.div`
+//   position: absolute;
+//   left: 7.58%;
+//   right: 12.12%;
+//   top: 57.14%;
+//   bottom: 27.21%;
+
+//   font-family: Roboto;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-size: 13px;
+//   line-height: 93.19%;
+//   /* or 12px */
+
+//   display: flex;
+//   align-items: center;
+//   letter-spacing: 0.02em;
+
+//   /* water / text blue */
+
+//   color: #6091d6;
+// `;
+// const WaterPoints = styled.div`
+//   position: absolute;
+//   left: 7.58%;
+//   right: 3.79%;
+//   top: 93.2%;
+//   bottom: -10.88%;
+
+//   font-family: Roboto;
+//   font-style: normal;
+//   font-weight: bold;
+//   font-size: 10px;
+//   line-height: 93.19%;
+//   /* or 9px */
+
+//   display: flex;
+//   align-items: center;
+//   letter-spacing: 0.02em;
+
+//   /* water / primary */
+
+//   color: #1575ff;
+// `;
 export default Gauge;

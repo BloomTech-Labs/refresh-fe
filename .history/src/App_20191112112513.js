@@ -21,7 +21,7 @@ const App = props => {
       <Route path="/mission-complete" component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />
       <Route path="/signup" component={CreateAccount} />
-      <Route path="/atoms" component={Atoms} />
+      {/* <Route path="/atoms" component={Atoms} /> */}
     </React.Fragment>
     
   );

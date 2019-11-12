@@ -13,11 +13,10 @@ import Image from "../../components/atoms/image/image";
 import Text from "../../components/atoms/text/text";
 
 import Colors from "../../styles/global/colors";
+import testImage from "../../images/two_cubes.png";
 import Label from "../../components/atoms/label/label";
 import Icon from "../../components/atoms/icon/icon";
 import svgImage from "../../images/refresh-yo-guy.svg";
-import testImage from "../../images/two_cubes.png";
-
 
 const text =
   "Terrorize the hundred-and-twenty-pound rottweiler and steal his bed, not sorry leave dead animals as gifts who's the baby, cat fur is the new black destroy the blinds or please stop looking at your phone and pet me for run off table persian cat jump eat fish. Fat baby cat best buddy little guy kitty poochy so scratch me there, elevator butt favor packaging over toy somehow manage to catch a bird but have no idea what to do next, so play with it until it dies of shock stick butt in face scratch at the door then walk away. Experiences short bursts of poo-phoria after going to the loo sleep yet you call this cat food, or sit in a box for hours groom forever, stretch tongue and leave it slightly out, blep make meme, make cute face.";
@@ -34,7 +33,7 @@ const Atoms = ({ ...props }) => {
         This one links externally
       </ButtonLink>
       <Badge text={"Badge"} />
-      <Label forId={"inputExample"} backgroundColor={"transparent"} />
+      <Label forId={"inputExample"} backgroundColor />
       <Input
         id={"inputExample"}
         margin={2}

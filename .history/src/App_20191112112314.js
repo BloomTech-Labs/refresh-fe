@@ -15,15 +15,14 @@ import Atoms from "./views/componentTesting/componentTesting";
 const App = props => {
   return (
     <React.Fragment>
-      {/* <MobileMenu /> */}
+      <MobileMenu />
       <Route exact path="/" component={Landing} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />
       <Route path="/signup" component={CreateAccount} />
-      <Route path="/atoms" component={Atoms} />
     </React.Fragment>
-    
+    <
   );
 };
 

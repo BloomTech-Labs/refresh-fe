@@ -3,15 +3,7 @@ import styled from "styled-components";
 
 const Image = ({ src, altText, ...props }) => {
   const { height, width } = props;
-  return (
-    <StyledImage
-      src={src}
-      altText={altText}
-      className="base-image"
-      height={height}
-      width={width}
-    />
-  );
+  return <StyledImage src={src}  className="base-image" height={height} width={width} />;
 };
 
 const StyledImage = styled.img.attrs(props => ({
