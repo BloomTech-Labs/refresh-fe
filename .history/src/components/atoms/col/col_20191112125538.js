@@ -104,7 +104,7 @@ const StyledCol = styled.div.attrs(props => ({
   border-bottom-right-radius: ${props =>
     props.borderRadiusBottomRight ? props.borderRadiusBottomRight : "5px"};
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : "transparent"};
+    props.backgroundColor ? props.backgroundColor : Colors.white};
   color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: auto;
