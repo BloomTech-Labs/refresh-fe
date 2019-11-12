@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -28,7 +28,12 @@ function Timer ({ expiryTimestamp }) {
     // state logic to set sprints 1-4 goes here
   }
 
-  let percentage = minutes / 25;
+  let percentage = 0;
+
+  // Below effect doesn't register but I feel like it might be close to what's needed so I'm gonna leave it.
+  useEffect(() => {
+    percentage = minutes / 25;
+  }, [minutes])
  
   return (
     <div className="clock">
