@@ -17,6 +17,8 @@ const MissionInput = () => {
                     <i class="fas fa-tint"></i>
                     <p>This is some placeholder text</p>
                 </InputMessage>
+
+                <TestComponent>Component</TestComponent>
             </InputDrawer>
         </React.Fragment>
     );
@@ -74,6 +76,15 @@ const InputMessage = styled.div`
             font-size: 3rem;
             margin: 1rem;
         }
+`
+
+const TestComponent = styled.button`
+    width: 20rem;
+    height: 5rem;
+    border-radius: 5px;
+    background-color: #FFF;
+    border: none;
+    margin: 0 auto;
 `
 
 // EXPORT
