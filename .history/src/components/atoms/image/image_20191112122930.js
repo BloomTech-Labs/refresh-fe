@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Image = ({ src, altText, ...props }) => {
-  const { height, width, borderRadius } = props;
+  const { height, width, border } = props;
   return (
     <StyledImage
       src={src}
@@ -10,20 +10,16 @@ const Image = ({ src, altText, ...props }) => {
       className="base-image"
       height={height}
       width={width}
-      borderRadius={borderRadius}
     />
   );
 };
 
 const StyledImage = styled.img.attrs(props => ({
   height: props.height,
-  width: props.width,
-  borderRadius: props.borderRadius
+  width: props.width
 }))`
   height: ${props => (props.height ? `${props.height}rem` : "100%")};
   width: ${props => (props.width ? `${props.width}rem` : `100%`)};
-  border-radius: ${props =>
-    props.borderRadius ? `${props.borderRadius}rem` : "5px"};
 `;
 
 export default Image;
