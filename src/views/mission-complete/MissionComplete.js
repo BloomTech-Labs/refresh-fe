@@ -51,8 +51,8 @@ const dummyMissions = [
 const MissionComplete = () => {
     // state hooks
     const [drawer, setDrawer] = useState({
-        status: 'open',
-        darken: 'active'
+        status: 'closed',
+        darken: 'inactive'
     })
 
     // handlers
@@ -66,7 +66,7 @@ const MissionComplete = () => {
     // render
     return (
         <MCView>
-            <Darken className={drawer.darken} />
+            <Darken className={drawer.darken} onClick={handleDrawer} />
         <MCWrapper>
             <MCContainer>
                     <h2 className='mission-message'>What mission did you complete?</h2>
