@@ -28,18 +28,7 @@ function Timer ({ expiryTimestamp }) {
     // state logic to set sprints 1-4 goes here
   }
 
-  let percentage = 0;
-  
-  if (minutes === 22 && seconds === 30) percentage = 10;
-  if (minutes === 20) percentage = 20;
-  if (minutes === 17 && seconds === 30) percentage = 30;
-  if (minutes === 15) percentage = 40;
-  if (minutes === 12 && seconds === 30) percentage = 50;
-  if (minutes === 10) percentage = 60;
-  if (minutes === 7 && seconds === 30) percentage = 70;
-  if (minutes === 5) percentage = 80;
-  if (minutes === 2 && seconds === 30) percentage = 90;
-  if (minutes === 0) percentage = 100;
+  let percentage = minutes / 25;
  
   return (
     <div className="clock">
