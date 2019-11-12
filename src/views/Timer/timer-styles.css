@@ -73,6 +73,21 @@ i {
     font-size: 50px;
 }
 
+.sprints {
+    display: flex;
+}
+
+.sprint {
+    width: 20%;
+}
+
+.test {
+    background: true;
+    fill: white;
+    background-color: white;
+    fill-opacity: 100;
+}
+
 @media screen and (max-width:500px) {
     .buttons {
         display: flex;

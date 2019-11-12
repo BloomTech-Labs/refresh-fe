@@ -67,6 +67,52 @@ function Timer ({ expiryTimestamp }) {
         <i className="far fa-pause-circle" onClick={pause}></i>
         {/* Last button needs a mobile rule but not sure what -- looks wrong when I inspect in small screen format */}
       </div>
+      <div className="sprints">
+        <div className="sprint one">
+          <CircularProgressbar
+            value={percentage}
+            strokeWidth={50}
+            styles={buildStyles({
+              strokeLinecap: "butt",
+              pathColor: '#6487FF',
+              trailColor: 'white'
+            })}
+        />
+        </div>
+        <div className="sprint two">
+          <CircularProgressbar
+            value={percentage}
+            strokeWidth={50}
+            styles={buildStyles({
+              strokeLinecap: "butt",
+              pathColor: '#6487FF',
+              trailColor: 'white'
+            })}
+        />
+        </div>
+        <div className="sprint three">
+          <CircularProgressbar
+            value={percentage}
+            strokeWidth={50}
+            styles={buildStyles({
+              strokeLinecap: "butt",
+              pathColor: '#6487FF',
+              trailColor: 'white'
+            })}
+        />
+        </div>
+        <div className="sprint four">
+          <CircularProgressbar
+            value={percentage}
+            strokeWidth={50}
+            styles={buildStyles({
+              strokeLinecap: "butt",
+              pathColor: '#6487FF',
+              trailColor: 'white'
+            })}
+        />
+        </div>
+      </div>
       <div className="instructions">
         <p>1. Evidence shows people are more productive when they work in <span className="bold">short bursts</span> with <span className="bold">frequent breaks</span>.</p>
         <br></br>
