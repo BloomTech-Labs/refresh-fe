@@ -8,6 +8,8 @@ import WeeklySurvey from '../profileViews/WeeklySurvey';
 import WaterCard from '../profileViews/WaterCard';
 import Badges from '../profileViews/Badges';
 import YourReminders from '../profileViews/YourReminders';
+import ProfileAv from '../profileViews/ProfileAv';
+
 
 const ProfileContainer = styled.div` 
 position: relative;
@@ -32,6 +34,7 @@ const Container = () => {
          <WaterCard/>
          <Badges/>
          <YourReminders/>
+         <ProfileAv/>
       </div>
   );
 }
