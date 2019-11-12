@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
+import MissionInput from './MissionInput';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -68,6 +69,8 @@ const MissionComplete = () => {
 
                     <ContinueButton>Continue</ContinueButton>
             </MCContainer>
+
+            <MissionInput />
         </MCWrapper>
         </MCView>
     );
