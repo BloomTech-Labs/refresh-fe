@@ -31,8 +31,7 @@ const Gauge = () => {
             <WaterCard>
               <Icon svg={step6} alt={"Step 6"} />
             </WaterCard>
-            <WaterIntake><p>2 more glasses of water</p></WaterIntake>
-            <WaterPoints><p>20 points</p></WaterPoints>
+            <W
           </Rectangle37>
         </MobileCardWater>
       </StyledGauge>
@@ -41,6 +40,8 @@ const Gauge = () => {
 };
 
 const StyledGauge = styled.div`
+  padding-top: 10rem;
+  margin-left: 12rem;
   position: relative;
 `;
 const MobileCardWater = styled.div`

@@ -41,6 +41,7 @@ const Gauge = () => {
 };
 
 const StyledGauge = styled.div`
+
   position: relative;
 `;
 const MobileCardWater = styled.div`
