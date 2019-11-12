@@ -6,6 +6,7 @@ import emailogo from "../../images/email.png";
 import cubes from "../../images/two_cubes.png";
 import GoogleSignIn from "./GoogleSignInButton";
 
+const text = "Log in with Google";
 const CreateAccount = (props) => {
     const routeToHome = e => {
         e.preventDefault();
@@ -52,9 +53,7 @@ const CreateAccount = (props) => {
               <FBButton name="facebookAuth" onClick={auth}>
                 Log in with Facebook <Logo src={fblogo} />{" "}
               </FBButton>
-              <GoogleSignIn name="googleAuth" onClick={auth}>
-                Log in with Google <Logo src={googlelogo} />
-              </GoogleSignIn>
+              <GoogleSignIn name="googleAuth" onClick={auth} text={text} />   
             </FlexHolder>
             <OnboardTxt>OR</OnboardTxt>
             <FlexHolder>

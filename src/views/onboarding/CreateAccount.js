@@ -5,6 +5,7 @@ import googlelogo from "../../images/flat-color-icons_google.png";
 import emailogo from "../../images/email.png";
 import cubes from "../../images/two_cubes.png";
 import GoogleSignIn from "./GoogleSignInButton";
+const text = "Sign up with Google";
 const CreateAccount = (props) => {
     const routeToHome = e => {
         e.preventDefault();
@@ -15,7 +16,7 @@ const CreateAccount = (props) => {
         e.preventDefault();
         props.history.push("/login");
       };
-      
+
     const auth = (e) => {
         //Open Popup and declare Size
         window.open(
@@ -51,9 +52,7 @@ const CreateAccount = (props) => {
               <FBButton name="facebookAuth" onClick={auth}>
                 Sign up with Facebook <Logo src={fblogo} />{" "}
               </FBButton>
-              <GoogleSignIn name="googleAuth" onClick={auth}>
-                Sign up with Google <Logo src={googlelogo} />
-              </GoogleSignIn>
+              <GoogleSignIn name="googleAuth" onClick={auth} text={text} />
             </FlexHolder>
             <OnboardTxt>-------------------- OR ----------------</OnboardTxt>
             <FlexHolder>

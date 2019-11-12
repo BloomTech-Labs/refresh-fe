@@ -25,7 +25,7 @@ const GoogleSignInButton = ({text}) => {
     console.log(JSON.parse(userObject));
   };
 
-  return <Button onClick={auth}>Sign up with Google <img src={googlelogo} /></Button>;
+  return <Button onClick={auth}>{text}<img src={googlelogo} /></Button>;
 };
 
 const Button = styled.a`
