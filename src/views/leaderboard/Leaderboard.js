@@ -109,7 +109,9 @@ const Leaderboard = () => {
                     </ViewButtons>
 
                     <LBScores>
-                        <Scorecards />
+                        <Scorecards 
+                            data={data}
+                        />
                     </LBScores>
                 </LBContainer>
             </LBWrapper>

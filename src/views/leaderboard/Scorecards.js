@@ -7,10 +7,18 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
-const Scoreboard = () => {
+const Scoreboard = props => {
+    // props
+    const { data } = props;
+
+    // render
     return (
         <>
-            hi from scoreboard
+            {data.map(score => {
+                return (
+                    'hi'
+                )
+            })}
         </>
     );
 };
