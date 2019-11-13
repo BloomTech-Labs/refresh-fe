@@ -36,7 +36,7 @@ const MissionInput = props => {
 const InputDrawer = styled.div`
     &.open {
         width: 100vw;
-        height: 40vh;
+        height: 35vh;
         margin: 0 auto;
         border-radius: 5px;
         position: fixed;
