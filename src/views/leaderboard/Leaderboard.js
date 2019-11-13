@@ -105,6 +105,10 @@ const Leaderboard = () => {
                         <button className={`${buttons.thisWeek ? 'active' : 'inactive'}`} onClick={viewToggle}>This Week</button>
                         <button className={`${buttons.allTime ? 'active' : 'inactive'}`} onClick={viewToggle}>All Time</button>
                     </ViewButtons>
+
+                    <LBScores>
+
+                    </LBScores>
                 </LBContainer>
             </LBWrapper>
             </LBView>
@@ -158,6 +162,13 @@ const ViewButtons = styled.div`
         opacity: 0.5;
     }
     
+`
+
+const LBScores = styled.div`
+    width: 100%;
+    height: 50rem;
+    margin: 1rem;
+    ${test.greenBg}
 `
 
 // EXPORT
