@@ -18,8 +18,10 @@ const Scoreboard = props => {
                 return (
                     <Card key={i}>
                         <span>{i}</span>
-                        <h3>{score.fname} {score.lname}</h3>
-                        <h4>{score.cohort} - {score.sectionLead}</h4>
+                        <h3>
+                        {score.fname} {score.lname}<br />
+                        {score.cohort} - {score.sectionLead}
+                        </h3>
                         <span>{score.points}</span>
                     </Card>
                 )
@@ -36,6 +38,7 @@ const Card = styled.div`
     background-color: #CCC9FF;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 2px;
+    ${flex.flexRowNoWrapBetween}
 `
 
 
