@@ -8,6 +8,7 @@ import Col from '../../components/atoms/col/col';
 import googlelogo from "../../images/google-icon.jpg";
 import Image from "../../components/atoms/image/image";
 
+
 const CreateAccount = (props) => {
     const routeToHome = e => {
         e.preventDefault();
