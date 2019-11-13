@@ -36,7 +36,9 @@ const CounterWrapper = styled.div`
             background-color: rgba(0, 0, 0, 0.5);
             color: #FFF;
             font-size: 2rem;
+            margin: 0 2rem;
             margin-top: auto;
+            box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1); 
         }
 `
 
@@ -48,6 +50,11 @@ const Display = styled.div`
         background-color: rgba(0, 0, 0, 0.5);
         color: #FFF;
         font-size: 2rem;
+        box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
 `
 
 // EXPORT
