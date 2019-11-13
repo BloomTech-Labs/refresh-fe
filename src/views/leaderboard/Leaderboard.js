@@ -90,6 +90,11 @@ const Leaderboard = () => {
         thisWeek: true,
         allTime: false
     });
+
+    // handlers
+    const viewToggle = e => {
+        setButtons({ ...buttons, thisWeek: !buttons.thisWeek, allTime: !buttons.allTime })
+    };
     
     return (
         <>
@@ -97,8 +102,8 @@ const Leaderboard = () => {
             <LBWrapper>
                 <LBContainer>
                     <ViewButtons>
-                        <button className={`${buttons.thisWeek ? 'active' : 'inactive'}`}>This Week</button>
-                        <button className={`${buttons.allTime ? 'active' : 'inactive'}`}>All Time</button>
+                        <button className={`${buttons.thisWeek ? 'active' : 'inactive'}`} onClick={viewToggle}>This Week</button>
+                        <button className={`${buttons.allTime ? 'active' : 'inactive'}`} onClick={viewToggle}>All Time</button>
                     </ViewButtons>
                 </LBContainer>
             </LBWrapper>
