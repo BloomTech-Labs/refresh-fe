@@ -44,7 +44,7 @@ const MobileMenu = () => {
     // RENDER
     return (
         <Wrapper>
-            <Darken className={menu.darken}></Darken>
+            <Darken className={menu.darken} onClick={menuToggle}></Darken>
             <DrawerContainer>
                 <Drawer className={menu.status}>
                     <Column>
