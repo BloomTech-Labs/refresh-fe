@@ -12,6 +12,7 @@ import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
+import Sandbox from './views/sandbox/Sandbox';
 
 // COMPONENT
 const App = props => {
@@ -26,6 +27,7 @@ const App = props => {
       <Route path="/signup" component={CreateAccount} />
       <Route path="/login" component={Login} />
       <Route path="/atoms" component={Atoms} />
+      <Route path='/sandbox' component={Sandbox} />
     </React.Fragment>
     
   );
