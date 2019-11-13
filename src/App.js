@@ -11,6 +11,7 @@ import MissionComplete from "./views/mission-complete/MissionComplete";
 import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
+import Login from "./views/onboarding/Login";
 
 // COMPONENT
 const App = props => {
@@ -23,6 +24,7 @@ const App = props => {
       <Route path="/mission-complete" component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />
       <Route path="/signup" component={CreateAccount} />
+      <Route path="/login" component={Login} />
       <Route path="/atoms" component={Atoms} />
     </React.Fragment>
     
