@@ -1,6 +1,6 @@
 // IMPORTS
 // react 
-import React from 'react';
+import React, { useState } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers 
@@ -8,6 +8,11 @@ import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
 const Counter = () => {
+    // state hooks
+    const [counter, setCounter] = useState({
+        value: 1
+    });
+    
     return (
         <CounterWrapper>
             <button>-</button>
