@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import fblogo from "../../images/facebook-icon.png";
-import googlelogo from "../../images/flat-color-icons_google.png";
-import emailogo from "../../images/email.png";
+import fblogo from "../../images/facebook-logo.png";
+import emailogo from "../../images/Onboarding/email.png";
 import cubes from "../../images/two_cubes.png";
+import Row  from '../../components/atoms/row/row';
+import Col from '../../components/atoms/col/col';
+import googlelogo from "../../images/google-icon.jpg";
+import Image from "../../components/atoms/image/image";
 
 const CreateAccount = (props) => {
     const routeToHome = e => {
@@ -29,11 +32,10 @@ const CreateAccount = (props) => {
       };
 
       const authSuccess = userObject => {
-    
         userObject = JSON.parse(userObject)
         console.log(userObject)
         localStorage.setItem('token', userObject.token);
-        props.history.push('/dashboard');
+        {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
       };
 
       return (
@@ -51,16 +53,21 @@ const CreateAccount = (props) => {
             </HeaderHolder>
             <FlexHolder>
               <FBButton name="facebookAuth" onClick={auth}>
-                Sign up with Facebook <Logo src={fblogo} />{" "}
+                Sign up with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
               </FBButton>
               <GoogleSignIn name="googleAuth" onClick={auth}>
-                Sign up with Google <Logo src={googlelogo} />
-              </GoogleSignIn>
+              Sign up with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
+            </GoogleSignIn>
             </FlexHolder>
-            <OnboardTxt>-------------------- OR ----------------</OnboardTxt>
+            <Row>
+            <OnboardTxt>
+            <Col width={50}>OR</Col>
+            <Col width={50}><LineTime/></Col>
+            </OnboardTxt>
+            </Row>
             <FlexHolder>
               <Button>
-                Sign up with Email <Logo src={emailogo} />
+                Sign up with Email <Image src={emailogo} height={2} width={2} />
               </Button>
             </FlexHolder>
           </OnBoardContainer>
@@ -139,6 +146,11 @@ const Button = styled.a`
   letter-spacing:0.1rem;
 }
 `;
+
+const LineTime = styled.hr`
+width:100%;
+`
+
 const FBButton = styled.a`
 display: flex;
 justify-content: space-evenly;
@@ -183,6 +195,11 @@ const Cubes = styled.img`
   padding-top: 5rem;
 `;
 
-const Logo = styled.img``;
+const Logo = styled.img`
+`;
+
+const GoogleLogo = styled(Logo)`
+border-radius:50%;
+`;
 
 export default CreateAccount;
