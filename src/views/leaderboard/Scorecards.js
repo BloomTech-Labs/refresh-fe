@@ -68,29 +68,7 @@ const Card = styled.div`
         }
 
         &:first-child {
-            height: 20rem;
-            background-color: #D4F7E3;
-            color: #28C96C;
-
-                span:first-child {
-                    font-size: 30rem;
-                    opacity: 0.4;
-                    position: relative;
-                    left: 2rem;
-                }
-
-                div {
-                    
-                    background-color: red;
-                }
-
-                h3 {
-                    font-size: 3rem;
-                }
-
-                h4 {
-                    font-size: 2.75rem;
-                }
+            
         }
 `
 
