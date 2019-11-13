@@ -69,12 +69,13 @@ export const Step3 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+      
             <FlexHolder>
                 <Option>Never</Option>
                 <Option>Sometimes</Option>
                 <Option>Always</Option>
             </FlexHolder>
-
+           
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
