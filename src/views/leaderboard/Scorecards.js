@@ -17,12 +17,12 @@ const Scoreboard = props => {
             {data.map((score, i) => {
                 return (
                     <Card key={i}>
-                        <span>{i}</span>
+                        <span>{i + 1}</span>
                         <h3>
                         {score.fname} {score.lname}<br />
                         {score.cohort} - {score.sectionLead}
                         </h3>
-                        <span>{score.points}</span>
+                        <span>{score.points} points</span>
                     </Card>
                 )
             })}
@@ -38,7 +38,23 @@ const Card = styled.div`
     background-color: #CCC9FF;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 2px;
+    color: #3A3699;
     ${flex.flexRowNoWrapBetween}
+
+        span:first-child {
+            font-size: 5rem;
+            font-weight: bold;
+            margin: 1.5rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        span:last-child {
+            font-size: 1.75rem;
+            margin: 1rem;
+        }
 `
 
 
