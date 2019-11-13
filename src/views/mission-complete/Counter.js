@@ -12,12 +12,23 @@ const Counter = () => {
     const [counter, setCounter] = useState({
         value: 1
     });
+
+    // handlers
+    const increment = e => {
+        setCounter({ ...counter, value: counter.value + 1 });
+        console.log(counter.value)
+    };
+
+    const decrement = e => {
+        setCounter({ ...counter, value: counter.value - 1 });
+        console.log(counter.value)
+    };
     
     return (
         <CounterWrapper>
-            <button>-</button>
-            <Display>7</Display>
-            <button>+</button>
+            <button onClick={decrement}>-</button>
+            <Display>{counter.value}</Display>
+            <button onClick={increment}>+</button>
         </CounterWrapper>
     );
 };
