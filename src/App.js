@@ -12,6 +12,7 @@ import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
+import Leaderboard from './views/leaderboard/Leaderboard';
 
 // COMPONENT
 const App = props => {
@@ -22,6 +23,7 @@ const App = props => {
       <Route exact path="/" component={Landing} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />
+      <Route path='/leaderboard' component={Leaderboard} />
       <Route path="/gauge" component={Gauge} />
       <Route path="/signup" component={CreateAccount} />
       <Route path="/login" component={Login} />
