@@ -18,10 +18,10 @@ const Scoreboard = props => {
                 return (
                     <Card key={i}>
                         <span>{i + 1}</span>
-                        <h3>
-                        {score.fname} {score.lname}<br />
-                        {score.cohort} - {score.sectionLead}
-                        </h3>
+                        <div>
+                            <h3>{score.fname} {score.lname}</h3>
+                            <h4>{score.cohort} - {score.sectionLead}</h4>
+                        </div>
                         <span>{score.points} points</span>
                     </Card>
                 )
@@ -47,8 +47,18 @@ const Card = styled.div`
             margin: 1.5rem;
         }
 
+        div {
+            margin-right: auto;
+        }
+
         h3 {
-            font-size: 2rem;
+            font-size: 1.75rem;
+            font-weight: bold;
+            letter-spacing: 0.15rem;
+        }
+
+        h4 {
+            font-size: 1.5rem;
         }
 
         span:last-child {
