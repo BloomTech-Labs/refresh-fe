@@ -53,7 +53,7 @@ const Col = ({ ...props }) => {
       padding={padding}
       justifyContent={justifyContent}
       flex={flex}
-      flexFlow={flexFlow}
+      // flexFlow={flexFlow}
       textAlign={textAlign}
     >
       {props.children}
@@ -85,11 +85,11 @@ const StyledCol = styled.div.attrs(props => ({
   width: props.width,
   href: props.href,
   display: props.display,
-  flexFlow: props.flexFlow,
+  // flexFlow: props.flexFlow,
   textAlign: props.textAlign
 }))`
-  height: ${props => (props.height ? `${props.height}rem` : "100%")};
-  width: ${props => (props.width ? `${props.width}rem` : `94vw`)};
+  height: ${props => (props.height ? `${props.height}%` : "100%")};
+  width: ${props => (props.width ? `${props.width}%` : `100%`)};
   border: ${props => (props.border ? props.border : "none")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
@@ -104,14 +104,14 @@ const StyledCol = styled.div.attrs(props => ({
   border-bottom-right-radius: ${props =>
     props.borderRadiusBottomRight ? props.borderRadiusBottomRight : "5px"};
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : Colors.white};
+    props.backgroundColor ? props.backgroundColor : "transparent"};
   color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: auto;
   margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
   padding: ${props => (props.padding ? `${props.margin}rem` : "1rem")};
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
   flex-wrap: nowrap;
   justify-content: ${props =>
     props.justifyContent ? props.justifyContent : "space-around"};
