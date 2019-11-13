@@ -170,9 +170,7 @@ const ViewButtons = styled.div`
 
 const LBScores = styled.div`
     width: 100%;
-    height: 50rem;
     margin: 1rem;
-    ${test.greenBg}
 `
 
 // EXPORT

@@ -16,7 +16,7 @@ const Scoreboard = props => {
         <>
             {data.map(score => {
                 return (
-                    'hi'
+                    <Card />
                 )
             })}
         </>
@@ -24,7 +24,14 @@ const Scoreboard = props => {
 };
 
 // STYLED COMPONENTS
-// TODO
+const Card = styled.div`
+    width: 100%;
+    height: 10rem;
+    margin: 2rem 0;
+    background-color: #CCC9FF;
+    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+    border-radius: 2px;
+`
 
 
 // EXPORT
