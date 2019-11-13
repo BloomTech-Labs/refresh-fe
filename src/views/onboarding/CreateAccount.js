@@ -3,9 +3,9 @@ import styled from "styled-components";
 import fblogo from "../../images/facebook-logo.png";
 import emailogo from "../../images/Onboarding/email.png";
 import cubes from "../../images/two_cubes.png";
-import GoogleSignIn from "./GoogleSignInButton";
 import Row  from '../../components/atoms/row/row';
 import Col from '../../components/atoms/col/col';
+import googlelogo from "../../images/google-icon.jpg";
 import Image from "../../components/atoms/image/image";
 
 const CreateAccount = (props) => {
@@ -55,7 +55,7 @@ const CreateAccount = (props) => {
                 Sign up with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
               </FBButton>
               <GoogleSignIn name="googleAuth" onClick={auth}>
-               
+              Sign up with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
             </GoogleSignIn>
             </FlexHolder>
             <Row>
@@ -165,20 +165,20 @@ justify-content: space-evenly;
 }
 `;
 
-// const GoogleSignIn = styled.a`
-// display: flex;
-// justify-content: space-evenly;
-//   border-radius: 0.5rem;
-//   padding: 1.5rem 0.8rem;
-//   width:100%;
-//   text-align:center;
-//   margin: 2rem auto;
-//   background: #4A639E;
-//   color: white;
-//   font-size:1.6rem;
-//   letter-spacing:0.1rem;
-// }
-// `;
+const GoogleSignIn = styled.a`
+display: flex;
+justify-content: space-evenly;
+  border-radius: 0.5rem;
+  padding: 1.5rem 0.8rem;
+  width:100%;
+  text-align:center;
+  margin: 2rem auto;
+  background: #4A639E;
+  color: white;
+  font-size:1.6rem;
+  letter-spacing:0.1rem;
+}
+`;
 
 
 
