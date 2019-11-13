@@ -37,12 +37,12 @@ const Counter = () => {
 const CounterWrapper = styled.div`
     width: 100%;
     height: 5rem;
-    margin: 1rem;
+    margin: 2rem;
+    margin-bottom: 4rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    ${test.redBg}
 
         button {
             width: 40px;
