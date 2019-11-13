@@ -29,7 +29,9 @@ const CreateAccount = (props) => {
       };
 
       const authSuccess = userObject => {
+    
         userObject = JSON.parse(userObject)
+        console.log(userObject)
         localStorage.setItem('token', userObject.token);
         props.history.push('/dashboard');
       };
@@ -166,8 +168,6 @@ justify-content: space-evenly;
   letter-spacing:0.1rem;
 }
 `;
-
-
 
 const ButtonNoColor = styled.a`
   margin: auto 4rem;
