@@ -91,8 +91,8 @@ const Leaderboard = () => {
             <LBWrapper>
                 <LBContainer>
                     <ViewButtons>
-                        <button>This Week</button>
-                        <button>All Time</button>
+                        <button className='active'>This Week</button>
+                        <button className='inactive'>All Time</button>
                     </ViewButtons>
                 </LBContainer>
             </LBWrapper>
@@ -132,7 +132,21 @@ const ViewButtons = styled.div`
         margin: 1rem;
         border: none;
         border-radius: 2px;
+        font-weight: bold;
+        letter-spacing: 0.15rem;
     }
+
+    button.active {
+        background-color: #E5E5E5;
+        color: #3A3699;
+    }
+
+    button.inactive {
+        background-color: #CCC9FF;
+        color: #FFF;
+        opacity: 0.5;
+    }
+    
 `
 
 // EXPORT
