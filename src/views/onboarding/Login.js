@@ -8,16 +8,15 @@ import Col from '../../components/atoms/col/col';
 import googlelogo from "../../images/google-icon.jpg";
 import Image from "../../components/atoms/image/image";
 
-
-const CreateAccount = (props) => {
+const Login = (props) => {
     const routeToHome = e => {
         e.preventDefault();
         props.history.push("/");
       };
     
-      const routeToLogin = e => {
+      const routeToSignUp = e => {
         e.preventDefault();
-        props.history.push("/login");
+        props.history.push("/signup");
       };
       
     const auth = (e) => {
@@ -44,20 +43,20 @@ const CreateAccount = (props) => {
           <OnBoardContainer>
             <TopHolder>
               <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
-              <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
+              <ButtonNoColor onClick={routeToSignUp}>Sign Up</ButtonNoColor>
             </TopHolder>
             <HeaderHolder>
               <Header>
-                Create <br /> Account.
+                Welcome <br /> Back.
               </Header>
               <Cubes src={cubes} />
             </HeaderHolder>
             <FlexHolder>
               <FBButton name="facebookAuth" onClick={auth}>
-                Sign up with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
+                Log In with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
               </FBButton>
               <GoogleSignIn name="googleAuth" onClick={auth}>
-              Sign up with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
+              Log In with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
             </GoogleSignIn>
             </FlexHolder>
             <Row>
@@ -68,7 +67,7 @@ const CreateAccount = (props) => {
             </Row>
             <FlexHolder>
               <Button>
-                Sign up with Email <Image src={emailogo} height={2} width={2} />
+                Log In with Email <Image src={emailogo} height={2} width={2} />
               </Button>
             </FlexHolder>
           </OnBoardContainer>
@@ -203,4 +202,4 @@ const GoogleLogo = styled(Logo)`
 border-radius:50%;
 `;
 
-export default CreateAccount;
+export default Login;

@@ -102,14 +102,14 @@ const StyledRow = styled.div.attrs(props => ({
   border-bottom-right-radius: ${props =>
     props.borderRadiusBottomRight ? props.borderRadiusBottomRight : "5px"};
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : Colors.white};
+    props.backgroundColor ? props.backgroundColor : "transparent"};
   color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: auto;
   margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
   padding: ${props => (props.padding ? `${props.margin}rem` : "1rem")};
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   flex-wrap: nowrap;
   justify-content: ${props =>
     props.justifyContent ? props.justifyContent : "space-around"};
