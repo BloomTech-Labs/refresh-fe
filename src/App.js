@@ -13,11 +13,11 @@ import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 
-// COMPONENT
+/*COMPONENT
 const App = props => {
   return (
     <React.Fragment>
-      {/* <MobileMenu /> */}
+      <MobileMenu />
       <Route path='/firstlogin' component={StepStart} /> 
       <MobileMenu />
       <Route exact path="/" component={Landing} />
@@ -33,6 +33,7 @@ const App = props => {
 };
 
 // STYLED COMPONENTS
-// todo
+// todo  
 
 export default App;
+*/

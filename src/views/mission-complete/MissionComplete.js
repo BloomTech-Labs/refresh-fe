@@ -1,12 +1,13 @@
-// IMPORTS
+/* IMPORTS
 // react
-import React from 'react';
+import React, { useState } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
+import MissionInput from './MissionInput';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -48,8 +49,23 @@ const dummyMissions = [
 
 // COMPONENT
 const MissionComplete = () => {
+    // state hooks
+    const [drawer, setDrawer] = useState({
+        status: 'closed',
+        darken: 'inactive'
+    })
+
+    // handlers
+    const handleDrawer = e => {
+        drawer.status === 'closed' ?
+        setDrawer({ ...drawer, status: 'open', darken: 'active' }) :
+        setDrawer({ ...drawer, status: 'closed', darken: 'inactive' });
+    };
+
+    // render
     return (
         <MCView>
+            <Darken className={drawer.darken} onClick={handleDrawer} />
         <MCWrapper>
             <MCContainer>
                     <h2 className='mission-message'>What mission did you complete?</h2>
@@ -61,6 +77,7 @@ const MissionComplete = () => {
                                     key={mission.id}
                                     description={mission.description}
                                     color={mission.color}
+                                    handleDrawer={handleDrawer}
                                 />
                             )
                         })}
@@ -68,6 +85,11 @@ const MissionComplete = () => {
 
                     <ContinueButton>Continue</ContinueButton>
             </MCContainer>
+            <MissionInput 
+                handleDrawer={handleDrawer}
+                status={drawer.status}
+            />
+
         </MCWrapper>
         </MCView>
     );
@@ -123,6 +145,27 @@ const ContinueButton = styled.button`
     letter-spacing: 0.15rem;
 `
 
+const Darken = styled.div`
+    transition-property: all;
+    transition: 0.5s;
+
+    &.active {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        bottom: 10rem;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    &.inactive {
+        width: 100%;
+        height: 0vh;
+        position: fixed;
+        bottom: 10rem;
+        background-color: rgba(0, 0, 0, 0);
+    }
+`
+
 
 // EXPORT
-export default MissionComplete;
+export default MissionComplete; */

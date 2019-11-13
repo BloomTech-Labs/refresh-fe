@@ -8,8 +8,11 @@ import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
 const MissionCard = props => {
+    // props
+    const { handleDrawer } = props;
+    
     return (
-        <CardContainer color={props.color}>
+        <CardContainer color={props.color} onClick={handleDrawer}>
             <i class="fas fa-tint"></i>
 
             <p>{props.description}</p>
