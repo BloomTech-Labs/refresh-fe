@@ -10,7 +10,16 @@ import { test, flex } from '../../styles/global/Mixins';
 const Leaderboard = () => {
     return (
         <>
-            hi from leaderboard
+            <LBView>
+            <LBWrapper>
+                <LBContainer>
+                    <ViewButtons>
+                        <button>This Week</button>
+                        <button>All Time</button>
+                    </ViewButtons>
+                </LBContainer>
+            </LBWrapper>
+            </LBView>
         </>
     );
 };
@@ -32,6 +41,10 @@ const LBContainer = styled.div`
     width: 90%;
     margin: 0 auto;
     ${flex.flexCol}
+`
+
+const ViewButtons = styled.div`
+
 `
 
 // EXPORT
