@@ -14,9 +14,11 @@ const Scoreboard = props => {
     // render
     return (
         <>
-            {data.map(score => {
+            {data.map((score, i) => {
                 return (
-                    <Card />
+                    <Card key={i}>
+                        
+                    </Card>
                 )
             })}
         </>
