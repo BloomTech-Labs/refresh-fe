@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useState } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -85,14 +85,20 @@ const data2 = [
 
 // COMPONENT
 const Leaderboard = () => {
+    // state hooks
+    const [buttons, setButtons] = useState({
+        thisWeek: true,
+        allTime: false
+    });
+    
     return (
         <>
             <LBView>
             <LBWrapper>
                 <LBContainer>
                     <ViewButtons>
-                        <button className='active'>This Week</button>
-                        <button className='inactive'>All Time</button>
+                        <button className={`${buttons.thisWeek ? 'active' : 'inactive'}`}>This Week</button>
+                        <button className={`${buttons.allTime ? 'active' : 'inactive'}`}>All Time</button>
                     </ViewButtons>
                 </LBContainer>
             </LBWrapper>
