@@ -16,12 +16,10 @@ const Counter = () => {
     // handlers
     const increment = e => {
         setCounter({ ...counter, value: counter.value + 1 });
-        console.log(counter.value)
     };
 
     const decrement = e => {
         setCounter({ ...counter, value: counter.value - 1 });
-        console.log(counter.value)
     };
     
     return (
