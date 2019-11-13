@@ -20,6 +20,7 @@ const Counter = () => {
 // STYLED COMPONENTS
 const CounterWrapper = styled.div`
     width: 100%;
+    height: 5rem;
     margin: 1rem;
     display: flex;
     flex-flow: row nowrap;
@@ -35,10 +36,7 @@ const CounterWrapper = styled.div`
             background-color: rgba(0, 0, 0, 0.5);
             color: #FFF;
             font-size: 2rem;
-        }
-
-        div {
-            margin: 1rem;
+            margin-top: auto;
         }
 `
 
