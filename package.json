@@ -7,6 +7,7 @@
     "react": "^16.11.0",
     "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.11.0",
+    "react-horizontal-scrolling-menu": "^0.7.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-timer-hook": "^1.1.7",

@@ -25,21 +25,23 @@ function Timer ({ expiryTimestamp }) {
   if (seconds === 1) seconds = '01';
   if (seconds === 0) seconds = '00';
 
-  if (seconds === '00') {
+  if (minutes === 0) {
     // state logic to set sprints 1-4 goes here
   }
 
-  let percentage = 0;
+  let [percentage, setPercentage] = useState();
+  let [min, setMinutes] = useState(minutes);
+  let [sprint, setSprint] = useState();
 
-  let [min, setMinutes] = useState(0);
-  let [sec, setSeconds] = useState(0);
-  let [sprint, setSprint] = useState(0);
-
+  // let percentage;
   // Below effect doesn't register but I feel like it might be close to what's needed so I'm gonna leave it.
   useEffect(() => {
-    percentage = setMinutes(minutes) / 25;
-  }, [])
- 
+    setMinutes(min - 1);
+    console.log(min);
+    setPercentage(-1 * (min / 25));
+    console.log(percentage);
+  }, [seconds])
+
   return (
     <div className="clock">
       <h1>Pomodoro Clock</h1>
@@ -51,7 +53,7 @@ function Timer ({ expiryTimestamp }) {
           trailColor: 'white',
           textColor: 'white',
           textSize: '16px',
-          // pathTransitionDuration: 0.5,
+          pathTransitionDuration: 0.5,
         })}
       > 
         <div className="time">

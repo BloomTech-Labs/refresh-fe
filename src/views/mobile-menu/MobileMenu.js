@@ -44,7 +44,7 @@ const MobileMenu = () => {
     // RENDER
     return (
         <Wrapper>
-            <Darken className={menu.darken}></Darken>
+            <Darken className={menu.darken} onClick={menuToggle}></Darken>
             <DrawerContainer>
                 <Drawer className={menu.status}>
                     <Column>
@@ -135,7 +135,7 @@ const DrawerContainer = styled.div`
         position: fixed;
         right: 100vw;
         background-color: rgb(100,135,255, 0.95);
-        transition: 0.5s ease-in-out;
+        transition: 0.3s ease-in-out;
     }
 
         .open {
@@ -144,12 +144,12 @@ const DrawerContainer = styled.div`
             position: fixed;
             right: 10vw;
             background-color: rgb(100,135,255, 0.95);
-            transition: 0.5s ease-in-out;
+            transition: 0.3s ease-in-out;
         }
 `
 
 const Drawer = styled.div`
-    positon: relative;
+    position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
