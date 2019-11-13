@@ -121,7 +121,18 @@ const LBContainer = styled.div`
 `
 
 const ViewButtons = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 
+    button {
+        width: 14rem;
+        height: 5rem;
+        margin: 1rem;
+        border: none;
+        border-radius: 2px;
+    }
 `
 
 // EXPORT
