@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+import ReactSlider from "react-slider";
 
 export const Step1 = profile => {
   console.log(profile);
@@ -95,6 +96,12 @@ export const Step4 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+              <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -260,6 +267,35 @@ export const Step10 = profile => {
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
+const StyledSlider = styled(ReactSlider)`
+    width: 100%;
+    height: 0.2rem;
+    margin: 8rem 0 13rem;
+`;
+
+const StyledThumb = styled.div`
+    height: 2.5rem;
+    line-height: 25px;
+    width: 25px;
+    text-align: center;
+    background-color: #28C96C;
+    color: #fff;
+    border-radius: 50%;
+    cursor: grab;
+    margin-top:-1rem;
+`;
+
+const Thumb = (props) => <StyledThumb {...props}></StyledThumb>;
+
+const StyledTrack = styled.div`
+    top: 0;
+    bottom: 0;
+    background: ${props =>  props.index === 1 ? '#ddd' : '#28C96C'};
+    border-radius: 2rem;
+`;
+
+const Track = (props, state) =>{console.log(state); return ( <StyledTrack {...props} index={state.index} value={7} />)};
+
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
