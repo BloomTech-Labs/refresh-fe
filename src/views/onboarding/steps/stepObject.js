@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import ReactSlider from "react-slider";
+import WHDial from "react-horizontal-scrolling-menu";
+import WeightHeight from "./WeightHeight";
 
 export const Step1 = profile => {
   console.log(profile);
@@ -15,6 +17,8 @@ export const Step1 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+              <WHDial 
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -303,6 +307,24 @@ export const Step10 = profile => {
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
+const MenuItem = ({ text, selected }) => {
+    return <div className={`menu-item ${selected ? "active" : ""}`}>{text}</div>;
+  };
+
+const Menu = list =>
+  list.map(el => {
+    const { name } = el;
+
+    return <MenuItem text={name} key={name} />;
+  });
+
+  const Arrow = ({ text, className }) => {
+    return <div className={className}>{text}</div>;
+  };
+
+  export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
+  export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
+
 const StyledSlider = styled(ReactSlider)`
     width: 100%;
     height: 0.2rem;

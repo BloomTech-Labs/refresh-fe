@@ -1,24 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import fblogo from "../../images/facebook-logo.png";
-import emailogo from "../../images/Onboarding/email.png";
+import fblogo from "../../images/facebook-icon.png";
+import googlelogo from "../../images/flat-color-icons_google.png";
+import emailogo from "../../images/email.png";
 import cubes from "../../images/two_cubes.png";
-import Row  from '../../components/atoms/row/row';
-import Col from '../../components/atoms/col/col';
-import googlelogo from "../../images/google-icon.jpg";
-import Image from "../../components/atoms/image/image";
+import GoogleSignIn from "./GoogleSignInButton";
 
 const CreateAccount = (props) => {
     const routeToHome = e => {
         e.preventDefault();
         props.history.push("/");
       };
-    
-      const routeToLogin = e => {
+
+      const routeToSignUp = e => {
         e.preventDefault();
-        props.history.push("/login");
+        props.history.push("/signup");
       };
-      
+
     const auth = (e) => {
         //Open Popup and declare Size
         window.open(
@@ -32,15 +30,9 @@ const CreateAccount = (props) => {
       };
 
       const authSuccess = userObject => {
-<<<<<<< HEAD
-          console.log(userObject);
-=======
-    
->>>>>>> e4485fac54f136c9ff99131da792f676c10229ea
         userObject = JSON.parse(userObject)
-        console.log(userObject)
         localStorage.setItem('token', userObject.token);
-        {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
+        props.history.push('/dashboard');
       };
 
       return (
@@ -48,31 +40,26 @@ const CreateAccount = (props) => {
           <OnBoardContainer>
             <TopHolder>
               <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
-              <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
+              <ButtonNoColor onClick={routeToSignUp}>Sign Up</ButtonNoColor>
             </TopHolder>
             <HeaderHolder>
               <Header>
-                Create <br /> Account.
+                Welcome <br /> Back.
               </Header>
               <Cubes src={cubes} />
             </HeaderHolder>
             <FlexHolder>
               <FBButton name="facebookAuth" onClick={auth}>
-                Sign up with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
+                Log in with Facebook <Logo src={fblogo} />{" "}
               </FBButton>
               <GoogleSignIn name="googleAuth" onClick={auth}>
-              Sign up with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
-            </GoogleSignIn>
+                Log in with Google <Logo src={googlelogo} />
+              </GoogleSignIn>
             </FlexHolder>
-            <Row>
-            <OnboardTxt>
-            <Col width={50}>OR</Col>
-            <Col width={50}><LineTime/></Col>
-            </OnboardTxt>
-            </Row>
+            <OnboardTxt>OR</OnboardTxt>
             <FlexHolder>
               <Button>
-                Sign up with Email <Image src={emailogo} height={2} width={2} />
+                Log in with Email <Logo src={emailogo} />
               </Button>
             </FlexHolder>
           </OnBoardContainer>
@@ -151,27 +138,7 @@ const Button = styled.a`
   letter-spacing:0.1rem;
 }
 `;
-
-const LineTime = styled.hr`
-width:100%;
-`
-
 const FBButton = styled.a`
-display: flex;
-justify-content: space-evenly;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
-  text-align:center;
-  margin: 2rem auto;
-  background: #4A639E;
-  color: white;
-  font-size:1.6rem;
-  letter-spacing:0.1rem;
-}
-`;
-
-const GoogleSignIn = styled.a`
 display: flex;
 justify-content: space-evenly;
   border-radius: 0.5rem;
@@ -200,11 +167,6 @@ const Cubes = styled.img`
   padding-top: 5rem;
 `;
 
-const Logo = styled.img`
-`;
-
-const GoogleLogo = styled(Logo)`
-border-radius:50%;
-`;
+const Logo = styled.img``;
 
 export default CreateAccount;
