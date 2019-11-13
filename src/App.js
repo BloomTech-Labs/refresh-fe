@@ -13,7 +13,7 @@ import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 
-/*COMPONENT
+// COMPONENT
 const App = props => {
   return (
     <React.Fragment>
@@ -32,7 +32,6 @@ const App = props => {
 };
 
 // STYLED COMPONENTS
-// todo  
+// todo
 
 export default App;
-*/
