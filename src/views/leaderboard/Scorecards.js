@@ -17,7 +17,10 @@ const Scoreboard = props => {
             {data.map((score, i) => {
                 return (
                     <Card key={i}>
-                        
+                        <span>{i}</span>
+                        <h3>{score.fname} {score.lname}</h3>
+                        <h4>{score.cohort} - {score.sectionLead}</h4>
+                        <span>{score.points}</span>
                     </Card>
                 )
             })}
