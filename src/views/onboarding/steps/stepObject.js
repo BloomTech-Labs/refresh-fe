@@ -127,6 +127,12 @@ export const Step5 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+            <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -152,6 +158,12 @@ export const Step6 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+            <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -177,6 +189,12 @@ export const Step7 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+                <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -202,6 +220,12 @@ export const Step8 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+            <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -227,6 +251,12 @@ export const Step9 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+                <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -252,6 +282,12 @@ export const Step10 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+            <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 3 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -285,7 +321,7 @@ const StyledThumb = styled.div`
     margin-top:-1rem;
 `;
 
-const Thumb = (props) => <StyledThumb {...props}></StyledThumb>;
+const Thumb = (props, state) => <StyledThumb {...props}></StyledThumb>;
 
 const StyledTrack = styled.div`
     top: 0;

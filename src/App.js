@@ -17,7 +17,7 @@ const App = props => {
   return (
     <React.Fragment>
       {/* <MobileMenu /> */}
-      <Route path='/firstlogin' component={StepStart} />
+      <Route path='/firstlogin' component={StepStart} /> 
       <Route exact path="/" component={Landing} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />
