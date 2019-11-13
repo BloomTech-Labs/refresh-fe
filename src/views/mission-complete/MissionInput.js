@@ -5,6 +5,8 @@ import React from 'react';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// components
+import Counter from './Counter';
 
 // COMPONENT
 const MissionInput = props => {
@@ -24,7 +26,7 @@ const MissionInput = props => {
                     <p>This is some placeholder text</p>
                 </InputMessage>
 
-                <TestComponent>Component</TestComponent>
+                <Counter />
             </InputDrawer>
         </React.Fragment>
     );
