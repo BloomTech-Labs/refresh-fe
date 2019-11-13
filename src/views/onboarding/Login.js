@@ -1,22 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import fblogo from "../../images/facebook-icon.png";
-import googlelogo from "../../images/flat-color-icons_google.png";
-import emailogo from "../../images/email.png";
+import fblogo from "../../images/facebook-logo.png";
+import emailogo from "../../images/Onboarding/email.png";
 import cubes from "../../images/two_cubes.png";
-import GoogleSignIn from "./GoogleSignInButton";
+import Row  from '../../components/atoms/row/row';
+import Col from '../../components/atoms/col/col';
+import googlelogo from "../../images/google-icon.jpg";
+import Image from "../../components/atoms/image/image";
 
-const CreateAccount = (props) => {
+const Login = (props) => {
     const routeToHome = e => {
         e.preventDefault();
         props.history.push("/");
       };
-
-      const routeToSignUp = e => {
+    
+      const routeToLogin = e => {
         e.preventDefault();
-        props.history.push("/signup");
+        props.history.push("/login");
       };
-
+      
     const auth = (e) => {
         //Open Popup and declare Size
         window.open(
@@ -31,8 +33,9 @@ const CreateAccount = (props) => {
 
       const authSuccess = userObject => {
         userObject = JSON.parse(userObject)
+        console.log(userObject)
         localStorage.setItem('token', userObject.token);
-        props.history.push('/dashboard');
+        {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
       };
 
       return (
@@ -40,7 +43,7 @@ const CreateAccount = (props) => {
           <OnBoardContainer>
             <TopHolder>
               <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
-              <ButtonNoColor onClick={routeToSignUp}>Sign Up</ButtonNoColor>
+              <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
             </TopHolder>
             <HeaderHolder>
               <Header>
@@ -50,16 +53,21 @@ const CreateAccount = (props) => {
             </HeaderHolder>
             <FlexHolder>
               <FBButton name="facebookAuth" onClick={auth}>
-                Log in with Facebook <Logo src={fblogo} />{" "}
+                Login with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
               </FBButton>
               <GoogleSignIn name="googleAuth" onClick={auth}>
-                Log in with Google <Logo src={googlelogo} />
-              </GoogleSignIn>
+              Login with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
+            </GoogleSignIn>
             </FlexHolder>
-            <OnboardTxt>OR</OnboardTxt>
+            <Row>
+            <OnboardTxt>
+            <Col width={50}>OR</Col>
+            <Col width={50}><LineTime/></Col>
+            </OnboardTxt>
+            </Row>
             <FlexHolder>
               <Button>
-                Log in with Email <Logo src={emailogo} />
+                Login with Email <Image src={emailogo} height={2} width={2} />
               </Button>
             </FlexHolder>
           </OnBoardContainer>
@@ -138,7 +146,27 @@ const Button = styled.a`
   letter-spacing:0.1rem;
 }
 `;
+
+const LineTime = styled.hr`
+width:100%;
+`
+
 const FBButton = styled.a`
+display: flex;
+justify-content: space-evenly;
+  border-radius: 0.5rem;
+  padding: 1.5rem 0.8rem;
+  width:100%;
+  text-align:center;
+  margin: 2rem auto;
+  background: #4A639E;
+  color: white;
+  font-size:1.6rem;
+  letter-spacing:0.1rem;
+}
+`;
+
+const GoogleSignIn = styled.a`
 display: flex;
 justify-content: space-evenly;
   border-radius: 0.5rem;
@@ -167,6 +195,11 @@ const Cubes = styled.img`
   padding-top: 5rem;
 `;
 
-const Logo = styled.img``;
+const Logo = styled.img`
+`;
 
-export default CreateAccount;
+const GoogleLogo = styled(Logo)`
+border-radius:50%;
+`;
+
+export default Login;

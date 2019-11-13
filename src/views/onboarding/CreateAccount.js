@@ -32,11 +32,6 @@ const CreateAccount = (props) => {
       };
 
       const authSuccess = userObject => {
-<<<<<<< HEAD
-          console.log(userObject);
-=======
-    
->>>>>>> e4485fac54f136c9ff99131da792f676c10229ea
         userObject = JSON.parse(userObject)
         console.log(userObject)
         localStorage.setItem('token', userObject.token);
