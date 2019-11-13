@@ -17,7 +17,7 @@ import Login from "./views/onboarding/Login";
 const App = props => {
   return (
     <React.Fragment>
-      {/* <MobileMenu /> */}
+      <MobileMenu />
       <Route path='/firstlogin' component={StepStart} /> 
       <Route exact path="/" component={Landing} />
       <Route path="/dashboard" component={Dashboard} />
