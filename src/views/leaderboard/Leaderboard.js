@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// components
+import Scorecards from './Scorecards';
 
 // DUMMY DATA
 const data = [
@@ -107,7 +109,7 @@ const Leaderboard = () => {
                     </ViewButtons>
 
                     <LBScores>
-
+                        <Scorecards />
                     </LBScores>
                 </LBContainer>
             </LBWrapper>
