@@ -39,13 +39,13 @@ const App = props => {
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
       <Route path='/timer-1' component={Timer} />
-      {/* <Route path='/timer-2' component={TimerTwo} />
+      <Route path='/timer-2' component={TimerTwo} />
       <Route path='/timer-3' component={TimerThree} />
       <Route path='/timer-4' component={TimerFour} />
       <Route path='/break-1' component={TimerShortBreakOne} />
       <Route path='/break-2' component={TimerShortBreakTwo} />
       <Route path='/break-3' component={TimerShortBreakThree} />
-      <Route path='/break-4' component={TimerLongBreak} /> */}
+      <Route path='/break-4' component={TimerLongBreak} />
     </>
     
   );

@@ -6,7 +6,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { TimerTwo } from './TimerTwo';
  
-export function TimerShortBreakOne ({ expiryTimestamp }) {
+function TimerShortBreakOne ({ expiryTimestamp }) {
 
   let {
     seconds,
