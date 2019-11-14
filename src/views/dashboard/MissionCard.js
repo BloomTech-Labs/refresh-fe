@@ -25,17 +25,17 @@ const bgPicker = vertical => {
 
 const colorPicker = vertical => {
   if (vertical === 'water') {
-      return ''
+      return '#6091D6'
   } else if (vertical === 'activity') {
-      return ''
+      return '#E36666'
   } else if (vertical === 'sleep') {
-      return ''
+      return '#6091D6'
   } else if (vertical === 'mental') {
-      return ''
+      return '#DF8F53'
   } else if (vertical === 'food') {
-      return ''
+      return '#448961'
   } else {
-      return ''
+      return '#FFF'
   }
 };
 
