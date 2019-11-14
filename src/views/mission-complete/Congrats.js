@@ -22,10 +22,10 @@ const Congrats = props => {
 
                 <CelebrationImg src={Rocket}></CelebrationImg>
 
-                <span>+ 30 points</span>
+                <span className='points'>+30 points</span>
                 <span>Congratulations!</span>
 
-                <p>To get more points and badges, complete more missions.</p>
+                <p>To get more points and badges,<br /> complete more missions.</p>
 
                 <button>Share with your team</button>
                 <button>></button>
@@ -65,6 +65,26 @@ const CongratsScreen = styled.div`
         align-items: center;
         transition: 0.5s;
     }
+
+        span {
+            color: #FFF;
+            font-size: 2rem;
+            margin: 1rem;
+        }
+    
+        .points {
+            font-size: 4.5rem;
+            color: #FFF;
+            font-weight: bold;
+            letter-spacing: 0.15rem;
+        }
+
+        p {
+            color: #FFF;
+            width: 25rem;
+            font-size: 2rem;
+            text-align: center;
+        }
 
         button {
             align-self: flex-end;
