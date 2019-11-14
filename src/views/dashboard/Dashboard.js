@@ -19,7 +19,7 @@ import MissionCard from './MissionCard';
 const dummyMissions = [
     {
         id: 1,
-        vertical: 'health',
+        vertical: 'water',
         name: 'water',
         description: '2 more glasses of water',
         pointValue: 20,
@@ -35,7 +35,7 @@ const dummyMissions = [
     },
     {
         id: 3,
-        vertical: 'fitness',
+        vertical: 'activity',
         name: 'activity',
         description: 'physical activity for at least 30 minutes',
         pointValue: 70,
