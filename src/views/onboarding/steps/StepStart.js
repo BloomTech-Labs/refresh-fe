@@ -1,9 +1,10 @@
 // IMPORTS
 // react
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
+import axios from "axios";
 
 // components
 import StepOne from "./StepOne";
@@ -58,27 +59,68 @@ let profilequestions = [
 
 const StepStart = props => {
   const [form, setForm] = useState(profilequestions);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({
+    sleepStats: 3,
+    overWhelmedStats:"",
+    breakStats: 3,
+    exerciseStats: 3,
+    hydrationStats:3,
+    healthFoodStats:3,
+    stretchStats: 3,
+    teamBuildStats: 3
+  });
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleChanges = e => {
-    e.preventDefault();
     console.log(user);
     setUser({...user, [e.target.name]: e.target.value });
   };
 
+  const handleSleepChange = value =>  setUser({sleepStats:value})
+  const handleBreakChange = value =>  setUser({breakStats:value})
+  const handleExerChange = value =>  setUser({exerciseStats:value})
+  const handleHydraChange = value =>  setUser({hydrationStats:value})
+  const handleHealthChange = value =>  setUser({healthFoodStats:value})
+  const handleStretchCange = value =>  setUser({stretchStats:value})
+  const handleTeamChange = value =>  setUser({teamBuildStats:value})
+
+
+
+ useEffect(()=> {
+   axios.get("/questions")
+   .then(res => console.log(res))
+  //  .then(res => {
+  //    setForm(res.data);
+  //  })
+   .catch(err => console.log(err))
+ })
+
+  // const handleSubmit = form => {
+  //   if (currentStep >= 10) {
+  //     console.log(user, form);
+  //     // axios.post("/userinfo", form)
+  //     // .then(res => {
+  //     //   console.log(res)
+  //     //   history.pushState("/dashboard");
+  //     // })
+  //     // .catch(err =>{
+  //     //   console.log(err);
+  //     // })
+  //   }
+  //   // setForm(form);
+  //   setCurrentStep(currentStep + 1);
+  // };
+
   const handleSubmit = form => {
-    if (currentStep >= 10) {
-      console.log(form);
-      props.onboarding(form).then(() => props.history.push("/dashboard"));
-    }
-    // setForm(form);
-    setCurrentStep(currentStep + 1);
-  };
+if(currentStep >= 10){
+  props.history.push("/dashboard");
+}
+setCurrentStep(currentStep + 1);
+  }
   return (
     <>
       <UserContext.Provider
-        value={{ form, handleChanges, handleSubmit, currentStep }}
+        value={{ form, user, setUser, handleChanges, handleSleepChange, handleBreakChange, handleExerChange, handleHydraChange, handleHealthChange, handleStretchCange, handleTeamChange, handleSubmit, currentStep }}
       >
         <StepOne />
       </UserContext.Provider>
