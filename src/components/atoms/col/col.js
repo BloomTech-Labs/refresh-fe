@@ -24,6 +24,8 @@ const Col = ({ ...props }) => {
     color,
     fontSize,
     margin,
+    marginLeft,
+    marginRight,
     marginBottom,
     marginTop,
     padding,
@@ -52,6 +54,8 @@ const Col = ({ ...props }) => {
       color={color}
       fontSize={fontSize}
       margin={margin}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
       marginBottom={marginBottom}
       marginTop={marginTop}
       padding={padding}
@@ -85,6 +89,8 @@ const StyledCol = styled.div.attrs(props => ({
   justifyContent: props.justifyContent,
   height: props.height,
   margin: props.margin,
+  marginLeft: props.marginLeft,
+  marginRight: props.marginRight,
   marginBottom: props.marginBottom,
   marginTop: props.marginTop,
   padding: props.padding,
@@ -118,6 +124,8 @@ const StyledCol = styled.div.attrs(props => ({
   margin-bottom: ${props =>
     props.marginBottom ? `${props.marginBottom}rem` : "1rem"};
   margin-top: ${props => (props.marginTop ? `${props.marginTop}rem` : "1rem")};
+  margin-left: ${props => (props.marginLeft ? `${props.marginLeft}rem` : "1rem")};
+  margin-right: ${props => (props.marginRight ? `${props.marginRight}rem` : "1rem")};
   padding: ${props => (props.padding ? `${props.marginBottom}rem` : "1rem")};
   display: flex;
   /* flex-flow: row wrap; */
