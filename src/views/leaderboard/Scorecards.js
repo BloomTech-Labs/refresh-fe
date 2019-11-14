@@ -71,6 +71,31 @@ const Card = styled.div`
             height: 20rem;
             background-color: #D4F7E3;
             color: #28C96C;
+
+                span:first-child {
+                    font-size: 30rem;
+                    margin-left: 3rem;
+                    opacity: 0.3;
+                }
+
+                div {
+                    width: 20rem;
+                    margin-left: -10rem;
+                }
+
+                h3 {
+                    font-size: 3rem;
+                }
+
+                h4 {
+                    font-size: 2.75rem;
+                }
+
+                span:last-child {
+                    width: 10rem;
+                    margin-top: -15rem;
+                    text-align: right;
+                }
         }
 
     }
