@@ -54,24 +54,6 @@ const dummyMissions = [
     }
 ];
 
-// HELPERS
-const bgPicker = vertical => {
-    if (vertical === 'water') {
-        return '#CEE2FF'
-    } else if (vertical === 'activity') {
-        return '#FECDCD'
-    } else if (vertical === 'sleep') {
-        return '#FECDF9'
-    } else if (vertical === 'mental') {
-        return '#FFE2CC'
-    } else if (vertical === 'food') {
-        return '#D5F6E3'
-    } else if (vertical === 'social') {
-        return '#DFC5F7'
-    } else {
-        return '#FFF'
-    }
-  };
 
 // COMPONENT
 const MissionComplete = props => {
