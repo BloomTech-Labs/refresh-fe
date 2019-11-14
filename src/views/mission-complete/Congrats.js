@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React, { useState } from 'react';
+// router
+import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -30,7 +32,7 @@ const Congrats = props => {
                     
                     <ButtonRow>
                         <button>Share with your team</button>
-                        <button><i class="fas fa-arrow-right"></i></button>
+                        <Link to='/dashboard'><button><i class="fas fa-arrow-right"></i></button></Link>
                     </ButtonRow>
                 </NextContainer>
             </CongratsScreen>
@@ -95,6 +97,10 @@ const CongratsScreen = styled.div`
         button {
             align-self: flex-end;
             margin-bottom: auto;
+        }
+
+        a {
+            text-decoration: none;
         }
 `
 
