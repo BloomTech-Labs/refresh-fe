@@ -20,17 +20,19 @@ const Congrats = props => {
                 <DrawerAccent />
                 <CloseButton onClick={handleClose}>X</CloseButton>
 
-                <CelebrationImg src={Rocket}></CelebrationImg>
+                <NextContainer>
+                    <CelebrationImg src={Rocket}></CelebrationImg>
 
-                <span className='points'>+30 points</span>
-                <span>Congratulations!</span>
+                    <span className='points'>+30 points</span>
+                    <span>Congratulations!</span>
 
-                <p>To get more points and badges,<br /> complete more missions.</p>
-                
-                <ButtonRow>
-                    <button>Share with your team</button>
-                    <button>></button>
-                </ButtonRow>
+                    <p>To get more points and badges,<br /> complete more missions.</p>
+                    
+                    <ButtonRow>
+                        <button>Share with your team</button>
+                        <button><i class="fas fa-arrow-right"></i></button>
+                    </ButtonRow>
+                </NextContainer>
             </CongratsScreen>
         </>
     );
@@ -38,6 +40,7 @@ const Congrats = props => {
 
 // STYLED COMPONENTS
 const CongratsScreen = styled.div`
+
     &.open {
         width: 100vw;
         height: 90vh;
@@ -113,6 +116,14 @@ const CloseButton = styled.button`
     opacity: 0.5;
 `
 
+const NextContainer = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: auto; 
+`
+
 const CelebrationImg = styled.img`
         width: 200px;
         height: 200px;
@@ -135,6 +146,8 @@ const ButtonRow = styled.div`
                 box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
                 color: #FFF;
                 letter-spacing: 0.15rem;
+                margin-left: auto;
+                margin-right: 1rem;
             }
 
             button:last-child {
@@ -143,7 +156,8 @@ const ButtonRow = styled.div`
                 border-radius: 5px;
                 border: none;
                 background-color: rgba(0, 0, 0, 0.5);
-                font-size: 2rem;
+                font-size: 1.75rem;
+                font-weight: bold;
                 box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
                 display: flex;
                 flex-flow: column nowrap;
@@ -151,6 +165,8 @@ const ButtonRow = styled.div`
                 align-items: center;
                 background-color: #E5E5E5;
                 color: #3A3699;
+                margin-right: auto;
+                margin-left: 1rem;
             }
 `
 
