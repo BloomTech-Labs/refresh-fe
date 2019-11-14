@@ -41,24 +41,22 @@ const colorPicker = vertical => {
 
 const iconPicker = vertical => {
   if (vertical === 'water') {
-      return <i class="fas fa-tint"></i>
+      return <i className="fas fa-tint"></i>
   } else if (vertical === 'activity') {
-      return <i class="fas fa-running"></i>
+      return <i className="fas fa-running"></i>
   } else if (vertical === 'sleep') {
-      return <i class="fas fa-bed"></i>
+      return <i className="fas fa-bed"></i>
   } else if (vertical === 'mental') {
-      return <i class="fas fa-volume-off"></i>
+      return <i className="fas fa-volume-off"></i>
   } else if (vertical === 'food') {
-      return <i class="fas fa-apple-alt"></i>
+      return <i className="fas fa-apple-alt"></i>
   } else {
-      return <i class="fas fa-smile"></i>
+      return <i className="fas fa-smile"></i>
   }
 };
 
 // COMPONENT
 const MissionCard = props => {
-  console.log("checking props:", props.vertical);
-
   return (
     <Container vertical={props.vertical}>
       <Gauge>
