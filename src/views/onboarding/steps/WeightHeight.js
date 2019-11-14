@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const WeightHeight = (props) =>{
     const sliderScale=(unit,range)=>{
        let items = []
@@ -15,7 +16,7 @@ const WeightHeight = (props) =>{
     return(
         <>
             <div className="Container">
-                {sliderScale(10,1000).map((x,i)=>x)}
+                {sliderScale(10,50).map((x,i)=>x)}
             </div>
         </>
     )

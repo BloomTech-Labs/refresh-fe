@@ -109,7 +109,7 @@ const Logo = styled.img`
   width: 100%;
   max-width: 82%;
   height: auto;
-  margin: auto;
+  margin: 5rem auto 0;
 `;
 
 export default Landing;

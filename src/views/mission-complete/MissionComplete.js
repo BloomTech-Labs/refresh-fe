@@ -8,6 +8,7 @@ import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
 import MissionInput from './MissionInput';
+import Congrats from './Congrats';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -17,49 +18,71 @@ import MissionInput from './MissionInput';
 const dummyMissions = [
     {
         id: 1,
+        vertical: 'water',
         description: 'drank a glass of water',
         color: '#CEE2FF'
     },
     {
         id: 2,
+        vertical: 'activity',
         description: 'got active',
         color: '#FECDCD'
     },
     {
         id: 3,
+        vertical: 'food',
         description: 'ate healthy',
         color: '#D5F6E3'
     },
     {
         id: 4,
+        vertical: 'mental',
         description: 'took a break',
         color: '#FFE2CC'
     },
     {
         id: 5,
+        vertical: 'sleep',
         description: 'got some sleep',
         color: '#FECDF9'
     },
     {
         id: 6,
+        vertical: 'social',
         description: 'pet quality time',
         color: '#DFC5F7'
     }
 ];
 
+
 // COMPONENT
-const MissionComplete = () => {
+const MissionComplete = props => {
     // state hooks
     const [drawer, setDrawer] = useState({
         status: 'closed',
         darken: 'inactive'
     })
 
+    const [congratsScreen, setCongratsScreen] = useState({
+        status: 'closed'
+    });
+
     // handlers
     const handleDrawer = e => {
         drawer.status === 'closed' ?
         setDrawer({ ...drawer, status: 'open', darken: 'active' }) :
         setDrawer({ ...drawer, status: 'closed', darken: 'inactive' });
+    };
+
+    const submitMissions = e => {
+        e.preventDefault();
+        congratsScreen.status === 'closed' ?
+        setCongratsScreen({ ...congratsScreen, status: 'open' }) :
+        setCongratsScreen({ ...congratsScreen, status: 'closed' });
+
+        drawer.darken === 'inactive' ?
+        setDrawer({ ...drawer, darken: 'active' }) :
+        setDrawer({ ...drawer, darken: 'inactive' });
     };
 
     // render
@@ -78,16 +101,23 @@ const MissionComplete = () => {
                                     description={mission.description}
                                     color={mission.color}
                                     handleDrawer={handleDrawer}
+                                    vertical={mission.vertical}
                                 />
                             )
                         })}
                     </MissionsWrapper>
 
-                    <ContinueButton>Continue</ContinueButton>
+                    <ContinueButton onClick={submitMissions}>Continue</ContinueButton>
             </MCContainer>
+
             <MissionInput 
                 handleDrawer={handleDrawer}
                 status={drawer.status}
+            />
+
+            <Congrats 
+                status={congratsScreen.status}
+                handleClose={submitMissions}
             />
 
         </MCWrapper>
@@ -101,7 +131,7 @@ const MCView = styled.div`
     width: 100vw;
     height: 100vh;
     max-height: 100vh;
-    padding-top: 10rem;
+    padding-top: 5rem;
     background-color: #3a3699;
 `
 
