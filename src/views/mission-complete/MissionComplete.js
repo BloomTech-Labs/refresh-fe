@@ -8,6 +8,7 @@ import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
 import MissionInput from './MissionInput';
+import Congrats from './Congrats';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -48,18 +49,33 @@ const dummyMissions = [
 ];
 
 // COMPONENT
-const MissionComplete = () => {
+const MissionComplete = props => {
     // state hooks
     const [drawer, setDrawer] = useState({
         status: 'closed',
         darken: 'inactive'
     })
 
+    const [congratsScreen, setCongratsScreen] = useState({
+        status: 'closed'
+    });
+
     // handlers
     const handleDrawer = e => {
         drawer.status === 'closed' ?
         setDrawer({ ...drawer, status: 'open', darken: 'active' }) :
         setDrawer({ ...drawer, status: 'closed', darken: 'inactive' });
+    };
+
+    const submitMissions = e => {
+        e.preventDefault();
+        congratsScreen.status === 'closed' ?
+        setCongratsScreen({ ...congratsScreen, status: 'open' }) :
+        setCongratsScreen({ ...congratsScreen, status: 'closed' });
+
+        drawer.darken === 'inactive' ?
+        setDrawer({ ...drawer, darken: 'active' }) :
+        setDrawer({ ...drawer, darken: 'inactive' });
     };
 
     // render
@@ -83,11 +99,17 @@ const MissionComplete = () => {
                         })}
                     </MissionsWrapper>
 
-                    <ContinueButton>Continue</ContinueButton>
+                    <ContinueButton onClick={submitMissions}>Continue</ContinueButton>
             </MCContainer>
+
             <MissionInput 
                 handleDrawer={handleDrawer}
                 status={drawer.status}
+            />
+
+            <Congrats 
+                status={congratsScreen.status}
+                handleClose={submitMissions}
             />
 
         </MCWrapper>
@@ -101,7 +123,7 @@ const MCView = styled.div`
     width: 100vw;
     height: 100vh;
     max-height: 100vh;
-    padding-top: 10rem;
+    padding-top: 5rem;
     background-color: #3a3699;
 `
 

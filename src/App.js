@@ -18,8 +18,8 @@ import Sandbox from './views/sandbox/Sandbox';
 // COMPONENT
 const App = props => {
   return (
-    <React.Fragment>
-      <MobileMenu />
+    <>
+      <Route path='/' component={MobileMenu} />
       <Route path='/firstlogin' component={StepStart} /> 
       <MobileMenu />
       <Route exact path="/" component={Landing} />
@@ -31,7 +31,7 @@ const App = props => {
       <Route path="/login" component={Login} />
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
-    </React.Fragment>
+    </>
     
   );
 };
