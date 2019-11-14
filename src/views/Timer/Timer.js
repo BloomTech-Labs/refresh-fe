@@ -37,7 +37,7 @@ function Timer ({ expiryTimestamp }) {
 
   return (
     <div className="clock">
-      <h1>Pomodoro Clock (Sprint #1)</h1>
+      {/* <h1>Pomodoro Clock (Sprint #1)</h1> */}
       <div className="timer">
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
