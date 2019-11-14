@@ -10,7 +10,7 @@ import { test, flex } from '../../styles/global/Mixins';
 const Congrats = () => {
     // state hooks 
     const [screen, setScreen] = useState({
-        status: 'open'
+        status: 'closed'
     });
     
     // render
@@ -18,7 +18,7 @@ const Congrats = () => {
         <>
             <CongratsScreen className={screen.status}>
                 <DrawerAccent />
-                <CloseButton />
+                <CloseButton>X</CloseButton>
             </CongratsScreen>
         </>
     );
@@ -28,7 +28,7 @@ const Congrats = () => {
 const CongratsScreen = styled.div`
     &.open {
         width: 100vw;
-        height: 35vh;
+        height: 90vh;
         margin: 0 auto;
         border-radius: 5px;
         position: fixed;

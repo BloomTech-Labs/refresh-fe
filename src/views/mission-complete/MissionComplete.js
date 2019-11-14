@@ -8,7 +8,7 @@ import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
 import MissionInput from './MissionInput';
-import { AST_PropAccess } from 'terser';
+import Congrats from './Congrats';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -91,10 +91,13 @@ const MissionComplete = props => {
 
                     <ContinueButton onClick={submitMissions}>Continue</ContinueButton>
             </MCContainer>
+
             <MissionInput 
                 handleDrawer={handleDrawer}
                 status={drawer.status}
             />
+
+            <Congrats />
 
         </MCWrapper>
         </MCView>
