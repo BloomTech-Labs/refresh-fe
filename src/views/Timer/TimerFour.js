@@ -5,7 +5,7 @@ import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
  
-function TimerFour ({ expiryTimestamp }) {
+export function TimerFour ({ expiryTimestamp }) {
 
   let {
     seconds,

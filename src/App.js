@@ -19,6 +19,8 @@ import TimerTwo from './views/Timer/TimerTwo';
 import TimerThree from './views/Timer/TimerThree';
 import TimerFour from './views/Timer/TimerFour';
 import TimerShortBreakOne from './views/Timer/TimerShortBreakOne';
+import TimerShortBreakTwo from './views/Timer/TimerShortBreakTwo';
+import TimerShortBreakThree from './views/Timer/TimerShortBreakThree';
 
 // COMPONENT
 const App = props => {
@@ -35,11 +37,13 @@ const App = props => {
       <Route path="/login" component={Login} />
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
-      <Route path='/timer' component={Timer} />
-      <Route path='/break-1' component={TimerShortBreakOne} />
+      <Route path='/timer-1' component={Timer} />
       <Route path='/timer-2' component={TimerTwo} />
       <Route path='/timer-3' component={TimerThree} />
       <Route path='/timer-4' component={TimerFour} />
+      <Route path='/break-1' component={TimerShortBreakOne} />
+      <Route path='/break-2' component={TimerShortBreakTwo} />
+      <Route path='/break-3' component={TimerShortBreakThree} />
     </>
     
   );
