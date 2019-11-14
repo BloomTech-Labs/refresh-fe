@@ -72,6 +72,10 @@ const MissionComplete = props => {
         congratsScreen.status === 'closed' ?
         setCongratsScreen({ ...congratsScreen, status: 'open' }) :
         setCongratsScreen({ ...congratsScreen, status: 'closed' });
+
+        drawer.darken === 'inactive' ?
+        setDrawer({ ...drawer, darken: 'active' }) :
+        setDrawer({ ...drawer, darken: 'inactive' });
     };
 
     // render
