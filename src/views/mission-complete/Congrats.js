@@ -9,7 +9,8 @@ import { test, flex } from '../../styles/global/Mixins';
 // COMPONENT
 const Congrats = props => {
     // props
-   
+   const { status } = props;
+
     // render
     return (
         <>

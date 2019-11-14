@@ -102,7 +102,7 @@ const MissionComplete = props => {
             />
 
             <Congrats 
-                status={congratsScreen}
+                status={congratsScreen.status}
             />
 
         </MCWrapper>
