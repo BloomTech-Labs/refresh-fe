@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { test, flex } from "../../styles/global/Mixins";
 
 // HELPERS
-const colorPicker = vertical => {
+const bgPicker = vertical => {
   if (vertical === 'water') {
       return '#CEE2FF'
   } else if (vertical === 'activity') {
@@ -46,7 +46,7 @@ const MissionCard = props => {
   return (
     <Container vertical={props.vertical}>
       <Gauge>
-        <i class="fas fa-tint"></i>
+        {iconPicker(props.vertical)}
       </Gauge>
       <p>{props.description}</p>
       <span>{props.points} Points</span>
@@ -61,7 +61,7 @@ const Container = styled.div`
   box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
   border-radius: 3px;
   margin: 1rem 0.5rem;
-  background-color: ${props => colorPicker(props.vertical)};
+  background-color: ${props => bgPicker(props.vertical)};
   padding: 1rem;
   ${flex.flexCol}
 
