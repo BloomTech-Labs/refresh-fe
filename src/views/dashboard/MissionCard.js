@@ -23,6 +23,22 @@ const bgPicker = vertical => {
   }
 };
 
+const colorPicker = vertical => {
+  if (vertical === 'water') {
+      return ''
+  } else if (vertical === 'activity') {
+      return ''
+  } else if (vertical === 'sleep') {
+      return ''
+  } else if (vertical === 'mental') {
+      return ''
+  } else if (vertical === 'food') {
+      return ''
+  } else {
+      return ''
+  }
+};
+
 const iconPicker = vertical => {
   if (vertical === 'water') {
       return <i class="fas fa-tint"></i>
