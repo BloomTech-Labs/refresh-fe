@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActivityCard from './ActivityCard';
+//import ActivityCard from './ActivityCard';
 //import PercentageCard from '../profileViews/PercentageCard';
 //import HeaderCard from '../profileViews/HeaderCard';
 //import ContactCard from '../profileViews/ContactCard';
@@ -19,7 +19,7 @@ background: #3A3699;
 ` 
 
 
-const Container = () => {
+const ProfileOverview = () => {
     return (
         <>
           <ProfileContainer/>
@@ -27,4 +27,4 @@ const Container = () => {
     );
 };
 
-export default Container;
+export default ProfileOverview;
