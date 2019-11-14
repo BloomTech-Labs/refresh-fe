@@ -123,7 +123,7 @@ const MCView = styled.div`
     width: 100vw;
     height: 100vh;
     max-height: 100vh;
-    padding-top: 10rem;
+    padding-top: 5rem;
     background-color: #3a3699;
 `
 
