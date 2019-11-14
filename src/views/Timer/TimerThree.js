@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router';
+import { Route } from 'react-router-dom';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { TimerShortBreakThree } from './TimerShortBreakThree';
  
 export function TimerThree ({ expiryTimestamp }) {
 
@@ -26,19 +27,19 @@ export function TimerThree ({ expiryTimestamp }) {
   if (seconds === 1) seconds = '01';
   if (seconds === 0) seconds = '00';
 
-  // if (percentage === '100%') {
-  //   <Redirect to='/break-3' />
-  // }
-
   let [percentage, setPercentage] = useState();
   let [min, setMinutes] = useState(minutes);
 
   useEffect(() => {
     setMinutes(min - 1);
-    console.log(min);
     setPercentage(-1 * (min / 25));
-    console.log(percentage);
   }, [seconds])
+
+  if (seconds == '00') {
+    let t = new Date();
+    t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
+    return <Route render={() => <TimerShortBreakThree expiryTimestamp={t} />} />
+  } else {
 
   return (
     <div className="clock">
@@ -119,6 +120,7 @@ export function TimerThree ({ expiryTimestamp }) {
       </div>
     </div>
   );
+}
 }
  
 export default function Display() {

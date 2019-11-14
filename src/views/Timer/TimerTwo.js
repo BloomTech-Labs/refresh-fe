@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router';
+import { Route } from 'react-router-dom';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { TimerShortBreakTwo } from './TimerShortBreakTwo';
  
 export function TimerTwo ({ expiryTimestamp }) {
 
@@ -31,14 +32,17 @@ export function TimerTwo ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    console.log(min);
     setPercentage(-1 * (min / 25));
-    console.log(percentage);
   }, [seconds])
+
+  if (seconds == '00') {
+    let t = new Date();
+    t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
+    return <Route render={() => <TimerShortBreakTwo expiryTimestamp={t} />} />
+  } else {
 
   return (
     <div className="clock">
-      {/* <h1>Pomodoro Clock (Sprint #2)</h1> */}
       <div className="timer">
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
@@ -113,6 +117,7 @@ export function TimerTwo ({ expiryTimestamp }) {
       </div>
     </div>
   );
+}
 }
  
 export default function Display() {

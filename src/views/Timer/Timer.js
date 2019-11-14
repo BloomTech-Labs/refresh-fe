@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
-import { TimerShortBreakOne } from './TimerShortBreakOne';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { TimerShortBreakOne } from './TimerShortBreakOne';
  
 export function Timer ({ expiryTimestamp }) {
 
@@ -118,7 +118,7 @@ export function Timer ({ expiryTimestamp }) {
       </div>
     </div>
   );
-          }
+}
 }
  
 export default function Display() {
