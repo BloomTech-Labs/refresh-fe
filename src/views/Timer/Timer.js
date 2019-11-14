@@ -93,34 +93,28 @@ function Timer ({ expiryTimestamp }) {
         </div>
         <div className="sprint two">
           <CircularProgressbar
-            value={percentage}
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white'
+              pathColor: 'white'
             })}
         />
         </div>
         <div className="sprint three">
           <CircularProgressbar
-            value={percentage}
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white'
+              pathColor: 'white'
             })}
         />
         </div>
         <div className="sprint four">
           <CircularProgressbar
-            value={percentage}
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white'
+              pathColor: 'white'
             })}
         />
         </div>

@@ -22,7 +22,7 @@ const Sandbox = () => {
     return (
         <>
             welcome to the sandbox
-            
+            <Route path="/pomodoro-clock" component={Timer} />
         </>
     );
 };

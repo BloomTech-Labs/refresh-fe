@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import ReactSlider from "react-slider";
-import WHDial from "react-horizontal-scrolling-menu";
+// import ReactSlider from "react-slider";
+// import WHDial from "react-horizontal-scrolling-menu";
 import WeightHeight from "./WeightHeight";
 
 export const Step1 = profile => {
@@ -17,8 +17,8 @@ export const Step1 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-              <WHDial 
-              />
+              {/* <WHDial 
+              /> */}
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -101,12 +101,12 @@ export const Step4 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-              <StyledSlider
+              {/* <StyledSlider
                 defaultValue={[3]}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
-              />
+              /> */}
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -132,12 +132,12 @@ export const Step5 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-            <StyledSlider
+            {/* <StyledSlider
                 defaultValue={[3]}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
-              />
+              /> */}
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -163,12 +163,12 @@ export const Step6 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-            <StyledSlider
+            {/* <StyledSlider
                 defaultValue={[3]}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
-              />
+              /> */}
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -194,12 +194,12 @@ export const Step7 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-                <StyledSlider
+                {/* <StyledSlider
                 defaultValue={[3]}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
-              />
+              /> */}
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -225,12 +225,12 @@ export const Step8 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-            <StyledSlider
+            {/* <StyledSlider
                 defaultValue={[3]}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
-              />
+              /> */}
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -256,12 +256,12 @@ export const Step9 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-                <StyledSlider
+                {/* <StyledSlider
                 defaultValue={[3]}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
-              />
+              /> */}
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -287,12 +287,12 @@ export const Step10 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-            <StyledSlider
+            {/* <StyledSlider
                 defaultValue={[3]}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
-              />
+              /> */}
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 3 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -326,11 +326,11 @@ const Menu = list =>
   export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
   export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
 
-const StyledSlider = styled(ReactSlider)`
-    width: 100%;
-    height: 0.2rem;
-    margin: 8rem 0 13rem;
-`;
+// const StyledSlider = styled(ReactSlider)`
+//     width: 100%;
+//     height: 0.2rem;
+//     margin: 8rem 0 13rem;
+// `;
 
 const StyledThumb = styled.div`
     height: 2.5rem;
