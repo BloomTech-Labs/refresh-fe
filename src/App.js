@@ -12,7 +12,7 @@ import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
-
+import Container from './views/profileViews/Container';
 //COMPONENT
 const App = props => {
   return (
@@ -26,6 +26,7 @@ const App = props => {
       <Route path="/signup" component={CreateAccount} />
       <Route path="/login" component={Login} />
       <Route path="/atoms" component={Atoms} />
+      <Container/>
     </React.Fragment>
     
   );
