@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
+
 const Rectangle49 = styled.div`
 position: absolute;
 width: 153px;

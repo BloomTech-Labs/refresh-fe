@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+
+
 
 const Rectangle50 = styled.div`
 position: absolute;
@@ -124,6 +127,7 @@ const PercentageCard = () => {
         <CompletionText>completion</CompletionText>
         <Rectangle58/>
         <FinishNowText>Finish now</FinishNowText>
+       
         </>
     );
 };

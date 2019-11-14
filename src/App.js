@@ -12,6 +12,7 @@ import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
+import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
 //COMPONENT
 const App = props => {
@@ -35,7 +36,7 @@ if(!user.hasLoggedIn){
       <Route path="/gauge" component={Gauge} />
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
-      <ProfileOverview/>
+      <Route path='/profile-overview' component={ProfileOverview}/>
     </>
     
   );
