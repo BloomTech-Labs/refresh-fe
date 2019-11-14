@@ -34,7 +34,6 @@ const MobileMenu = props => {
     // use effect
     useEffect(() => {
         setMenu({ ...menu, status: 'closed', darken: 'inactive' })
-        console.log(props)
     }, [props.location])
 
     // handlers

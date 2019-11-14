@@ -22,7 +22,7 @@ const MissionInput = props => {
                 <DrawerAccent onClick={handleDrawer} />
                 <CloseButton onClick={handleDrawer}>X</CloseButton>
                 <InputMessage>
-                    <i class="fas fa-tint"></i>
+                    <i className="fas fa-tint"></i>
                     <p>This is some placeholder text</p>
                 </InputMessage>
 
