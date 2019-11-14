@@ -1,4 +1,4 @@
-/* IMPORTS
+// IMPORTS
 // react
 import React, { useState } from 'react';
 // styled components
@@ -168,4 +168,4 @@ const Darken = styled.div`
 
 
 // EXPORT
-export default MissionComplete; */
+export default MissionComplete;
