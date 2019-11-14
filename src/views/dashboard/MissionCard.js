@@ -29,7 +29,7 @@ const colorPicker = vertical => {
   } else if (vertical === 'activity') {
       return '#E36666'
   } else if (vertical === 'sleep') {
-      return '#6091D6'
+      return '#FC54EB'
   } else if (vertical === 'mental') {
       return '#DF8F53'
   } else if (vertical === 'food') {

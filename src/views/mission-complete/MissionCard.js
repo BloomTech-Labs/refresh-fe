@@ -32,7 +32,7 @@ const bgPicker = vertical => {
     } else if (vertical === 'activity') {
         return '#E36666'
     } else if (vertical === 'sleep') {
-        return '#6091D6'
+        return '#FC54EB'
     } else if (vertical === 'mental') {
         return '#DF8F53'
     } else if (vertical === 'food') {
@@ -90,8 +90,13 @@ const CardContainer = styled.div`
     ${flex.flexCol}
 
         i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin: 2rem 0;
+        }
+
+        p {
+            padding: 1rem;
+            text-align: center;
         }
 `
 
