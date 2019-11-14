@@ -72,39 +72,38 @@ const Card = styled.div`
             background-color: #D4F7E3;
             color: #28C96C;
 
-            span:first-child {
-                max-height: 100%;
-                font-size: 30rem;
-                opacity: 0.4;
-                margin: 0;
-                padding: 0;
-                ${flex.flexCol}
-                position: relative;
-                left: 2rem;
-            }
+                span:first-child {
+                    max-height: 100%;
+                    font-size: 30rem;
+                    margin-left: 3rem;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgba(40, 201, 108, 0.4);
+                }
 
-            div {
-                width: 50rem;
-                position: relative;
-                right: 2rem;
-            }
+                div {
+                    width: 20rem;
+                    margin-left: -10rem;
+                }
 
-            h3 {
-                font-size: 2.75rem;
-            }
+                h3 {
+                    font-size: 3rem;
+                }
 
-            h4 {
-                font-size: 2.25rem;
-            }
+                h4 {
+                    font-size: 2.75rem;
+                }
 
-            span:last-child {
-                width: 30rem;
-                position: relative;
-                bottom: 8rem;
-                right: 1rem;
-                text-align: right;
-            }
+                span:last-child {
+                    width: 10rem;
+                    margin-top: -15rem;
+                    text-align: right;
+                }
         }
+
+    }
 `
 
 
