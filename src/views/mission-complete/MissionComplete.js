@@ -101,6 +101,7 @@ const MissionComplete = props => {
                                     description={mission.description}
                                     color={mission.color}
                                     handleDrawer={handleDrawer}
+                                    vertical={mission.vertical}
                                 />
                             )
                         })}

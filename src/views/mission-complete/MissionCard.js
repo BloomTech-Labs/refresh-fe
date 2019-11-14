@@ -28,11 +28,12 @@ const bgPicker = vertical => {
 
 // COMPONENT
 const MissionCard = props => {
+    console.log('check mission card props:', props)
     // props
     const { handleDrawer } = props;
     
     return (
-        <CardContainer color={props.color} onClick={handleDrawer}>
+        <CardContainer vertical={props.vertical} onClick={handleDrawer}>
             <i class="fas fa-tint"></i>
 
             <p>{props.description}</p>
@@ -46,7 +47,7 @@ const CardContainer = styled.div`
     height: 115px;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 3px;
-    background-color: ${props => props.color}
+    background-color: ${props => bgPicker(props.vertical)}
     margin: 2rem;
     padding: 1rem;
     ${flex.flexCol}
