@@ -15,6 +15,7 @@ import Login from "./views/onboarding/Login";
 import Leaderboard from './views/leaderboard/Leaderboard';
 import Sandbox from './views/sandbox/Sandbox';
 import Timer from './views/Timer/Timer';
+import TimerTwo from './views/Timer/TimerTwo';
 import TimerBreak from './views/Timer/TimerBreak';
 
 // COMPONENT
@@ -34,6 +35,7 @@ const App = props => {
       <Route path='/sandbox' component={Sandbox} />
       <Route path='/timer' component={Timer} />
       <Route path='/break' component={TimerBreak} />
+      <Route path='/timer-2' component={TimerTwo} />
     </>
     
   );

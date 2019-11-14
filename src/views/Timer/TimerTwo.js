@@ -4,7 +4,7 @@ import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
  
-function Timer ({ expiryTimestamp }) {
+function TimerTwo ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -31,10 +31,7 @@ function Timer ({ expiryTimestamp }) {
 
   let [percentage, setPercentage] = useState();
   let [min, setMinutes] = useState(minutes);
-  let [sprint, setSprint] = useState();
 
-  // let percentage;
-  // Below effect doesn't register but I feel like it might be close to what's needed so I'm gonna leave it.
   useEffect(() => {
     setMinutes(min - 1);
     console.log(min);
@@ -71,7 +68,7 @@ function Timer ({ expiryTimestamp }) {
       <div className="sprints">
         <div className="sprint one">
           <CircularProgressbar
-            value={percentage}
+            value='100%'
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
@@ -82,10 +79,12 @@ function Timer ({ expiryTimestamp }) {
         </div>
         <div className="sprint two">
           <CircularProgressbar
+            value={percentage}
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: 'white'
+              pathColor: '#6487FF',
+              trailColor: 'white',
             })}
         />
         </div>
@@ -124,7 +123,7 @@ export default function Display() {
   t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
   return (
     <div>
-      <Timer expiryTimestamp={t} />
+      <TimerTwo expiryTimestamp={t} />
     </div>
   );
 }
