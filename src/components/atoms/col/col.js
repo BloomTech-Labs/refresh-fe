@@ -24,16 +24,18 @@ const Col = ({ ...props }) => {
     color,
     fontSize,
     margin,
+    marginBottom,
+    marginTop,
     padding,
     justifyContent,
     flex,
-    flexFlow,
+    // flexFlow,
     textAlign
   } = props;
 
   return (
     <StyledCol
-      className="baseCol"
+      className="base-col"
       display={display}
       width={width}
       height={height}
@@ -50,6 +52,8 @@ const Col = ({ ...props }) => {
       color={color}
       fontSize={fontSize}
       margin={margin}
+      marginBottom={marginBottom}
+      marginTop={marginTop}
       padding={padding}
       justifyContent={justifyContent}
       flex={flex}
@@ -81,6 +85,8 @@ const StyledCol = styled.div.attrs(props => ({
   justifyContent: props.justifyContent,
   height: props.height,
   margin: props.margin,
+  marginBottom: props.marginBottom,
+  marginTop: props.marginTop,
   padding: props.padding,
   width: props.width,
   href: props.href,
@@ -109,7 +115,10 @@ const StyledCol = styled.div.attrs(props => ({
   outline: none;
   cursor: auto;
   margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
-  padding: ${props => (props.padding ? `${props.margin}rem` : "1rem")};
+  margin-bottom: ${props =>
+    props.marginBottom ? `${props.margin}rem` : "1rem"};
+  margin-top: ${props => (props.marginTop ? `${props.marginTop}rem` : "1rem")};
+  padding: ${props => (props.padding ? `${props.marginBottom}rem` : "1rem")};
   display: flex;
   /* flex-flow: row wrap; */
   flex-wrap: nowrap;
