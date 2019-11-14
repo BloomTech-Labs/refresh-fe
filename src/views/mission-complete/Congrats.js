@@ -69,7 +69,7 @@ const CongratsScreen = styled.div`
         span {
             color: #FFF;
             font-size: 2rem;
-            margin: 1rem;
+            margin: 0.5rem;
         }
     
         .points {
@@ -82,7 +82,8 @@ const CongratsScreen = styled.div`
         p {
             color: #FFF;
             width: 25rem;
-            font-size: 2rem;
+            font-size: 1.5rem;
+            margin: 2rem;
             text-align: center;
         }
 
