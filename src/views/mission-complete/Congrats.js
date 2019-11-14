@@ -14,7 +14,7 @@ const Congrats = props => {
     // render
     return (
         <>
-            <CongratsScreen className='closed'>
+            <CongratsScreen className={status}>
                 <DrawerAccent />
                 <CloseButton>X</CloseButton>
             </CongratsScreen>

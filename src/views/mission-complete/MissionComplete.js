@@ -69,7 +69,7 @@ const MissionComplete = props => {
 
     const submitMissions = e => {
         e.preventDefault();
-        props.history.push('/congratulations');
+        setCongratsScreen({ ...congratsScreen, status: 'open' });
     };
 
     // render
