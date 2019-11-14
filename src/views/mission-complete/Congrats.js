@@ -10,7 +10,7 @@ import { test, flex } from '../../styles/global/Mixins';
 const Congrats = props => {
     // props
    const { status, handleClose } = props;
-   
+
     // render
     return (
         <>
@@ -31,7 +31,7 @@ const CongratsScreen = styled.div`
         border-radius: 5px;
         position: fixed;
         bottom: 0;
-        background-color: #6762E3;
+        background-color: #3A3699;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
