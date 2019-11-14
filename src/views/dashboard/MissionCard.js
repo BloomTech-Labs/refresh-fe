@@ -28,7 +28,7 @@ const MissionCard = props => {
   console.log("checking props:", props.vertical);
 
   return (
-    <Container color={props.color}>
+    <Container vertical={props.vertical}>
       <Gauge>
         <i class="fas fa-tint"></i>
       </Gauge>
