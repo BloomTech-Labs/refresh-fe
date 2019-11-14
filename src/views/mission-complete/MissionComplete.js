@@ -56,6 +56,10 @@ const MissionComplete = props => {
         darken: 'inactive'
     })
 
+    const [congratsScreen, setCongratsScreen] = useState({
+        status: 'closed'
+    });
+
     // handlers
     const handleDrawer = e => {
         drawer.status === 'closed' ?
@@ -97,7 +101,9 @@ const MissionComplete = props => {
                 status={drawer.status}
             />
 
-            <Congrats />
+            <Congrats 
+                status={congratsScreen}
+            />
 
         </MCWrapper>
         </MCView>

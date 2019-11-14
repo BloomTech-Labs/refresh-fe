@@ -7,16 +7,13 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
-const Congrats = () => {
-    // state hooks 
-    const [screen, setScreen] = useState({
-        status: 'closed'
-    });
-    
+const Congrats = props => {
+    // props
+   
     // render
     return (
         <>
-            <CongratsScreen className={screen.status}>
+            <CongratsScreen className='closed'>
                 <DrawerAccent />
                 <CloseButton>X</CloseButton>
             </CongratsScreen>
