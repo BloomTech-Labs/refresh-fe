@@ -9,14 +9,14 @@ import { test, flex } from '../../styles/global/Mixins';
 // COMPONENT
 const Congrats = props => {
     // props
-   const { status } = props;
-
+   const { status, handleClose } = props;
+   
     // render
     return (
         <>
             <CongratsScreen className={status}>
                 <DrawerAccent />
-                <CloseButton>X</CloseButton>
+                <CloseButton onClick={handleClose}>X</CloseButton>
             </CongratsScreen>
         </>
     );

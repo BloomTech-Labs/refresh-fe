@@ -105,6 +105,7 @@ const MissionComplete = props => {
 
             <Congrats 
                 status={congratsScreen.status}
+                handleClose={submitMissions}
             />
 
         </MCWrapper>
