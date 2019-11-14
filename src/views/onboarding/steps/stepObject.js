@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import ReactSlider from "react-slider";
-import WHDial from "react-horizontal-scrolling-menu";
 import WeightHeight from "./WeightHeight";
 
 export const Step1 = profile => {
@@ -17,8 +16,7 @@ export const Step1 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-              <WHDial 
-              />
+            <WeightHeight  />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -44,6 +42,7 @@ export const Step2 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+              <WeightHeight  />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -69,13 +68,11 @@ export const Step3 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-      
             <FlexHolder>
-                <Option>Never</Option>
-                <Option>Sometimes</Option>
-                <Option>Always</Option>
+                <Option onClick={() => profile.setUser({overWhelmedStats:"Never"})}>Never</Option>
+                <Option onClick={() => profile.setUser({overWhelmedStats:"Sometimes"})}>Sometimes</Option>
+                <Option onClick={() => profile.setUser({overWhelmedStats:"Always"})}>Always</Option>
             </FlexHolder>
-           
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -106,6 +103,8 @@ export const Step4 = profile => {
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
+                value={profile.user.sleepStats}
+                onAfterChange={profile.handleSleepChange}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
@@ -132,11 +131,13 @@ export const Step5 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-            <StyledSlider
+              <StyledSlider
                 defaultValue={[3]}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
+                value={profile.user.breakStats}
+                onAfterChange={profile.handleBreakChange}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
@@ -168,6 +169,8 @@ export const Step6 = profile => {
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
+                value={profile.user.exerciseStats}
+                onAfterChange={profile.handleExerChange}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
@@ -199,6 +202,8 @@ export const Step7 = profile => {
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
+                value={profile.user.hydrationStats}
+                onAfterChange={profile.handleHydraChange}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
@@ -230,6 +235,8 @@ export const Step8 = profile => {
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
+                value={profile.user.healthFoodStats}
+                onAfterChange={profile.handleHealthChange}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
@@ -261,6 +268,8 @@ export const Step9 = profile => {
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
+                value={profile.user.stretchStats}
+                onAfterChange={profile.handleStretchChange}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
@@ -292,6 +301,8 @@ export const Step10 = profile => {
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
+                value={profile.user.teamBuildStats}
+                onAfterChange={profile.handleTeamChange}
               />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 3 && (
@@ -308,23 +319,6 @@ export const Step10 = profile => {
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
-const MenuItem = ({ text, selected }) => {
-    return <div className={`menu-item ${selected ? "active" : ""}`}>{text}</div>;
-  };
-
-const Menu = list =>
-  list.map(el => {
-    const { name } = el;
-
-    return <MenuItem text={name} key={name} />;
-  });
-
-  const Arrow = ({ text, className }) => {
-    return <div className={className}>{text}</div>;
-  };
-
-  export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
-  export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
 
 const StyledSlider = styled(ReactSlider)`
     width: 100%;
@@ -344,7 +338,7 @@ const StyledThumb = styled.div`
     margin-top:-1rem;
 `;
 
-const Thumb = (props, state) => <StyledThumb {...props}></StyledThumb>;
+const Thumb = (props, state) => <StyledThumb {...props}>{state.valueNow}</StyledThumb>;
 
 const StyledTrack = styled.div`
     top: 0;
@@ -353,7 +347,7 @@ const StyledTrack = styled.div`
     border-radius: 2rem;
 `;
 
-const Track = (props, state) =>{console.log(state); return ( <StyledTrack {...props} index={state.index} value={7} />)};
+const Track = (props, state) =>{return ( <StyledTrack {...props} index={state.index} value={7} />)};
 
 const OnBoardContainer = styled.div`
   display: flex;

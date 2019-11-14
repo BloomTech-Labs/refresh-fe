@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React from "react";
+import React, {useState} from "react";
 import { Route } from "react-router-dom";
 // components
 import Landing from "./views/onboarding/Landing";
@@ -17,23 +17,34 @@ import Sandbox from './views/sandbox/Sandbox';
 
 // COMPONENT
 const App = props => {
+  const [user, setUser] = useState({hasLoggedIn: false});
+
+if(!user.hasLoggedIn){
+  return(
+  <>
+  <Route path='/firstlogin' component={StepStart} /> 
+  <Route path="/signup" component={CreateAccount} />
+  <Route path="/login" component={Login} />
+  <Route exact path="/" component={Landing} />
+  </>);
+} else {
   return (
     <>
       <Route path='/' component={MobileMenu} />
       <Route path='/firstlogin' component={StepStart} /> 
       <MobileMenu />
       <Route exact path="/" component={Landing} />
+      <Route path="/" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />
       <Route path='/leaderboard' component={Leaderboard} />
       <Route path="/gauge" component={Gauge} />
-      <Route path="/signup" component={CreateAccount} />
-      <Route path="/login" component={Login} />
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
     </>
     
   );
+}
 };
 
 // STYLED COMPONENTS

@@ -116,7 +116,7 @@ const StyledCol = styled.div.attrs(props => ({
   cursor: auto;
   margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
   margin-bottom: ${props =>
-    props.marginBottom ? `${props.margin}rem` : "1rem"};
+    props.marginBottom ? `${props.marginBottom}rem` : "1rem"};
   margin-top: ${props => (props.marginTop ? `${props.marginTop}rem` : "1rem")};
   padding: ${props => (props.padding ? `${props.marginBottom}rem` : "1rem")};
   display: flex;
