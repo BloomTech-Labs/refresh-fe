@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // router
 import { Link } from 'react-router-dom';
 // styled components
@@ -24,7 +24,7 @@ const dummyUser = {
 };
 
 // COMPONENT
-const MobileMenu = () => {
+const MobileMenu = props => {
     // state hooks
     const [menu, setMenu] = useState({
         status: 'closed',
@@ -32,7 +32,10 @@ const MobileMenu = () => {
     });
 
     // use effect
-    // todo
+    useEffect(() => {
+        setMenu({ ...menu, status: 'closed', darken: 'inactive' })
+        console.log(props)
+    }, [props.location])
 
     // handlers
     const menuToggle = () => {
