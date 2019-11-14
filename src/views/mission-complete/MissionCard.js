@@ -44,6 +44,24 @@ const bgPicker = vertical => {
     }
   };
 
+  const iconPicker = vertical => {
+    if (vertical === 'water') {
+        return <i class="fas fa-tint"></i>
+    } else if (vertical === 'activity') {
+        return <i class="fas fa-running"></i>
+    } else if (vertical === 'sleep') {
+        return <i class="fas fa-bed"></i>
+    } else if (vertical === 'mental') {
+        return <i class="fas fa-volume-off"></i>
+    } else if (vertical === 'food') {
+        return <i class="fas fa-apple-alt"></i>
+    } else if (vertical === 'social') {
+        return <i class="fas fa-user-friends"></i>
+    } else {
+        return <i class="fas fa-smile"></i>
+    }
+  };
+
 // COMPONENT
 const MissionCard = props => {
     console.log('check mission card props:', props)
@@ -52,7 +70,7 @@ const MissionCard = props => {
     
     return (
         <CardContainer vertical={props.vertical} onClick={handleDrawer}>
-            <i class="fas fa-tint"></i>
+            {iconPicker(props.vertical)}
 
             <p>{props.description}</p>
         </CardContainer>
