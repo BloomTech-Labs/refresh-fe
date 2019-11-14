@@ -39,6 +39,8 @@ color: #6762E3;
 const YourReminders = () => {
     return (
         <>
+        <Rectangle69/>
+        <ReminderText>your reminders</ReminderText>
         null;
         </>
     );
