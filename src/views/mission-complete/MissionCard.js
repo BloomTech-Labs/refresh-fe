@@ -26,6 +26,24 @@ const bgPicker = vertical => {
     }
   };
 
+  const colorPicker = vertical => {
+    if (vertical === 'water') {
+        return '#6091D6'
+    } else if (vertical === 'activity') {
+        return '#E36666'
+    } else if (vertical === 'sleep') {
+        return '#6091D6'
+    } else if (vertical === 'mental') {
+        return '#DF8F53'
+    } else if (vertical === 'food') {
+        return '#448961'
+    } else if (vertical === 'social') {
+        return '#9B51E0'
+    } else {
+        return '#FFF'
+    }
+  };
+
 // COMPONENT
 const MissionCard = props => {
     console.log('check mission card props:', props)
@@ -48,6 +66,7 @@ const CardContainer = styled.div`
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 3px;
     background-color: ${props => bgPicker(props.vertical)}
+    color: ${props => colorPicker(props.vertical)}
     margin: 2rem;
     padding: 1rem;
     ${flex.flexCol}
