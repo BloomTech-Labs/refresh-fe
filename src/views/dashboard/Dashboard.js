@@ -80,6 +80,7 @@ const Dashboard = props => {
                                     color={mission.color}
                                     description={mission.description}
                                     points={mission.pointValue}
+                                    vertical={mission.vertical}
                                 />
                             )
                         })}
