@@ -69,7 +69,9 @@ const MissionComplete = props => {
 
     const submitMissions = e => {
         e.preventDefault();
-        setCongratsScreen({ ...congratsScreen, status: 'open' });
+        congratsScreen.status === 'closed' ?
+        setCongratsScreen({ ...congratsScreen, status: 'open' }) :
+        setCongratsScreen({ ...congratsScreen, status: 'closed' });
     };
 
     // render
