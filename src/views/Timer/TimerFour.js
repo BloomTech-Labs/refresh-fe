@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
