@@ -65,7 +65,7 @@ const MissionComplete = props => {
 
     const submitMissions = e => {
         e.preventDefault();
-        props.history.push('/dashboard');
+        props.history.push('/congratulations');
     };
 
     // render
