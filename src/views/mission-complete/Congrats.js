@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// images
+import Rocket from '../../images/rocket.png';
 
 // COMPONENT
 const Congrats = props => {
@@ -18,7 +20,7 @@ const Congrats = props => {
                 <DrawerAccent />
                 <CloseButton onClick={handleClose}>X</CloseButton>
 
-                <CelebrationImg src=''></CelebrationImg>
+                <CelebrationImg src={Rocket}></CelebrationImg>
 
                 <span>+ 30 points</span>
                 <span>Congratulations!</span>
@@ -89,7 +91,8 @@ const CloseButton = styled.button`
 `
 
 const CelebrationImg = styled.img`
-
+        width: 200px;
+        height: 200px;
 `
 
 
