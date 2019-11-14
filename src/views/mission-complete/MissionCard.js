@@ -12,19 +12,19 @@ const MissionCard = props => {
     const { handleDrawer } = props;
 
     // helpers
-    const colorPicker = props => {
-        if (props.vertical === 'water') {
-
-        } else if (props.vertical === 'activity') {
-
-        } else if (props.vertical === 'sleep') {
-
-        } else if (props.vertical === 'mental') {
-
-        } else if (props.vertical === 'food') {
-
+    const colorPicker = vertical => {
+        if (vertical === 'water') {
+            return 'background-color: #CEE2FF;'
+        } else if (vertical === 'activity') {
+            return 'background-color: #FECDCD;'
+        } else if (vertical === 'sleep') {
+            return 'background-color: #FECDF9;'
+        } else if (vertical === 'mental') {
+            return 'background-color: #FFE2CC;'
+        } else if (vertical === 'food') {
+            return 'background-color: #D5F6E3;'
         } else {
-            
+
         }
     };
     
