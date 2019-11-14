@@ -18,35 +18,42 @@ import Congrats from './Congrats';
 const dummyMissions = [
     {
         id: 1,
+        vertical: 'water',
         description: 'drank a glass of water',
         color: '#CEE2FF'
     },
     {
         id: 2,
+        vertical: 'activity',
         description: 'got active',
         color: '#FECDCD'
     },
     {
         id: 3,
+        vertical: 'food',
         description: 'ate healthy',
         color: '#D5F6E3'
     },
     {
         id: 4,
+        vertical: 'mental',
         description: 'took a break',
         color: '#FFE2CC'
     },
     {
         id: 5,
+        vertical: 'sleep',
         description: 'got some sleep',
         color: '#FECDF9'
     },
     {
         id: 6,
+        vertical: 'social',
         description: 'pet quality time',
         color: '#DFC5F7'
     }
 ];
+
 
 // COMPONENT
 const MissionComplete = props => {
@@ -94,6 +101,7 @@ const MissionComplete = props => {
                                     description={mission.description}
                                     color={mission.color}
                                     handleDrawer={handleDrawer}
+                                    vertical={mission.vertical}
                                 />
                             )
                         })}
