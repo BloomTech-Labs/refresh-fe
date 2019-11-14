@@ -85,7 +85,7 @@ const CongratsScreen = styled.div`
         }
 
         p {
-            color: #FFF;
+            color: rgba(255, 255, 255, 0.6);
             width: 25rem;
             font-size: 1.5rem;
             margin: 2rem;
