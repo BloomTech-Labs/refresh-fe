@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useState } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -8,9 +8,15 @@ import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
 const Congrats = () => {
+    // state hooks 
+    const [screen, setScreen] = useState({
+        status: 'open'
+    });
+    
+    // render
     return (
         <>
-            <CongratsScreen>
+            <CongratsScreen className={screen.status}>
                 <DrawerAccent />
                 <CloseButton />
             </CongratsScreen>
