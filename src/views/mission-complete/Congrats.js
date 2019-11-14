@@ -17,6 +17,16 @@ const Congrats = props => {
             <CongratsScreen className={status}>
                 <DrawerAccent />
                 <CloseButton onClick={handleClose}>X</CloseButton>
+
+                <CelebrationImg src=''></CelebrationImg>
+
+                <span>+ 30 points</span>
+                <span>Congratulations!</span>
+
+                <p>To get more points and badges, complete more missions.</p>
+
+                <button>Share with your team</button>
+                <button>></button>
             </CongratsScreen>
         </>
     );
@@ -76,6 +86,10 @@ const CloseButton = styled.button`
     border: none;
     margin: 1rem;
     opacity: 0.5;
+`
+
+const CelebrationImg = styled.img`
+
 `
 
 
