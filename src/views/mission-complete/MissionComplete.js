@@ -8,6 +8,7 @@ import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
 import MissionInput from './MissionInput';
+import { AST_PropAccess } from 'terser';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -48,7 +49,7 @@ const dummyMissions = [
 ];
 
 // COMPONENT
-const MissionComplete = () => {
+const MissionComplete = props => {
     // state hooks
     const [drawer, setDrawer] = useState({
         status: 'closed',
@@ -60,6 +61,11 @@ const MissionComplete = () => {
         drawer.status === 'closed' ?
         setDrawer({ ...drawer, status: 'open', darken: 'active' }) :
         setDrawer({ ...drawer, status: 'closed', darken: 'inactive' });
+    };
+
+    const submitMissions = e => {
+        e.preventDefault();
+        props.history.push('/dashboard');
     };
 
     // render
@@ -83,7 +89,7 @@ const MissionComplete = () => {
                         })}
                     </MissionsWrapper>
 
-                    <ContinueButton>Continue</ContinueButton>
+                    <ContinueButton onClick={submitMissions}>Continue</ContinueButton>
             </MCContainer>
             <MissionInput 
                 handleDrawer={handleDrawer}

@@ -59,7 +59,7 @@ const MobileMenu = () => {
                     </UserHud>
 
                     <Navigation>
-                        <NavButton><Link to='/'><i className="fas fa-home"></i>Home</Link></NavButton>
+                        <NavButton><Link to='/dashboard'><i className="fas fa-home"></i>Home</Link></NavButton>
                         <NavButton><Link to='/leaderboard'><i className="fas fa-gamepad"></i>Leaderboard</Link></NavButton>
                         <NavButton><Link to='/team'><i className="fas fa-users"></i>Team</Link></NavButton>
                         <NavButton><Link to='/weekly-challenge'><i className="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
