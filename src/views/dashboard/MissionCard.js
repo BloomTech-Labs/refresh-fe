@@ -9,24 +9,23 @@ import { test, flex } from "../../styles/global/Mixins";
 // HELPERS
 const colorPicker = vertical => {
   if (vertical === 'water') {
-      return '#CEE2FF;'
+      return '#CEE2FF'
   } else if (vertical === 'activity') {
-      return '#FECDCD;'
+      return '#FECDCD'
   } else if (vertical === 'sleep') {
-      return '#FECDF9;'
+      return '#FECDF9'
   } else if (vertical === 'mental') {
-      return '#FFE2CC;'
+      return '#FFE2CC'
   } else if (vertical === 'food') {
-      return '#D5F6E3;'
+      return '#D5F6E3'
   } else {
-      return '#FFF;'
+      return '#FFF'
   }
-  console.log('helper firing')
 };
 
 // COMPONENT
 const MissionCard = props => {
-  console.log("checking props:", props.color);
+  console.log("checking props:", props.vertical);
 
   return (
     <Container color={props.color}>
