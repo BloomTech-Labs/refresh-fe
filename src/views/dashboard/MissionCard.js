@@ -79,6 +79,7 @@ const Container = styled.div`
   margin: 1rem 0.5rem;
   background-color: ${props => bgPicker(props.vertical)};
   padding: 1rem;
+  color: ${props => colorPicker(props.vertical)}
   ${flex.flexCol}
 
   // this i needs to change later on when i work out
@@ -105,7 +106,7 @@ const Container = styled.div`
 const Gauge = styled.div`
   width: 60px;
   height: 60px;
-  border: 3px solid black;
+  border: 3px solid #FFF;
   border-radius: 100px;
   margin-top: 1rem;
   margin-bottom: 2rem;
