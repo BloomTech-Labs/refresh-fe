@@ -5,6 +5,7 @@ import emailogo from "../../images/Onboarding/email.png";
 import cubes from "../../images/two_cubes.png";
 import Row  from '../../components/atoms/row/row';
 import Col from '../../components/atoms/col/col';
+import Text from '../../components/atoms/text/text';
 import googlelogo from "../../images/google-icon.jpg";
 import Image from "../../components/atoms/image/image";
 
@@ -18,6 +19,8 @@ const Login = (props) => {
         e.preventDefault();
         props.history.push("/signup");
       };
+
+      const colText = "OR";
       
     const auth = (e) => {
         //Open Popup and declare Size
@@ -59,11 +62,9 @@ const Login = (props) => {
               Log In with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
             </GoogleSignIn>
             </FlexHolder>
-            <Row>
-            <OnboardTxt>
-            <Col width={50}>OR</Col>
-            <Col width={50}><LineTime/></Col>
-            </OnboardTxt>
+            <Row width={97}> 
+            <Col width={30}><Text fontSize={16} color={"#CFCDFF"} text={colText} ></Text></Col>
+            <Col width={70} borderBottom={"1px solid white" } marginBottom={3} ></Col>
             </Row>
             <FlexHolder>
               <Button>
