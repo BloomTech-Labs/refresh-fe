@@ -10,6 +10,23 @@ import { test, flex } from '../../styles/global/Mixins';
 const MissionCard = props => {
     // props
     const { handleDrawer } = props;
+
+    // helpers
+    const colorPicker = props => {
+        if (props.vertical === 'water') {
+
+        } else if (props.vertical === 'activity') {
+
+        } else if (props.vertical === 'sleep') {
+
+        } else if (props.vertical === 'mental') {
+
+        } else if (props.vertical === 'food') {
+
+        } else {
+            
+        }
+    };
     
     return (
         <CardContainer color={props.color} onClick={handleDrawer}>
