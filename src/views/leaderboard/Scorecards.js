@@ -73,9 +73,14 @@ const Card = styled.div`
             color: #28C96C;
 
                 span:first-child {
+                    max-height: 100%;
                     font-size: 30rem;
                     margin-left: 3rem;
-                    opacity: 0.3;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgba(40, 201, 108, 0.4);
                 }
 
                 div {
