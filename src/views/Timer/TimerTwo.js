@@ -5,7 +5,7 @@ import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
  
-function TimerTwo ({ expiryTimestamp }) {
+export function TimerTwo ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -25,10 +25,6 @@ function TimerTwo ({ expiryTimestamp }) {
   if (seconds === 2) seconds = '02';
   if (seconds === 1) seconds = '01';
   if (seconds === 0) seconds = '00';
-
-  // if (percentage === '100%') {
-  //   <Redirect to='/break-2' />
-  // }
 
   let [percentage, setPercentage] = useState();
   let [min, setMinutes] = useState(minutes);

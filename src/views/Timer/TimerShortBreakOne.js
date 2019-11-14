@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { TimerTwo } from './TimerTwo';
  
 export function TimerShortBreakOne ({ expiryTimestamp }) {
 
@@ -26,10 +27,6 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
   if (seconds === 1) seconds = '01';
   if (seconds === 0) seconds = '00';
 
-  // if (percentage === '100%') {
-  //   <Redirect to='/timer-2' />
-  // }
-
   let [percentage, setPercentage] = useState();
   let [min, setMinutes] = useState(minutes);
 
@@ -39,6 +36,12 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
     setPercentage(-1 * (min / 5));
     console.log(percentage);
   }, [seconds])
+
+  if (seconds == '00') {
+    let t = new Date();
+    t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
+    return <Route render={() => <TimerTwo expiryTimestamp={t} />} />
+  } else {
 
   return (
     <div className="clock">
@@ -71,6 +74,7 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
       </div>
     </div>
   );
+}
 }
  
 export default function Display() {
