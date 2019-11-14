@@ -68,7 +68,9 @@ const Card = styled.div`
         }
 
         &:first-child {
-            
+            height: 20rem;
+            background-color: #D4F7E3;
+            color: #28C96C;
         }
 
     }
