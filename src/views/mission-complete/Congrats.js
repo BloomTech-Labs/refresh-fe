@@ -26,9 +26,11 @@ const Congrats = props => {
                 <span>Congratulations!</span>
 
                 <p>To get more points and badges,<br /> complete more missions.</p>
-
-                <button>Share with your team</button>
-                <button>></button>
+                
+                <ButtonRow>
+                    <button>Share with your team</button>
+                    <button>></button>
+                </ButtonRow>
             </CongratsScreen>
         </>
     );
@@ -53,7 +55,7 @@ const CongratsScreen = styled.div`
 
     &.closed {
         width: 100vw;
-        height: 40vh;
+        height: 0vh;
         margin: 0 auto;
         border-radius: 5px;
         position: fixed;
@@ -114,6 +116,42 @@ const CloseButton = styled.button`
 const CelebrationImg = styled.img`
         width: 200px;
         height: 200px;
+`
+
+const ButtonRow = styled.div`
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        margin: 5rem 1rem;
+
+            button:first-child {
+                width: 60%;
+                height: 5rem;
+                background-color: #28C96C;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+                color: #FFF;
+                letter-spacing: 0.15rem;
+            }
+
+            button:last-child {
+                width: 50px;
+                height: 50px;
+                border-radius: 5px;
+                border: none;
+                background-color: rgba(0, 0, 0, 0.5);
+                font-size: 2rem;
+                box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+                background-color: #E5E5E5;
+                color: #3A3699;
+            }
 `
 
 
