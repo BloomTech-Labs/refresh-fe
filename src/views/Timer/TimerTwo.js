@@ -25,10 +25,6 @@ function TimerTwo ({ expiryTimestamp }) {
   if (seconds === 1) seconds = '01';
   if (seconds === 0) seconds = '00';
 
-  if (minutes === 0) {
-    // state logic to set sprints 1-4 goes here
-  }
-
   let [percentage, setPercentage] = useState();
   let [min, setMinutes] = useState(minutes);
 
@@ -41,7 +37,7 @@ function TimerTwo ({ expiryTimestamp }) {
 
   return (
     <div className="clock">
-      <h1>Pomodoro Clock</h1>
+      <h1>Pomodoro Clock (Sprint #2)</h1>
       <div className="timer">
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}

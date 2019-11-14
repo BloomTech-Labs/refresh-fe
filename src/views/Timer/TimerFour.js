@@ -4,7 +4,7 @@ import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
  
-function Timer ({ expiryTimestamp }) {
+function TimerFour ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -27,7 +27,7 @@ function Timer ({ expiryTimestamp }) {
 
   let [percentage, setPercentage] = useState();
   let [min, setMinutes] = useState(minutes);
- 
+
   useEffect(() => {
     setMinutes(min - 1);
     console.log(min);
@@ -37,7 +37,7 @@ function Timer ({ expiryTimestamp }) {
 
   return (
     <div className="clock">
-      <h1>Pomodoro Clock (Sprint #1)</h1>
+      <h1>Pomodoro Clock (Sprint #4)</h1>
       <div className="timer">
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
@@ -64,7 +64,7 @@ function Timer ({ expiryTimestamp }) {
       <div className="sprints">
         <div className="sprint one">
           <CircularProgressbar
-            value={percentage}
+            value='100%'
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
@@ -75,28 +75,34 @@ function Timer ({ expiryTimestamp }) {
         </div>
         <div className="sprint two">
           <CircularProgressbar
+            value='100%'
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: 'white'
+              pathColor: '#6487FF',
+              trailColor: 'white',
             })}
         />
         </div>
         <div className="sprint three">
           <CircularProgressbar
+            value='100%'
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: 'white'
+              pathColor: '#6487FF',
+              trailColor: 'white',
             })}
         />
         </div>
         <div className="sprint four">
           <CircularProgressbar
+            value={percentage}
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: 'white'
+              pathColor: '#6487FF',
+              trailColor: 'white',
             })}
         />
         </div>
@@ -117,7 +123,7 @@ export default function Display() {
   t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
   return (
     <div>
-      <Timer expiryTimestamp={t} />
+      <TimerFour expiryTimestamp={t} />
     </div>
   );
 }
