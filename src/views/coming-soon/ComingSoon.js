@@ -3,12 +3,19 @@
 import React from 'react';
 // styled components
 import styled from 'styled-components';
+// router
+import { Link } from 'react-router-dom';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
 // images
 import Rocket from '../../images/rocket.png';
 // COMPONENT
-const ComingSoon = () => {
+const ComingSoon = props => {
+    // handlers
+    const dashboardHandler = e => {
+        props.history.push('/dashboard');
+    };
+    
     return (
         <>
         <SoonView>
@@ -17,7 +24,7 @@ const ComingSoon = () => {
                 <SoonImg src={Rocket} />
                 <h1>Coming Soon</h1>
                 <p>Check back here soon for more info!</p>
-                <button>Dashboard</button>
+                <button onClick={dashboardHandler}>Dashboard</button>
             </SoonContainer>
         </SoonWrapper>
         </SoonView>
@@ -70,6 +77,7 @@ const SoonContainer = styled.div`
             letter-spacing: 0.1rem;
             margin: 2rem;
             margin-top: auto
+            
         }
         `
         
