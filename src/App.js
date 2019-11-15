@@ -17,7 +17,7 @@ import Sandbox from './views/sandbox/Sandbox';
 
 // COMPONENT
 const App = props => {
-  const [user, setUser] = useState({hasLoggedIn: false});
+  const [user, setUser] = useState({hasLoggedIn: true});
 
 if(!user.hasLoggedIn){
   return(
@@ -31,7 +31,7 @@ if(!user.hasLoggedIn){
   return (
     <>
       <Route path='/' component={MobileMenu} />
-      <Route path="/" component={Login} />
+      <Route exact path="/" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />
       <Route path='/leaderboard' component={Leaderboard} />
