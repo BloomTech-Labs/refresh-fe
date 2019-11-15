@@ -14,9 +14,12 @@ import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
+import Leaderboard from './views/leaderboard/Leaderboard';
+
+
 //COMPONENT
 const App = props => {
-  const [user, setUser] = useState({hasLoggedIn: false});
+  const [user, setUser] = useState({hasLoggedIn: true});
 
 if(!user.hasLoggedIn){
   return(
@@ -30,13 +33,14 @@ if(!user.hasLoggedIn){
   return (
     <>
       <Route path='/' component={MobileMenu} />
-      <Route path="/" component={Login} />
+      <Route exact path="/" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
       <Route path='/profile-overview' component={ProfileOverview}/>
+      <Route path='/leaderboard' component={Leaderboard} />
     </>
     
   );
