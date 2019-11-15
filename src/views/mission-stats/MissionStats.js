@@ -43,6 +43,7 @@ const StatsView = styled.div`
     max-height: 100vh;
     padding-top: 10rem;
     background-color: #3a3699;
+    color: #FFF;
 `
 
 const StatsWrapper = styled.div`
