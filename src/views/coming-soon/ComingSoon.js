@@ -41,13 +41,23 @@ const SoonWrapper = styled.div`
 const SoonContainer = styled.div`
     width: 90%;
     height: 80vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 
         h1 {
             font-size: 4rem;
             font-weight: bold;
             color: #FFF;
+            margin: 1rem 0;
         }
-
+        
+        p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
         button {
             width: 40%;
             height: 5rem;
@@ -57,13 +67,16 @@ const SoonContainer = styled.div`
             border-radius: 5px;
             color: #FFF;
             letter-spacing: 0.1rem;
+            margin: 2rem;
+            margin-top: auto
         }
-`
-
-const SoonImg = styled.img`
-    width: 30rem;
-    height: 30rem;
-    margin: 0 auto;
+        `
+        
+        const SoonImg = styled.img`
+        width: 30rem;
+        height: 30rem;
+        margin: 0 auto;
+        margin-top: auto;
 `
 
 
