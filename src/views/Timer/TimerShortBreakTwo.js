@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -39,11 +39,11 @@ export function TimerShortBreakTwo ({ expiryTimestamp }) {
 
   let rest = 2;
 
-  if (rest && minutes == 0 && seconds == '00') {
-    let t = new Date();
-    t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
-    return <Route render={() => <TimerThree expiryTimestamp={t} />} />
-  } else {
+  // if (rest && minutes == 0 && seconds == '00') {
+  //   let t = new Date();
+  //   t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
+  //   return <Route render={() => <TimerThree expiryTimestamp={t} />} />
+  // } else {
 
   return (
     <div className="clock">
@@ -69,6 +69,9 @@ export function TimerShortBreakTwo ({ expiryTimestamp }) {
       <div className="buttons">
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
+        <Link to='/timer-3'>
+          <i className="fa fa-arrow-circle-o-right"></i>
+        </Link>
       </div>
      
       <div className="instructions">
@@ -77,7 +80,7 @@ export function TimerShortBreakTwo ({ expiryTimestamp }) {
     </div>
   );
 }
-}
+// }
  
 export default function Display() {
   var t = new Date();

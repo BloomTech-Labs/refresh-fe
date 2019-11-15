@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { Timer } from './Timer';
  
 export function TimerLongBreak ({ expiryTimestamp }) {
 
@@ -69,6 +68,9 @@ export function TimerLongBreak ({ expiryTimestamp }) {
       <div className="buttons">
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
+        <Link to='/timer-1'>
+          <i className="fa fa-arrow-circle-o-right"></i>
+        </Link>
       </div>
      
       <div className="instructions">
