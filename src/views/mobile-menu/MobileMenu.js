@@ -51,7 +51,7 @@ const MobileMenu = props => {
                 <Drawer className={menu.status}>
                     <Column>
                     <UserHud>
-                        <Avatar></Avatar>
+                        <Link to='/profile-overview'><Avatar></Avatar></Link>
 
                         <UserInfo>
                             <h2>{dummyUser.first_name} {dummyUser.last_name}</h2>
