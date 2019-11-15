@@ -12,10 +12,9 @@ import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
-import Leaderboard from './views/leaderboard/Leaderboard';
 import Sandbox from './views/sandbox/Sandbox';
-
-// COMPONENT
+import ProfileOverview from './views/profileViews/ProfileOverview';
+//COMPONENT
 const App = props => {
   const [user, setUser] = useState({hasLoggedIn: false});
 
@@ -37,10 +36,10 @@ if(!user.hasLoggedIn){
       <Route path="/" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />
-      <Route path='/leaderboard' component={Leaderboard} />
       <Route path="/gauge" component={Gauge} />
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
+      <Route path='/profile-overview' component={ProfileOverview}/>
     </>
     
   );
@@ -48,6 +47,6 @@ if(!user.hasLoggedIn){
 };
 
 // STYLED COMPONENTS
-// todo
+// todo  
 
 export default App;
