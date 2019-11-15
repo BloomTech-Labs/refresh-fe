@@ -63,10 +63,26 @@ const StatsContainer = styled.div`
     align-items: center;
     margin: 0 auto;
 
+    div {
+        margin: 1rem 0;
+    }
 `
 
 const MissionHeading = styled.div`
+    width: 100%;
+    ${flex.flexRowNoWrapBetween}
+    ${test.greenBg}
 
+        h1 {
+            width: 10rem;
+            font-size: 5rem;
+            font-weight: bold;
+            ${test.redBg}
+        }
+
+        i {
+            font-weight: 5rem;
+        }
 `
 
 const MissionSubHeading = styled.div`
