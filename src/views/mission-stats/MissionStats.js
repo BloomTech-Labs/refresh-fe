@@ -13,7 +13,13 @@ const MissionStats = () => {
         <StatsView>
             <StatsWrapper>
                 <StatsContainer>
-                    hi hi hi
+                    <MissionHeading>
+                        <h1>Stay Hydrated</h1>
+                    </MissionHeading>
+
+                    <MissionSubHeading>
+
+                    </MissionSubHeading>
                 </StatsContainer>
             </StatsWrapper>
         </StatsView>
@@ -42,6 +48,14 @@ const StatsContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+
+`
+
+const MissionHeading = styled.div`
+
+`
+
+const MissionSubHeading = styled.div`
 
 `
 
