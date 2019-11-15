@@ -5,7 +5,8 @@ import React from 'react';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
-
+// images
+import Rocket from '../../images/rocket.png';
 // COMPONENT
 const ComingSoon = () => {
     return (
@@ -13,7 +14,9 @@ const ComingSoon = () => {
         <SoonView>
         <SoonWrapper>
             <SoonContainer>
-                
+                <SoonImg src={Rocket} />
+                <h1>Coming Soon</h1>
+                <button>Back to dashboard</button>
             </SoonContainer>
         </SoonWrapper>
         </SoonView>
@@ -39,12 +42,19 @@ const SoonContainer = styled.div`
     height: 80vh;
     margin: 0 auto;
 
-        .mission-message {
-            color: #CCC9FF;
-            font-size: 2.5rem;
-            letter-spacing: 0.25rem;
-            margin: 3rem 0;
+        h1 {
+
         }
+
+        button {
+            
+        }
+`
+
+const SoonImg = styled.img`
+    width: 30rem;
+    height: 30rem;
+    margin: 0 auto;
 `
 
 
