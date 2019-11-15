@@ -27,7 +27,7 @@ const MissionStats = () => {
                     </DummyStats>
 
                     <MissionStreak>
-                        Your best streak for this mission is <span>25 days</span>
+                        Your best streak for this mission is<br /> <span>25 days</span>
                     </MissionStreak>
 
                     <DailyProgress>
@@ -109,11 +109,20 @@ const DummyStats = styled.div`
 `
 
 const MissionStreak = styled.div`
+    font-size: 2rem;
+    font-weight: normal;
+    letter-spacing: 0.1rem;
+    line-height: 2.75rem;
+    align-self: flex-start;
 
+        span {
+            color: #28C96C;
+        }
 `
 
 const DailyProgress = styled.div`
-
+    width: 100%;
+    ${test.greenBg}
 `
 
 // EXPORT
