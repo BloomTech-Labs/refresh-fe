@@ -65,7 +65,7 @@ const Dashboard = props => {
                     </Greeting>
 
                     <User>
-                        <Link to='/dashboard-notifications'><i className="fas fa-bell"></i></Link>
+                        <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
                         <Link to='/profile-overview'><Avatar></Avatar></Link>
                     </User>
                 </Header>
