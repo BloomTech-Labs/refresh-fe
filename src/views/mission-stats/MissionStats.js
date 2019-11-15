@@ -98,7 +98,14 @@ const MissionSubHeading = styled.div`
 // be removed once we have data pulled in and can start to work
 // on data visualization -JC
 const DummyStats = styled.div`
-
+        width: 90%;
+        height: 15rem;
+        background-color: #4088F0;
+        box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+        border-radius: 3px;
+        ${flex.flexCol}
+        font-size: 1.5rem;
+        letter-spacing: 0.1rem;
 `
 
 const MissionStreak = styled.div`
