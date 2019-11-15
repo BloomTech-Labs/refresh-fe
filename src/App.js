@@ -14,7 +14,6 @@ import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 import Leaderboard from './views/leaderboard/Leaderboard';
 import Sandbox from './views/sandbox/Sandbox';
-import { Timer } from './views/Timer/Timer';
 import TimerOne from './views/Timer/TimerOne';
 import TimerTwo from './views/Timer/TimerTwo';
 import TimerThree from './views/Timer/TimerThree';
