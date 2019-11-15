@@ -14,7 +14,8 @@ import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 import Leaderboard from './views/leaderboard/Leaderboard';
 import Sandbox from './views/sandbox/Sandbox';
-import Timer from './views/Timer/Timer';
+import { Timer } from './views/Timer/Timer';
+import TimerOne from './views/Timer/TimerOne';
 import TimerTwo from './views/Timer/TimerTwo';
 import TimerThree from './views/Timer/TimerThree';
 import TimerFour from './views/Timer/TimerFour';
@@ -38,11 +39,11 @@ const App = props => {
       <Route path="/login" component={Login} />
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
-      {/* <Route path='/timer' component={Timer} />
+      <Route path='/timer-1' component={TimerOne} /> */
       <Route path='/timer-2' component={TimerTwo} />
       <Route path='/timer-3' component={TimerThree} />
-      <Route path='/timer-4' component={TimerFour} /> */}
-      <Route path='/break-1' component={TimerShortBreakOne} />
+      <Route path='/timer-4' component={TimerFour} />
+      <Route exact path='/break-1' component={TimerShortBreakOne} />
       <Route path='/break-2' component={TimerShortBreakTwo} />
       <Route path='/break-3' component={TimerShortBreakThree} />
       <Route path='/break-4' component={TimerLongBreak} />

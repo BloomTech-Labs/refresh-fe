@@ -4,9 +4,9 @@ import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { TimerShortBreakThree } from './TimerShortBreakThree';
+import { TimerLongBreak } from './TimerLongBreak';
  
-export function TimerThree ({ expiryTimestamp }) {
+export function TimerOne ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -35,17 +35,16 @@ export function TimerThree ({ expiryTimestamp }) {
     setPercentage(-1 * (min / 25));
   }, [seconds])
 
-  // let sprint = 3;
+  // let sprint = 4;
 
   // if (sprint && minutes == 0 && seconds == '00') {
   //   let t = new Date();
   //   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
-  //   return <Route render={() => <TimerShortBreakThree expiryTimestamp={t} />} />
+  //   return <Route render={() => <TimerLongBreak expiryTimestamp={t} />} />
   // } else {
 
   return (
     <div className="clock">
-      {/* <h1>Pomodoro Clock (Sprint #3)</h1> */}
       <div className="timer">
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
@@ -70,9 +69,9 @@ export function TimerThree ({ expiryTimestamp }) {
       </div>
       
       <div className="sprints">
-        <div className="sprint one">
+      <div className="sprint one">
           <CircularProgressbar
-            value='100%'
+            value={percentage}
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
@@ -83,23 +82,19 @@ export function TimerThree ({ expiryTimestamp }) {
         </div>
         <div className="sprint two">
           <CircularProgressbar
-            value='100%'
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white',
+              pathColor: 'white',
             })}
         />
         </div>
         <div className="sprint three">
           <CircularProgressbar
-            value={percentage}
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white',
+              pathColor: 'white'
             })}
         />
         </div>
@@ -130,7 +125,7 @@ export default function Display() {
   t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
   return (
     <div>
-      <TimerThree expiryTimestamp={t} />
+      <TimerOne expiryTimestamp={t} />
     </div>
   );
 }

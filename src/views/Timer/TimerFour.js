@@ -35,11 +35,13 @@ export function TimerFour ({ expiryTimestamp }) {
     setPercentage(-1 * (min / 25));
   }, [seconds])
 
-  if (seconds == '00') {
-    let t = new Date();
-    t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
-    return <Route render={() => <TimerLongBreak expiryTimestamp={t} />} />
-  } else {
+  // let sprint = 4;
+
+  // if (sprint && minutes == 0 && seconds == '00') {
+  //   let t = new Date();
+  //   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
+  //   return <Route render={() => <TimerLongBreak expiryTimestamp={t} />} />
+  // } else {
 
   return (
     <div className="clock">
@@ -122,7 +124,7 @@ export function TimerFour ({ expiryTimestamp }) {
     </div>
   );
 }
-}
+// }
  
 export default function Display() {
   var t = new Date();

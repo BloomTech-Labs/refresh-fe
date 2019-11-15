@@ -6,7 +6,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { TimerTwo } from './TimerTwo';
  
-function TimerShortBreakOne ({ expiryTimestamp }) {
+export function TimerShortBreakOne ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -37,11 +37,13 @@ function TimerShortBreakOne ({ expiryTimestamp }) {
     console.log(percentage);
   }, [seconds])
 
-  if (seconds == '00') {
-    let t = new Date();
-    t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
-    return <Route render={() => <TimerTwo expiryTimestamp={t} />} />
-  } else {
+  let rest = 1;
+
+  // if (rest && minutes == 0 && seconds == '00') {
+  //   let t = new Date();
+  //   t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
+  //   return <Route render={() => <TimerTwo expiryTimestamp={t} />} />
+  // } else {
 
   return (
     <div className="clock">
@@ -74,12 +76,12 @@ function TimerShortBreakOne ({ expiryTimestamp }) {
       </div>
     </div>
   );
-}
+// }
 }
  
 export default function Display() {
   var t = new Date();
-  t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
+  t.setSeconds(t.getSeconds() + 10); // 5 minutes timer
   return (
     <div>
       <TimerShortBreakOne expiryTimestamp={t} />

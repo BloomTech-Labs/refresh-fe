@@ -37,7 +37,9 @@ export function TimerShortBreakTwo ({ expiryTimestamp }) {
     console.log(percentage);
   }, [seconds])
 
-  if (seconds == '00') {
+  let rest = 2;
+
+  if (rest && minutes == 0 && seconds == '00') {
     let t = new Date();
     t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
     return <Route render={() => <TimerThree expiryTimestamp={t} />} />

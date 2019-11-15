@@ -37,11 +37,13 @@ export function TimerLongBreak ({ expiryTimestamp }) {
     console.log(percentage);
   }, [seconds])
 
-  if (seconds == '00') {
-    let t = new Date();
-    t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
-    return <Route render={() => <Timer expiryTimestamp={t} />} />
-  } else {
+  // let rest = 4;
+
+  // if (rest && minutes == 0 && seconds == '00') {
+  //   let t = new Date();
+  //   t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
+  //   return <Route render={() => <Timer expiryTimestamp={t} />} />
+  // } else {
 
   return (
     <div className="clock">
@@ -75,7 +77,7 @@ export function TimerLongBreak ({ expiryTimestamp }) {
     </div>
   );
 }
-}
+// }
  
 export default function Display() {
   var t = new Date();

@@ -4,7 +4,7 @@ import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import TimerShortBreakOne from './TimerShortBreakOne';
+import { TimerShortBreakOne } from './TimerShortBreakOne';
  
 export function Timer ({ expiryTimestamp }) {
 
@@ -13,7 +13,7 @@ export function Timer ({ expiryTimestamp }) {
     minutes,
     pause,
     resume,
-    restart
+    restart,
   } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
 
   if (seconds === 9) seconds = '09';
@@ -28,21 +28,21 @@ export function Timer ({ expiryTimestamp }) {
   if (seconds === 0) seconds = '00';
 
   let [percentage, setPercentage] = useState();
-  let [min, setMinutes] = useState(minutes);
- 
+  let [minOne, setMinutesOne] = useState(minutes);
+
   useEffect(() => {
-    setMinutes(min - 1);
-    console.log(min);
-    setPercentage(-1 * (min / 25));
-    console.log(percentage);
+    console.log(expiryTimestamp, minutes, minOne);
+    setMinutesOne(minOne - 1);
+    setPercentage(-1 * (minOne / 25));
   }, [seconds])
 
-  if (seconds == '00') {
-    console.log(seconds);
-    let t = new Date();
-    t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
-    return <Route render={() => <TimerShortBreakOne expiryTimestamp={t} />} />
-  } else {
+  let sprint = 1;
+
+  // if (minutes === 0 && seconds == '00') {
+  //   let t = new Date();
+  //   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
+  //   return <Route render={() => <TimerShortBreakOne expiryTimestamp={t} />} />
+  // } else {
 
   return (
     <div className="clock">
@@ -67,6 +67,7 @@ export function Timer ({ expiryTimestamp }) {
       <div className="buttons">
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
+        <i className="fas fa-arrow-right"></i>
       </div>
       
       <div className="sprints">
@@ -83,10 +84,11 @@ export function Timer ({ expiryTimestamp }) {
         </div>
         <div className="sprint two">
           <CircularProgressbar
+            value={percentage}
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: 'white'
+              trailColor: 'white',
             })}
         />
         </div>
@@ -114,12 +116,12 @@ export function Timer ({ expiryTimestamp }) {
         <br></br>
         <p>2. The <span className="bold">Pomodoro Technique</span> is a strategy that utilizes this theory. First, work in a sprint of <span className="bold">25 minutes</span>.</p>
         <br></br>
-        <p>3. Next, take a <span className="bold">5 minute</span> break. Get up, take a <span classname="bold">walk</span>, refill your <span className="bold">water</span>, <span className="bold">stretch</span>, and take <span className="bold">5 deep breaths</span> in and out.</p>
+        <p>3. Next, take a <span className="bold">5 minute</span> break. Get up, take a <span className="bold">walk</span>, refill your <span className="bold">water</span>, <span className="bold">stretch</span>, and take <span className="bold">5 deep breaths</span> in and out.</p>
       </div>
     </div>
   );
 }
-}
+// }
  
 export default function Display() {
   var t = new Date();

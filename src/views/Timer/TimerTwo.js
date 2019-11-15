@@ -35,11 +35,13 @@ export function TimerTwo ({ expiryTimestamp }) {
     setPercentage(-1 * (min / 25));
   }, [seconds])
 
-  if (seconds == '00') {
-    let t = new Date();
-    t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
-    return <Route render={() => <TimerShortBreakTwo expiryTimestamp={t} />} />
-  } else {
+  // let sprint = 2;
+
+  // if (sprint && minutes == 0 && seconds == '00') {
+  //   let t = new Date();
+  //   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
+  //   return <Route render={() => <TimerShortBreakTwo expiryTimestamp={t} />} />
+  // } else {
 
   return (
     <div className="clock">
@@ -118,7 +120,7 @@ export function TimerTwo ({ expiryTimestamp }) {
     </div>
   );
 }
-}
+// }
  
 export default function Display() {
   var t = new Date();
