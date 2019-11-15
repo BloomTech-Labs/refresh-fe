@@ -14,6 +14,9 @@ import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
+import Leaderboard from './views/leaderboard/Leaderboard';
+
+
 //COMPONENT
 const App = props => {
   const [user, setUser] = useState({hasLoggedIn: true});
@@ -37,6 +40,7 @@ if(!user.hasLoggedIn){
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
       <Route path='/profile-overview' component={ProfileOverview}/>
+      <Route path='/leaderboard' component={Leaderboard} />
     </>
     
   );
