@@ -45,6 +45,7 @@ const SoonContainer = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 
         h1 {
             font-size: 4rem;
