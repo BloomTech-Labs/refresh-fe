@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
-import Icon from "../../atoms/icon/icon";
+import axios from "axios";
 
+// Atoms
+import Icon from "../../atoms/icon/icon";
+// SVG Images
 import step0 from "../../../images/gauge/gaugeSteps/step0.svg";
 import step1 from "../../../images/gauge/gaugeSteps/step1.svg";
 import step2 from "../../../images/gauge/gaugeSteps/step2.svg";
@@ -12,22 +16,49 @@ import step6 from "../../../images/gauge/gaugeSteps/step6.svg";
 import step7 from "../../../images/gauge/gaugeSteps/step7.svg";
 import step8 from "../../../images/gauge/gaugeSteps/step8.svg";
 
-const Gauge = () => {
-  const [percentComplete, setPercentComplete] = useState(0);
-  const [completeOne, setCompleteOne] = useState(0.125);
-  const [completeTwo, setcompleteTwo] = useState(0.25);
-  const [completeThree, setCompleteThree] = useState(0.375);
-  const [completeFour, setCompleteFour] = useState(0.5);
-  const [completeFive, setCompleteFive] = useState(0.625);
-  const [completeSix, setCompleteSiz] = useState(0.75);
-  const [completeSeven, setCompleteSeven] = useState(0.875);
-  const [completeEight, setCompleteEight] = useState(1);
+let waterGaugeImages = [
+  { src: step0, altText: "0 glasses of water", currentWater: 0 },
+  { src: step1, altText: "1 glasses of water", currentWater: 0 },
+  { src: step2, altText: "2 glasses of water", currentWater: 0 },
+  { src: step3, altText: "3 glasses of water", currentWater: 0 },
+  { src: step4, altText: "4 glasses of water", currentWater: 0 },
+  { src: step5, altText: "5 glasses of water", currentWater: 0 },
+  { src: step6, altText: "6 glasses of water", currentWater: 0 },
+  { src: step7, altText: "7 glasses of water", currentWater: 0 },
+  { src: step8, altText: "8 glasses of water", currentWater: 0 }
+];
+
+const Gauge = props => {
+  const [waterImage, setWaterImage] = useState(waterGaugeImages)
+  const [waterComplete, setWaterComplete] = useState({
+    hydrationStats: 4
+  });
+
+  let gaugeFill =
+    waterComplete === 0
+      ? setWaterComplete(step0)
+      : waterComplete === 1
+      ? setWaterComplete(step1)
+      : waterComplete === 2
+      ? setWaterComplete(step2)
+      : waterComplete === 3
+      ? setWaterComplete(step3)
+      : waterComplete === 4
+      ? setWaterComplete(step4)
+      : waterComplete === 5
+      ? setWaterComplete(step5)
+      : waterComplete === 6
+      ? setWaterComplete(step6)
+      : waterComplete === 7
+      ? setWaterComplete(step7)
+      : setWaterComplete(step8);
+
   return (
     <>
-      <StyledGauge className="container rectangle37">
+      <StyledGauge className="container">
         {/* SVG url should be derived from state */}
         <MobileCardWater>
-          <Icon svg={step4} alt={"Step 6"} />
+          <Icon svg={gaugeFill} alt={"Step 6"} />
         </MobileCardWater>
       </StyledGauge>
     </>
