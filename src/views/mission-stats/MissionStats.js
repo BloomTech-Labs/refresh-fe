@@ -71,17 +71,18 @@ const StatsContainer = styled.div`
 const MissionHeading = styled.div`
     width: 100%;
     ${flex.flexRowNoWrapBetween}
-    ${test.greenBg}
 
         h1 {
             width: 10rem;
             font-size: 5rem;
             font-weight: bold;
-            ${test.redBg}
+            letter-spacing: 0.1rem;
         }
 
         i {
-            font-weight: 5rem;
+            font-size: 5rem;
+            margin-right: 3rem;
+            color: #1575FF;
         }
 `
 
