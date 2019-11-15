@@ -53,6 +53,12 @@ const dummyMissions = [
 
 // COMPONENT
 const Dashboard = props => {
+    // handlers
+    const cardClickHandler = e => {
+        props.history.push('/mission-stats');
+        console.log('firing')
+    };
+    
     return (
         <DashboardView>
             <DashboardWrapper>
@@ -81,6 +87,7 @@ const Dashboard = props => {
                                     description={mission.description}
                                     points={mission.pointValue}
                                     vertical={mission.vertical}
+                                    onClick={cardClickHandler}
                                 />
                             )
                         })}
