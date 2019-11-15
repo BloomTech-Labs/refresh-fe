@@ -59,9 +59,15 @@ const iconPicker = vertical => {
 
 // COMPONENT
 const MissionCard = props => {
+  // handlers
+  const cardClickHandler = e => {
+    props.history.push('/mission-stats');
+    console.log('firing')
+};
+  
   return (
     <>
-      <Container vertical={props.vertical}>
+      <Container vertical={props.vertical} onClick={cardClickHandler}>
         <Gauge>
           {iconPicker(props.vertical)}
         </Gauge>
