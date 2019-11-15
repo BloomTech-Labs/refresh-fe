@@ -15,11 +15,20 @@ const MissionStats = () => {
                 <StatsContainer>
                     <MissionHeading>
                         <h1>Stay Hydrated</h1>
+                        <i className="fas fa-tint"></i>
                     </MissionHeading>
 
                     <MissionSubHeading>
-
+                        <p>Drinking at least glasses of water is recommended to prevent dehydration</p>
                     </MissionSubHeading>
+
+                    <DummyStats>
+                        Mission stats coming soon!
+                    </DummyStats>
+
+                    <MissionStreak>
+                        Your best streak for this mission is <span>25 days</span>
+                    </MissionStreak>
                 </StatsContainer>
             </StatsWrapper>
         </StatsView>
@@ -56,6 +65,17 @@ const MissionHeading = styled.div`
 `
 
 const MissionSubHeading = styled.div`
+
+`
+
+// this is a temporary component for prototyping purposes and will
+// be removed once we have data pulled in and can start to work
+// on data visualization -JC
+const DummyStats = styled.div`
+
+`
+
+const MissionStreak = styled.div`
 
 `
 
