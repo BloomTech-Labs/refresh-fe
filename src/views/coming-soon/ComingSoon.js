@@ -16,7 +16,8 @@ const ComingSoon = () => {
             <SoonContainer>
                 <SoonImg src={Rocket} />
                 <h1>Coming Soon</h1>
-                <button>Back to dashboard</button>
+                <p>Check back here soon for more info!</p>
+                <button>Dashboard</button>
             </SoonContainer>
         </SoonWrapper>
         </SoonView>
@@ -40,14 +41,15 @@ const SoonWrapper = styled.div`
 const SoonContainer = styled.div`
     width: 90%;
     height: 80vh;
-    margin: 0 auto;
 
         h1 {
-
+            font-size: 4rem;
+            font-weight: bold;
+            color: #FFF;
         }
 
         button {
-            
+
         }
 `
 
