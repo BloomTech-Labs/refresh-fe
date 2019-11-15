@@ -49,7 +49,14 @@ const SoonContainer = styled.div`
         }
 
         button {
-
+            width: 40%;
+            height: 5rem;
+            background-color: #28C96C;
+            border: none;
+            box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+            border-radius: 5px;
+            color: #FFF;
+            letter-spacing: 0.1rem;
         }
 `
 
