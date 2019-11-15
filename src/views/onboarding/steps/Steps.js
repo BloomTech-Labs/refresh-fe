@@ -3,25 +3,20 @@
 import React, { useContext } from "react";
 // styled components
 import styled from "styled-components";
-import InfoIntro from "../steps/InfoIntro";
-import * as Steps from "./stepObject";
+import InfoIntro from "./InfoIntro";
+import StepObject from "./StepObject";
 import { UserContext } from "../../../contexts/UserContext";
 
-const StepOne = props => {
+const Steps = props => {
   const profile = useContext(UserContext);
-  console.log(profile);
+  const question =  profile.form && profile.form[profile.currentStep -1]
+  const render = profile.current === 0 && question
+  ? <InfoIntro onSubmit={profile.handleSubmit} /> 
+  : <StepObject question={question} profile={profile}/>
 
   return (
-    <OnBoardWrapper>
-      {profile.currentStep === 0 ? (
-        <InfoIntro onSubmit={profile.handleSubmit} />
-      ) : profile.form[profile.currentStep - 1].currentStep ? (
-        <OnBoardWrapper>
-          {Steps[`Step${profile.currentStep}`](profile)}
-        </OnBoardWrapper>
-      ) : (
-        profile.handleSubmit
-      )}
+    <OnBoardWrapper> 
+      {render}
     </OnBoardWrapper>
   );
 };
@@ -90,4 +85,4 @@ const FlexHolder = styled.div`
   width: 100%;
   padding: 2.5rem 4rem;
 `;
-export default StepOne;
+export default Steps;
