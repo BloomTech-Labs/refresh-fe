@@ -31,7 +31,9 @@ const MissionStats = () => {
                     </MissionStreak>
 
                     <DailyProgress>
-                        Daily progress stuff
+                        <p>Progress bar goes here</p>
+
+                        <MissionButton>+</MissionButton>
                     </DailyProgress>
                 </StatsContainer>
             </StatsWrapper>
@@ -122,7 +124,20 @@ const MissionStreak = styled.div`
 
 const DailyProgress = styled.div`
     width: 100%;
+    ${flex.flexRowNoWrapAround}
     ${test.greenBg}
+`
+
+const MissionButton = styled.button`
+    width: 56px;
+    height: 56px;
+    margin-left: auto;
+    background-color: #6487FF;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+    font-size: 5rem;
+    color: #FFF;
 `
 
 // EXPORT
