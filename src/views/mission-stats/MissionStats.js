@@ -10,7 +10,13 @@ import { test, flex } from '../../styles/global/Mixins';
 const MissionStats = () => {
     return (
         <>
-            hi from mission stats
+        <StatsView>
+            <StatsWrapper>
+                <StatsContainer>
+                    hi hi hi
+                </StatsContainer>
+            </StatsWrapper>
+        </StatsView>
         </>
     );
 };
