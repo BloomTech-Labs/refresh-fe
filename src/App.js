@@ -15,6 +15,7 @@ import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
 import Leaderboard from './views/leaderboard/Leaderboard';
+import ComingSoon from './views/coming-soon/ComingSoon';
 
 
 //COMPONENT
@@ -41,6 +42,7 @@ if(!user.hasLoggedIn){
       <Route path='/sandbox' component={Sandbox} />
       <Route path='/profile-overview' component={ProfileOverview}/>
       <Route path='/leaderboard' component={Leaderboard} />
+      <Route path='/coming-soon' component={ComingSoon} />
     </>
     
   );
