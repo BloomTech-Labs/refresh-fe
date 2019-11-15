@@ -87,7 +87,11 @@ const MissionHeading = styled.div`
 `
 
 const MissionSubHeading = styled.div`
-
+    width: 80%;
+    align-self: flex-start;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
 `
 
 // this is a temporary component for prototyping purposes and will
