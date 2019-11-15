@@ -125,7 +125,6 @@ const MissionStreak = styled.div`
 const DailyProgress = styled.div`
     width: 100%;
     ${flex.flexRowNoWrapAround}
-    ${test.greenBg}
 `
 
 const MissionButton = styled.button`
