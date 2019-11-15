@@ -8227,6 +8227,11 @@ react-error-overlay@^6.0.3:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.3.tgz#c378c4b0a21e88b2e159a3e62b2f531fd63bf60d"
   integrity sha512-bOUvMWFQVk5oz8Ded9Xb7WVdEi3QGLC8tH7HmYP0Fdp4Bn3qw0tRFmr5TW6mvahzvmrK4a6bqWGfCevBflP+Xw==
 
+react-horizontal-scrolling-menu@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-0.7.3.tgz#78f05d0cbcf50dad5bc18e0eb0db6b3162ef5944"
+  integrity sha512-U+RkMg1LRtvECjIU6x/krvPPjiqqAHSHynE/cYONYWMB66a0RmD5qQuS1I0H44Os5ox6b64l3SFBgCYprcVDOg==
+
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
@@ -8321,6 +8326,11 @@ react-scripts@3.2.0:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.0.7"
+
+react-slider@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-slider/-/react-slider-1.0.1.tgz#4cb212d31c35d804805e31f02ce37771e95d5d45"
+  integrity sha512-SI2anLzeKlFxnntoM93VXrf3ll9uL/TYjIJB6PsQVp4mDVt2VfWyGtMoUvK/ir/PnjuirNtF1pU3cG9XCezfBA==
 
 react@^16.11.0:
   version "16.11.0"

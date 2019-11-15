@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // router
 import { Link } from 'react-router-dom';
 // styled components
@@ -24,7 +24,7 @@ const dummyUser = {
 };
 
 // COMPONENT
-const MobileMenu = () => {
+const MobileMenu = props => {
     // state hooks
     const [menu, setMenu] = useState({
         status: 'closed',
@@ -32,7 +32,9 @@ const MobileMenu = () => {
     });
 
     // use effect
-    // todo
+    useEffect(() => {
+        setMenu({ ...menu, status: 'closed', darken: 'inactive' })
+    }, [props.location])
 
     // handlers
     const menuToggle = () => {
@@ -44,12 +46,12 @@ const MobileMenu = () => {
     // RENDER
     return (
         <Wrapper>
-            <Darken className={menu.darken}></Darken>
+            <Darken className={menu.darken} onClick={menuToggle}></Darken>
             <DrawerContainer>
                 <Drawer className={menu.status}>
                     <Column>
                     <UserHud>
-                        <Avatar></Avatar>
+                        <Link to='/profile-overview'><Avatar></Avatar></Link>
 
                         <UserInfo>
                             <h2>{dummyUser.first_name} {dummyUser.last_name}</h2>
@@ -59,7 +61,7 @@ const MobileMenu = () => {
                     </UserHud>
 
                     <Navigation>
-                        <NavButton><Link to='/'><i className="fas fa-home"></i>Home</Link></NavButton>
+                        <NavButton><Link to='/dashboard'><i className="fas fa-home"></i>Home</Link></NavButton>
                         <NavButton><Link to='/leaderboard'><i className="fas fa-gamepad"></i>Leaderboard</Link></NavButton>
                         <NavButton><Link to='/team'><i className="fas fa-users"></i>Team</Link></NavButton>
                         <NavButton><Link to='/weekly-challenge'><i className="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
@@ -135,7 +137,7 @@ const DrawerContainer = styled.div`
         position: fixed;
         right: 100vw;
         background-color: rgb(100,135,255, 0.95);
-        transition: 0.5s ease-in-out;
+        transition: 0.3s ease-in-out;
     }
 
         .open {
@@ -144,12 +146,12 @@ const DrawerContainer = styled.div`
             position: fixed;
             right: 10vw;
             background-color: rgb(100,135,255, 0.95);
-            transition: 0.5s ease-in-out;
+            transition: 0.3s ease-in-out;
         }
 `
 
 const Drawer = styled.div`
-    positon: relative;
+    position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;

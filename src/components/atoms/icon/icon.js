@@ -15,6 +15,7 @@ const Icon = ({ ...props }) => {
     height,
     padding,
     svg,
+    alt,
     display,
     styledIcon
   } = props;
@@ -29,10 +30,11 @@ const Icon = ({ ...props }) => {
       width={width}
       display={display}
       padding={padding}
+      alt={alt}
     >
       {svg ? (
-        <object type="image/svg+xml" data={svg} className="icon-object-svg">
-          <img src={svg} alt="icon" className="icon-img-svg" />
+        <object type="image/svg+xml" data={svg} className="object-svg">
+          <img src={svg} alt={alt} className="img-svg" />
         </object>
       ) : (
         <>{styledIcon}</>
@@ -58,13 +60,15 @@ const StyledIcon = styled.div.attrs(props => ({
   display: flex;
   justify-content: center;
   align-items: center;
-  .icon-object-svg,
-  .icon-img-svg {
+  .object-svg,
+  .img-svg {
     filter: ${props => props.color};
     cursor: ${props => (props.cursor ? props.cursor : "pointer")};
     pointer-events: ${props => (props.cursor ? props.cursor : "none")};
     color: ${props => props.color};
     padding: ${props => (props.padding ? `${props.padding}rem` : "1rem")};
+    height: 100%;
+    width: 100%;
   }
 `;
 

@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+import ReactSlider from "react-slider";
+import WeightHeight from "./WeightHeight";
 
 export const Step1 = profile => {
   console.log(profile);
@@ -14,12 +16,7 @@ export const Step1 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-              <input
-                type="number"
-                name="weight"
-                placeholder="Enter your weight here"
-                onChange={profile.handleChanges}
-              />
+            <WeightHeight  />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -45,12 +42,7 @@ export const Step2 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
-              <input
-                type="number"
-                name="height"
-                placeholder="Enter your height here"
-                onChange={profile.handleChanges}
-              />
+              <WeightHeight  />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -77,11 +69,10 @@ export const Step3 = profile => {
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
             <FlexHolder>
-                <Option>Never</Option>
-                <Option>Sometimes</Option>
-                <Option>Always</Option>
+                <Option onClick={() => profile.setUser({overWhelmedStats:"Never"})}>Never</Option>
+                <Option onClick={() => profile.setUser({overWhelmedStats:"Sometimes"})}>Sometimes</Option>
+                <Option onClick={() => profile.setUser({overWhelmedStats:"Always"})}>Always</Option>
             </FlexHolder>
-
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -107,6 +98,14 @@ export const Step4 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+              <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+                value={profile.user.sleepStats}
+                onAfterChange={profile.handleSleepChange}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -132,6 +131,14 @@ export const Step5 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+              <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+                value={profile.user.breakStats}
+                onAfterChange={profile.handleBreakChange}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -157,6 +164,14 @@ export const Step6 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+            <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+                value={profile.user.exerciseStats}
+                onAfterChange={profile.handleExerChange}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -182,6 +197,14 @@ export const Step7 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+                <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+                value={profile.user.hydrationStats}
+                onAfterChange={profile.handleHydraChange}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -207,6 +230,14 @@ export const Step8 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+            <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+                value={profile.user.healthFoodStats}
+                onAfterChange={profile.handleHealthChange}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -232,6 +263,14 @@ export const Step9 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+                <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+                value={profile.user.stretchStats}
+                onAfterChange={profile.handleStretchChange}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -257,6 +296,14 @@ export const Step10 = profile => {
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
+            <StyledSlider
+                defaultValue={[3]}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+                value={profile.user.teamBuildStats}
+                onAfterChange={profile.handleTeamChange}
+              />
               <Button onClick={profile.handleSubmit}>Continue</Button>
               {profile.currentStep <= 3 && (
                 <ButtonNoColor onClick={profile.handleSubmit}>
@@ -272,12 +319,36 @@ export const Step10 = profile => {
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
-const OnBoardWrapper = styled.div`
-  background-color: #3a3699;
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+
+const StyledSlider = styled(ReactSlider)`
+    width: 100%;
+    height: 0.2rem;
+    margin: 8rem 0 13rem;
 `;
+
+const StyledThumb = styled.div`
+    height: 2.5rem;
+    line-height: 25px;
+    width: 25px;
+    text-align: center;
+    background-color: #28C96C;
+    color: #fff;
+    border-radius: 50%;
+    cursor: grab;
+    margin-top:-1rem;
+`;
+
+const Thumb = (props, state) => <StyledThumb {...props}>{state.valueNow}</StyledThumb>;
+
+const StyledTrack = styled.div`
+    top: 0;
+    bottom: 0;
+    background: ${props =>  props.index === 1 ? '#ddd' : '#28C96C'};
+    border-radius: 2rem;
+`;
+
+const Track = (props, state) =>{return ( <StyledTrack {...props} index={state.index} value={7} />)};
+
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -287,7 +358,9 @@ const OnBoardContainer = styled.div`
   line-height: 1.5;
   background-color: #3a3699;
   color: #7f7cca;
+  width: 100vw;
   height: 100vh;
+  max-height: 100vh;
   padding: 2.5rem 4rem;
 `;
 const Question = styled.h1`
@@ -300,17 +373,12 @@ const Question = styled.h1`
 `;
 
 const LongQuestion = styled.h1`
-font-weight: bold;
-font-size: 5rem;
-line-height: 82px;
-letter-spacing: 3.5px;
 font-weight: 600;
 font-size: 2.5rem;
 line-height: 4.1rem;
 letter-spacing: 0.035em;
-color: #FFFFFF;
-margin-top: 140px;
-margin: 10rem 0 2rem;`
+color: #ffffff;
+margin: 6rem 0 2rem;`
 
 
 const OnboardTxt = styled.p`
@@ -322,13 +390,15 @@ color: #A7A4E6;
 margin: 0 auto;
 `;
 
-const Option = styled.p`
+const Option = styled.a`
 font-size: 1.6rem;
 line-height:26px;
 letter-spacing: 2px;
 color: #FFFFFF;
 &:hover {
     background: #28C96C;
+    padding: 0 1rem;
+    border-radius: 0.3rem;
   }
 `
 
@@ -354,8 +424,8 @@ const ButtonNoColor = styled.a`
 const FlexHolder = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: auto;
+  margin: 5rem auto;
   align-items: flex-start;
   width: 100%;
-  padding: 2.5rem 4rem;
+  padding: 2.5rem 0 9rem;
 `;
