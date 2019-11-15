@@ -10,7 +10,13 @@ import { test, flex } from '../../styles/global/Mixins';
 const ComingSoon = () => {
     return (
         <>
-            hi from coming soon
+        <SoonView>
+        <SoonWrapper>
+            <SoonContainer>
+                
+            </SoonContainer>
+        </SoonWrapper>
+        </SoonView>
         </>
     );
 };
