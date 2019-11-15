@@ -29,6 +29,10 @@ const MissionStats = () => {
                     <MissionStreak>
                         Your best streak for this mission is <span>25 days</span>
                     </MissionStreak>
+
+                    <DailyProgress>
+                        Daily progress stuff
+                    </DailyProgress>
                 </StatsContainer>
             </StatsWrapper>
         </StatsView>
@@ -77,6 +81,10 @@ const DummyStats = styled.div`
 `
 
 const MissionStreak = styled.div`
+
+`
+
+const DailyProgress = styled.div`
 
 `
 
