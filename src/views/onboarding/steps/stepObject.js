@@ -9,7 +9,6 @@ const Track = (props, state) =>{return ( <StyledTrack {...props} index={state.in
 const StepObject = ({profile, question}) => {
   const [qa, setQa] = useState();
   console.log(question.id)
-  const sliderDefaultValue = 3
   const handleChanges = value => {
     setQa(value)    
 };
