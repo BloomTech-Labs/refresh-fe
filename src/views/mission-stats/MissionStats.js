@@ -61,7 +61,7 @@ const StatsContainer = styled.div`
     height: 80vh;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 0 auto;
 
