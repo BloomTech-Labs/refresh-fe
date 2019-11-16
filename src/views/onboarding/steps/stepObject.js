@@ -3,7 +3,16 @@ import styled from "styled-components";
 import ReactSlider from "react-slider";
 import WeightHeight from "./WeightHeight";
 
+const Thumb = (props, state) => <StyledThumb {...props}>{state.valueNow}</StyledThumb>;
+const Track = (props, state) =>{return ( <StyledTrack {...props} index={state.index} value={7} />)};
+
 const StepObject = ({profile, question}) => {
+  const [qa, setQa] = useState();
+  console.log(question.id)
+  const sliderDefaultValue = 3
+  const handleChanges = value => {
+    setQa(value)    
+};
   return (
           <OnBoardContainer>
             <form onSubmit={profile.handleSubmit}>
@@ -12,22 +21,24 @@ const StepObject = ({profile, question}) => {
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
             {profile.currentStep <=2 && (<WeightHeight  />)}
-            {profile.currentStep == 3 && (  <FlexHolder>
-                <Option onClick={() => profile.setAnswer("Never")}>Never</Option>
-                <Option onClick={() => profile.setAnswer("Sometimes")}>Sometimes</Option>
-                <Option onClick={() => profile.setAnswer("Always")}>Always</Option>
+            {profile.currentStep == 3 && (  
+            <FlexHolder>
+                <Option onClick={() => handleChanges("Never")}>Never</Option>
+                <Option onClick={() => handleChanges("Sometimes")}>Sometimes</Option>
+                <Option onClick={() => handleChanges("Always")}>Always</Option>
             </FlexHolder> )}
             {profile.currentStep >=4 && (             
-               <StyledSlider
-                defaultValue={[3]}
+                <StyledSlider
+                defaultValue={3}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
-                onAfterChange={profile.handleChanges}
-              />)}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
+                onAfterChange={handleChanges}
+              />
+)}
+              <Button onClick={profile.handleSubmit} data-answer={qa} data-question={question.id}>Continue</Button>
               {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
+                <ButtonNoColor onClick={profile.handleSubmit} value={"blurb"}>
                   I don't feel comfortable answering
                 </ButtonNoColor>
               )}
@@ -35,6 +46,16 @@ const StepObject = ({profile, question}) => {
           </OnBoardContainer>
     );
 };
+
+// export const SlideNugget = ({start, max, profile}) => { 
+//   return (
+//   <StyledSlider
+//   defaultValue={start}
+//   max={max}
+//   renderTrack={Track}
+//   renderThumb={Thumb}
+//   onAfterChange={handleChanges}
+// />)}
 
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
@@ -58,16 +79,12 @@ const StyledThumb = styled.div`
     margin-top:-1rem;
 `;
 
-const Thumb = (props, state) => <StyledThumb {...props}>{state.valueNow}</StyledThumb>;
-
 const StyledTrack = styled.div`
     top: 0;
     bottom: 0;
     background: ${props =>  props.index === 1 ? '#ddd' : '#28C96C'};
     border-radius: 2rem;
 `;
-
-const Track = (props, state) =>{return ( <StyledTrack {...props} index={state.index} value={7} />)};
 
 const OnBoardContainer = styled.div`
   display: flex;
