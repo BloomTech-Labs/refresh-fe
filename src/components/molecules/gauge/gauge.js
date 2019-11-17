@@ -6,6 +6,8 @@ import styled from "styled-components";
 // Atoms
 import Icon from "../../atoms/icon/icon";
 // SVG Images
+
+// Pulls in images
 import water0 from "../../../images/gauge/waterGauge/water0.svg";
 import water1 from "../../../images/gauge/waterGauge/water1.svg";
 import water2 from "../../../images/gauge/waterGauge/water2.svg";
@@ -16,6 +18,7 @@ import water6 from "../../../images/gauge/waterGauge/water6.svg";
 import water7 from "../../../images/gauge/waterGauge/water7.svg";
 import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
 
+// Image object for passed props
 let waterGaugeImages = {
   0: [{ src: water0, altText: "0 glasses of water", currentWater: 0 }],
   1: [{ src: water1, altText: "1 glasses of water", currentWater: 1 }],
@@ -33,10 +36,15 @@ const Gauge = props => {
     hydrationStats: 4
   });
   const [gauge, setGauge] = useState(user);
+
+  // Returns {hydrationStats:4}
   console.log(user);
+  // Returns array of objects from waterGaugeImages
   console.log(waterGaugeImages);
 
   const [waterGauge, setWaterGauge] = useState(user.hydrationStats);
+
+  // Intention: else/if conditional rendering. Don't think I have it right
   let gaugeFill =
     waterGauge === 0
       ? setWaterGauge(waterGaugeImages, 0)
@@ -63,7 +71,7 @@ const Gauge = props => {
       <StyledGauge className="container">
         {/* SVG url should be derived from state */}
         <MobileCardWater>
-          <Icon svg={gaugeFill} alt={waterGaugeImages.altText} />
+          <Icon svg={gaugeFill} alt={"alt"} />
         </MobileCardWater>
       </StyledGauge>
     </>
