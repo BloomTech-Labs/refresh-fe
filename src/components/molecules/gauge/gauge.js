@@ -6,7 +6,7 @@ import styled from "styled-components";
 // Atoms
 import Icon from "../../atoms/icon/icon";
 // SVG Images
-import step0 from "../../../images/gauge/gaugeSteps/step0.svg";
+import step0 from "../../../images/gauge";
 import step1 from "../../../images/gauge/gaugeSteps/step1.svg";
 import step2 from "../../../images/gauge/gaugeSteps/step2.svg";
 import step3 from "../../../images/gauge/gaugeSteps/step3.svg";
