@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React from "react";
+// router
+import { NavLink } from 'react-router-dom';
 // styled components
 import styled from "styled-components";
 // helpers
@@ -58,13 +60,15 @@ const iconPicker = vertical => {
 // COMPONENT
 const MissionCard = props => {
   return (
-    <Container vertical={props.vertical}>
-      <Gauge>
-        {iconPicker(props.vertical)}
-      </Gauge>
-      <p>{props.description}</p>
-      <span>{props.points} Points</span>
-    </Container>
+    <>
+      <Container vertical={props.vertical}>
+        <Gauge>
+          {iconPicker(props.vertical)}
+        </Gauge>
+        <p>{props.description}</p>
+        <span>{props.points} Points</span>
+      </Container>
+    </>
   );
 };
 
@@ -99,6 +103,7 @@ const Container = styled.div`
     align-self: flex-start;
     margin-top: auto;
   }
+
 `;
 
 const Gauge = styled.div`
