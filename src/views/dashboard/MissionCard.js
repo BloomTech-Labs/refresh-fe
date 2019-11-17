@@ -11,15 +11,15 @@ import { test, flex } from "../../styles/global/Mixins";
 // HELPERS
 const bgPicker = vertical => {
   if (vertical === 'water') {
-      return '#CEE2FF'
+      return '#1575FF'
   } else if (vertical === 'activity') {
-      return '#FECDCD'
+      return '#FC5454'
   } else if (vertical === 'sleep') {
-      return '#FECDF9'
+      return '#FC54EB'
   } else if (vertical === 'mental') {
-      return '#FFE2CC'
+      return '#FFA25F'
   } else if (vertical === 'food') {
-      return '#D5F6E3'
+      return '#27AE60'
   } else {
       return '#FFF'
   }
@@ -87,7 +87,7 @@ const Container = styled.div`
   margin: 1rem 0.5rem;
   background-color: ${props => bgPicker(props.vertical)};
   padding: 1rem;
-  color: ${props => colorPicker(props.vertical)}
+  color: #FFF;
   ${flex.flexCol}
 
   // this i needs to change later on when i work out
