@@ -21,7 +21,7 @@ import ComingSoon from './views/coming-soon/ComingSoon';
 
 //COMPONENT
 const App = props => {
-  const [user, setUser] = useState({hasLoggedIn: true});
+  const [user, setUser] = useState({hasLoggedIn: false});
 
 if(!user.hasLoggedIn){
   return(
