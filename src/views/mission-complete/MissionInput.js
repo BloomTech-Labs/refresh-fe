@@ -11,7 +11,8 @@ import Counter from './Counter';
 // COMPONENT
 const MissionInput = props => {
     // props
-    const { handleDrawer, status } = props;
+    const { handleDrawer, status, missions, selectedMission } = props;
+    console.log('checking input props:', props)
     // state hooks
 
 

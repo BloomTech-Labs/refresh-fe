@@ -127,6 +127,8 @@ const MissionComplete = props => {
             <MissionInput 
                 handleDrawer={handleDrawer}
                 status={drawer.status}
+                missions={missions}
+                selectedMission={selectedMission}
             />
 
             <Congrats 
