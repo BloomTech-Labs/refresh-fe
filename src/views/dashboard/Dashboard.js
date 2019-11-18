@@ -81,6 +81,7 @@ const Dashboard = props => {
                                     description={mission.description}
                                     points={mission.pointValue}
                                     vertical={mission.vertical}
+                                    history={props.history}
                                 />
                             )
                         })}
