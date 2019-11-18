@@ -12,7 +12,6 @@ import Counter from './Counter';
 const MissionInput = props => {
     // props
     const { handleDrawer, status, missions, selectedMission } = props;
-    console.log('checking input props:', props)
     // state hooks
 
 
@@ -26,9 +25,9 @@ const MissionInput = props => {
                     <i className="fas fa-tint"></i>
                     {missions.map(mission => {
                         if (mission.id === selectedMission) {
-                            return <p>{mission.question}</p>
+                            return <p key={mission.id}>{mission.question}</p>
                         } else {
-                            console.log('nope')
+                            return null
                         }
                     })}
                 </InputMessage>

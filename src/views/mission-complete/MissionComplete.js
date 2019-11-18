@@ -74,10 +74,8 @@ const MissionComplete = props => {
     });
 
     const [missions, setMissions] = useState(dummyMissions);
-    console.log('missions check:', missions)
 
     const [selectedMission, setSelectedMission] = useState(null);
-    console.log('selected mission check:', selectedMission);
 
     // handlers
     const handleDrawer = e => {
