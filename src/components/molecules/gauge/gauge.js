@@ -45,25 +45,34 @@ const Gauge = ({ ...props }) => {
   // no longer returns
   console.log(waterGaugeImage);
 
+  const fillGauge =
+    user.hydrationStats === waterGaugeImage.id ? (
+      setWaterGauge(waterGaugeImage)
+    ) : (
+      <div>Invalid user info</div>
+    );
+
+    console.log(fillGauge);
+    
   // Intention: else/if conditional rendering. Don't think I have it right
-  let gaugeFill =
-    waterGauge === 0
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 1
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 2
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 3
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 4
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 5
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 6
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 7
-      ? setWaterGauge(waterGaugeImage)
-      : setWaterGauge(waterGaugeImage);
+  // let gaugeFill =
+  //   waterGauge === 0
+  //     ? setWaterGauge(waterGaugeImage)
+  //     : waterGauge === 1
+  //     ? setWaterGauge(waterGaugeImage)
+  //     : waterGauge === 2
+  //     ? setWaterGauge(waterGaugeImage)
+  //     : waterGauge === 3
+  //     ? setWaterGauge(waterGaugeImage)
+  //     : waterGauge === 4
+  //     ? setWaterGauge(waterGaugeImage)
+  //     : waterGauge === 5
+  //     ? setWaterGauge(waterGaugeImage)
+  //     : waterGauge === 6
+  //     ? setWaterGauge(waterGaugeImage)
+  //     : waterGauge === 7
+  //     ? setWaterGauge(waterGaugeImage)
+  //     : setWaterGauge(waterGaugeImage);
 
   // useEffect axios call for user stats
 
@@ -84,7 +93,7 @@ const Gauge = ({ ...props }) => {
               handleWaterChange
             }}
           >
-            <Icon svg={gaugeFill} alt={"alt"} />
+            <Icon svg={fillGauge} alt={"alt"} />
           </UserContext.Provider>
         </MobileCardWater>
       </StyledGauge>
