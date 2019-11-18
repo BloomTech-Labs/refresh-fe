@@ -10,7 +10,7 @@ import { UserContext } from "../../../contexts/UserContext";
 const Steps = props => {
   const profile = useContext(UserContext);
   const question =  profile.form && profile.form[profile.currentStep -1]
-  const render = profile.current === 0 && question
+  const render = profile.currentStep === 0  
   ? <InfoIntro onSubmit={profile.handleSubmit} /> 
   : <StepObject question={question} profile={profile}/>
 
