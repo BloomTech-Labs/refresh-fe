@@ -67,6 +67,9 @@ const MissionComplete = props => {
         status: 'closed'
     });
 
+    const [missions, setMissions] = useState(dummyMissions)
+    console.log('check missions state:', missions)
+
     // handlers
     const handleDrawer = e => {
         drawer.status === 'closed' ?
@@ -94,7 +97,7 @@ const MissionComplete = props => {
                     <h2 className='mission-message'>What mission did you complete?</h2>
 
                     <MissionsWrapper>
-                        {dummyMissions.map(mission => {
+                        {missions.map(mission => {
                             return (
                                 <MissionCard 
                                     key={mission.id}
