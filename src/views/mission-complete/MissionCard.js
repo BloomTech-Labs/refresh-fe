@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useState } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -64,6 +64,9 @@ const bgPicker = vertical => {
 
 // COMPONENT
 const MissionCard = props => {
+    // state hooks
+    const [selected, setSelected] = useState(false);
+    
     // props
     const { handleDrawer } = props;
     
