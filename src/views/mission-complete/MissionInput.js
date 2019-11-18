@@ -24,7 +24,13 @@ const MissionInput = props => {
                 <CloseButton onClick={handleDrawer}>X</CloseButton>
                 <InputMessage>
                     <i className="fas fa-tint"></i>
-                    <p>This is some placeholder text</p>
+                    {missions.map(mission => {
+                        if (mission.id === selectedMission) {
+                            return <p>{mission.question}</p>
+                        } else {
+                            console.log('nope')
+                        }
+                    })}
                 </InputMessage>
 
                 <Counter />
