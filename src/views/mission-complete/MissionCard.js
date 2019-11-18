@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -64,11 +64,28 @@ const bgPicker = vertical => {
 
 // COMPONENT
 const MissionCard = props => {
+    // props destructuring
+    const { missionId, setSelectedMission } = props;
+    
+    // state hooks
+    const [selected, setSelected] = useState(false);
+
+    // useEffect
+    useEffect(() => {
+        setSelected(false);
+    }, []);
+
+    // handlers
+    const selectedHandler = e => {
+        setSelected(true);
+        setSelectedMission(missionId);
+    };
+    
     // props
     const { handleDrawer } = props;
     
     return (
-        <CardContainer vertical={props.vertical} onClick={handleDrawer}>
+        <CardContainer vertical={props.vertical} selected={selected} onClick={() => { handleDrawer(); selectedHandler(); }}>
             {iconPicker(props.vertical)}
 
             <p>{props.description}</p>
@@ -86,6 +103,7 @@ const CardContainer = styled.div`
     color: #FFF;
     margin: 2rem;
     padding: 1rem;
+    opacity: ${props => props.selected === true ? '0.5' : '1'};
     ${flex.flexCol}
 
         i {
