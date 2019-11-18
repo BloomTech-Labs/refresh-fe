@@ -71,7 +71,7 @@ const MissionCard = props => {
     const { handleDrawer } = props;
     
     return (
-        <CardContainer vertical={props.vertical} onClick={handleDrawer}>
+        <CardContainer vertical={props.vertical} selected={selected} onClick={handleDrawer}>
             {iconPicker(props.vertical)}
 
             <p>{props.description}</p>
@@ -89,6 +89,7 @@ const CardContainer = styled.div`
     color: #FFF;
     margin: 2rem;
     padding: 1rem;
+    opacity: ${props => props.selected === true ? '0.5' : '1'};
     ${flex.flexCol}
 
         i {
