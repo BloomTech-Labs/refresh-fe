@@ -77,6 +77,7 @@ const MissionComplete = props => {
     console.log('missions check:', missions)
 
     const [selectedMission, setSelectedMission] = useState(null);
+    console.log('selected mission check:', selectedMission);
 
     // handlers
     const handleDrawer = e => {
@@ -113,6 +114,8 @@ const MissionComplete = props => {
                                     color={mission.color}
                                     handleDrawer={handleDrawer}
                                     vertical={mission.vertical}
+                                    missionId={mission.id}
+                                    setSelectedMission={setSelectedMission}
                                 />
                             )
                         })}
