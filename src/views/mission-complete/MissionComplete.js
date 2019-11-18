@@ -73,7 +73,10 @@ const MissionComplete = props => {
         status: 'closed'
     });
 
-    const [missions, setMissions] = useState(dummyMissions)
+    const [missions, setMissions] = useState(dummyMissions);
+    console.log('missions check:', missions)
+
+    const [selectedMission, setSelectedMission] = useState(null);
 
     // handlers
     const handleDrawer = e => {
