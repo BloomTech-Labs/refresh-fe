@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -10,17 +10,17 @@ import { test, flex } from '../../styles/global/Mixins';
 // HELPERS
 const bgPicker = vertical => {
     if (vertical === 'water') {
-        return '#CEE2FF'
+        return '#6091D6'
     } else if (vertical === 'activity') {
-        return '#FECDCD'
+        return '#E36666'
     } else if (vertical === 'sleep') {
-        return '#FECDF9'
+        return '#FC54EB'
     } else if (vertical === 'mental') {
-        return '#FFE2CC'
+        return '#DF8F53'
     } else if (vertical === 'food') {
-        return '#D5F6E3'
+        return '#448961'
     } else if (vertical === 'social') {
-        return '#DFC5F7'
+        return '#9B51E0'
     } else {
         return '#FFF'
     }
@@ -64,11 +64,28 @@ const bgPicker = vertical => {
 
 // COMPONENT
 const MissionCard = props => {
+    // props destructuring
+    const { missionId, setSelectedMission } = props;
+    
+    // state hooks
+    const [selected, setSelected] = useState(false);
+
+    // useEffect
+    useEffect(() => {
+        setSelected(false);
+    }, []);
+
+    // handlers
+    const selectedHandler = e => {
+        setSelected(true);
+        setSelectedMission(missionId);
+    };
+    
     // props
     const { handleDrawer } = props;
     
     return (
-        <CardContainer vertical={props.vertical} onClick={handleDrawer}>
+        <CardContainer vertical={props.vertical} selected={selected} onClick={() => { handleDrawer(); selectedHandler(); }}>
             {iconPicker(props.vertical)}
 
             <p>{props.description}</p>
@@ -83,9 +100,10 @@ const CardContainer = styled.div`
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 3px;
     background-color: ${props => bgPicker(props.vertical)}
-    color: ${props => colorPicker(props.vertical)}
+    color: #FFF;
     margin: 2rem;
     padding: 1rem;
+    opacity: ${props => props.selected === true ? '0.5' : '1'};
     ${flex.flexCol}
 
         i {
