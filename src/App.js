@@ -21,9 +21,9 @@ import ComingSoon from './views/coming-soon/ComingSoon';
 
 //COMPONENT
 const App = props => {
-  const [user, setUser] = useState({hasLoggedIn: false});
+  const [user, setUser] = useState(localStorage.getItem('token'));
 
-if(!user.hasLoggedIn){
+if(!user){
   return(
   <>
   <Route path='/firstlogin' component={StepStart} /> 
