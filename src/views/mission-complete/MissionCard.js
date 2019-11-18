@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -66,12 +66,22 @@ const bgPicker = vertical => {
 const MissionCard = props => {
     // state hooks
     const [selected, setSelected] = useState(false);
+
+    // useEffect
+    useEffect(() => {
+        setSelected(false);
+    }, []);
+
+    // handlers
+    const selectedHandler = e => {
+        setSelected(true);
+    };
     
     // props
     const { handleDrawer } = props;
     
     return (
-        <CardContainer vertical={props.vertical} selected={selected} onClick={handleDrawer}>
+        <CardContainer vertical={props.vertical} selected={selected} onClick={() => { handleDrawer(); selectedHandler(); }}>
             {iconPicker(props.vertical)}
 
             <p>{props.description}</p>
