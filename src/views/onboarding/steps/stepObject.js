@@ -8,14 +8,19 @@ const Track = (props, state) =>{return ( <StyledTrack {...props} index={state.in
 
 const StepObject = ({profile, question}) => {
   const [qa, setQa] = useState();
-  console.log(question.id)
   const handleChanges = value => {
     setQa(value)    
 };
+const sliderValue =  3;
   return (
           <OnBoardContainer>
             <form onSubmit={profile.handleSubmit}>
+              {profile.currentStep < 4 &&
               <Question>{question.question}</Question>
+              }
+              {profile.currentStep >=4 &&
+              <LongQuestion>{question.question}</LongQuestion>
+              }
               {profile.currentStep <= 2 &&
               <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
               }
@@ -28,7 +33,7 @@ const StepObject = ({profile, question}) => {
             </FlexHolder> )}
             {profile.currentStep >=4 && (             
                 <StyledSlider
-                defaultValue={3}
+                defaultValue={sliderValue}
                 max={7}
                 renderTrack={Track}
                 renderThumb={Thumb}
