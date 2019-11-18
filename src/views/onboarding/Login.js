@@ -63,8 +63,8 @@ const Login = (props) => {
             </GoogleSignIn>
             </FlexHolder>
             <Row width={97}> 
-            <Col width={30}><Text fontSize={16} color={"#CFCDFF"} text={colText} ></Text></Col>
-            <Col width={70} borderBottom={"1px solid white" } marginBottom={3} ></Col>
+            <Col width={30} marginLeft={-2}><Text fontSize={16} color={"#CFCDFF"} text={colText} ></Text></Col>
+            <Col width={70} borderBottom={"1px solid white" } marginBottom={3} marginLeft={-6}></Col>
             </Row>
             <FlexHolder>
               <Button>
