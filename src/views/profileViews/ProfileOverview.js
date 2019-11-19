@@ -77,6 +77,7 @@ const ProfileContainer = styled.div`
 `
 
 const Header = styled.div`
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -89,7 +90,7 @@ const Greeting = styled.div`
     color: #FFF;
 
         h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             letter-spacing: 0.25rem;
             font-weight: bold;
         }
