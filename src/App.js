@@ -3,7 +3,7 @@
 import React, { useState, createContext } from "react";
 import { Route } from "react-router-dom";
 // contexts
-import UserContext from './contexts/UserContext';
+import { UserContext } from './contexts/UserContext';
 // components
 import Landing from "./views/onboarding/Landing";
 import CreateAccount from "./views/onboarding/CreateAccount";
@@ -25,7 +25,8 @@ import ComingSoon from './views/coming-soon/ComingSoon';
 const App = props => {
   // state hooks
   const [user, setUser] = useState({
-    hasLoggedIn: true
+    hasLoggedIn: true,
+    testing: true
   });
 
   // useEffect
@@ -34,25 +35,29 @@ const App = props => {
 if(!user.hasLoggedIn){
   return(
   <>
-  <Route path='/firstlogin' component={StepStart} /> 
-  <Route path="/signup" component={CreateAccount} />
-  <Route path="/login" component={Login} />
-  <Route exact path="/" component={Landing} />
+  <UserContext.Provider value={user}>
+    <Route path='/firstlogin' component={StepStart} /> 
+    <Route path="/signup" component={CreateAccount} />
+    <Route path="/login" component={Login} />
+    <Route exact path="/" component={Landing} />
+  </UserContext.Provider>
   </>);
 } else {
   return (
     <>
-      <Route path='/' component={MobileMenu} /> 
-      <Route exact path="/login" component={Login} />
-      <Route path="/dashboard" component={Dashboard} />
-      <Route path="/mission-complete" component={MissionComplete} />
-      <Route path="/gauge" component={Gauge} />
-      <Route path="/atoms" component={Atoms} />
-      <Route path='/sandbox' component={Sandbox} />
-      <Route path='/profile-overview' component={ProfileOverview}/>
-      <Route path='/leaderboard' component={Leaderboard} />
-      <Route path='/mission-stats' component={MissionStats} />
-      <Route path='/coming-soon' component={ComingSoon} />
+    <UserContext.Provider value={user}>
+        <Route path='/' component={MobileMenu} /> 
+        <Route exact path="/login" component={Login} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/mission-complete" component={MissionComplete} />
+        <Route path="/gauge" component={Gauge} />
+        <Route path="/atoms" component={Atoms} />
+        <Route path='/sandbox' component={Sandbox} />
+        <Route path='/profile-overview' component={ProfileOverview}/>
+        <Route path='/leaderboard' component={Leaderboard} />
+        <Route path='/mission-stats' component={MissionStats} />
+        <Route path='/coming-soon' component={ComingSoon} />
+    </UserContext.Provider>
     </>
     
   );
