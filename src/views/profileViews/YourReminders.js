@@ -1,7 +1,25 @@
+// IMPORTS
+// react
 import React from 'react';
+// styled components
 import styled from 'styled-components';
+// helpers
+import { test, flex } from '../../styles/global/Mixins';
 
 
+
+// COMPONENT
+const YourReminders = () => {
+    return (
+        <>
+        <Rectangle69/>
+        <ReminderText>your reminders</ReminderText>
+        null;
+        </>
+    );
+};
+
+// STYLED COMPONENTS
 const Rectangle69 = styled.div`
 position: absolute;
 width: 178px;
@@ -35,15 +53,5 @@ letter-spacing: 0.035em;
 
 color: #6762E3;
 ` 
-
-const YourReminders = () => {
-    return (
-        <>
-        <Rectangle69/>
-        <ReminderText>your reminders</ReminderText>
-        null;
-        </>
-    );
-};
-
+// EXPORT
 export default YourReminders;
