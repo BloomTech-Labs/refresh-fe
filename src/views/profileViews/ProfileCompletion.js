@@ -5,6 +5,8 @@ import React from 'react';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// images
+import UserImage from '../../images/profile/user.svg';
 
 // COMPONENT
 const ProfileCompletion = () => {
@@ -12,8 +14,10 @@ const ProfileCompletion = () => {
         <>
             <ProfileWidget>
                 <h3>Profile</h3>
+                <UserPlaceholder src={UserImage} />
                 <span>75%</span>
                 <span>completion</span>
+                <FinishAction></FinishAction>
             </ProfileWidget>
         </>
     );
@@ -35,14 +39,25 @@ const ProfileWidget = styled.div`
     color: rgba(255, 255, 255, 0.6);
 
         h3 {
-            color: #1575FF;
+            color: #6762E3;
             font-size: 1.5rem;
-            margin-left: 1rem;
         }
 
         span {
-            color: #9AB9E5;
+            color: #6762E3;
         }
+`
+
+const UserPlaceholder = styled.img`
+    width: 30%;
+    height: auto;
+`
+
+const FinishAction = styled.div`
+    width: 100%;
+    height: 3rem;
+    background-color: #6762E3;
+    margin-top: auto;
 `
 
 // EXPORT
