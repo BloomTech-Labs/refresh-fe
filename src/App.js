@@ -46,7 +46,7 @@ const App = props => {
 if(!user.hasLoggedIn){
   return(
   <>
-  <UserContext.Provider value={user}>
+  <UserContext.Provider value={{...user, setUser: setUser}}>
     <Route path='/firstlogin' component={StepStart} /> 
     <Route path="/signup" component={CreateAccount} />
     <Route path="/login" component={Login} />
