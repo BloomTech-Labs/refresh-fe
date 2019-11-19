@@ -38,6 +38,10 @@ const ProfileOverview = () => {
                         </User>
                     </Header>
 
+                    <WidgetArea>
+
+                    </WidgetArea>
+
                 </ProfileContainer>
             </ProfileWrapper>
           </ProfileView>
@@ -75,6 +79,7 @@ const Header = styled.div`
     justify-content: space-between;
     align-items: center;  
     margin-bottom: auto;
+    ${test.redBg}
 `
 
 const Greeting = styled.div`
@@ -111,9 +116,16 @@ const Avatar = styled.div`
     background-size: cover;
 `
 
+const WidgetArea = styled.div`
+    width: 100%;
+    height: 50rem;
+    margin-bottom: auto;
+    ${test.redBg}
+`
+
 const Column = styled.div`
     width: 45%;
-
+    height: 30rem;
 `
 
 // EXPORT
