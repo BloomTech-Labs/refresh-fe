@@ -1,7 +1,9 @@
 // IMPORTS
 // react
-import React, {useState} from "react";
+import React, { useState, createContext } from "react";
 import { Route } from "react-router-dom";
+// contexts
+import UserContext from './contexts/UserContext';
 // components
 import Landing from "./views/onboarding/Landing";
 import CreateAccount from "./views/onboarding/CreateAccount";
@@ -21,7 +23,13 @@ import ComingSoon from './views/coming-soon/ComingSoon';
 
 //COMPONENT
 const App = props => {
-  const [user, setUser] = useState({hasLoggedIn: true});
+  // state hooks
+  const [user, setUser] = useState({
+    hasLoggedIn: true
+  });
+
+  // useEffect
+  // todo
 
 if(!user.hasLoggedIn){
   return(
