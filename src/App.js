@@ -35,8 +35,7 @@ if(!user.hasLoggedIn){
   return (
     <>
       <Route path='/' component={MobileMenu} /> 
-      <MobileMenu />
-      <Route exact path="/" component={Login} />
+      <Route exact path="/login" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/mission-complete" component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />

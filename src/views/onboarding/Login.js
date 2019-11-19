@@ -44,17 +44,17 @@ const Login = (props) => {
       return (
         <OnBoardWrapper>
           <OnBoardContainer>
-            {/* <TopHolder>
+            <TopHolder>
               <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
               <ButtonNoColor onClick={routeToSignUp}>Sign Up</ButtonNoColor>
-            </TopHolder> */}
+            </TopHolder>
             <HeaderHolder>
               <Header>
                 Welcome <br /> Back.
               </Header>
               <Cubes src={cubes} />
             </HeaderHolder>
-            {/* <FlexHolder>
+            <FlexHolder>
               <FBButton name="facebookAuth" onClick={auth}>
                 Log In with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
               </FBButton>
@@ -70,7 +70,7 @@ const Login = (props) => {
               <Button>
                 Log In with Email <Image src={emailogo} height={2} width={2} />
               </Button>
-            </FlexHolder> */}
+            </FlexHolder>
           </OnBoardContainer>
         </OnBoardWrapper>
       );
