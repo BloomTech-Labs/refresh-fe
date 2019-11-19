@@ -56,13 +56,15 @@ const Gauge = ({ children, ...props }) => {
   }
   return (
     <>
-    <context.Provider value={gaugeData}>
+    
       <StyledGauge className="container">
         <MobileCardWater>
+        <context.Provider value={gaugeData}>
          {gaugeFill(waterStats)}
+         </context.Provider>
         </MobileCardWater>
       </StyledGauge>
-      </context.Provider>
+      
     </>
   );
 };
