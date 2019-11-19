@@ -77,7 +77,6 @@ const ProfileWrapper = styled.div`
 
 const ProfileContainer = styled.div`
     width: 90%;
-    height: 80vh;
     margin: 0 auto;
     display: flex;
     flex-flow: column nowrap;
@@ -130,7 +129,6 @@ const Avatar = styled.div`
 
 const WidgetArea = styled.div`
     width: 100%;
-    height: 50rem;  // temp height
     margin-bottom: auto;
     display: flex;
     flex-flow: row nowrap;
@@ -140,6 +138,8 @@ const WidgetArea = styled.div`
 
 const Column = styled.div`
     width: 49%;
+    margin-top: 2rem;
+    ${test.redBg}
 
         &:last-child {
             display: flex;
