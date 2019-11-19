@@ -44,12 +44,13 @@ const ContactWidget = styled.div`
             margin-bottom: auto;
             margin: 1rem 1rem auto 0;
             line-height: 0;
-            ${test.redBg}
         }
 
         span:last-child {
             align-self: flex-start;
             color: #28C96C;
+            font-size: 1.5rem;
+            margin: 0 0 1rem 1rem;
         }
 `
 
