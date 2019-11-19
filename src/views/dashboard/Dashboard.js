@@ -1,8 +1,10 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useContext } from 'react';
 // router
 import { Link } from 'react-router-dom';
+// contexts
+import { UserContext } from '../../contexts/UserContext';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -53,6 +55,15 @@ const dummyMissions = [
 
 // COMPONENT
 const Dashboard = props => {
+    // contexts
+    const activeUser = useContext(UserContext);
+    
+    // state hooks
+    // todo
+
+    // useEffect
+    // todo
+    
     return (
         <DashboardView>
             <DashboardWrapper>
@@ -65,8 +76,8 @@ const Dashboard = props => {
                     </Greeting>
 
                     <User>
-                        <Link to='/dashboard'><i className="fas fa-bell"></i></Link>
-                        <Avatar></Avatar>
+                        <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
+                        <Link to='/profile-overview'><Avatar></Avatar></Link>
                     </User>
                 </Header>
 
@@ -81,6 +92,7 @@ const Dashboard = props => {
                                     description={mission.description}
                                     points={mission.pointValue}
                                     vertical={mission.vertical}
+                                    history={props.history}
                                 />
                             )
                         })}

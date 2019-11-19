@@ -51,7 +51,7 @@ const MobileMenu = props => {
                 <Drawer className={menu.status}>
                     <Column>
                     <UserHud>
-                        <Avatar></Avatar>
+                        <Link to='/profile-overview'><Avatar></Avatar></Link>
 
                         <UserInfo>
                             <h2>{dummyUser.first_name} {dummyUser.last_name}</h2>
@@ -63,10 +63,10 @@ const MobileMenu = props => {
                     <Navigation>
                         <NavButton><Link to='/dashboard'><i className="fas fa-home"></i>Home</Link></NavButton>
                         <NavButton><Link to='/leaderboard'><i className="fas fa-gamepad"></i>Leaderboard</Link></NavButton>
-                        <NavButton><Link to='/team'><i className="fas fa-users"></i>Team</Link></NavButton>
-                        <NavButton><Link to='/weekly-challenge'><i className="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
-                        <NavButton><Link to='/pomodoro'><i className="fas fa-stopwatch"></i>Pomodoro Clock</Link></NavButton>
-                        <NavButton><Link to='/rewards'><i className="fas fa-gem"></i>Rewards</Link></NavButton>
+                        <NavButton><Link to='/coming-soon'><i className="fas fa-users"></i>Team</Link></NavButton>
+                        <NavButton><Link to='/coming-soon'><i className="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
+                        <NavButton><Link to='/coming-soon'><i className="fas fa-stopwatch"></i>Pomodoro Clock</Link></NavButton>
+                        <NavButton><Link to='/coming-soon'><i className="fas fa-gem"></i>Rewards</Link></NavButton>
                     </Navigation>
                     </Column>
                 </Drawer>

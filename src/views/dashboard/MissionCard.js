@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React from "react";
+// router
+import { NavLink } from 'react-router-dom';
 // styled components
 import styled from "styled-components";
 // helpers
@@ -9,15 +11,15 @@ import { test, flex } from "../../styles/global/Mixins";
 // HELPERS
 const bgPicker = vertical => {
   if (vertical === 'water') {
-      return '#CEE2FF'
+      return '#1575FF'
   } else if (vertical === 'activity') {
-      return '#FECDCD'
+      return '#FC5454'
   } else if (vertical === 'sleep') {
-      return '#FECDF9'
+      return '#FC54EB'
   } else if (vertical === 'mental') {
-      return '#FFE2CC'
+      return '#FFA25F'
   } else if (vertical === 'food') {
-      return '#D5F6E3'
+      return '#27AE60'
   } else {
       return '#FFF'
   }
@@ -57,14 +59,22 @@ const iconPicker = vertical => {
 
 // COMPONENT
 const MissionCard = props => {
+  // handlers
+  const cardClickHandler = e => {
+    props.history.push('/mission-stats');
+    console.log('firing')
+};
+  
   return (
-    <Container vertical={props.vertical}>
-      <Gauge>
-        {iconPicker(props.vertical)}
-      </Gauge>
-      <p>{props.description}</p>
-      <span>{props.points} Points</span>
-    </Container>
+    <>
+      <Container vertical={props.vertical} onClick={cardClickHandler}>
+        <Gauge>
+          {iconPicker(props.vertical)}
+        </Gauge>
+        <p>{props.description}</p>
+        <span>{props.points} Points</span>
+      </Container>
+    </>
   );
 };
 
@@ -77,7 +87,7 @@ const Container = styled.div`
   margin: 1rem 0.5rem;
   background-color: ${props => bgPicker(props.vertical)};
   padding: 1rem;
-  color: ${props => colorPicker(props.vertical)}
+  color: #FFF;
   ${flex.flexCol}
 
   // this i needs to change later on when i work out
@@ -99,6 +109,7 @@ const Container = styled.div`
     align-self: flex-start;
     margin-top: auto;
   }
+
 `;
 
 const Gauge = styled.div`
