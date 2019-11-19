@@ -18,10 +18,15 @@ import Leaderboard from './views/leaderboard/Leaderboard';
 import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
 
+import jwtDecode from 'jwt-decode';
+
 
 //COMPONENT
 const App = props => {
-  const [user, setUser] = useState({hasLoggedIn: true});
+  const [user, setUser] = useState({
+    hasLoggedIn: true,
+    userId: jwtDecode(localStorage.getItem('token')).userId
+  });
 
 if(!user.hasLoggedIn){
   return(
