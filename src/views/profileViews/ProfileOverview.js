@@ -48,6 +48,7 @@ const ProfileOverview = () => {
 
                         <Column>
                             <ProfileCompletion />
+                            <ActivityCard />
                         </Column>
 
                     </WidgetArea>
