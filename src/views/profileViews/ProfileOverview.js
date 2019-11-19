@@ -49,6 +49,7 @@ const ProfileOverview = () => {
                         <Column>
                             <ProfileCompletion />
                             <ActivityCard />
+                            <Badges />
                         </Column>
 
                     </WidgetArea>
