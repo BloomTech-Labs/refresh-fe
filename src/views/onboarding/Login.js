@@ -108,7 +108,6 @@ const HeaderHolder = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: red;
 
     h1 {
       margin-left: auto;
@@ -117,7 +116,6 @@ const HeaderHolder = styled.div`
     img {
       width: 30%;
       height: 30%;
-      border: 1px solid black;
     }
 `;
 
