@@ -1,6 +1,8 @@
 // IMPORTS
 // react
-import React from "react";
+import React, { useState, useContext } from "react";
+// contexts
+import { UserContext } from '../../contexts/UserContext';
 // styled components
 import styled from "styled-components";
 // images
@@ -16,6 +18,16 @@ import Image from "../../components/atoms/image/image";
 
 // COMPONENT
 const Login = (props) => {
+    // contexts
+    const activeUser = useContext(UserContext);
+
+    // state hooks
+    const [user, setUser] = useState(activeUser);
+    console.log('checking context from login:', user);
+
+    // useEffect
+    // todo
+  
     const routeToHome = e => {
         e.preventDefault();
         props.history.push("/");

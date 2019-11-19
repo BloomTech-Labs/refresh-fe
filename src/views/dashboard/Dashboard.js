@@ -57,7 +57,6 @@ const dummyMissions = [
 const Dashboard = props => {
     // contexts
     const activeUser = useContext(UserContext);
-    console.log('checking context:', activeUser)
     
     // state hooks
     // todo
