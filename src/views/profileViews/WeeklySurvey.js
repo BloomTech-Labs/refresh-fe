@@ -16,6 +16,8 @@ const WeeklySurvey = () => {
         <>
         <SurveyWidget>
             <SurveyImg src={Rocket} />
+            <h3>Survey of the Week</h3>
+            <span>0% complete</span>
         </SurveyWidget>
         </>
     );
@@ -34,11 +36,22 @@ const SurveyWidget = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: auto;
+        }
+
+        span {
+            margin-bottom: 2rem;
+        }
 `
 
 const SurveyImg = styled.img`
     width: 45%;
     height: auto;
+    margin-top: auto;
 `
 
 
