@@ -36,7 +36,7 @@ const App = props => {
     section_lead: '',
     avatar: '',
     bio: '',
-    new_user: false,
+    new_user: true,
     testing: false,
     hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
   });
@@ -45,7 +45,7 @@ const App = props => {
   // useEffect
   // todo
 
-if(!user.hasLoggedIn){
+if(user.new_user){
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
