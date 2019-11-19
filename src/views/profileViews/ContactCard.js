@@ -39,8 +39,12 @@ const ContactWidget = styled.div`
             align-self: flex-end;
             background: none;
             border: none;
-            font-size: 2rem;
+            font-size: 3rem;
             color: #28C96C;
+            margin-bottom: auto;
+            margin: 1rem 1rem auto 0;
+            line-height: 0;
+            ${test.redBg}
         }
 
         span:last-child {
