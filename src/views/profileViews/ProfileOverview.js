@@ -26,6 +26,7 @@ const ProfileOverview = () => {
           <ProfileView>
             <ProfileWrapper>
                 <ProfileContainer>
+
                     <Header>
                         <Greeting>
                             <h1>Your Profile</h1>
@@ -36,6 +37,7 @@ const ProfileOverview = () => {
                             <Link to='/profile-overview'><Avatar></Avatar></Link>
                         </User>
                     </Header>
+
                 </ProfileContainer>
             </ProfileWrapper>
           </ProfileView>
@@ -54,13 +56,17 @@ const ProfileView = styled.div`
 
 const ProfileWrapper = styled.div`
     width: 100%;
-    ${test.redBg}
+    ${test.greenBg}
 `
 
 const ProfileContainer = styled.div`
     width: 90%;
     height: 80vh;
     margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 `
 
 const Header = styled.div`
@@ -68,7 +74,7 @@ const Header = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;  
-    ${test.greenBg}
+    margin-bottom: auto;
 `
 
 const Greeting = styled.div`
@@ -103,6 +109,11 @@ const Avatar = styled.div`
     border-radius: 3px;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
+`
+
+const Column = styled.div`
+    width: 45%;
+
 `
 
 // EXPORT
