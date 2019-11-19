@@ -143,7 +143,7 @@ const Column = styled.div`
         &:last-child {
             display: flex;
             flex-flow: column nowrap;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
         }
     ${test.redBg}

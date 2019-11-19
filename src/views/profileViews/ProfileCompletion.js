@@ -11,7 +11,9 @@ const ProfileCompletion = () => {
     return (
         <>
             <ProfileWidget>
-
+                <h3>Profile</h3>
+                <span>75%</span>
+                <span>completion</span>
             </ProfileWidget>
         </>
     );
@@ -19,9 +21,10 @@ const ProfileCompletion = () => {
 
 // STYLED COMPONENTS
 const ProfileWidget = styled.div`
-    width: 90%;
-    height: 17rem;
+    width: 80%;
+    height: 18rem;
     margin: 2rem 0;
+    margin-top: 0;
     background-color: #CCC9FF;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 2px;
@@ -34,7 +37,6 @@ const ProfileWidget = styled.div`
         h3 {
             color: #1575FF;
             font-size: 1.5rem;
-            align-self: flex-start;
             margin-left: 1rem;
         }
 
