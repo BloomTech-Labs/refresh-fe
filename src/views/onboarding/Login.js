@@ -56,7 +56,18 @@ const Login = (props) => {
         userObject = JSON.parse(userObject)
         console.log(userObject)
         localStorage.setItem('token', userObject.token);
-        activeUser.setUser({ ...activeUser, testing: true })
+        activeUser.setUser({
+          ...activeUser,
+          user_id: userObject.user_id || null,
+          display_name: userObject.display_name || '',
+          fname: userObject.fname || '',
+          lname: userObject.lname || '',
+          cohort: userObject.cohort || '',
+          section_lead: userObject.section_lead || '',
+          avatar: userObject.avatar || '',
+          bio: userObject.bio || '',
+          new_user: userObject.newUser ? true : false
+        })
         {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
       };
 
