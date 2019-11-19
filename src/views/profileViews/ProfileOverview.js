@@ -137,8 +137,16 @@ const WidgetArea = styled.div`
 `
 
 const Column = styled.div`
-    width: 48%;
+    width: 49%;
     height: 50rem; // temp height
+
+        &:last-child {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+    ${test.redBg}
 `
 
 // EXPORT
