@@ -62,9 +62,13 @@ const FinishAction = styled.div`
     height: 3rem;
     background-color: #6762E3;
     margin-top: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
 
         img {
-            width: 10%;
+            width: 8%;
             height: auto;
         }
 `
