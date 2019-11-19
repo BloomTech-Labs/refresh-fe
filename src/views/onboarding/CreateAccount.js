@@ -21,6 +21,11 @@ const CreateAccount = (props) => {
         props.history.push("/login");
       };
 
+      const routeToEmailSignUp = e => {
+        e.preventDefault();
+        props.history.push("/emailsignup");
+      };
+
     const colText = "OR";
       
     const auth = (e) => {
@@ -68,7 +73,7 @@ const CreateAccount = (props) => {
             <Col width={70} borderBottom={"1px solid white" } marginBottom={3} marginLeft={-6}></Col>
             </Row>
             <FlexHolder>
-              <Button>
+              <Button onClick={routeToEmailSignUp}>
                 Sign up with Email <Image src={emailogo} height={2} width={2} />
               </Button>
             </FlexHolder>

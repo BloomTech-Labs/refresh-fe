@@ -1,29 +1,34 @@
-import React, { useContext } from "react";
+import React, {useState} from "react";
 // styled components
-import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
+import StepObject from "./StepObject";
 
-const InfoIntro = () => {
-  const profile = useContext(UserContext);
-  // const handleSubmit = e => {
-  //     e.preventDefault();
-  //     props.onSubmit();
-  // };
-  return (
-    <OnBoardWrapper>
-      <OnBoardContainer>
-        <Refresh>
-          We need to learn a little more about <GreenSpan>you</GreenSpan>
-        </Refresh>
-        <OnboardTxt>
-          We just need some data to set up your profile. All of your information
-          will stay private.
-        </OnboardTxt>
-        <Button onClick={profile.handleSubmit}>Continue</Button>
-      </OnBoardContainer>
-    </OnBoardWrapper>
-  );
+const InfoIntro = (props) => {
+  const [consent, setConsent] = useState(false);
+
+  if(consent){
+    return <StepObject />
+  }else{
+    return <OnBoarding consent={consent} setConsent={setConsent} />
+  }
 };
+
+const OnBoarding = ({consent, setConsent}) => {
+  return(
+  <OnBoardWrapper>
+  <OnBoardContainer>
+    <Refresh>
+      We need to learn a little more about <GreenSpan>you</GreenSpan>
+    </Refresh>
+    <OnboardTxt>
+      We just need some data to set up your profile. All of your information
+      will stay private.
+    </OnboardTxt>
+    <Button onClick={()=> setConsent(true)}>Continue</Button>
+  </OnBoardContainer>
+</OnBoardWrapper>
+  )
+}
 
 // STYLED COMPONENTS
 //Onboarding Reusable Styles

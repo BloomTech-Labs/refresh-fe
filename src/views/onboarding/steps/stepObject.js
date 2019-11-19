@@ -1,57 +1,100 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
+import { Redirect } from 'react-router-dom'
 import styled from "styled-components";
 import ReactSlider from "react-slider";
 import WeightHeight from "./WeightHeight";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 
-const Thumb = (props, state) => <StyledThumb {...props}>{state.valueNow}</StyledThumb>;
-const Track = (props, state) =>{return ( <StyledTrack {...props} index={state.index} value={7} />)};
+const Thumb = (props, state) => (
+  <StyledThumb {...props}>{state.valueNow}</StyledThumb>
+);
+const Track = (props, state) => {
+  return <StyledTrack {...props} index={state.index} value={7} />;
+};
 
-const StepObject = ({profile, question}) => {
+const StepObject = props => {
+  const [questions, setQuestions] = useState();
+  const [answer, setAnswer] = useState([]);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [question, setQuestion] = useState();
+  const [sliderValue, setSliderValue] = useState(3);
   const [qa, setQa] = useState();
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/questiongroups/1")
+      .then(res => {
+        setQuestion(res.data.questions[currentStep]);
+        setQuestions(res.data.questions);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
   const handleChanges = value => {
-    setQa(value)    
-};
-const sliderValue =  3;
-  return (
-          <OnBoardContainer>
-            <form onSubmit={profile.handleSubmit}>
-              {profile.currentStep < 4 &&
-              <Question>{question.question}</Question>
-              }
-              {profile.currentStep >=4 &&
-              <LongQuestion>{question.question}</LongQuestion>
-              }
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-            {profile.currentStep <=2 && (<WeightHeight  />)}
-            {profile.currentStep == 3 && (  
+    setQa(value);
+  };
+
+  const handleSubmit = e => {
+    const value = e.target.dataset["answer"];
+    const questionId = e.target.dataset.question;
+    console.log(value, questionId, currentStep, questions.length, question.question);
+    setAnswer([...answer, { answer: value, questionId: questionId }]);
+    if (questions && currentStep === questions.length) {
+      console.log(answer);
+      return <Redirect to="/dashboard" />
+    }
+    setCurrentStep(currentStep + 1);
+    setQuestion(questions[currentStep]);
+  };
+  if (!question) {
+    return <p>Loading</p>;
+  } else {
+    return (
+      <OnBoardContainer>
+        <form onSubmit={handleSubmit}>
+          {currentStep < 4 && <Question>{question.question}</Question>}
+          {currentStep >= 4 && <LongQuestion>{question.question}</LongQuestion>}
+          {currentStep <= 2 && (
+            <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+          )}
+          {currentStep <= 2 && <WeightHeight />}
+          {currentStep === 3 && (
             <FlexHolder>
-                <Option onClick={() => handleChanges("Never")}>Never</Option>
-                <Option onClick={() => handleChanges("Sometimes")}>Sometimes</Option>
-                <Option onClick={() => handleChanges("Always")}>Always</Option>
-            </FlexHolder> )}
-            {profile.currentStep >=4 && (             
-                <StyledSlider
-                defaultValue={sliderValue}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-                onAfterChange={handleChanges}
-              />
-)}
-              <Button onClick={profile.handleSubmit} data-answer={qa} data-question={question.id}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit} value={"blurb"}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
+              <Option onClick={() => handleChanges("Never")}>Never</Option>
+              <Option onClick={() => handleChanges("Sometimes")}>
+                Sometimes
+              </Option>
+              <Option onClick={() => handleChanges("Always")}>Always</Option>
+            </FlexHolder>
+          )}
+          {currentStep >= 4 && (
+            <StyledSlider
+              defaultValue={sliderValue}
+              max={7}
+              renderTrack={Track}
+              renderThumb={Thumb}
+              onAfterChange={handleChanges}
+            />
+          )}
+          <Button
+            onClick={handleSubmit}
+            data-answer={qa}
+            data-question={question.id}
+          >
+            Continue
+          </Button>
+          {currentStep <= 2 && (
+            <ButtonNoColor onClick={handleSubmit} value={"blurb"}>
+              I don't feel comfortable answering
+            </ButtonNoColor>
+          )}
+        </form>
+      </OnBoardContainer>
     );
+  }
 };
 
-// export const SlideNugget = ({start, max, profile}) => { 
+// export const SlideNugget = ({start, max, profile}) => {
 //   return (
 //   <StyledSlider
 //   defaultValue={start}
@@ -66,28 +109,28 @@ const sliderValue =  3;
 // we abstract out reusable global styles later on -JC
 
 const StyledSlider = styled(ReactSlider)`
-    width: 100%;
-    height: 0.2rem;
-    margin: 8rem 0 13rem;
+  width: 100%;
+  height: 0.2rem;
+  margin: 8rem 0 13rem;
 `;
 
 const StyledThumb = styled.div`
-    height: 2.5rem;
-    line-height: 25px;
-    width: 25px;
-    text-align: center;
-    background-color: #28C96C;
-    color: #fff;
-    border-radius: 50%;
-    cursor: grab;
-    margin-top:-1rem;
+  height: 2.5rem;
+  line-height: 25px;
+  width: 25px;
+  text-align: center;
+  background-color: #28c96c;
+  color: #fff;
+  border-radius: 50%;
+  cursor: grab;
+  margin-top: -1rem;
 `;
 
 const StyledTrack = styled.div`
-    top: 0;
-    bottom: 0;
-    background: ${props =>  props.index === 1 ? '#ddd' : '#28C96C'};
-    border-radius: 2rem;
+  top: 0;
+  bottom: 0;
+  background: ${props => (props.index === 1 ? "#ddd" : "#28C96C")};
+  border-radius: 2rem;
 `;
 
 const OnBoardContainer = styled.div`
@@ -114,13 +157,13 @@ const Question = styled.h1`
 `;
 
 const LongQuestion = styled.h1`
-font-weight: 600;
-font-size: 2.5rem;
-line-height: 4.1rem;
-letter-spacing: 0.035em;
-color: #ffffff;
-margin: 6rem 0 2rem;`
-
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 4.1rem;
+  letter-spacing: 0.035em;
+  color: #ffffff;
+  margin: 6rem 0 2rem;
+`;
 
 const OnboardTxt = styled.p`
 font-size: 1.6rem;
@@ -132,16 +175,16 @@ margin: 0 auto;
 `;
 
 const Option = styled.a`
-font-size: 1.6rem;
-line-height:26px;
-letter-spacing: 2px;
-color: #FFFFFF;
-&:hover {
-    background: #28C96C;
+  font-size: 1.6rem;
+  line-height: 26px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  &:hover {
+    background: #28c96c;
     padding: 0 1rem;
     border-radius: 0.3rem;
   }
-`
+`;
 
 const Button = styled.a`
   display: flex;
