@@ -1,47 +1,73 @@
+// IMPORTS
+// react
 import React from 'react';
+// styled components
 import styled from 'styled-components';
-
-const Rectangle70 = styled.div`
-position: absolute;
-width: 123px;
-height: 149px;
-left: 231px;
-top: 624px;
-
-background: #D4F7E3;
-border-radius: 2px;
-`
-
-const YourBadges = styled.text`
-position: absolute;
-width: 53px;
-height: 14px;
-left: 245px;
-top: 683px;
-
-font-family: 'Catamaran', sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 15px;
-line-height: 119%;
-/* or 18px */
-
-letter-spacing: 0.035em;
-
-/* primary / active */
-
-color: #28C96C;
-`
+// helpers
+import { test, flex } from '../../styles/global/Mixins';
+// images
+import Arrow from '../../images/profile/purple_right_arrow.svg';
 
 
+// COMPONENT
 const Badges = () => {
     return (
         <>
-         <Rectangle70/>
-            <YourBadges>your badges</YourBadges>
+         <BadgesWidget>
+            <h3>your<br /> badges</h3>
+            <NextAction>
+                <NextArrow src={Arrow} />
+            </NextAction>
+         </BadgesWidget>
         </>
     );
 
 };
 
+// STYLED COMPONENTS
+const BadgesWidget = styled.div`
+    width: 80%;
+    height: 20rem;
+    margin: 2rem 0;
+    margin-top: 0;
+    background-color: #D4F7E3;
+    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+    border-radius: 2px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+
+        h3 {
+            align-self: flex-start;
+            color: #28C96C;
+            margin-top: auto;
+            margin-left: 2rem;
+        }
+
+
+`
+
+const NextAction = styled.div`
+    width: 100%;
+    height: 3rem;
+    background-color: #6762E3;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: auto;
+`
+
+const NextArrow = styled.img`
+    width: 10%;
+    height: auto;
+    align-self: flex-end;
+    margin: auto 1rem 1rem 0;
+`
+
+
+
+// EXPORT
 export default Badges;
