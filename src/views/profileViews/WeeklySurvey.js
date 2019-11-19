@@ -5,6 +5,8 @@ import React from 'react';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// images
+import Rocket from '../../images/profile/rocket.svg';
 
 //This component tracks user weekly self-assessments
 
@@ -13,7 +15,7 @@ const WeeklySurvey = () => {
     return (
         <>
         <SurveyWidget>
-
+            <SurveyImg src={Rocket} />
         </SurveyWidget>
         </>
     );
@@ -28,6 +30,11 @@ const SurveyWidget = styled.div`
     background-color: #6762E3;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 2px;
+`
+
+const SurveyImg = styled.img`
+    width: 45%;
+    height: auto;
 `
 
 
