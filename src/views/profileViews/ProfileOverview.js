@@ -21,13 +21,19 @@ import ProfileAv from '../profileViews/ProfileAv';
 const ProfileOverview = () => {
     return (
         <>
-          hi from profile
+          <ProfileView>
+            <ProfileWrapper>
+                <ProfileContainer>
+                    hi from profile
+                </ProfileContainer>
+            </ProfileWrapper>
+          </ProfileView>
         </>
     );
 };
 
 // STYLED COMPONENTS
-const DashboardView = styled.div`
+const ProfileView = styled.div`
     width: 100vw;
     height: 100vh;
     max-height: 100vh;
@@ -35,8 +41,15 @@ const DashboardView = styled.div`
     background-color: #3a3699;
 `
 
-const DashboardWrapper = styled.div`
+const ProfileWrapper = styled.div`
     width: 100%;
+    ${test.redBg}
+`
+
+const ProfileContainer = styled.div`
+    width: 90%;
+    height: 80vh;
+    margin: 0 auto;
 `
 
 // EXPORT
