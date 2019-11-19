@@ -42,6 +42,7 @@ const ProfileOverview = () => {
                         <Column>
                             <ContactCard />
                             <WeeklySurvey />
+                            <WaterCard />
                         </Column>
 
                         <Column>

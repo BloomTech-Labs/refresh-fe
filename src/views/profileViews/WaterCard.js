@@ -1,8 +1,40 @@
+// IMPORTS
+// react
 import React from 'react';
+// styled components
 import styled from 'styled-components';
+// helpers 
+import { test, flex } from '../../styles/global/Mixins';
 
 
+//This component tracks user water intake
 
+// COMPONENT
+const WaterCard = (props) => {
+ 
+  return (
+    <div onClick={() => {alert('DUMMY CLICK CONFIRMED')}}>  
+    <Rectangle49/>
+      <HydrationStation>
+        hydration station
+      </HydrationStation>
+      <SixCups>
+        6 
+      </SixCups>
+      <OfWaterText>
+       cups of water
+      </OfWaterText>
+      <Of8Text>of 8</Of8Text>
+      <WaterBottle/>
+    </div>
+      
+    
+);
+  
+}
+
+
+// STYLED COMPONENTS
 const Rectangle49 = styled.div`
 position: absolute;
 width: 153px;
@@ -115,29 +147,6 @@ color: #6091D6;
 opacity: 0.5;
 
 `
-//This component tracks user water intake
 
-const WaterCard = (props) => {
- 
-  return (
-    <div onClick={() => {alert('DUMMY CLICK CONFIRMED')}}>  
-    <Rectangle49/>
-      <HydrationStation>
-        hydration station
-      </HydrationStation>
-      <SixCups>
-        6 
-      </SixCups>
-      <OfWaterText>
-       cups of water
-      </OfWaterText>
-      <Of8Text>of 8</Of8Text>
-      <WaterBottle/>
-    </div>
-      
-    
-);
-  
-}
-
+// EXPORT
 export default WaterCard;
