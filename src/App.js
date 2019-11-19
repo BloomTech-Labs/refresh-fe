@@ -27,7 +27,7 @@ const App = props => {
   // state hooks
   const [user, setUser] = useState({
     hasLoggedIn: true,
-    userId: 1
+    userId: localStorage.getItem('userId')
   });
 
   // useEffect
