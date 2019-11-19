@@ -39,9 +39,13 @@ const ProfileOverview = () => {
                     </Header>
 
                     <WidgetArea>
-                        <Column></Column>
+                        <Column>
+                            <ContactCard />
+                        </Column>
 
-                        <Column></Column>
+                        <Column>
+                        
+                        </Column>
 
                     </WidgetArea>
 

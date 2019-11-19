@@ -1,7 +1,29 @@
+// IMPORTS
+// react
 import React from 'react';
+// styled components
 import styled from 'styled-components';
+// helpers
+import { test, flex } from '../../styles/global/Mixins';
 
 
+
+//This component contains user contact info e.g. user //handle etc...
+
+
+// COMPONENT
+const ContactCard = () => {
+    return (
+        <>
+         <Rectangle47/>  
+            <ContactInformation> contact
+               information
+            </ContactInformation>  
+        </>
+    );
+};
+
+// STYLED COMPONENTS
 const Rectangle47 = styled.div`
 position: absolute;
 width: 167px;
@@ -38,19 +60,5 @@ letter-spacing: 0.02em;
 color: #28C96C;
 `
 
-//This component contains user contact info e.g. user //handle etc...
-
-
-
-const ContactCard = () => {
-    return (
-        <>
-         <Rectangle47/>  
-            <ContactInformation> contact
-               information
-            </ContactInformation>  
-        </>
-    );
-};
-
+// EXPORT
 export default ContactCard;
