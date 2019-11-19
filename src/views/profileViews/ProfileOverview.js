@@ -88,7 +88,6 @@ const Header = styled.div`
     justify-content: space-between;
     align-items: center;  
     margin-bottom: auto;
-    ${test.redBg}
 `
 
 const Greeting = styled.div`
@@ -133,13 +132,11 @@ const WidgetArea = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    ${test.redBg}
 `
 
 const Column = styled.div`
     width: 48%;
     height: 50rem; // temp height
-    ${test.blueBg}
 `
 
 // EXPORT
