@@ -1,14 +1,20 @@
+// IMPORTS
+// react
 import React from "react";
+// styled components
 import styled from "styled-components";
+// images
 import fblogo from "../../images/facebook-logo.png";
 import emailogo from "../../images/Onboarding/email.png";
 import cubes from "../../images/two_cubes.png";
+import googlelogo from "../../images/google-icon.jpg";
+// components
 import Row  from '../../components/atoms/row/row';
 import Col from '../../components/atoms/col/col';
 import Text from '../../components/atoms/text/text';
-import googlelogo from "../../images/google-icon.jpg";
 import Image from "../../components/atoms/image/image";
 
+// COMPONENT
 const Login = (props) => {
     const routeToHome = e => {
         e.preventDefault();
@@ -77,6 +83,8 @@ const Login = (props) => {
 
   };
 
+
+// STYLED COMPONENTS
 const OnBoardWrapper = styled.div`
   background-color: #3a3699;
   width: 100vw;
@@ -215,4 +223,5 @@ const GoogleLogo = styled(Logo)`
 border-radius:50%;
 `;
 
+// EXPORT
 export default Login;
