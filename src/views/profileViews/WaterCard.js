@@ -18,7 +18,7 @@ const WaterCard = (props) => {
     <WaterWidget>
       <h3>Hydration<br /> Station</h3>
       <HydrationImg src={WaterBottle} />
-      <WaterCount><span>0</span>cups of water</WaterCount>
+      <WaterCount><span>0</span>cups of <br /> water</WaterCount>
       <span> of 8</span>
     </WaterWidget>
     </>
@@ -41,11 +41,14 @@ const WaterWidget = styled.div`
     color: rgba(255, 255, 255, 0.6);
 
         h3 {
-            color: #6091D6;
+            color: #1575FF;
+            font-size: 1.5rem;
+            align-self: flex-start;
+            margin-left: 1rem;
         }
 
         span {
-            color: #1575FF;
+            color: #9AB9E5;
         }
 `
 
@@ -55,7 +58,18 @@ const HydrationImg = styled.img`
 `
 
 const WaterCount = styled.div`
-        color: #1575FF;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-center: space-between;
+    align-items: center;
+    color: #9AB9E5;
+
+        span {
+          font-size: 4rem;
+          font-weight: bold;
+          margin: 0.25rem;
+          color: #1575FF;
+        }
 `
 
 // EXPORT
