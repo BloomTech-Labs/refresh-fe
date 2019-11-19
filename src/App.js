@@ -1,9 +1,7 @@
 // IMPORTS
 // react
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import { Route } from "react-router-dom";
-// helpers
-import jwtDecode from 'jwt-decode';
 // components
 import Landing from "./views/onboarding/Landing";
 import CreateAccount from "./views/onboarding/CreateAccount";
@@ -21,24 +19,9 @@ import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
 
 
-
 //COMPONENT
 const App = props => {
-  // state hooks
-  const [user, setUser] = useState({
-    hasLoggedIn: true,
-    userId: localStorage.getItem('userId')
-  });
-
-  // useEffect
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      let userId = jwtDecode(localStorage.getItem('token')).userId;
-      localStorage.setItem('userId', userId);
-    } else {
-      localStorage.setItem('userId', 1)
-    }
-  }, []);
+  const [user, setUser] = useState({hasLoggedIn: true});
 
 if(!user.hasLoggedIn){
   return(
@@ -53,14 +36,14 @@ if(!user.hasLoggedIn){
     <>
       <Route path='/' component={MobileMenu} /> 
       <Route exact path="/login" component={Login} />
-      <Route path={`/${user.userId}/dashboard`} component={Dashboard} />
-      <Route path={`/${user.userId}/mission-control`} component={MissionComplete} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/mission-complete" component={MissionComplete} />
       <Route path="/gauge" component={Gauge} />
       <Route path="/atoms" component={Atoms} />
       <Route path='/sandbox' component={Sandbox} />
-      <Route path={`/${user.userId}/profile`} component={ProfileOverview}/>
-      <Route path={`/${user.userId}/leaderboard`} component={Leaderboard} />
-      <Route path={`/${user.userId}/mission-stats`} component={MissionStats} />
+      <Route path='/profile-overview' component={ProfileOverview}/>
+      <Route path='/leaderboard' component={Leaderboard} />
+      <Route path='/mission-stats' component={MissionStats} />
       <Route path='/coming-soon' component={ComingSoon} />
     </>
     

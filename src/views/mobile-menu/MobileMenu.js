@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins'
-import jwtDecode from 'jwt-decode';
 
 // DUMMY DATA
 // hard coding some dummy data directly into the component to avoid too many unncessary files
@@ -27,10 +26,6 @@ const dummyUser = {
 // COMPONENT
 const MobileMenu = props => {
     // state hooks
-    const [user, setUser] = useState({
-        userId: localStorage.getItem('userId')
-    });
-    
     const [menu, setMenu] = useState({
         status: 'closed',
         darken: 'inactive'
@@ -66,8 +61,8 @@ const MobileMenu = props => {
                     </UserHud>
 
                     <Navigation>
-                        <NavButton><Link to={`/${user.userId}/dashboard`}><i className="fas fa-home"></i>Home</Link></NavButton>
-                        <NavButton><Link to={`/${user.userId}/leaderboard`}><i className="fas fa-gamepad"></i>Leaderboard</Link></NavButton>
+                        <NavButton><Link to='/dashboard'><i className="fas fa-home"></i>Home</Link></NavButton>
+                        <NavButton><Link to='/leaderboard'><i className="fas fa-gamepad"></i>Leaderboard</Link></NavButton>
                         <NavButton><Link to='/coming-soon'><i className="fas fa-users"></i>Team</Link></NavButton>
                         <NavButton><Link to='/coming-soon'><i className="fas fa-calendar-alt"></i>Weekly Challenge</Link></NavButton>
                         <NavButton><Link to='/coming-soon'><i className="fas fa-stopwatch"></i>Pomodoro Clock</Link></NavButton>
