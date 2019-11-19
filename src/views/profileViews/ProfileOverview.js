@@ -39,6 +39,9 @@ const ProfileOverview = () => {
                     </Header>
 
                     <WidgetArea>
+                        <Column></Column>
+
+                        <Column></Column>
 
                     </WidgetArea>
 
@@ -118,14 +121,19 @@ const Avatar = styled.div`
 
 const WidgetArea = styled.div`
     width: 100%;
-    height: 50rem;
+    height: 50rem;  // temp height
     margin-bottom: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
     ${test.redBg}
 `
 
 const Column = styled.div`
-    width: 45%;
-    height: 30rem;
+    width: 48%;
+    height: 50rem; // temp height
+    ${test.blueBg}
 `
 
 // EXPORT
