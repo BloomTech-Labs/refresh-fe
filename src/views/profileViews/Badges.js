@@ -5,6 +5,8 @@ import React from 'react';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// images
+import Arrow from '../../images/profile/purple_right_arrow.svg';
 
 
 // COMPONENT
@@ -12,7 +14,8 @@ const Badges = () => {
     return (
         <>
          <BadgesWidget>
-             
+            <h3>Your<br /> badges</h3>
+            <NextArrow src={Arrow} />
          </BadgesWidget>
         </>
     );
@@ -25,7 +28,7 @@ const BadgesWidget = styled.div`
     height: 20rem;
     margin: 2rem 0;
     margin-top: 0;
-    background-color: #CCC9FF;
+    background-color: #D4F7E3;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 2px;
     display: flex;
@@ -35,22 +38,16 @@ const BadgesWidget = styled.div`
     color: rgba(255, 255, 255, 0.6);
 
         h3 {
-            color: #6762E3;
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            margin-bottom: 2rem;
+            align-self: flex-start;
         }
 
-        span {
-            color: #6762E3;
-            font-size: 2.5rem;
-            font-weight: bold;
 
-        }
+`
 
-        p {
-            color: #6762E3;
-        }
+const NextArrow = styled.img`
+    width: 10%;
+    height: auto;
+    align-self: flex-end;
 `
 
 
