@@ -28,7 +28,7 @@ const dummyUser = {
 const MobileMenu = props => {
     // state hooks
     const [user, setUser] = useState({
-        userId: localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')).userId : 1
+        userId: localStorage.getItem('userId');
     });
     
     const [menu, setMenu] = useState({
