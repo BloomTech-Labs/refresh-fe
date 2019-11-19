@@ -28,8 +28,7 @@ const ProfileOverview = () => {
                 <ProfileContainer>
                     <Header>
                         <Greeting>
-                            <h1>Hello</h1>
-                            <h1>Josh!</h1>
+                            <h1>Your Profile</h1>
                         </Greeting>
 
                         <User>
@@ -69,13 +68,14 @@ const Header = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;  
+    ${test.greenBg}
 `
 
 const Greeting = styled.div`
     color: #FFF;
 
         h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             letter-spacing: 0.25rem;
             font-weight: bold;
         }
@@ -85,6 +85,7 @@ const Greeting = styled.div`
 const User = styled.div`
     width: 10rem;
     height: 5rem;
+    margin-top: 2rem;
     ${flex.flexRowNoWrapAround}
 
         i {
