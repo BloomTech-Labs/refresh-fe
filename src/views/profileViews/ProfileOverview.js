@@ -21,7 +21,29 @@ import ProfileAv from '../profileViews/ProfileAv';
 const ProfileOverview = () => {
     return (
         <>
-          <ProfileContainer/>
+          hi from profile
+        </>
+    );
+};
+
+// STYLED COMPONENTS
+const DashboardView = styled.div`
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    padding-top: 10rem;
+    background-color: #3a3699;
+`
+
+const DashboardWrapper = styled.div`
+    width: 100%;
+`
+
+// EXPORT
+export default ProfileOverview;
+
+// Widget List
+{/* <ProfileContainer/>
           <ActivityCard/>
          <PercentageCard/>
          <HeaderCard/>
@@ -30,19 +52,4 @@ const ProfileOverview = () => {
          <WaterCard/>
          <Badges/>
          <YourReminders/>
-         <ProfileAv/>
-        </>
-    );
-};
-
-// STYLED COMPONENTS
-const ProfileContainer = styled.div` 
-position: relative;
-width: 375px;
-height: 822px;
-
-background: #3A3699;
-` 
-
-// EXPORT
-export default ProfileOverview;
+         <ProfileAv/> */}
