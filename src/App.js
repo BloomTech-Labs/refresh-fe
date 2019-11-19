@@ -24,9 +24,20 @@ import ComingSoon from './views/coming-soon/ComingSoon';
 //COMPONENT
 const App = props => {
   // state hooks
+  // this hook becomes the global user context
+  // will abstract out later after we get all logic working properly
+  // do not touch, i repeat do not touch.... -JC
   const [user, setUser] = useState({
-    hasLoggedIn: true,
-    testing: true
+    user_id: null,
+    display_name: '',
+    fname: '',
+    lname: '',
+    cohort: '',
+    section_lead: '',
+    avatar: '',
+    bio: '',
+    new_user: false,
+    hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
   });
 
   // useEffect
@@ -45,7 +56,7 @@ if(!user.hasLoggedIn){
 } else {
   return (
     <>
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={{...user, setUser: setUser}}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
         <Route path="/dashboard" component={Dashboard} />
