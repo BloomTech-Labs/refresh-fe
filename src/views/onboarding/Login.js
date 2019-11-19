@@ -56,6 +56,7 @@ const Login = (props) => {
         userObject = JSON.parse(userObject)
         console.log(userObject)
         localStorage.setItem('token', userObject.token);
+        activeUser.setUser({ ...activeUser, testing: true })
         {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
       };
 

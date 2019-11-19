@@ -37,8 +37,10 @@ const App = props => {
     avatar: '',
     bio: '',
     new_user: false,
+    testing: false,
     hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
   });
+  console.log('checking user context from app:', user)
 
   // useEffect
   // todo
