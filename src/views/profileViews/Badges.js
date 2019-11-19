@@ -14,8 +14,10 @@ const Badges = () => {
     return (
         <>
          <BadgesWidget>
-            <h3>Your<br /> badges</h3>
-            <NextArrow src={Arrow} />
+            <h3>your<br /> badges</h3>
+            <NextAction>
+                <NextArrow src={Arrow} />
+            </NextAction>
          </BadgesWidget>
         </>
     );
@@ -39,15 +41,30 @@ const BadgesWidget = styled.div`
 
         h3 {
             align-self: flex-start;
+            color: #28C96C;
+            margin-top: auto;
+            margin-left: 2rem;
         }
 
 
+`
+
+const NextAction = styled.div`
+    width: 100%;
+    height: 3rem;
+    background-color: #6762E3;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: auto;
 `
 
 const NextArrow = styled.img`
     width: 10%;
     height: auto;
     align-self: flex-end;
+    margin: auto 1rem 1rem 0;
 `
 
 
