@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 // components
 import ActivityCard from './ActivityCard';
-import PercentageCard from '../profileViews/PercentageCard';
+import ProfileCompletion from './ProfileCompletion';
 import HeaderCard from '../profileViews/HeaderCard';
 import ContactCard from '../profileViews/ContactCard';
 import WeeklySurvey from '../profileViews/WeeklySurvey';
@@ -47,7 +47,7 @@ const ProfileOverview = () => {
                         </Column>
 
                         <Column>
-                        
+                            <ProfileCompletion />
                         </Column>
 
                     </WidgetArea>
