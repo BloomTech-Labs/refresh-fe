@@ -30,10 +30,16 @@ let waterGaugeImage = [
   { id: 7, src: water7, altText: "7 glasses of water", currentWater: 7 },
   { id: 8, src: waterComplete, altText: "8 glasses of water", currentWater: 8 }
 ];
+
+
 const Gauge = ({ ...props }) => {
+
+  
   const [user, setUser] = useState({
     hydrationStats: 4
   });
+
+
   const [gauge, setGauge] = useState(0);
   const handleChanges = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -55,24 +61,24 @@ const Gauge = ({ ...props }) => {
     console.log(fillGauge);
     
   // Intention: else/if conditional rendering. Don't think I have it right
-  // let gaugeFill =
-  //   waterGauge === 0
-  //     ? setWaterGauge(waterGaugeImage)
-  //     : waterGauge === 1
-  //     ? setWaterGauge(waterGaugeImage)
-  //     : waterGauge === 2
-  //     ? setWaterGauge(waterGaugeImage)
-  //     : waterGauge === 3
-  //     ? setWaterGauge(waterGaugeImage)
-  //     : waterGauge === 4
-  //     ? setWaterGauge(waterGaugeImage)
-  //     : waterGauge === 5
-  //     ? setWaterGauge(waterGaugeImage)
-  //     : waterGauge === 6
-  //     ? setWaterGauge(waterGaugeImage)
-  //     : waterGauge === 7
-  //     ? setWaterGauge(waterGaugeImage)
-  //     : setWaterGauge(waterGaugeImage);
+  let gaugeFill =
+    waterGauge === 0
+      ? setWaterGauge(waterGaugeImage)
+      : waterGauge === 1
+      ? setWaterGauge(waterGaugeImage)
+      : waterGauge === 2
+      ? setWaterGauge(waterGaugeImage)
+      : waterGauge === 3
+      ? setWaterGauge(waterGaugeImage)
+      : waterGauge === 4
+      ? setWaterGauge(waterGaugeImage)
+      : waterGauge === 5
+      ? setWaterGauge(waterGaugeImage)
+      : waterGauge === 6
+      ? setWaterGauge(waterGaugeImage)
+      : waterGauge === 7
+      ? setWaterGauge(waterGaugeImage)
+      : setWaterGauge(waterGaugeImage);
 
   // useEffect axios call for user stats
 

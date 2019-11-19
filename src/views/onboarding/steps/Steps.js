@@ -53,7 +53,7 @@ const OnboardTxt = styled.p`
 font-size: 1.6rem;
 line-height: 2.6rem;
 letter-spacing: 2px;
-text-align:center
+text-align:center;
 color: #A7A4E6;
 margin: 0 auto;
 `;

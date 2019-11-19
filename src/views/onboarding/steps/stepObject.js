@@ -22,7 +22,7 @@ const sliderValue =  3;
               <LongQuestion>{question.question}</LongQuestion>
               }
               {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              <OnboardTxt>Don't worry, this stays between us</OnboardTxt>
               }
             {profile.currentStep <=2 && (<WeightHeight  />)}
             {profile.currentStep == 3 && (  
@@ -126,7 +126,7 @@ const OnboardTxt = styled.p`
 font-size: 1.6rem;
 line-height: 2.6rem;
 letter-spacing: 2px;
-text-align:center
+text-align:center;
 color: #A7A4E6;
 margin: 0 auto;
 `;
