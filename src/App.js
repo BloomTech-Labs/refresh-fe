@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 // helpers
 import jwtDecode from 'jwt-decode';
@@ -24,10 +24,21 @@ import ComingSoon from './views/coming-soon/ComingSoon';
 
 //COMPONENT
 const App = props => {
+  // state hooks
   const [user, setUser] = useState({
     hasLoggedIn: true,
     userId: 1
   });
+
+  // useEffect
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      let userId = jwtDecode(localStorage.getItem('token')).userId;
+      localStorage.setItem('userId', userId);
+    } else {
+      localStorage.setItem('userId', 1)
+    }
+  }, []);
 
 if(!user.hasLoggedIn){
   return(
