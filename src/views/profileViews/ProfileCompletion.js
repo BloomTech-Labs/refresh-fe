@@ -17,7 +17,7 @@ const ProfileCompletion = () => {
                 <h3>Profile</h3>
                 <UserPlaceholder src={UserImage} />
                 <span>75%</span>
-                <span>completion</span>
+                <p>completion</p>
                 <FinishAction>
                     <p>Finish now</p>
                     <img src={RightArrow} />
@@ -30,7 +30,7 @@ const ProfileCompletion = () => {
 // STYLED COMPONENTS
 const ProfileWidget = styled.div`
     width: 80%;
-    height: 18rem;
+    height: 20rem;
     margin: 2rem 0;
     margin-top: 0;
     background-color: #CCC9FF;
@@ -45,16 +45,26 @@ const ProfileWidget = styled.div`
         h3 {
             color: #6762E3;
             font-size: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
         }
 
         span {
+            color: #6762E3;
+            font-size: 2.5rem;
+            font-weight: bold;
+
+        }
+
+        p {
             color: #6762E3;
         }
 `
 
 const UserPlaceholder = styled.img`
-    width: 30%;
+    width: 35%;
     height: auto;
+    margin-bottom: 1.5rem;
 `
 
 const FinishAction = styled.div`
@@ -70,6 +80,10 @@ const FinishAction = styled.div`
         img {
             width: 8%;
             height: auto;
+        }
+
+        p {
+            color: #CCC9FF;
         }
 `
 
