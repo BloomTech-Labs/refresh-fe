@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 // styled components
 import styled from "styled-components";
 import InfoIntro from "./InfoIntro";
-import StepObject from "./StepObject";
+import StepObject from "./stepObject";
 import { UserContext } from "../../../contexts/UserContext";
 
 const Steps = props => {
