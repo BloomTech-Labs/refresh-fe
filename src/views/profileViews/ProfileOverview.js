@@ -72,7 +72,6 @@ const ProfileView = styled.div`
 
 const ProfileWrapper = styled.div`
     width: 100%;
-    ${test.greenBg}
 `
 
 const ProfileContainer = styled.div`
@@ -139,7 +138,7 @@ const WidgetArea = styled.div`
 const Column = styled.div`
     width: 49%;
     margin-top: 2rem;
-    ${test.redBg}
+    margin-bottom: auto;
 
         &:last-child {
             display: flex;
