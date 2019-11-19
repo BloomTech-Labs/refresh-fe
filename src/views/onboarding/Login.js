@@ -20,7 +20,6 @@ import Image from "../../components/atoms/image/image";
 const Login = (props) => {
     // contexts
     const activeUser = useContext(UserContext);
-    console.log('checking context from login:', activeUser);
 
     // state hooks
     // todo
