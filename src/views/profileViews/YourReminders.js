@@ -23,7 +23,7 @@ const YourReminders = () => {
 // STYLED COMPONENTS
 const ContactWidget = styled.div`
     width: 100%;
-    height: 10rem;
+    height: 13rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;

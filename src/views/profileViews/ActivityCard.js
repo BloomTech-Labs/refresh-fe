@@ -26,8 +26,8 @@ const ActivityCard = () => {
 // STYLED COMPONENTS
 const ActivityWidget = styled.div`
     width: 100%;
-    height: 15rem;
-    margin: 2rem 0;
+    height: 17rem;
+    margin: 0 0 2rem 0;
     background-color: #6762E3;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 2px;
