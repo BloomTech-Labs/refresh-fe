@@ -89,6 +89,7 @@ const OnBoardContainer = styled.div`
   align-items: flex-start;
   font-family: "Catamaran", sans-serif;
   margin: auto;
+  padding-top: 5rem;
   line-height: 1.5;
   background-color: #3a3699;
   color: #7f7cca;
@@ -96,13 +97,28 @@ const OnBoardContainer = styled.div`
 
 const Header = styled.h1`
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 4rem;
   line-height: 82px;
   letter-spacing: 3.5px;
   color: #ffffff;
 `;
 const HeaderHolder = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
   background-color: red;
+
+    h1 {
+      margin-left: auto;
+    }
+  
+    img {
+      width: 30%;
+      height: 30%;
+      border: 1px solid black;
+    }
 `;
 
 const OnboardTxt = styled.p`
