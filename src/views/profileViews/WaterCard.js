@@ -11,26 +11,11 @@ import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
 const WaterCard = (props) => {
- 
   return (
-    <div onClick={() => {alert('DUMMY CLICK CONFIRMED')}}>  
-    <Rectangle49/>
-      <HydrationStation>
-        hydration station
-      </HydrationStation>
-      <SixCups>
-        6 
-      </SixCups>
-      <OfWaterText>
-       cups of water
-      </OfWaterText>
-      <Of8Text>of 8</Of8Text>
-      <WaterBottle/>
-    </div>
-      
-    
-);
-  
+    <>
+    hi
+    </>
+  );
 }
 
 
