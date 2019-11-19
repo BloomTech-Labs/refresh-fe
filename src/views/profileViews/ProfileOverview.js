@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React from 'react';
+// router 
+import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -24,7 +26,17 @@ const ProfileOverview = () => {
           <ProfileView>
             <ProfileWrapper>
                 <ProfileContainer>
-                    hi from profile
+                    <Header>
+                        <Greeting>
+                            <h1>Hello</h1>
+                            <h1>Josh!</h1>
+                        </Greeting>
+
+                        <User>
+                            <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
+                            <Link to='/profile-overview'><Avatar></Avatar></Link>
+                        </User>
+                    </Header>
                 </ProfileContainer>
             </ProfileWrapper>
           </ProfileView>
@@ -50,6 +62,46 @@ const ProfileContainer = styled.div`
     width: 90%;
     height: 80vh;
     margin: 0 auto;
+`
+
+const Header = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;  
+`
+
+const Greeting = styled.div`
+    color: #FFF;
+
+        h1 {
+            font-size: 4.5rem;
+            letter-spacing: 0.25rem;
+            font-weight: bold;
+        }
+`
+
+
+const User = styled.div`
+    width: 10rem;
+    height: 5rem;
+    ${flex.flexRowNoWrapAround}
+
+        i {
+            font-size: 2rem;
+        }
+
+        a {
+            color: #CCC9FF;
+        }
+`
+
+const Avatar = styled.div`
+    width: 5rem;
+    height: 5rem;
+    border-radius: 3px;
+    background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
+    background-size: cover;
 `
 
 // EXPORT
