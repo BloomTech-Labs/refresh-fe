@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 // images
 import UserImage from '../../images/profile/user.svg';
+import RightArrow from '../../images/profile/purple_right_arrow.svg';
 
 // COMPONENT
 const ProfileCompletion = () => {
@@ -17,7 +18,10 @@ const ProfileCompletion = () => {
                 <UserPlaceholder src={UserImage} />
                 <span>75%</span>
                 <span>completion</span>
-                <FinishAction></FinishAction>
+                <FinishAction>
+                    <p>Finish now</p>
+                    <img src={RightArrow} />
+                </FinishAction>
             </ProfileWidget>
         </>
     );
@@ -58,6 +62,11 @@ const FinishAction = styled.div`
     height: 3rem;
     background-color: #6762E3;
     margin-top: auto;
+
+        img {
+            width: 10%;
+            height: auto;
+        }
 `
 
 // EXPORT
