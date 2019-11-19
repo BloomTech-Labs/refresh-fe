@@ -30,6 +30,10 @@ const SurveyWidget = styled.div`
     background-color: #6762E3;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 2px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 `
 
 const SurveyImg = styled.img`
