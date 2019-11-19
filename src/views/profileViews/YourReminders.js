@@ -28,7 +28,7 @@ const ContactWidget = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    background-color: #D4F7E3;
+    background-color: #CCC9FF;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 2px;
 
@@ -37,7 +37,7 @@ const ContactWidget = styled.div`
             background: none;
             border: none;
             font-size: 3rem;
-            color: #28C96C;
+            color: #6762E3;
             margin-bottom: auto;
             margin: 1rem 1rem auto 0;
             line-height: 0;
@@ -45,7 +45,7 @@ const ContactWidget = styled.div`
 
         span:last-child {
             align-self: flex-start;
-            color: #28C96C;
+            color: #6762E3;
             font-size: 1.5rem;
             margin: 0 0 1rem 1rem;
         }
