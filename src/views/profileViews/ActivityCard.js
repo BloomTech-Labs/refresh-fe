@@ -13,7 +13,10 @@ const ActivityCard = () => {
   
     return (
      <>
-        hihihihi
+        <ActivityWidget>
+            <h3>Your activity</h3>
+            <p>this week</p>
+        </ActivityWidget>
      </>  
        
   );
@@ -22,7 +25,7 @@ const ActivityCard = () => {
 
 // STYLED COMPONENTS
 const ActivityWidget = styled.div`
-    width: 90%;
+    width: 100%;
     height: 15rem;
     margin: 2rem 0;
     background-color: #6762E3;
@@ -32,15 +35,16 @@ const ActivityWidget = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 1);
 
         h3 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             margin-top: auto;
         }
 
-        span {
-            margin-bottom: 2rem;
+        p {
+            color: #CCC9FF;
+            margin-bottom: auto;
         }
 `
 
