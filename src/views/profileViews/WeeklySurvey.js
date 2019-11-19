@@ -1,6 +1,25 @@
+// IMPORTS
+// react
 import React from 'react';
+// styled components
 import styled from 'styled-components';
+// helpers
+import { test, flex } from '../../styles/global/Mixins';
+//This component tracks user weekly self-assessments
 
+// COMPONENT
+const WeeklySurvey = () => {
+    return (
+        <>
+       <Rectangle48/>
+       <Survey>survey of the week</Survey>
+       <SurveyComplete>0% complete</SurveyComplete>
+        </>
+    );
+    
+};
+
+// STYLED COMPONENTS
 const Rectangle48 = styled.div`
 position: absolute;
 width: 151px;
@@ -54,19 +73,7 @@ letter-spacing: 0.035em;
 /* primary / disabled */
 
 color: #CCC9FF;
-` 
-//This component tracks user weekly self-assessments
+`
 
-
-const WeeklySurvey = () => {
-    return (
-        <>
-       <Rectangle48/>
-       <Survey>survey of the week</Survey>
-       <SurveyComplete>0% complete</SurveyComplete>
-        </>
-    );
-
-};
-
+// EXPORT
 export default WeeklySurvey;

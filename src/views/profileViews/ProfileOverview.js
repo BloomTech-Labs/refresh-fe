@@ -41,6 +41,7 @@ const ProfileOverview = () => {
                     <WidgetArea>
                         <Column>
                             <ContactCard />
+                            <WeeklySurvey />
                         </Column>
 
                         <Column>
