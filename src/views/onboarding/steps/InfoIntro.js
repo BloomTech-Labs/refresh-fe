@@ -7,7 +7,7 @@ const InfoIntro = (props) => {
   const [consent, setConsent] = useState(false);
 
   if(consent){
-    return <StepObject />
+    return <StepObject {...props} />
   }else{
     return <OnBoarding consent={consent} setConsent={setConsent} />
   }

@@ -1,49 +1,56 @@
+// IMPORTS
+// react
 import React from 'react';
+// styled components
 import styled from 'styled-components';
+// helpers
+import { test, flex } from '../../styles/global/Mixins';
 
 
-const Rectangle69 = styled.div`
-position: absolute;
-width: 178px;
-height: 112px;
-left: 30px;
-top: 668px;
 
-/* primary / disabled */
-
-background: #CCC9FF;
-border-radius: 2px;
-` 
-
-const ReminderText = styled.text`
-position: absolute;
-width: 104px;
-height: 14px;
-left: 45px;
-top: 751px;
-
-font-family: 'Catamaran', sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 15px;
-line-height: 44%;
-/* or 7px */
-
-letter-spacing: 0.035em;
-
-/* primary / purple */
-
-color: #6762E3;
-` 
-
+// COMPONENT
 const YourReminders = () => {
     return (
         <>
-        <Rectangle69/>
-        <ReminderText>your reminders</ReminderText>
-        null;
+        <ContactWidget>
+            <span>...</span>
+            <span>your reminders</span>
+        </ContactWidget>
         </>
     );
 };
 
+// STYLED COMPONENTS
+const ContactWidget = styled.div`
+    width: 100%;
+    height: 13rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #CCC9FF;
+    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+    border-radius: 2px;
+
+        span:first-child {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            font-size: 3rem;
+            color: #6762E3;
+            margin-bottom: auto;
+            margin: 1rem 1rem auto 0;
+            line-height: 0;
+        }
+
+        span:last-child {
+            align-self: flex-start;
+            color: #6762E3;
+            font-size: 1.5rem;
+            margin: 0 0 1rem 1rem;
+        }
+`
+
+
+// EXPORT
 export default YourReminders;

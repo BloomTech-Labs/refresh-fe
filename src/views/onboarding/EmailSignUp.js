@@ -24,7 +24,7 @@ const EmailSignUp = (props) => {
     const handleSubmit = e => {
         if(user.password !== user.confirmPassword){
             alert("Please make sure to enter the same password for confirm password")
-        }
+        } else{
         axiosWithAuth()
         .post("/register", {email:user.email, password: user.password})
         .then(res => {
@@ -39,6 +39,7 @@ const EmailSignUp = (props) => {
         .catch(err => {
             console.log(err)
         });
+    }
     };
 
     return(

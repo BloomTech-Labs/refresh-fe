@@ -14,8 +14,8 @@ const StepStart = props => {
 
   return (
     <>
-        <InfoIntro /> 
-        <Steps />
+        <InfoIntro {...props} /> 
+        {/* <Steps props={props} /> */}
     </>
   );
 };
