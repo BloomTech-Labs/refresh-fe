@@ -1,9 +1,11 @@
 // IMPORTS
 // react
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { Route } from "react-router-dom";
 // contexts
 import { UserContext } from './contexts/UserContext';
+// helpers
+import { axiosWithAuth } from './helpers/axiosWithAuth';
 // components
 import Landing from "./views/onboarding/Landing";
 import CreateAccount from "./views/onboarding/CreateAccount";
@@ -45,7 +47,15 @@ const App = props => {
   const [userMissions, setUserMissions] = useState([]);
 
   // useEffect
-  // todo
+  useEffect(() => {
+    axiosWithAuth().get(`/missions`)
+    .then(res => {
+      console.log('[server response]', res)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }, []);
 
 if(user.new_user){
   return(
