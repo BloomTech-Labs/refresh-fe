@@ -42,6 +42,8 @@ const App = props => {
   });
   console.log('checking user context from app:', user)
 
+  const [userMissions, setUserMissions] = useState([]);
+
   // useEffect
   // todo
 
