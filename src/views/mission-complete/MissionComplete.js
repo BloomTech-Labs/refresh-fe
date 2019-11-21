@@ -81,6 +81,8 @@ const MissionComplete = props => {
 
     const [selectedMission, setSelectedMission] = useState(null);
 
+    const [missionTracker, setMissionTracker] = useState([]);
+
     // handlers
     const handleDrawer = e => {
         drawer.status === 'closed' ?
@@ -131,6 +133,7 @@ const MissionComplete = props => {
                 status={drawer.status}
                 missions={userMissions}
                 selectedMission={selectedMission}
+                setMissionTracker={setMissionTracker}
             />
 
             <Congrats 
