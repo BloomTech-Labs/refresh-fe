@@ -4,6 +4,7 @@ import React, { useState, useEffect, createContext } from "react";
 import { Route } from "react-router-dom";
 // contexts
 import { UserContext } from './contexts/UserContext';
+import { UserMissionsContext } from './contexts/UserMissionsContext';
 // helpers
 import { axiosWithAuth } from './helpers/axiosWithAuth';
 // components
@@ -21,6 +22,8 @@ import ProfileOverview from './views/profileViews/ProfileOverview';
 import Leaderboard from './views/leaderboard/Leaderboard';
 import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
+// dummy data
+import { userMissionsDummy } from './contexts/DummyData';
 
 
 //COMPONENT
