@@ -110,7 +110,7 @@ const MissionComplete = props => {
                     <h2 className='mission-message'>What mission did you complete?</h2>
 
                     <MissionsWrapper>
-                        {missions.map(mission => {
+                        {userMissions.map(mission => {
                             return (
                                 <MissionCard 
                                     key={mission.id}
