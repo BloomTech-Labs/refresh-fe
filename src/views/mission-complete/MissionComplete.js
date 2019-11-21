@@ -1,8 +1,10 @@
 // IMPORTS
 // react
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // styled components
 import styled from 'styled-components';
+// contexts
+import { UserMissionsContext } from '../../contexts/UserMissionsContext';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
 // components
@@ -63,6 +65,10 @@ const dummyMissions = [
 
 // COMPONENT
 const MissionComplete = props => {
+    // contexts
+    const userMissions = useContext(UserMissionsContext);
+    console.log('[userMissions from missionComplete]', userMissions);
+    
     // state hooks
     const [drawer, setDrawer] = useState({
         status: 'closed',
