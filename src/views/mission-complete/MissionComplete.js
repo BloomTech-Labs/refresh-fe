@@ -79,8 +79,6 @@ const MissionComplete = props => {
         status: 'closed'
     });
 
-    const [missions, setMissions] = useState(dummyMissions);
-
     const [selectedMission, setSelectedMission] = useState(null);
 
     // handlers
@@ -131,7 +129,7 @@ const MissionComplete = props => {
             <MissionInput 
                 handleDrawer={handleDrawer}
                 status={drawer.status}
-                missions={missions}
+                missions={userMissions}
                 selectedMission={selectedMission}
             />
 
