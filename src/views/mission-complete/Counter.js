@@ -22,7 +22,7 @@ const Counter = props => {
     const increment = e => {
         setCounter({ ...counter, value: counter.value + 1 });
         if (missionTracker.length < 1) {
-            console.log('no missions being tracked')
+            setMissionTracker([{ question_id: selectedMission, answer: counter.value + 1 }])
         } else {
             console.log('oof')
         }
