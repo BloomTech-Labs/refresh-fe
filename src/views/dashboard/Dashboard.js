@@ -93,7 +93,9 @@ const Dashboard = props => {
                                     key={mission.id}
                                     color={mission.color}
                                     description={mission.description}
-                                    points={mission.pointValue}
+                                    points={mission.point_value}
+                                    goal={mission.goal}
+                                    actual={mission.point_current}
                                     vertical={mission.vertical}
                                     history={props.history}
                                 />

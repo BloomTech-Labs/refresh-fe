@@ -73,7 +73,7 @@ const MissionCard = props => {
         <Gauge>
           {iconPicker(props.vertical)}
         </Gauge>
-        <p>{props.description}</p>
+        <p>{(props.goal - props.actual)} {props.description}</p>
         <span>{props.points} Points</span>
       </Container>
     </>
