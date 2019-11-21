@@ -61,7 +61,7 @@ const App = props => {
   //   })
   // }, []);
 
-if(user.new_user){
+if(!user.hasLoggedIn){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
