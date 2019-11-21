@@ -75,7 +75,7 @@ if(user.new_user){
   return (
     <>
     <UserContext.Provider value={{...user, setUser: setUser}}>
-      <UserMissionsContext.Provider value={}>
+      <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
         <Route path="/dashboard" component={Dashboard} />
