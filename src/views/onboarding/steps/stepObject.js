@@ -59,6 +59,15 @@ const handleChanges = value => {
     return <StyledTrack {...props} index={state.index} value={7} />;
   };
 
+  //StepDot helper function
+  const StepDotCount = currentStep => {
+    return( `&:nth-of-type(${currentStep +1}){
+      color: #E05CB3;
+      `)
+    }
+
+   
+
   //render
   return questions.length ? (
     // <div>
@@ -67,7 +76,7 @@ const handleChanges = value => {
     //   <input type="submit" onClick ={handleSubmit} data-answer={answer}/>
     // </div>
     <OnBoardContainer>
-      <div>...........</div>
+      <StepDots currentDot={StepDotCount} currentStep={currentStep}><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p></StepDots>
         <form onSubmit={handleSubmit}>
           {/* First Question, Concent Button*/}
           {currentStep < 3 && (
@@ -133,7 +142,7 @@ const StyledThumb = styled.div`
   line-height: 25px;
   width: 25px;
   text-align: center;
-  background-color: #28c96c;
+  background-color: #E05CB3;
   color: #fff;
   border-radius: 50%;
   cursor: grab;
@@ -142,7 +151,7 @@ const StyledThumb = styled.div`
 const StyledTrack = styled.div`
   top: 0;
   bottom: 0;
-  background: ${props => (props.index === 1 ? "#ddd" : "#28C96C")};
+  background: ${props => (props.index === 1 ? "#ddd" : "#E05CB3")};
   border-radius: 2rem;
 `;
 const OnBoardContainer = styled.div`
@@ -189,7 +198,7 @@ const Option = styled.a`
   letter-spacing: 2px;
   color: #ffffff;
   &:hover {
-    background: #28c96c;
+    background: #E05CB3;
     padding: 0 1rem;
     border-radius: 0.3rem;
   }
@@ -221,4 +230,16 @@ const FlexHolder = styled.div`
   width: 100%;
   padding: 2.5rem 0 9rem;
 `;
+
+const StepDots = styled.div`
+  display:flex;
+  font-size: 8rem;
+  margin: 0 auto;
+  
+    p{
+      padding-right:1rem;
+      color:#FFFFFF;
+      ${props => props.currentDot(props.currentStep)}
+      }
+`
 export default StepObject;
