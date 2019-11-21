@@ -1,6 +1,6 @@
 // IMPORTS
 // react 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers 
@@ -17,6 +17,11 @@ const Counter = props => {
     const [counter, setCounter] = useState({
         value: 1
     });
+
+    // useEffect
+    useEffect(() => {
+        setCounter({ ...counter, value: 0 });
+    }, [drawerStatus]);
 
     // handlers
     const increment = e => {
