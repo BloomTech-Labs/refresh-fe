@@ -7,7 +7,11 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
-const Counter = () => {
+const Counter = props => {
+    // props
+    const {missionTracker, setMissionTracker, selectedMission} = props;
+    console.log('[input counter props]', missionTracker);
+    
     // state hooks
     const [counter, setCounter] = useState({
         value: 1
@@ -16,6 +20,7 @@ const Counter = () => {
     // handlers
     const increment = e => {
         setCounter({ ...counter, value: counter.value + 1 });
+        setMissionTracker([...missionTracker, {missionId: selectedMission, missionAnswer: counter.value}]);
     };
 
     const decrement = e => {

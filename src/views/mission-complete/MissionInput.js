@@ -35,6 +35,7 @@ const MissionInput = props => {
                 <Counter
                     missionTracker={props.missionTracker}
                     setMissionTracker={props.setMissionTracker}
+                    selectedMission={selectedMission}
                 />
             </InputDrawer>
         </React.Fragment>
