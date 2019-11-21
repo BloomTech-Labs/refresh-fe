@@ -67,6 +67,7 @@ const handleChanges = value => {
     //   <input type="submit" onClick ={handleSubmit} data-answer={answer}/>
     // </div>
     <OnBoardContainer>
+      <div>...........</div>
         <form onSubmit={handleSubmit}>
           {/* First Question, Concent Button*/}
           {currentStep < 3 && (

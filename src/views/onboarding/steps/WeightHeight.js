@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const WeightHeight = (props) =>{
     const sliderScale=(unit,range)=>{
        let items = []
-       for(let i = 0 ; i < range; i++){
-           if(i % unit === 0){
+       for(let i = 200 ; i < range; i++){
+           if((i/2) % unit === 0){
             items.push('|')
            } else {
             items.push('.')
@@ -16,7 +16,7 @@ const WeightHeight = (props) =>{
     return(
         <>
             <WeightContainer>
-                {sliderScale(2,50).map((x,i)=> <DialStuff>{x}</DialStuff>)}
+    {sliderScale(1,500).map((x,i)=> <DialStuff><p onClick={() => console.log(x)}>{x}</p></DialStuff>)}
             </WeightContainer>
         </>
     )
@@ -32,4 +32,6 @@ overflow-x:auto;
 font-size:6rem;
 `
 const DialStuff = styled.div`
-flex: 0 0 auto`;
+flex: 0 0 auto;
+
+`;
