@@ -9,7 +9,7 @@ import { test, flex } from '../../styles/global/Mixins';
 // COMPONENT
 const Counter = props => {
     // props
-    const {missionTracker, setMissionTracker, selectedMission} = props;
+    const {missionTracker, setMissionTracker, selectedMission, drawerStatus} = props;
     console.log('[input counter props]', props);
     console.log('[missionTracker]', missionTracker)
     

@@ -134,6 +134,7 @@ const MissionComplete = props => {
                 selectedMission={selectedMission}
                 missionTracker={missionTracker}
                 setMissionTracker={setMissionTracker}
+                drawerStatus={drawer.status}
             />
 
             <Congrats 

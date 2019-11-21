@@ -36,6 +36,7 @@ const MissionInput = props => {
                     missionTracker={props.missionTracker}
                     setMissionTracker={props.setMissionTracker}
                     selectedMission={selectedMission}
+                    drawerStatus={props.drawerStatus}
                 />
             </InputDrawer>
         </React.Fragment>
