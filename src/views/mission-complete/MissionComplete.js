@@ -67,7 +67,6 @@ const dummyMissions = [
 const MissionComplete = props => {
     // contexts
     const userMissions = useContext(UserMissionsContext);
-    console.log('[userMissions from missionComplete]', userMissions);
     
     // state hooks
     const [drawer, setDrawer] = useState({
@@ -133,6 +132,7 @@ const MissionComplete = props => {
                 status={drawer.status}
                 missions={userMissions}
                 selectedMission={selectedMission}
+                missionTracker={missionTracker}
                 setMissionTracker={setMissionTracker}
             />
 
