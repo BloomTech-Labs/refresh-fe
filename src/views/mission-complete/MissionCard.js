@@ -62,11 +62,24 @@ const bgPicker = vertical => {
     }
   };
 
+  // setup a regex picker to filter description and assign a prompt to the
+  // mission control card dynamically. this is for release canvas 1 demo purposes
+  // but it should be replaced by a value stored on the backend later -JC
   const regexPicker = description => {
       if (description.match(/water/i)) {
-
+        return 'water'
+      } else if (description.match(/activity/i)) {
+        return 'activity'
+      } else if (description.match(/sleep/i)) {
+          return 'sleep'
+      } else if (description.match(/break/i)) {
+          return 'break'
+      } else if (description.match(/food/i) || description.match(/fruit/i)) {
+          return 'food'
+      } else if (description.match(/social/i)) {
+          return 'social'
       } else {
-        console.log('oof')
+          return 'other'
       }
   };
 
@@ -96,7 +109,7 @@ const MissionCard = props => {
         <CardContainer vertical={props.vertical} selected={selected} onClick={() => { handleDrawer(); selectedHandler(); }}>
             {iconPicker(props.vertical)}
 
-            <p>{props.description}</p>
+            <p>{regexPicker(props.description)}</p>
         </CardContainer>
     );
 };
