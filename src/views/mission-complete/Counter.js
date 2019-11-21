@@ -29,7 +29,7 @@ const Counter = props => {
                     console.log('theres a match')
                     mission.answer = counter.value + 1;
                 } else {
-                    console.log('oof')
+                    setMissionTracker([...missionTracker, {question_id: selectedMission, answer: counter.value + 1}])
                 }
             })
         }
