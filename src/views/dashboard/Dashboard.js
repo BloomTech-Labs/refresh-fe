@@ -5,6 +5,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 // contexts
 import { UserContext } from '../../contexts/UserContext';
+import { UserMissionsContext } from '../../contexts/UserMissionsContext';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -57,6 +58,8 @@ const dummyMissions = [
 const Dashboard = props => {
     // contexts
     const activeUser = useContext(UserContext);
+    const userMissions = useContext(UserMissionsContext);
+    console.log('[userMissionsContext]', userMissions);
     
     // state hooks
     // todo
