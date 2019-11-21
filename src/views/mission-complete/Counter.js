@@ -24,7 +24,14 @@ const Counter = props => {
         if (missionTracker.length < 1) {
             setMissionTracker([{ question_id: selectedMission, answer: counter.value + 1 }])
         } else {
-            console.log('oof')
+            missionTracker.map(mission => {
+                if (mission.question_id === selectedMission) {
+                    console.log('theres a match')
+                    mission.answer = counter.value + 1;
+                } else {
+                    console.log('oof')
+                }
+            })
         }
     };
 
