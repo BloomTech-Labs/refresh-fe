@@ -10,7 +10,8 @@ import { test, flex } from '../../styles/global/Mixins';
 const Counter = props => {
     // props
     const {missionTracker, setMissionTracker, selectedMission} = props;
-    console.log('[input counter props]', missionTracker);
+    console.log('[input counter props]', props);
+    console.log('[missionTracker]', missionTracker)
     
     // state hooks
     const [counter, setCounter] = useState({
@@ -20,7 +21,11 @@ const Counter = props => {
     // handlers
     const increment = e => {
         setCounter({ ...counter, value: counter.value + 1 });
-        setMissionTracker([...missionTracker, {missionId: selectedMission, missionAnswer: counter.value}]);
+        if (missionTracker.length < 1) {
+            console.log('no missions being tracked')
+        } else {
+            console.log('oof')
+        }
     };
 
     const decrement = e => {
