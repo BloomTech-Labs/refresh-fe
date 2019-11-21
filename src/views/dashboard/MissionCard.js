@@ -20,6 +20,8 @@ const bgPicker = vertical => {
       return '#FFA25F'
   } else if (vertical === 'food') {
       return '#27AE60'
+  } else if (vertical === 'social') {
+    return '#9B51E0'
   } else {
       return '#FFF'
   }
