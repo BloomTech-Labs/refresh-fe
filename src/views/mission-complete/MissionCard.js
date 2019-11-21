@@ -62,6 +62,14 @@ const bgPicker = vertical => {
     }
   };
 
+  const regexPicker = description => {
+      if (description.match(/water/i)) {
+
+      } else {
+        console.log('oof')
+      }
+  };
+
 // COMPONENT
 const MissionCard = props => {
     // props destructuring
