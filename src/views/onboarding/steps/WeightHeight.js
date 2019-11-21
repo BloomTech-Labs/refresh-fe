@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styled from 'styled-components';
 
 const WeightHeight = (props) =>{
     const sliderScale=(unit,range)=>{
@@ -15,11 +15,21 @@ const WeightHeight = (props) =>{
     }
     return(
         <>
-            <div className="Container">
-                {sliderScale(10,50).map((x,i)=>x)}
-            </div>
+            <WeightContainer>
+                {sliderScale(2,50).map((x,i)=> <DialStuff>{x}</DialStuff>)}
+            </WeightContainer>
         </>
     )
 }
 
 export default WeightHeight;
+
+const WeightContainer = styled.div`
+max-width:29rem;
+display:flex;
+flex-wrap: nowrap;
+overflow-x:auto;
+font-size:6rem;
+`
+const DialStuff = styled.div`
+flex: 0 0 auto`;

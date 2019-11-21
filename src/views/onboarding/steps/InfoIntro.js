@@ -18,7 +18,7 @@ const OnBoarding = ({consent, setConsent}) => {
   <OnBoardWrapper>
   <OnBoardContainer>
     <Refresh>
-      We need to learn a little more about <GreenSpan>you</GreenSpan>
+      We need to learn a little more about <YouSpan>you</YouSpan>
     </Refresh>
     <OnboardTxt>
       We just need some data to set up your profile. All of your information
@@ -32,8 +32,8 @@ const OnBoarding = ({consent, setConsent}) => {
 
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
-const GreenSpan = styled.span`
-  color: #28c96c;
+const YouSpan = styled.span`
+  color: #E05CB3;
 `;
 
 const OnBoardWrapper = styled.div`
@@ -79,7 +79,7 @@ const Button = styled.a`
   width: 100%;
   text-align: center;
   margin: auto;
-  background: #6487ff;
+  background: #E05CB3;
   color: white;
   font-size: 1.6rem;
 `;

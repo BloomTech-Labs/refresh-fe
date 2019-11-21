@@ -134,7 +134,7 @@ const Button = styled.a`
   width:100%;
   text-align:center;
   margin: auto;
-  background: #6487ff;
+  background: #E05CB3;
   color: white;
   font-size:1.6rem;
   letter-spacing:0.1rem;

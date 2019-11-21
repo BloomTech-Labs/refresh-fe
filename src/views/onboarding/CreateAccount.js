@@ -84,15 +84,14 @@ const CreateAccount = (props) => {
   };
 
 const OnBoardWrapper = styled.div`
-  background-color: #3a3699;
+  display:flex;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
+  background-color: #3a3699;
 `;
+
 const OnBoardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
@@ -147,7 +146,7 @@ const Button = styled.a`
   width:100%;
   text-align:center;
   margin: auto;
-  background: #6487ff;
+  background: #E05CB3;
   color: white;
   font-size:1.6rem;
   letter-spacing:0.1rem;
@@ -177,7 +176,7 @@ justify-content: space-evenly;
   width:100%;
   text-align:center;
   margin: 2rem auto;
-  background: #4A639E;
+  background: #6997F2;
   color: white;
   font-size:1.6rem;
   letter-spacing:0.1rem;
