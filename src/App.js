@@ -40,7 +40,7 @@ const App = props => {
     bio: '',
     new_user: true,
     testing: false,
-    hasLoggedIn: localStorage.getItem('token')// this true is a placeholder and will need to be removed after we finish logic
+    hasLoggedIn: true// this true is a placeholder and will need to be removed after we finish logic
   });
   console.log('checking user context from app:', user)
 

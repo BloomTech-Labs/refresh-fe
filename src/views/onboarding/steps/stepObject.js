@@ -1,16 +1,18 @@
 // { answer: value, question_id: questions[currentStep].id }
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import ReactSlider from "react-slider";
 import WeightHeight from "./WeightHeight";
 import Height from "./Height";
+import { UserContext } from '../../../contexts/UserContext';
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 const StepObject = props => {
+  const user = useContext(UserContext);
   //hooks
   const [questions, setQuestions] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [answer, setAnswer] = useState();
-  console.log(props);
+  console.log(user);
 
   //Get Questions on Mount
   useEffect(() => {
@@ -36,6 +38,7 @@ const StepObject = props => {
       console.log("here", questions[currentStep]);
       postAnswer({ answer, question_id: questions[currentStep].id });
       setQuestions([]);
+      user.setUser(false);
       props.history.push("/dashboard");
     } else {
       const defaultAnswer = answer ? answer : "Chose not to answer";

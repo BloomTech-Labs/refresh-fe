@@ -1,7 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 const WeightHeight = props => {
+  const [color, setColor] = useState('');
+
+  const handleChanges = e =>{
+    console.log(e.i);
+    setColor('#E05CB3')
+  }
+
   const sliderScale = (unit, range) => {
     let items = [];
     for (let i = 100; i < range; i++) {
@@ -9,7 +16,7 @@ const WeightHeight = props => {
         items.push(
           <>
             <div className="bigtick">
-              <p onClick={() => console.log({i})}>
+              <p style={{color:color}} onClick={() => handleChanges({i})}>
                 <svg
                   width="3"
                   height="67"
@@ -59,16 +66,11 @@ const WeightHeight = props => {
     }
     return items;
   };
-  const DialSelector = value => {
-    return `&:nth-of-type(${value}){
-        color: #E05CB3;
-        `;
-}
   return (
     <>
       <WeightContainer>
         {sliderScale(1, 500).map((x, i) => (
-          <DialStuff DialSelector={DialSelector} i={i} key={i}>{x}</DialStuff>
+          <DialStuff key={i}>{x}</DialStuff>
         ))}
       </WeightContainer>
     </>
@@ -102,9 +104,6 @@ const WeightContainer = styled.div`
 `;
 const DialStuff = styled.div`
   flex: 0 0 auto;
-  p{
-    ${props => props.DialSelector(props.i)}
-  }
 `;
 
 const NumberP = styled.p`
