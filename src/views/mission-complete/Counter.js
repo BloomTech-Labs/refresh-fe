@@ -10,12 +10,10 @@ import { test, flex } from '../../styles/global/Mixins';
 const Counter = props => {
     // props
     const {missionTracker, setMissionTracker, selectedMission, drawerStatus} = props;
-    console.log('[input counter props]', props);
-    console.log('[missionTracker]', missionTracker)
     
     // state hooks
     const [counter, setCounter] = useState({
-        value: 1
+        value: 0
     });
 
     // useEffect
@@ -26,18 +24,6 @@ const Counter = props => {
     // handlers
     const increment = e => {
         setCounter({ ...counter, value: counter.value + 1 });
-        if (missionTracker.length < 1) {
-            setMissionTracker([{ question_id: selectedMission, answer: counter.value + 1 }])
-        } else {
-            missionTracker.map(mission => {
-                if (mission.question_id === selectedMission) {
-                    console.log('theres a match')
-                    mission.answer = counter.value + 1;
-                } else {
-                    setMissionTracker([...missionTracker, {question_id: selectedMission, answer: counter.value + 1}])
-                }
-            })
-        }
     };
 
     const decrement = e => {
