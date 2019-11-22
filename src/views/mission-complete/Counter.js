@@ -45,6 +45,23 @@ const Counter = props => {
 
     const decrement = e => {
         setCounter({ ...counter, value: counter.value - 1 });
+
+        if (missionTracker.length < 1) {
+            setMissionTracker([{ question_id: selectedMission, answer: counter.value - 1 }]);
+            console.log('[empty tracker fire]', missionTracker);
+        } else {
+            let missionIndex = missionTracker.findIndex(i => i.question_id === selectedMission);
+
+            if (missionIndex === -1) {
+                setMissionTracker([...missionTracker, {question_id: selectedMission, answer: counter.value - 1}]);
+                console.log('[no index found fire]', missionTracker);
+            } else {
+                let trackerCopy = [...missionTracker];
+                trackerCopy[missionIndex].answer = counter.value - 1;
+                setMissionTracker(trackerCopy);
+                console.log('[index found copy fire]', missionTracker);
+            }
+        }
     };
     
     return (
