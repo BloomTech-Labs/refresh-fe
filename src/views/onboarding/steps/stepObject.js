@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ReactSlider from "react-slider";
 import WeightHeight from "./WeightHeight";
+import Height from "./Height";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
-const StepObject = (props) => {
+const StepObject = props => {
   //hooks
   const [questions, setQuestions] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
@@ -21,11 +22,11 @@ const StepObject = (props) => {
       .catch(err => console.log(err));
   }, []);
 
-//set values for slider
-const handleChanges = value => {
-  console.log(value)
-  setAnswer(value);
-};
+  //set values for slider
+  const handleChanges = value => {
+    console.log(value);
+    setAnswer(value);
+  };
 
   //handle submit
   const handleSubmit = e => {
@@ -35,23 +36,26 @@ const handleChanges = value => {
       console.log("here", questions[currentStep]);
       postAnswer({ answer, question_id: questions[currentStep].id });
       setQuestions([]);
-      props.history.push("/dashboard")
+      props.history.push("/dashboard");
     } else {
-      const defaultAnswer = answer ? answer : "Chose not to answer" 
+      const defaultAnswer = answer ? answer : "Chose not to answer";
       console.log("here", questions[currentStep]);
-      postAnswer({ answer: defaultAnswer, question_id: questions[currentStep].id });
+      postAnswer({
+        answer: defaultAnswer,
+        question_id: questions[currentStep].id
+      });
       setCurrentStep(currentStep + 1);
     }
   };
 
   //axios post
-  const postAnswer = (answer) => {
+  const postAnswer = answer => {
     return axiosWithAuth()
       .post("/answers", answer)
       .then(res => console.log(res));
   };
 
-  //slider thumb and track 
+  //slider thumb and track
   const Thumb = (props, state) => (
     <StyledThumb {...props}>{state.valueNow}</StyledThumb>
   );
@@ -61,12 +65,10 @@ const handleChanges = value => {
 
   //StepDot helper function
   const StepDotCount = currentStep => {
-    return( `&:nth-of-type(${currentStep +1}){
+    return `&:nth-of-type(${currentStep + 1}){
       color: #E05CB3;
-      `)
-    }
-
-   
+      `;
+  };
 
   //render
   return questions.length ? (
@@ -76,54 +78,69 @@ const handleChanges = value => {
     //   <input type="submit" onClick ={handleSubmit} data-answer={answer}/>
     // </div>
     <OnBoardContainer>
-      <StepDots currentDot={StepDotCount} currentStep={currentStep}><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p></StepDots>
-        <form onSubmit={handleSubmit}>
-          {/* First Question, Concent Button*/}
-          {currentStep < 3 && (
-            <Question>{questions[currentStep].question}</Question>
-          )}
-          {/* First Question, Concent Button*/}
-          {currentStep >= 3 && (
-            <LongQuestion>{questions[currentStep].question}</LongQuestion>
-          )}
-          {/* Returns First and second Question */}
-          {currentStep <= 1 && (
-            <>
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              <WeightHeight />
-            </>
-          )}
-          {/* WILL GIVE OVERWHELMED OPTIONS, Question 3*/}
-          {currentStep === 2 && (
-            <FlexHolder>
-              <Option onClick={() => setAnswer("Never")}>Never</Option>
-              <Option onClick={() => setAnswer("Sometimes")}>
-                Sometimes
-              </Option>
-              <Option onClick={() => setAnswer("Always")}>Always</Option>
-            </FlexHolder>
-          )}
-          {/* Slider Group , Questions 4 - 10*/}
-          {currentStep >= 3 && (
-            <StyledSlider
-              defaultValue={3}
-              max={7}
-              renderTrack={Track}
-              renderThumb={Thumb}
-              onChange={handleChanges}
-            />
-          )}
-          <Button onClick={handleSubmit} data-answer={answer}>
-            Continue
-          </Button>
-          {/* Bypass weight and height, Questions 1 and 2 */}
-          {currentStep <= 1 && (
-            <ButtonNoColor onClick={handleSubmit} data-answer={answer}>
-              I don't feel comfortable answering
-            </ButtonNoColor>
-          )}
-        </form>
-      </OnBoardContainer>
+      <StepDots currentDot={StepDotCount} currentStep={currentStep}>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+      </StepDots>
+      <form onSubmit={handleSubmit}>
+        {/* First Question, Concent Button*/}
+        {currentStep < 3 && (
+          <Question>{questions[currentStep].question}</Question>
+        )}
+        {/* First Question, Concent Button*/}
+        {currentStep >= 3 && (
+          <LongQuestion>{questions[currentStep].question}</LongQuestion>
+        )}
+        {/* Returns First and second Question */}
+        {currentStep === 0 && (
+          <>
+            <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+            <WeightHeight />
+          </>
+        )}
+        {currentStep === 1 && (
+          <>
+            <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+            <Height />
+          </>
+        )}
+        {/* WILL GIVE OVERWHELMED OPTIONS, Question 3*/}
+        {currentStep === 2 && (
+          <FlexHolder>
+            <Option onClick={() => setAnswer("Never")}>Never</Option>
+            <Option onClick={() => setAnswer("Sometimes")}>Sometimes</Option>
+            <Option onClick={() => setAnswer("Always")}>Always</Option>
+          </FlexHolder>
+        )}
+        {/* Slider Group , Questions 4 - 10*/}
+        {currentStep >= 3 && (
+          <StyledSlider
+            defaultValue={3}
+            max={7}
+            renderTrack={Track}
+            renderThumb={Thumb}
+            onChange={handleChanges}
+          />
+        )}
+        <Button onClick={handleSubmit} data-answer={answer}>
+          Continue
+        </Button>
+        {/* Bypass weight and height, Questions 1 and 2 */}
+        {currentStep <= 1 && (
+          <ButtonNoColor onClick={handleSubmit} data-answer={answer}>
+            I don't feel comfortable answering
+          </ButtonNoColor>
+        )}
+      </form>
+    </OnBoardContainer>
   ) : (
     <p>Loading</p>
   );
@@ -142,7 +159,7 @@ const StyledThumb = styled.div`
   line-height: 25px;
   width: 25px;
   text-align: center;
-  background-color: #E05CB3;
+  background-color: #e05cb3;
   color: #fff;
   border-radius: 50%;
   cursor: grab;
@@ -198,7 +215,7 @@ const Option = styled.a`
   letter-spacing: 2px;
   color: #ffffff;
   &:hover {
-    background: #E05CB3;
+    background: #e05cb3;
     padding: 0 1rem;
     border-radius: 0.3rem;
   }
@@ -210,8 +227,8 @@ const Button = styled.a`
   padding: 1.5rem 0.8rem;
   width: 100%;
   text-align: center;
-  margin: auto;
-  background: #E05CB3;
+  margin: 0 auto 2.4rem;
+  background: #e05cb3;
   color: white;
   font-size: 1.6rem;
   letter-spacing: 0.1rem;
@@ -232,14 +249,14 @@ const FlexHolder = styled.div`
 `;
 
 const StepDots = styled.div`
-  display:flex;
+  display: flex;
   font-size: 8rem;
   margin: 0 auto;
-  
-    p{
-      padding-right:1rem;
-      color:#FFFFFF;
-      ${props => props.currentDot(props.currentStep)}
-      }
-`
+
+  p {
+    padding-right: 1rem;
+    color: #ffffff;
+    ${props => props.currentDot(props.currentStep)}
+  }
+`;
 export default StepObject;
