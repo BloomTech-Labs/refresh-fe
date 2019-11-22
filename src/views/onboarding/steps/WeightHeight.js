@@ -23,7 +23,7 @@ const WeightHeight = props => {
                     x2="1.5"
                     y2="67"
                     stroke="white"
-                    stroke-width="3"
+                    strokeWidth="3"
                   />
                 </svg>
               </p>
@@ -43,7 +43,7 @@ const WeightHeight = props => {
                   x2="0.999998"
                   y2="43"
                   stroke="#CCC9FF"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </svg>
             </div>
@@ -59,11 +59,16 @@ const WeightHeight = props => {
     }
     return items;
   };
+  const DialSelector = value => {
+    return `&:nth-of-type(${value}){
+        color: #E05CB3;
+        `;
+}
   return (
     <>
       <WeightContainer>
         {sliderScale(1, 500).map((x, i) => (
-          <DialStuff key={i}>{x}</DialStuff>
+          <DialStuff DialSelector={DialSelector} i={i} key={i}>{x}</DialStuff>
         ))}
       </WeightContainer>
     </>
@@ -97,6 +102,9 @@ const WeightContainer = styled.div`
 `;
 const DialStuff = styled.div`
   flex: 0 0 auto;
+  p{
+    ${props => props.DialSelector(props.i)}
+  }
 `;
 
 const NumberP = styled.p`

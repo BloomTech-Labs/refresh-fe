@@ -22,7 +22,7 @@ const Height = props => {
                     x2="1.5"
                     y2="67"
                     stroke="white"
-                    stroke-width="3"
+                    strokeWidth="3"
                   />
                 </svg>
               </p>
@@ -42,7 +42,7 @@ const Height = props => {
                   x2="0.999998"
                   y2="43"
                   stroke="#CCC9FF"
-                  stroke-width="2"
+                  strokeidth="2"
                 />
               </svg>
               <svg
@@ -58,7 +58,7 @@ const Height = props => {
                   x2="0.999998"
                   y2="43"
                   stroke="#CCC9FF"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </svg>
               <svg
@@ -74,7 +74,7 @@ const Height = props => {
                   x2="0.999998"
                   y2="43"
                   stroke="#CCC9FF"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </svg>
               <svg
@@ -90,7 +90,7 @@ const Height = props => {
                   x2="0.999998"
                   y2="43"
                   stroke="#CCC9FF"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </svg>
             </div>
