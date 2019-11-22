@@ -57,7 +57,7 @@ const Counter = props => {
                 console.log('[no index found fire]', missionTracker);
             } else {
                 let trackerCopy = [...missionTracker];
-                trackerCopy[missionIndex].answer = counter.value - 1;
+                trackerCopy[missionIndex].answer = trackerCopy[missionIndex].answer - 1;
                 setMissionTracker(trackerCopy);
                 console.log('[index found copy fire]', missionTracker);
             }
