@@ -1,26 +1,7 @@
-// IMPORTS
-// react
 import React from 'react';
-// styled components
 import styled from 'styled-components';
-// helpers
-import { test, flex } from '../../styles/global/Mixins';
 
 
-
-// COMPONENT
-const YourReminders = () => {
-    return (
-        <>
-        <ContactWidget>
-            <span>...</span>
-            <span>your reminders</span>
-        </ContactWidget>
-        </>
-    );
-};
-
-// STYLED COMPONENTS
 const ContactWidget = styled.div`
     width: 100%;
     height: 13rem;
@@ -50,7 +31,17 @@ const ContactWidget = styled.div`
             margin: 0 0 1rem 1rem;
         }
 `
+//This component issues missions reminders to user
+const YourReminders = () => {
+    return (
+        <>
+        <ContactWidget>
+            <span>...</span>
+            <span>your reminders</span>
+        </ContactWidget>
+        </>
+    );
+};
 
 
-// EXPORT
 export default YourReminders;

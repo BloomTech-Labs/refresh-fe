@@ -1,67 +1,16 @@
-// IMPORTS
-// react
 import React from 'react';
-// router 
 import { Link } from 'react-router-dom';
-// styled components
 import styled from 'styled-components';
-// helpers
-import { test, flex } from '../../styles/global/Mixins';
-// components
 import ActivityCard from './ActivityCard';
 import ProfileCompletion from './ProfileCompletion';
-import HeaderCard from '../profileViews/HeaderCard';
+//import HeaderCard from '../profileViews/HeaderCard';
 import ContactCard from '../profileViews/ContactCard';
 import WeeklySurvey from '../profileViews/WeeklySurvey';
 import WaterCard from '../profileViews/WaterCard';
 import Badges from '../profileViews/Badges';
 import YourReminders from '../profileViews/YourReminders';
-import ProfileAv from '../profileViews/ProfileAv';
+//import ProfileAv from '../profileViews/ProfileAv';
 
-
-// COMPONENT
-const ProfileOverview = () => {
-    return (
-        <>
-          <ProfileView>
-            <ProfileWrapper>
-                <ProfileContainer>
-
-                    <Header>
-                        <Greeting>
-                            <h1>Your Profile</h1>
-                        </Greeting>
-
-                        <User>
-                            <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
-                            <Link to='/profile-overview'><Avatar></Avatar></Link>
-                        </User>
-                    </Header>
-
-                    <WidgetArea>
-                        <Column>
-                            <ContactCard />
-                            <WeeklySurvey />
-                            <WaterCard />
-                            <YourReminders />
-                        </Column>
-
-                        <Column>
-                            <ProfileCompletion />
-                            <ActivityCard />
-                            <Badges />
-                        </Column>
-
-                    </WidgetArea>
-
-                </ProfileContainer>
-            </ProfileWrapper>
-          </ProfileView>
-        </>
-    );
-};
-
-// STYLED COMPONENTS
 const ProfileView = styled.div`
     width: 100vw;
     height: 100vh;
@@ -148,11 +97,54 @@ const Column = styled.div`
         }
 `
 
-// EXPORT
+
+const ProfileOverview = () => {
+    return (
+        <>
+          <ProfileView>
+            <ProfileWrapper>
+                <ProfileContainer>
+
+                    <Header>
+                        <Greeting>
+                            <h1>Your Profile</h1>
+                        </Greeting>
+
+                        <User>
+                            <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
+                            <Link to='/profile-overview'><Avatar></Avatar></Link>
+                        </User>
+                    </Header>
+
+                    <WidgetArea>
+                        <Column>
+                            <ContactCard />
+                            <WeeklySurvey />
+                            <WaterCard />
+                            <YourReminders />
+                        </Column>
+
+                        <Column>
+                            <ProfileCompletion />
+                            <ActivityCard />
+                            <Badges />
+                        </Column>
+
+                    </WidgetArea>
+
+                </ProfileContainer>
+            </ProfileWrapper>
+          </ProfileView>
+        </>
+    );
+};
+
+
+
 export default ProfileOverview;
 
 // Widget List
-{/* <ProfileContainer/>
+/* <ProfileContainer/>
           <ActivityCard/>
          <PercentageCard/>
          <HeaderCard/>
@@ -161,4 +153,4 @@ export default ProfileOverview;
          <WaterCard/>
          <Badges/>
          <YourReminders/>
-         <ProfileAv/> */}
+         <ProfileAv/> */

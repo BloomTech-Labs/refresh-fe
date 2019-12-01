@@ -1,29 +1,7 @@
-// IMPORTS
-// react
 import React from 'react';
-// styled components
 import styled from 'styled-components';
-// helpers 
-import {test, flex} from '../../styles/global/Mixins';
 
-//This Component helps the user track their weekly activity
 
-// COMPONENT
-const ActivityCard = () => {
-  
-    return (
-     <>
-        <ActivityWidget>
-            <h3>Your activity</h3>
-            <p>this week</p>
-        </ActivityWidget>
-     </>  
-       
-  );
-    
-}
-
-// STYLED COMPONENTS
 const ActivityWidget = styled.div`
     width: 100%;
     height: 17rem;
@@ -48,6 +26,19 @@ const ActivityWidget = styled.div`
         }
 `
 
+//This Component helps the user track their weekly activity
+const ActivityCard = () => {
+  
+    return (
+     <>
+        <ActivityWidget>
+            <h3>Your activity</h3>
+            <p>this week</p>
+        </ActivityWidget>
+     </>  
+       
+  );
+    
+}
 
-// EXPORT
 export default ActivityCard;

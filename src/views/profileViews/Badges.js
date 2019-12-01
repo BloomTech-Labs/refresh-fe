@@ -1,30 +1,7 @@
-// IMPORTS
-// react
 import React from 'react';
-// styled components
 import styled from 'styled-components';
-// helpers
-import { test, flex } from '../../styles/global/Mixins';
-// images
 import Arrow from '../../images/profile/purple_right_arrow.svg';
 
-
-// COMPONENT
-const Badges = () => {
-    return (
-        <>
-         <BadgesWidget>
-            <h3>your<br /> badges</h3>
-            <NextAction>
-                <NextArrow src={Arrow} />
-            </NextAction>
-         </BadgesWidget>
-        </>
-    );
-
-};
-
-// STYLED COMPONENTS
 const BadgesWidget = styled.div`
     width: 80%;
     height: 20rem;
@@ -67,7 +44,19 @@ const NextArrow = styled.img`
     margin: auto 1rem 1rem 0;
 `
 
+// This component is to display badges earned in user Missions
+const Badges = () => {
+    return (
+        <>
+         <BadgesWidget>
+            <h3>your<br /> badges</h3>
+            <NextAction>
+                <NextArrow src={Arrow} />
+            </NextAction>
+         </BadgesWidget>
+        </>
+    );
 
+};
 
-// EXPORT
 export default Badges;
