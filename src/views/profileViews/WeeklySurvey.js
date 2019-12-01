@@ -1,30 +1,7 @@
-// IMPORTS
-// react
 import React from 'react';
-// styled components
 import styled from 'styled-components';
-// helpers
-import { test, flex } from '../../styles/global/Mixins';
-// images
 import Rocket from '../../images/profile/rocket.svg';
 
-//This component tracks user weekly self-assessments
-
-// COMPONENT
-const WeeklySurvey = () => {
-    return (
-        <>
-        <SurveyWidget>
-            <SurveyImg src={Rocket} />
-            <h3>Survey of the Week</h3>
-            <span>0% complete</span>
-        </SurveyWidget>
-        </>
-    );
-    
-};
-
-// STYLED COMPONENTS
 const SurveyWidget = styled.div`
     width: 90%;
     height: 15rem;
@@ -54,5 +31,19 @@ const SurveyImg = styled.img`
     margin-top: auto;
 `
 
-// EXPORT
+
+//This component tracks user weekly self-assessments
+const WeeklySurvey = () => {
+    return (
+        <>
+        <SurveyWidget>
+            <SurveyImg src={Rocket} />
+            <h3>Survey of the Week</h3>
+            <span>0% complete</span>
+        </SurveyWidget>
+        </>
+    );
+    
+};
+
 export default WeeklySurvey;

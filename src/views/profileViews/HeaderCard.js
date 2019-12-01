@@ -24,9 +24,7 @@ color: #FFFFFF;
 
 `
 
-
-
-
+// This component displays 'Profile' title card
 const HeaderCard = () => {
     return (
         <>

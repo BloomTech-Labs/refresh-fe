@@ -1,33 +1,8 @@
-// IMPORT 
-// react 
 import React from 'react';
-// styled components
 import styled from 'styled-components';
-// helpers
-import { test, flex } from '../../styles/global/Mixins';
-// images
 import UserImage from '../../images/profile/user.svg';
 import RightArrow from '../../images/profile/purple_right_arrow.svg';
 
-// COMPONENT
-const ProfileCompletion = () => {
-    return (
-        <>
-            <ProfileWidget>
-                <h3>Profile</h3>
-                <UserPlaceholder src={UserImage} />
-                <span>75%</span>
-                <p>completion</p>
-                <FinishAction>
-                    <p>Finish now</p>
-                    <img src={RightArrow} />
-                </FinishAction>
-            </ProfileWidget>
-        </>
-    );
-};
-
-// STYLED COMPONENTS
 const ProfileWidget = styled.div`
     width: 80%;
     height: 20rem;
@@ -86,6 +61,23 @@ const FinishAction = styled.div`
             color: #CCC9FF;
         }
 `
+// This component displays the % of profile completed
+const ProfileCompletion = () => {
+    return (
+        <>
+            <ProfileWidget>
+                <h3>Profile</h3>
+                <UserPlaceholder src={UserImage} />
+                <span>75%</span>
+                <p>completion</p>
+                <FinishAction>
+                    <p>Finish now</p>
+                    <img src={RightArrow} />
+                </FinishAction>
+            </ProfileWidget>
+        </>
+    );
+};
 
-// EXPORT
+
 export default ProfileCompletion;

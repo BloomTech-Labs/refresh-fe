@@ -1,32 +1,7 @@
-// IMPORTS
-// react
 import React from 'react';
-// styled components
 import styled from 'styled-components';
-// helpers 
-import { test, flex } from '../../styles/global/Mixins';
-// images
 import WaterBottle from '../../images/profile/water_bottle.svg';
 
-
-//This component tracks user water intake
-
-// COMPONENT
-const WaterCard = (props) => {
-  return (
-    <>
-    <WaterWidget>
-      <h3>Hydration<br /> Station</h3>
-      <HydrationImg src={WaterBottle} />
-      <WaterCount><span>0</span>cups of <br /> water</WaterCount>
-      <span> of 8</span>
-    </WaterWidget>
-    </>
-  );
-}
-
-
-// STYLED COMPONENTS
 const WaterWidget = styled.div`
     width: 90%;
     height: 17rem;
@@ -72,5 +47,18 @@ const WaterCount = styled.div`
         }
 `
 
-// EXPORT
+//This component tracks user water intake
+const WaterCard = (props) => {
+  return (
+    <>
+    <WaterWidget>
+      <h3>Hydration<br /> Station</h3>
+      <HydrationImg src={WaterBottle} />
+      <WaterCount><span>0</span>cups of <br /> water</WaterCount>
+      <span> of 8</span>
+    </WaterWidget>
+    </>
+  );
+}
+
 export default WaterCard;

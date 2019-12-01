@@ -1,29 +1,7 @@
-// IMPORTS
-// react
 import React from 'react';
-// styled components
 import styled from 'styled-components';
-// helpers
-import { test, flex } from '../../styles/global/Mixins';
 
 
-
-//This component contains user contact info e.g. user //handle etc...
-
-
-// COMPONENT
-const ContactCard = () => {
-    return (
-        <>
-          <ContactWidget>
-            <span>...</span>
-            <span>Contact<br /> Information</span>
-          </ContactWidget>
-        </>
-    );
-};
-
-// STYLED COMPONENTS
 const ContactWidget = styled.div`
     width: 100%;
     height: 6rem;
@@ -54,5 +32,17 @@ const ContactWidget = styled.div`
         }
 `
 
-// EXPORT
+//This component contains user contact info e.g. user handle etc...
+const ContactCard = () => {
+    return (
+        <>
+          <ContactWidget>
+            <span>...</span>
+            <span>Contact<br /> Information</span>
+          </ContactWidget>
+        </>
+    );
+};
+
+
 export default ContactCard;
