@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 // styled components
 import styled from "styled-components";
-import StepObject from "./StepObject";
+import StepObject from "./StepForm";
 
 const InfoIntro = (props) => {
   const [consent, setConsent] = useState(false);

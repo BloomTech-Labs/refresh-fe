@@ -16,7 +16,7 @@ const Weight = props => {
         items.push(
           <>
             <div className="bigtick">
-              <p onClick={ () => handleChanges({i})}>
+              <p onClick={() => handleChanges({i})}>
                 <svg
                   width="3"
                   height="67"
@@ -38,8 +38,8 @@ const Weight = props => {
             </div>
             <div
               className="smalltick"
-              data-value={i + 0.5}
-              onClick={() => console.log(i - 0.5)}
+              data-value={i - 0.5}
+              onClick={() =>  handleChanges({})}
             >
               <svg
                 width="2"
