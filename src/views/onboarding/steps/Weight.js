@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const WeightHeight = props => {
-  const [color, setColor] = useState('');
+const Weight = props => {
+  const [currentPosition, setCurrentPosition] = useState();
 
-  const handleChanges = e =>{
+  
+  const handleChanges = e => {
     console.log(e.i);
-    setColor('#E05CB3')
-  }
+  };
 
   const sliderScale = (unit, range) => {
     let items = [];
@@ -16,7 +16,7 @@ const WeightHeight = props => {
         items.push(
           <>
             <div className="bigtick">
-              <p style={{color:color}} onClick={() => handleChanges({i})}>
+              <p onClick={ () => handleChanges({i})}>
                 <svg
                   width="3"
                   height="67"
@@ -36,7 +36,11 @@ const WeightHeight = props => {
               </p>
               <NumberP>{i}</NumberP>
             </div>
-            <div className="smalltick" data-value={i + 0.5} onClick={() => console.log(i - 0.5)}>
+            <div
+              className="smalltick"
+              data-value={i + 0.5}
+              onClick={() => console.log(i - 0.5)}
+            >
               <svg
                 width="2"
                 height="43"
@@ -66,6 +70,10 @@ const WeightHeight = props => {
     }
     return items;
   };
+  const handleScroll = e =>{
+    //     var myElement = document.getElementById('element_within_div');
+    // var topPos = myElement.offsetLeft;
+      }
   return (
     <>
       <WeightContainer>
@@ -77,12 +85,12 @@ const WeightHeight = props => {
   );
 };
 
-export default WeightHeight;
+export default Weight;
 
 const WeightContainer = styled.div`
   max-width: 29rem;
   height: 15rem;
-  margin-bottom:6rem;
+  margin-bottom: 6rem;
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
@@ -106,10 +114,11 @@ const DialStuff = styled.div`
   flex: 0 0 auto;
 `;
 
+
 const NumberP = styled.p`
-margin-left: -1rem;
-font-family: Catamaran;
-font-weight: bold;
-color: #FFFFFF;
-font-size: 1.6rem;
-`
+  margin-left: -1rem;
+  font-family: Catamaran;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1.6rem;
+`;
