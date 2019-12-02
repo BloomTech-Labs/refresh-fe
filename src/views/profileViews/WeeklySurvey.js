@@ -1,49 +1,72 @@
 import React from 'react';
 import styled from 'styled-components';
-import Rocket from '../../images/profile/rocket.svg';
 
-const SurveyWidget = styled.div`
-    width: 90%;
-    height: 15rem;
-    margin: 2rem 0;
-    background-color: #6762E3;
-    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-    border-radius: 2px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.6);
+const Rectangle48 = styled.div`
+position: absolute;
+width: 151px;
+height: 149px;
+left: 30px;
+top: 299px;
 
-        h3 {
-            font-size: 1.25rem;
-            margin-top: auto;
-        }
+/* primary / purple */
 
-        span {
-            margin-bottom: 2rem;
-        }
+background: #6762E3;
+/* mobile / dashboard dropshadow */
+
+box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+border-radius: 2px;
 `
 
-const SurveyImg = styled.img`
-    width: 45%;
-    height: auto;
-    margin-top: auto;
+const Survey= styled.h5`
+position: absolute;
+width: 151px;
+height: 21px;
+left: 29px;
+top: 379px;
+
+font-family: 'Catamaran', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 21px;
+text-align: center;
+letter-spacing: 0.035em;
+
+/* primary / disabled */
+
+color: #CCC9FF;
 `
+const SurveyComplete = styled.text`
+position: absolute;
+width: 151px;
+height: 12px;
+left: 30px;
+top: 424px;
 
+font-family: 'Catamaran', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 16px;
+text-align: center;
+letter-spacing: 0.035em;
 
+/* primary / disabled */
+
+color: #CCC9FF;
+` 
 //This component tracks user weekly self-assessments
+
+
 const WeeklySurvey = () => {
     return (
         <>
-        <SurveyWidget>
-            <SurveyImg src={Rocket} />
-            <h3>Survey of the Week</h3>
-            <span>0% complete</span>
-        </SurveyWidget>
+       <Rectangle48/>
+       <Survey>survey of the week</Survey>
+       <SurveyComplete>0% complete</SurveyComplete>
         </>
     );
-    
+
 };
 
 export default WeeklySurvey;

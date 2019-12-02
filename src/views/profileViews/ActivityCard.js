@@ -2,40 +2,85 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const ActivityWidget = styled.div`
-    width: 100%;
-    height: 17rem;
-    margin: 0 0 2rem 0;
-    background-color: #6762E3;
-    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-    border-radius: 2px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    color: rgba(255, 255, 255, 1);
+const Rectangle68 = styled.div`
+position: absolute;
+width: 158px;
+height: 160px;
+left: 200px;
+top: 453px;
 
-        h3 {
-            font-size: 1.5rem;
-            margin-top: auto;
-        }
+/* primary / purple */
 
-        p {
-            color: #CCC9FF;
-            margin-bottom: auto;
-        }
+background: #6762E3;
+border-radius: 2px;
+` 
+
+const YourActivity = styled.h4`
+position: absolute;
+width: 158px;
+height: 47px;
+left: 200px;
+top: 470px;
+
+font-family: 'Catamaran', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 25px;
+text-align: center;
+letter-spacing: 0.035em;
+
+/* primary / white */
+
+color: #FFFFFF;
 `
 
+const ThisWeek = styled.h4`
+position: absolute;
+width: 158px;
+height: 13px;
+left: 200px;
+top: 494px;
+
+font-family: 'Catamaran', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 16px;
+text-align: center;
+letter-spacing: 0.035em;
+
+/* primary / disabled */
+
+color: #CCC9FF;
+`
+const VectorPlaceholder = styled.div`
+position: absolute;
+width: 158px;
+height: 76px;
+left: 200px;
+top: 537px;
+
+background: #3A3699;
+border: 0.5px solid #6762E3;
+box-sizing: border-box;
+border-radius: 3px;
+border: 1px solid darkblue;
+font-family: 'Catamaran', sans-serif;
+font-size: 14px;
+color: white;
+
+` 
 //This Component helps the user track their weekly activity
 const ActivityCard = () => {
   
     return (
-     <>
-        <ActivityWidget>
-            <h3>Your activity</h3>
-            <p>this week</p>
-        </ActivityWidget>
-     </>  
+     <div>
+        <Rectangle68/>
+        <YourActivity>your activity</YourActivity>
+        <ThisWeek>this week</ThisWeek>  
+        <VectorPlaceholder>vector placeholder</VectorPlaceholder>
+     </div>  
        
   );
     

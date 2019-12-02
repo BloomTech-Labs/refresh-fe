@@ -1,32 +1,15 @@
-// IMPORTS
-// react
-import React, { useState, useContext } from "react";
-// contexts
-import { UserContext } from '../../contexts/UserContext';
-// styled components
+import React from "react";
 import styled from "styled-components";
-// images
 import fblogo from "../../images/facebook-logo.png";
 import emailogo from "../../images/Onboarding/email.png";
 import cubes from "../../images/two_cubes.png";
-import googlelogo from "../../images/google-icon.jpg";
-// components
 import Row  from '../../components/atoms/row/row';
 import Col from '../../components/atoms/col/col';
 import Text from '../../components/atoms/text/text';
+import googlelogo from "../../images/google-icon.jpg";
 import Image from "../../components/atoms/image/image";
 
-// COMPONENT
 const Login = (props) => {
-    // contexts
-    const activeUser = useContext(UserContext);
-
-    // state hooks
-    // todo
-
-    // useEffect
-    // todo
-  
     const routeToHome = e => {
         e.preventDefault();
         props.history.push("/");
@@ -55,18 +38,6 @@ const Login = (props) => {
         userObject = JSON.parse(userObject)
         console.log(userObject)
         localStorage.setItem('token', userObject.token);
-        activeUser.setUser({
-          ...activeUser,
-          user_id: userObject.user_id || null,
-          display_name: userObject.display_name || '',
-          fname: userObject.fname || '',
-          lname: userObject.lname || '',
-          cohort: userObject.cohort || '',
-          section_lead: userObject.section_lead || '',
-          avatar: userObject.avatar || '',
-          bio: userObject.bio || '',
-          new_user: userObject.newUser ? true : false
-        })
         {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
       };
 
@@ -106,8 +77,6 @@ const Login = (props) => {
 
   };
 
-
-// STYLED COMPONENTS
 const OnBoardWrapper = styled.div`
   background-color: #3a3699;
   width: 100vw;
@@ -120,7 +89,6 @@ const OnBoardContainer = styled.div`
   align-items: flex-start;
   font-family: "Catamaran", sans-serif;
   margin: auto;
-  padding-top: 5rem;
   line-height: 1.5;
   background-color: #3a3699;
   color: #7f7cca;
@@ -128,26 +96,15 @@ const OnBoardContainer = styled.div`
 
 const Header = styled.h1`
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 5rem;
   line-height: 82px;
   letter-spacing: 3.5px;
   color: #ffffff;
 `;
 const HeaderHolder = styled.div`
-  width: 100%;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-
-    h1 {
-      margin-left: auto;
-    }
-  
-    img {
-      width: 30%;
-      height: 30%;
-    }
+  margin: auto 4rem;
+  padding-right: 5rem;
 `;
 
 const OnboardTxt = styled.p`
@@ -246,5 +203,4 @@ const GoogleLogo = styled(Logo)`
 border-radius:50%;
 `;
 
-// EXPORT
 export default Login;
