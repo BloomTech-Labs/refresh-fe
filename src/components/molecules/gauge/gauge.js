@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useReducer } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
 // import axios from "axios";
@@ -30,64 +30,41 @@ let waterGaugeImage = [
   { id: 7, src: water7, altText: "7 glasses of water", currentWater: 7 },
   { id: 8, src: waterComplete, altText: "8 glasses of water", currentWater: 8 }
 ];
-const Gauge = ({ ...props }) => {
-  const [user, setUser] = useState({
-    hydrationStats: 4
-  });
-  const [gauge, setGauge] = useState(0);
-  const handleChanges = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
-  const handleWaterChange = val => setUser({ hydrationStats: val });
-  const [waterGauge, setWaterGauge] = useState(user.hydrationStats);
-  // no longer returns
-  console.log(user);
-  // no longer returns
-  console.log(waterGaugeImage);
 
-  // Intention: else/if conditional rendering. Don't think I have it right
-  let gaugeFill =
-    waterGauge === 0
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 1
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 2
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 3
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 4
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 5
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 6
-      ? setWaterGauge(waterGaugeImage)
-      : waterGauge === 7
-      ? setWaterGauge(waterGaugeImage)
-      : setWaterGauge(waterGaugeImage);
+const context = createContext(null);
+
+const Gauge = ({ children, ...props }) => {
+  // const [user, setUser] = useState({
+  //   hydrationStats: 4
+  // });
+  const [gaugeData, setGaugeData] = useState(null);
 
   // useEffect axios call for user stats
+  useEffect(() => {
+    fetch("/api/whoDatUser")
+      .then(response => response.json())
+      .then(data => {
+        setGaugeData({
+          waterStats: data.waterStats
+        });
+      });
+  }, []);
 
+    const gaugeFill = waterStats => {
+   !waterStats ? console.log(`No userStats detected`) : waterStats === 0 ? return <Icon svg={waterGaugeImage.zero.src} alt={waterGaugeImage.zero.altText} /> : null
+
+  }
   return (
     <>
+    
       <StyledGauge className="container">
-        {/* SVG url should be derived from state */}
         <MobileCardWater>
-          <UserContext.Provider
-            value={{
-              gauge,
-              setGauge,
-              waterGauge,
-              setWaterGauge,
-              user,
-              setUser,
-              handleChanges,
-              handleWaterChange
-            }}
-          >
-            <Icon svg={gaugeFill} alt={"alt"} />
-          </UserContext.Provider>
+        <context.Provider value={gaugeData}>
+         {gaugeFill(waterStats)}
+         </context.Provider>
         </MobileCardWater>
       </StyledGauge>
+      
     </>
   );
 };
