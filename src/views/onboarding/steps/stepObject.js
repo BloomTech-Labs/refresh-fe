@@ -36,7 +36,7 @@ const StepObject = props => {
       console.log("here", questions[currentStep]);
       postAnswer({ answer, question_id: questions[currentStep].id });
       setQuestions([]);
-      user.setUser(false);
+      // user.setUser(false);
       props.history.push("/dashboard");
     } else {
       const defaultAnswer = answer ? answer : "Chose not to answer";
