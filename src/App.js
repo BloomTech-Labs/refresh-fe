@@ -29,7 +29,7 @@ import StepObject from './views/onboarding/steps/StepObject';
 //COMPONENT
 const App = props => {
   // contexts
-  const [userMissions, setUserMissions] = useState(userMissionsDummy);
+  const [userMissions, setUserMissions] = useState();
   
   // state hooks
   // this hook becomes the global user context
