@@ -7,7 +7,6 @@ import Height from "./Height";
 import { UserContext } from "../../../contexts/UserContext";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import LoadingSpinner from "../../../components/atoms/spinner/spinner";
-
 const StepObject = props => {
   const user = useContext(UserContext);
   //hooks
@@ -15,7 +14,6 @@ const StepObject = props => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answer, setAnswer] = useState();
   console.log(user);
-
   //Get Questions on Mount
   useEffect(() => {
     axiosWithAuth()
@@ -25,54 +23,11 @@ const StepObject = props => {
       })
       .catch(err => console.log(err));
   }, []);
-
   //set values for slider
   const handleChanges = value => {
-    setQa(value)    
-};
-const sliderValue =  3;
-  return (
-          <OnBoardContainer>
-            <form onSubmit={profile.handleSubmit}>
-              {profile.currentStep < 4 &&
-              <Question>{question.question}</Question>
-              }
-              {profile.currentStep >=4 &&
-              <LongQuestion>{question.question}</LongQuestion>
-              }
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Don't worry, this stays between us</OnboardTxt>
-              }
-            {profile.currentStep <=2 && (<WeightHeight  />)}
-            {profile.currentStep == 3 && (  
-            <FlexHolder>
-                <Option onClick={() => handleChanges("Never")}>Never</Option>
-                <Option onClick={() => handleChanges("Sometimes")}>Sometimes</Option>
-                <Option onClick={() => handleChanges("Always")}>Always</Option>
-            </FlexHolder> )}
-            {profile.currentStep >=4 && (             
-                <StyledSlider
-                defaultValue={sliderValue}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-                onAfterChange={handleChanges}
-              />
-)}
-              <Button onClick={profile.handleSubmit} data-answer={qa} data-question={question.id}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit} value={"blurb"}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-    );
-};
     console.log(value);
     setAnswer(value);
   };
-
   //handle submit
   const handleSubmit = e => {
     console.log(e.target);
@@ -93,14 +48,12 @@ const sliderValue =  3;
       setCurrentStep(currentStep + 1);
     }
   };
-
   //axios post
   const postAnswer = answer => {
     return axiosWithAuth()
       .post("/answers", answer)
       .then(res => console.log(res));
   };
-
   //slider thumb and track
   const Thumb = (props, state) => (
     <StyledThumb {...props}>{state.valueNow}</StyledThumb>
@@ -108,14 +61,12 @@ const sliderValue =  3;
   const Track = (props, state) => {
     return <StyledTrack {...props} index={state.index} value={7} />;
   };
-
   //StepDot helper function
   const StepDotCount = currentStep => {
     return `&:nth-of-type(${currentStep + 1}){
       color: #E05CB3;
       `;
   };
-
   //render
   return questions.length ? (
     // <div>
@@ -221,7 +172,6 @@ const sliderValue =  3;
     </OnBoardContainer>
   );
 };
-
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
@@ -261,7 +211,6 @@ const OnBoardContainer = styled.div`
   max-height: 100vh;
   padding: 2.5rem 4rem;
 `;
-
 const TopArrow = styled.div`
   position: absolute;
   left: 0;
@@ -290,7 +239,7 @@ const OnboardTxt = styled.p`
 font-size: 1.6rem;
 line-height: 2.6rem;
 letter-spacing: 2px;
-text-align:center;
+text-align:center
 color: #A7A4E6;
 margin: 0 auto;
 `;
@@ -332,12 +281,10 @@ const FlexHolder = styled.div`
   width: 100%;
   padding: 2.5rem 0 9rem;
 `;
-
 const StepDots = styled.div`
   display: flex;
   font-size: 8rem;
   margin: 0 auto;
-
   p {
     padding-right: 1rem;
     color: #ffffff;
