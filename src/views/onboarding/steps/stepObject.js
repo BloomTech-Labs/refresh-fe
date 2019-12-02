@@ -2,10 +2,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import ReactSlider from "react-slider";
-import WeightHeight from "./WeightHeight";
+import Weight from "./Weight";
 import Height from "./Height";
-import { UserContext } from '../../../contexts/UserContext';
+import { UserContext } from "../../../contexts/UserContext";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+import LoadingSpinner from "../../../components/atoms/spinner/spinner";
+
 const StepObject = props => {
   const user = useContext(UserContext);
   //hooks
@@ -106,12 +108,40 @@ const StepObject = props => {
         {currentStep === 0 && (
           <>
             <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-            <WeightHeight />
+            <TopArrow>
+              <svg
+                width="19"
+                height="16"
+                viewBox="0 0 19 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.463 3.10599e-06L1.5392 2.40994e-06C0.324938 2.35686e-06 -0.412842 1.37207 0.248087 2.42873L8.20996 15.2663C8.34859 15.491 8.54036 15.6762 8.76744 15.8044C8.99452 15.9327 9.24954 16 9.50876 16C9.76799 16 10.023 15.9327 10.2501 15.8044C10.4772 15.6762 10.6689 15.491 10.8076 15.2663L18.7541 2.42873C18.904 2.19085 18.9886 1.91586 18.9989 1.63276C19.0092 1.34967 18.9449 1.06896 18.8127 0.820256C18.6805 0.571552 18.4853 0.364073 18.2477 0.219705C18.0102 0.0753375 17.7391 -0.000565655 17.463 3.10599e-06Z"
+                  fill="#E05CB3"
+                />
+              </svg>
+            </TopArrow>
+            <Weight />
           </>
         )}
         {currentStep === 1 && (
           <>
             <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+            <TopArrow>
+              <svg
+                width="19"
+                height="16"
+                viewBox="0 0 19 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.463 3.10599e-06L1.5392 2.40994e-06C0.324938 2.35686e-06 -0.412842 1.37207 0.248087 2.42873L8.20996 15.2663C8.34859 15.491 8.54036 15.6762 8.76744 15.8044C8.99452 15.9327 9.24954 16 9.50876 16C9.76799 16 10.023 15.9327 10.2501 15.8044C10.4772 15.6762 10.6689 15.491 10.8076 15.2663L18.7541 2.42873C18.904 2.19085 18.9886 1.91586 18.9989 1.63276C19.0092 1.34967 18.9449 1.06896 18.8127 0.820256C18.6805 0.571552 18.4853 0.364073 18.2477 0.219705C18.0102 0.0753375 17.7391 -0.000565655 17.463 3.10599e-06Z"
+                  fill="#E05CB3"
+                />
+              </svg>
+            </TopArrow>
             <Height />
           </>
         )}
@@ -145,7 +175,9 @@ const StepObject = props => {
       </form>
     </OnBoardContainer>
   ) : (
-    <p>Loading</p>
+    <OnBoardContainer>
+      <LoadingSpinner />
+    </OnBoardContainer>
   );
 };
 
@@ -187,6 +219,15 @@ const OnBoardContainer = styled.div`
   height: 100vh;
   max-height: 100vh;
   padding: 2.5rem 4rem;
+`;
+
+const TopArrow = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
 `;
 const Question = styled.h1`
   font-weight: 600;
