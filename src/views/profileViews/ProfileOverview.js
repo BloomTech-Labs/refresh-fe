@@ -1,28 +1,150 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ActivityCard from './ActivityCard';
-import PercentageCard from '../profileViews/PercentageCard';
-import HeaderCard from '../profileViews/HeaderCard';
+import ProfileCompletion from './ProfileCompletion';
+//import HeaderCard from '../profileViews/HeaderCard';
 import ContactCard from '../profileViews/ContactCard';
 import WeeklySurvey from '../profileViews/WeeklySurvey';
 import WaterCard from '../profileViews/WaterCard';
 import Badges from '../profileViews/Badges';
 import YourReminders from '../profileViews/YourReminders';
-import ProfileAv from '../profileViews/ProfileAv';
+//import ProfileAv from '../profileViews/ProfileAv';
 
-const ProfileContainer = styled.div` 
-position: relative;
-width: 375px;
-height: 822px;
+const ProfileView = styled.div`
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    padding-top: 10rem;
+    background-color: #3a3699;
+`
 
-background: #3A3699;
-` 
+const ProfileWrapper = styled.div`
+    width: 100%;
+`
+
+const ProfileContainer = styled.div`
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+`
+
+const Header = styled.div`
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;  
+    margin-bottom: auto;
+`
+
+const Greeting = styled.div`
+    color: #FFF;
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: 0.25rem;
+            font-weight: bold;
+        }
+`
+
+
+const User = styled.div`
+    width: 10rem;
+    height: 5rem;
+    margin-top: 2rem;
+    ${flex.flexRowNoWrapAround}
+
+        i {
+            font-size: 2rem;
+        }
+
+        a {
+            color: #CCC9FF;
+        }
+`
+
+const Avatar = styled.div`
+    width: 5rem;
+    height: 5rem;
+    border-radius: 3px;
+    background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
+    background-size: cover;
+`
+
+const WidgetArea = styled.div`
+    width: 100%;
+    margin-bottom: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const Column = styled.div`
+    width: 49%;
+    margin-top: 2rem;
+    margin-bottom: auto;
+
+        &:last-child {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+`
 
 
 const ProfileOverview = () => {
     return (
         <>
-          <ProfileContainer/>
+          <ProfileView>
+            <ProfileWrapper>
+                <ProfileContainer>
+
+                    <Header>
+                        <Greeting>
+                            <h1>Your Profile</h1>
+                        </Greeting>
+
+                        <User>
+                            <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
+                            <Link to='/profile-overview'><Avatar></Avatar></Link>
+                        </User>
+                    </Header>
+
+                    <WidgetArea>
+                        <Column>
+                            <ContactCard />
+                            <WeeklySurvey />
+                            <WaterCard />
+                            <YourReminders />
+                        </Column>
+
+                        <Column>
+                            <ProfileCompletion />
+                            <ActivityCard />
+                            <Badges />
+                        </Column>
+
+                    </WidgetArea>
+
+                </ProfileContainer>
+            </ProfileWrapper>
+          </ProfileView>
+        </>
+    );
+};
+
+
+
+export default ProfileOverview;
+
+// Widget List
+/* <ProfileContainer/>
           <ActivityCard/>
          <PercentageCard/>
          <HeaderCard/>
@@ -31,9 +153,4 @@ const ProfileOverview = () => {
          <WaterCard/>
          <Badges/>
          <YourReminders/>
-         <ProfileAv/>
-        </>
-    );
-};
-
-export default ProfileOverview;
+         <ProfileAv/> */
