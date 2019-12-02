@@ -1,25 +1,67 @@
 // IMPORTS
 // react 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers 
 import { test, flex } from '../../styles/global/Mixins';
 
 // COMPONENT
-const Counter = () => {
+const Counter = props => {
+    // props
+    const {missionTracker, setMissionTracker, selectedMission, drawerStatus} = props;
+    
     // state hooks
     const [counter, setCounter] = useState({
-        value: 1
+        value: 0
     });
+
+    // useEffect
+    useEffect(() => {
+        setCounter({ ...counter, value: 0 });
+    }, [drawerStatus]);
 
     // handlers
     const increment = e => {
         setCounter({ ...counter, value: counter.value + 1 });
+
+        if (missionTracker.length < 1) {
+            setMissionTracker([{ question_id: selectedMission, answer: counter.value + 1 }]);
+            console.log('[empty tracker fire]', missionTracker);
+        } else {
+            let missionIndex = missionTracker.findIndex(i => i.question_id === selectedMission);
+
+            if (missionIndex === -1) {
+                setMissionTracker([...missionTracker, {question_id: selectedMission, answer: counter.value + 1}]);
+                console.log('[no index found fire]', missionTracker);
+            } else {
+                let trackerCopy = [...missionTracker];
+                trackerCopy[missionIndex].answer = counter.value + 1;
+                setMissionTracker(trackerCopy);
+                console.log('[index found copy fire]', missionTracker);
+            }
+        }
     };
 
     const decrement = e => {
         setCounter({ ...counter, value: counter.value - 1 });
+
+        if (missionTracker.length < 1) {
+            setMissionTracker([{ question_id: selectedMission, answer: counter.value - 1 }]);
+            console.log('[empty tracker fire]', missionTracker);
+        } else {
+            let missionIndex = missionTracker.findIndex(i => i.question_id === selectedMission);
+
+            if (missionIndex === -1) {
+                setMissionTracker([...missionTracker, {question_id: selectedMission, answer: counter.value - 1}]);
+                console.log('[no index found fire]', missionTracker);
+            } else {
+                let trackerCopy = [...missionTracker];
+                trackerCopy[missionIndex].answer = trackerCopy[missionIndex].answer - 1;
+                setMissionTracker(trackerCopy);
+                console.log('[index found copy fire]', missionTracker);
+            }
+        }
     };
     
     return (

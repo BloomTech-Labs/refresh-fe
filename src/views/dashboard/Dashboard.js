@@ -5,6 +5,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 // contexts
 import { UserContext } from '../../contexts/UserContext';
+import { UserMissionsContext } from '../../contexts/UserMissionsContext';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -57,6 +58,8 @@ const dummyMissions = [
 const Dashboard = props => {
     // contexts
     const activeUser = useContext(UserContext);
+    const userMissions = useContext(UserMissionsContext);
+    console.log('[userMissionsContext]', userMissions);
     
     // state hooks
     // todo
@@ -84,13 +87,15 @@ const Dashboard = props => {
                 <h2 className='mission-message'>Your missions today</h2>
 
                 <MissionHub>
-                    {dummyMissions.map(mission => {
+                    {userMissions.map(mission => {
                             return (
                                 <MissionCard 
                                     key={mission.id}
                                     color={mission.color}
                                     description={mission.description}
-                                    points={mission.pointValue}
+                                    points={mission.point_value}
+                                    goal={mission.goal}
+                                    actual={mission.point_current}
                                     vertical={mission.vertical}
                                     history={props.history}
                                 />
