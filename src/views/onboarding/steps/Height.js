@@ -1,22 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 
-const WeightHeight = props => {
-  const [color, setColor] = useState('');
-
-  const handleChanges = e =>{
-    console.log(e.i);
-    setColor('#E05CB3')
-  }
-
+const Height = props => {
   const sliderScale = (unit, range) => {
     let items = [];
-    for (let i = 100; i < range; i++) {
-      if (i % unit === 0) {
+    for (let i = 4; i < range; i+= 0.1) {
         items.push(
           <>
             <div className="bigtick">
-              <p style={{color:color}} onClick={() => handleChanges({i})}>
+              <p onClick={() => console.log({i})}>
                 <svg
                   width="3"
                   height="67"
@@ -34,9 +26,57 @@ const WeightHeight = props => {
                   />
                 </svg>
               </p>
-              <NumberP>{i}</NumberP>
+              <NumberP>{i.toFixed(1).toString().replace(/\./g, "'")}''</NumberP>
             </div>
-            <div className="smalltick" data-value={i + 0.5} onClick={() => console.log(i - 0.5)}>
+            <div className="smalltick" data-value={i + 0.5} onClick={() => console.log(i)}>
+              <svg
+                width="2"
+                height="43"
+                viewBox="0 0 2 43"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  x1="1"
+                  y1="4.37114e-08"
+                  x2="0.999998"
+                  y2="43"
+                  stroke="#CCC9FF"
+                  strokeidth="2"
+                />
+              </svg>
+              <svg
+                width="2"
+                height="43"
+                viewBox="0 0 2 43"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  x1="1"
+                  y1="4.37114e-08"
+                  x2="0.999998"
+                  y2="43"
+                  stroke="#CCC9FF"
+                  strokeWidth="2"
+                />
+              </svg>
+              <svg
+                width="2"
+                height="43"
+                viewBox="0 0 2 43"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  x1="1"
+                  y1="4.37114e-08"
+                  x2="0.999998"
+                  y2="43"
+                  stroke="#CCC9FF"
+                  strokeWidth="2"
+                />
+              </svg>
               <svg
                 width="2"
                 height="43"
@@ -56,20 +96,13 @@ const WeightHeight = props => {
             </div>
           </>
         );
-      } else {
-        items.push(
-          <div className="smalltick" data-value={i + 0.5}>
-            |
-          </div>
-        );
-      }
     }
     return items;
   };
   return (
     <>
       <WeightContainer>
-        {sliderScale(1, 500).map((x, i) => (
+        {sliderScale(2, 8).map((x, i) => (
           <DialStuff key={i}>{x}</DialStuff>
         ))}
       </WeightContainer>
@@ -77,7 +110,7 @@ const WeightHeight = props => {
   );
 };
 
-export default WeightHeight;
+export default Height;
 
 const WeightContainer = styled.div`
   max-width: 29rem;
@@ -94,12 +127,14 @@ const WeightContainer = styled.div`
     display: flex;
     flex-direction: column;
     color: black;
-    margin-left: 5rem;
   }
 
   .smalltick {
     margin-top: -9rem;
     margin-left: 2rem;
+        svg{
+            margin-right:2rem;
+        }
   }
 `;
 const DialStuff = styled.div`
