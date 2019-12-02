@@ -7,7 +7,6 @@ import Height from "./Height";
 import { UserContext } from "../../../contexts/UserContext";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import LoadingSpinner from "../../../components/atoms/spinner/spinner";
-
 const StepObject = props => {
   const user = useContext(UserContext);
   //hooks
@@ -15,7 +14,6 @@ const StepObject = props => {
   const [currentStep, setCurrentStep] = useState(0);
   const [answer, setAnswer] = useState();
   console.log(user);
-
   //Get Questions on Mount
   useEffect(() => {
     axiosWithAuth()
@@ -25,13 +23,11 @@ const StepObject = props => {
       })
       .catch(err => console.log(err));
   }, []);
-
   //set values for slider
   const handleChanges = value => {
     console.log(value);
     setAnswer(value);
   };
-
   //handle submit
   const handleSubmit = e => {
     console.log(e.target);
@@ -52,14 +48,12 @@ const StepObject = props => {
       setCurrentStep(currentStep + 1);
     }
   };
-
   //axios post
   const postAnswer = answer => {
     return axiosWithAuth()
       .post("/answers", answer)
       .then(res => console.log(res));
   };
-
   //slider thumb and track
   const Thumb = (props, state) => (
     <StyledThumb {...props}>{state.valueNow}</StyledThumb>
@@ -67,14 +61,12 @@ const StepObject = props => {
   const Track = (props, state) => {
     return <StyledTrack {...props} index={state.index} value={7} />;
   };
-
   //StepDot helper function
   const StepDotCount = currentStep => {
     return `&:nth-of-type(${currentStep + 1}){
       color: #E05CB3;
       `;
   };
-
   //render
   return questions.length ? (
     // <div>
@@ -180,7 +172,6 @@ const StepObject = props => {
     </OnBoardContainer>
   );
 };
-
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
@@ -220,7 +211,6 @@ const OnBoardContainer = styled.div`
   max-height: 100vh;
   padding: 2.5rem 4rem;
 `;
-
 const TopArrow = styled.div`
   position: absolute;
   left: 0;
@@ -291,12 +281,10 @@ const FlexHolder = styled.div`
   width: 100%;
   padding: 2.5rem 0 9rem;
 `;
-
 const StepDots = styled.div`
   display: flex;
   font-size: 8rem;
   margin: 0 auto;
-
   p {
     padding-right: 1rem;
     color: #ffffff;

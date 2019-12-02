@@ -31,7 +31,7 @@ let waterGaugeImage = [
   { id: 8, src: waterComplete, altText: "8 glasses of water", currentWater: 8 }
 ];
 
-const context = createContext(null);
+//const context = createContext(null);
 
 const Gauge = ({ children, ...props }) => {
   // const [user, setUser] = useState({
@@ -51,7 +51,7 @@ const Gauge = ({ children, ...props }) => {
   }, []);
 
     const gaugeFill = waterStats => {
-   !waterStats ? console.log(`No userStats detected`) : waterStats === 0 ? return <Icon svg={waterGaugeImage.zero.src} alt={waterGaugeImage.zero.altText} /> : null
+  //  !waterStats ? console.log(`No userStats detected`) : waterStats === 0 ? return <Icon svg={waterGaugeImage.zero.src} alt={waterGaugeImage.zero.altText} /> : null
 
   }
   return (
@@ -59,9 +59,9 @@ const Gauge = ({ children, ...props }) => {
     
       <StyledGauge className="container">
         <MobileCardWater>
-        <context.Provider value={gaugeData}>
+        {/* <context.Provider value={gaugeData}>
          {gaugeFill(waterStats)}
-         </context.Provider>
+         </context.Provider> */}
         </MobileCardWater>
       </StyledGauge>
       
