@@ -4,15 +4,15 @@ import React from "react";
 // styled components
 import styled from "styled-components";
 // images
-import onboardlogo from '../../images/refresh-yo-guy.svg';
+import onboardlogo from "../../images/refresh-yo-guy.svg";
 const Landing = props => {
   const routeToSignUp = e => {
     e.preventDefault();
-    props.history.push('/signup');
+    props.history.push("/signup");
   };
   const routeToLogin = e => {
     e.preventDefault();
-    props.history.push('/login');
+    props.history.push("/login");
   };
   // const routeToComponentTesting = e => {
   //   e.preventDefault();
@@ -48,17 +48,15 @@ const Landing = props => {
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
 const OnBoardWrapper = styled.div`
-  background-color: #3a3699;
+  display: flex;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
+  background-color: #3a3699;
 `;
 
 const OnBoardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: 'Catamaran', sans-serif;
+  font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
   background-color: #3a3699;
@@ -85,7 +83,7 @@ const Button = styled.a`
   width:100%;
   text-align:center;
   margin: auto;
-  background: #6487ff;
+  background: #E05CB3;
   color: white;
   font-size:1.6rem;
 }

@@ -1,22 +1,19 @@
 // IMPORTS
 // react
 import React, { useContext } from "react";
+import { Route } from "react-router-dom";
 // styled components
 import styled from "styled-components";
 import InfoIntro from "./InfoIntro";
-import StepObject from "./stepObject";
+import StepObject from "./StepObject";
 import { UserContext } from "../../../contexts/UserContext";
 
 const Steps = props => {
-  const profile = useContext(UserContext);
-  const question =  profile.form && profile.form[profile.currentStep -1]
-  const render = profile.currentStep === 0  
-  ? <InfoIntro onSubmit={profile.handleSubmit} /> 
-  : <StepObject question={question} profile={profile}/>
+//  <StepObject question={question} profile={profile}/>
 
   return (
     <OnBoardWrapper> 
-      {render}
+     <Route path="/introquestions" component={StepObject} /> 
     </OnBoardWrapper>
   );
 };
@@ -53,7 +50,7 @@ const OnboardTxt = styled.p`
 font-size: 1.6rem;
 line-height: 2.6rem;
 letter-spacing: 2px;
-text-align:center
+text-align:center;
 color: #A7A4E6;
 margin: 0 auto;
 `;

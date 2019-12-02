@@ -1,95 +1,202 @@
-import React, {useState} from "react";
+// { answer: value, question_id: questions[currentStep].id }
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import ReactSlider from "react-slider";
-import WeightHeight from "./WeightHeight";
-
-const Thumb = (props, state) => <StyledThumb {...props}>{state.valueNow}</StyledThumb>;
-const Track = (props, state) =>{return ( <StyledTrack {...props} index={state.index} value={7} />)};
-
-const StepObject = ({profile, question}) => {
-  const [qa, setQa] = useState();
+import Weight from "./Weight";
+import Height from "./Height";
+import { UserContext } from "../../../contexts/UserContext";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+import LoadingSpinner from "../../../components/atoms/spinner/spinner";
+const StepObject = props => {
+  const user = useContext(UserContext);
+  //hooks
+  const [questions, setQuestions] = useState([]);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [answer, setAnswer] = useState();
+  console.log(user);
+  //Get Questions on Mount
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/questiongroups/1")
+      .then(res => {
+        setQuestions(res.data.questions);
+      })
+      .catch(err => console.log(err));
+  }, []);
+  //set values for slider
   const handleChanges = value => {
-    setQa(value)    
+    console.log(value);
+    setAnswer(value);
+  };
+  //handle submit
+  const handleSubmit = e => {
+    console.log(e.target);
+    e.preventDefault();
+    if (currentStep === questions.length - 1) {
+      console.log("here", questions[currentStep]);
+      postAnswer({ answer, question_id: questions[currentStep].id });
+      setQuestions([]);
+      user.setUser(false);
+      props.history.push("/dashboard");
+    } else {
+      const defaultAnswer = answer ? answer : "Chose not to answer";
+      console.log("here", questions[currentStep]);
+      postAnswer({
+        answer: defaultAnswer,
+        question_id: questions[currentStep].id
+      });
+      setCurrentStep(currentStep + 1);
+    }
+  };
+  //axios post
+  const postAnswer = answer => {
+    return axiosWithAuth()
+      .post("/answers", answer)
+      .then(res => console.log(res));
+  };
+  //slider thumb and track
+  const Thumb = (props, state) => (
+    <StyledThumb {...props}>{state.valueNow}</StyledThumb>
+  );
+  const Track = (props, state) => {
+    return <StyledTrack {...props} index={state.index} value={7} />;
+  };
+  //StepDot helper function
+  const StepDotCount = currentStep => {
+    return `&:nth-of-type(${currentStep + 1}){
+      color: #E05CB3;
+      `;
+  };
+  //render
+  return questions.length ? (
+    // <div>
+    //   {questions[currentStep].question}
+    //   <input type="text" onChange={(e)=> setAnswer(e.target.value)}/>
+    //   <input type="submit" onClick ={handleSubmit} data-answer={answer}/>
+    // </div>
+    <OnBoardContainer>
+      <StepDots currentDot={StepDotCount} currentStep={currentStep}>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+      </StepDots>
+      <form onSubmit={handleSubmit}>
+        {/* First Question, Concent Button*/}
+        {currentStep < 3 && (
+          <Question>{questions[currentStep].question}</Question>
+        )}
+        {/* First Question, Concent Button*/}
+        {currentStep >= 3 && (
+          <LongQuestion>{questions[currentStep].question}</LongQuestion>
+        )}
+        {/* Returns First and second Question */}
+        {currentStep === 0 && (
+          <>
+            <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+            <TopArrow>
+              <svg
+                width="19"
+                height="16"
+                viewBox="0 0 19 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.463 3.10599e-06L1.5392 2.40994e-06C0.324938 2.35686e-06 -0.412842 1.37207 0.248087 2.42873L8.20996 15.2663C8.34859 15.491 8.54036 15.6762 8.76744 15.8044C8.99452 15.9327 9.24954 16 9.50876 16C9.76799 16 10.023 15.9327 10.2501 15.8044C10.4772 15.6762 10.6689 15.491 10.8076 15.2663L18.7541 2.42873C18.904 2.19085 18.9886 1.91586 18.9989 1.63276C19.0092 1.34967 18.9449 1.06896 18.8127 0.820256C18.6805 0.571552 18.4853 0.364073 18.2477 0.219705C18.0102 0.0753375 17.7391 -0.000565655 17.463 3.10599e-06Z"
+                  fill="#E05CB3"
+                />
+              </svg>
+            </TopArrow>
+            <Weight />
+          </>
+        )}
+        {currentStep === 1 && (
+          <>
+            <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+            <TopArrow>
+              <svg
+                width="19"
+                height="16"
+                viewBox="0 0 19 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.463 3.10599e-06L1.5392 2.40994e-06C0.324938 2.35686e-06 -0.412842 1.37207 0.248087 2.42873L8.20996 15.2663C8.34859 15.491 8.54036 15.6762 8.76744 15.8044C8.99452 15.9327 9.24954 16 9.50876 16C9.76799 16 10.023 15.9327 10.2501 15.8044C10.4772 15.6762 10.6689 15.491 10.8076 15.2663L18.7541 2.42873C18.904 2.19085 18.9886 1.91586 18.9989 1.63276C19.0092 1.34967 18.9449 1.06896 18.8127 0.820256C18.6805 0.571552 18.4853 0.364073 18.2477 0.219705C18.0102 0.0753375 17.7391 -0.000565655 17.463 3.10599e-06Z"
+                  fill="#E05CB3"
+                />
+              </svg>
+            </TopArrow>
+            <Height />
+          </>
+        )}
+        {/* WILL GIVE OVERWHELMED OPTIONS, Question 3*/}
+        {currentStep === 2 && (
+          <FlexHolder>
+            <Option onClick={() => setAnswer("Never")}>Never</Option>
+            <Option onClick={() => setAnswer("Sometimes")}>Sometimes</Option>
+            <Option onClick={() => setAnswer("Always")}>Always</Option>
+          </FlexHolder>
+        )}
+        {/* Slider Group , Questions 4 - 10*/}
+        {currentStep >= 3 && (
+          <StyledSlider
+            defaultValue={3}
+            max={7}
+            renderTrack={Track}
+            renderThumb={Thumb}
+            onChange={handleChanges}
+          />
+        )}
+        <Button onClick={handleSubmit} data-answer={answer}>
+          Continue
+        </Button>
+        {/* Bypass weight and height, Questions 1 and 2 */}
+        {currentStep <= 1 && (
+          <ButtonNoColor onClick={handleSubmit} data-answer={answer}>
+            I don't feel comfortable answering
+          </ButtonNoColor>
+        )}
+      </form>
+    </OnBoardContainer>
+  ) : (
+    <OnBoardContainer>
+      <LoadingSpinner />
+    </OnBoardContainer>
+  );
 };
-const sliderValue =  3;
-  return (
-          <OnBoardContainer>
-            <form onSubmit={profile.handleSubmit}>
-              {profile.currentStep < 4 &&
-              <Question>{question.question}</Question>
-              }
-              {profile.currentStep >=4 &&
-              <LongQuestion>{question.question}</LongQuestion>
-              }
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-            {profile.currentStep <=2 && (<WeightHeight  />)}
-            {profile.currentStep == 3 && (  
-            <FlexHolder>
-                <Option onClick={() => handleChanges("Never")}>Never</Option>
-                <Option onClick={() => handleChanges("Sometimes")}>Sometimes</Option>
-                <Option onClick={() => handleChanges("Always")}>Always</Option>
-            </FlexHolder> )}
-            {profile.currentStep >=4 && (             
-                <StyledSlider
-                defaultValue={sliderValue}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-                onAfterChange={handleChanges}
-              />
-)}
-              <Button onClick={profile.handleSubmit} data-answer={qa} data-question={question.id}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit} value={"blurb"}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-    );
-};
-
-// export const SlideNugget = ({start, max, profile}) => { 
-//   return (
-//   <StyledSlider
-//   defaultValue={start}
-//   max={max}
-//   renderTrack={Track}
-//   renderThumb={Thumb}
-//   onAfterChange={handleChanges}
-// />)}
-
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
-
 const StyledSlider = styled(ReactSlider)`
-    width: 100%;
-    height: 0.2rem;
-    margin: 8rem 0 13rem;
+  width: 100%;
+  height: 0.2rem;
+  margin: 8rem 0 13rem;
 `;
-
 const StyledThumb = styled.div`
-    height: 2.5rem;
-    line-height: 25px;
-    width: 25px;
-    text-align: center;
-    background-color: #28C96C;
-    color: #fff;
-    border-radius: 50%;
-    cursor: grab;
-    margin-top:-1rem;
+  height: 2.5rem;
+  line-height: 25px;
+  width: 25px;
+  text-align: center;
+  background-color: #e05cb3;
+  color: #fff;
+  border-radius: 50%;
+  cursor: grab;
+  margin-top: -1rem;
 `;
-
 const StyledTrack = styled.div`
-    top: 0;
-    bottom: 0;
-    background: ${props =>  props.index === 1 ? '#ddd' : '#28C96C'};
-    border-radius: 2rem;
+  top: 0;
+  bottom: 0;
+  background: ${props => (props.index === 1 ? "#ddd" : "#E05CB3")};
+  border-radius: 2rem;
 `;
-
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -104,6 +211,14 @@ const OnBoardContainer = styled.div`
   max-height: 100vh;
   padding: 2.5rem 4rem;
 `;
+const TopArrow = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+`;
 const Question = styled.h1`
   font-weight: 600;
   font-size: 3rem;
@@ -112,16 +227,14 @@ const Question = styled.h1`
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
-
 const LongQuestion = styled.h1`
-font-weight: 600;
-font-size: 2.5rem;
-line-height: 4.1rem;
-letter-spacing: 0.035em;
-color: #ffffff;
-margin: 6rem 0 2rem;`
-
-
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 4.1rem;
+  letter-spacing: 0.035em;
+  color: #ffffff;
+  margin: 6rem 0 2rem;
+`;
 const OnboardTxt = styled.p`
 font-size: 1.6rem;
 line-height: 2.6rem;
@@ -130,19 +243,17 @@ text-align:center
 color: #A7A4E6;
 margin: 0 auto;
 `;
-
 const Option = styled.a`
-font-size: 1.6rem;
-line-height:26px;
-letter-spacing: 2px;
-color: #FFFFFF;
-&:hover {
-    background: #28C96C;
+  font-size: 1.6rem;
+  line-height: 26px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  &:hover {
+    background: #e05cb3;
     padding: 0 1rem;
     border-radius: 0.3rem;
   }
-`
-
+`;
 const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
@@ -150,8 +261,8 @@ const Button = styled.a`
   padding: 1.5rem 0.8rem;
   width: 100%;
   text-align: center;
-  margin: auto;
-  background: #6487ff;
+  margin: 0 auto 2.4rem;
+  background: #e05cb3;
   color: white;
   font-size: 1.6rem;
   letter-spacing: 0.1rem;
@@ -169,5 +280,15 @@ const FlexHolder = styled.div`
   align-items: flex-start;
   width: 100%;
   padding: 2.5rem 0 9rem;
+`;
+const StepDots = styled.div`
+  display: flex;
+  font-size: 8rem;
+  margin: 0 auto;
+  p {
+    padding-right: 1rem;
+    color: #ffffff;
+    ${props => props.currentDot(props.currentStep)}
+  }
 `;
 export default StepObject;
