@@ -1,9 +1,12 @@
 // IMPORTS
 // react
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Route } from "react-router-dom";
 // contexts
 import { UserContext } from './contexts/UserContext';
+import { UserMissionsContext } from './contexts/UserMissionsContext';
+// helpers
+import { axiosWithAuth } from './helpers/axiosWithAuth';
 // components
 import Landing from "./views/onboarding/Landing";
 import CreateAccount from "./views/onboarding/CreateAccount";
@@ -25,6 +28,9 @@ import StepObject from './views/onboarding/steps/StepObject';
 
 //COMPONENT
 const App = props => {
+  // contexts
+  const [userMissions, setUserMissions] = useState(userMissionsDummy);
+  
   // state hooks
   // this hook becomes the global user context
   // will abstract out later after we get all logic working properly
@@ -42,12 +48,20 @@ const App = props => {
     testing: false,
     hasLoggedIn: true// this true is a placeholder and will need to be removed after we finish logic
   });
-  console.log('checking user context from app:', user)
 
-  // useEffect
-  // todo
 
-if(user.new_user){
+  // // useEffect
+  // useEffect(() => {
+  //   axiosWithAuth().get(`/missions`)
+  //   .then(res => {
+  //     console.log('[server response]', res)
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   })
+  // }, []);
+
+if(!user.hasLoggedIn){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
@@ -63,6 +77,7 @@ if(user.new_user){
   return (
     <>
     <UserContext.Provider value={{...user, setUser: setUser}}>
+      <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
         <Route path="/dashboard" component={Dashboard} />
@@ -74,6 +89,7 @@ if(user.new_user){
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         <Route path='/coming-soon' component={ComingSoon} />
+      </UserMissionsContext.Provider>
     </UserContext.Provider>
     </>
     

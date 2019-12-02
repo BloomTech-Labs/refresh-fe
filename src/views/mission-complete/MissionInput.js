@@ -17,7 +17,7 @@ const MissionInput = props => {
 
     //render
     return (
-        <React.Fragment>
+        <>
             <InputDrawer className={status}>
                 <DrawerAccent onClick={handleDrawer} />
                 <CloseButton onClick={handleDrawer}>X</CloseButton>
@@ -32,9 +32,14 @@ const MissionInput = props => {
                     })}
                 </InputMessage>
 
-                <Counter />
+                <Counter
+                    missionTracker={props.missionTracker}
+                    setMissionTracker={props.setMissionTracker}
+                    selectedMission={selectedMission}
+                    drawerStatus={props.drawerStatus}
+                />
             </InputDrawer>
-        </React.Fragment>
+        </>
     );
 };
 
