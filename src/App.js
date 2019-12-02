@@ -16,14 +16,14 @@ import MissionComplete from "./views/mission-complete/MissionComplete";
 import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
+import EmailSignUp from "./views/onboarding/EmailSignUp";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
 import Leaderboard from './views/leaderboard/Leaderboard';
 import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
-// dummy data
-import { userMissionsDummy } from './contexts/DummyData';
+import StepObject from './views/onboarding/steps/StepObject';
 
 
 //COMPONENT
@@ -46,7 +46,7 @@ const App = props => {
     bio: '',
     new_user: true,
     testing: false,
-    hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
+    hasLoggedIn: true// this true is a placeholder and will need to be removed after we finish logic
   });
 
 
@@ -69,6 +69,8 @@ if(!user.hasLoggedIn){ // temp setting for testing purposes
     <Route path="/signup" component={CreateAccount} />
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Landing} />
+    <Route path="/emailsignup" component={EmailSignUp} />
+    <Route path="/introquestions" component={StepObject} /> 
   </UserContext.Provider>
   </>);
 } else {
