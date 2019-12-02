@@ -16,18 +16,18 @@ import MissionComplete from "./views/mission-complete/MissionComplete";
 import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
-import EmailSignUp from "./views/onboarding/EmailSignUp";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
 import Leaderboard from './views/leaderboard/Leaderboard';
 import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
-import StepObject from './views/onboarding/steps/StepObject';
-
-
+// dummy data
+import { userMissionsDummy } from './contexts/DummyData';
 //COMPONENT
 const App = props => {
+  // contexts
+  const [userMissions, setUserMissions] = useState(userMissionsDummy);
   // state hooks
   // this hook becomes the global user context
   // will abstract out later after we get all logic working properly
@@ -43,14 +43,19 @@ const App = props => {
     bio: '',
     new_user: true,
     testing: false,
-    hasLoggedIn: true// this true is a placeholder and will need to be removed after we finish logic
+    hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
   });
-  console.log('checking user context from app:', user)
-
-  // useEffect
-  // todo
-
-if(!localStorage.getItem('token')){
+  // // useEffect
+  // useEffect(() => {
+  //   axiosWithAuth().get(`/missions`)
+  //   .then(res => {
+  //     console.log('[server response]', res)
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   })
+  // }, []);
+if(!localStorage.getItem('token')){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
@@ -58,8 +63,6 @@ if(!localStorage.getItem('token')){
     <Route path="/signup" component={CreateAccount} />
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Landing} />
-    <Route path="/emailsignup" component={EmailSignUp} />
-    <Route path="/introquestions" component={StepObject} /> 
   </UserContext.Provider>
   </>);
 } else {
@@ -79,12 +82,9 @@ if(!localStorage.getItem('token')){
         <Route path='/coming-soon' component={ComingSoon} />
     </UserContext.Provider>
     </>
-    
   );
 }
 };
-
 // STYLED COMPONENTS
 // todo  
-
 export default App;
