@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import ActivityCard from './ActivityCard';
 import ProfileCompletion from './ProfileCompletion';
@@ -9,6 +9,7 @@ import WeeklySurvey from '../profileViews/WeeklySurvey';
 import WaterCard from '../profileViews/WaterCard';
 import Badges from '../profileViews/Badges';
 import YourReminders from '../profileViews/YourReminders';
+import {flex} from '../../styles/global/Mixins';
 //import ProfileAv from '../profileViews/ProfileAv';
 
 const ProfileView = styled.div`

@@ -72,7 +72,7 @@ const ProfileCompletion = () => {
                 <p>completion</p>
                 <FinishAction>
                     <p>Finish now</p>
-                    <img src={RightArrow} />
+                    <img src={RightArrow} alt='arrow'/>
                 </FinishAction>
             </ProfileWidget>
         </>
