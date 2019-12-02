@@ -86,21 +86,21 @@ const StyledRow = styled.div.attrs(props => ({
   flexFlow: props.flexFlow,
   textAlign: props.textAlign
 }))`
-  height: ${props => (props.height ? `${props.height}rem` : "100%")};
-  width: ${props => (props.width ? `${props.width}rem` : `94vw`)};
+  height: ${props => (props.height ? `${props.height}%` : "100%")};
+  width: ${props => (props.width ? `${props.width}%` : `100%`)};
   border: ${props => (props.border ? props.border : "none")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
   border-right: ${props => props.borderRight};
   border-bottom: ${props => props.borderBottom};
   border-bottom-left-radius: ${props =>
-    props.borderRadiusBottomLeft ? props.borderRadiusBottomLeft : "5px"};
+    props.borderRadiusBottomLeft ? props.borderRadiusBottomLeft : 0};
   border-top-left-radius: ${props =>
-    props.borderRadiusTopLeft ? props.borderRadiusTopLeft : "5px"};
+    props.borderRadiusTopLeft ? props.borderRadiusTopLeft : 0};
   border-top-right-radius: ${props =>
-    props.borderRadiusTopRight ? props.borderRadiusTopRight : "5px"};
+    props.borderRadiusTopRight ? props.borderRadiusTopRight : 0};
   border-bottom-right-radius: ${props =>
-    props.borderRadiusBottomRight ? props.borderRadiusBottomRight : "5px"};
+    props.borderRadiusBottomRight ? props.borderRadiusBottomRight : 0};
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : "transparent"};
   color: ${props => (props.color ? props.color : Colors.font.primary)};

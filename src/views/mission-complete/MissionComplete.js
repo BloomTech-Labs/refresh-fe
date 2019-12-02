@@ -18,35 +18,48 @@ import Congrats from './Congrats';
 const dummyMissions = [
     {
         id: 1,
+        vertical: 'water',
         description: 'drank a glass of water',
+        question: 'how many glasses of water did you drink?',
         color: '#CEE2FF'
     },
     {
         id: 2,
+        vertical: 'activity',
         description: 'got active',
+        question: 'how many minutes where you active?',
         color: '#FECDCD'
     },
     {
         id: 3,
+        vertical: 'food',
         description: 'ate healthy',
+        question: 'how many fruits did you eat?',
         color: '#D5F6E3'
     },
     {
         id: 4,
+        vertical: 'mental',
         description: 'took a break',
+        question: 'how many minutes did you break for?',
         color: '#FFE2CC'
     },
     {
         id: 5,
+        vertical: 'sleep',
         description: 'got some sleep',
+        question: 'how many hours did you sleep for?',
         color: '#FECDF9'
     },
     {
         id: 6,
+        vertical: 'social',
         description: 'pet quality time',
+        question: 'how many minutes did you spend with your pet?',
         color: '#DFC5F7'
     }
 ];
+
 
 // COMPONENT
 const MissionComplete = props => {
@@ -59,6 +72,10 @@ const MissionComplete = props => {
     const [congratsScreen, setCongratsScreen] = useState({
         status: 'closed'
     });
+
+    const [missions, setMissions] = useState(dummyMissions);
+
+    const [selectedMission, setSelectedMission] = useState(null);
 
     // handlers
     const handleDrawer = e => {
@@ -87,13 +104,16 @@ const MissionComplete = props => {
                     <h2 className='mission-message'>What mission did you complete?</h2>
 
                     <MissionsWrapper>
-                        {dummyMissions.map(mission => {
+                        {missions.map(mission => {
                             return (
                                 <MissionCard 
                                     key={mission.id}
                                     description={mission.description}
                                     color={mission.color}
                                     handleDrawer={handleDrawer}
+                                    vertical={mission.vertical}
+                                    missionId={mission.id}
+                                    setSelectedMission={setSelectedMission}
                                 />
                             )
                         })}
@@ -105,6 +125,8 @@ const MissionComplete = props => {
             <MissionInput 
                 handleDrawer={handleDrawer}
                 status={drawer.status}
+                missions={missions}
+                selectedMission={selectedMission}
             />
 
             <Congrats 

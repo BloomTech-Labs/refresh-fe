@@ -11,7 +11,7 @@ import Counter from './Counter';
 // COMPONENT
 const MissionInput = props => {
     // props
-    const { handleDrawer, status } = props;
+    const { handleDrawer, status, missions, selectedMission } = props;
     // state hooks
 
 
@@ -22,8 +22,14 @@ const MissionInput = props => {
                 <DrawerAccent onClick={handleDrawer} />
                 <CloseButton onClick={handleDrawer}>X</CloseButton>
                 <InputMessage>
-                    <i class="fas fa-tint"></i>
-                    <p>This is some placeholder text</p>
+                    <i className="fas fa-tint"></i>
+                    {missions.map(mission => {
+                        if (mission.id === selectedMission) {
+                            return <p key={mission.id}>{mission.question}</p>
+                        } else {
+                            return null
+                        }
+                    })}
                 </InputMessage>
 
                 <Counter />

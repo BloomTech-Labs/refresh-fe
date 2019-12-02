@@ -1,8 +1,10 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useContext } from 'react';
 // router
 import { Link } from 'react-router-dom';
+// contexts
+import { UserContext } from '../../contexts/UserContext';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -19,7 +21,7 @@ import MissionCard from './MissionCard';
 const dummyMissions = [
     {
         id: 1,
-        vertical: 'health',
+        vertical: 'water',
         name: 'water',
         description: '2 more glasses of water',
         pointValue: 20,
@@ -35,7 +37,7 @@ const dummyMissions = [
     },
     {
         id: 3,
-        vertical: 'fitness',
+        vertical: 'activity',
         name: 'activity',
         description: 'physical activity for at least 30 minutes',
         pointValue: 70,
@@ -53,6 +55,15 @@ const dummyMissions = [
 
 // COMPONENT
 const Dashboard = props => {
+    // contexts
+    const activeUser = useContext(UserContext);
+    
+    // state hooks
+    // todo
+
+    // useEffect
+    // todo
+    
     return (
         <DashboardView>
             <DashboardWrapper>
@@ -65,8 +76,8 @@ const Dashboard = props => {
                     </Greeting>
 
                     <User>
-                        <Link to='/dashboard'><i class="fas fa-bell"></i></Link>
-                        <Avatar></Avatar>
+                        <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
+                        <Link to='/profile-overview'><Avatar></Avatar></Link>
                     </User>
                 </Header>
 
@@ -80,6 +91,8 @@ const Dashboard = props => {
                                     color={mission.color}
                                     description={mission.description}
                                     points={mission.pointValue}
+                                    vertical={mission.vertical}
+                                    history={props.history}
                                 />
                             )
                         })}
