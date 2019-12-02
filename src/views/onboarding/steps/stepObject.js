@@ -28,6 +28,47 @@ const StepObject = props => {
 
   //set values for slider
   const handleChanges = value => {
+    setQa(value)    
+};
+const sliderValue =  3;
+  return (
+          <OnBoardContainer>
+            <form onSubmit={profile.handleSubmit}>
+              {profile.currentStep < 4 &&
+              <Question>{question.question}</Question>
+              }
+              {profile.currentStep >=4 &&
+              <LongQuestion>{question.question}</LongQuestion>
+              }
+              {profile.currentStep <= 2 &&
+              <OnboardTxt>Don't worry, this stays between us</OnboardTxt>
+              }
+            {profile.currentStep <=2 && (<WeightHeight  />)}
+            {profile.currentStep == 3 && (  
+            <FlexHolder>
+                <Option onClick={() => handleChanges("Never")}>Never</Option>
+                <Option onClick={() => handleChanges("Sometimes")}>Sometimes</Option>
+                <Option onClick={() => handleChanges("Always")}>Always</Option>
+            </FlexHolder> )}
+            {profile.currentStep >=4 && (             
+                <StyledSlider
+                defaultValue={sliderValue}
+                max={7}
+                renderTrack={Track}
+                renderThumb={Thumb}
+                onAfterChange={handleChanges}
+              />
+)}
+              <Button onClick={profile.handleSubmit} data-answer={qa} data-question={question.id}>Continue</Button>
+              {profile.currentStep <= 2 && (
+                <ButtonNoColor onClick={profile.handleSubmit} value={"blurb"}>
+                  I don't feel comfortable answering
+                </ButtonNoColor>
+              )}
+            </form>
+          </OnBoardContainer>
+    );
+};
     console.log(value);
     setAnswer(value);
   };
@@ -249,7 +290,7 @@ const OnboardTxt = styled.p`
 font-size: 1.6rem;
 line-height: 2.6rem;
 letter-spacing: 2px;
-text-align:center
+text-align:center;
 color: #A7A4E6;
 margin: 0 auto;
 `;
