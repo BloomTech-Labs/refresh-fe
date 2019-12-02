@@ -16,6 +16,7 @@ import MissionComplete from "./views/mission-complete/MissionComplete";
 import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
+import EmailSignUp from "./views/onboarding/EmailSignUp";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
@@ -63,6 +64,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
     <Route path="/signup" component={CreateAccount} />
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Landing} />
+    <Route path="/emailsignup" component={EmailSignUp} />
   </UserContext.Provider>
   </>);
 } else {
