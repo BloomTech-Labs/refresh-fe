@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 // styled components
 import styled from "styled-components";
-import StepObject from "./StepObject";
+import StepForm from './StepForm';
 
 const InfoIntro = (props) => {
   const [consent, setConsent] = useState(false);
 
   if(consent){
-    return <StepObject {...props} />
+    return <StepForm {...props} />
   }else{
     return <OnBoarding consent={consent} setConsent={setConsent} />
   }
