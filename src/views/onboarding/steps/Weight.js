@@ -6,17 +6,19 @@ const Weight = props => {
 
   
   const handleChanges = e => {
-    console.log(e.i);
+    console.log(e);
   };
 
   const sliderScale = (unit, range) => {
     let items = [];
     for (let i = 100; i < range; i++) {
+      let n = 1;
       if (i % unit === 0) {
         items.push(
           <>
-            <div className="bigtick">
-              <p onClick={ () => handleChanges({i})}>
+            <div className="bigtick"
+             data-value={i}>
+              <p onClick={() => handleChanges({i})}>
                 <svg
                   width="3"
                   height="67"
@@ -38,8 +40,8 @@ const Weight = props => {
             </div>
             <div
               className="smalltick"
-              data-value={i + 0.5}
-              onClick={() => console.log(i - 0.5)}
+              data-value={i + n / 2 - 1}
+              onClick={() =>  handleChanges((i + n/2 - 1))}
             >
               <svg
                 width="2"

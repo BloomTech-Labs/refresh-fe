@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 // styled components
 import styled from "styled-components";
 import InfoIntro from "./InfoIntro";
-import StepObject from "./StepObject";
+import StepForm from "./StepForm";
 import { UserContext } from "../../../contexts/UserContext";
 
 const Steps = props => {
@@ -13,7 +13,7 @@ const Steps = props => {
 
   return (
     <OnBoardWrapper> 
-     <Route path="/introquestions" component={StepObject} /> 
+     <Route path="/introquestions" component={StepForm} /> 
     </OnBoardWrapper>
   );
 };
