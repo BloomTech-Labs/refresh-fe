@@ -22,6 +22,7 @@ import ProfileOverview from './views/profileViews/ProfileOverview';
 import Leaderboard from './views/leaderboard/Leaderboard';
 import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
+import EmailSignUp from './views/onboarding/EmailSignUp';
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
 //COMPONENT
@@ -94,6 +95,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
   <UserContext.Provider value={{...user, setUser: setUser}}>
     <Route path='/firstlogin' component={StepStart} /> 
     <Route path="/signup" component={CreateAccount} />
+    <Route path="/emailsignup" component={EmailSignUp} />
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Landing} />
   </UserContext.Provider>
