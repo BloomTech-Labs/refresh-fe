@@ -7,7 +7,7 @@ import Height from "./Height";
 import { UserContext } from "../../../contexts/UserContext";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import LoadingSpinner from "../../../components/atoms/spinner/spinner";
-const StepObject = props => {
+const StepForm = props => {
   const user = useContext(UserContext);
   //hooks
   const [questions, setQuestions] = useState([]);
@@ -292,4 +292,4 @@ const StepDots = styled.div`
   }
 `;
 
-export default StepObject;
+export default StepForm;

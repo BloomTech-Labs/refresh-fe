@@ -11,6 +11,7 @@ import { test, flex } from '../../styles/global/Mixins';
 import MissionCard from './MissionCard';
 import MissionInput from './MissionInput';
 import Congrats from './Congrats';
+import { axiosWithAuth } from '../../helpers/axiosWithAuth';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -100,6 +101,18 @@ const MissionComplete = props => {
         setDrawer({ ...drawer, darken: 'inactive' });
     };
 
+    const submitMissionTracker = e => {
+        console.log('[missionTracker submitted]', missionTracker);
+
+        axiosWithAuth().post('/answers', missionTracker)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
     // render
     return (
         <MCView>
@@ -140,6 +153,7 @@ const MissionComplete = props => {
             <Congrats 
                 status={congratsScreen.status}
                 handleClose={submitMissions}
+                submitMissionTracker={submitMissionTracker}
             />
 
         </MCWrapper>

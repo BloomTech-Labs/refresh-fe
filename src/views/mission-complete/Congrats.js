@@ -13,7 +13,7 @@ import Rocket from '../../images/rocket.png';
 // COMPONENT
 const Congrats = props => {
     // props
-   const { status, handleClose } = props;
+   const { status, handleClose, submitMissionTracker } = props;
 
     // render
     return (
@@ -32,7 +32,7 @@ const Congrats = props => {
                     
                     <ButtonRow>
                         <button>Share with your team</button>
-                        <Link to='/dashboard'><button><i className="fas fa-arrow-right"></i></button></Link>
+                        <Link to='/dashboard'><button onClick={submitMissionTracker}><i className="fas fa-arrow-right"></i></button></Link>
                     </ButtonRow>
                 </NextContainer>
             </CongratsScreen>
