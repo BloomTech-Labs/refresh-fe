@@ -46,19 +46,6 @@ const App = props => {
     testing: false,
     hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
   });
-<<<<<<< HEAD
-  // // useEffect
-  // useEffect(() => {
-  //   axiosWithAuth().get(`/missions`)
-  //   .then(res => {
-  //     console.log('[server response]', res)
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   })
-  // }, []);
-if(user.new_user){ // temp setting for testing purposes
-=======
 
    // useEffect
    useEffect(() => {
@@ -103,7 +90,6 @@ if(user.new_user){ // temp setting for testing purposes
   }, []);
 
 if(!localStorage.getItem('token')){ // temp setting for testing purposes
->>>>>>> 88e7a86e0000bbb54e5c17fdf8fb452a40d8c3ac
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
