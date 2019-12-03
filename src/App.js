@@ -51,7 +51,11 @@ const App = props => {
     axiosWithAuth().get(`/usermissions`)
     .then(res => {
       console.log('[server response]', res)
-      setUserMissions(res.data.user_missions.mission_subscriptions);
+      let dailyMissions = [];
+
+      
+
+      setUserMissions(dailyMissions);
     })
     .catch(err => {
       console.log(err);
