@@ -16,13 +16,13 @@ import MissionComplete from "./views/mission-complete/MissionComplete";
 import Gauge from "./components/molecules/gauge/gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
-import EmailSignUp from "./views/onboarding/EmailSignUp";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
 import Leaderboard from './views/leaderboard/Leaderboard';
 import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
+import EmailSignUp from './views/onboarding/EmailSignUp';
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
 //COMPONENT
@@ -95,15 +95,16 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
   <UserContext.Provider value={{...user, setUser: setUser}}>
     <Route path='/firstlogin' component={StepStart} /> 
     <Route path="/signup" component={CreateAccount} />
+    <Route path="/emailsignup" component={EmailSignUp} />
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Landing} />
-    <Route path="/emailsignup" component={EmailSignUp} />
   </UserContext.Provider>
   </>);
 } else {
   return (
     <>
     <UserContext.Provider value={{...user, setUser: setUser}}>
+      <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
         <Route path="/dashboard" component={Dashboard} />
@@ -115,6 +116,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         <Route path='/coming-soon' component={ComingSoon} />
+      </UserMissionsContext.Provider>
     </UserContext.Provider>
     </>
   );
