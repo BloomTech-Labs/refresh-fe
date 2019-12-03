@@ -61,15 +61,19 @@ const App = props => {
       dailyMissions = missionSubscriptions.map(mission => {
         let updatedMission = {};
 
-        missionsInProgress.forEach(i => {
-          if (mission.id === i.id) {
-            console.log('found a match!');
-            updatedMission = {...mission, point_current: i.point_current};
-          } else {
-            console.log('no match found!');
-            updatedMission = {...mission, point_current: 0};
-          }
-        });
+        if (missionsInProgress === "No Missions Currently in progress for today") {
+          updatedMission = {...mission, point_current: 0};
+        } else {
+          missionsInProgress.forEach(i => {
+            if (mission.id === i.id) {
+              console.log('found a match!');
+              updatedMission = {...mission, point_current: i.point_current};
+            } else {
+              console.log('no match found!');
+              updatedMission = {...mission, point_current: 0};
+            }
+          });
+        }
 
         return updatedMission;
       });
