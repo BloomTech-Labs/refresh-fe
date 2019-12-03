@@ -75,6 +75,8 @@ const App = props => {
       });
 
       console.log('[new dailyMissions]', dailyMissions);
+
+      setUserMissions(dailyMissions);
       
     })
     .catch(err => {
