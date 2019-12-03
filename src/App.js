@@ -58,16 +58,22 @@ const App = props => {
       console.log('[mission subscriptions]', missionSubscriptions);
       console.log('[missions in progress]', missionsInProgress);
 
-      missionSubscriptions.map(mission => {
+      dailyMissions = missionSubscriptions.map(mission => {
+        let updatedMission = {};
+
         missionsInProgress.forEach(i => {
-          if (i.id === mission.id) {
-            console.log('missionInProgress id matches a missionSubscription id');
+          if (mission.id === i.id) {
+            console.log('found a match!');
+          } else {
+            console.log('no match found!');
           }
         });
-      });
-      
 
-      setUserMissions(dailyMissions);
+        return updatedMission;
+      });
+
+      console.log('[new dailyMissions]', dailyMissions);
+      
     })
     .catch(err => {
       console.log(err);
