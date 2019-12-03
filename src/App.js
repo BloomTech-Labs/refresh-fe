@@ -57,6 +57,14 @@ const App = props => {
 
       console.log('[mission subscriptions]', missionSubscriptions);
       console.log('[missions in progress]', missionsInProgress);
+
+      missionSubscriptions.map(mission => {
+        missionsInProgress.forEach(i => {
+          if (i.id === mission.id) {
+            console.log('missionInProgress id matches a missionSubscription id');
+          }
+        });
+      });
       
 
       setUserMissions(dailyMissions);
