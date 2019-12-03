@@ -100,6 +100,10 @@ const MissionComplete = props => {
         setDrawer({ ...drawer, darken: 'inactive' });
     };
 
+    const submitMissionTracker = e => {
+        console.log('mission data submitted!');
+    };
+
     // render
     return (
         <MCView>
@@ -140,6 +144,7 @@ const MissionComplete = props => {
             <Congrats 
                 status={congratsScreen.status}
                 handleClose={submitMissions}
+                submitMissionTracker={submitMissionTracker}
             />
 
         </MCWrapper>

@@ -13,7 +13,7 @@ import Rocket from '../../images/rocket.png';
 // COMPONENT
 const Congrats = props => {
     // props
-   const { status, handleClose } = props;
+   const { status, handleClose, submitMissionTracker } = props;
 
     // render
     return (
