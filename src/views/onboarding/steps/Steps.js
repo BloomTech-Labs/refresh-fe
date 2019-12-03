@@ -5,11 +5,7 @@ import { Route } from "react-router-dom";
 // styled components
 import styled from "styled-components";
 import InfoIntro from "./InfoIntro";
-<<<<<<< HEAD
-import StepObject from "./StepForm";
-=======
 import StepForm from "./StepForm";
->>>>>>> 88e7a86e0000bbb54e5c17fdf8fb452a40d8c3ac
 import { UserContext } from "../../../contexts/UserContext";
 
 const Steps = props => {
