@@ -27,7 +27,7 @@ import { userMissionsDummy } from './contexts/DummyData';
 //COMPONENT
 const App = props => {
   // contexts
-  const [userMissions, setUserMissions] = useState(userMissionsDummy);
+  const [userMissions, setUserMissions] = useState([]);
   // state hooks
   // this hook becomes the global user context
   // will abstract out later after we get all logic working properly
@@ -45,16 +45,49 @@ const App = props => {
     testing: false,
     hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
   });
-  // // useEffect
-  // useEffect(() => {
-  //   axiosWithAuth().get(`/missions`)
-  //   .then(res => {
-  //     console.log('[server response]', res)
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   })
-  // }, []);
+
+   // useEffect
+   useEffect(() => {
+    axiosWithAuth().get(`/usermissions`)
+    .then(res => {
+      console.log('[server response]', res)
+      let dailyMissions = [];
+      let missionSubscriptions = res.data.user_missions.mission_subscriptions;
+      let missionsInProgress = res.data.user_missions.missions_in_progress;
+
+      console.log('[mission subscriptions]', missionSubscriptions);
+      console.log('[missions in progress]', missionsInProgress);
+
+      dailyMissions = missionSubscriptions.map(mission => {
+        let updatedMission = {};
+
+        if (missionsInProgress === "No Missions Currently in progress for today") {
+          updatedMission = {...mission, point_current: 0};
+        } else {
+          missionsInProgress.forEach(i => {
+            if (mission.id === i.id) {
+              console.log('found a match!');
+              updatedMission = {...mission, point_current: i.point_current};
+            } else {
+              console.log('no match found!');
+              updatedMission = {...mission, point_current: 0};
+            }
+          });
+        }
+
+        return updatedMission;
+      });
+
+      console.log('[new dailyMissions]', dailyMissions);
+
+      setUserMissions(dailyMissions);
+      
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }, []);
+
 if(!localStorage.getItem('token')){ // temp setting for testing purposes
   return(
   <>
