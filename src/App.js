@@ -27,7 +27,7 @@ import { userMissionsDummy } from './contexts/DummyData';
 //COMPONENT
 const App = props => {
   // contexts
-  const [userMissions, setUserMissions] = useState(userMissionsDummy);
+  const [userMissions, setUserMissions] = useState([]);
   // state hooks
   // this hook becomes the global user context
   // will abstract out later after we get all logic working properly
@@ -45,16 +45,8 @@ const App = props => {
     testing: false,
     hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
   });
-  // // useEffect
-  // useEffect(() => {
-  //   axiosWithAuth().get(`/missions`)
-  //   .then(res => {
-  //     console.log('[server response]', res)
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   })
-  // }, []);
+
+
 if(!localStorage.getItem('token')){ // temp setting for testing purposes
   return(
   <>
