@@ -114,7 +114,7 @@ const StepForm = props => {
                 />
               </svg>
             </TopArrow>
-            <Weight />
+            <Weight  />
           </>
         )}
         {currentStep === 1 && (
