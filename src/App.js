@@ -52,7 +52,11 @@ const App = props => {
     .then(res => {
       console.log('[server response]', res)
       let dailyMissions = [];
+      let missionSubscriptions = res.data.user_missions.mission_subscriptions;
+      let missionsInProgress = res.data.user_missions.missions_in_progress;
 
+      console.log('[mission subscriptions]', missionSubscriptions);
+      console.log('[missions in progress]', missionsInProgress);
       
 
       setUserMissions(dailyMissions);
