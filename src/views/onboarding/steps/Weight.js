@@ -1,14 +1,20 @@
+//IMPORTS
+//react
 import React, { useState } from "react";
+//styled components
 import styled from "styled-components";
 
 const Weight = props => {
-  const [currentPosition, setCurrentPosition] = useState();
+  //hook for scroll position
+  const [currentPosition, setCurrentPosition] = useState(false);
 
-  
+  //handle change to store selected tick
   const handleChanges = e => {
     console.log(e);
+    props.setAnswer(e);
   };
 
+  //Scale of numbers
   const sliderScale = (unit, range) => {
     let items = [];
     for (let i = 100; i < range; i++) {
@@ -16,9 +22,8 @@ const Weight = props => {
       if (i % unit === 0) {
         items.push(
           <>
-            <div className="bigtick"
-             data-value={i}>
-              <p onClick={() => handleChanges({i})}>
+            <div className="bigtick" data-value={i}>
+              <p onClick={() => handleChanges(i)}>
                 <svg
                   width="3"
                   height="67"
@@ -41,7 +46,7 @@ const Weight = props => {
             <div
               className="smalltick"
               data-value={i + n / 2 - 1}
-              onClick={() =>  handleChanges((i + n/2 - 1))}
+              onClick={() => handleChanges(i + n / 2 - 1)}
             >
               <svg
                 width="2"
@@ -72,10 +77,14 @@ const Weight = props => {
     }
     return items;
   };
-  const handleScroll = e =>{
+
+  //handle scroll for ticks
+  const handleScroll = e => {
     //     var myElement = document.getElementById('element_within_div');
     // var topPos = myElement.offsetLeft;
-      }
+  };
+
+  //render
   return (
     <>
       <WeightContainer>
@@ -89,6 +98,7 @@ const Weight = props => {
 
 export default Weight;
 
+// STYLED COMPONENTS
 const WeightContainer = styled.div`
   max-width: 29rem;
   height: 15rem;
@@ -103,7 +113,6 @@ const WeightContainer = styled.div`
   .bigtick {
     display: flex;
     flex-direction: column;
-    color: black;
     margin-left: 5rem;
   }
 
@@ -115,7 +124,6 @@ const WeightContainer = styled.div`
 const DialStuff = styled.div`
   flex: 0 0 auto;
 `;
-
 
 const NumberP = styled.p`
   margin-left: -1rem;
