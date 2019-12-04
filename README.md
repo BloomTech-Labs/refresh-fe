@@ -4,15 +4,13 @@ You can find the deployed project at [Netlify](https://confident-elion-57dd1e.ne
 
 ## Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
 ### [Dayton Steinmeyer](https://github.com/DaytonS3)   
 
 [<img src="https://i.ibb.co/743JbBD/dayton.jpg" width = "250" />](https://github.com/DaytonS3)
 
 Dayton's leadership and persistence paved the way to a successful launch. As a leader, he helped team members focus on their strengths and negotiate in a positive direction. He is in the midst of his job hunt and can't wait to begin a fruitful new career in web development.
 
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) 
+[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) 
 
  ### [Daniel Wallen](https://github.com/WebWallen)  
  
