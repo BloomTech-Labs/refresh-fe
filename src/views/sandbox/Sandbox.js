@@ -8,10 +8,13 @@
 // IMPORTS
 // react 
 import React from 'react';
+// react router
+import { Route } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// Views to test
 
 // COMPONENT
 const Sandbox = () => {

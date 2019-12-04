@@ -8,11 +8,13 @@
     "formidable": "^1.2.1",
     "jwt-decode": "^2.2.0",
     "react": "^16.11.0",
+    "react-circular-progressbar": "^2.0.3",
     "react-dom": "^16.11.0",
     "react-horizontal-scrolling-menu": "^0.7.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-slider": "^1.0.1",
+    "react-timer-hook": "^1.1.7",
     "styled-components": "^4.4.1"
   },
   "scripts": {
