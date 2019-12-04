@@ -15,38 +15,56 @@ Dayton's leadership and persistence paved the way to a successful launch. As a l
  ### [Daniel Wallen](https://github.com/WebWallen)  
  
 [<img src="https://i.ibb.co/kJzVjPf/daniel.jpg" width = "250" />](https://github.com/WebWallen)
+
+As a former fitness professional, Daniel is super passionate about the Refresh app. He also utilized his copywriting skills to make the landing page script stand out. Daniel has published more than 200 articles online and walked 100 shelter dogs (many of whom found homes).
  
  ### [Roman Jordan](https://github.com/Roman-Jordan) 
  
 [<img src="https://i.ibb.co/7tRC8jQ/roman.png" width = "250" />](https://github.com/Roman-Jordan)
+
+Roman is as "off-the-grid" as you can realistically get in this day-and-age. Where does he live? Nobody knows. Here at Refresh, we're constantly thankful Roman lacks the capacity to commit evil and nefarious acts. Trust me when I say he's smart enough to hack all your apps, no matter how secure you think they are.
  
  ### [Melissa Murphy](https://github.com/melissa-murphy) 
  
  [<img src="https://i.ibb.co/1ZD3Q73/melissa.jpg" width = "250" />](https://github.com/melissa-murphy)
  
+Melissa has tons of leadership experience. She managed 25 team leaders during her time at Lambda School. She found great fulfillment in helping students find the support they need so they can maximize their full potential. As a freelancer, she has spent seven years designing and developing websites while providing marketing services as well.
+ 
  ### [Josh Cooter](https://github.com/thejoshcooter)  
  
  [<img src="https://i.ibb.co/vwwrtm7/josh.jpg" width = "250" />](https://github.com/thejoshcooter)
+ 
+Josh Cooter has served as an Account Executive in the mortgage industry since 2015. A Texas native, Josh's impact on the quality of the Refresh app has been as large as his homestate. His dedication focused team efforts with the power of extensive Notion documents and a well-organized Trello board.
  
  ### [Jeremy Brady](https://github.com/jeremybrady702) 
  
  [<img src="https://i.ibb.co/Hz1Bwq5/jeremy.png" width = "250" />](https://github.com/jeremybrady702)
  
+Jeremy Brady was born to program. He's been interested in gaming and computers for his entire life. A self-taught programmer for five years, Jeremy came to Lambda with hopes to provide a better future for his family. After working as a trucker and chauffer for several years, he's excited to begin a career that challenges him mentally instead of physically.
+ 
  ### [Christina Delligatta](https://github.com/TinaDelli) 
  
  [<img src="https://i.ibb.co/6bBS4Kx/christina.jpg" width = "250" />](https://github.com/TinaDelli)
+ 
+Christina provided many creative ideas that assisted the gamified aspect of this app. In fact, she is in the process of learning Unity so she can develop games in addition to websites. She is the proud mother of two minions who often joined our team during Zoom meetings.
  
  ### [Gina Christians](https://github.com/Chrisgins) 
  
  [<img src="https://i.ibb.co/ym2MkPv/gina.jpg" width = "250" />](https://github.com/Chrisgins)
  
+Gina is the founder and product owner of Engine 228 Games in Denver, CO. She has worked for, and with, companies such as CableLabs, Echostar, Time-Warner Cable, Charter Communications, and Rovi (now Tivo). At the present, she is a Senior Software QA Engineeer who has proudly mentored many junior engineers and served as a Team Lead at Lambda School.
+ 
  ### [Michael Baynon](https://github.com/MichaelBaynon) 
  
  [<img src="https://i.ibb.co/ZcYmy1r/michael.png" width = "250" />](https://github.com/MichaelBaynon)
  
+Michael always thought something exactly like the Refresh app should exist, so he loved the process of building it. He hails from Florida, to the envy of the rest of us who have to suffer an actual winter. His favorite thing about Lambda School so far? Building Worthymon: an app that determines whether or not a Pokemon is worth catching.
+ 
  ### [Taylor Watson](https://github.com/taylorwatsonb) 
  
  [<img src="https://i.ibb.co/8cGVvRL/taylor.png" width="250" />](https://github.com/taylorwatsonb)
+ 
+Taylor Watson is an artist, UX designer, and software engineer from New York. Despite ending up with double the work she expected, she's flawlessly executed every design and wireframe. She worked closely with developers to make sure her vision could be brought to life in a fully functional healthy habit app.
 
  
 |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |
