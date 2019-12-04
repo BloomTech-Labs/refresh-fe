@@ -1,9 +1,12 @@
 // IMPORTS
 // react
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Route } from "react-router-dom";
 // contexts
 import { UserContext } from './contexts/UserContext';
+import { UserMissionsContext } from './contexts/UserMissionsContext';
+// helpers
+import { axiosWithAuth } from './helpers/axiosWithAuth';
 // components
 import Landing from "./views/onboarding/Landing";
 import CreateAccount from "./views/onboarding/CreateAccount";
@@ -19,10 +22,14 @@ import ProfileOverview from './views/profileViews/ProfileOverview';
 import Leaderboard from './views/leaderboard/Leaderboard';
 import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
-
-
+import EmailSignUp from './views/onboarding/EmailSignUp';
+import EmailLogIn from './views/onboarding/EmailLogin';
+// dummy data
+import { userMissionsDummy } from './contexts/DummyData';
 //COMPONENT
 const App = props => {
+  // contexts
+  const [userMissions, setUserMissions] = useState([]);
   // state hooks
   // this hook becomes the global user context
   // will abstract out later after we get all logic working properly
@@ -40,17 +47,57 @@ const App = props => {
     testing: false,
     hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
   });
-  console.log('checking user context from app:', user)
 
-  // useEffect
-  // todo
+   // useEffect
+   useEffect(() => {
+    axiosWithAuth().get(`/usermissions`)
+    .then(res => {
+      console.log('[server response]', res)
+      let dailyMissions = [];
+      let missionSubscriptions = res.data.user_missions.mission_subscriptions;
+      let missionsInProgress = res.data.user_missions.missions_in_progress;
 
-if(user.new_user){
+      console.log('[mission subscriptions]', missionSubscriptions);
+      console.log('[missions in progress]', missionsInProgress);
+
+      dailyMissions = missionSubscriptions.map(mission => {
+        let updatedMission = {};
+
+        if (missionsInProgress === "No Missions Currently in progress for today") {
+          updatedMission = {...mission, point_current: 0};
+        } else {
+          missionsInProgress.forEach(i => {
+            if (mission.id === i.id) {
+              console.log('found a match!');
+              updatedMission = {...mission, point_current: i.point_current};
+            } else {
+              console.log('no match found!');
+              updatedMission = {...mission, point_current: 0};
+            }
+          });
+        }
+
+        return updatedMission;
+      });
+
+      console.log('[new dailyMissions]', dailyMissions);
+
+      setUserMissions(dailyMissions);
+      
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }, []);
+
+if(!localStorage.getItem('token')){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
     <Route path='/firstlogin' component={StepStart} /> 
     <Route path="/signup" component={CreateAccount} />
+    <Route path="/emailsignup" component={EmailSignUp} />
+    <Route path="/emaillogin" component={EmailLogIn} />
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Landing} />
   </UserContext.Provider>
@@ -59,6 +106,7 @@ if(user.new_user){
   return (
     <>
     <UserContext.Provider value={{...user, setUser: setUser}}>
+      <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
         <Route path="/dashboard" component={Dashboard} />
@@ -70,14 +118,12 @@ if(user.new_user){
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         <Route path='/coming-soon' component={ComingSoon} />
+      </UserMissionsContext.Provider>
     </UserContext.Provider>
     </>
-    
   );
 }
 };
-
 // STYLED COMPONENTS
 // todo  
-
 export default App;
