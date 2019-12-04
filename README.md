@@ -18,7 +18,7 @@ Dayton's leadership and persistence paved the way to a successful launch. As a l
 
 As a former fitness professional, Daniel is super passionate about the Refresh app. He also utilized his copywriting skills to make the landing page script stand out. Daniel has published more than 200 articles online and walked 100 shelter dogs (many of whom found homes).
 
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/WebWallen)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/WebWallen/)   [_<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="30">_](https://twitter.com/WebWallen)   [_<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg" width="30">_](https://facebook.com/WebWallen)   
+[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/WebWallen)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/WebWallen/)   [_<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="30">_](https://twitter.com/WebWallen)   [_<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg" width="30">_](https://facebook.com/WebWallen)   [_<img src="https://i.ibb.co/DV14pSW/iconfinder-84-Dev-logo-logos-4373243.png" alt="iconfinder-84-Dev-logo-logos-4373243" width="30">_](https://dev.to/WebWallen)   
  
  ### [Roman Jordan](https://github.com/Roman-Jordan) 
  
