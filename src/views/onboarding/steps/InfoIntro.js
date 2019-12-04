@@ -1,25 +1,36 @@
-import React, { useContext } from "react";
+//IMPORTS
+//react
+import React, { useState } from "react";
 // styled components
-import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
+//conditionally rendering steps component
+import StepForm from "./StepForm";
 
-const InfoIntro = () => {
-  const profile = useContext(UserContext);
-  // const handleSubmit = e => {
-  //     e.preventDefault();
-  //     props.onSubmit();
-  // };
+const InfoIntro = props => {
+  //hooks
+  const [consent, setConsent] = useState(false);
+
+  //if statement is true then render the steps component else stay on onboarding component
+  if (consent) {
+    return <StepForm {...props} />;
+  } else {
+    return <OnBoarding consent={consent} setConsent={setConsent} />;
+  }
+};
+
+//render
+const OnBoarding = ({ consent, setConsent }) => {
   return (
     <OnBoardWrapper>
       <OnBoardContainer>
         <Refresh>
-          We need to learn a little more about <GreenSpan>you</GreenSpan>
+          We need to learn a little more about <YouSpan>you</YouSpan>
         </Refresh>
         <OnboardTxt>
           We just need some data to set up your profile. All of your information
           will stay private.
         </OnboardTxt>
-        <Button onClick={profile.handleSubmit}>Continue</Button>
+        <Button onClick={() => setConsent(true)}>Continue</Button>
       </OnBoardContainer>
     </OnBoardWrapper>
   );
@@ -27,8 +38,8 @@ const InfoIntro = () => {
 
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
-const GreenSpan = styled.span`
-  color: #28c96c;
+const YouSpan = styled.span`
+  color: #e05cb3;
 `;
 
 const OnBoardWrapper = styled.div`
@@ -51,6 +62,7 @@ const OnBoardContainer = styled.div`
   height: 100vh;
   padding: 2.5rem 4rem;
 `;
+
 const Refresh = styled.h1`
   margin: 4rem 0;
   font-weight: 600;
@@ -67,6 +79,7 @@ const OnboardTxt = styled.p`
   color: #a7a4e6;
   margin-bottom: 5rem;
 `;
+
 const Button = styled.a`
   display: inline-block;
   border-radius: 0.5rem;
@@ -74,7 +87,7 @@ const Button = styled.a`
   width: 100%;
   text-align: center;
   margin: auto;
-  background: #6487ff;
+  background: #e05cb3;
   color: white;
   font-size: 1.6rem;
 `;

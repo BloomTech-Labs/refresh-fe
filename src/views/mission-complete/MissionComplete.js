@@ -1,14 +1,17 @@
 // IMPORTS
 // react
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // styled components
 import styled from 'styled-components';
+// contexts
+import { UserMissionsContext } from '../../contexts/UserMissionsContext';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
 import MissionInput from './MissionInput';
 import Congrats from './Congrats';
+import { axiosWithAuth } from '../../helpers/axiosWithAuth';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -63,6 +66,9 @@ const dummyMissions = [
 
 // COMPONENT
 const MissionComplete = props => {
+    // contexts
+    const userMissions = useContext(UserMissionsContext);
+    
     // state hooks
     const [drawer, setDrawer] = useState({
         status: 'closed',
@@ -73,9 +79,9 @@ const MissionComplete = props => {
         status: 'closed'
     });
 
-    const [missions, setMissions] = useState(dummyMissions);
-
     const [selectedMission, setSelectedMission] = useState(null);
+
+    const [missionTracker, setMissionTracker] = useState([]);
 
     // handlers
     const handleDrawer = e => {
@@ -95,6 +101,18 @@ const MissionComplete = props => {
         setDrawer({ ...drawer, darken: 'inactive' });
     };
 
+    const submitMissionTracker = e => {
+        console.log('[missionTracker submitted]', missionTracker);
+
+        axiosWithAuth().post('/answers', missionTracker)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
     // render
     return (
         <MCView>
@@ -104,7 +122,7 @@ const MissionComplete = props => {
                     <h2 className='mission-message'>What mission did you complete?</h2>
 
                     <MissionsWrapper>
-                        {missions.map(mission => {
+                        {userMissions.map(mission => {
                             return (
                                 <MissionCard 
                                     key={mission.id}
@@ -125,13 +143,17 @@ const MissionComplete = props => {
             <MissionInput 
                 handleDrawer={handleDrawer}
                 status={drawer.status}
-                missions={missions}
+                missions={userMissions}
                 selectedMission={selectedMission}
+                missionTracker={missionTracker}
+                setMissionTracker={setMissionTracker}
+                drawerStatus={drawer.status}
             />
 
             <Congrats 
                 status={congratsScreen.status}
                 handleClose={submitMissions}
+                submitMissionTracker={submitMissionTracker}
             />
 
         </MCWrapper>
