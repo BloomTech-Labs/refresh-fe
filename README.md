@@ -12,6 +12,8 @@ You can find the deployed project at [Netlify](https://confident-elion-57dd1e.ne
 
 Dayton's leadership and persistence paved the way to a successful launch. As a leader, he helped team members focus on their strengths and negotiate in a positive direction. He is in the midst of his job hunt and can't wait to begin a fruitful new career in web development.
 
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) 
+
  ### [Daniel Wallen](https://github.com/WebWallen)  
  
 [<img src="https://i.ibb.co/kJzVjPf/daniel.jpg" width = "250" />](https://github.com/WebWallen)
