@@ -8,43 +8,43 @@ You can find the deployed project at [Netlify](https://confident-elion-57dd1e.ne
 
 ### [Dayton Steinmeyer](https://github.com/DaytonS3)   
 
-[<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+[<img src="https://i.ibb.co/743JbBD/dayton.jpg" width = "250" />](https://github.com/DaytonS3)
 
  ### [Daniel Wallen](https://github.com/WebWallen)  
  
-[<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+[<img src="https://i.ibb.co/kJzVjPf/daniel.jpg" width = "250" />](https://github.com/WebWallen)
  
  ### [Roman Jordan](https://github.com/Roman-Jordan) 
  
-[<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+[<img src="https://i.ibb.co/7tRC8jQ/roman.png" width = "250" />](https://github.com/Roman-Jordan)
  
  ### [Melissa Murphy](https://github.com/melissa-murphy) 
  
- [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+ [<img src="https://i.ibb.co/1ZD3Q73/melissa.jpg" width = "250" />](https://github.com/melissa-murphy)
  
  ### [Josh Cooter](https://github.com/thejoshcooter)  
  
- [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+ [<img src="https://i.ibb.co/vwwrtm7/josh.jpg" width = "250" />](https://github.com/thejoshcooter)
  
  ### [Jeremy Brady](https://github.com/jeremybrady702) 
  
- [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+ [<img src="https://i.ibb.co/Hz1Bwq5/jeremy.png" width = "250" />](https://github.com/jeremybrady702)
  
  ### [Christina Delligatta](https://github.com/TinaDelli) 
  
- [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+ [<img src="https://i.ibb.co/6bBS4Kx/christina.jpg" width = "250" />](https://github.com/TinaDelli)
  
  ### [Gina Christians](https://github.com/Chrisgins) 
  
- [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+ [<img src="https://i.ibb.co/ym2MkPv/gina.jpg" width = "250" />](https://github.com/Chrisgins)
  
  ### [Michael Baynon](https://github.com/MichaelBaynon) 
  
- [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+ [<img src="https://i.ibb.co/ZcYmy1r/michael.png" width = "250" />](https://github.com/MichaelBaynon)
  
  ### [Taylor Watson](https://github.com/taylorwatsonb) 
  
- [<img src="https://i.ibb.co/8cGVvRL/taylor.png" width="250" />](https://github.com/)
+ [<img src="https://i.ibb.co/8cGVvRL/taylor.png" width="250" />](https://github.com/taylorwatsonb)
 
  
 |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |
