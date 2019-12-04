@@ -15,14 +15,12 @@ import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
 // Views to test
-import Timer  from '../Timer/Timer';
 
 // COMPONENT
 const Sandbox = () => {
     return (
         <>
             welcome to the sandbox
-            <Route path="/pomodoro-clock" component={Timer} />
         </>
     );
 };

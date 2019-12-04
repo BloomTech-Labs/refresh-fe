@@ -69,7 +69,7 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
         <Link to='/timer-2'>
-          <i className="fa fa-arrow-circle-o-right"></i>
+          <i class="far fa-arrow-alt-circle-right"></i>
         </Link>
       </div>
      

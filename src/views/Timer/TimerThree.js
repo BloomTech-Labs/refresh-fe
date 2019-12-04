@@ -4,7 +4,6 @@ import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { TimerShortBreakThree } from './TimerShortBreakThree';
  
 export function TimerThree ({ expiryTimestamp }) {
 
@@ -67,8 +66,8 @@ export function TimerThree ({ expiryTimestamp }) {
       <div className="buttons">
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/break-3'>
-          <i className="fa fa-arrow-circle-o-right"></i>
+        <Link to='/break'>
+          <i class="far fa-arrow-alt-circle-right"></i>       
         </Link>
       </div>
       

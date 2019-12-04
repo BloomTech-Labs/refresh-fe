@@ -65,8 +65,8 @@ export function TimerTwo ({ expiryTimestamp }) {
       <div className="buttons">
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/break-2'>
-          <i className="fa fa-arrow-circle-o-right"></i>
+        <Link to='/break'>
+          <i class="far fa-arrow-alt-circle-right"></i>       
         </Link>
       </div>
       
