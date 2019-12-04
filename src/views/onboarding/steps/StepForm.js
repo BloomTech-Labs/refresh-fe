@@ -113,7 +113,7 @@ const StepForm = props => {
                 />
               </svg>
             </TopArrow>
-            <Weight  />
+            <Weight setAnswer={setAnswer} />
           </>
         )}
         {currentStep === 1 && (
@@ -133,7 +133,7 @@ const StepForm = props => {
                 />
               </svg>
             </TopArrow>
-            <Height />
+            <Height setAnswer={setAnswer} />
           </>
         )}
         {/* WILL GIVE OVERWHELMED OPTIONS, Question 3*/}

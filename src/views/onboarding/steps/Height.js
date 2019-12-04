@@ -2,13 +2,27 @@ import React from "react";
 import styled from "styled-components";
 
 const Height = props => {
+
+  const handleChanges = e => {
+    console.log(e);
+    props.setAnswer(e);
+   
+  };
   const sliderScale = (unit, range) => {
     let items = [];
-    for (let i = 4; i < range; i+= 0.1) {
+    let b =0;
+    for (let i = 4; i < range; i+= (0.012 * 6)) {
+      b++
+      console.log(b);
         items.push(
           <>
             <div className="bigtick">
-              <p onClick={() => console.log({i})}>
+              <p onClick={() => handleChanges(i)
+              // {
+              //   const decimal = i.toString().split('.')
+              //   console.log(parseInt("." + decimal[1]))
+              // }
+              }>
                 <svg
                   width="3"
                   height="67"
@@ -28,7 +42,7 @@ const Height = props => {
               </p>
               <NumberP>{i.toFixed(1).toString().replace(/\./g, "'")}''</NumberP>
             </div>
-            <div className="smalltick" data-value={i + 0.5} onClick={() => console.log(i)}>
+            <div className="smalltick" onClick={() => handleChanges(i)}>
               <svg
                 width="2"
                 height="43"

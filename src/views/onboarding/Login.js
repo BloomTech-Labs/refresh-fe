@@ -15,6 +15,7 @@ import Row  from '../../components/atoms/row/row';
 import Col from '../../components/atoms/col/col';
 import Text from '../../components/atoms/text/text';
 import Image from "../../components/atoms/image/image";
+import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 
 // COMPONENT
 const Login = (props) => {
@@ -36,6 +37,11 @@ const Login = (props) => {
         e.preventDefault();
         props.history.push("/signup");
       };
+
+      const routeToEmailLogIn = e => {
+        e.preventDefault();
+        props.history.push("/emaillogin")
+      }
 
       const colText = "OR";
       
@@ -70,6 +76,7 @@ const Login = (props) => {
         {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
       };
 
+
       return (
         <OnBoardWrapper>
           <OnBoardContainer>
@@ -96,7 +103,7 @@ const Login = (props) => {
             <Col width={70} borderBottom={"1px solid white" } marginBottom={3} marginLeft={-6}></Col>
             </Row>
             <FlexHolder>
-              <Button>
+              <Button onClick={routeToEmailLogIn}>
                 Log In with Email <Image src={emailogo} height={2} width={2} />
               </Button>
             </FlexHolder>

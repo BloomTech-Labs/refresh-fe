@@ -7,6 +7,8 @@ const Weight = props => {
   
   const handleChanges = e => {
     console.log(e);
+    props.setAnswer(e);
+   
   };
 
   const sliderScale = (unit, range) => {
@@ -18,7 +20,7 @@ const Weight = props => {
           <>
             <div className="bigtick"
              data-value={i}>
-              <p onClick={() => handleChanges({i})}>
+              <p onClick={() => handleChanges(i)}>
                 <svg
                   width="3"
                   height="67"
