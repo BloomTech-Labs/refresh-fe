@@ -1,69 +1,80 @@
-import React, {useState} from 'react';
+//IMPORTS
+//react
+import React, { useState } from "react";
+//styled components
 import styled from "styled-components";
-import {axiosWithAuth} from "../../helpers/axiosWithAuth"
+//axios with auth
+import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 
-const EmailLogin = (props) => {
-    const [user, setUser] = useState({
-        email:"",
-        password:""
+const EmailLogin = props => {
+  //hooks
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
+  });
+  const [err, setErr] = useState();
+
+  //route to login
+  const routeToLogin = e => {
+    e.preventDefault();
+    props.history.push("/login");
+  };
+
+  //handle change for state
+  const handleChange = e => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
     });
-    const [err, setErr] = useState();
-    const routeToLogin = e => {
-        e.preventDefault();
-        props.history.push("/login");
-      };
-    const handleChange = e => {
-        setUser({
-            ...user,
-            [e.target.name] : e.target.value
-        });
-    };
+  };
 
-    const handleSubmit = () => {
-        axiosWithAuth()
-        .post("/login", {email:user.email, password: user.password})
-        .then(res => {
-            if(res.data.token)  {
-            localStorage.setItem('token', res.data.token);
-            props.history.push("/dashboard") 
+  //handle submit to backend
+  const handleSubmit = () => {
+    axiosWithAuth()
+      .post("/login", { email: user.email, password: user.password })
+      .then(res => {
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+          props.history.push("/dashboard");
         } else {
-            setErr(res.data)
-            console.log(err);
+          setErr(res.data);
+          console.log(err);
         }
-        })
-        .catch(err => {
-            console.log(err)
-        });
-    };
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
-    return(
-        
-        <OnBoardContainer>
-            <div>
-            <ButtonNoColor onClick={routeToLogin}>&lt;</ButtonNoColor>
-            <Header>Log In.</Header>
-            </div>
-            <Form onSubmit={handleSubmit}>
-                <Input 
-                type="text"
-                name="email"
-                placeholder="Email"
-                onChange={handleChange}
-                value={user.email}
-                />
-                <Input 
-                type="text"
-                name="password"
-                placeholder="Password"
-                onChange={handleChange}
-                value={user.password}
-                />
-                <Button onClick={handleSubmit}>Continue</Button>
-            </Form>
-        </OnBoardContainer>
-    )
-}
+  //render
+  return (
+    <OnBoardContainer>
+      <div>
+        <ButtonNoColor onClick={routeToLogin}>&lt;</ButtonNoColor>
+        <Header>Log In.</Header>
+      </div>
+      <Form onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          value={user.email}
+        />
+        <Input
+          type="text"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+          value={user.password}
+        />
+        <Button onClick={handleSubmit}>Continue</Button>
+      </Form>
+    </OnBoardContainer>
+  );
+};
 
+// STYLED COMPONENTS
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,24 +99,24 @@ const Header = styled.h1`
 `;
 
 const Form = styled.form`
-display:flex;
-flex-direction:column;
-width:85%;
-margin-left:2rem;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin-left: 2rem;
 `;
 
 const Input = styled.input`
-border: 0;
-border-bottom: 1px solid #CCC9FF;
-margin: 25px 0;
-background:transparent;
-color: #CCC9FF;
-outline: none;
-font-size:1.4rem
-::-webkit-input-placeholder{
-    color: #CCC9FF;
-}
+  border: 0;
+  border-bottom: 1px solid #ccc9ff;
+  margin: 25px 0;
+  background: transparent;
+  color: #ccc9ff;
+  outline: none;
+  font-size:1.4rem ::-webkit-input-placeholder {
+    color: #ccc9ff;
+  }
 `;
+
 const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
@@ -128,5 +139,5 @@ const ButtonNoColor = styled.a`
   color: #ccc9ff;
 `;
 
-
+//EXPORT
 export default EmailLogin;

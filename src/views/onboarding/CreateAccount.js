@@ -1,90 +1,122 @@
+//IMPORTS
+//react
 import React from "react";
+//styled components
 import styled from "styled-components";
+//logos
 import fblogo from "../../images/facebook-logo.png";
 import emailogo from "../../images/Onboarding/email.png";
-import cubes from "../../images/two_cubes.png";
-import Row  from '../../components/atoms/row/row';
-import Col from '../../components/atoms/col/col';
-import Text from '../../components/atoms/text/text';
 import googlelogo from "../../images/google-icon.jpg";
+//cube elements
+import cubes from "../../images/two_cubes.png";
+//atoms
+import Row from "../../components/atoms/row/row";
+import Col from "../../components/atoms/col/col";
+import Text from "../../components/atoms/text/text";
 import Image from "../../components/atoms/image/image";
 
-
-const CreateAccount = (props) => {
-    const routeToHome = e => {
-        e.preventDefault();
-        props.history.push("/");
-      };
-    
-      const routeToLogin = e => {
-        e.preventDefault();
-        props.history.push("/login");
-      };
-
-      const routeToEmailSignUp = e => {
-        e.preventDefault();
-        props.history.push("/emailsignup");
-      };
-
-    const colText = "OR";
-      
-    const auth = (e) => {
-        //Open Popup and declare Size
-        window.open(
-          `https://apidevnow.com/${e.target.name}`,
-          "Sign In With Facebook ;)",
-          "width=400,height=500"
-        );
-        window.addEventListener("message", response => {
-          authSuccess(response.data); // e.data hold the message
-        },false);
-      };
-
-      const authSuccess = userObject => {
-        userObject = JSON.parse(userObject)
-        console.log(userObject)
-        localStorage.setItem('token', userObject.token);
-        {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
-      };
-
-      return (
-        <OnBoardWrapper>
-          <OnBoardContainer>
-            <TopHolder>
-              <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
-              <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
-            </TopHolder>
-            <HeaderHolder>
-              <Header>
-                Create <br /> Account.
-              </Header>
-              <Cubes src={cubes} />
-            </HeaderHolder>
-            <FlexHolder>
-              <FBButton name="facebookAuth" onClick={auth}>
-                Sign up with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
-              </FBButton>
-              <GoogleSignIn name="googleAuth" onClick={auth}>
-              Sign up with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
-            </GoogleSignIn>
-            </FlexHolder>
-            <Row width={97}> 
-            <Col width={30} marginLeft={-2}><Text fontSize={16} color={"#CFCDFF"} text={colText} ></Text></Col>
-            <Col width={70} borderBottom={"1px solid white" } marginBottom={3} marginLeft={-6}></Col>
-            </Row>
-            <FlexHolder>
-              <Button onClick={routeToEmailSignUp}>
-                Sign up with Email <Image src={emailogo} height={2} width={2} />
-              </Button>
-            </FlexHolder>
-          </OnBoardContainer>
-        </OnBoardWrapper>
-      );
-
+const CreateAccount = props => {
+  //routes
+  const routeToHome = e => {
+    e.preventDefault();
+    props.history.push("/");
   };
 
+  const routeToLogin = e => {
+    e.preventDefault();
+    props.history.push("/login");
+  };
+
+  const routeToEmailSignUp = e => {
+    e.preventDefault();
+    props.history.push("/emailsignup");
+  };
+
+  //Or for Row variable -atoms styling
+  const colText = "OR";
+
+  //FaceBook or Google auth
+  const auth = e => {
+    //Open Popup and declare Size
+    window.open(
+      `https://apidevnow.com/${e.target.name}`,
+      "Sign In With Facebook ;)",
+      "width=400,height=500"
+    );
+    window.addEventListener(
+      "message",
+      response => {
+        authSuccess(response.data); // e.data hold the message
+      },
+      false
+    );
+  };
+
+  const authSuccess = userObject => {
+    userObject = JSON.parse(userObject);
+    console.log(userObject);
+    localStorage.setItem("token", userObject.token);
+    {
+      userObject.newUser
+        ? props.history.push("/firstlogin")
+        : props.history.push("/dashboard");
+    }
+  };
+
+  //render
+  return (
+    <OnBoardWrapper>
+      <OnBoardContainer>
+        <TopHolder>
+          <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
+          <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
+        </TopHolder>
+        <HeaderHolder>
+          <Header>
+            Create <br /> Account.
+          </Header>
+          <Cubes src={cubes} />
+        </HeaderHolder>
+        <FlexHolder>
+          <FBButton name="facebookAuth" onClick={auth}>
+            Sign up with Facebook{" "}
+            <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
+          </FBButton>
+          <GoogleSignIn name="googleAuth" onClick={auth}>
+            Sign up with Google{" "}
+            <Image
+              src={googlelogo}
+              alt={"google image"}
+              height={2}
+              width={2}
+              borderRadius={100}
+            />
+          </GoogleSignIn>
+        </FlexHolder>
+        <Row width={97}>
+          <Col width={30} marginLeft={-2}>
+            <Text fontSize={16} color={"#CFCDFF"} text={colText}></Text>
+          </Col>
+          <Col
+            width={70}
+            borderBottom={"1px solid white"}
+            marginBottom={3}
+            marginLeft={-6}
+          ></Col>
+        </Row>
+        <FlexHolder>
+          <Button onClick={routeToEmailSignUp}>
+            Sign up with Email <Image src={emailogo} height={2} width={2} />
+          </Button>
+        </FlexHolder>
+      </OnBoardContainer>
+    </OnBoardWrapper>
+  );
+};
+
+// STYLED COMPONENTS
 const OnBoardWrapper = styled.div`
-  display:flex;
+  display: flex;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
@@ -197,11 +229,11 @@ const Cubes = styled.img`
   padding-top: 5rem;
 `;
 
-const Logo = styled.img`
-`;
+const Logo = styled.img``;
 
 const GoogleLogo = styled(Logo)`
-border-radius:50%;
+  border-radius: 50%;
 `;
 
+//EXPORT
 export default CreateAccount;
