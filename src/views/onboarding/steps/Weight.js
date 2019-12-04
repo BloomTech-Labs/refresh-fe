@@ -7,6 +7,7 @@ const Weight = props => {
   
   const handleChanges = e => {
     console.log(e);
+    e.target.style.color = 'black'
     props.setAnswer(e);
    
   };
