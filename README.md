@@ -44,7 +44,7 @@ You can find the deployed project at [Netlify](https://confident-elion-57dd1e.ne
  
  ### [Taylor Watson](https://github.com/taylorwatsonb) 
  
- [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)
+ [<img src="https://ibb.co/QdhGSq3 width = "200" />](https://github.com/)
 
  
 |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |
