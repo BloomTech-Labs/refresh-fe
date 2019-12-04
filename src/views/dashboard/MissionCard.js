@@ -20,6 +20,8 @@ const bgPicker = vertical => {
       return '#FFA25F'
   } else if (vertical === 'food') {
       return '#27AE60'
+  } else if (vertical === 'social') {
+    return '#9B51E0'
   } else {
       return '#FFF'
   }
@@ -71,7 +73,7 @@ const MissionCard = props => {
         <Gauge>
           {iconPicker(props.vertical)}
         </Gauge>
-        <p>{props.description}</p>
+        <p>{(props.goal - props.actual)} {props.description}</p>
         <span>{props.points} Points</span>
       </Container>
     </>

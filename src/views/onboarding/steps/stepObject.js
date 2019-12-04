@@ -1,125 +1,5 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-<<<<<<< HEAD
-// import ReactSlider from "react-slider";
-// import WHDial from "react-horizontal-scrolling-menu";
-import WeightHeight from "./WeightHeight";
-
-export const Step1 = profile => {
-  console.log(profile);
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-              {/* <WHDial 
-              /> */}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-};
-
-export const Step2 = profile => {
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-};
-
-export const Step3 = profile => {
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <Question>{i.question}</Question>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-      
-            <FlexHolder>
-                <Option>Never</Option>
-                <Option>Sometimes</Option>
-                <Option>Always</Option>
-            </FlexHolder>
-           
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-};
-
-export const Step4 = profile => {
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-              {/* <StyledSlider
-                defaultValue={[3]}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-              /> */}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-=======
 import ReactSlider from "react-slider";
 import WeightHeight from "./WeightHeight";
 
@@ -130,7 +10,6 @@ const StepObject = ({profile, question}) => {
   const [qa, setQa] = useState();
   const handleChanges = value => {
     setQa(value)    
->>>>>>> 4f2560d9d30c5ac8ccda307d52f38cbf330bf949
 };
 const sliderValue =  3;
   return (
@@ -139,108 +18,6 @@ const sliderValue =  3;
               {profile.currentStep < 4 &&
               <Question>{question.question}</Question>
               }
-<<<<<<< HEAD
-            {/* <StyledSlider
-                defaultValue={[3]}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-              /> */}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-};
-
-export const Step6 = profile => {
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-            {/* <StyledSlider
-                defaultValue={[3]}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-              /> */}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-};
-
-export const Step7 = profile => {
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-                {/* <StyledSlider
-                defaultValue={[3]}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-              /> */}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-};
-
-export const Step8 = profile => {
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-            {/* <StyledSlider
-                defaultValue={[3]}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-              /> */}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-=======
               {profile.currentStep >=4 &&
               <LongQuestion>{question.question}</LongQuestion>
               }
@@ -264,7 +41,6 @@ export const Step8 = profile => {
               />
 )}
               <Button onClick={profile.handleSubmit} data-answer={qa} data-question={question.id}>Continue</Button>
->>>>>>> 4f2560d9d30c5ac8ccda307d52f38cbf330bf949
               {profile.currentStep <= 2 && (
                 <ButtonNoColor onClick={profile.handleSubmit} value={"blurb"}>
                   I don't feel comfortable answering
@@ -275,69 +51,6 @@ export const Step8 = profile => {
     );
 };
 
-<<<<<<< HEAD
-export const Step9 = profile => {
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-                {/* <StyledSlider
-                defaultValue={[3]}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-              /> */}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 2 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-};
-
-export const Step10 = profile => {
-  return (
-    profile &&
-    profile.form.map(
-      i =>
-        i.currentStep === profile.currentStep && (
-          <OnBoardContainer key={i.currentStep}>
-            <form onSubmit={profile.handleSubmit}>
-              <LongQuestion>{i.question}</LongQuestion>
-              {profile.currentStep <= 2 &&
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-              }
-            {/* <StyledSlider
-                defaultValue={[3]}
-                max={7}
-                renderTrack={Track}
-                renderThumb={Thumb}
-              /> */}
-              <Button onClick={profile.handleSubmit}>Continue</Button>
-              {profile.currentStep <= 3 && (
-                <ButtonNoColor onClick={profile.handleSubmit}>
-                  I don't feel comfortable answering
-                </ButtonNoColor>
-              )}
-            </form>
-          </OnBoardContainer>
-        )
-    )
-  );
-};
-=======
 // export const SlideNugget = ({start, max, profile}) => { 
 //   return (
 //   <StyledSlider
@@ -348,7 +61,6 @@ export const Step10 = profile => {
 //   onAfterChange={handleChanges}
 // />)}
 
->>>>>>> 4f2560d9d30c5ac8ccda307d52f38cbf330bf949
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
