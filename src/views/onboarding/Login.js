@@ -2,7 +2,7 @@
 // react
 import React, { useState, useContext } from "react";
 // contexts
-import { UserContext } from '../../contexts/UserContext';
+import { UserContext } from "../../contexts/UserContext";
 // styled components
 import styled from "styled-components";
 // images
@@ -11,101 +11,125 @@ import emailogo from "../../images/Onboarding/email.png";
 import cubes from "../../images/two_cubes.png";
 import googlelogo from "../../images/google-icon.jpg";
 // components
-import Row  from '../../components/atoms/row/row';
-import Col from '../../components/atoms/col/col';
-import Text from '../../components/atoms/text/text';
+import Row from "../../components/atoms/row/row";
+import Col from "../../components/atoms/col/col";
+import Text from "../../components/atoms/text/text";
 import Image from "../../components/atoms/image/image";
 
+
 // COMPONENT
-const Login = (props) => {
-    // contexts
-    const activeUser = useContext(UserContext);
+const Login = props => {
+  // contexts
+  const activeUser = useContext(UserContext);
 
-    // state hooks
-    // todo
-
-    // useEffect
-    // todo
-  
-    const routeToHome = e => {
-        e.preventDefault();
-        props.history.push("/");
-      };
-    
-      const routeToSignUp = e => {
-        e.preventDefault();
-        props.history.push("/signup");
-      };
-
-      const colText = "OR";
-      
-    const auth = (e) => {
-        //Open Popup and declare Size
-        window.open(
-          `https://apidevnow.com/${e.target.name}`,
-          "Sign In With Facebook ;)",
-          "width=400,height=500"
-        );
-        window.addEventListener("message", response => {
-          authSuccess(response.data); // e.data hold the message
-        },false);
-      };
-
-      const authSuccess = userObject => {
-        userObject = JSON.parse(userObject)
-        console.log(userObject)
-        localStorage.setItem('token', userObject.token);
-        activeUser.setUser({
-          ...activeUser,
-          user_id: userObject.user_id || null,
-          display_name: userObject.display_name || '',
-          fname: userObject.fname || '',
-          lname: userObject.lname || '',
-          cohort: userObject.cohort || '',
-          section_lead: userObject.section_lead || '',
-          avatar: userObject.avatar || '',
-          bio: userObject.bio || '',
-          new_user: userObject.newUser ? true : false
-        })
-        {userObject.newUser ? props.history.push('/firstlogin') : props.history.push('/dashboard'); }
-      };
-
-      return (
-        <OnBoardWrapper>
-          <OnBoardContainer>
-            <TopHolder>
-              <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
-              <ButtonNoColor onClick={routeToSignUp}>Sign Up</ButtonNoColor>
-            </TopHolder>
-            <HeaderHolder>
-              <Header>
-                Welcome <br /> Back.
-              </Header>
-              <Cubes src={cubes} />
-            </HeaderHolder>
-            <FlexHolder>
-              <FBButton name="facebookAuth" onClick={auth}>
-                Log In with Facebook <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
-              </FBButton>
-              <GoogleSignIn name="googleAuth" onClick={auth}>
-              Log In with Google <Image src={googlelogo} alt={"google image"} height={2} width={2} borderRadius={100}  />
-            </GoogleSignIn>
-            </FlexHolder>
-            <Row width={97}> 
-            <Col width={30} marginLeft={-2}><Text fontSize={16} color={"#CFCDFF"} text={colText} ></Text></Col>
-            <Col width={70} borderBottom={"1px solid white" } marginBottom={3} marginLeft={-6}></Col>
-            </Row>
-            <FlexHolder>
-              <Button>
-                Log In with Email <Image src={emailogo} height={2} width={2} />
-              </Button>
-            </FlexHolder>
-          </OnBoardContainer>
-        </OnBoardWrapper>
-      );
-
+  //routes
+  const routeToHome = e => {
+    e.preventDefault();
+    props.history.push("/");
   };
 
+  const routeToSignUp = e => {
+    e.preventDefault();
+    props.history.push("/signup");
+  };
+
+  const routeToEmailLogIn = e => {
+    e.preventDefault();
+    props.history.push("/emaillogin");
+  };
+
+  //Or for Row variable -atoms styling
+  const colText = "OR";
+
+  //FaceBook or Google auth
+  const auth = e => {
+    //Open Popup and declare Size
+    window.open(
+      `https://apidevnow.com/${e.target.name}`,
+      "Sign In With Facebook ;)",
+      "width=400,height=500"
+    );
+    window.addEventListener(
+      "message",
+      response => {
+        authSuccess(response.data); // e.data hold the message
+      },
+      false
+    );
+  };
+
+  const authSuccess = userObject => {
+    userObject = JSON.parse(userObject);
+    console.log(userObject);
+    localStorage.setItem("token", userObject.token);
+    activeUser.setUser({
+      ...activeUser,
+      user_id: userObject.user_id || null,
+      display_name: userObject.display_name || "",
+      fname: userObject.fname || "",
+      lname: userObject.lname || "",
+      cohort: userObject.cohort || "",
+      section_lead: userObject.section_lead || "",
+      avatar: userObject.avatar || "",
+      bio: userObject.bio || "",
+      new_user: userObject.newUser ? true : false
+    });
+    {
+      userObject.newUser
+        ? props.history.push("/firstlogin")
+        : props.history.push("/dashboard");
+    }
+  };
+
+  return (
+    <OnBoardWrapper>
+      <OnBoardContainer>
+        <TopHolder>
+          <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
+          <ButtonNoColor onClick={routeToSignUp}>Sign Up</ButtonNoColor>
+        </TopHolder>
+        <HeaderHolder>
+          <Header>
+            Welcome <br /> Back.
+          </Header>
+          <Cubes src={cubes} />
+        </HeaderHolder>
+        <FlexHolder>
+          <FBButton name="facebookAuth" onClick={auth}>
+            Log In with Facebook{" "}
+            <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
+          </FBButton>
+          <GoogleSignIn name="googleAuth" onClick={auth}>
+            Log In with Google{" "}
+            <Image
+              src={googlelogo}
+              alt={"google image"}
+              height={2}
+              width={2}
+              borderRadius={100}
+            />
+          </GoogleSignIn>
+        </FlexHolder>
+        <Row width={97}>
+          <Col width={30} marginLeft={-2}>
+            <Text fontSize={16} color={"#CFCDFF"} text={colText}></Text>
+          </Col>
+          <Col
+            width={70}
+            borderBottom={"1px solid white"}
+            marginBottom={3}
+            marginLeft={-6}
+          ></Col>
+        </Row>
+        <FlexHolder>
+          <Button onClick={routeToEmailLogIn}>
+            Log In with Email <Image src={emailogo} height={2} width={2} />
+          </Button>
+        </FlexHolder>
+      </OnBoardContainer>
+    </OnBoardWrapper>
+  );
+};
 
 // STYLED COMPONENTS
 const OnBoardWrapper = styled.div`
@@ -140,14 +164,14 @@ const HeaderHolder = styled.div`
   justify-content: space-between;
   align-items: center;
 
-    h1 {
-      margin-left: auto;
-    }
-  
-    img {
-      width: 30%;
-      height: 30%;
-    }
+  h1 {
+    margin-left: auto;
+  }
+
+  img {
+    width: 30%;
+    height: 30%;
+  }
 `;
 
 const OnboardTxt = styled.p`
@@ -192,8 +216,8 @@ const Button = styled.a`
 `;
 
 const LineTime = styled.hr`
-width:100%;
-`
+  width: 100%;
+`;
 
 const FBButton = styled.a`
 display: flex;
@@ -239,11 +263,10 @@ const Cubes = styled.img`
   padding-top: 5rem;
 `;
 
-const Logo = styled.img`
-`;
+const Logo = styled.img``;
 
 const GoogleLogo = styled(Logo)`
-border-radius:50%;
+  border-radius: 50%;
 `;
 
 // EXPORT

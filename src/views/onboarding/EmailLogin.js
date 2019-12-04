@@ -1,28 +1,26 @@
 //IMPORTS
 //react
 import React, { useState } from "react";
-//styled-components
+//styled components
 import styled from "styled-components";
 //axios with auth
 import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 
-const EmailSignUp = props => {
+const EmailLogin = props => {
   //hooks
   const [user, setUser] = useState({
-    name: "",
     email: "",
-    password: "",
-    confirmPassword: ""
+    password: ""
   });
   const [err, setErr] = useState();
 
-  //route to sign up page
-  const routeToSignUp = e => {
+  //route to login
+  const routeToLogin = e => {
     e.preventDefault();
-    props.history.push("/signup");
+    props.history.push("/login");
   };
 
-  //handle change for user info
+  //handle change for state
   const handleChange = e => {
     setUser({
       ...user,
@@ -30,43 +28,32 @@ const EmailSignUp = props => {
     });
   };
 
-  //handle submit of user info to backend
-  const handleSubmit = e => {
-    if (user.password !== user.confirmPassword) {
-      alert("Please make sure to enter the same password for confirm password");
-    } else {
-      axiosWithAuth()
-        .post("/register", { email: user.email, password: user.password })
-        .then(res => {
-          if (res.data.token) {
-            localStorage.setItem("token", res.data.token);
-            props.history.push("/firstlogin");
-          } else {
-            setErr(res.data);
-            console.log(err);
-          }
-        })
-        .catch(err => {
+  //handle submit to backend
+  const handleSubmit = () => {
+    axiosWithAuth()
+      .post("/login", { email: user.email, password: user.password })
+      .then(res => {
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+          props.history.push("/dashboard");
+        } else {
+          setErr(res.data);
           console.log(err);
-        });
-    }
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   //render
   return (
     <OnBoardContainer>
       <div>
-        <ButtonNoColor onClick={routeToSignUp}>&lt;</ButtonNoColor>
-        <Header>Sign up.</Header>
+        <ButtonNoColor onClick={routeToLogin}>&lt;</ButtonNoColor>
+        <Header>Log In.</Header>
       </div>
       <Form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-          value={user.name}
-        />
         <Input
           type="text"
           name="email"
@@ -80,13 +67,6 @@ const EmailSignUp = props => {
           placeholder="Password"
           onChange={handleChange}
           value={user.password}
-        />
-        <Input
-          type="text"
-          name="confirmPassword"
-          placeholder="Confirm password"
-          onChange={handleChange}
-          value={user.confirmPassword}
         />
         <Button onClick={handleSubmit}>Continue</Button>
       </Form>
@@ -136,6 +116,7 @@ const Input = styled.input`
     color: #ccc9ff;
   }
 `;
+
 const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
@@ -159,4 +140,4 @@ const ButtonNoColor = styled.a`
 `;
 
 //EXPORT
-export default EmailSignUp;
+export default EmailLogin;

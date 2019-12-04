@@ -5,19 +5,25 @@ import React from "react";
 import styled from "styled-components";
 // images
 import onboardlogo from "../../images/refresh-yo-guy.svg";
+
 const Landing = props => {
+  //routes
   const routeToSignUp = e => {
     e.preventDefault();
     props.history.push("/signup");
   };
+
   const routeToLogin = e => {
     e.preventDefault();
     props.history.push("/login");
   };
+
   // const routeToComponentTesting = e => {
   //   e.preventDefault();
   //   props.history.push('/atoms');
   // };
+
+  //render
   return (
     <OnBoardWrapper>
       <OnBoardContainer>
@@ -62,6 +68,7 @@ const OnBoardContainer = styled.div`
   background-color: #3a3699;
   color: #7f7cca;
 `;
+
 const Refresh = styled.h1`
   font-weight: bold;
   font-size: 5rem;
@@ -76,6 +83,7 @@ const OnboardTxt = styled.p`
   letter-spacing: 0.035em;
   color: #ccc9ff;
 `;
+
 const Button = styled.a`
   display: inline-block;
   border-radius: 0.5rem;
@@ -88,6 +96,7 @@ const Button = styled.a`
   font-size:1.6rem;
 }
 `;
+
 const ButtonNoColor = styled.a`
   margin: auto;
   font-size: 1.6rem;
@@ -110,4 +119,5 @@ const Logo = styled.img`
   margin: 5rem auto 0;
 `;
 
+//EXPORT
 export default Landing;

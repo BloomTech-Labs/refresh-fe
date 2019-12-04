@@ -1,19 +1,30 @@
-// { answer: value, question_id: questions[currentStep].id }
+// IMPORTS
+//react
 import React, { useState, useEffect, useContext } from "react";
+//context
+import { UserContext } from "../../../contexts/UserContext";
+//axios with auth
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+//styled components
 import styled from "styled-components";
+//react slider library
 import ReactSlider from "react-slider";
+//weight and height dials
 import Weight from "./Weight";
 import Height from "./Height";
-import { UserContext } from "../../../contexts/UserContext";
-import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+//loading spinner
 import LoadingSpinner from "../../../components/atoms/spinner/spinner";
+
 const StepForm = props => {
+  //context
   const user = useContext(UserContext);
+
   //hooks
   const [questions, setQuestions] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [answer, setAnswer] = useState();
   console.log(user);
+
   //Get Questions on Mount
   useEffect(() => {
     axiosWithAuth()
@@ -23,12 +34,14 @@ const StepForm = props => {
       })
       .catch(err => console.log(err));
   }, []);
+
   //set values for slider
   const handleChanges = value => {
     console.log(value);
     setAnswer(value);
   };
-  //handle submit
+
+  //handle submit to backend
   const handleSubmit = e => {
     console.log(e.target);
     e.preventDefault();
@@ -47,12 +60,14 @@ const StepForm = props => {
       setCurrentStep(currentStep + 1);
     }
   };
+
   //axios post
   const postAnswer = answer => {
     return axiosWithAuth()
       .post("/answers", answer)
       .then(res => console.log(res));
   };
+
   //slider thumb and track
   const Thumb = (props, state) => (
     <StyledThumb {...props}>{state.valueNow}</StyledThumb>
@@ -60,12 +75,14 @@ const StepForm = props => {
   const Track = (props, state) => {
     return <StyledTrack {...props} index={state.index} value={7} />;
   };
-  //StepDot helper function
+
+  //StepDot helper function for styled component
   const StepDotCount = currentStep => {
     return `&:nth-of-type(${currentStep + 1}){
       color: #E05CB3;
       `;
   };
+
   //render
   return questions.length ? (
     // <div>
@@ -113,7 +130,7 @@ const StepForm = props => {
                 />
               </svg>
             </TopArrow>
-            <Weight  />
+            <Weight setAnswer={setAnswer} />
           </>
         )}
         {currentStep === 1 && (
@@ -133,7 +150,7 @@ const StepForm = props => {
                 />
               </svg>
             </TopArrow>
-            <Height />
+            <Height setAnswer={setAnswer} />
           </>
         )}
         {/* WILL GIVE OVERWHELMED OPTIONS, Question 3*/}
@@ -157,7 +174,7 @@ const StepForm = props => {
         <Button onClick={handleSubmit} data-answer={answer}>
           Continue
         </Button>
-        {/* Bypass weight and height, Questions 1 and 2 */}
+        {/* Bypass weight and height answering, Questions 1 and 2 */}
         {currentStep <= 1 && (
           <ButtonNoColor onClick={handleSubmit} data-answer={answer}>
             I don't feel comfortable answering
@@ -171,14 +188,18 @@ const StepForm = props => {
     </OnBoardContainer>
   );
 };
+
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
+//slider style for react slider
 const StyledSlider = styled(ReactSlider)`
   width: 100%;
   height: 0.2rem;
   margin: 8rem 0 13rem;
 `;
+
+//thumb style for react slider
 const StyledThumb = styled.div`
   height: 2.5rem;
   line-height: 25px;
@@ -190,12 +211,15 @@ const StyledThumb = styled.div`
   cursor: grab;
   margin-top: -1rem;
 `;
+
+//track style for react slider
 const StyledTrack = styled.div`
   top: 0;
   bottom: 0;
   background: ${props => (props.index === 1 ? "#ddd" : "#E05CB3")};
   border-radius: 2rem;
 `;
+
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -210,6 +234,8 @@ const OnBoardContainer = styled.div`
   max-height: 100vh;
   padding: 2.5rem 4rem;
 `;
+
+//top arrow for dial components
 const TopArrow = styled.div`
   position: absolute;
   left: 0;
@@ -218,6 +244,7 @@ const TopArrow = styled.div`
   width: 0;
   height: 0;
 `;
+
 const Question = styled.h1`
   font-weight: 600;
   font-size: 3rem;
@@ -226,6 +253,7 @@ const Question = styled.h1`
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
+
 const LongQuestion = styled.h1`
   font-weight: 600;
   font-size: 2.5rem;
@@ -234,6 +262,7 @@ const LongQuestion = styled.h1`
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
+
 const OnboardTxt = styled.p`
 font-size: 1.6rem;
 line-height: 2.6rem;
@@ -242,6 +271,7 @@ text-align:center
 color: #A7A4E6;
 margin: 0 auto;
 `;
+
 const Option = styled.a`
   font-size: 1.6rem;
   line-height: 26px;
@@ -253,6 +283,7 @@ const Option = styled.a`
     border-radius: 0.3rem;
   }
 `;
+
 const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
@@ -266,12 +297,14 @@ const Button = styled.a`
   font-size: 1.6rem;
   letter-spacing: 0.1rem;
 `;
+
 const ButtonNoColor = styled.a`
   font-weight: 500;
   font-size: 1.6rem;
   letter-spacing: 2px;
   color: #a7a4e6;
 `;
+
 const FlexHolder = styled.div`
   display: flex;
   justify-content: space-between;
@@ -280,6 +313,8 @@ const FlexHolder = styled.div`
   width: 100%;
   padding: 2.5rem 0 9rem;
 `;
+
+//current step marker
 const StepDots = styled.div`
   display: flex;
   font-size: 8rem;
