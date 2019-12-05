@@ -1,23 +1,18 @@
 // IMPORTS
 // react
-import React, { useState, useEffect } from "react";
-import { useContext } from "react";
-import { UserContext } from "../../../contexts/UserContext";
-import styled from "styled-components";
-import InfoIntro from "./InfoIntro"
-import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+import React from "react";
+//intro component
+import InfoIntro from "./InfoIntro";
 
-// components
-import Steps from "./Steps";
+//Start of Onboarding process after sign up, renders the intro to steps
 
 const StepStart = props => {
-
   return (
     <>
-        <InfoIntro {...props} /> 
-        {/* <Steps props={props} /> */}
+      <InfoIntro {...props} />
     </>
   );
 };
 
+//EXPORTS
 export default StepStart;
