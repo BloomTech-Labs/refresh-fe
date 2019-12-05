@@ -32,11 +32,11 @@ You can find the deployed project at [Netlify](https://confident-elion-57dd1e.ne
 
 ## Project Overview
 
-1️⃣ [Trello Board](https://trello.com/b/Zxyl0mTF/refresh)
+[Trello Board](https://trello.com/b/Zxyl0mTF/refresh)
 
-1️⃣ [Product Canvas](https://www.notion.so/Refresh-3bda0a7ae16345ee8276e766c619ee75)
+[Product Canvas](https://www.notion.so/Refresh-3bda0a7ae16345ee8276e766c619ee75)
 
-1️⃣ [UX Design files](https://www.figma.com/file/meuu04MKZdKVQFb1zEGSkr/Refresh)
+[UX Design files](https://www.figma.com/file/meuu04MKZdKVQFb1zEGSkr/Refresh)
 
 Refresh is a healthy habit app designed specifically for Lambda School students and staff. We took a poll of 50+ students and discovered the overwhelming majority feels they don't have time for anything beyond their studies.
 
