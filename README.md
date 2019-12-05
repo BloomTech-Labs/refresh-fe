@@ -4,85 +4,18 @@ You can find the deployed project at [Netlify](https://confident-elion-57dd1e.ne
 
 ## Contributors
 
-### [Dayton Steinmeyer](https://github.com/DaytonS3)   
+|                                                      [Dayton Steinmeyer](https://github.com/DaytonS3)                                       |                                                       [Daniel Wallen](https://github.com/WebWallen)                                           |                                                      [Roman Jordan](https://github.com/Roman-Jordan)                                        |                                                       [Melissa Murphy](https://github.com/melissa-murphy)                                     |                                                      [Josh Cooter](https://github.com/thejoshcooter)                                        |
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://i.ibb.co/743JbBD/dayton.jpg" width = "200" />](https://github.com/DaytonS3)                                              | [<img src="https://i.ibb.co/kJzVjPf/daniel.jpg" width = "200" />](https://github.com/WebWallen)                                               | [<img src="https://i.ibb.co/7tRC8jQ/roman.png" width = "200" />](https://github.com/Roman-Jordan)                                           | [<img src="https://i.ibb.co/1ZD3Q73/melissa.jpg" width = "200" />](https://github.com/melissa-murphy)                                         | [<img src="https://i.ibb.co/vwwrtm7/josh.jpg" width = "200" />](https://github.com/thejoshcooter)                                           |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/DaytonS3)  [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/daytonsteinmeyer)                                                                      | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/WebWallen)  [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/WebWallen)  [<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="15">](https://twitter.com/WebWallen)  [<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg" width="15">](https://facebook.com/WebWallen)  [<img src="https://i.ibb.co/DV14pSW/iconfinder-84-Dev-logo-logos-4373243.png" alt="iconfinder-84-Dev-logo-logos-4373243" width="15">](https://dev.to/WebWallen)                             |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Roman-Jordan)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/roman-jordan-102529126/)                            |              [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/melissa-murphy)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/melissamurphy/)   [<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="15">](https://twitter.com/thinkModes)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/thejoshcooter)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/joshcooter/)                     |      
+| [Bio](https://refresh-app.netlify.com/about.html/#dayton)                                                                                   | [Bio](https://refresh-app.netlify.com/about.html/#daniel)                                                                                     | [Bio](https://refresh-app.netlify.com/about.html/#roman)                                                                                    | [Bio](https://refresh-app.netlify.com/about.html/#melissa)                                                                                    | [Bio](https://refresh-app.netlify.com/about.html/#josh)                                                                                     |
 
-[<img src="https://i.ibb.co/743JbBD/dayton.jpg" display = "inline" width = "250" />](https://github.com/DaytonS3)
 
-Dayton's leadership and persistence paved the way to a successful launch. As a leader, he helped team members focus on their strengths and negotiate in a positive direction. He is in the midst of his job hunt and can't wait to begin a fruitful new career in web development.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/DaytonS3)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/daytonsteinmeyer/)   [_<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="30">_](https://twitter.com/D_a_y_t_o_n)
-
- ### [Daniel Wallen](https://github.com/WebWallen)  
- 
-[<img src="https://i.ibb.co/kJzVjPf/daniel.jpg" width = "250" />](https://github.com/WebWallen)
-
-As a former fitness professional, Daniel is super passionate about the Refresh app. He also utilized his copywriting skills to make the landing page script stand out. Daniel has published more than 200 articles online and walked 100 shelter dogs (many of whom found homes).
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/WebWallen)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/WebWallen/)   [_<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="30">_](https://twitter.com/WebWallen)   [_<img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg" width="30">_](https://facebook.com/WebWallen)   [_<img src="https://i.ibb.co/DV14pSW/iconfinder-84-Dev-logo-logos-4373243.png" alt="iconfinder-84-Dev-logo-logos-4373243" width="30">_](https://dev.to/WebWallen)   
- 
- ### [Roman Jordan](https://github.com/Roman-Jordan) 
- 
-[<img src="https://i.ibb.co/7tRC8jQ/roman.png" width = "250" />](https://github.com/Roman-Jordan)
-
-Roman is as "off-the-grid" as you can realistically get in this day-and-age. Where does he live? Nobody knows. Here at Refresh, we're constantly thankful Roman lacks the capacity to commit evil and nefarious acts. Trust me when I say he's smart enough to hack all your apps, no matter how secure you think they are.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/Roman-Jordan)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/roman-jordan-102529126/)
- 
- ### [Melissa Murphy](https://github.com/melissa-murphy) 
- 
- [<img src="https://i.ibb.co/1ZD3Q73/melissa.jpg" width = "250" />](https://github.com/melissa-murphy)
- 
-Melissa has tons of leadership experience. She managed 25 team leaders during her time at Lambda School. She found great fulfillment in helping students find the support they need so they can maximize their full potential. As a freelancer, she has spent seven years designing and developing websites while providing marketing services as well.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/melissa-murphy)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/melissamurphy/)   [_<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="30">_](https://twitter.com/thinkModes)
- 
- ### [Josh Cooter](https://github.com/thejoshcooter)  
- 
- [<img src="https://i.ibb.co/vwwrtm7/josh.jpg" width = "250" />](https://github.com/thejoshcooter)
- 
-Josh Cooter has served as an Account Executive in the mortgage industry since 2015. A Texas native, Josh's impact on the quality of the Refresh app has been as large as his homestate. His dedication focused team efforts with the power of extensive Notion documents and a well-organized Trello board.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/thejoshcooter)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/joshcooter/)
- 
- ### [Jeremy Brady](https://github.com/jeremybrady702) 
- 
- [<img src="https://i.ibb.co/Hz1Bwq5/jeremy.png" width = "250" />](https://github.com/jeremybrady702)
- 
-Jeremy Brady was born to program. He's been interested in gaming and computers for his entire life. A self-taught programmer for five years, Jeremy came to Lambda with hopes to provide a better future for his family. After working as a trucker and chauffer for several years, he's excited to begin a career that challenges him mentally instead of physically.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/jeremybrady702)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/jeremybrady702/)   [_<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="30">_](https://twitter.com/jeremybrady702)
- 
- ### [Christina Delligatta](https://github.com/TinaDelli) 
- 
- [<img src="https://i.ibb.co/6bBS4Kx/christina.jpg" width = "250" />](https://github.com/TinaDelli)
- 
-Christina provided many creative ideas that assisted the gamified aspect of this app. In fact, she is in the process of learning Unity so she can develop games in addition to websites. She is the proud mother of two minions who often joined our team during Zoom meetings.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/TinaDelli)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/tinadelli/)   [_<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="30">_](https://twitter.com/Tinadevelops)
- 
- ### [Gina Christians](https://github.com/Chrisgins) 
- 
- [<img src="https://i.ibb.co/ym2MkPv/gina.jpg" width = "250" />](https://github.com/Chrisgins)
- 
-Gina is the founder and product owner of Engine 228 Games in Denver, CO. She has worked for, and with, companies such as CableLabs, Echostar, Time-Warner Cable, Charter Communications, and Rovi (now Tivo). At the present, she is a Senior Software QA Engineeer who has proudly mentored many junior engineers and served as a Team Lead at Lambda School.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/Chrisgins)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/gina-christians228/)   [_<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="30">_](https://twitter.com/christians_gina)
- 
- ### [Michael Baynon](https://github.com/MichaelBaynon) 
- 
- [<img src="https://i.ibb.co/ZcYmy1r/michael.png" width = "250" />](https://github.com/MichaelBaynon)
- 
-Michael always thought something exactly like the Refresh app should exist, so he loved the process of building it. He hails from Florida, to the envy of the rest of us who have to suffer an actual winter. His favorite thing about Lambda School so far? Building Worthymon: an app that determines whether or not a Pokemon is worth catching.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/MichaelBaynon)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/michael-baynon-64592918a/)
- 
- ### [Taylor Watson](https://github.com/taylorwatsonb) 
- 
- [<img src="https://i.ibb.co/8cGVvRL/taylor.png" width="250" />](https://github.com/taylorwatsonb)
- 
-Taylor Watson is an artist, UX designer, and software engineer from New York. Despite ending up with double the work she expected, she's flawlessly executed every design and wireframe. She worked closely with developers to make sure her vision could be brought to life in a fully functional healthy habit app.
-
-[<img src="https://github.com/favicon.ico" width="30"> ](https://github.com/taylorwatsonb)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="30"> ](https://www.linkedin.com/in/taylornwatson/)
+|                                                      [Christina Delligatta](https://github.com/TinaDelli)                                   |                                                       [Jeremy Brady](https://github.com/jeremybrady702)                                       |                                                      [Gina Christians](https://github.com/Chrisgins)                                        |                                                       [Michael Baynon](https://github.com/MichaelBaynon)                                      |                                                      [Taylor Watson](https://github.com/taylorwatsonb)                                      |
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://i.ibb.co/6bBS4Kx/christina.jpg" width = "200" />](https://github.com/TinaDelli)                                          | [<img src="https://i.ibb.co/Hz1Bwq5/jeremy.png" width = "200" />](https://github.com/jeremybrady702)                                          | [<img src="https://i.ibb.co/ym2MkPv/gina.jpg" width = "200" />](https://github.com/Chrisgins)                                               | [<img src="https://i.ibb.co/ZcYmy1r/michael.png" width = "200" />](https://github.com/MichaelBaynon)                                          | [<img src="https://i.ibb.co/8cGVvRL/taylor.png" width = "200" />](https://github.com/taylorwatsonb)                                         |
+| [<img src="https://github.com/favicon.ico" width="15">](https://github.com/TinaDelli)   [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">](https://www.linkedin.com/in/tinadelli/)   [<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="15">](https://twitter.com/Tinadevelops)                                |                            [<img src="https://github.com/favicon.ico" width="15">](https://github.com/jeremybrady702)   [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">](https://www.linkedin.com/in/jeremybrady702/)   [<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="15">](https://twitter.com/jeremybrady702)                             |                          [<img src="https://github.com/favicon.ico" width="15">](https://github.com/Chrisgins)   [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">](https://www.linkedin.com/in/gina-christians228/)   [<img src="https://i.ibb.co/8dpgTDM/twitter-logo-clipart-free-20.jpg" width="15">](https://twitter.com/christians_gina)                           |                          [<img src="https://github.com/favicon.ico" width="15">](https://github.com/MichaelBaynon)   [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">](https://www.linkedin.com/in/michael-baynon-64592918a/)                           |                           [<img src="https://github.com/favicon.ico" width="15">](https://github.com/taylorwatsonb)   [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15">](https://www.linkedin.com/in/taylornwatson/)                            |
+| [Bio](https://refresh-app.netlify.com/about.html/#christina)                                                                                | [Bio](https://refresh-app.netlify.com/about.html/#jeremy)                                                                                     | [Bio](https://refresh-app.netlify.com/about.html/#gina)                                                                                     | [Bio](https://refresh-app.netlify.com/about.html/#michael)                                                                                    | [Bio](https://refresh-app.netlify.com/about.html/#taylor)                |
 
 <br>
 <br>
