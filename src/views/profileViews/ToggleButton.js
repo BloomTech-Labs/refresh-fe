@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+//this is the hamburger icon toggle button
 const HamburgerToggleButton =(props)=>{
     return(
         <div>

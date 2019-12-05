@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-
+//this component is the container for the toggle button features
 const Toolbar =(props)=>{
     return(
         <div>

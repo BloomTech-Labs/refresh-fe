@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+//This component will contain the body of the slide out menu
 const SlideMenu=(props)=>{
     return (
         <div>
