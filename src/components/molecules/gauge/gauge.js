@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
 // import axios from "axios";
 
@@ -18,53 +17,69 @@ import water6 from "../../../images/gauge/waterGauge/water6.svg";
 import water7 from "../../../images/gauge/waterGauge/water7.svg";
 import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
 
-// Image object for passed props
-let waterGaugeImage = [
-  { id: 0, src: water0, altText: "0 glasses of water", currentWater: 0 },
-  { id: 1, src: water1, altText: "1 glasses of water", currentWater: 1 },
-  { id: 2, src: water2, altText: "2 glasses of water", currentWater: 2 },
-  { id: 3, src: water3, altText: "3 glasses of water", currentWater: 3 },
-  { id: 4, src: water4, altText: "4 glasses of water", currentWater: 4 },
-  { id: 5, src: water5, altText: "5 glasses of water", currentWater: 5 },
-  { id: 6, src: water6, altText: "6 glasses of water", currentWater: 6 },
-  { id: 7, src: water7, altText: "7 glasses of water", currentWater: 7 },
-  { id: 8, src: waterComplete, altText: "8 glasses of water", currentWater: 8 }
-];
-
 //const context = createContext(null);
 
 const Gauge = ({ children, ...props }) => {
-  // const [user, setUser] = useState({
-  //   hydrationStats: 4
-  // });
   const [gaugeData, setGaugeData] = useState(null);
 
   // useEffect axios call for user stats
   useEffect(() => {
-    fetch("/api/whoDatUser")
+    fetch("https://apidevnow.com/usermissions")
       .then(response => response.json())
       .then(data => {
         setGaugeData({
-          waterStats: data.waterStats
+          // waterStats: data.user_missions.missions_in_progress.[whatever is water].point_current
         });
       });
   }, []);
 
-    const gaugeFill = waterStats => {
-  //  !waterStats ? console.log(`No userStats detected`) : waterStats === 0 ? return <Icon svg={waterGaugeImage.zero.src} alt={waterGaugeImage.zero.altText} /> : null
+  const gaugeFill = waterStats => {
+    let currentWater = waterStats;
+    switch (currentWater) {
+      case currentWater === 1:
+        return (
+          <Icon src={water1} altText="0 glasses of water" currentWater="0" />
+        );
 
-  }
+      case currentWater === 2:
+        return (
+          <Icon src={water2} altText="0 glasses of water" currentWater="0" />
+        );
+      case currentWater === 3:
+        return (
+          <Icon src={water3} altText="0 glasses of water" currentWater="0" />
+        );
+      case currentWater === 4:
+        return (
+          <Icon src={water4} altText="0 glasses of water" currentWater="0" />
+        );
+      case currentWater === 5:
+        return (
+          <Icon src={water5} altText="0 glasses of water" currentWater="0" />
+        );
+      case currentWater === 6:
+        return (
+          <Icon src={water6} altText="0 glasses of water" currentWater="0" />
+        );
+      case currentWater === 7:
+        return (
+          <Icon src={water7} altText="0 glasses of water" currentWater="0" />
+        );
+      case currentWater === 8:
+        return (
+          <Icon src={waterComplete} altText="0 glasses of water" currentWater="0" />
+        );
+      default:
+        return (
+          <Icon src={water0} altText="0 glasses of water" currentWater="0" />
+        );
+    }
+  };
   return (
     <>
-    
       <StyledGauge className="container">
-        <MobileCardWater>
-        {/* <context.Provider value={gaugeData}>
-         {gaugeFill(waterStats)}
-         </context.Provider> */}
-        </MobileCardWater>
+        <MobileCardWater>{gaugeFill}</MobileCardWater>
       </StyledGauge>
-      
     </>
   );
 };
