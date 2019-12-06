@@ -12,6 +12,7 @@ const Weight = props => {
   const handleChanges = e => {
     console.log(e);
     props.setAnswer(e);
+    
   };
 
   //Scale of numbers
