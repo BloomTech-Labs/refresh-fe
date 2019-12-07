@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 // import axios from "axios";
 
@@ -17,8 +17,6 @@ import water6 from "../../../images/gauge/waterGauge/water6.svg";
 import water7 from "../../../images/gauge/waterGauge/water7.svg";
 import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
 
-//const context = createContext(null);
-
 const Gauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState(null);
 
@@ -27,8 +25,12 @@ const Gauge = ({ children, ...props }) => {
     fetch("https://apidevnow.com/usermissions")
       .then(response => response.json())
       .then(data => {
-        setGaugeData({
-          // waterStats: data.user_missions.missions_in_progress.[whatever is water].point_current
+        data.user_missions.missions_in_progress.forEach(mission => {
+          !mission.vertical.toLowerCase() === "water"
+            ? console.log(`no water data`)
+            : setGaugeData({
+                waterStats: mission.point_current
+              });
         });
       });
   }, []);
@@ -67,7 +69,11 @@ const Gauge = ({ children, ...props }) => {
         );
       case currentWater === 8:
         return (
-          <Icon src={waterComplete} altText="0 glasses of water" currentWater="0" />
+          <Icon
+            src={waterComplete}
+            altText="0 glasses of water"
+            currentWater="0"
+          />
         );
       default:
         return (
