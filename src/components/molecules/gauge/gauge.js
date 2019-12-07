@@ -26,11 +26,19 @@ const Gauge = ({ children, ...props }) => {
       .then(response => response.json())
       .then(data => {
         data.user_missions.missions_in_progress.forEach(mission => {
-          !mission.vertical.toLowerCase() === "water"
-            ? console.log(`no water data`)
-            : setGaugeData({
-                waterStats: mission.point_current
-              });
+          // console.log(mission)
+
+          if (mission.vertical.toLowerCase() === "water") {
+            setGaugeData({
+              waterStats: mission.point_current
+            });
+          }
+
+          // !mission.vertical.toLowerCase() === "water"
+          //   ? console.log(`no water data`)
+          //   : setGaugeData({
+          //       waterStats: mission.point_current
+          //     });
         });
       });
   }, []);
@@ -40,39 +48,39 @@ const Gauge = ({ children, ...props }) => {
     switch (currentWater) {
       case currentWater === 1:
         return (
-          <Icon src={water1} altText="0 glasses of water" currentWater="0" />
+          <Icon src={water1} altText="1 glasses of water" currentWater="1" />
         );
 
       case currentWater === 2:
         return (
-          <Icon src={water2} altText="0 glasses of water" currentWater="0" />
+          <Icon src={water2} altText="2 glasses of water" currentWater="2" />
         );
       case currentWater === 3:
         return (
-          <Icon src={water3} altText="0 glasses of water" currentWater="0" />
+          <Icon src={water3} altText="3 glasses of water" currentWater="3" />
         );
       case currentWater === 4:
         return (
-          <Icon src={water4} altText="0 glasses of water" currentWater="0" />
+          <Icon src={water4} altText="4 glasses of water" currentWater="4" />
         );
       case currentWater === 5:
         return (
-          <Icon src={water5} altText="0 glasses of water" currentWater="0" />
+          <Icon src={water5} altText="5 glasses of water" currentWater="5" />
         );
       case currentWater === 6:
         return (
-          <Icon src={water6} altText="0 glasses of water" currentWater="0" />
+          <Icon src={water6} altText="6 glasses of water" currentWater="6" />
         );
       case currentWater === 7:
         return (
-          <Icon src={water7} altText="0 glasses of water" currentWater="0" />
+          <Icon src={water7} altText="7 glasses of water" currentWater="7" />
         );
       case currentWater === 8:
         return (
           <Icon
             src={waterComplete}
-            altText="0 glasses of water"
-            currentWater="0"
+            altText="8 glasses of water"
+            currentWater="8"
           />
         );
       default:
@@ -84,7 +92,7 @@ const Gauge = ({ children, ...props }) => {
   return (
     <>
       <StyledGauge className="container">
-        <MobileCardWater>{gaugeFill}</MobileCardWater>
+        <MobileCardWater>{gaugeFill()}</MobileCardWater>
       </StyledGauge>
     </>
   );
