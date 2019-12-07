@@ -16,11 +16,15 @@ const Height = props => {
     let feet = 3;
     let inches = 1;
 
+    //function for small ticks
     const inbetween = x => {
       let smalltick = [];
       for (let i = 0; i < x; i++) {
         smalltick.push(
-          <span data-value={feet + "'" + inches + i * 0.25 + "''"}>
+          <span
+            id="tick"
+            data-value={feet + "'" + inches + " & " + i * 0.25 + "''"}
+          >
             <svg
               width="2"
               height="43"
@@ -35,7 +39,7 @@ const Height = props => {
                 y2="43"
                 stroke="#CCC9FF"
                 strokeWidth="2"
-                data-value={feet + "'" + inches + i * 0.25 + "''"}
+                data-value={feet + "'" + inches + " & " + i * 0.25 + "''"}
               />
             </svg>
           </span>
@@ -52,6 +56,7 @@ const Height = props => {
         items.push(
           <>
             <div
+              id="tick"
               className="bigtick"
               data-value={feet + "'" + inches + "''"}
               onClick={handleChanges}
@@ -73,12 +78,11 @@ const Height = props => {
                   data-value={feet + "'" + inches + "''"}
                 />
               </svg>
-              <NumberP data-value={feet + "'" + inches + "''"}>{feet + "'" + inches + "''"}</NumberP>
+              <NumberP data-value={feet + "'" + inches + "''"}>
+                {feet + "'" + inches + "''"}
+              </NumberP>
             </div>
-            <div
-              className="smalltick"
-              onClick={handleChanges}
-            >
+            <div className="smalltick" onClick={handleChanges}>
               {inbetween(4).map(x => x)}
             </div>
           </>
@@ -88,9 +92,24 @@ const Height = props => {
     }
     return items;
   };
+
+  const handleScroll = e => {
+    let ticks = e.target.querySelectorAll("#tick");
+    ticks.forEach((tick, i) => {
+      let centerTick = ticks[i].getBoundingClientRect();
+      if (centerTick.x > 190 && centerTick.x < 200) {
+        props.setAnswer(ticks[i].dataset.value);
+        ticks[i].classList.add("active");
+      } else {
+        ticks[i].classList.remove("active");
+      }
+    });
+  };
   return (
     <>
-      <WeightContainer>{sliderScale(13, 50).map((x, i) => x)}</WeightContainer>
+      <WeightContainer onScroll={handleScroll}>
+        {sliderScale(13, 50).map((x, i) => x)}
+      </WeightContainer>
     </>
   );
 };
@@ -112,13 +131,24 @@ const WeightContainer = styled.div`
   .bigtick {
     display: flex;
     flex-direction: column;
-    color: black;
   }
 
   .smalltick {
     display: flex;
     svg {
       margin-right: 2rem;
+    }
+  }
+
+  .active {
+    color: #e05cb3;
+    p {
+      color: #e05cb3;
+    }
+    svg {
+      line {
+        stroke: #e05cb3;
+      }
     }
   }
 `;

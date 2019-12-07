@@ -90,7 +90,7 @@ const App = props => {
     })
   }, []);
 
-if(user.new_user){ // temp setting for testing purposes
+if(!localStorage.getItem('token')){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>

@@ -23,7 +23,6 @@ const StepForm = props => {
   const [questions, setQuestions] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [answer, setAnswer] = useState();
-  console.log(user);
 
   //Get Questions on Mount
   useEffect(() => {
