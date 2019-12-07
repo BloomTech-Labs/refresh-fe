@@ -17,11 +17,6 @@ Please delete options that are not relevant.
 - [ ] Complete, but not tested (may need new tests)
 - [ ] Incomplete/work-in-progress, PR is for discussion/feedback
 
-# How Has This Been Tested?
-
-- [ ] Test A
-- [ ] Test B
-
 # Checklist
 
 - [ ] My code follows the style guidelines of this project

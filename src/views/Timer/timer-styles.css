@@ -1,0 +1,118 @@
+body {
+    background: #3A3699;
+}
+
+div {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 50px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    font-family: Catamaran;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: white;
+}
+
+.clock {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    color: white;
+    background: #6487FF;
+    margin-left: 20px;
+    transition: 0.6s;
+    font-size: 16px;
+    font-family: Catamaran;
+    width: 264px;
+    height: 56px;
+}
+
+button:hover {
+    color: #6487FF;
+    background: white;
+    border: 1px solid #6487FF;
+    cursor: pointer;
+}
+
+.instructions {
+    color: white;
+    font-size: 16px;
+    font-family: Catamaran;
+    text-align: center;
+    margin: 60px 20px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.timer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+i {
+    display: inline-block;
+    color: #6487FF;
+    font-size: 50px;
+    margin-bottom: 60px;
+}
+
+.fa-play-circle, .fa-pause-circle {
+    margin-right: 40px;
+}
+
+.sprints {
+    display: flex;
+}
+
+.sprint {
+    width: 20%;
+}
+
+.test {
+    background: true;
+    fill: white;
+    background-color: white;
+    fill-opacity: 100;
+}
+
+@media screen and (max-width:500px) {
+    /* .buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    } */
+    /* button {
+        margin-top: 20px;
+        margin-left: 0;
+    } */
+   i {
+       margin-bottom: 20px;
+       margin-top: 0;
+   }
+    .instructions {
+        margin-top: 20px;
+    }
+    .timer {
+        margin-bottom: 0;
+        margin-top: 20px;
+    }
+}
