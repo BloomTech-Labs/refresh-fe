@@ -13,8 +13,6 @@ import CreateAccount from "./views/onboarding/CreateAccount";
 import MobileMenu from "./views/mobile-menu/MobileMenu";
 import Dashboard from "./views/dashboard/Dashboard";
 import MissionComplete from "./views/mission-complete/MissionComplete";
-import Gauge from "./components/molecules/gauge/gauge";
-import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
@@ -112,8 +110,6 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route exact path="/login" component={Login} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
-        <Route path="/gauge" component={Gauge} />
-        <Route path="/atoms" component={Atoms} />
         <Route path='/sandbox' component={Sandbox} />
         <Route path='/profile-overview' component={ProfileOverview}/>
         <Route path='/leaderboard' component={Leaderboard} />

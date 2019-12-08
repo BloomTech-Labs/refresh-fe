@@ -12,7 +12,7 @@ import React from "react";
 // import styled from "styled-components";
 // helpers
 // import { test, flex } from "../../styles/global/Mixins";
-import Gauge from "../../components/molecules/gauge/gauge";
+import WaterGauge from "../../components/molecules/gauge/waterGauge";
 // Views to test
 
 // COMPONENT
@@ -20,7 +20,7 @@ const Sandbox = () => {
   return (
     <>
       welcome to the sandbox
-      <Gauge />
+      <WaterGauge />
     </>
   );
 };

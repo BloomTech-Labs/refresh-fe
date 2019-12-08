@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 // import axios from "axios";
-
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 // Atoms
 import Icon from "../../atoms/icon/icon";
 // SVG Images
@@ -17,34 +17,34 @@ import water6 from "../../../images/gauge/waterGauge/water6.svg";
 import water7 from "../../../images/gauge/waterGauge/water7.svg";
 import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
 
-const Gauge = ({ children, ...props }) => {
-  const [gaugeData, setGaugeData] = useState(null);
+const WaterGauge = ({ children, ...props }) => {
+  const [gaugeData, setGaugeData] = useState(0);
 
   // useEffect axios call for user stats
   useEffect(() => {
-    fetch("https://apidevnow.com/usermissions")
-      .then(response => response.json())
-      .then(data => {
-        data.user_missions.missions_in_progress.forEach(mission => {
-          // console.log(mission)
+    // fetch("https://apidevnow.com/usermissions")
+    axiosWithAuth().get(`/usermissions`)
+      .then(res => {
+        console.log(res);
+        //if not array
+        //return no missions in progress
+        //else
+        res.data.user_missions.missions_in_progress.forEach(mission => {
+          console.log(mission);
 
-          if (mission.vertical.toLowerCase() === "water") {
-            setGaugeData({
-              waterStats: mission.point_current
-            });
-          }
-
-          // !mission.vertical.toLowerCase() === "water"
-          //   ? console.log(`no water data`)
-          //   : setGaugeData({
-          //       waterStats: mission.point_current
-          //     });
+          !mission.vertical.toLowerCase() === "water"
+            ? console.log(`no water data`)
+            : setGaugeData({
+                waterStats: mission.point_current
+              });
         });
       });
   }, []);
 
   const gaugeFill = waterStats => {
     let currentWater = waterStats;
+    console.log(waterStats);
+    
     switch (currentWater) {
       case currentWater === 1:
         return (
@@ -89,6 +89,8 @@ const Gauge = ({ children, ...props }) => {
         );
     }
   };
+  console.log(gaugeFill());
+  
   return (
     <>
       <StyledGauge className="container">
@@ -109,4 +111,4 @@ const MobileCardWater = styled.div`
   top: 0px;
 `;
 
-export default Gauge;
+export default WaterGauge;
