@@ -78,9 +78,7 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    console.log(min);
     setPercentage(-1 * (min / 5));
-    console.log(percentage);
   }, [seconds])
 
   return (
@@ -117,7 +115,6 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
       </Instructions>
     </Clock>
   );
-// }
 }
  
 export default function Display() {

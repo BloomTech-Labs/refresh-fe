@@ -78,9 +78,7 @@ export function TimerShortBreakThree ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    console.log(min);
     setPercentage(-1 * (min / 5));
-    console.log(percentage);
   }, [seconds])
 
   return (
