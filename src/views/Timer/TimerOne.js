@@ -4,7 +4,6 @@ import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { Link } from 'react-router-dom';
 import 'react-circular-progressbar/dist/styles.css';
-// import "./timer-styles.scss";
 
 const Clock = styled.div`
   display: flex;

@@ -35,18 +35,10 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
     console.log(percentage);
   }, [seconds])
 
-  let rest = 1;
-
-  // if (rest && minutes == 0 && seconds == '00') {
-  //   let t = new Date();
-  //   t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
-  //   return <Route render={() => <TimerTwo expiryTimestamp={t} />} />
-  // } else {
-
   return (
-    <div className="clock">
+    <Clock>
       <h1>Pomodoro Clock</h1>
-      <div className="timer">
+      <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
@@ -62,20 +54,18 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
         </div>
       </CircularProgressbar>
       </>
-      </div>
+      </Timer>
 
-      <div className="buttons">
-        <i className="far fa-play-circle" onClick={resume}></i>
-        <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/timer-2'>
-          <i class="far fa-arrow-alt-circle-right"></i>
-        </Link>
-      </div>
+      <Buttons>
+        <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
+        <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
+        <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon> 
+      </Buttons>
      
-      <div className="instructions">
-        <p>Take a short break.</p>
-      </div>
-    </div>
+      <Instructions>
+        <Text>Take a short break.</Text>
+      </Instructions>
+    </Clock>
   );
 // }
 }

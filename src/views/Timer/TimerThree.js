@@ -33,18 +33,9 @@ export function TimerThree ({ expiryTimestamp }) {
     setPercentage(-1 * (min / 25));
   }, [seconds])
 
-  // let sprint = 3;
-
-  // if (sprint && minutes == 0 && seconds == '00') {
-  //   let t = new Date();
-  //   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
-  //   return <Route render={() => <TimerShortBreakThree expiryTimestamp={t} />} />
-  // } else {
-
   return (
-    <div className="clock">
-      {/* <h1>Pomodoro Clock (Sprint #3)</h1> */}
-      <div className="timer">
+    <Clock>
+      <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
@@ -60,18 +51,16 @@ export function TimerThree ({ expiryTimestamp }) {
         </div>
       </CircularProgressbar>
       </>
-      </div>
+      </Timer>
 
-      <div className="buttons">
-        <i className="far fa-play-circle" onClick={resume}></i>
-        <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/break'>
-          <i class="far fa-arrow-alt-circle-right"></i>       
-        </Link>
-      </div>
+      <Buttons>
+        <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
+        <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
+        <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon> 
+      </Buttons>
       
-      <div className="sprints">
-        <div className="sprint one">
+      <Sprints>
+        <Sprint>
           <CircularProgressbar
             value='100%'
             strokeWidth={50}
@@ -81,8 +70,8 @@ export function TimerThree ({ expiryTimestamp }) {
               trailColor: 'white',
             })}
         />
-        </div>
-        <div className="sprint two">
+        </Sprint>
+        <Sprint>
           <CircularProgressbar
             value='100%'
             strokeWidth={50}
@@ -92,8 +81,8 @@ export function TimerThree ({ expiryTimestamp }) {
               trailColor: 'white',
             })}
         />
-        </div>
-        <div className="sprint three">
+        </Sprint>
+        <Sprint>
           <CircularProgressbar
             value={percentage}
             strokeWidth={50}
@@ -103,8 +92,8 @@ export function TimerThree ({ expiryTimestamp }) {
               trailColor: 'white',
             })}
         />
-        </div>
-        <div className="sprint four">
+        </Sprint>
+        <Sprint>
           <CircularProgressbar
             strokeWidth={50}
             styles={buildStyles({
@@ -112,16 +101,16 @@ export function TimerThree ({ expiryTimestamp }) {
               pathColor: 'white'
             })}
         />
-        </div>
-      </div>
-      <div className="instructions">
-        <p>1. Evidence shows people are more productive when they work in <span className="bold">short bursts</span> with <span className="bold">frequent breaks</span>.</p>
+        </Sprint>
+      </Sprints>
+      <Instructions>
+        <Text>1. Evidence shows people are more productive when they work in <Bold>short bursts</Bold> with <Bold>frequent breaks</Bold>.</Text>
         <br></br>
-        <p>2. The <span className="bold">Pomodoro Technique</span> is a strategy that utilizes this theory. First, work in a sprint of <span className="bold">25 minutes</span>.</p>
+        <Text>2. The <Bold>Pomodoro Technique</Bold> is a strategy that utilizes this theory. First, work in a sprint of <Bold>25 minutes</Bold>.</Text>
         <br></br>
-        <p>3. Next, take a <span className="bold">5 minute</span> break. Get up, take a <span classname="bold">walk</span>, refill your <span className="bold">water</span>, <span className="bold">stretch</span>, and take <span className="bold">5 deep breaths</span> in and out.</p>
-      </div>
-    </div>
+        <Text>3. Next, take a <Bold>5 minute</Bold> break. Get up, take a <Bold>walk</Bold>, refill your <Bold>water</Bold>, <Bold>stretch</Bold>, and take <Bold>5 deep breaths</Bold> in and out.</Text>
+      </Instructions>
+    </Clock>
   );
 }
 // }

@@ -44,9 +44,9 @@ export function TimerLongBreak ({ expiryTimestamp }) {
   // } else {
 
   return (
-    <div className="clock">
+    <Clock>
       <h1>Pomodoro Clock</h1>
-      <div className="timer">
+      <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
@@ -62,20 +62,18 @@ export function TimerLongBreak ({ expiryTimestamp }) {
         </div>
       </CircularProgressbar>
       </>
-      </div>
+      </Timer>
 
-      <div className="buttons">
-        <i className="far fa-play-circle" onClick={resume}></i>
-        <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/timer-1'>
-          <i className="fa fa-arrow-circle-o-right"></i>
-        </Link>
-      </div>
+      <Buttons>
+        <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
+        <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
+        <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon> 
+      </Buttons>
      
-      <div className="instructions">
-        <p>Take a long break.</p>
-      </div>
-    </div>
+      <Instructions>
+        <Text>Take a long break.</Text>
+      </Instructions>
+    </Clock>
   );
 }
 // }
