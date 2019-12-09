@@ -17,10 +17,9 @@ import water6 from "../../../images/gauge/waterGauge/water6.svg";
 import water7 from "../../../images/gauge/waterGauge/water7.svg";
 import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
 
-import activitysvg from "../../../images/gauge/activityGauge/activity20.svg"
-
 const WaterGauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState(0);
+  console.log(`[gaugeData before useEffect]`, gaugeData);
 
   // useEffect axios call for user stats
   useEffect(() => {
@@ -41,65 +40,53 @@ const WaterGauge = ({ children, ...props }) => {
             });
       });
   }, []);
-  
-  console.log(gaugeData);
-  
+
+  console.log(`[gaugeData after useEffect]`, gaugeData);
+  // console.log(`[waterStats after useEffect]`, waterStats);
 
   const gaugeFill = gaugeData => {
     let currentWater = gaugeData;
-    console.log(gaugeData);
+    console.log(`[gaugeData inside gaugeFill]`, gaugeData);
+    console.log(`[currentWater inside gaugeFill]`, currentWater);
 
     switch (currentWater) {
       case currentWater === 1:
-        return (
-          <Icon svg={water1} altText="1 glasses of water" currentWater="1" />
-        );
+        return <Icon svg={water1} alt="1 glasses of water" currentWater="1" />;
 
       case currentWater === 2:
-        return (
-          <Icon svg={water2} altText="2 glasses of water" currentWater="2" />
-        );
+        return <Icon svg={water2} alt="2 glasses of water" currentWater="2" />;
       case currentWater === 3:
-        return (
-          <Icon svg={water3} altText="3 glasses of water" currentWater="3" />
-        );
+        return <Icon svg={water3} alt="3 glasses of water" currentWater="3" />;
       case currentWater === 4:
-        return (
-          <Icon svg={water4} altText="4 glasses of water" currentWater="4" />
-        );
+        return <Icon svg={water4} alt="4 glasses of water" currentWater="4" />;
       case currentWater === 5:
-        return (
-          <Icon svg={water5} altText="5 glasses of water" currentWater="5" />
-        );
+        return <Icon svg={water5} alt="5 glasses of water" currentWater="5" />;
       case currentWater === 6:
-        return (
-          <Icon svg={water6} altText="6 glasses of water" currentWater="6" />
-        );
+        return <Icon svg={water6} alt="6 glasses of water" currentWater="6" />;
       case currentWater === 7:
-        return (
-          <Icon svg={water7} altText="7 glasses of water" currentWater="7" />
-        );
+        return <Icon svg={water7} alt="7 glasses of water" currentWater="7" />;
       case currentWater === 8:
         return (
-          <Icon
-            svg={waterComplete}
-            altText="8 glasses of water"
-            currentWater="8"
-          />
+          <Icon svg={waterComplete} alt="8 glasses of water" currentWater="8" />
         );
       default:
         return (
-          <Icon svg={water0} altText="0 glasses of water" currentWater="0" />
+          <Icon
+            svg={water0}
+            alt="image for 0 glasses of water"
+            title="Current: 0 glasses of water"
+            currentWater="0"
+          />
         );
     }
   };
-  console.log(gaugeFill());
+  // console.log(gaugeFill());
 
   return (
     <>
       <StyledGauge className="StyledGauge">
         <MobileCardWater className="MobileCardWater">
-          {gaugeFill(props.currentWater)}
+          {gaugeFill()}
         </MobileCardWater>
       </StyledGauge>
     </>
