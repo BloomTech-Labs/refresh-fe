@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './timer-styles.css';
-import { useTimer } from 'react-timer-hook';
+import './timer-styles.scss';import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
  
@@ -75,7 +74,8 @@ export function TimerFour ({ expiryTimestamp }) {
           <CircularProgressbar
             value='100%'
             strokeWidth={50}
-            styles={buildStyles({
+            styles={
+              buildStyles({
               strokeLinecap: "butt",
               pathColor: '#6487FF',
               trailColor: 'white',
