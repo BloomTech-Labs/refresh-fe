@@ -102,8 +102,6 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
     <Route path="/emaillogin" component={EmailLogIn} />
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Landing} />
-    <Route exact path="/timer" component={TimerOne} />
-    {/* <Route path="/timer" component={Timer} /> */}
   </UserContext.Provider>
   </>);
 } else {
@@ -122,6 +120,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         <Route path='/coming-soon' component={ComingSoon} />
+        <Route path="/timer" component={TimerOne} />
       </UserMissionsContext.Provider>
     </UserContext.Provider>
     </>

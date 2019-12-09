@@ -64,7 +64,7 @@ export function TimerTwo ({ expiryTimestamp, setTimer }) {
       <div className="buttons">
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
-        <i class="far fa-arrow-alt-circle-right" onClick={() => setTimer(3)}></i>       
+        <i className="far fa-arrow-alt-circle-right"></i>       
       </div>
       
       <div className="sprints">
