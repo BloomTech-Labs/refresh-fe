@@ -4,8 +4,8 @@ import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
  
-export function TimerTwo ({ expiryTimestamp }) {
-
+export function TimerTwo ({ expiryTimestamp, setTimer }) {
+  // setTimer(1);
   let {
     seconds,
     minutes,
@@ -40,7 +40,7 @@ export function TimerTwo ({ expiryTimestamp }) {
   //   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
   //   return <Route render={() => <TimerShortBreakTwo expiryTimestamp={t} />} />
   // } else {
-
+  console.log("Hello from Timer2");
   return (
     <div className="clock">
       <div className="timer">
@@ -64,9 +64,7 @@ export function TimerTwo ({ expiryTimestamp }) {
       <div className="buttons">
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/break'>
-          <i class="far fa-arrow-alt-circle-right"></i>       
-        </Link>
+        <i class="far fa-arrow-alt-circle-right" onClick={() => setTimer(3)}></i>       
       </div>
       
       <div className="sprints">

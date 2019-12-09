@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import { Link } from 'react-router-dom';
 import 'react-circular-progressbar/dist/styles.css';
+import "./timer-styles.scss";
  
 export function TimerOne ({ expiryTimestamp }) {
-
   let {
     seconds,
     minutes,
@@ -41,6 +41,7 @@ export function TimerOne ({ expiryTimestamp }) {
   //   return <Route render={() => <TimerLongBreak expiryTimestamp={t} />} />
   // } else {
 
+  console.log("Hello from TimerOne");
   return (
     <div className="clock">
       <div className="timer">
@@ -64,9 +65,9 @@ export function TimerOne ({ expiryTimestamp }) {
       <div className="buttons">
         <i className="far fa-play-circle" onClick={resume}></i>
         <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/break'>
-          <i class="far fa-arrow-alt-circle-right"></i>       
-        </Link>
+        <Link to="timer-2">
+          <i class="far fa-arrow-alt-circle-right"></i>   
+        </Link>    
       </div>
       
       <div className="sprints">

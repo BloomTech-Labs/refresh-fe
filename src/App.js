@@ -24,6 +24,7 @@ import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
 import EmailSignUp from './views/onboarding/EmailSignUp';
 import EmailLogIn from './views/onboarding/EmailLogin';
+import TimerOne from './views/Timer/TimerOne';
 // import Timer from './views/Timer/Timer';
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
@@ -101,8 +102,8 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
     <Route path="/emaillogin" component={EmailLogIn} />
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Landing} />
-    {/* <Route exact path="/timer" component={Timer} /> */}
-
+    <Route exact path="/timer" component={TimerOne} />
+    {/* <Route path="/timer" component={Timer} /> */}
   </UserContext.Provider>
   </>);
 } else {
