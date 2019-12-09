@@ -179,7 +179,6 @@ export function TimerFour ({ expiryTimestamp }) {
     </Clock>
   );
 }
-// }
  
 export default function Display() {
   var t = new Date();

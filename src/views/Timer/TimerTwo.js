@@ -66,7 +66,7 @@ const Bold = styled.span`
 `
  
 export function TimerTwo ({ expiryTimestamp}) {
-  // setTimer(1);
+  
   let {
     seconds,
     minutes,
@@ -174,7 +174,6 @@ export function TimerTwo ({ expiryTimestamp}) {
     </Clock>
   );
 }
-// }
  
 export default function Display() {
   var t = new Date();

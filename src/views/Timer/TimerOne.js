@@ -172,7 +172,6 @@ export function TimerOne ({ expiryTimestamp }) {
     </Clock>
   );
 }
-// }
  
 export default function Display() {
   var t = new Date();

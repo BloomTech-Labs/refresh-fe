@@ -85,7 +85,7 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
 
   return (
     <Clock>
-      <h1>Pomodoro Clock</h1>
+      
       <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}

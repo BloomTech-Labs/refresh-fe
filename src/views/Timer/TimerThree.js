@@ -176,7 +176,6 @@ export function TimerThree ({ expiryTimestamp }) {
     </Clock>
   );
 }
-// }
  
 export default function Display() {
   var t = new Date();

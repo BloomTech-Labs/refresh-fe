@@ -85,7 +85,7 @@ export function TimerShortBreakThree ({ expiryTimestamp }) {
 
   return (
     <Clock>
-      <h1>Pomodoro Clock</h1>
+      
       <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
@@ -117,7 +117,6 @@ export function TimerShortBreakThree ({ expiryTimestamp }) {
       </Instructions>
     </Clock>
   );
-// }
 }
  
 export default function Display() {
