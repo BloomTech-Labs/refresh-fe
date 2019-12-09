@@ -25,15 +25,6 @@ const Buttons = styled.div`
   justify-content: center;
 `
 
-const Sprints = styled.div`
-  display: flex;
-`
-
-const Sprint = styled.div`
-  width: 20%;
-  margin-left: 13px;
-`
-
 const FirstSecondIcon = styled.i`
   display: inline-block;
   color: #6487FF;
@@ -60,12 +51,8 @@ const Instructions = styled.div`
 const Text = styled.p`
   line-height: 1.5;
 `
-
-const Bold = styled.span`
-  font-weight: 600;
-`
  
-export function TimerFour ({ expiryTimestamp }) {
+export function TimerShortBreakOne ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -91,11 +78,14 @@ export function TimerFour ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    setPercentage(-1 * (min / 25));
+    console.log(min);
+    setPercentage(-1 * (min / 5));
+    console.log(percentage);
   }, [seconds])
 
   return (
     <Clock>
+      <h1>Pomodoro Clock</h1>
       <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
@@ -117,76 +107,25 @@ export function TimerFour ({ expiryTimestamp }) {
       <Buttons>
         <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
         <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
-        <Link to="/break-4">
+        <Link to="timer-2">
           <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon> 
         </Link>
       </Buttons>
-      
-      <Sprints>
-        <Sprint>
-          <CircularProgressbar
-            value='100%'
-            strokeWidth={50}
-            styles={
-              buildStyles({
-              strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white',
-            })}
-        />
-        </Sprint>
-        <Sprint>
-          <CircularProgressbar
-            value='100%'
-            strokeWidth={50}
-            styles={buildStyles({
-              strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white',
-            })}
-        />
-        </Sprint>
-        <Sprint>
-          <CircularProgressbar
-            value='100%'
-            strokeWidth={50}
-            styles={buildStyles({
-              strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white',
-            })}
-        />
-        </Sprint>
-        <Sprint>
-          <CircularProgressbar
-            value={percentage}
-            strokeWidth={50}
-            styles={buildStyles({
-              strokeLinecap: "butt",
-              pathColor: '#6487FF',
-              trailColor: 'white',
-            })}
-        />
-        </Sprint>
-        </Sprints>
+     
       <Instructions>
-        <Text>1. Evidence shows people are more productive when they work in <Bold>short bursts</Bold> with <Bold>frequent breaks</Bold>.</Text>
-        <br></br>
-        <Text>2. The <Bold>Pomodoro Technique</Bold> is a strategy that utilizes this theory. First, work in a sprint of <Bold>25 minutes</Bold>.</Text>
-        <br></br>
-        <Text>3. Next, take a <Bold>5 minute</Bold> break. Get up, take a <Bold>walk</Bold>, refill your <Bold>water</Bold>, <Bold>stretch</Bold>, and take <Bold>5 deep breaths</Bold> in and out.</Text>
+        <Text>Take a short break.</Text>
       </Instructions>
     </Clock>
   );
-}
 // }
+}
  
 export default function Display() {
   var t = new Date();
-  t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
+  t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
   return (
     <div>
-      <TimerFour expiryTimestamp={t} />
+      <TimerShortBreakOne expiryTimestamp={t} />
     </div>
   );
 }

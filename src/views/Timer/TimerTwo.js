@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -116,7 +117,9 @@ export function TimerTwo ({ expiryTimestamp}) {
       <Buttons>
         <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
         <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
-        <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon>       
+        <Link to="break-2">
+          <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon>  
+        </Link>     
       </Buttons>
       
       <Sprints>

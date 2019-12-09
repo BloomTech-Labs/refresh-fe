@@ -93,7 +93,6 @@ export function TimerOne ({ expiryTimestamp }) {
     setPercentage(-1 * (min / 25));
   }, [seconds])
 
-  console.log('hello from first timer')
   return (
     <Clock>
       <Timer>
@@ -118,7 +117,7 @@ export function TimerOne ({ expiryTimestamp }) {
       <Buttons>
         <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
         <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
-        <Link to="timer-2">
+        <Link to="break-1">
           <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon>   
         </Link>    
       </Buttons>

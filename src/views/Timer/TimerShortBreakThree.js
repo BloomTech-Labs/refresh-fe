@@ -1,10 +1,58 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+
+const Clock = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const Timer = styled.div`
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  @media screen and (max-width:500px) {
+    margin-bottom: 0;
+    margin-top: 20px;
+`
+
+const Buttons = styled.div`
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+`
+
+const FirstSecondIcon = styled.i`
+  display: inline-block;
+  color: #6487FF;
+  font-size: 50px;
+  margin-bottom: 60px;
+  margin-right: 40px;
+`
+
+const ThirdIcon = styled.i`
+  display: inline-block;
+  color: #6487FF;
+  font-size: 50px;
+  margin-bottom: 60px;
+`
+
+const Instructions = styled.div`
+  color: white;
+  font-size: 16px;
+  font-family: Catamaran;
+  text-align: center;
+  margin: 60px 20px;
+`
+
+const Text = styled.p`
+  line-height: 1.5;
+`
  
-export function TimerShortBreakOne ({ expiryTimestamp }) {
+export function TimerShortBreakThree ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -59,7 +107,9 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
       <Buttons>
         <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
         <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
-        <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon> 
+        <Link to="timer-4">
+            <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon>
+        </Link> 
       </Buttons>
      
       <Instructions>
@@ -75,7 +125,7 @@ export default function Display() {
   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
   return (
     <div>
-      <TimerShortBreakOne expiryTimestamp={t} />
+      <TimerShortBreakThree expiryTimestamp={t} />
     </div>
   );
 }
