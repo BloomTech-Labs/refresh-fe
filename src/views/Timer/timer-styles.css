@@ -68,7 +68,7 @@ p {
     margin-bottom: 20px;
 }
 
-i {
+.fa-play-circle, .fa-pause-circle, .fa-arrow-alt-circle-right {
     display: inline-block;
     color: #6487FF;
     font-size: 50px;
