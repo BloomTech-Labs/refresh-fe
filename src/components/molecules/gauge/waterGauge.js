@@ -54,7 +54,7 @@ const WaterGauge = ({ children, ...props }) => {
           <Icon
             svg={water1}
             alt="1 glasses of water"
-            title="Current: 01 glasses of water"
+            title="Current: 1 glasses of water"
           />
         );
       case gaugeData.waterStats === 2:
@@ -62,7 +62,7 @@ const WaterGauge = ({ children, ...props }) => {
           <Icon
             svg={water2}
             alt="2 glasses of water"
-            title="Current: 0 glasses of water"
+            title="Current: 2 glasses of water"
           />
         );
       case gaugeData.waterStats === 3:
@@ -70,7 +70,7 @@ const WaterGauge = ({ children, ...props }) => {
           <Icon
             svg={water3}
             alt="3 glasses of water"
-            title="Current: 0 glasses of water"
+            title="Current: 3 glasses of water"
           />
         );
       case gaugeData.waterStats === 4:
@@ -78,7 +78,7 @@ const WaterGauge = ({ children, ...props }) => {
           <Icon
             svg={water4}
             alt="4 glasses of water"
-            title="Current: 0 glasses of water"
+            title="Current: 4 glasses of water"
           />
         );
       case gaugeData.waterStats === 5:
@@ -86,7 +86,7 @@ const WaterGauge = ({ children, ...props }) => {
           <Icon
             svg={water5}
             alt="5 glasses of water"
-            title="Current: 0 glasses of water"
+            title="Current: 5 glasses of water"
           />
         );
       case gaugeData.waterStats === 6:
@@ -94,7 +94,7 @@ const WaterGauge = ({ children, ...props }) => {
           <Icon
             svg={water6}
             alt="6 glasses of water"
-            title="Current: 0 glasses of water"
+            title="Current: 6 glasses of water"
           />
         );
       case gaugeData.waterStats === 7:
@@ -102,7 +102,7 @@ const WaterGauge = ({ children, ...props }) => {
           <Icon
             svg={water7}
             alt="7 glasses of water"
-            title="Current: 0 glasses of water"
+            title="Current: 7 glasses of water"
           />
         );
       case gaugeData.waterStats >= 8:
@@ -110,7 +110,7 @@ const WaterGauge = ({ children, ...props }) => {
           <Icon
             svg={waterComplete}
             alt="8 glasses of water"
-            title="Current: 0 glasses of water"
+            title="Current: Goal Complete!"
           />
         );
       default:
@@ -129,8 +129,8 @@ const WaterGauge = ({ children, ...props }) => {
     <>
       <StyledGauge className="StyledGauge">
         <MobileCardWater className="MobileCardWater">
-          {gaugeFill(gaugeData)}
-          {/* <Icon svg={water6} alt="1 glasses of water" /> */}
+          {/* {gaugeFill(gaugeData)} */}
+          <Icon svg={waterComplete} alt="1 glasses of water" />
         </MobileCardWater>
       </StyledGauge>
     </>

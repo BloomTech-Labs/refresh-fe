@@ -48,7 +48,6 @@ const Input = ({ callback = () => {}, ...props }) => {
 
   return (
     <BaseInput
-    
       className="base-input"
       id={id}
       form={form}
@@ -108,7 +107,6 @@ const BaseInput = styled.input.attrs(props => ({
   textAlign: props.textAlign,
   cursor: props.cursor
 }))`
-
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
   width: ${props => (props.width ? `${props.width}rem` : `50%`)};
   border: ${props => (props.border ? props.border : "1px solid primary")};
