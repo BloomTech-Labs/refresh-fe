@@ -50,21 +50,69 @@ const WaterGauge = ({ children, ...props }) => {
     console.log(`[gaugeData inside gaugeFill]`, gaugeData);
     switch (true) {
       case gaugeData.waterStats === 1:
-        return <Icon svg={water1} alt="1 glasses of water" />;
+        return (
+          <Icon
+            svg={water1}
+            alt="1 glasses of water"
+            title="Current: 01 glasses of water"
+          />
+        );
       case gaugeData.waterStats === 2:
-        return <Icon svg={water2} alt="2 glasses of water" />;
+        return (
+          <Icon
+            svg={water2}
+            alt="2 glasses of water"
+            title="Current: 0 glasses of water"
+          />
+        );
       case gaugeData.waterStats === 3:
-        return <Icon svg={water3} alt="3 glasses of water" />;
+        return (
+          <Icon
+            svg={water3}
+            alt="3 glasses of water"
+            title="Current: 0 glasses of water"
+          />
+        );
       case gaugeData.waterStats === 4:
-        return <Icon svg={water4} alt="4 glasses of water" />;
+        return (
+          <Icon
+            svg={water4}
+            alt="4 glasses of water"
+            title="Current: 0 glasses of water"
+          />
+        );
       case gaugeData.waterStats === 5:
-        return <Icon svg={water5} alt="5 glasses of water" />;
+        return (
+          <Icon
+            svg={water5}
+            alt="5 glasses of water"
+            title="Current: 0 glasses of water"
+          />
+        );
       case gaugeData.waterStats === 6:
-        return <Icon svg={water6} alt="6 glasses of water" />;
+        return (
+          <Icon
+            svg={water6}
+            alt="6 glasses of water"
+            title="Current: 0 glasses of water"
+          />
+        );
       case gaugeData.waterStats === 7:
-        return <Icon svg={water7} alt="7 glasses of water" />;
+        return (
+          <Icon
+            svg={water7}
+            alt="7 glasses of water"
+            title="Current: 0 glasses of water"
+          />
+        );
       case gaugeData.waterStats >= 8:
-        return <Icon svg={waterComplete} alt="8 glasses of water" />;
+        return (
+          <Icon
+            svg={waterComplete}
+            alt="8 glasses of water"
+            title="Current: 0 glasses of water"
+          />
+        );
       default:
         return (
           <Icon
@@ -82,6 +130,7 @@ const WaterGauge = ({ children, ...props }) => {
       <StyledGauge className="StyledGauge">
         <MobileCardWater className="MobileCardWater">
           {gaugeFill(gaugeData)}
+          {/* <Icon svg={water6} alt="1 glasses of water" /> */}
         </MobileCardWater>
       </StyledGauge>
     </>
