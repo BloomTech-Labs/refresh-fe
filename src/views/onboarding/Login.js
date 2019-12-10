@@ -76,9 +76,10 @@ const Login = props => {
         new_user: userObject.user_profile.newUser ? true : false
       });
 
-      localStorage.setItem('activeUser', JSON.stringify(activeUser));
+      localStorage.setItem('activeUser', JSON.stringify(userObject.user_profile));
     } else {
       activeUser.setUser(...activeUser);
+      localStorage.setItem('activeUser', JSON.stringify(userObject.user_profile));
     }
     {
       userObject.newUser
