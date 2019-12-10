@@ -11,12 +11,18 @@ const Clock = styled.div`
 `
 
 const Timer = styled.div`
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
   
   @media screen and (max-width:500px) {
     margin-bottom: 0;
     margin-top: 20px;
+  }
+
+  @media screen and (min-width:800px) {
+    width: 20vw;
+    height: 20vh;
+    margin-bottom: 150px;
+  }
 `
 
 const Buttons = styled.div`
@@ -40,12 +46,11 @@ const ThirdIcon = styled.i`
   margin-bottom: 60px;
 `
 
-const Instructions = styled.div`
+const Break = styled.div`
   color: white;
   font-size: 16px;
   font-family: Catamaran;
   text-align: center;
-  margin: 60px 20px;
 `
 
 const Text = styled.p`
@@ -110,9 +115,9 @@ export function TimerLongBreak ({ expiryTimestamp }) {
         </Link>
       </Buttons>
      
-      <Instructions>
+      <Break>
         <Text>Take a long break.</Text>
-      </Instructions>
+      </Break>
     </Clock>
   );
 }
