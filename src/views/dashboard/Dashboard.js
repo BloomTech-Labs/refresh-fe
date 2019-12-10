@@ -34,7 +34,7 @@ const Dashboard = props => {
                 <Header>
                     <Greeting>
                         <h1>Hello</h1>
-                        <h1>Josh1!</h1>
+                        <h1>Josh!</h1>
                     </Greeting>
 
                     <User>
