@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 // import axios from "axios";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
@@ -18,7 +18,9 @@ import water7 from "../../../images/gauge/waterGauge/water7.svg";
 import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
 
 const WaterGauge = ({ children, ...props }) => {
-  const [gaugeData, setGaugeData] = useState(0);
+  const [gaugeData, setGaugeData] = useState({
+    waterStats: 0
+  });
   console.log(`[gaugeData before useEffect]`, gaugeData);
 
   // useEffect axios call for user stats
@@ -31,12 +33,12 @@ const WaterGauge = ({ children, ...props }) => {
         !Array.isArray(missionsInProgress)
           ? console.log(`No missions currently in progress`)
           : missionsInProgress.forEach(mission => {
-              console.log(mission);
-              !mission.vertical.toLowerCase() === "water"
-                ? console.log(`no water data`)
-                : setGaugeData({
+              console.log(`[Mission after map]`, mission);
+              mission.vertical.toLowerCase() === "water"
+                ? setGaugeData({
                     waterStats: mission.point_current
-                  });
+                  })
+                : console.log(`[No water data / end of map]`);
             });
       });
   }, []);
@@ -44,49 +46,42 @@ const WaterGauge = ({ children, ...props }) => {
   console.log(`[gaugeData after useEffect]`, gaugeData);
   // console.log(`[waterStats after useEffect]`, waterStats);
 
-  const gaugeFill = gaugeData => {
-    let currentWater = gaugeData;
+  const gaugeFill = () => {
     console.log(`[gaugeData inside gaugeFill]`, gaugeData);
-    console.log(`[currentWater inside gaugeFill]`, currentWater);
-
-    switch (currentWater) {
-      case currentWater === 1:
-        return <Icon svg={water1} alt="1 glasses of water" currentWater="1" />;
-
-      case currentWater === 2:
-        return <Icon svg={water2} alt="2 glasses of water" currentWater="2" />;
-      case currentWater === 3:
-        return <Icon svg={water3} alt="3 glasses of water" currentWater="3" />;
-      case currentWater === 4:
-        return <Icon svg={water4} alt="4 glasses of water" currentWater="4" />;
-      case currentWater === 5:
-        return <Icon svg={water5} alt="5 glasses of water" currentWater="5" />;
-      case currentWater === 6:
-        return <Icon svg={water6} alt="6 glasses of water" currentWater="6" />;
-      case currentWater === 7:
-        return <Icon svg={water7} alt="7 glasses of water" currentWater="7" />;
-      case currentWater === 8:
-        return (
-          <Icon svg={waterComplete} alt="8 glasses of water" currentWater="8" />
-        );
+    switch (true) {
+      case gaugeData.waterStats === 1:
+        return <Icon svg={water1} alt="1 glasses of water" />;
+      case gaugeData.waterStats === 2:
+        return <Icon svg={water2} alt="2 glasses of water" />;
+      case gaugeData.waterStats === 3:
+        return <Icon svg={water3} alt="3 glasses of water" />;
+      case gaugeData.waterStats === 4:
+        return <Icon svg={water4} alt="4 glasses of water" />;
+      case gaugeData.waterStats === 5:
+        return <Icon svg={water5} alt="5 glasses of water" />;
+      case gaugeData.waterStats === 6:
+        return <Icon svg={water6} alt="6 glasses of water" />;
+      case gaugeData.waterStats === 7:
+        return <Icon svg={water7} alt="7 glasses of water" />;
+      case gaugeData.waterStats >= 8:
+        return <Icon svg={waterComplete} alt="8 glasses of water" />;
       default:
         return (
           <Icon
             svg={water0}
             alt="image for 0 glasses of water"
             title="Current: 0 glasses of water"
-            currentWater="0"
           />
         );
     }
   };
-  // console.log(gaugeFill());
+  console.log(`[Before return]:`, gaugeData.waterStats);
 
   return (
     <>
       <StyledGauge className="StyledGauge">
         <MobileCardWater className="MobileCardWater">
-          {gaugeFill()}
+          {gaugeFill(gaugeData)}
         </MobileCardWater>
       </StyledGauge>
     </>
