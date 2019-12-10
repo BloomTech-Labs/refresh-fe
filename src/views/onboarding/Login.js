@@ -75,6 +75,8 @@ const Login = props => {
         bio: userObject.user_profile.bio || "",
         new_user: userObject.user_profile.newUser ? true : false
       });
+
+      localStorage.setItem('activeUser', JSON.stringify(activeUser));
     } else {
       activeUser.setUser(...activeUser);
     }
