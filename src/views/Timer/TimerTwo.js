@@ -11,12 +11,18 @@ const Clock = styled.div`
 `
 
 const Timer = styled.div`
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
   
   @media screen and (max-width:500px) {
     margin-bottom: 0;
     margin-top: 20px;
+  }
+
+  @media screen and (min-width:800px) {
+    width: 20vw;
+    height: 20vh;
+    margin-bottom: 150px;
+  }
 `
 
 const Buttons = styled.div`
@@ -27,11 +33,16 @@ const Buttons = styled.div`
 
 const Sprints = styled.div`
   display: flex;
+  justify-content: space-around;
+  margin-top: -30px;
 `
 
 const Sprint = styled.div`
   width: 20%;
-  margin-left: 13px;
+
+  @media screen and (min-width:800px) {
+    width: 10%;
+  }
 `
 
 const FirstSecondIcon = styled.i`
