@@ -6,10 +6,11 @@ import { UserContext } from "../../contexts/UserContext";
 // styled components
 import styled from "styled-components";
 // images
-import fblogo from "../../images/facebook-logo.png";
-import emailogo from "../../images/Onboarding/email.png";
-import cubes from "../../images/two_cubes.png";
-import googlelogo from "../../images/google-icon.jpg";
+import fblogo from "../../images/Onboarding/facebook_round_transparent_logo.svg";
+import emailogo from "../../images/Onboarding/email.svg";
+import googlelogo from "../../images/Onboarding/google_icon_round_color.svg";
+//cube elements
+import cubes from "../../images/Onboarding/red_purple_cubes.svg";
 // components
 import Row from "../../components/atoms/row/row";
 import Col from "../../components/atoms/col/col";
@@ -112,7 +113,7 @@ const Login = props => {
         </FlexHolder>
         <Row width={97}>
           <Col width={30} marginLeft={-2}>
-            <Text fontSize={16} color={"#CFCDFF"} text={colText}></Text>
+            <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
           </Col>
           <Col
             width={70}

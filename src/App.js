@@ -1,7 +1,7 @@
 // IMPORTS
 // react
 import React, { useState, useEffect, useContext } from "react";
-import { Route } from "react-router-dom";
+import { Route } from "react-router-dom"
 // contexts
 import { UserContext } from './contexts/UserContext';
 import { UserMissionsContext } from './contexts/UserMissionsContext';
@@ -91,7 +91,7 @@ const App = props => {
     })
   }, []);
 
-if(!localStorage.getItem('token')){ // temp setting for testing purposes
+if(user.new_user){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>

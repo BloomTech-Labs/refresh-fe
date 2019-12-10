@@ -89,11 +89,6 @@ const StepForm = props => {
   } else {
     //render
     return questions.length ? (
-      // <div>
-      //   {questions[currentStep].question}
-      //   <input type="text" onChange={(e)=> setAnswer(e.target.value)}/>
-      //   <input type="submit" onClick ={handleSubmit} data-answer={answer}/>
-      // </div>
       <OnBoardContainer>
         <StepDots currentDot={StepDotCount} currentStep={currentStep}>
           <p>.</p>
