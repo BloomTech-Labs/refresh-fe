@@ -64,15 +64,15 @@ const Login = props => {
     localStorage.setItem("token", userObject.token);
     activeUser.setUser({
       ...activeUser,
-      user_id: userObject.user_id || null,
-      display_name: userObject.display_name || "",
-      fname: userObject.fname || "",
-      lname: userObject.lname || "",
-      cohort: userObject.cohort || "",
-      section_lead: userObject.section_lead || "",
-      avatar: userObject.avatar || "",
-      bio: userObject.bio || "",
-      new_user: userObject.newUser ? true : false
+      user_id: userObject.user_profile.user_id || null,
+      display_name: userObject.user_profile.display_name || "",
+      fname: userObject.user_profile.fname || "",
+      lname: userObject.user_profile.lname || "",
+      cohort: userObject.user_profile.cohort || "",
+      section_lead: userObject.user_profile.section_lead || "",
+      avatar: userObject.user_profile.avatar || "",
+      bio: userObject.user_profile.bio || "",
+      new_user: userObject.user_profile.newUser ? true : false
     });
     {
       userObject.newUser

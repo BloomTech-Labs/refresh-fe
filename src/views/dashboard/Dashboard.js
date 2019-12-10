@@ -19,6 +19,7 @@ const Dashboard = props => {
     const activeUser = useContext(UserContext);
     const userMissions = useContext(UserMissionsContext);
     console.log('[userMissionsContext]', userMissions);
+    console.log('[activeUser]', activeUser);
     
     // state hooks
     // todo
