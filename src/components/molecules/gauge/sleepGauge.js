@@ -7,19 +7,17 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import water0 from "../../../images/gauge/waterGauge/water0.svg";
-import water1 from "../../../images/gauge/waterGauge/water1.svg";
-import water2 from "../../../images/gauge/waterGauge/water2.svg";
-import water3 from "../../../images/gauge/waterGauge/water3.svg";
-import water4 from "../../../images/gauge/waterGauge/water4.svg";
-import water5 from "../../../images/gauge/waterGauge/water5.svg";
-import water6 from "../../../images/gauge/waterGauge/water6.svg";
-import water7 from "../../../images/gauge/waterGauge/water7.svg";
-import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
+import sleep0 from "../../../images/gauge/sleepGauge/sleep0.svg";
+import sleep1 from "../../../images/gauge/sleepGauge/sleep1.svg";
+import sleep2 from "../../../images/gauge/sleepGauge/sleep2.svg";
+import sleep3 from "../../../images/gauge/sleepGauge/sleep3.svg";
+import sleep4 from "../../../images/gauge/sleepGauge/sleep4.svg";
+import sleep5 from "../../../images/gauge/sleepGauge/sleep5.svg";
+import sleepComplete from "../../../images/gauge/sleepGauge/sleepComplete.svg";
 
-const WaterGauge = ({ children, ...props }) => {
+const SleepGauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState({
-    waterStats: 0
+    sleepStats: 0
   });
   console.log(`[gaugeData before useEffect]`, gaugeData);
 
@@ -36,7 +34,7 @@ const WaterGauge = ({ children, ...props }) => {
               console.log(`[Mission after map]`, mission);
               mission.vertical.toLowerCase() === "water"
                 ? setGaugeData({
-                    waterStats: mission.point_current
+                    sleepStats: mission.point_current
                   })
                 : console.log(`[No water data / end of map]`);
             });
@@ -44,93 +42,76 @@ const WaterGauge = ({ children, ...props }) => {
   }, []);
 
   console.log(`[gaugeData after useEffect]`, gaugeData);
-  // console.log(`[waterStats after useEffect]`, waterStats);
+  // console.log(`[sleepStats after useEffect]`, sleepStats);
 
   const gaugeFill = () => {
     console.log(`[gaugeData inside gaugeFill]`, gaugeData);
     switch (true) {
-      case gaugeData.waterStats === 1:
+      case gaugeData.sleepStats === 1:
         return (
           <Icon
-            svg={water1}
-            alt="1 glasses of water"
-            title="Current: 1 glasses of water"
+            svg={sleep1}
+            alt="1 hours of sleep"
+            title="Current: 1 hours of sleep"
           />
         );
-      case gaugeData.waterStats === 2:
+      case gaugeData.sleepStats === 2:
         return (
           <Icon
-            svg={water2}
-            alt="2 glasses of water"
-            title="Current: 2 glasses of water"
+            svg={sleep2}
+            alt="2 hours of sleep"
+            title="Current: 2 hours of sleep"
           />
         );
-      case gaugeData.waterStats === 3:
+      case gaugeData.sleepStats === 3:
         return (
           <Icon
-            svg={water3}
-            alt="3 glasses of water"
-            title="Current: 3 glasses of water"
+            svg={sleep3}
+            alt="3 hours of sleep"
+            title="Current: 3 hours of sleep"
           />
         );
-      case gaugeData.waterStats === 4:
+      case gaugeData.sleepStats === 4:
         return (
           <Icon
-            svg={water4}
-            alt="4 glasses of water"
-            title="Current: 4 glasses of water"
+            svg={sleep4}
+            alt="4 hours of sleep"
+            title="Current: 4 hours of sleep"
           />
         );
-      case gaugeData.waterStats === 5:
+      case gaugeData.sleepStats === 5:
         return (
           <Icon
-            svg={water5}
-            alt="5 glasses of water"
-            title="Current: 5 glasses of water"
+            svg={sleep5}
+            alt="5 hours of sleep"
+            title="Current: 5 hours of sleep"
           />
         );
-      case gaugeData.waterStats === 6:
+      case gaugeData.sleepStats >= 6:
         return (
           <Icon
-            svg={water6}
-            alt="6 glasses of water"
-            title="Current: 6 glasses of water"
-          />
-        );
-      case gaugeData.waterStats === 7:
-        return (
-          <Icon
-            svg={water7}
-            alt="7 glasses of water"
-            title="Current: 7 glasses of water"
-          />
-        );
-      case gaugeData.waterStats >= 8:
-        return (
-          <Icon
-            svg={waterComplete}
-            alt="8 glasses of water"
+            svg={sleepComplete}
+            alt="6 hours of sleep"
             title="Current: Goal Complete!"
           />
         );
       default:
         return (
           <Icon
-            svg={water0}
-            alt="image for 0 glasses of water"
-            title="Current: 0 glasses of water"
+            svg={sleep0}
+            alt="image for 0 hours of sleep"
+            title="Current: 0 hours of sleep"
           />
         );
     }
   };
-  console.log(`[Before return]:`, gaugeData.waterStats);
+  console.log(`[Before return]:`, gaugeData.sleepStats);
 
   return (
     <>
       <StyledGauge className="StyledGauge">
         <MobileCardWater className="MobileCardWater">
-          {/* {gaugeFill(gaugeData)} */}
-          <Icon svg={waterComplete} alt="1 glasses of water" />
+          {gaugeFill(gaugeData)}
         </MobileCardWater>
       </StyledGauge>
     </>
@@ -148,4 +129,4 @@ const MobileCardWater = styled.div`
   top: 0px;
 `;
 
-export default WaterGauge;
+export default SleepGauge;

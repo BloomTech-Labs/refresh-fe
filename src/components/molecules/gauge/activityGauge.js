@@ -17,7 +17,7 @@ import activityComplete from "../../../images/gauge/activityGauge/activityComple
 
 const ActivityGauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState({
-    waterStats: 0
+    activityStats: 0
   });
   console.log(`[gaugeData before useEffect]`, gaugeData);
 
