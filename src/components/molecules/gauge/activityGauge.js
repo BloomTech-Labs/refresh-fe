@@ -42,7 +42,7 @@ const ActivityGauge = ({ children, ...props }) => {
   }, []);
 
   console.log(`[gaugeData after useEffect]`, gaugeData);
-  // console.log(`[waterStats after useEffect]`, waterStats);
+  // console.log(`[waterStats after useEffect]`, activityStats);
 
   const gaugeFill = () => {
     console.log(`[gaugeData inside gaugeFill]`, gaugeData);
@@ -51,47 +51,47 @@ const ActivityGauge = ({ children, ...props }) => {
         return (
           <Icon
             svg={activity5}
-            alt="1 glasses of water"
-            title="Current: 1 glasses of water"
+            alt="5 minutes of activity"
+            title="Current: 5 minutes of activity"
           />
         );
       case gaugeData.activityStats === 2:
         return (
           <Icon
             svg={activity10}
-            alt="2 glasses of water"
-            title="Current: 2 glasses of water"
+            alt="10 minutes of activity"
+            title="Current: 10 minutes of activity"
           />
         );
       case gaugeData.activityStats === 3:
         return (
           <Icon
             svg={activity15}
-            alt="3 glasses of water"
-            title="Current: 3 glasses of water"
+            alt="15 minutes of activity"
+            title="Current: 15 minutes of activity"
           />
         );
       case gaugeData.activityStats === 4:
         return (
           <Icon
             svg={activity20}
-            alt="4 glasses of water"
-            title="Current: 4 glasses of water"
+            alt="20 minutes of activity"
+            title="Current: 20 minutes of activity"
           />
         );
       case gaugeData.activityStats === 5:
         return (
           <Icon
             svg={activity25}
-            alt="5 glasses of water"
-            title="Current: 5 glasses of water"
+            alt="25 minutes of activity"
+            title="Current: 25 minutes of activity"
           />
         );
       case gaugeData.activityStats >= 30:
         return (
           <Icon
             svg={activityComplete}
-            alt="8 glasses of water"
+            alt="30+ minutes of activity"
             title="Current: Goal Complete!"
           />
         );
@@ -99,8 +99,8 @@ const ActivityGauge = ({ children, ...props }) => {
         return (
           <Icon
             svg={activity0}
-            alt="image for 0 glasses of water"
-            title="Current: 0 glasses of water"
+            alt="image for 0 minutes of activity"
+            title="Current: 0 minutes of activity"
           />
         );
     }
