@@ -47,7 +47,7 @@ const Sprint = styled.div`
 
 const FirstSecondIcon = styled.i`
   display: inline-block;
-  color: #6487FF;
+  color: #e05cb3;
   font-size: 50px;
   margin-bottom: 60px;
   margin-right: 40px;
@@ -55,7 +55,7 @@ const FirstSecondIcon = styled.i`
 
 const ThirdIcon = styled.i`
   display: inline-block;
-  color: #6487FF;
+  color: #e05cb3;
   font-size: 50px;
   margin-bottom: 60px;
 `
@@ -111,7 +111,7 @@ export function TimerFour ({ expiryTimestamp }) {
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
-          pathColor: `#6487FF, ${percentage}`,
+          pathColor: '#e05cb3', percentage,
           trailColor: 'white',
           textColor: 'white',
           textSize: '16px',
@@ -141,7 +141,7 @@ export function TimerFour ({ expiryTimestamp }) {
             styles={
               buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
+              pathColor: '#e05cb3',
               trailColor: 'white',
             })}
         />
@@ -152,7 +152,7 @@ export function TimerFour ({ expiryTimestamp }) {
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
+              pathColor: '#e05cb3',
               trailColor: 'white',
             })}
         />
@@ -163,7 +163,7 @@ export function TimerFour ({ expiryTimestamp }) {
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
+              pathColor: '#e05cb3',
               trailColor: 'white',
             })}
         />
