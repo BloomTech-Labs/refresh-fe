@@ -174,7 +174,7 @@ export function TimerFour ({ expiryTimestamp }) {
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
+              pathColor: '#e05cb3',
               trailColor: 'white',
             })}
         />
