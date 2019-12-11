@@ -3,12 +3,14 @@
 import React from "react";
 //styled components
 import styled from "styled-components";
+//images
+import waves from "../../images/Onboarding/waves.svg";
 //logos
-import fblogo from "../../images/facebook-logo.png";
-import emailogo from "../../images/Onboarding/email.png";
-import googlelogo from "../../images/google-icon.jpg";
+import fblogo from "../../images/Onboarding/facebook_round_transparent_logo.svg";
+import emailogo from "../../images/Onboarding/email.svg";
+import googlelogo from "../../images/Onboarding/google_icon_round_color.svg";
 //cube elements
-import cubes from "../../images/two_cubes.png";
+import cubes from "../../images/Onboarding/red_purple_cubes.svg";
 //atoms
 import Row from "../../components/atoms/row/row";
 import Col from "../../components/atoms/col/col";
@@ -95,7 +97,7 @@ const CreateAccount = props => {
         </FlexHolder>
         <Row width={97}>
           <Col width={30} marginLeft={-2}>
-            <Text fontSize={16} color={"#CFCDFF"} text={colText}></Text>
+            <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
           </Col>
           <Col
             width={70}
@@ -120,21 +122,20 @@ const OnBoardWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  background-color: #3a3699;
+  background-color: #4742BC;
+  background-image:url(${waves})
 `;
 
 const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
-  background-color: #3a3699;
-  color: #7f7cca;
 `;
 
 const Header = styled.h1`
   font-weight: bold;
-  font-size: 5rem;
-  line-height: 82px;
+  font-size: 4rem;
+  line-height: 6.6rem;
   letter-spacing: 3.5px;
   color: #ffffff;
 `;
