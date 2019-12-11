@@ -26,7 +26,7 @@ const Timer = styled.div`
 `
 
 const Buttons = styled.div`
-  margin-top: 40px;
+  margin-top: 70px;
   display: flex;
   justify-content: center;
 `
