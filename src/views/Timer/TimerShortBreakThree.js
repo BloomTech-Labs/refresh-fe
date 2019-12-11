@@ -57,7 +57,7 @@ const Text = styled.p`
   line-height: 1.5;
 `
  
-export function TimerLongBreak ({ expiryTimestamp }) {
+export function TimerShortBreakThree ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -83,7 +83,7 @@ export function TimerLongBreak ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    setPercentage(-1 * (min / 60));
+    setPercentage(-1 * (min / 5));
   }, [seconds])
 
   return (
@@ -110,13 +110,13 @@ export function TimerLongBreak ({ expiryTimestamp }) {
       <Buttons>
         <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
         <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
-        <Link to="timer">
-          <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon> 
-        </Link>
+        <Link to="timer-4">
+            <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon>
+        </Link> 
       </Buttons>
      
       <Break>
-        <Text>Take a long break.</Text>
+        <Text>Take a short break.</Text>
       </Break>
     </Clock>
   );
@@ -124,10 +124,10 @@ export function TimerLongBreak ({ expiryTimestamp }) {
  
 export default function Display() {
   var t = new Date();
-  t.setSeconds(t.getSeconds() + 3600); // 60 minutes timer
+  t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
   return (
     <div>
-      <TimerLongBreak expiryTimestamp={t} />
+      <TimerShortBreakThree expiryTimestamp={t} />
     </div>
   );
 }
