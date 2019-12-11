@@ -7,19 +7,12 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import water0 from "../../../images/gauge/waterGauge/water0.svg";
-import water1 from "../../../images/gauge/waterGauge/water1.svg";
-import water2 from "../../../images/gauge/waterGauge/water2.svg";
-import water3 from "../../../images/gauge/waterGauge/water3.svg";
-import water4 from "../../../images/gauge/waterGauge/water4.svg";
-import water5 from "../../../images/gauge/waterGauge/water5.svg";
-import water6 from "../../../images/gauge/waterGauge/water6.svg";
-import water7 from "../../../images/gauge/waterGauge/water7.svg";
-import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
+import social0 from "../../../images/gauge/";
 
-const WaterGauge = ({ children, ...props }) => {
+
+const SocialGauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState({
-    waterStats: 0
+    socialStats: 0
   });
   console.log(`[gaugeData before useEffect]`, gaugeData);
 
@@ -36,7 +29,7 @@ const WaterGauge = ({ children, ...props }) => {
               console.log(`[Mission after map]`, mission);
               mission.vertical.toLowerCase() === "water"
                 ? setGaugeData({
-                    waterStats: mission.point_current
+                    socialStats: mission.point_current
                   })
                 : console.log(`[No water data / end of map]`);
             });
@@ -44,12 +37,12 @@ const WaterGauge = ({ children, ...props }) => {
   }, []);
 
   console.log(`[gaugeData after useEffect]`, gaugeData);
-  // console.log(`[waterStats after useEffect]`, waterStats);
+  // console.log(`[socialStats after useEffect]`, socialStats);
 
   const gaugeFill = () => {
     console.log(`[gaugeData inside gaugeFill]`, gaugeData);
     switch (true) {
-      case gaugeData.waterStats === 1:
+      case gaugeData.socialStats === 1:
         return (
           <Icon
             svg={water1}
@@ -57,7 +50,7 @@ const WaterGauge = ({ children, ...props }) => {
             title="Current: 1 glasses of water"
           />
         );
-      case gaugeData.waterStats === 2:
+      case gaugeData.socialStats === 2:
         return (
           <Icon
             svg={water2}
@@ -65,7 +58,7 @@ const WaterGauge = ({ children, ...props }) => {
             title="Current: 2 glasses of water"
           />
         );
-      case gaugeData.waterStats === 3:
+      case gaugeData.socialStats === 3:
         return (
           <Icon
             svg={water3}
@@ -73,7 +66,7 @@ const WaterGauge = ({ children, ...props }) => {
             title="Current: 3 glasses of water"
           />
         );
-      case gaugeData.waterStats === 4:
+      case gaugeData.socialStats === 4:
         return (
           <Icon
             svg={water4}
@@ -81,7 +74,7 @@ const WaterGauge = ({ children, ...props }) => {
             title="Current: 4 glasses of water"
           />
         );
-      case gaugeData.waterStats === 5:
+      case gaugeData.socialStats === 5:
         return (
           <Icon
             svg={water5}
@@ -89,7 +82,7 @@ const WaterGauge = ({ children, ...props }) => {
             title="Current: 5 glasses of water"
           />
         );
-      case gaugeData.waterStats === 6:
+      case gaugeData.socialStats === 6:
         return (
           <Icon
             svg={water6}
@@ -97,7 +90,7 @@ const WaterGauge = ({ children, ...props }) => {
             title="Current: 6 glasses of water"
           />
         );
-      case gaugeData.waterStats === 7:
+      case gaugeData.socialStats === 7:
         return (
           <Icon
             svg={water7}
@@ -105,7 +98,7 @@ const WaterGauge = ({ children, ...props }) => {
             title="Current: 7 glasses of water"
           />
         );
-      case gaugeData.waterStats >= 8:
+      case gaugeData.socialStats >= 8:
         return (
           <Icon
             svg={waterComplete}
@@ -123,7 +116,7 @@ const WaterGauge = ({ children, ...props }) => {
         );
     }
   };
-  console.log(`[Before return]:`, gaugeData.waterStats);
+  console.log(`[Before return]:`, gaugeData.socialStats);
 
   return (
     <>
@@ -148,4 +141,4 @@ const MobileCardWater = styled.div`
   top: 0px;
 `;
 
-export default WaterGauge;
+export default SocialGauge;
