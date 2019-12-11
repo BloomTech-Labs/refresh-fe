@@ -1,12 +1,15 @@
 // IMPORTS
 //react
 import React, { useState, useEffect, useContext } from "react";
+import { Redirect } from "react-router-dom";
 //context
 import { UserContext } from "../../../contexts/UserContext";
 //axios with auth
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //styled components
 import styled from "styled-components";
+//images
+import waves from "../../../images/Onboarding/waves.svg";
 //react slider library
 import ReactSlider from "react-slider";
 //weight and height dials
@@ -23,7 +26,7 @@ const StepForm = props => {
   const [questions, setQuestions] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [answer, setAnswer] = useState();
-  console.log(user);
+  const [done, setDone] = useState(false);
 
   //Get Questions on Mount
   useEffect(() => {
@@ -49,7 +52,7 @@ const StepForm = props => {
       console.log("here", questions[currentStep]);
       postAnswer({ answer, question_id: questions[currentStep].id });
       setQuestions([]);
-      props.history.push("/dashboard");
+      setDone(true);
     } else {
       const defaultAnswer = answer ? answer : "Chose not to answer";
       console.log("here", questions[currentStep]);
@@ -78,115 +81,114 @@ const StepForm = props => {
 
   //StepDot helper function for styled component
   const StepDotCount = currentStep => {
-    return `&:nth-of-type(${currentStep + 1}){
+    return `&:nth-child(-n + ${currentStep + 1}){
       color: #E05CB3;
       `;
   };
 
-  //render
-  return questions.length ? (
-    // <div>
-    //   {questions[currentStep].question}
-    //   <input type="text" onChange={(e)=> setAnswer(e.target.value)}/>
-    //   <input type="submit" onClick ={handleSubmit} data-answer={answer}/>
-    // </div>
-    <OnBoardContainer>
-      <StepDots currentDot={StepDotCount} currentStep={currentStep}>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-      </StepDots>
-      <form onSubmit={handleSubmit}>
-        {/* First Question, Concent Button*/}
-        {currentStep < 3 && (
-          <Question>{questions[currentStep].question}</Question>
-        )}
-        {/* First Question, Concent Button*/}
-        {currentStep >= 3 && (
-          <LongQuestion>{questions[currentStep].question}</LongQuestion>
-        )}
-        {/* Returns First and second Question */}
-        {currentStep === 0 && (
-          <>
-            <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-            <TopArrow>
-              <svg
-                width="19"
-                height="16"
-                viewBox="0 0 19 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17.463 3.10599e-06L1.5392 2.40994e-06C0.324938 2.35686e-06 -0.412842 1.37207 0.248087 2.42873L8.20996 15.2663C8.34859 15.491 8.54036 15.6762 8.76744 15.8044C8.99452 15.9327 9.24954 16 9.50876 16C9.76799 16 10.023 15.9327 10.2501 15.8044C10.4772 15.6762 10.6689 15.491 10.8076 15.2663L18.7541 2.42873C18.904 2.19085 18.9886 1.91586 18.9989 1.63276C19.0092 1.34967 18.9449 1.06896 18.8127 0.820256C18.6805 0.571552 18.4853 0.364073 18.2477 0.219705C18.0102 0.0753375 17.7391 -0.000565655 17.463 3.10599e-06Z"
-                  fill="#E05CB3"
-                />
-              </svg>
-            </TopArrow>
-            <Weight setAnswer={setAnswer} />
-          </>
-        )}
-        {currentStep === 1 && (
-          <>
-            <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
-            <TopArrow>
-              <svg
-                width="19"
-                height="16"
-                viewBox="0 0 19 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17.463 3.10599e-06L1.5392 2.40994e-06C0.324938 2.35686e-06 -0.412842 1.37207 0.248087 2.42873L8.20996 15.2663C8.34859 15.491 8.54036 15.6762 8.76744 15.8044C8.99452 15.9327 9.24954 16 9.50876 16C9.76799 16 10.023 15.9327 10.2501 15.8044C10.4772 15.6762 10.6689 15.491 10.8076 15.2663L18.7541 2.42873C18.904 2.19085 18.9886 1.91586 18.9989 1.63276C19.0092 1.34967 18.9449 1.06896 18.8127 0.820256C18.6805 0.571552 18.4853 0.364073 18.2477 0.219705C18.0102 0.0753375 17.7391 -0.000565655 17.463 3.10599e-06Z"
-                  fill="#E05CB3"
-                />
-              </svg>
-            </TopArrow>
-            <Height setAnswer={setAnswer} />
-          </>
-        )}
-        {/* WILL GIVE OVERWHELMED OPTIONS, Question 3*/}
-        {currentStep === 2 && (
-          <FlexHolder>
-            <Option onClick={() => setAnswer("Never")}>Never</Option>
-            <Option onClick={() => setAnswer("Sometimes")}>Sometimes</Option>
-            <Option onClick={() => setAnswer("Always")}>Always</Option>
-          </FlexHolder>
-        )}
-        {/* Slider Group , Questions 4 - 10*/}
-        {currentStep >= 3 && (
-          <StyledSlider
-            defaultValue={3}
-            max={7}
-            renderTrack={Track}
-            renderThumb={Thumb}
-            onChange={handleChanges}
-          />
-        )}
-        <Button onClick={handleSubmit} data-answer={answer}>
-          Continue
-        </Button>
-        {/* Bypass weight and height answering, Questions 1 and 2 */}
-        {currentStep <= 1 && (
-          <ButtonNoColor onClick={handleSubmit} data-answer={answer}>
-            I don't feel comfortable answering
-          </ButtonNoColor>
-        )}
-      </form>
-    </OnBoardContainer>
-  ) : (
-    <OnBoardContainer>
-      <LoadingSpinner />
-    </OnBoardContainer>
-  );
+  if (done) {
+    return <Redirect to="/dashboard" />;
+  } else {
+    //render
+    return questions.length ? (
+      <OnBoardContainer>
+        <StepDots currentDot={StepDotCount} currentStep={currentStep}>
+          <p>.</p>
+          <p>.</p>
+          <p>.</p>
+          <p>.</p>
+          <p>.</p>
+          <p>.</p>
+          <p>.</p>
+          <p>.</p>
+          <p>.</p>
+          <p>.</p>
+        </StepDots>
+        <form onSubmit={handleSubmit}>
+          {/* First Question, Concent Button*/}
+          {currentStep < 3 && (
+            <Question>{questions[currentStep].question}</Question>
+          )}
+          {/* First Question, Concent Button*/}
+          {currentStep >= 3 && (
+            <LongQuestion>{questions[currentStep].question}</LongQuestion>
+          )}
+          {/* Returns First and second Question */}
+          {currentStep === 0 && (
+            <>
+              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              <TopArrow>
+                <svg
+                  width="19"
+                  height="16"
+                  viewBox="0 0 19 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.463 3.10599e-06L1.5392 2.40994e-06C0.324938 2.35686e-06 -0.412842 1.37207 0.248087 2.42873L8.20996 15.2663C8.34859 15.491 8.54036 15.6762 8.76744 15.8044C8.99452 15.9327 9.24954 16 9.50876 16C9.76799 16 10.023 15.9327 10.2501 15.8044C10.4772 15.6762 10.6689 15.491 10.8076 15.2663L18.7541 2.42873C18.904 2.19085 18.9886 1.91586 18.9989 1.63276C19.0092 1.34967 18.9449 1.06896 18.8127 0.820256C18.6805 0.571552 18.4853 0.364073 18.2477 0.219705C18.0102 0.0753375 17.7391 -0.000565655 17.463 3.10599e-06Z"
+                    fill="#E05CB3"
+                  />
+                </svg>
+              </TopArrow>
+              <Weight setAnswer={setAnswer} />
+            </>
+          )}
+          {currentStep === 1 && (
+            <>
+              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              <TopArrow>
+                <svg
+                  width="19"
+                  height="16"
+                  viewBox="0 0 19 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.463 3.10599e-06L1.5392 2.40994e-06C0.324938 2.35686e-06 -0.412842 1.37207 0.248087 2.42873L8.20996 15.2663C8.34859 15.491 8.54036 15.6762 8.76744 15.8044C8.99452 15.9327 9.24954 16 9.50876 16C9.76799 16 10.023 15.9327 10.2501 15.8044C10.4772 15.6762 10.6689 15.491 10.8076 15.2663L18.7541 2.42873C18.904 2.19085 18.9886 1.91586 18.9989 1.63276C19.0092 1.34967 18.9449 1.06896 18.8127 0.820256C18.6805 0.571552 18.4853 0.364073 18.2477 0.219705C18.0102 0.0753375 17.7391 -0.000565655 17.463 3.10599e-06Z"
+                    fill="#E05CB3"
+                  />
+                </svg>
+              </TopArrow>
+              <Height setAnswer={setAnswer} />
+            </>
+          )}
+          {/* WILL GIVE OVERWHELMED OPTIONS, Question 3*/}
+          {currentStep === 2 && (
+            <FlexHolder>
+              <Option onClick={() => setAnswer("Never")}>Never</Option>
+              <Option onClick={() => setAnswer("Sometimes")}>Sometimes</Option>
+              <Option onClick={() => setAnswer("Always")}>Always</Option>
+            </FlexHolder>
+          )}
+          {/* Slider Group , Questions 4 - 10*/}
+          {currentStep >= 3 && (
+            <StyledSlider
+              defaultValue={3}
+              max={7}
+              renderTrack={Track}
+              renderThumb={Thumb}
+              onChange={handleChanges}
+            />
+          )}
+          <Button onClick={handleSubmit} data-answer={answer}>
+            Continue
+          </Button>
+          {/* Bypass weight and height answering, Questions 1 and 2 */}
+          {currentStep <= 1 && (
+            <ButtonNoColor onClick={handleSubmit} data-answer={answer}>
+              I don't feel comfortable answering
+            </ButtonNoColor>
+          )}
+        </form>
+      </OnBoardContainer>
+    ) : (
+      <OnBoardContainer>
+        <LoadingSpinner />
+      </OnBoardContainer>
+    );
+  }
 };
 
 // STYLED COMPONENTS
@@ -227,7 +229,8 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
-  background-color: #3a3699;
+  background-color: #4742bc;
+  background-image: url(${waves});
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
@@ -237,28 +240,40 @@ const OnBoardContainer = styled.div`
 
 //top arrow for dial components
 const TopArrow = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
+  position: relative;
   margin: 0 auto;
-  width: 0;
-  height: 0;
+  svg{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
 `;
+
+// position: fixed;
+// top: 50%;
+// left: 50%;
+// margin-top: 0px;
+// margin-left: 0px;
 
 const Question = styled.h1`
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3.5rem;
   line-height: 4.9rem;
   letter-spacing: 3.5px;
+  text-align:center;
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
 
 const LongQuestion = styled.h1`
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   line-height: 4.1rem;
   letter-spacing: 0.035em;
+  text-align:center;
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
@@ -269,7 +284,7 @@ line-height: 2.6rem;
 letter-spacing: 2px;
 text-align:center
 color: #A7A4E6;
-margin: 0 auto;
+margin: 6.5rem auto 0;
 `;
 
 const Option = styled.a`
@@ -321,7 +336,8 @@ const StepDots = styled.div`
   margin: 0 auto;
   p {
     padding-right: 1rem;
-    color: #ffffff;
+    color: #a7a4e6;
+    opacity:85%;
     ${props => props.currentDot(props.currentStep)}
   }
 `;

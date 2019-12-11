@@ -5,12 +5,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Weight = props => {
-  //hook for scroll position
-  const [currentPosition, setCurrentPosition] = useState(false);
-
   //handle change to store selected tick
   const handleChanges = e => {
-    console.log(e);
+    // console.log(e);
     props.setAnswer(e);
   };
 
@@ -22,7 +19,7 @@ const Weight = props => {
       if (i % unit === 0) {
         items.push(
           <>
-            <div className="bigtick" data-value={i}>
+            <div className="bigtick tick" data-value={i}>
               <p onClick={() => handleChanges(i)}>
                 <svg
                   width="3"
@@ -44,7 +41,7 @@ const Weight = props => {
               <NumberP>{i}</NumberP>
             </div>
             <div
-              className="smalltick"
+              className="smalltick tick"
               data-value={i + n / 2 - 1}
               onClick={() => handleChanges(i + n / 2 - 1)}
             >
@@ -80,14 +77,26 @@ const Weight = props => {
 
   //handle scroll for ticks
   const handleScroll = e => {
-    //     var myElement = document.getElementById('element_within_div');
-    // var topPos = myElement.offsetLeft;
+    let ticks = e.target.querySelectorAll(".tick");
+    let mainDiv = e.target.getBoundingClientRect();
+    ticks.forEach((tick, i) => {
+      let centerTick = ticks[i].getBoundingClientRect();
+      if (
+        centerTick.x >= mainDiv.width / 2 + (mainDiv.width / 2) * 0.15 &&
+        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.3
+      ) {
+        props.setAnswer(ticks[i].dataset.value);
+        ticks[i].classList.add("active");
+      } else {
+        ticks[i].classList.remove("active");
+      }
+    });
   };
 
   //render
   return (
     <>
-      <WeightContainer>
+      <WeightContainer onScroll={handleScroll}>
         {sliderScale(1, 500).map((x, i) => (
           <DialStuff key={i}>{x}</DialStuff>
         ))}
@@ -100,7 +109,7 @@ export default Weight;
 
 // STYLED COMPONENTS
 const WeightContainer = styled.div`
-  max-width: 29rem;
+  max-width: 85vw;
   height: 15rem;
   margin-bottom: 6rem;
   display: flex;
@@ -119,6 +128,18 @@ const WeightContainer = styled.div`
   .smalltick {
     margin-top: -9rem;
     margin-left: 2rem;
+  }
+
+  .active {
+    color: #e05cb3;
+    p {
+      color: #e05cb3;
+    }
+    svg {
+      line {
+        stroke: #e05cb3;
+      }
+    }
   }
 `;
 const DialStuff = styled.div`

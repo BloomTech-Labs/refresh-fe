@@ -7,28 +7,58 @@ import styled from "styled-components";
 const Height = props => {
   //handle change to store selected tick
   const handleChanges = e => {
-    console.log(e);
-    props.setAnswer(e);
+    console.log(e.target.dataset.value);
+    props.setAnswer(e.target.dataset.value);
   };
-
   //Scale of numbers
   const sliderScale = (unit, range) => {
     let items = [];
-    let b = 0;
-    for (let i = 4; i < range; i += 0.012 * 6) {
-      b++;
-      console.log(b);
-      items.push(
-        <>
-          <div className="bigtick">
-            <p
-              onClick={
-                () => handleChanges(i)
-                // {
-                //   const decimal = i.toString().split('.')
-                //   console.log(parseInt("." + decimal[1]))
-                // }
-              }
+    let feet = 3;
+    let inches = 1;
+
+    //function for small ticks
+    const inbetween = x => {
+      let smalltick = [];
+      for (let i = 0; i < x; i++) {
+        smalltick.push(
+          <span
+            className="tick"
+            data-value={feet + "'" + inches + " & " + i * 0.25 + "''"}
+          >
+            <svg
+              width="2"
+              height="43"
+              viewBox="0 0 2 43"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="1"
+                y1="4.37114e-08"
+                x2="0.999998"
+                y2="43"
+                stroke="#CCC9FF"
+                strokeWidth="2"
+                data-value={feet + "'" + inches + " & " + i * 0.25 + "''"}
+              />
+            </svg>
+          </span>
+        );
+      }
+      return smalltick;
+    };
+    for (let i = 0; i < range; i++) {
+      if (i % unit === 0) {
+        //  items.push(<div className="bigtick">{feet}</div>)
+        feet++;
+        inches = 0;
+      } else {
+        items.push(
+          <>
+            <div
+              className="bigtick tick"
+              data-value={feet + "'" + inches + "''"}
+              onClick={handleChanges}
             >
               <svg
                 width="3"
@@ -44,96 +74,44 @@ const Height = props => {
                   y2="67"
                   stroke="white"
                   strokeWidth="3"
+                  data-value={feet + "'" + inches + "''"}
                 />
               </svg>
-            </p>
-            <NumberP>
-              {i
-                .toFixed(1)
-                .toString()
-                .replace(/\./g, "'")}
-              ''
-            </NumberP>
-          </div>
-          <div className="smalltick" onClick={() => handleChanges(i)}>
-            <svg
-              width="2"
-              height="43"
-              viewBox="0 0 2 43"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                x1="1"
-                y1="4.37114e-08"
-                x2="0.999998"
-                y2="43"
-                stroke="#CCC9FF"
-                strokeidth="2"
-              />
-            </svg>
-            <svg
-              width="2"
-              height="43"
-              viewBox="0 0 2 43"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                x1="1"
-                y1="4.37114e-08"
-                x2="0.999998"
-                y2="43"
-                stroke="#CCC9FF"
-                strokeWidth="2"
-              />
-            </svg>
-            <svg
-              width="2"
-              height="43"
-              viewBox="0 0 2 43"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                x1="1"
-                y1="4.37114e-08"
-                x2="0.999998"
-                y2="43"
-                stroke="#CCC9FF"
-                strokeWidth="2"
-              />
-            </svg>
-            <svg
-              width="2"
-              height="43"
-              viewBox="0 0 2 43"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                x1="1"
-                y1="4.37114e-08"
-                x2="0.999998"
-                y2="43"
-                stroke="#CCC9FF"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-        </>
-      );
+              <NumberP data-value={feet + "'" + inches + "''"}>
+                {feet + "'" + inches + "''"}
+              </NumberP>
+            </div>
+            <div className="smalltick" onClick={handleChanges}>
+              {inbetween(4).map(x => x)}
+            </div>
+          </>
+        );
+        inches++;
+      }
     }
     return items;
   };
 
-  //render
+  const handleScroll = e => {
+    let ticks = e.target.querySelectorAll(".tick");
+    let mainDiv = e.target.getBoundingClientRect();
+    ticks.forEach((tick, i) => {
+      let centerTick = ticks[i].getBoundingClientRect();
+      if (
+        centerTick.x >= mainDiv.width / 2 + (mainDiv.width / 2) * 0.15 &&
+        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.3
+      ) {
+        props.setAnswer(ticks[i].dataset.value);
+        ticks[i].classList.add("active");
+      } else {
+        ticks[i].classList.remove("active");
+      }
+    });
+  };
   return (
     <>
-      <WeightContainer>
-        {sliderScale(2, 8).map((x, i) => (
-          <DialStuff key={i}>{x}</DialStuff>
-        ))}
+      <WeightContainer onScroll={handleScroll}>
+        {sliderScale(13, 50).map((x, i) => x)}
       </WeightContainer>
     </>
   );
@@ -156,14 +134,24 @@ const WeightContainer = styled.div`
   .bigtick {
     display: flex;
     flex-direction: column;
-    color: black;
   }
 
   .smalltick {
-    margin-top: -9rem;
-    margin-left: 2rem;
+    display: flex;
     svg {
       margin-right: 2rem;
+    }
+  }
+
+  .active {
+    color: #e05cb3;
+    p {
+      color: #e05cb3;
+    }
+    svg {
+      line {
+        stroke: #e05cb3;
+      }
     }
   }
 `;
@@ -173,6 +161,7 @@ const DialStuff = styled.div`
 
 const NumberP = styled.p`
   margin-left: -1rem;
+  margin-right: 1rem;
   font-family: Catamaran;
   font-weight: bold;
   color: #ffffff;
