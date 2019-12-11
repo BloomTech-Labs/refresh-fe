@@ -9,6 +9,7 @@ import styled from "styled-components";
 import fblogo from "../../images/Onboarding/facebook_round_transparent_logo.svg";
 import emailogo from "../../images/Onboarding/email.svg";
 import googlelogo from "../../images/Onboarding/google_icon_round_color.svg";
+import waves from "../../images/Onboarding/waves.svg";
 //cube elements
 import cubes from "../../images/Onboarding/red_purple_cubes.svg";
 // components
@@ -134,10 +135,11 @@ const Login = props => {
 
 // STYLED COMPONENTS
 const OnBoardWrapper = styled.div`
-  background-color: #3a3699;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
+  background-color: #4742BC;
+  background-image:url(${waves})
 `;
 const OnBoardContainer = styled.div`
   display: flex;
@@ -147,7 +149,6 @@ const OnBoardContainer = styled.div`
   margin: auto;
   padding-top: 5rem;
   line-height: 1.5;
-  background-color: #3a3699;
   color: #7f7cca;
 `;
 

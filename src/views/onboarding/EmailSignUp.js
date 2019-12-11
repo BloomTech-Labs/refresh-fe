@@ -88,7 +88,7 @@ const EmailSignUp = props => {
           color={"#E6E6E6"}
         />
         <Input
-          type="password"
+          type="text"
           name="password"
           placeholder="Password"
           onChange={handleChange}
@@ -99,7 +99,7 @@ const EmailSignUp = props => {
           color={"#E6E6E6"}
         />
         <Input
-          type="password"
+          type="text"
           name="confirmPassword"
           placeholder="Confirm password"
           onChange={handleChange}
@@ -123,8 +123,8 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
-  background-color: #4742BC;
-  background-image:url(${waves});
+  background-color: #4742bc;
+  background-image: url(${waves});
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
@@ -133,10 +133,10 @@ const OnBoardContainer = styled.div`
 `;
 
 const Logo = styled.img`
-width: 100%;
-max-width: 90%;
-height: auto;
-margin: 0 auto;
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
 `;
 
 const Header = styled.h1`
@@ -153,10 +153,10 @@ const Form = styled.form`
   width: 90%;
   margin-left: 1rem;
 
-  input{
+  input {
     ::-webkit-input-placeholder {
       font-family: "Catamaran", sans-serif;
-      color: #E6E6E6;
+      color: #e6e6e6;
     }
   }
 `;

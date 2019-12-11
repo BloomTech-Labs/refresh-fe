@@ -8,6 +8,8 @@ import { UserContext } from "../../../contexts/UserContext";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //styled components
 import styled from "styled-components";
+//images
+import waves from "../../../images/Onboarding/waves.svg";
 //react slider library
 import ReactSlider from "react-slider";
 //weight and height dials
@@ -227,7 +229,8 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
-  background-color: #3a3699;
+  background-color: #4742bc;
+  background-image: url(${waves});
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
@@ -250,6 +253,7 @@ const Question = styled.h1`
   font-size: 3rem;
   line-height: 4.9rem;
   letter-spacing: 3.5px;
+  text-align:center;
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
@@ -259,6 +263,7 @@ const LongQuestion = styled.h1`
   font-size: 2.5rem;
   line-height: 4.1rem;
   letter-spacing: 0.035em;
+  text-align:center;
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
@@ -321,7 +326,8 @@ const StepDots = styled.div`
   margin: 0 auto;
   p {
     padding-right: 1rem;
-    color: #ffffff;
+    color: #a7a4e6;
+    opacity:85%;
     ${props => props.currentDot(props.currentStep)}
   }
 `;
