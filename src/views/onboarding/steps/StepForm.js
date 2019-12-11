@@ -240,12 +240,16 @@ const OnBoardContainer = styled.div`
 
 //top arrow for dial components
 const TopArrow = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
+  position: relative;
   margin: 0 auto;
-  width: 0;
-  height: 0;
+  svg{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
 `;
 
 // position: fixed;
@@ -256,7 +260,7 @@ const TopArrow = styled.div`
 
 const Question = styled.h1`
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3.5rem;
   line-height: 4.9rem;
   letter-spacing: 3.5px;
   text-align:center;
@@ -266,7 +270,7 @@ const Question = styled.h1`
 
 const LongQuestion = styled.h1`
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   line-height: 4.1rem;
   letter-spacing: 0.035em;
   text-align:center;
@@ -280,7 +284,7 @@ line-height: 2.6rem;
 letter-spacing: 2px;
 text-align:center
 color: #A7A4E6;
-margin: 0 auto;
+margin: 6.5rem auto 0;
 `;
 
 const Option = styled.a`
