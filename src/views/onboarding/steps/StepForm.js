@@ -81,7 +81,7 @@ const StepForm = props => {
 
   //StepDot helper function for styled component
   const StepDotCount = currentStep => {
-    return `&:nth-of-type(${currentStep + 1}){
+    return `&:nth-child(-n + ${currentStep + 1}){
       color: #E05CB3;
       `;
   };
@@ -247,6 +247,12 @@ const TopArrow = styled.div`
   width: 0;
   height: 0;
 `;
+
+// position: fixed;
+// top: 50%;
+// left: 50%;
+// margin-top: 0px;
+// margin-left: 0px;
 
 const Question = styled.h1`
   font-weight: 600;

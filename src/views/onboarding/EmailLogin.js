@@ -9,7 +9,7 @@ import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 import waves from "../../images/Onboarding/waves.svg";
 import welcome from "../../images/Onboarding/welcome_back.svg";
 //atoms
-import Input from "../../components/atoms/input/input";
+// import Input from "../../components/atoms/input/input";
 
 const EmailLogin = props => {
   //hooks
@@ -139,17 +139,20 @@ const Form = styled.form`
     }
 `;
 
-// const Input = styled.input`
-//   border: 0;
-//   border-bottom: 1px solid #ccc9ff;
-//   margin: 25px 0;
-//   background: transparent;
-//   color: #ccc9ff;
-//   outline: none;
-//   font-size:1.4rem ::-webkit-input-placeholder {
-//     color: #ccc9ff;
-//   }
-// `;
+const Input = styled.input`
+  border: 0;
+  border: 1px solid #3D3B91;
+  margin: 2.5rem 0;
+  padding: 1rem 0.5rem;
+  width:100%;
+  background: #3D3B91;
+  color: #ccc9ff;
+  outline: none;
+  font-size:1.4rem ::-webkit-input-placeholder {
+    font-family: "Catamaran", sans-serif;
+    color: #E6E6E6;
+  }
+`;
 
 const Button = styled.a`
 display: flex;

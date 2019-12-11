@@ -82,7 +82,7 @@ const Weight = props => {
     let ticks = e.target.querySelectorAll("#tick");
     ticks.forEach((tick, i) => {
       let centerTick = ticks[i].getBoundingClientRect();
-      if (centerTick.x > 190 && centerTick.x < 200) {
+      if (centerTick.x > 185 && centerTick.x < 200) {
         props.setAnswer(ticks[i].dataset.value);
         ticks[i].classList.add("active");
       } else {
