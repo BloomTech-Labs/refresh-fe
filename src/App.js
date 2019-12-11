@@ -35,6 +35,7 @@ import TimerLongBreak from './views/Timer/TimerLongBreak';
 
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
+
 //COMPONENT
 const App = props => {
   // contexts
