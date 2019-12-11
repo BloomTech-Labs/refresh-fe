@@ -8,6 +8,8 @@ import { UserContext } from "../../../contexts/UserContext";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //styled components
 import styled from "styled-components";
+//images
+import waves from "../../../images/Onboarding/waves.svg";
 //react slider library
 import ReactSlider from "react-slider";
 //weight and height dials
@@ -79,7 +81,7 @@ const StepForm = props => {
 
   //StepDot helper function for styled component
   const StepDotCount = currentStep => {
-    return `&:nth-of-type(${currentStep + 1}){
+    return `&:nth-child(-n + ${currentStep + 1}){
       color: #E05CB3;
       `;
   };
@@ -89,11 +91,6 @@ const StepForm = props => {
   } else {
     //render
     return questions.length ? (
-      // <div>
-      //   {questions[currentStep].question}
-      //   <input type="text" onChange={(e)=> setAnswer(e.target.value)}/>
-      //   <input type="submit" onClick ={handleSubmit} data-answer={answer}/>
-      // </div>
       <OnBoardContainer>
         <StepDots currentDot={StepDotCount} currentStep={currentStep}>
           <p>.</p>
@@ -232,7 +229,8 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
-  background-color: #3a3699;
+  background-color: #4742bc;
+  background-image: url(${waves});
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
@@ -242,28 +240,40 @@ const OnBoardContainer = styled.div`
 
 //top arrow for dial components
 const TopArrow = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
+  position: relative;
   margin: 0 auto;
-  width: 0;
-  height: 0;
+  svg{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
 `;
+
+// position: fixed;
+// top: 50%;
+// left: 50%;
+// margin-top: 0px;
+// margin-left: 0px;
 
 const Question = styled.h1`
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3.5rem;
   line-height: 4.9rem;
   letter-spacing: 3.5px;
+  text-align:center;
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
 
 const LongQuestion = styled.h1`
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   line-height: 4.1rem;
   letter-spacing: 0.035em;
+  text-align:center;
   color: #ffffff;
   margin: 6rem 0 2rem;
 `;
@@ -274,7 +284,7 @@ line-height: 2.6rem;
 letter-spacing: 2px;
 text-align:center
 color: #A7A4E6;
-margin: 0 auto;
+margin: 6.5rem auto 0;
 `;
 
 const Option = styled.a`
@@ -326,7 +336,8 @@ const StepDots = styled.div`
   margin: 0 auto;
   p {
     padding-right: 1rem;
-    color: #ffffff;
+    color: #a7a4e6;
+    opacity:85%;
     ${props => props.currentDot(props.currentStep)}
   }
 `;
