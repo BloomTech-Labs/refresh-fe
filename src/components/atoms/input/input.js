@@ -29,7 +29,10 @@ const Input = ({ callback = () => {}, ...props }) => {
     borderRadiusBottomRight,
     padding,
     height,
-    width
+    width,
+    backgroundColor,
+    actionColor,
+    actionBackground
   } = props;
 
   const updateValue = e => {
@@ -75,6 +78,9 @@ const Input = ({ callback = () => {}, ...props }) => {
       padding={padding}
       height={height}
       width={width}
+      actionColor={actionColor}
+      backgroundColor={backgroundColor}
+      actionBackground={actionBackground}
     />
   );
 };
