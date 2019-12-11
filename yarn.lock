@@ -8264,6 +8264,11 @@ react-app-polyfill@^1.0.4:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
+react-circular-progressbar@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-circular-progressbar/-/react-circular-progressbar-2.0.3.tgz#fa8eb59f8db168d2904bae4590641792c80f5991"
+  integrity sha512-YKN+xAShXA3gYihevbQZbavfiJxo83Dt1cUxqg/cltj4VVsRQpDr7Fg1mvjDG3x1KHGtd9NmYKvJ2mMrPwbKyw==
+
 react-dev-utils@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.1.0.tgz#3ad2bb8848a32319d760d0a84c56c14bdaae5e81"
@@ -8414,6 +8419,11 @@ react-slider@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-slider/-/react-slider-1.0.1.tgz#4cb212d31c35d804805e31f02ce37771e95d5d45"
   integrity sha512-SI2anLzeKlFxnntoM93VXrf3ll9uL/TYjIJB6PsQVp4mDVt2VfWyGtMoUvK/ir/PnjuirNtF1pU3cG9XCezfBA==
+
+react-timer-hook@^1.1.7:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/react-timer-hook/-/react-timer-hook-1.1.8.tgz#7ab7b525ee885f3ed747ceed61022cb46578ebc4"
+  integrity sha512-hhD9HFrVy8J2/F3qvfQiS0QANxl/KPx+QfgArXFjyqFFaW/S3w6zo3Seg7A0UT9FvCeWTSIN32AMDKq0cWy5Rg==
 
 react@^16.11.0:
   version "16.11.0"
