@@ -13,6 +13,8 @@ import React from "react";
 // helpers
 // import { test, flex } from "../../styles/global/Mixins";
 import WaterGauge from "../../components/molecules/gauge/waterGauge";
+import ActivityGauge from "../../components/molecules/gauge/activityGauge";
+import Row from "../../components/atoms/row";
 // Views to test
 
 // COMPONENT
@@ -20,7 +22,8 @@ const Sandbox = () => {
   return (
     <>
       welcome to the sandbox
-      <WaterGauge />
+      {/* <WaterGauge /> */}
+      <ActivityGauge />
     </>
   );
 };
