@@ -24,6 +24,7 @@ import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
 import EmailSignUp from './views/onboarding/EmailSignUp';
 import EmailLogIn from './views/onboarding/EmailLogin';
+
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
 //COMPONENT
