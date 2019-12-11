@@ -22,6 +22,7 @@ const Input = ({ ...props }) => {
     disabled,
     autocomplete = true,
     autofocus = false,
+    backgroundColor,
     border,
     borderLeft,
     borderTop,
@@ -31,6 +32,7 @@ const Input = ({ ...props }) => {
     borderRadiusTopLeft,
     borderRadiusTopRight,
     borderRadiusBottomRight,
+    color,
     padding,
     height,
     width,
@@ -91,6 +93,7 @@ const Input = ({ ...props }) => {
       onBlur={handleBlur}
       autoComplete={autocomplete.toString()}
       autoFocus={autofocus}
+      backgroundColor={backgroundColor}
       border={border}
       borderLeft={borderLeft}
       borderTop={borderTop}
@@ -100,6 +103,7 @@ const Input = ({ ...props }) => {
       borderRadiusTopLeft={borderRadiusTopLeft}
       borderRadiusTopRight={borderRadiusTopRight}
       borderRadiusBottomRight={borderRadiusBottomRight}
+      color={color}
       padding={padding}
       height={height}
       width={width}
@@ -139,7 +143,7 @@ const BaseInput = styled.input.attrs(props => ({
   cursor: props.cursor
 }))`
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
-  width: ${props => (props.width ? `${props.width}rem` : `50%`)};
+  width: ${props => (props.width ? `${props.width}%` : `50%`)};
   border: ${props => (props.border ? props.border : "1px solid primary")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
@@ -159,7 +163,7 @@ const BaseInput = styled.input.attrs(props => ({
   outline: none;
   cursor: text;
   margin: ${props => (props.margin ? `${props.margin}rem` : ".5rem")};
-  padding: ${props => (props.padding ? `${props.margin}rem` : ".25rem")};
+  padding: ${props => (props.padding ? `${props.padding}rem` : ".25rem")};
 `;
 
 export default Input;
