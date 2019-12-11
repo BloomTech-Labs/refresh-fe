@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LineChart from './profileViews/LineChart';
 
 
 const ActivityWidget = styled.div`
@@ -34,6 +35,8 @@ const ActivityCard = () => {
         <ActivityWidget>
             <h3>Your activity</h3>
             <p>this week</p>
+            <LineChart />
+
         </ActivityWidget>
      </>  
        
