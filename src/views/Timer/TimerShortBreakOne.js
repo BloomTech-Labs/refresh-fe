@@ -124,7 +124,7 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
  
 export default function Display() {
   var t = new Date();
-  t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
+  t.setSeconds(t.getSeconds() + 300); // 5 minutes timer.
   return (
     <div>
       <TimerShortBreakOne expiryTimestamp={t} />
