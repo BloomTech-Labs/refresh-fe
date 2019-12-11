@@ -10,6 +10,12 @@ const Clock = styled.div`
   flex-direction: column;
 `
 
+const Pomodoro = styled.h2`
+  color: white;
+  margin: 20px auto;
+  font-family: Catamaran;
+`
+
 const Timer = styled.div`
   margin: 20px auto;
   
@@ -88,7 +94,7 @@ export function TimerShortBreakThree ({ expiryTimestamp }) {
 
   return (
     <Clock>
-      
+      <Pomodoro>Break #3</Pomodoro>
       <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
