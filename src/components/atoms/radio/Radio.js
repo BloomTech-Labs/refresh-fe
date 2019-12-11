@@ -4,7 +4,7 @@ import { inputTypes } from "../../../styles/global/constants";
 
 const Radio = ({ callback = () => {}, labelText, ...props }) => {
   const {
-    isSelected = false,
+    isSelected,
     disabled,
     form,
     id,
