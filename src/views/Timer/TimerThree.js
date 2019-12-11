@@ -178,11 +178,7 @@ export function TimerThree ({ expiryTimestamp }) {
         </Sprint>
       </Sprints>
       <Instructions>
-        <Text>1. Evidence shows people are more productive when they work in <Bold>short bursts</Bold> with <Bold>frequent breaks</Bold>.</Text>
-        <br></br>
-        <Text>2. The <Bold>Pomodoro Technique</Bold> is a strategy that utilizes this theory. First, work in a sprint of <Bold>25 minutes</Bold>.</Text>
-        <br></br>
-        <Text>3. Next, take a <Bold>5 minute</Bold> break. Get up, take a <Bold>walk</Bold>, refill your <Bold>water</Bold>, <Bold>stretch</Bold>, and take <Bold>5 deep breaths</Bold> in and out.</Text>
+        <Text>Focus for 25 minutes.</Text>
       </Instructions>
     </Clock>
   );
