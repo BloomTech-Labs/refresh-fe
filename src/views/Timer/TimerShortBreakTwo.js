@@ -1,11 +1,63 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import './timer-styles.css';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+
+const Clock = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const Timer = styled.div`
+  margin: 20px auto;
+  
+  @media screen and (max-width:500px) {
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+
+  @media screen and (min-width:800px) {
+    width: 20vw;
+    height: 20vh;
+    margin-bottom: 150px;
+  }
+`
+
+const Buttons = styled.div`
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+`
+
+const FirstSecondIcon = styled.i`
+  display: inline-block;
+  color: #6487FF;
+  font-size: 50px;
+  margin-bottom: 60px;
+  margin-right: 40px;
+`
+
+const ThirdIcon = styled.i`
+  display: inline-block;
+  color: #6487FF;
+  font-size: 50px;
+  margin-bottom: 60px;
+`
+
+const Break = styled.div`
+  color: white;
+  font-size: 16px;
+  font-family: Catamaran;
+  text-align: center;
+`
+
+const Text = styled.p`
+  line-height: 1.5;
+`
  
-export function TimerShortBreakOne ({ expiryTimestamp }) {
+export function TimerShortBreakTwo ({ expiryTimestamp }) {
 
   let {
     seconds,
@@ -31,23 +83,13 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    console.log(min);
     setPercentage(-1 * (min / 5));
-    console.log(percentage);
   }, [seconds])
 
-  let rest = 1;
-
-  // if (rest && minutes == 0 && seconds == '00') {
-  //   let t = new Date();
-  //   t.setSeconds(t.getSeconds() + 1500); // 25 minutes timer
-  //   return <Route render={() => <TimerTwo expiryTimestamp={t} />} />
-  // } else {
-
   return (
-    <div className="clock">
-      <h1>Pomodoro Clock</h1>
-      <div className="timer">
+    <Clock>
+      
+      <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
@@ -63,20 +105,20 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
         </div>
       </CircularProgressbar>
       </>
-      </div>
+      </Timer>
 
-      <div className="buttons">
-        <i className="far fa-play-circle" onClick={resume}></i>
-        <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/timer-2'>
-          <i class="far fa-arrow-alt-circle-right"></i>
-        </Link>
-      </div>
+      <Buttons>
+        <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
+        <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
+        <Link to="timer-3">
+            <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon>
+        </Link> 
+      </Buttons>
      
-      <div className="instructions">
-        <p>Take a short break.</p>
-      </div>
-    </div>
+      <Break>
+        <Text>Take a short break.</Text>
+      </Break>
+    </Clock>
   );
 // }
 }
@@ -86,7 +128,7 @@ export default function Display() {
   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
   return (
     <div>
-      <TimerShortBreakOne expiryTimestamp={t} />
+      <TimerShortBreakTwo expiryTimestamp={t} />
     </div>
   );
 }
