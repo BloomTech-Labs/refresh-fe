@@ -15,6 +15,7 @@ import React from "react";
 import WaterGauge from "../../components/molecules/gauge/waterGauge";
 import ActivityGauge from "../../components/molecules/gauge/activityGauge";
 import SleepGauge from "../../components/molecules/gauge/sleepGauge"
+import HealthyEatingGauge from "../../components/molecules/gauge/healthyEatingGauge"
 // Views to test
 
 // COMPONENT
@@ -25,6 +26,8 @@ const Sandbox = () => {
       {/* <WaterGauge /> */}
       {/* <ActivityGauge /> */}
       {/* <SleepGauge /> */}
+      <HealthyEatingGauge />
+
     </>
   );
 };
