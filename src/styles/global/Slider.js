@@ -8,15 +8,25 @@ const Slider = props => {
     const {
         defaultValue, 
         value,
+        trackValue,
         max,
-        onChange
+        onChange, 
+        height, 
+        width,
+        margin,
+        cursor,
+        marginTop, 
+        lineHeight,
+        heightThumb,
+        widthThumb,
+        lineTrack
     } = props
   //slider thumb and track
   const Thumb = (props, state) => (
-    <StyledThumb {...props}>{state.valueNow}</StyledThumb>
+    <StyledThumb {...props} marginTop ={marginTop} lineHeight={lineHeight} cursor={cursor} heightThumb={heightThumb} widthThumb={widthThumb}>{state.valueNow}</StyledThumb>
   );
   const Track = (props, state) => {
-    return <StyledTrack {...props} index={state.index} value={7} />;
+    return <StyledTrack {...props} index={state.index} value={trackValue} lineTrack={lineTrack}/>;
   };
 
   return(
@@ -27,6 +37,9 @@ const Slider = props => {
     renderTrack={Track}
     renderThumb={Thumb}
     onChange={onChange}
+    height={height}
+    width={width}
+    margin={margin}
   /> 
   );
 };
@@ -37,34 +50,41 @@ const Slider = props => {
 const StyledSlider = styled(ReactSlider).attrs(props => ({
     height: props.height, 
     width: props.width,
-    lineHeight: props.lineHeight,
-    marginTop : props.marginTop,
-    cusor: props.cursor
+    margin: props.margin,
 }))`
   width: ${props => (props.width ? `${props.width}%` : `100%` )};
   height: ${props => (props.height ? `${props.height}rem` : "0.2rem" )};
-  margin: 8rem 0 13rem;
+  margin: ${props => (props.margin? `${props.margin}` : `8rem 0 13rem` )};
 `;
 
 //thumb style for react slider
-const StyledThumb = styled.div`
-  height: 2.5rem;
-  line-height: 25px;
-  width: 25px;
+const StyledThumb = styled.div.attrs(props => ({
+  marginTop : props.marginTop,
+  lineHeight: props.lineHeight,
+  cursor: props.cursor,
+  heightThumb : props.heightThumb,
+  widthThumb : props.widthThumb
+}))`
+  height: ${props => (props.heightThumb ? `${props.heightThumb}rem` : "2.5rem")};
+  line-height: ${props => (props.lineHeight ? `${props.lineHeight}rem` : "2.5rem")};
+  width: ${props => (props.widthThumb ? `${props.widthThumb}rem` : "2.5rem")};
   text-align: center;
   background-color: #e05cb3;
   color: #fff;
   border-radius: 50%;
-  cursor: grab;
-  margin-top: -1rem;
+  cursor: ${props => (props.cursor ? `${props.cursor}` : "grab")};
+  margin-top: ${props => (props.marginTop ? `${props.marginTop}rem` : "-1rem")};
 `;
 
 //track style for react slider
-const StyledTrack = styled.div`
+const StyledTrack = styled.div.attrs(props => ({
+  lineTrack : props.lineTrack
+}))`
   top: 0;
   bottom: 0;
   background: ${props => (props.index === 1 ? "#ddd" : "#E05CB3")};
   border-radius: 2rem;
+  line-height: ${props => (props.lineTrack ? `${props.lineTrack}rem` : "0" )}
 `;
 
 export default Slider;
