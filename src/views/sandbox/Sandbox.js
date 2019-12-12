@@ -26,7 +26,7 @@ const Sandbox = () => {
       {/* <WaterGauge /> */}
       {/* <ActivityGauge /> */}
       {/* <SleepGauge /> */}
-      <HealthyEatingGauge />
+      {/* <HealthyEatingGauge /> */}
 
     </>
   );
