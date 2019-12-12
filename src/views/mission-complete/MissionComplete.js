@@ -126,7 +126,7 @@ const MissionComplete = props => {
                         {userMissions.map(mission => {
                             return (
                                 <MissionCard 
-                                    key={mission.id}
+                                    key={mission.mission_id}
                                     description={mission.description}
                                     color={mission.color}
                                     handleDrawer={handleDrawer}
