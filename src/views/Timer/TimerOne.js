@@ -107,9 +107,11 @@ export function TimerOne ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    setPercentage(-1 * (min / 25));
+    setPercentage(-1 * (min / 15));
   }, [seconds])
 
+  console.log('Minutes: ', min);
+  console.log('Percentage: ', percentage);
   return (
 
     <Clock>
@@ -122,7 +124,7 @@ export function TimerOne ({ expiryTimestamp }) {
           trailColor: 'white',
           textColor: '#e05cb3',
           textSize: '16px',
-          pathTransitionDuration: 0.5,
+          // pathTransitionDuration: 0.5,
           marginLeft: '20px'
         })}
       > 

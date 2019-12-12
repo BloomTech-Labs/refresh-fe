@@ -108,7 +108,7 @@ export function TimerFour ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    setPercentage(-1 * (min / 25));
+    setPercentage(-1 * (min / 15));
   }, [seconds])
 
   return (
