@@ -103,7 +103,7 @@ const StepForm = props => {
           <p>.</p>
           <p>.</p>
         </StepDots>
-        <form onSubmit={handleSubmit}>
+        <QuestionForm onSubmit={handleSubmit}>
           {/* First Question, Concent Button*/}
           {currentStep < 3 && (
             <Question>{questions[currentStep].question}</Question>
@@ -178,7 +178,7 @@ const StepForm = props => {
               I don't feel comfortable answering
             </ButtonNoColor>
           )}
-        </form>
+        </QuestionForm>
       </OnBoardContainer>
     ) : (
       <OnBoardContainer>
@@ -222,11 +222,9 @@ const TopArrow = styled.div`
   }
 `;
 
-// position: fixed;
-// top: 50%;
-// left: 50%;
-// margin-top: 0px;
-// margin-left: 0px;
+  const QuestionForm = styled.form`
+  align-self:center;
+  `
 
 const Question = styled.h1`
   font-weight: 600;
@@ -286,6 +284,7 @@ const Button = styled.a`
 const ButtonNoColor = styled.a`
   font-weight: 500;
   font-size: 1.6rem;
+  padding-left:2rem;
   letter-spacing: 2px;
   color: #a7a4e6;
 `;
