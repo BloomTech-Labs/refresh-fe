@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 // styled components
 import styled from "styled-components";
+//images
+import waves from "../../../images/Onboarding/waves.svg";
+import slogan from "../../../images/Onboarding/need_to_know_more.svg";
 //conditionally rendering steps component
 import StepForm from "./StepForm";
 
@@ -23,13 +26,7 @@ const OnBoarding = ({ consent, setConsent }) => {
   return (
     <OnBoardWrapper>
       <OnBoardContainer>
-        <Refresh>
-          We need to learn a little more about <YouSpan>you</YouSpan>
-        </Refresh>
-        <OnboardTxt>
-          We just need some data to set up your profile. All of your information
-          will stay private.
-        </OnboardTxt>
+        <Logo src={slogan} />
         <Button onClick={() => setConsent(true)}>Continue</Button>
       </OnBoardContainer>
     </OnBoardWrapper>
@@ -43,7 +40,8 @@ const YouSpan = styled.span`
 `;
 
 const OnBoardWrapper = styled.div`
-  background-color: #3a3699;
+background-color: #4742bc;
+background-image: url(${waves});
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
@@ -55,12 +53,9 @@ const OnBoardContainer = styled.div`
   align-items: flex-start;
   justify-content: space-around;
   font-family: "Catamaran", sans-serif;
-  margin: auto;
   line-height: 1.5;
-  background-color: #3a3699;
   color: #7f7cca;
   height: 100vh;
-  padding: 2.5rem 4rem;
 `;
 
 const Refresh = styled.h1`
@@ -84,12 +79,19 @@ const Button = styled.a`
   display: inline-block;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
-  width: 100%;
+  width: 70%;
   text-align: center;
   margin: auto;
   background: #e05cb3;
   color: white;
   font-size: 1.6rem;
+`;
+
+const Logo = styled.img`
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 10rem auto 0;
 `;
 
 const FlexHolder = styled.div`

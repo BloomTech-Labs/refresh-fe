@@ -1,7 +1,7 @@
 // IMPORTS
 // react
 import React, { useState, useEffect, useContext } from "react";
-import { Route } from "react-router-dom";
+import { Route } from "react-router-dom"
 // contexts
 import { UserContext } from './contexts/UserContext';
 import { UserMissionsContext } from './contexts/UserMissionsContext';
@@ -24,9 +24,18 @@ import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
 import EmailSignUp from './views/onboarding/EmailSignUp';
 import EmailLogIn from './views/onboarding/EmailLogin';
+import TimerOne from './views/Timer/TimerOne';
+import TimerShortBreakOne from './views/Timer/TimerShortBreakOne';
+import TimerTwo from './views/Timer/TimerTwo';
+import TimerShortBreakTwo from './views/Timer/TimerShortBreakTwo';
+import TimerThree from './views/Timer/TimerThree';
+import TimerShortBreakThree from './views/Timer/TimerShortBreakThree';
+import TimerFour from './views/Timer/TimerFour';
+import TimerLongBreak from './views/Timer/TimerLongBreak';
 
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
+
 //COMPONENT
 const App = props => {
   // contexts
@@ -91,7 +100,7 @@ const App = props => {
     })
   }, []);
 
-if(!localStorage.getItem('token')){ // temp setting for testing purposes
+if(!localStorage.getItem("token")){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
@@ -119,6 +128,14 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         <Route path='/coming-soon' component={ComingSoon} />
+        <Route path="/timer" component={TimerOne} />
+        <Route path="/break-1" component={TimerShortBreakOne} />
+        <Route path="/timer-2" component={TimerTwo} />
+        <Route path="/break-2" component={TimerShortBreakTwo} />
+        <Route path="/timer-3" component={TimerThree} />
+        <Route path="/break-3" component={TimerShortBreakThree} />
+        <Route path="/timer-4" component={TimerFour} />
+        <Route path="/break-4" component={TimerLongBreak} />
       </UserMissionsContext.Provider>
     </UserContext.Provider>
     </>

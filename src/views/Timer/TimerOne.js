@@ -1,12 +1,82 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './timer-styles.css';
+import styled from 'styled-components';
 import { useTimer } from 'react-timer-hook';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import { Link } from 'react-router-dom';
 import 'react-circular-progressbar/dist/styles.css';
+
+const Clock = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const Timer = styled.div`
+  margin: 20px auto;
+  
+  @media screen and (max-width:500px) {
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+
+  @media screen and (min-width:800px) {
+    width: 20vw;
+    height: 20vh;
+    margin-bottom: 150px;
+  }
+`
+
+const Buttons = styled.div`
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+`
+
+const Sprints = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: -30px;
+`
+
+const Sprint = styled.div`
+  width: 20%;
+
+  @media screen and (min-width:800px) {
+    width: 10%;
+  }
+`
+
+const FirstSecondIcon = styled.i`
+  display: inline-block;
+  color: #6487FF;
+  font-size: 50px;
+  margin-bottom: 60px;
+  margin-right: 40px;
+`
+
+const ThirdIcon = styled.i`
+  display: inline-block;
+  color: #6487FF;
+  font-size: 50px;
+  margin-bottom: 60px;
+`
+
+const Instructions = styled.div`
+  color: white;
+  font-size: 16px;
+  font-family: Catamaran;
+  text-align: center;
+  margin: 60px 20px;
+`
+
+const Text = styled.p`
+  line-height: 1.5;
+`
+
+const Bold = styled.span`
+  font-weight: 600;
+`
  
 export function TimerOne ({ expiryTimestamp }) {
-
   let {
     seconds,
     minutes,
@@ -34,17 +104,9 @@ export function TimerOne ({ expiryTimestamp }) {
     setPercentage(-1 * (min / 25));
   }, [seconds])
 
-  // let sprint = 4;
-
-  // if (sprint && minutes == 0 && seconds == '00') {
-  //   let t = new Date();
-  //   t.setSeconds(t.getSeconds() + 300); // 5 minutes timer
-  //   return <Route render={() => <TimerLongBreak expiryTimestamp={t} />} />
-  // } else {
-
   return (
-    <div className="clock">
-      <div className="timer">
+    <Clock>
+      <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
@@ -53,6 +115,7 @@ export function TimerOne ({ expiryTimestamp }) {
           textColor: 'white',
           textSize: '16px',
           pathTransitionDuration: 0.5,
+          marginLeft: '20px'
         })}
       > 
         <div className="time">
@@ -60,18 +123,18 @@ export function TimerOne ({ expiryTimestamp }) {
         </div>
       </CircularProgressbar>
       </>
-      </div>
+      </Timer>
 
-      <div className="buttons">
-        <i className="far fa-play-circle" onClick={resume}></i>
-        <i className="far fa-pause-circle" onClick={pause}></i>
-        <Link to='/break'>
-          <i class="far fa-arrow-alt-circle-right"></i>       
-        </Link>
-      </div>
+      <Buttons>
+        <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
+        <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
+        <Link to="break-1">
+          <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon>   
+        </Link>    
+      </Buttons>
       
-      <div className="sprints">
-      <div className="sprint one">
+      <Sprints>
+        <Sprint>
           <CircularProgressbar
             value={percentage}
             strokeWidth={50}
@@ -81,8 +144,8 @@ export function TimerOne ({ expiryTimestamp }) {
               trailColor: 'white',
             })}
         />
-        </div>
-        <div className="sprint two">
+        </Sprint>
+        <Sprint>
           <CircularProgressbar
             strokeWidth={50}
             styles={buildStyles({
@@ -90,8 +153,8 @@ export function TimerOne ({ expiryTimestamp }) {
               pathColor: 'white',
             })}
         />
-        </div>
-        <div className="sprint three">
+        </Sprint>
+        <Sprint>
           <CircularProgressbar
             strokeWidth={50}
             styles={buildStyles({
@@ -99,8 +162,8 @@ export function TimerOne ({ expiryTimestamp }) {
               pathColor: 'white'
             })}
         />
-        </div>
-        <div className="sprint four">
+        </Sprint>
+        <Sprint>
           <CircularProgressbar
             strokeWidth={50}
             styles={buildStyles({
@@ -108,19 +171,18 @@ export function TimerOne ({ expiryTimestamp }) {
               pathColor: 'white'
             })}
         />
-        </div>
-      </div>
-      <div className="instructions">
-        <p>1. Evidence shows people are more productive when they work in <span className="bold">short bursts</span> with <span className="bold">frequent breaks</span>.</p>
+        </Sprint>
+      </Sprints>
+      <Instructions>
+        <Text>1. Evidence shows people are more productive when they work in <Bold>short bursts</Bold> with <Bold>frequent breaks</Bold>.</Text>
         <br></br>
-        <p>2. The <span className="bold">Pomodoro Technique</span> is a strategy that utilizes this theory. First, work in a sprint of <span className="bold">25 minutes</span>.</p>
+        <Text>2. The <Bold>Pomodoro Technique</Bold> is a strategy that utilizes this theory. First, work in a sprint of <Bold>25 minutes</Bold>.</Text>
         <br></br>
-        <p>3. Next, take a <span className="bold">5 minute</span> break. Get up, take a <span classname="bold">walk</span>, refill your <span className="bold">water</span>, <span className="bold">stretch</span>, and take <span className="bold">5 deep breaths</span> in and out.</p>
-      </div>
-    </div>
+        <Text>3. Next, take a <Bold>5 minute</Bold> break. Get up, take a <Bold>walk</Bold>, refill your <Bold>water</Bold>, <Bold>stretch</Bold>, and take <Bold>5 deep breaths</Bold> in and out.</Text>
+      </Instructions>
+    </Clock>
   );
 }
-// }
  
 export default function Display() {
   var t = new Date();
