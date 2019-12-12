@@ -89,7 +89,7 @@ export function TimerLongBreak ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    setPercentage(-1 * (min / 60));
+    setPercentage(-1 * (min / 36));
   }, [seconds])
 
   return (
@@ -102,8 +102,7 @@ export function TimerLongBreak ({ expiryTimestamp }) {
           pathColor: '#e05cb3', percentage,
           trailColor: 'white',
           textColor: 'white',
-          textSize: '16px',
-          pathTransitionDuration: 0.5,
+          textSize: '16px'
         })}
       > 
         <div className="time">

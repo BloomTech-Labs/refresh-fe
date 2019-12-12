@@ -124,7 +124,6 @@ export function TimerOne ({ expiryTimestamp }) {
           trailColor: 'white',
           textColor: '#e05cb3',
           textSize: '16px',
-          // pathTransitionDuration: 0.5,
           marginLeft: '20px'
         })}
       > 

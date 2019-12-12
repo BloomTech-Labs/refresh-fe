@@ -121,8 +121,7 @@ export function TimerTwo ({ expiryTimestamp}) {
           pathColor: '#e05cb3', percentage,
           trailColor: 'white',
           textColor: 'white',
-          textSize: '16px',
-          pathTransitionDuration: 0.5,
+          textSize: '16px'
         })}
       > 
         <div className="time">

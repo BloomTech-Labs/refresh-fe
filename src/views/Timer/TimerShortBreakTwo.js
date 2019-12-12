@@ -89,7 +89,7 @@ export function TimerShortBreakTwo ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    setPercentage(-1 * (min / 5));
+    setPercentage(-1 * (min / 3));
   }, [seconds])
 
   return (
@@ -103,7 +103,7 @@ export function TimerShortBreakTwo ({ expiryTimestamp }) {
           trailColor: 'white',
           textColor: 'white',
           textSize: '16px',
-          pathTransitionDuration: 0.5,
+          
         })}
       > 
         <div className="time">
