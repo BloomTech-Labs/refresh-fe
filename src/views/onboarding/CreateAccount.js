@@ -70,7 +70,7 @@ const CreateAccount = props => {
     <OnBoardWrapper>
       <OnBoardContainer>
         <TopHolder>
-          <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
+          <ButtonNoColor className="arrow" onClick={routeToHome}>&lt;</ButtonNoColor>
           <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
         </TopHolder>
         <HeaderHolder>
@@ -95,13 +95,15 @@ const CreateAccount = props => {
             />
           </GoogleSignIn>
         </FlexHolder>
-        <Row width={97}>
+        <Row width={97} height={1} padding={"5rem 0"}>
           <Col width={30} marginLeft={-2}>
             <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
           </Col>
           <Col
             width={70}
             borderBottom={"1px solid white"}
+            height={1}
+            marginTop={1}
             marginBottom={3}
             marginLeft={-6}
           ></Col>
@@ -122,27 +124,37 @@ const OnBoardWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  background-color: #4742BC;
-  background-image:url(${waves})
+  background-color: #4742bc;
+  background-image: url(${waves});
+  overflow-x: hidden;
 `;
 
 const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
-  margin: auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items: flex-start
   line-height: 1.5;
+  padding:10%;
+  &:nth-child(*){
+    margin-bottom:5%;
+  }
 `;
 
 const Header = styled.h1`
+  margin-right: 3rem;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: calc(110% + 6.7vw);
   line-height: 6.6rem;
   letter-spacing: 3.5px;
   color: #ffffff;
 `;
 const HeaderHolder = styled.div`
   display: flex;
-  margin: auto 4rem;
-  padding-right: 5rem;
+  justify-content: space-between;
+  align-content: center;
+  margin-top:10%;
 `;
 
 const OnboardTxt = styled.p`
@@ -159,75 +171,77 @@ const FlexHolder = styled.div`
   margin: auto;
   align-items: flex-start;
   width: 100%;
-  padding: 2.5rem 4rem;
 `;
 
 const TopHolder = styled.div`
   display: flex;
   justify-content: space-between;
   margin: auto;
-  padding: 2.5rem 0;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
+
+  .arrow{
+    font-size: calc(110% + 3vw);
+  }
 `;
 
 const Button = styled.a`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
+  padding: 1.5rem 0;
+  width:84%;
   text-align:center;
   margin: auto;
+  margin-bottom:6%;
   background: #E05CB3;
   color: white;
-  font-size:1.6rem;
+  font-size: calc(110% + 0.5vw);
   letter-spacing:0.1rem;
 }
 `;
 
 const FBButton = styled.a`
 display: flex;
-justify-content: space-evenly;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
-  text-align:center;
-  margin: 2rem auto;
-  background: #4A639E;
-  color: white;
-  font-size:1.6rem;
-  letter-spacing:0.1rem;
+justify-content: space-around;
+border-radius: 0.5rem;
+padding: 1.5rem 0;
+width: 84%;
+text-align: center;
+margin: 4rem auto 2rem;
+background: #4A639E;
+color: white;
+font-size: calc(110% + 0.5vw);
+letter-spacing: 0.1rem;
 }
 `;
 
 const GoogleSignIn = styled.a`
 display: flex;
-justify-content: space-evenly;
+justify-content: space-around;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
-  width:100%;
+  width:84%;
   text-align:center;
   margin: 2rem auto;
   background: #6997F2;
   color: white;
-  font-size:1.6rem;
+  font-size: calc(110% + 0.5vw);
   letter-spacing:0.1rem;
 }
 `;
 
 const ButtonNoColor = styled.a`
-  margin: auto 4rem;
-  font-size: 1.6rem;
+font-size: calc(110% + 0.5vw);
   font-style: medium;
   color: #ccc9ff;
 `;
 const Cubes = styled.img`
+  max-width: 39%;
   width: 100%;
-  max-width: 50%;
   height: auto;
   margin: auto;
-  padding-top: 5rem;
+  padding-top: 3rem;
 `;
 
 const Logo = styled.img``;
