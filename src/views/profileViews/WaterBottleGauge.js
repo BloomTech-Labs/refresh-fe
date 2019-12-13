@@ -11,6 +11,8 @@ import bottle2 from "../../images/profile/water_bottle/bottle2.svg";
 import bottle3 from "../../images/profile/water_bottle/bottle3.svg";
 import bottle4 from "../../images/profile/water_bottle/bottle4.svg";
 import bottle5 from "../../images/profile/water_bottle/bottle5.svg";
+import bottle6 from "../../images/profile/water_bottle/bottle6.svg";
+import bottle7 from "../../images/profile/water_bottle/bottle7.svg";
 import bottleEmpty from "../../images/profile/water_bottle/bottleEmpty.svg";
 
 const WaterBottleGauge = ({ children, ...props }) => {
@@ -85,11 +87,27 @@ const WaterBottleGauge = ({ children, ...props }) => {
             title="Current: 5 serving of water"
           />
         );
-      case waterData.waterStats >= 6:
+      case waterData.waterStats === 6:
+        return (
+          <Icon
+            svg={bottle6}
+            alt="6 serving of water"
+            title="Current: 6 serving of water"
+          />
+        );
+      case waterData.waterStats === 7:
+        return (
+          <Icon
+            svg={bottle7}
+            alt="7 serving of water"
+            title="Current: 7 serving of water"
+          />
+        );
+      case waterData.waterStats >= 8:
         return (
           <Icon
             svg={bottleEmpty}
-            alt="8 serving of water"
+            alt="8+ servings of water"
             title="Current: Goal Complete!"
           />
         );
@@ -97,7 +115,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
         return (
           <Icon
             svg={bottleFull}
-            alt="image for 0 servings of water"
+            alt="0 servings of water"
             title="Current: 0 servings of water"
           />
         );
