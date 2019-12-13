@@ -107,7 +107,7 @@ const StyledRow = styled.div.attrs(props => ({
   outline: none;
   cursor: auto;
   margin: ${props => (props.margin ? `${props.margin}rem` : "1rem")};
-  padding: ${props => (props.padding ? `${props.margin}rem` : "1rem")};
+  padding: ${props => (props.padding ? `${props.padding}rem` : "1rem")};
   display: flex;
   flex-flow: row nowrap;
   flex-wrap: nowrap;
