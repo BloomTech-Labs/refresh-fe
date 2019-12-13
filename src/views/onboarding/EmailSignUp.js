@@ -5,6 +5,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 //axios with auth
 import { axiosWithAuth } from "../../helpers/axiosWithAuth";
+//images
+import waves from "../../images/Onboarding/waves.svg";
+import welcome from "../../images/Onboarding/welcome.svg";
+//atoms
+// import Input from "../../components/atoms/input/input";
 
 const EmailSignUp = props => {
   //hooks
@@ -32,8 +37,10 @@ const EmailSignUp = props => {
 
   //handle submit of user info to backend
   const handleSubmit = e => {
-    if (user.password !== user.confirmPassword) {
+    if (user.password !== user.confirmPassword && user.password.length < 5) {
       alert("Please make sure to enter the same password for confirm password");
+    }else if(user.password.length < 5){
+      alert("Please make sure password is longer than 5 characters")
     } else {
       axiosWithAuth()
         .post("/register", { email: user.email, password: user.password })
@@ -57,8 +64,8 @@ const EmailSignUp = props => {
     <OnBoardContainer>
       <div>
         <ButtonNoColor onClick={routeToSignUp}>&lt;</ButtonNoColor>
-        <Header>Sign up.</Header>
       </div>
+      <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -66,13 +73,21 @@ const EmailSignUp = props => {
           placeholder="Name"
           onChange={handleChange}
           value={user.name}
+          width={100}
+          border={"1px solid #3D3B91"}
+          backgroundColor={"#3D3B91"}
+          color={"#E6E6E6"}
         />
         <Input
           type="text"
           name="email"
-          placeholder="Email"
+          placeholder="Email address"
           onChange={handleChange}
           value={user.email}
+          width={100}
+          border={"1px solid #3D3B91"}
+          backgroundColor={"#3D3B91"}
+          color={"#E6E6E6"}
         />
         <Input
           type="text"
@@ -80,6 +95,10 @@ const EmailSignUp = props => {
           placeholder="Password"
           onChange={handleChange}
           value={user.password}
+          width={100}
+          border={"1px solid #3D3B91"}
+          backgroundColor={"#3D3B91"}
+          color={"#E6E6E6"}
         />
         <Input
           type="text"
@@ -87,8 +106,12 @@ const EmailSignUp = props => {
           placeholder="Confirm password"
           onChange={handleChange}
           value={user.confirmPassword}
+          width={100}
+          border={"1px solid #3D3B91"}
+          backgroundColor={"#3D3B91"}
+          color={"#E6E6E6"}
         />
-        <Button onClick={handleSubmit}>Continue</Button>
+        <Button onClick={handleSubmit}>Sign Up</Button>
       </Form>
     </OnBoardContainer>
   );
@@ -102,7 +125,9 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
-  background-color: #3a3699;
+  background-color: #4742bc;
+  background-image: url(${waves});
+  background-size:contain;
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
@@ -110,40 +135,51 @@ const OnBoardContainer = styled.div`
   padding: 2.5rem 4rem;
 `;
 
-const Header = styled.h1`
-  font-weight: bold;
-  font-size: 4rem;
-  line-height: 82px;
-  letter-spacing: 3.5px;
-  color: #ffffff;
+const Logo = styled.img`
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
 `;
+
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 85%;
-  margin-left: 2rem;
+  width: 90%;
+  margin-left: 1rem;
+
+  input {
+    ::-webkit-input-placeholder {
+      font-family: "Catamaran", sans-serif;
+      color: #e6e6e6;
+    }
+  }
 `;
 
 const Input = styled.input`
   border: 0;
-  border-bottom: 1px solid #ccc9ff;
-  margin: 25px 0;
-  background: transparent;
+  border: 1px solid #3D3B91;
+  margin: 1rem 0;
+  padding: 1rem 0.5rem;
+  width:100%;
+  background: #3D3B91;
   color: #ccc9ff;
   outline: none;
   font-size:1.4rem ::-webkit-input-placeholder {
-    color: #ccc9ff;
+    font-family: "Catamaran", sans-serif;
+    color: #E6E6E6;
   }
 `;
+
 const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
   border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
+  padding: 1.2rem 0.8rem;
+  width:85%;
   text-align:center;
-  margin: auto;
+  margin: 6rem auto 0;
   background: #E05CB3;
   color: white;
   font-size:1.6rem;
@@ -153,7 +189,7 @@ const Button = styled.a`
 
 const ButtonNoColor = styled.a`
   margin: auto;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-style: medium;
   color: #ccc9ff;
 `;

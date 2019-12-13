@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState } from "react";
+import React from "react";
 //styled components
 import styled from "styled-components";
 
@@ -9,7 +9,6 @@ const Weight = props => {
   const handleChanges = e => {
     // console.log(e);
     props.setAnswer(e);
-    
   };
 
   //Scale of numbers
@@ -20,7 +19,7 @@ const Weight = props => {
       if (i % unit === 0) {
         items.push(
           <>
-            <div id="tick" className="bigtick" data-value={i}>
+            <div className="bigtick tick" data-value={i}>
               <p onClick={() => handleChanges(i)}>
                 <svg
                   width="3"
@@ -42,8 +41,7 @@ const Weight = props => {
               <NumberP>{i}</NumberP>
             </div>
             <div
-              id="tick"
-              className="smalltick"
+              className="smalltick tick"
               data-value={i + n / 2 - 1}
               onClick={() => handleChanges(i + n / 2 - 1)}
             >
@@ -79,10 +77,14 @@ const Weight = props => {
 
   //handle scroll for ticks
   const handleScroll = e => {
-    let ticks = e.target.querySelectorAll("#tick");
+    let ticks = e.target.querySelectorAll(".tick");
+    let mainDiv = e.target.getBoundingClientRect();
     ticks.forEach((tick, i) => {
       let centerTick = ticks[i].getBoundingClientRect();
-      if (centerTick.x > 190 && centerTick.x < 200) {
+      if (
+        centerTick.x >= mainDiv.width / 2 + (mainDiv.width / 2) * 0.15 &&
+        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.3
+      ) {
         props.setAnswer(ticks[i].dataset.value);
         ticks[i].classList.add("active");
       } else {
@@ -107,7 +109,7 @@ export default Weight;
 
 // STYLED COMPONENTS
 const WeightContainer = styled.div`
-  max-width: 29rem;
+  max-width: 85vw;
   height: 15rem;
   margin-bottom: 6rem;
   display: flex;

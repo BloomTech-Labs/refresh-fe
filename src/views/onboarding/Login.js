@@ -1,15 +1,17 @@
 // IMPORTS
 // react
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 // contexts
 import { UserContext } from "../../contexts/UserContext";
 // styled components
 import styled from "styled-components";
 // images
-import fblogo from "../../images/facebook-logo.png";
-import emailogo from "../../images/Onboarding/email.png";
-import cubes from "../../images/two_cubes.png";
-import googlelogo from "../../images/google-icon.jpg";
+import fblogo from "../../images/Onboarding/facebook_round_transparent_logo.svg";
+import emailogo from "../../images/Onboarding/email.svg";
+import googlelogo from "../../images/Onboarding/google_icon_round_color.svg";
+import waves from "../../images/Onboarding/waves.svg";
+//cube elements
+import cubes from "../../images/Onboarding/red_purple_cubes.svg";
 // components
 import Row from "../../components/atoms/row/row";
 import Col from "../../components/atoms/col/col";
@@ -112,7 +114,7 @@ const Login = props => {
         </FlexHolder>
         <Row width={97}>
           <Col width={30} marginLeft={-2}>
-            <Text fontSize={16} color={"#CFCDFF"} text={colText}></Text>
+            <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
           </Col>
           <Col
             width={70}
@@ -133,10 +135,11 @@ const Login = props => {
 
 // STYLED COMPONENTS
 const OnBoardWrapper = styled.div`
-  background-color: #3a3699;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
+  background-color: #4742BC;
+  background-image:url(${waves})
 `;
 const OnBoardContainer = styled.div`
   display: flex;
@@ -146,7 +149,6 @@ const OnBoardContainer = styled.div`
   margin: auto;
   padding-top: 5rem;
   line-height: 1.5;
-  background-color: #3a3699;
   color: #7f7cca;
 `;
 
@@ -174,13 +176,6 @@ const HeaderHolder = styled.div`
   }
 `;
 
-const OnboardTxt = styled.p`
-  margin: auto;
-  font-size: 2rem;
-  line-height: 33px;
-  letter-spacing: 0.035em;
-  color: #ccc9ff;
-`;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
@@ -213,10 +208,6 @@ const Button = styled.a`
   font-size:1.6rem;
   letter-spacing:0.1rem;
 }
-`;
-
-const LineTime = styled.hr`
-  width: 100%;
 `;
 
 const FBButton = styled.a`
@@ -264,10 +255,6 @@ const Cubes = styled.img`
 `;
 
 const Logo = styled.img``;
-
-const GoogleLogo = styled(Logo)`
-  border-radius: 50%;
-`;
 
 // EXPORT
 export default Login;

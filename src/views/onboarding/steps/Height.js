@@ -22,7 +22,7 @@ const Height = props => {
       for (let i = 0; i < x; i++) {
         smalltick.push(
           <span
-            id="tick"
+            className="tick"
             data-value={feet + "'" + inches + " & " + i * 0.25 + "''"}
           >
             <svg
@@ -56,8 +56,7 @@ const Height = props => {
         items.push(
           <>
             <div
-              id="tick"
-              className="bigtick"
+              className="bigtick tick"
               data-value={feet + "'" + inches + "''"}
               onClick={handleChanges}
             >
@@ -94,10 +93,14 @@ const Height = props => {
   };
 
   const handleScroll = e => {
-    let ticks = e.target.querySelectorAll("#tick");
+    let ticks = e.target.querySelectorAll(".tick");
+    let mainDiv = e.target.getBoundingClientRect();
     ticks.forEach((tick, i) => {
       let centerTick = ticks[i].getBoundingClientRect();
-      if (centerTick.x > 190 && centerTick.x < 200) {
+      if (
+        centerTick.x >= mainDiv.width / 2 + (mainDiv.width / 2) * 0.15 &&
+        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.3
+      ) {
         props.setAnswer(ticks[i].dataset.value);
         ticks[i].classList.add("active");
       } else {
@@ -151,9 +154,6 @@ const WeightContainer = styled.div`
       }
     }
   }
-`;
-const DialStuff = styled.div`
-  flex: 0 0 auto;
 `;
 
 const NumberP = styled.p`

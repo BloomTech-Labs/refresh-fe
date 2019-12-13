@@ -1,7 +1,7 @@
 // IMPORTS
 // react
 import React, { useState, useEffect, useContext } from "react";
-import { Route } from "react-router-dom";
+import { Route } from "react-router-dom"
 // contexts
 import { UserContext } from './contexts/UserContext';
 import { UserMissionsContext } from './contexts/UserMissionsContext';
@@ -35,6 +35,7 @@ import TimerLongBreak from './views/Timer/TimerLongBreak';
 
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
+
 //COMPONENT
 const App = props => {
   // contexts
@@ -99,7 +100,7 @@ const App = props => {
     })
   }, []);
 
-if(!localStorage.getItem('token')){ // temp setting for testing purposes
+if(user.new_user){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>

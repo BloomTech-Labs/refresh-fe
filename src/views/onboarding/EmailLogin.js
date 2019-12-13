@@ -5,6 +5,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 //axios with auth
 import { axiosWithAuth } from "../../helpers/axiosWithAuth";
+//images
+import waves from "../../images/Onboarding/waves.svg";
+import welcome from "../../images/Onboarding/welcome_back.svg";
+//atoms
+// import Input from "../../components/atoms/input/input";
 
 const EmailLogin = props => {
   //hooks
@@ -51,15 +56,19 @@ const EmailLogin = props => {
     <OnBoardContainer>
       <div>
         <ButtonNoColor onClick={routeToLogin}>&lt;</ButtonNoColor>
-        <Header>Log In.</Header>
       </div>
+      <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
         <Input
           type="text"
           name="email"
-          placeholder="Email"
+          placeholder="Email address"
           onChange={handleChange}
           value={user.email}
+          width={100}
+          border={"1px solid #3D3B91"}
+          backgroundColor={"#3D3B91"}
+          color={"#E6E6E6"}
         />
         <Input
           type="text"
@@ -67,8 +76,13 @@ const EmailLogin = props => {
           placeholder="Password"
           onChange={handleChange}
           value={user.password}
+          width={100}
+          border={"1px solid #3D3B91"}
+          backgroundColor={"#3D3B91"}
+          color={"#E6E6E6"}
         />
-        <Button onClick={handleSubmit}>Continue</Button>
+        <ButtonNoColor className="smallTxt">Forgot password?</ButtonNoColor>
+        <Button onClick={handleSubmit}>Log In</Button>
       </Form>
     </OnBoardContainer>
   );
@@ -82,20 +96,27 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
-  background-color: #3a3699;
+  background-color: #4742bc;
+  background-image: url(${waves});
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
   padding: 2.5rem 4rem;
+
+  .smallTxt {
+    font-size: 1rem;
+    margin-top:2rem;
+  }
 `;
 
-const Header = styled.h1`
-  font-weight: bold;
-  font-size: 4rem;
-  line-height: 82px;
-  letter-spacing: 3.5px;
-  color: #ffffff;
+
+
+const Logo = styled.img`
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
 `;
 
 const Form = styled.form`
@@ -103,32 +124,42 @@ const Form = styled.form`
   flex-direction: column;
   width: 85%;
   margin-left: 2rem;
+
+  input{
+    margin: 0.5rem 0.5rem 2rem;
+    ::-webkit-input-placeholder {
+      font-family: "Catamaran", sans-serif;
+      color: #E6E6E6;
+    }
 `;
 
 const Input = styled.input`
   border: 0;
-  border-bottom: 1px solid #ccc9ff;
-  margin: 25px 0;
-  background: transparent;
+  border: 1px solid #3D3B91;
+  margin: 2.5rem 0;
+  padding: 1rem 0.5rem;
+  width:100%;
+  background: #3D3B91;
   color: #ccc9ff;
   outline: none;
   font-size:1.4rem ::-webkit-input-placeholder {
-    color: #ccc9ff;
+    font-family: "Catamaran", sans-serif;
+    color: #E6E6E6;
   }
 `;
 
 const Button = styled.a`
-  display: flex;
-  justify-content: space-evenly;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
-  text-align:center;
-  margin: auto;
-  background: #E05CB3;
-  color: white;
-  font-size:1.6rem;
-  letter-spacing:0.1rem;
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.2rem 0.8rem;
+width:85%;
+text-align:center;
+margin: 6rem auto 0;
+background: #E05CB3;
+color: white;
+font-size:1.6rem;
+letter-spacing:0.1rem;
 }
 `;
 

@@ -5,6 +5,7 @@ import React from "react";
 import styled from "styled-components";
 // images
 import onboardlogo from "../../images/refresh-yo-guy.svg";
+import waves from "../../images/Onboarding/waves.svg";
 
 const Landing = props => {
   //routes
@@ -30,7 +31,7 @@ const Landing = props => {
         <Logo src={onboardlogo} />
         <FlexHolder>
           <Refresh>Refresh</Refresh>
-          <OnboardTxt>
+          <OnboardTxt className="slogan">
             Made for students,
             <br /> by students.
           </OnboardTxt>
@@ -58,15 +59,37 @@ const OnBoardWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  background-color: #3a3699;
+  background-color: #4742BC;
+  background-image:url(${waves})
 `;
 
 const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
-  background-color: #3a3699;
-  color: #7f7cca;
+  color: #CCC9FF;
+`;
+
+const Logo = styled.img`
+  width: 100%;
+  max-width: 82%;
+  height: auto;
+  margin: 5rem auto 0 2rem;
+`;
+
+const FlexHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-items: flex-start;
+  width: 100%;
+  padding: 2.5rem 4rem;
+
+  .slogan{
+    font-size:3rem;
+    line-height:4.9rem;
+  }
 `;
 
 const Refresh = styled.h1`
@@ -87,37 +110,22 @@ const OnboardTxt = styled.p`
 const Button = styled.a`
   display: inline-block;
   border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width:100%;
-  text-align:center;
+  padding: 1.1rem 0.8rem;
+  width: 84%;
+  text-align: center;
   margin: auto;
   background: #E05CB3;
   color: white;
-  font-size:1.6rem;
+  font-size: 1.6rem;
 }
 `;
 
 const ButtonNoColor = styled.a`
   margin: auto;
+  padding: 0.7rem;
   font-size: 1.6rem;
 `;
 
-const FlexHolder = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  align-items: flex-start;
-  width: 100%;
-  padding: 2.5rem 4rem;
-`;
-
-const Logo = styled.img`
-  width: 100%;
-  max-width: 82%;
-  height: auto;
-  margin: 5rem auto 0;
-`;
 
 //EXPORT
 export default Landing;
