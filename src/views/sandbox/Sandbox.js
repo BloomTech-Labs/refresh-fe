@@ -12,10 +12,11 @@ import React from "react";
 // import styled from "styled-components";
 // helpers
 // import { test, flex } from "../../styles/global/Mixins";
-import WaterGauge from "../../components/molecules/gauge/waterGauge";
-import ActivityGauge from "../../components/molecules/gauge/activityGauge";
-import SleepGauge from "../../components/molecules/gauge/sleepGauge"
-import HealthyEatingGauge from "../../components/molecules/gauge/healthyEatingGauge"
+// import WaterGauge from "../../components/molecules/gauge/waterGauge";
+// import ActivityGauge from "../../components/molecules/gauge/activityGauge";
+// import SleepGauge from "../../components/molecules/gauge/sleepGauge";
+// import HealthyEatingGauge from "../../components/molecules/gauge/healthyEatingGauge";
+// import MentalGauge from "../../components/molecules/gauge/mentalGauge";
 // Views to test
 
 // COMPONENT
@@ -27,7 +28,7 @@ const Sandbox = () => {
       {/* <ActivityGauge /> */}
       {/* <SleepGauge /> */}
       {/* <HealthyEatingGauge /> */}
-
+      {/* <MentalGauge /> */}
     </>
   );
 };

@@ -7,7 +7,11 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import social0 from "../../../images/gauge/";
+import social0 from "../../../images/gauge/socialGauge/social0.svg";
+import social15 from "../../../images/gauge/socialGauge/social15.svg";
+import social30 from "../../../images/gauge/socialGauge/social30.svg";
+import social45 from "../../../images/gauge/socialGauge/social45.svg";
+import socialComplete from "../../../images/gauge/socialGauge/socialComplete.svg";
 
 
 const SocialGauge = ({ children, ...props }) => {
@@ -31,7 +35,7 @@ const SocialGauge = ({ children, ...props }) => {
                 ? setGaugeData({
                     socialStats: mission.point_current
                   })
-                : console.log(`[No water data / end of map]`);
+                : console.log(`[No social data / end of map]`);
             });
       });
   }, []);
@@ -45,73 +49,41 @@ const SocialGauge = ({ children, ...props }) => {
       case gaugeData.socialStats === 1:
         return (
           <Icon
-            svg={water1}
-            alt="1 glasses of water"
-            title="Current: 1 glasses of water"
+            svg={social15}
+            alt="15+ minutes of social activity"
+            title="Current: 15+ minutes of social activity"
           />
         );
       case gaugeData.socialStats === 2:
         return (
           <Icon
-            svg={water2}
-            alt="2 glasses of water"
-            title="Current: 2 glasses of water"
+            svg={social30}
+            alt="30+ minutes of social activity"
+            title="Current: 30+ minutes of social activity"
           />
         );
       case gaugeData.socialStats === 3:
         return (
           <Icon
-            svg={water3}
-            alt="3 glasses of water"
-            title="Current: 3 glasses of water"
+            svg={social45}
+            alt="45+ minutes of social activity"
+            title="Current: 45+ minutes of social activity"
           />
         );
       case gaugeData.socialStats === 4:
         return (
           <Icon
-            svg={water4}
-            alt="4 glasses of water"
-            title="Current: 4 glasses of water"
-          />
-        );
-      case gaugeData.socialStats === 5:
-        return (
-          <Icon
-            svg={water5}
-            alt="5 glasses of water"
-            title="Current: 5 glasses of water"
-          />
-        );
-      case gaugeData.socialStats === 6:
-        return (
-          <Icon
-            svg={water6}
-            alt="6 glasses of water"
-            title="Current: 6 glasses of water"
-          />
-        );
-      case gaugeData.socialStats === 7:
-        return (
-          <Icon
-            svg={water7}
-            alt="7 glasses of water"
-            title="Current: 7 glasses of water"
-          />
-        );
-      case gaugeData.socialStats >= 8:
-        return (
-          <Icon
-            svg={waterComplete}
-            alt="8 glasses of water"
-            title="Current: Goal Complete!"
+            svg={socialComplete}
+            alt="60+ minutes of social activity"
+            title="Current: 60+ minutes of social activity"
           />
         );
       default:
         return (
           <Icon
-            svg={water0}
-            alt="image for 0 glasses of water"
-            title="Current: 0 glasses of water"
+            svg={social0}
+            alt="0 minutes of social activity"
+            title="Current: 0 minutes of social activity"
           />
         );
     }
@@ -122,8 +94,7 @@ const SocialGauge = ({ children, ...props }) => {
     <>
       <StyledGauge className="StyledGauge">
         <MobileCardWater className="MobileCardWater">
-          {/* {gaugeFill(gaugeData)} */}
-          <Icon svg={waterComplete} alt="1 glasses of water" />
+          {gaugeFill(gaugeData)}
         </MobileCardWater>
       </StyledGauge>
     </>
