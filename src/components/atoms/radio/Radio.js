@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+
 import { inputTypes } from "../../../styles/global/constants";
 
 const Radio = ({ callback = () => {}, labelText, ...props }) => {

@@ -17,8 +17,6 @@ import Weight from "./Weight";
 import Height from "./Height";
 //loading spinner
 import LoadingSpinner from "../../../components/atoms/spinner/spinner";
-//radio button
-import RadioBtn from "../../../components/atoms/radio/Radio";
 
 const StepForm = props => {
   //context
