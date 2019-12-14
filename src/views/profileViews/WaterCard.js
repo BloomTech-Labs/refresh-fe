@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import WaterBottleGauge from '../profileViews/WaterBottleGauge';
 
 const HydrationContainer = styled.div`
   position: absolute;
@@ -98,14 +99,14 @@ color: #9AB9E5;
 opacity: 0.6;
 `;
 
-const VectorContainer = styled.div`
-position: absolute;
-left: 43.14%;
-right: 42.93%;
-top: 29.47%;
-bottom: 40%;
-background: #FFFF;
-`
+// const VectorContainer = styled.div`
+// position: absolute;
+// left: 43.14%;
+// right: 42.93%;
+// top: 29.47%;
+// bottom: 40%;
+// background: #FFFF;
+// `
 
 const WaterCard = () => {
   return (
@@ -113,7 +114,9 @@ const WaterCard = () => {
       <HydrationContainer>
         <HydrationText>hydration<br/>station</HydrationText>
       
-      <VectorContainer/>
+      
+        <WaterBottleGauge/>
+     
       <NumOfCups>6</NumOfCups>
       <CupsOfWater>
         cups of

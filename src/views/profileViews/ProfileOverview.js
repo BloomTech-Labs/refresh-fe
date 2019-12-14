@@ -1,12 +1,12 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import styled from "styled-components";
-import WaterCard from "../ProfileViews/WaterCard";
-import ProfileCompletion from "../ProfileViews/ProfileCompletion";
-import WeeklySurvey from '../ProfileViews/WeeklySurvey';
-import YourReminders from '../ProfileViews/YourReminders';
-import ProfileBadges from '../ProfileViews/ProfileBadges';
-import ProfileHeader from '../ProfileViews/ProfileHeader';
+import WaterCard from "../profileViews/WaterCard";
+import ProfileCompletion from "../profileViews/ProfileCompletion";
+import WeeklySurvey from '../profileViews/WeeklySurvey';
+import YourReminders from '../profileViews/YourReminders';
+import ProfileBadges from '../profileViews/ProfileBadges';
+import ProfileHeader from '../profileViews/ProfileHeader';
 
 const PVContainer = styled.div`
   position: absolute;
