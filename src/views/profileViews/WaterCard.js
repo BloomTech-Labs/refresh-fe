@@ -113,10 +113,7 @@ const WaterCard = () => {
     <>
       <HydrationContainer>
         <HydrationText>hydration<br/>station</HydrationText>
-      
-      
         <WaterBottleGauge/>
-     
       <NumOfCups>6</NumOfCups>
       <CupsOfWater>
         cups of
