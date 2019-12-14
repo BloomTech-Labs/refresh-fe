@@ -12,7 +12,7 @@ const PVContainer = styled.div`
   position: absolute;
   width: 375px;
   height: 812px;
-  background: #4742bc;
+  background: #4742BC;
 `;
 
 const ProfileLine = styled.div`

@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import maxine from '../profileViews/maxine.jpg';
+import notifications from '../../images/profile/notifications.svg';
 
 const ProfileContainer = styled.div`
 height: 193px;
 `
-const BellVector = styled.div`
+const BellVector = styled.img`
 position: absolute;
 width: 25px;
 height: 25px;
@@ -34,13 +36,19 @@ top: 62px;
 
 background: #CCC9FF;
 `
-const AvPlaceHolder = styled.div`
+const AvPlaceHolder = styled.img`
 position: absolute;
+border-radius: 50%;
 width: 64px;
 height: 64px;
 left: 160px;
 top: 51px;
-background:#C4C4C4;
+background-img {
+  url:('maxine.jpg');
+  background: #C4C4C4;
+  width: 90%;
+  height: 90%;
+}
 `
 const NameText = styled.text`
 position: absolute;
@@ -176,10 +184,10 @@ const ProfileHeader = () => {
   return (
     <>
       <ProfileContainer>
-        <BellVector/>
+        <BellVector src={notifications}/>
         <CogVector/>
         <MenuPlaceHolder/>
-        <AvPlaceHolder/>
+        <AvPlaceHolder src={maxine}/>
         <NameText>Maxine Woods</NameText>
         <TeamLeadText>TEAM LEAD</TeamLeadText>
         <PointsText>150 points</PointsText>
