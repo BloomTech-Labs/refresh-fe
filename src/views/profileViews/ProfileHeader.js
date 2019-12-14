@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
+import settings_cog from '../../images/profile/settings_cog.svg';
 
 const ProfileContainer = styled.div`
 height: 193px;
@@ -27,7 +28,10 @@ bottom: 94.95%;
 
 /* main / disabled */
 
-background: #CCC9FF;
+background-img{
+  url: ('settings_cog.svg');
+  background: #CCC9FF;
+}
 `
 const MenuPlaceHolder = styled.div`
 position: absolute;
@@ -189,7 +193,7 @@ const ProfileHeader = () => {
     <>
       <ProfileContainer>
         <BellVector src={notifications}/>
-        <CogVector/>
+        <CogVector src={settings_cog}/>
         <MenuPlaceHolder/>
         <AvPlaceHolder src={maxine}/>
         <NameText>Maxine Woods</NameText>
