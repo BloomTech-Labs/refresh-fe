@@ -60,7 +60,8 @@ const OnBoardWrapper = styled.div`
   height: 100vh;
   max-height: 100vh;
   background-color: #4742BC;
-  background-image:url(${waves})
+  background-image:url(${waves});
+  overflow-x: auto;
 `;
 
 const OnBoardContainer = styled.div`
@@ -71,8 +72,8 @@ const OnBoardContainer = styled.div`
 `;
 
 const Logo = styled.img`
+  max-width: 80%;
   width: 100%;
-  max-width: 82%;
   height: auto;
   margin: 5rem auto 0 2rem;
 `;
@@ -87,21 +88,21 @@ const FlexHolder = styled.div`
   padding: 2.5rem 4rem;
 
   .slogan{
-    font-size:3rem;
+    font-size:calc(110% + 3.9vw);
     line-height:4.9rem;
   }
 `;
 
 const Refresh = styled.h1`
   font-weight: bold;
-  font-size: 5rem;
+  font-size: calc(110% + 9vw);
   line-height: 82px;
   letter-spacing: 3.5px;
   color: #ffffff;
 `;
 
 const OnboardTxt = styled.p`
-  font-size: 2rem;
+  font-size: calc(110% + 1.7vw);
   line-height: 33px;
   letter-spacing: 0.035em;
   color: #ccc9ff;
@@ -110,13 +111,13 @@ const OnboardTxt = styled.p`
 const Button = styled.a`
   display: inline-block;
   border-radius: 0.5rem;
-  padding: 1.1rem 0.8rem;
+  padding: 1.5rem 0.8rem;
   width: 84%;
   text-align: center;
   margin: auto;
   background: #E05CB3;
   color: white;
-  font-size: 1.6rem;
+  font-size: calc(110% + 0.5vw);
 }
 `;
 
