@@ -81,7 +81,8 @@ const StepForm = props => {
   //StepDot helper function for styled component
   const StepDotCount = currentStep => {
     return `&:nth-child(-n + ${currentStep + 1}){
-      color: #E05CB3;
+      background: #E05CB3;
+      opacity:100%;
       `;
   };
 
@@ -91,19 +92,19 @@ const StepForm = props => {
     //render
     return questions.length ? (
       <OnBoardContainer>
-        <StepDots currentDot={StepDotCount} currentStep={currentStep}>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-        </StepDots>
         <QuestionForm onSubmit={handleSubmit}>
+        <StepDots currentDot={StepDotCount} currentStep={currentStep}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </StepDots>
           {/* First Question, Concent Button*/}
           {currentStep < 3 && (
             <Question>{questions[currentStep].question}</Question>
@@ -115,7 +116,7 @@ const StepForm = props => {
           {/* Returns First and second Question */}
           {currentStep === 0 && (
             <>
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              <OnboardTxt>Don't worry, this stays between us</OnboardTxt>
               <TopArrow>
                 <svg
                   width="19"
@@ -135,7 +136,7 @@ const StepForm = props => {
           )}
           {currentStep === 1 && (
             <>
-              <OnboardTxt>Dont worry, this stays between us</OnboardTxt>
+              <OnboardTxt>Don't worry, this stays between us</OnboardTxt>
               <TopArrow>
                 <svg
                   width="19"
@@ -158,6 +159,7 @@ const StepForm = props => {
             <FlexHolder>
               <Option onClick={() => setAnswer("Never")}>Never</Option>
               <Option onClick={() => setAnswer("Sometimes")}>Sometimes</Option>
+              <Option onClick={() => setAnswer("Often")}>Often</Option>
               <Option onClick={() => setAnswer("Always")}>Always</Option>
             </FlexHolder>
           )}
@@ -195,17 +197,16 @@ const StepForm = props => {
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly
   align-items: flex-start;
   font-family: "Catamaran", sans-serif;
   margin: auto;
-  line-height: 1.5;
   background-color: #4742bc;
   background-image: url(${waves});
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  padding: 2.5rem 4rem;
 `;
 
 //top arrow for dial components
@@ -223,43 +224,47 @@ const TopArrow = styled.div`
 `;
 
   const QuestionForm = styled.form`
-  align-self:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin: 0 auto;
+  max-height: 100vh
+  &:nth-child(*){
+    margin:auto;
+  }
   `
 
 const Question = styled.h1`
   font-weight: 600;
-  font-size: 3.5rem;
-  line-height: 4.9rem;
+  font-size:  calc(100% + 5.5vw);
+  height:calc(100vh / 6);
   letter-spacing: 3.5px;
   text-align:center;
   color: #ffffff;
-  margin: 6rem 0 2rem;
 `;
 
 const LongQuestion = styled.h1`
-  font-weight: 600;
-  font-size: 3.5rem;
-  line-height: 4.1rem;
-  letter-spacing: 0.035em;
-  text-align:center;
-  color: #ffffff;
-  margin: 6rem 0 2rem;
+font-weight: 600;
+font-size:  calc(100% + 5.5vw);
+height:calc(100vh / 6);
+letter-spacing: 3.5px;
+text-align:center;
+color: #ffffff;
 `;
 
 const OnboardTxt = styled.p`
-font-size: 1.6rem;
+font-size: calc(100% + 0.1vw);
 line-height: 2.6rem;
 letter-spacing: 2px;
-text-align:center
-color: #A7A4E6;
-margin: 6.5rem auto 0;
+text-align:center;
+color: #ffffff;
 `;
 
 const Option = styled.a`
-  font-size: 1.6rem;
-  line-height: 26px;
+  font-size: 2.5rem;
+  line-height: 41px;
   letter-spacing: 2px;
-  color: #ffffff;
+  color: #E6E6E6;
   &:hover {
     background: #e05cb3;
     padding: 0 1rem;
@@ -272,25 +277,25 @@ const Button = styled.a`
   justify-content: space-evenly;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
-  width: 100%;
+  width: 65%;
   text-align: center;
-  margin: 0 auto 2.4rem;
+  margin: 8% auto;
   background: #e05cb3;
   color: white;
-  font-size: 1.6rem;
+  font-size: calc(100% + 0.5vw);
   letter-spacing: 0.1rem;
 `;
 
 const ButtonNoColor = styled.a`
   font-weight: 500;
-  font-size: 1.6rem;
-  padding-left:2rem;
+  font-size: calc(100% + 0.1vw);
   letter-spacing: 2px;
   color: #a7a4e6;
 `;
 
 const FlexHolder = styled.div`
   display: flex;
+  flex-direction:column;
   justify-content: space-between;
   margin: 5rem auto;
   align-items: flex-start;
@@ -301,12 +306,16 @@ const FlexHolder = styled.div`
 //current step marker
 const StepDots = styled.div`
   display: flex;
-  font-size: 8rem;
-  margin: 0 auto;
-  p {
-    padding-right: 1rem;
-    color: #a7a4e6;
-    opacity:85%;
+  font-size: calc(100% + 19vw);
+  margin: 0 auto calc(100vh /10);
+  div {
+    height: 4px;
+    border-radius: 50%;
+    width: 0px;
+    margin: 0px 1rem 0 auto;
+    padding: 0.3rem;
+    background: #a7a4e6;
+    opacity:45%;
     ${props => props.currentDot(props.currentStep)}
   }
 `;

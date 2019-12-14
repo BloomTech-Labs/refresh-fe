@@ -100,7 +100,7 @@ const App = props => {
     })
   }, []);
 
-if(!localStorage.getItem("token")){ // temp setting for testing purposes
+if(user.new_user){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
@@ -119,7 +119,7 @@ if(!localStorage.getItem("token")){ // temp setting for testing purposes
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
         <Route path="/atoms" component={Atoms} />
