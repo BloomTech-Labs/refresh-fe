@@ -11,12 +11,14 @@ import styled from "styled-components";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 //slider component
-import Slider from "../../../styles/global/Slider"
+import Slider from "../../../styles/global/Slider";
 //weight and height dials
 import Weight from "./Weight";
 import Height from "./Height";
 //loading spinner
 import LoadingSpinner from "../../../components/atoms/spinner/spinner";
+//radio button
+import RadioBtn from "../../../components/atoms/radio/Radio";
 
 const StepForm = props => {
   //context
@@ -93,18 +95,18 @@ const StepForm = props => {
     return questions.length ? (
       <OnBoardContainer>
         <QuestionForm onSubmit={handleSubmit}>
-        <StepDots currentDot={StepDotCount} currentStep={currentStep}>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </StepDots>
+          <StepDots currentDot={StepDotCount} currentStep={currentStep}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </StepDots>
           {/* First Question, Concent Button*/}
           {currentStep < 3 && (
             <Question>{questions[currentStep].question}</Question>
@@ -157,19 +159,51 @@ const StepForm = props => {
           {/* WILL GIVE OVERWHELMED OPTIONS, Question 3*/}
           {currentStep === 2 && (
             <FlexHolder>
-              <Option onClick={() => setAnswer("Never")}>Never</Option>
-              <Option onClick={() => setAnswer("Sometimes")}>Sometimes</Option>
-              <Option onClick={() => setAnswer("Often")}>Often</Option>
-              <Option onClick={() => setAnswer("Always")}>Always</Option>
+              <Option onClick={() => setAnswer("Never")}>
+                <input
+                  type="radio"
+                  id="optionOne"
+                  name="overWhelmed"
+                  value="Never"
+                />
+                <label for="optionOne">Never</label>
+                <div class="check"></div>
+              </Option>
+              <Option onClick={() => setAnswer("Sometimes")}>
+                <input
+                  type="radio"
+                  id="optionTwo"
+                  name="overWhelmed"
+                  value="Sometimes"
+                />
+                <label for="optionTwo">Sometimes</label>
+                <div class="check"></div>
+              </Option>
+              <Option onClick={() => setAnswer("Often")}>
+                <input
+                  type="radio"
+                  id="optionThree"
+                  name="overWhelmed"
+                  value="Never"
+                />
+                <label for="optionThree">Often</label>
+                <div class="check"></div>
+              </Option>
+              <Option onClick={() => setAnswer("Always")}>
+                <input
+                  type="radio"
+                  id="optionFour"
+                  name="overWhelmed"
+                  value="Never"
+                />
+                <label for="optionFour">Always</label>
+                <div class="check"></div>
+              </Option>
             </FlexHolder>
           )}
           {/* Slider Group , Questions 4 - 10*/}
           {currentStep >= 3 && (
-            <Slider
-              defaultValue={3}
-              max={7}
-              onChange={handleChanges}
-            />
+            <Slider defaultValue={3} max={7} onChange={handleChanges} />
           )}
           <Button onClick={handleSubmit} data-answer={answer}>
             Continue
@@ -213,7 +247,7 @@ const OnBoardContainer = styled.div`
 const TopArrow = styled.div`
   position: relative;
   margin: 0 auto;
-  svg{
+  svg {
     position: absolute;
     top: 30px;
     left: 0;
@@ -223,52 +257,107 @@ const TopArrow = styled.div`
   }
 `;
 
-  const QuestionForm = styled.form`
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+const QuestionForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto;
   max-height: 100vh
-  &:nth-child(*){
-    margin:auto;
+  &:nth-child(*) {
+    margin: auto;
   }
-  `
+`;
 
 const Question = styled.h1`
   font-weight: 600;
-  font-size:  calc(100% + 5.5vw);
-  height:calc(100vh / 6);
+  font-size: calc(100% + 5.5vw);
+  height: calc(100vh / 6);
   letter-spacing: 3.5px;
-  text-align:center;
+  text-align: center;
   color: #ffffff;
 `;
 
 const LongQuestion = styled.h1`
-font-weight: 600;
-font-size:  calc(100% + 5.5vw);
-height:calc(100vh / 6);
-letter-spacing: 3.5px;
-text-align:center;
-color: #ffffff;
+  font-weight: 600;
+  font-size: calc(100% + 5.5vw);
+  height: calc(100vh / 6);
+  letter-spacing: 3.5px;
+  text-align: center;
+  color: #ffffff;
 `;
 
 const OnboardTxt = styled.p`
-font-size: calc(100% + 0.1vw);
-line-height: 2.6rem;
-letter-spacing: 2px;
-text-align:center;
-color: #ffffff;
+  font-size: calc(100% + 0.1vw);
+  line-height: 2.6rem;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #ffffff;
 `;
 
 const Option = styled.a`
+  display: flex;
+  flex-direction: row-reverse;
   font-size: 2.5rem;
   line-height: 41px;
   letter-spacing: 2px;
-  color: #E6E6E6;
-  &:hover {
+  color: #e6e6e6;
+  cursor:pointer;
+  input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  label{
+    display: flex;
+    position: relative;
+    font-weight: 300;
+    font-size: 1.35em;
+    height: 30px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all 0.25s linear;
+    &:hover {
+      color:#f3bfe1;
+    }
+  }
+ 
+
+  .check {
+    display: flex;
+    position: relative;
+    border: 5px solid #e05cb3;
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    transition: border 0.25s linear;
+    -webkit-transition: border 0.25s linear;
+  }
+
+  &:hover .check {
+    border: 5px solid #f3bfe1;
+  }
+
+  .check::before {
+    position: relative;
+    content: '';
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    margin: auto;
+    transition: background 0.25s linear;
+    -webkit-transition: background 0.25s linear;
+  }
+
+  input[type=radio]:checked ~ .check {
+    border: 5px solid #e05cb3;
+  }
+
+  input[type="radio"]:checked ~ .check::before {
     background: #e05cb3;
-    padding: 0 1rem;
-    border-radius: 0.3rem;
+  }
+
+  input[type="radio"]:checked ~ label {
+    color: #e05cb3;
   }
 `;
 
@@ -295,9 +384,8 @@ const ButtonNoColor = styled.a`
 
 const FlexHolder = styled.div`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 5rem auto;
   align-items: flex-start;
   width: 100%;
   padding: 2.5rem 0 9rem;
@@ -307,7 +395,7 @@ const FlexHolder = styled.div`
 const StepDots = styled.div`
   display: flex;
   font-size: calc(100% + 19vw);
-  margin: 0 auto calc(100vh /10);
+  margin: 0 auto calc(100vh / 10);
   div {
     height: 4px;
     border-radius: 50%;
@@ -315,7 +403,7 @@ const StepDots = styled.div`
     margin: 0px 1rem 0 auto;
     padding: 0.3rem;
     background: #a7a4e6;
-    opacity:45%;
+    opacity: 45%;
     ${props => props.currentDot(props.currentStep)}
   }
 `;
