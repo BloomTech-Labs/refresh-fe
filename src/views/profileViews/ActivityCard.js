@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import LineChart from './profileViews/'
+import LineChart from '../profileViews/LineChart';
 
 
 const ActivityWidget = styled.div`
