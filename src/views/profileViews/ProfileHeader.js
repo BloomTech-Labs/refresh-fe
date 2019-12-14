@@ -12,7 +12,11 @@ width: 25px;
 height: 25px;
 left: 288px;
 top: 21px;
-background: #CCC9FF;
+background-img{
+  background: #CCC9FF;
+  url: ('notifications.svg');
+}
+
 `
 const CogVector = styled.div`
 position: absolute;
