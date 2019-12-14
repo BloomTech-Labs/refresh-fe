@@ -19,7 +19,7 @@ background-img{
 }
 
 `
-const CogVector = styled.div`
+const CogVector = styled.img`
 position: absolute;
 left: 88.53%;
 right: 6.4%;
