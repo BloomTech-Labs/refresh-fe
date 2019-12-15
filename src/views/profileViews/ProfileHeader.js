@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
 import settings_cog from '../../images/profile/settings_cog.svg';
+import MobileMenu from '../../views/mobile-menu/MobileMenu';
+import Hamburger from '../../images/mobile-profile/hamburger.svg';
 //import Slider from '../../styles/global/Slider';
 
 const ProfileContainer = styled.div`
@@ -34,17 +36,7 @@ background-img{
   background: #CCC9FF;
 }
 `
-const MenuPlaceHolder = styled.div`
-position: absolute;
-width: 15px;
-height: 15px;
-left: 32px;
-top: 62px;
 
-/* primary / disabled */
-
-background: #CCC9FF;
-`
 const AvPlaceHolder = styled.img`
 position: absolute;
 border-radius: 50%;
@@ -197,7 +189,7 @@ const ProfileHeader = () => {
       <ProfileContainer>
         <BellVector src={notifications}/>
         <CogVector src={settings_cog}/>
-        <MenuPlaceHolder/>
+        <MobileMenu/>
         <AvPlaceHolder src={maxine}/>
         <NameText>Maxine Woods</NameText>
         <TeamLeadText>TEAM LEAD</TeamLeadText>
