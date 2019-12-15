@@ -38,7 +38,7 @@ const ProfileText = styled.text`
   color: #e6e6e6;
 `;
 
-const Vector = styled.img`
+const Vector = styled.div`
   position: absolute;
   left: 33.58%;
   right: 34.33%;
