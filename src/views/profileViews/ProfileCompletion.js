@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import User from '../../images/profile/user.svg';
 
 const ProfileContainer = styled.div`
   position: absolute;
@@ -37,7 +38,7 @@ const ProfileText = styled.text`
   color: #e6e6e6;
 `;
 
-const Vector = styled.div`
+const Vector = styled.img`
   position: absolute;
   left: 33.58%;
   right: 34.33%;
@@ -141,7 +142,7 @@ const ProfileCompletion = () => {
     <>
       <ProfileContainer>
         <ProfileText>profile</ProfileText>
-        <Vector />
+        <Vector src={User}/>
         <Percentage>75%</Percentage>
         <CompletionText>completion</CompletionText>
         <FinishNowContainer>

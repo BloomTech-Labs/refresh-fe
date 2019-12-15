@@ -17,7 +17,7 @@ const PVContainer = styled.div`
 
 const ProfileLine = styled.div`
 position: absolute;
-width: 366px;
+width: 372px;
 height: 0px;
 left: 3px;
 top: 210px;

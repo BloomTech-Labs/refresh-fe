@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
 import settings_cog from '../../images/profile/settings_cog.svg';
+//import Slider from '../../styles/global/Slider';
 
 const ProfileContainer = styled.div`
 height: 193px;
@@ -165,7 +166,8 @@ letter-spacing: 0.04em;
 
 color: #B8B7E1;
 `
-const MockSlideOne = styled.div`
+
+const MockSlideOne = styled.img`
 position: absolute;
 width: 160px;
 height: 7px;
@@ -189,6 +191,7 @@ background: #E05CB3;
 border-radius: 3px;
 `
 const ProfileHeader = () => {
+  
   return (
     <>
       <ProfileContainer>
