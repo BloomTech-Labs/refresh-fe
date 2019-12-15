@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const BadgeText = styled.text`
 position: absolute;
 width: 66px;
@@ -48,7 +49,7 @@ color: #B8B7E1;
 
 const WaterBadge = styled.div`
 position: absolute;
-width: 57.75px;
+width: 57.5px;
 height: 65.5px;
 left: 32px;
 top: 258px;
@@ -56,7 +57,7 @@ background: #1575FF;
 `
 const FoodBadge = styled.div`
 position: absolute;
-width: 57.75px;
+width: 57.5px;
 height: 65.5px;
 left: 110px;
 top: 258px;
@@ -64,7 +65,7 @@ background: #27AE60;
 `
 const ActivityBadge = styled.div`
 position: absolute;
-width: 57.75px;
+width: 57.5px;
 height: 65.5px;
 left: 188px;
 top: 258px;
@@ -72,7 +73,7 @@ background: #FC5454;
 `
 const PetsBadge = styled.div`
 position: absolute;
-width: 57.75px;
+width: 57.5px;
 height: 65.5px;
 left: 266px;
 top: 258px;
@@ -90,15 +91,15 @@ background: #FC54EB;
 const ProfileBadges = () => {
   return (
     <>
-     <BadgeText>BADGES</BadgeText>
-     <ViewAllText>view all</ViewAllText>
-     <WaterBadge/>
-     <FoodBadge/>
-     <ActivityBadge/>
-     <PetsBadge/>
-     <PartialBadge/>
-
- 
+   
+    <BadgeText>BADGES</BadgeText>
+      <ViewAllText>view all</ViewAllText>
+      <WaterBadge/>
+      <FoodBadge/>
+      <ActivityBadge/>
+      <PetsBadge/>
+      <PartialBadge/>
+    
     </>
   )
 };

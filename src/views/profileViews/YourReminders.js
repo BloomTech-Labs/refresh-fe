@@ -41,7 +41,7 @@ left: 212px;
 top: 621px;
 background: #CCC9FF;
 border-radius: 2px;
-
+z-index: 100;
 `
 
 const YourReminders = () =>{

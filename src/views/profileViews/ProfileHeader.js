@@ -4,7 +4,7 @@ import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
 import settings_cog from '../../images/profile/settings_cog.svg';
 import MobileMenu from '../../views/mobile-menu/MobileMenu';
-import Hamburger from '../../images/mobile-profile/hamburger.svg';
+//import Hamburger from '../../images/mobile-profile/hamburger.svg';
 //import Slider from '../../styles/global/Slider';
 
 const ProfileContainer = styled.div`

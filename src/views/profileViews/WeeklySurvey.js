@@ -8,6 +8,7 @@ width: 162px;
 height: 149px;
 left: 31px;
 top: 614px;
+z-index: 100;
 /* main / side */
 
 background: #3D3B91;
