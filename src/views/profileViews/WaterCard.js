@@ -1,6 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import WaterBottleGauge from '../profileViews/WaterBottleGauge';
+// IMPORTS
+// react
+import React from 'react';
+// styled components
+import styled from 'styled-components';
+// helpers 
+import { test, flex } from '../../styles/global/Mixins';
+// images
+import WaterBottle from '../../images/profile/water_bottle/bottle4.svg';
 
 const HydrationContainer = styled.div`
   position: absolute;
