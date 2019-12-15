@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import WaterBottleGauge from '../profileViews/WaterBottleGauge';
+//import WaterBottleGauge from '../profileViews/WaterBottleGauge';
 
 const HydrationContainer = styled.div`
   position: absolute;
@@ -113,7 +113,7 @@ const WaterCard = () => {
     <>
       <HydrationContainer>
         <HydrationText>hydration<br/>station</HydrationText>
-        <WaterBottleGauge/>
+        
       <NumOfCups>6</NumOfCups>
       <CupsOfWater>
         cups of
