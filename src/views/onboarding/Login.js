@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 // contexts
 import { UserContext } from "../../contexts/UserContext";
 // styled components
@@ -64,25 +64,18 @@ const Login = props => {
     userObject = JSON.parse(userObject);
     console.log(userObject);
     localStorage.setItem("token", userObject.token);
-    if (activeUser.user_id === null) {
-      activeUser.setUser({
-        ...activeUser,
-        user_id: userObject.user_profile.user_id || null,
-        display_name: userObject.user_profile.display_name || "",
-        fname: userObject.user_profile.fname || "",
-        lname: userObject.user_profile.lname || "",
-        cohort: userObject.user_profile.cohort || "",
-        section_lead: userObject.user_profile.section_lead || "",
-        avatar: userObject.user_profile.avatar || "",
-        bio: userObject.user_profile.bio || "",
-        new_user: userObject.user_profile.newUser ? true : false
-      });
-
-      localStorage.setItem('activeUser', JSON.stringify(userObject.user_profile));
-    } else {
-      activeUser.setUser(...activeUser);
-      localStorage.setItem('activeUser', JSON.stringify(userObject.user_profile));
-    }
+    activeUser.setUser({
+      ...activeUser,
+      user_id: userObject.user_id || null,
+      display_name: userObject.display_name || "",
+      fname: userObject.fname || "",
+      lname: userObject.lname || "",
+      cohort: userObject.cohort || "",
+      section_lead: userObject.section_lead || "",
+      avatar: userObject.avatar || "",
+      bio: userObject.bio || "",
+      new_user: userObject.newUser ? true : false
+    });
     {
       userObject.newUser
         ? props.history.push("/firstlogin")
@@ -183,6 +176,13 @@ const HeaderHolder = styled.div`
   }
 `;
 
+const OnboardTxt = styled.p`
+  margin: auto;
+  font-size: 2rem;
+  line-height: 33px;
+  letter-spacing: 0.035em;
+  color: #ccc9ff;
+`;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
@@ -215,6 +215,10 @@ const Button = styled.a`
   font-size:1.6rem;
   letter-spacing:0.1rem;
 }
+`;
+
+const LineTime = styled.hr`
+  width: 100%;
 `;
 
 const FBButton = styled.a`
@@ -262,6 +266,10 @@ const Cubes = styled.img`
 `;
 
 const Logo = styled.img``;
+
+const GoogleLogo = styled(Logo)`
+  border-radius: 50%;
+`;
 
 // EXPORT
 export default Login;

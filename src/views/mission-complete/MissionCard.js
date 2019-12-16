@@ -86,7 +86,7 @@ const bgPicker = vertical => {
 // COMPONENT
 const MissionCard = props => {
     // props destructuring
-    const { missionId, point_value, setSelectedMission } = props;
+    const { missionId, setSelectedMission } = props;
     
     // state hooks
     const [selected, setSelected] = useState(false);
@@ -99,7 +99,7 @@ const MissionCard = props => {
     // handlers
     const selectedHandler = e => {
         setSelected(true);
-        setSelectedMission({mission_id: missionId, point_value: point_value});
+        setSelectedMission(missionId);
     };
     
     // props
