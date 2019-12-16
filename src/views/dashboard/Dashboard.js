@@ -50,7 +50,7 @@ const Dashboard = props => {
                     {userMissions.map(mission => {
                             return (
                                 <MissionCard 
-                                    key={mission.id}
+                                    key={mission.mission_id}
                                     color={mission.color}
                                     description={mission.description}
                                     points={mission.point_value}
