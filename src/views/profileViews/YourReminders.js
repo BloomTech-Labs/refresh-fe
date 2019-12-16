@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuDots from '../../images/profile/purple_menu_dots.svg';
+import {Link} from 'react-router-dom';
 
 
 
@@ -48,10 +49,12 @@ border-radius: 2px;
 const YourReminders = () =>{
   return (
     <>
+    <Link to='coming-soon'>
     <ReminderContainer>
        <ReminderDots src={MenuDots}/>
        <ReminderText>your<br/>reminders</ReminderText>
     </ReminderContainer>
+    </Link>
     </>
   )
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import {Link} from 'react-router-dom';
+import Rocket from '../../images/profile/rocket.svg'
 
 const SurveyContainer = styled.div`
 position: absolute;
@@ -37,23 +38,27 @@ letter-spacing: 0.035em;
 color: #CCC9FF;
 `
 
-const RocketVector = styled.div`
+const RocketVector = styled.img`
 position: absolute;
 left: 23.03%;
 right: 22.37%;
+width: 800px; 
+height: ;
 top: 12.75%;
 bottom: 31.54%;
-
+background-img: url ('rocket.svg')
 background: #FFFFFF;
 `
 
 const WeeklySurvey = () =>{
   return (
     <>
+    <Link to='/dashboard'>
       <SurveyContainer>
-        <RocketVector/>
+        <RocketVector src={Rocket}/>
         <SurveyText>surveys of the week</SurveyText>
       </SurveyContainer>
+      </Link>
     </>
   )
 };
