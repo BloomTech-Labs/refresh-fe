@@ -8,23 +8,39 @@ import { test, flex } from "../../../styles/global/Mixins";
 // import Icon from "../../atoms/icon/icon";
 // SVG Images
 
-const LiveGauge = props => {
-  const percentComplete = props => {
-    let goal = props.goal;
-    let actual = props.actual
-  };
+const LiveGauge = ({ ...props }) => {
+  const goal = props.goal;
+  const actual = props.actual;
+  const percent = (actual / goal) * 100;
+
+  console.log(props);
+
+  // console.log(`[return goal]`, goal);
+  // console.log(`[return actual]`, actual);
+  // console.log(`[return percent]`, percent);
+
   return (
     <>
-      <BaseRing>
-        <ProgressRing />
-      </BaseRing>
+      <BaseRing />
+      <ProgressRing>
+        <svg className="progress-circle" height="60" width="60">
+          <Circle
+            strokeWidth="4"
+            fill="transparent"
+            r="27"
+            cx="30"
+            cy="30"
+            stroke="white"
+          />
+        </svg>
+      </ProgressRing>
     </>
   );
 };
 
 const BaseRing = styled.div`
   position: absolute;
-  border: 3px solid #e6e6e6;
+  border: 2px solid #e6e6e6;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -33,12 +49,15 @@ const BaseRing = styled.div`
 `;
 const ProgressRing = styled.div`
   position: absolute;
-  border: 6px solid #fff;
-  border-radius: 50%;
   width: 60px;
   height: 60px;
   margin-bottom: 2rem;
   ${flex.flexCol}
+`;
+const Circle = styled.circle`
+  transition: 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
 `;
 
 export default LiveGauge;
