@@ -38,6 +38,14 @@ const TeamViewContainer = styled.div`
     width: 90%;
     height: 80vh;
     margin: 0 auto;
+
+        h1 {
+            text-align: center;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 2rem;
+            letter-spacing: 0.25rem;
+        }
 `
 
 
