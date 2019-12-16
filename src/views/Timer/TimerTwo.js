@@ -10,6 +10,12 @@ const Clock = styled.div`
   flex-direction: column;
 `
 
+const Pomodoro = styled.h2`
+  color: white;
+  margin: 20px auto;
+  font-family: Catamaran;
+`
+
 const Timer = styled.div`
   margin: 20px auto;
   
@@ -26,7 +32,7 @@ const Timer = styled.div`
 `
 
 const Buttons = styled.div`
-  margin-top: 40px;
+  margin-top: 70px;
   display: flex;
   justify-content: center;
 `
@@ -47,7 +53,7 @@ const Sprint = styled.div`
 
 const FirstSecondIcon = styled.i`
   display: inline-block;
-  color: #6487FF;
+  color: #e05cb3;
   font-size: 50px;
   margin-bottom: 60px;
   margin-right: 40px;
@@ -55,7 +61,7 @@ const FirstSecondIcon = styled.i`
 
 const ThirdIcon = styled.i`
   display: inline-block;
-  color: #6487FF;
+  color: #e05cb3;
   font-size: 50px;
   margin-bottom: 60px;
 `
@@ -102,20 +108,20 @@ export function TimerTwo ({ expiryTimestamp}) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    setPercentage(-1 * (min / 25));
+    setPercentage(-1 * (min / 15));
   }, [seconds])
 
   return (
     <Clock>
+      <Pomodoro>Pomodoro #2</Pomodoro>
       <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
-          pathColor: `#6487FF, ${percentage}`,
+          pathColor: '#e05cb3', percentage,
           trailColor: 'white',
           textColor: 'white',
-          textSize: '16px',
-          pathTransitionDuration: 0.5,
+          textSize: '16px'
         })}
       > 
         <div className="time">
@@ -140,7 +146,7 @@ export function TimerTwo ({ expiryTimestamp}) {
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
+              pathColor: '#e05cb3',
               trailColor: 'white',
             })}
         />
@@ -151,7 +157,7 @@ export function TimerTwo ({ expiryTimestamp}) {
             strokeWidth={50}
             styles={buildStyles({
               strokeLinecap: "butt",
-              pathColor: '#6487FF',
+              pathColor: '#e05cb3',
               trailColor: 'white',
             })}
         />
@@ -176,11 +182,7 @@ export function TimerTwo ({ expiryTimestamp}) {
         </Sprint>
       </Sprints>
       <Instructions>
-        <Text>1. Evidence shows people are more productive when they work in <Bold>short bursts</Bold> with <Bold>frequent breaks</Bold>.</Text>
-        <br></br>
-        <Text>2. The <Bold>Pomodoro Technique</Bold> is a strategy that utilizes this theory. First, work in a sprint of <Bold>25 minutes</Bold>.</Text>
-        <br></br>
-        <Text>3. Next, take a <Bold>5 minute</Bold> break. Get up, take a <Bold>walk</Bold>, refill your <Bold>water</Bold>, <Bold>stretch</Bold>>, and take <Bold>5 deep breaths</Bold> in and out.</Text>
+        <Text>Focus for 25 minutes.</Text>
       </Instructions>
     </Clock>
   );

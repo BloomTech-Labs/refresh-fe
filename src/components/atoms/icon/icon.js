@@ -16,8 +16,8 @@ const Icon = ({ ...props }) => {
     padding,
     svg,
     alt,
-    display,
-    styledIcon
+    title,
+    display
   } = props;
 
   return (
@@ -31,13 +31,14 @@ const Icon = ({ ...props }) => {
       display={display}
       padding={padding}
       alt={alt}
+      title={title}
     >
       {svg ? (
         <object type="image/svg+xml" data={svg} className="object-svg">
-          <img src={svg} alt={alt} className="img-svg" />
+          <img src={svg} alt={alt} title={title} className="img-svg" />
         </object>
       ) : (
-        <>{styledIcon}</>
+        <>{StyledIcon}</>
       )}
     </StyledIcon>
   );
@@ -52,7 +53,7 @@ const StyledIcon = styled.div.attrs(props => ({
   display: props.display,
   padding: props.padding
 }))`
-  height: ${props => (props.height ? `${props.height}rem` : "100%")};
+  height: ${props => (props.height ? `${props.height}rem` : "auto")};
   width: ${props => (props.width ? `${props.width}rem` : "100%")};
   color: ${props => props.color};
   background-color: ${props =>

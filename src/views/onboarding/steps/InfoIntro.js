@@ -24,24 +24,15 @@ const InfoIntro = props => {
 //render
 const OnBoarding = ({ consent, setConsent }) => {
   return (
-    <OnBoardWrapper>
-      <OnBoardContainer>
-        <Logo src={slogan} />
-        <Button onClick={() => setConsent(true)}>Continue</Button>
-      </OnBoardContainer>
-    </OnBoardWrapper>
+    <OnBoardContainer>
+      <Logo src={slogan} />
+      <Button onClick={() => setConsent(true)}>Continue</Button>
+    </OnBoardContainer>
   );
 };
 
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
-const OnBoardWrapper = styled.div`
-background-color: #4742bc;
-background-image: url(${waves});
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-`;
 
 const OnBoardContainer = styled.div`
   display: flex;
@@ -51,9 +42,12 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   line-height: 1.5;
   color: #7f7cca;
+  background-color: #4742bc;
+  background-image: url(${waves});
+  width: 100vw;
   height: 100vh;
+  max-height: 100vh;
 `;
-
 
 const Button = styled.a`
   display: inline-block;
@@ -68,10 +62,10 @@ const Button = styled.a`
 `;
 
 const Logo = styled.img`
-  width: 100%;
+  width: 85%;
   max-width: 100%;
-  height: auto;
-  margin: 10rem auto 0;
+  height: calc(100vh / 2);
+  margin: auto;
 `;
 
 export default InfoIntro;

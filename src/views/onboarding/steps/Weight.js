@@ -110,11 +110,11 @@ export default Weight;
 // STYLED COMPONENTS
 const WeightContainer = styled.div`
   max-width: 85vw;
-  height: 15rem;
-  margin-bottom: 6rem;
+  height: calc(100vh / 4);
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
+  align-self: center;
   align-items: center;
   overflow-x: auto;
   font-size: 2rem;
@@ -126,7 +126,7 @@ const WeightContainer = styled.div`
   }
 
   .smalltick {
-    margin-top: -9rem;
+    margin-top: -7rem;
     margin-left: 2rem;
   }
 
