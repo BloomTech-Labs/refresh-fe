@@ -6,23 +6,28 @@
 // -JC
 
 // IMPORTS
-// react 
-import React from 'react';
-// react router
-import { Route } from 'react-router-dom';
-// styled components
-import styled from 'styled-components';
+
+import React from "react";
+// import { Router } from "react-router-dom";
+import styled from "styled-components";
+import WaterBottleGauge from "../profileViews/WaterBottleGauge";
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
-// Views to test
+// import { test, flex } from "../../styles/global/Mixins";
+
 
 // COMPONENT
 const Sandbox = () => {
-    return (
-        <>
-            welcome to the sandbox
-        </>
-    );
+
+
+
+
+  return (
+    <>
+      welcome to the sandbox
+      <WaterBottleGauge />
+
+    </>
+  );
 };
 
 // STYLED COMPONENTS
