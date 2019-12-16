@@ -77,7 +77,7 @@ const App = props => {
           updatedMission = {...mission, point_current: 0};
         } else {
           missionsInProgress.forEach(i => {
-            if (mission.id === i.id) {
+            if (mission.mission_id === i.id) {
               console.log('found a match!');
               updatedMission = {...mission, point_current: i.point_current};
             } else {

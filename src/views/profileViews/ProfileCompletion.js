@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-//import User from '../../images/profile/user.svg';
+import User from '../../images/profile/user.svg';
 
 const ProfileContainer = styled.div`
   position: absolute;

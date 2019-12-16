@@ -24,10 +24,11 @@ line-height: 97.5%;
 color: #3D3B91;
 `
 
-const ReminderVector = styled.img`
+const ReminderDots = styled.img`
 position: absolute;
-left: 83.97%;
+left: 81.97%;
 right: 5.34%;
+width: 15%;
 top: 9.15%;
 bottom: 88.73%;
 /* main / side */
@@ -48,7 +49,7 @@ const YourReminders = () =>{
   return (
     <>
     <ReminderContainer>
-       <ReminderVector src={MenuDots}/>
+       <ReminderDots src={MenuDots}/>
        <ReminderText>your<br/>reminders</ReminderText>
     </ReminderContainer>
     </>
