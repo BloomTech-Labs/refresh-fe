@@ -10,8 +10,8 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import styled from "styled-components";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
-//react slider library
-import ReactSlider from "react-slider";
+//slider component
+import Slider from "../../../styles/global/Slider"
 //weight and height dials
 import Weight from "./Weight";
 import Height from "./Height";
@@ -20,7 +20,7 @@ import LoadingSpinner from "../../../components/atoms/spinner/spinner";
 
 const StepForm = props => {
   //context
-  const user = useContext(UserContext);
+  // const user = useContext(UserContext);
 
   //hooks
   const [questions, setQuestions] = useState([]);
@@ -40,7 +40,6 @@ const StepForm = props => {
 
   //set values for slider
   const handleChanges = value => {
-    console.log(value);
     setAnswer(value);
   };
 
@@ -71,13 +70,13 @@ const StepForm = props => {
       .then(res => console.log(res));
   };
 
-  //slider thumb and track
-  const Thumb = (props, state) => (
-    <StyledThumb {...props}>{state.valueNow}</StyledThumb>
-  );
-  const Track = (props, state) => {
-    return <StyledTrack {...props} index={state.index} value={7} />;
-  };
+  // //slider thumb and track
+  // const Thumb = (props, state) => (
+  //   <StyledThumb {...props}>{state.valueNow}</StyledThumb>
+  // );
+  // const Track = (props, state) => {
+  //   return <StyledTrack {...props} index={state.index} value={7} />;
+  // };
 
   //StepDot helper function for styled component
   const StepDotCount = currentStep => {
@@ -104,7 +103,7 @@ const StepForm = props => {
           <p>.</p>
           <p>.</p>
         </StepDots>
-        <form onSubmit={handleSubmit}>
+        <QuestionForm onSubmit={handleSubmit}>
           {/* First Question, Concent Button*/}
           {currentStep < 3 && (
             <Question>{questions[currentStep].question}</Question>
@@ -164,11 +163,9 @@ const StepForm = props => {
           )}
           {/* Slider Group , Questions 4 - 10*/}
           {currentStep >= 3 && (
-            <StyledSlider
+            <Slider
               defaultValue={3}
               max={7}
-              renderTrack={Track}
-              renderThumb={Thumb}
               onChange={handleChanges}
             />
           )}
@@ -181,7 +178,7 @@ const StepForm = props => {
               I don't feel comfortable answering
             </ButtonNoColor>
           )}
-        </form>
+        </QuestionForm>
       </OnBoardContainer>
     ) : (
       <OnBoardContainer>
@@ -194,33 +191,6 @@ const StepForm = props => {
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
-//slider style for react slider
-const StyledSlider = styled(ReactSlider)`
-  width: 100%;
-  height: 0.2rem;
-  margin: 8rem 0 13rem;
-`;
-
-//thumb style for react slider
-const StyledThumb = styled.div`
-  height: 2.5rem;
-  line-height: 25px;
-  width: 25px;
-  text-align: center;
-  background-color: #e05cb3;
-  color: #fff;
-  border-radius: 50%;
-  cursor: grab;
-  margin-top: -1rem;
-`;
-
-//track style for react slider
-const StyledTrack = styled.div`
-  top: 0;
-  bottom: 0;
-  background: ${props => (props.index === 1 ? "#ddd" : "#E05CB3")};
-  border-radius: 2rem;
-`;
 
 const OnBoardContainer = styled.div`
   display: flex;
@@ -252,11 +222,9 @@ const TopArrow = styled.div`
   }
 `;
 
-// position: fixed;
-// top: 50%;
-// left: 50%;
-// margin-top: 0px;
-// margin-left: 0px;
+  const QuestionForm = styled.form`
+  align-self:center;
+  `
 
 const Question = styled.h1`
   font-weight: 600;
@@ -316,6 +284,7 @@ const Button = styled.a`
 const ButtonNoColor = styled.a`
   font-weight: 500;
   font-size: 1.6rem;
+  padding-left:2rem;
   letter-spacing: 2px;
   color: #a7a4e6;
 `;

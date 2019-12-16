@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState } from "react";
+import React from "react";
 //styled components
 import styled from "styled-components";
 
