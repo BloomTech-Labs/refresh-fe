@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
 import settings_cog from '../../images/profile/settings_cog.svg';
@@ -36,20 +37,24 @@ background-img{
   background: #CCC9FF;
 }
 `
-
-const AvPlaceHolder = styled.img`
+const User = styled.div`
 position: absolute;
 border-radius: 50%;
 width: 64px;
 height: 64px;
 left: 160px;
 top: 51px;
-background-img {
-  url:('maxine.jpg');
-  background: #C4C4C4;
-  width: 90%;
-  height: 90%;
-}
+`
+
+const UserAv = styled.img`
+width: 5rem;
+height: 5rem;
+border-radius: 50%;
+background-img:
+url('maxine.jpg');
+background: #C4C4C4;
+
+
 `
 const NameText = styled.text`
 position: absolute;
@@ -190,7 +195,9 @@ const ProfileHeader = () => {
         <BellVector src={notifications}/>
         <CogVector src={settings_cog}/>
         <MobileMenu/>
-        <AvPlaceHolder src={maxine}/>
+        <User>
+          <Link to='/dashboard'><UserAv src={maxine}></UserAv></Link>
+        </User>
         <NameText>Maxine Woods</NameText>
         <TeamLeadText>TEAM LEAD</TeamLeadText>
         <PointsText>150 points</PointsText>
