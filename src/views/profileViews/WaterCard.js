@@ -112,7 +112,8 @@ opacity: 0.6;
 const WaterCard = () => {
   return (
     <>
-      <HydrationContainer>
+      
+        <Link to='/mission-stats'><HydrationContainer>
         <HydrationText>hydration<br/>station</HydrationText>
         
       <NumOfCups>6</NumOfCups>
@@ -122,7 +123,9 @@ const WaterCard = () => {
         water
       </CupsOfWater>
       <OfEight>of 8</OfEight>
+      
       </HydrationContainer>
+      </Link>
     </>
   );
 };
