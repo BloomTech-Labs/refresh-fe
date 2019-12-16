@@ -6,7 +6,7 @@ import styled from 'styled-components';
 // helpers 
 import { test, flex } from '../../styles/global/Mixins';
 // images
-import WaterBottle from '../../images/profile/water_bottle.svg';
+import WaterBottle from '../../images/profile/water_bottle/bottle4.svg';
 
 
 //This component tracks user water intake
