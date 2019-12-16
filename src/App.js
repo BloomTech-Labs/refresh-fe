@@ -13,8 +13,6 @@ import CreateAccount from "./views/onboarding/CreateAccount";
 import MobileMenu from "./views/mobile-menu/MobileMenu";
 import Dashboard from "./views/dashboard/Dashboard";
 import MissionComplete from "./views/mission-complete/MissionComplete";
-import Gauge from "./components/molecules/gauge/Gauge";
-import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
@@ -79,7 +77,7 @@ const App = props => {
           updatedMission = {...mission, point_current: 0};
         } else {
           missionsInProgress.forEach(i => {
-            if (mission.id === i.id) {
+            if (mission.mission_id === i.id) {
               console.log('found a match!');
               updatedMission = {...mission, point_current: i.point_current};
             } else {
@@ -123,8 +121,6 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route exact path="/login" component={Login} />
         <Route path="/" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
-        <Route path="/gauge" component={Gauge} />
-        <Route path="/atoms" component={Atoms} />
         <Route path='/sandbox' component={Sandbox} />
         <Route path='/profile-overview' component={ProfileOverview}/>
         <Route path='/leaderboard' component={Leaderboard} />

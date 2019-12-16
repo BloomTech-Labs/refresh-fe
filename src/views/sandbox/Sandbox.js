@@ -10,7 +10,7 @@
 import React from "react";
 // import { Router } from "react-router-dom";
 import styled from "styled-components";
-import WaterBottleGauge from "../profileViews/WaterBottleGauge";
+// import WaterBottleGauge from "../profileViews/WaterBottleGauge";
 // helpers
 // import { test, flex } from "../../styles/global/Mixins";
 
@@ -24,7 +24,7 @@ const Sandbox = () => {
   return (
     <>
       welcome to the sandbox
-      <WaterBottleGauge />
+      {/* <WaterBottleGauge /> */}
 
     </>
   );

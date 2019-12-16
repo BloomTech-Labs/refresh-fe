@@ -8,7 +8,7 @@ import styled from "styled-components";
 // helpers
 import { test, flex } from "../../styles/global/Mixins";
 // gauges
-import WaterGauge from "../../components/molecules/gauge/waterGauge"
+import LiveGauge from "../../components/molecules/gauge/Gauge"
 
 // HELPERS
 const bgPicker = vertical => {
@@ -119,8 +119,6 @@ const Container = styled.div`
 const Gauge = styled.div`
   width: 60px;
   height: 60px;
-  border: 3px solid #FFF;
-  border-radius: 100px;
   margin-top: 1rem;
   margin-bottom: 2rem;
   ${flex.flexCol}
