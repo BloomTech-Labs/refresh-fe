@@ -16,17 +16,17 @@ const TeamView = () => {
     
     return (
         <>
-            <TeamViewWrapper>
-                <TeamViewContainer>
+            <TVWrapper>
+                <TVContainer>
                     <h1>{userContext.cohort || 'Lambda'} {userContext.fname}</h1>
-                </TeamViewContainer>
-            </TeamViewWrapper>
+                </TVContainer>
+            </TVWrapper>
         </>
     );
 };
 
 // STYLED COMPONENTS
-const TeamViewWrapper = styled.div`
+const TVWrapper = styled.div`
     width: 100vw;
     height: 100vh;
     max-height: 100vh;
@@ -34,7 +34,7 @@ const TeamViewWrapper = styled.div`
     background-color: #3a3699;
 `
 
-const TeamViewContainer = styled.div`
+const TVContainer = styled.div`
     width: 90%;
     height: 80vh;
     margin: 0 auto;
