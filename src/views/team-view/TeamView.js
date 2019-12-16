@@ -27,7 +27,7 @@ const TeamView = () => {
                     <TVSection>
                         <h2>Team Feed</h2>
                     </TVSection>
-                    
+
                     <TVSection>
                         <h2>Team Missions</h2>
                     </TVSection>
@@ -65,6 +65,10 @@ const TVSection = styled.div`
     height: 300px; // temporary
     margin: 2rem 0;
     ${test.redBg}
+
+        h2 {
+            color: #B8B7E1;
+        }
 `
 
 
