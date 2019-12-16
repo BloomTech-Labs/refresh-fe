@@ -16,6 +16,7 @@ const PVContainer = styled.div`
   height: 812px;
   background: #4742bc;
   background-image:url(${waves});
+  z-index: -5;
 `;
 
 

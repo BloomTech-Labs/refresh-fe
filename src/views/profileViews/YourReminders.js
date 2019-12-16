@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import MenuDots from '../../images/profile/purple_menu_dots.svg';
+
+
 
 const ReminderText = styled.text`
 position: absolute;
@@ -21,15 +24,13 @@ line-height: 97.5%;
 color: #3D3B91;
 `
 
-const ReminderVector = styled.div`
+const ReminderVector = styled.img`
 position: absolute;
 left: 83.97%;
 right: 5.34%;
 top: 9.15%;
 bottom: 88.73%;
-
 /* main / side */
-
 background: #3D3B91;
 `
 
@@ -41,14 +42,13 @@ left: 212px;
 top: 621px;
 background: #CCC9FF;
 border-radius: 2px;
-z-index: 100;
 `
 
 const YourReminders = () =>{
   return (
     <>
     <ReminderContainer>
-       <ReminderVector/>
+       <ReminderVector src={MenuDots}/>
        <ReminderText>your<br/>reminders</ReminderText>
     </ReminderContainer>
     </>
