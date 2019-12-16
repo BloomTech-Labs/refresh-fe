@@ -35,6 +35,10 @@ const OnBoarding = ({ consent, setConsent }) => {
 
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
+const YouSpan = styled.span`
+  color: #e05cb3;
+`;
+
 const OnBoardWrapper = styled.div`
 background-color: #4742bc;
 background-image: url(${waves});
@@ -54,6 +58,22 @@ const OnBoardContainer = styled.div`
   height: 100vh;
 `;
 
+const Refresh = styled.h1`
+  margin: 4rem 0;
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 6.6rem;
+  letter-spacing: 5px;
+  color: #ffffff;
+`;
+
+const OnboardTxt = styled.p`
+  font-size: 1.6rem;
+  line-height: 26px;
+  letter-spacing: 2px;
+  color: #a7a4e6;
+  margin-bottom: 5rem;
+`;
 
 const Button = styled.a`
   display: inline-block;
@@ -74,4 +94,13 @@ const Logo = styled.img`
   margin: 10rem auto 0;
 `;
 
+const FlexHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+  align-items: flex-start;
+  width: 100%;
+  padding: 2.5rem 4rem;
+`;
 export default InfoIntro;

@@ -110,7 +110,13 @@ const OnBoardContainer = styled.div`
   }
 `;
 
-
+const Header = styled.h1`
+  font-weight: bold;
+  font-size: 4rem;
+  line-height: 82px;
+  letter-spacing: 3.5px;
+  color: #ffffff;
+`;
 
 const Logo = styled.img`
   width: 100%;

@@ -37,10 +37,8 @@ const EmailSignUp = props => {
 
   //handle submit of user info to backend
   const handleSubmit = e => {
-    if (user.password !== user.confirmPassword && user.password.length < 5) {
+    if (user.password !== user.confirmPassword) {
       alert("Please make sure to enter the same password for confirm password");
-    }else if(user.password.length < 5){
-      alert("Please make sure password is longer than 5 characters")
     } else {
       axiosWithAuth()
         .post("/register", { email: user.email, password: user.password })
@@ -142,6 +140,13 @@ const Logo = styled.img`
   margin: 0 auto;
 `;
 
+const Header = styled.h1`
+  font-weight: bold;
+  font-size: 4rem;
+  line-height: 82px;
+  letter-spacing: 3.5px;
+  color: #ffffff;
+`;
 
 const Form = styled.form`
   display: flex;
