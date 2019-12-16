@@ -84,7 +84,7 @@ const Login = props => {
       localStorage.setItem('activeUser', JSON.stringify(userObject.user_profile));
     }
     {
-      userObject.newUser
+      userObject.newUser === true
         ? props.history.push("/firstlogin")
         : props.history.push("/dashboard");
     }
