@@ -1,13 +1,18 @@
 // IMPORTS
 // react
-import React from 'react';
+import React, { useContext } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
+// contexts
+import { UserContext } from '../../contexts/UserContext';
 
 // COMPONENT
 const TeamView = () => {
+    // contexts
+    const userContext = useContext(UserContext);
+    
     return (
         <>
             <TeamViewWrapper>
