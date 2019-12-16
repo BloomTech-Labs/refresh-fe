@@ -19,6 +19,18 @@ const TeamView = () => {
             <TVWrapper>
                 <TVContainer>
                     <h1>{userContext.cohort || 'Lambda'} {userContext.fname}</h1>
+
+                    <TVSection>
+                        <h2>Teammates</h2>
+                    </TVSection>
+
+                    <TVSection>
+                        <h2>Team Feed</h2>
+                    </TVSection>
+                    
+                    <TVSection>
+                        <h2>Team Missions</h2>
+                    </TVSection>
                 </TVContainer>
             </TVWrapper>
         </>
@@ -46,6 +58,13 @@ const TVContainer = styled.div`
             font-size: 2rem;
             letter-spacing: 0.25rem;
         }
+`
+
+const TVSection = styled.div`
+    width: 100%;
+    height: 300px; // temporary
+    margin: 2rem 0;
+    ${test.redBg}
 `
 
 
