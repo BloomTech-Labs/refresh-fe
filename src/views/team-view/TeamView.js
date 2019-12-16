@@ -18,7 +18,7 @@ const TeamView = () => {
         <>
             <TeamViewWrapper>
                 <TeamViewContainer>
-                    hi from teamview
+                    <h1>{userContext.cohort || 'Lambda'} {userContext.fname}</h1>
                 </TeamViewContainer>
             </TeamViewWrapper>
         </>
