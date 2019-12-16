@@ -10,13 +10,29 @@ import { test, flex } from '../../styles/global/Mixins';
 const TeamView = () => {
     return (
         <>
-            hello from team view
+            
         </>
     );
 };
 
 // STYLED COMPONENTS
-// TODO
+const TeamView = styled.div`
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    padding-top: 10rem;
+    background-color: #3a3699;
+`
+
+const TeamViewWrapper = styled.div`
+    width: 100%;
+`
+
+const TeamViewContainer = styled.div`
+    width: 90%;
+    height: 80vh;
+    margin: 0 auto;
+`
 
 
 // EXPORT
