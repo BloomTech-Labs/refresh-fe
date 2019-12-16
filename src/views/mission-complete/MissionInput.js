@@ -12,6 +12,8 @@ import Counter from './Counter';
 const MissionInput = props => {
     // props
     const { handleDrawer, status, missions, selectedMission } = props;
+    console.log('[selectedMission]', selectedMission);
+    console.log('[]');
     // state hooks
 
 
@@ -24,8 +26,9 @@ const MissionInput = props => {
                 <InputMessage>
                     <i className="fas fa-tint"></i>
                     {missions.map(mission => {
-                        if (mission.id === selectedMission) {
-                            return <p key={mission.id}>{mission.question}</p>
+                        if (mission.mission_id === selectedMission) {
+                            console.log('[checking mapped missions]', mission);
+                            return <p key={mission.mission_id}>{mission.question}</p>
                         } else {
                             return null
                         }
