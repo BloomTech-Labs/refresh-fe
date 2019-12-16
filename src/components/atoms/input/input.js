@@ -36,7 +36,6 @@ const Input = ({ ...props }) => {
     padding,
     height,
     width,
-    backgroundColor,
     actionColor,
     actionBackground
   } = props;
