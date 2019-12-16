@@ -1,38 +1,38 @@
-// import React from 'react';
-// import styled from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 
-/* Deprecated file in lieu of ProfileHeader.js */
-
-// const YourProfile = styled.h2`
-// position: absolute;
-// width: 240px;
-// height: 56px;
-// left: 30px;
-// top: 136px;
+const YourProfile = styled.h2`
+position: absolute;
+width: 240px;
+height: 56px;
+left: 30px;
+top: 136px;
 
 
-// font-family: 'Catamaran', sans-serif;
-// font-style: normal;
-// font-weight: bold;
-// font-size: 35px;
-// line-height: 44%;
-// /* or 15px */
+font-family: 'Catamaran', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 35px;
+line-height: 44%;
+/* or 15px */
 
-// letter-spacing: 3.5px;
+letter-spacing: 3.5px;
 
-// /* primary / white */
+/* primary / white */
 
-// color: #FFFFFF;
+color: #FFFFFF;
 
-// `
+`
 
-// // This component displays 'Profile' title card
-// const HeaderCard = () => {
-//     return (
-//         <>
-//          <YourProfile>Your Profile</YourProfile>
-//         </>
-//     );
-// };
 
-// export default HeaderCard;
+
+
+const HeaderCard = () => {
+    return (
+        <>
+         <YourProfile>Your Profile</YourProfile>
+        </>
+    );
+};
+
+export default HeaderCard;

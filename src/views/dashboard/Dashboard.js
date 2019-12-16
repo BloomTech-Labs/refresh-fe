@@ -46,10 +46,10 @@ const Dashboard = props => {
                 <h2 className='mission-message'>Your missions today</h2>
 
                 <MissionHub>
-                    {userMissions.map((mission, i) => {
+                    {userMissions.map(mission => {
                             return (
                                 <MissionCard 
-                                    key={i}
+                                    key={mission.id}
                                     color={mission.color}
                                     description={mission.description}
                                     points={mission.point_value}

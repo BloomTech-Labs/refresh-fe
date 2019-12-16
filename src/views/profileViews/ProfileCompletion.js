@@ -1,157 +1,91 @@
-import React from "react";
-import styled from "styled-components";
-//import User from '../../images/profile/user.svg';
+// IMPORT 
+// react 
+import React from 'react';
+// styled components
+import styled from 'styled-components';
+// helpers
+import { test, flex } from '../../styles/global/Mixins';
+// images
+import UserImage from '../../images/profile/user.svg';
+import RightArrow from '../../images/profile/purple_right_arrow.svg';
 
-const ProfileContainer = styled.div`
-  position: absolute;
-  width: 134px;
-  height: 207px;
-  left: 208px;
-  top: 387px;
-  /* main / side */
-
-  background: #3d3b91;
-  /* mobile / dashboard dropshadow */
-
-  box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-  border-radius: 2px;
-`;
-
-const ProfileText = styled.text`
-  position: absolute;
-  left: 32.84%;
-  right: 32.84%;
-  top: 9.18%;
-  bottom: 86.47%;
-
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 44%;
-  /* or 7px */
-
-  letter-spacing: 0.02em;
-
-  /* main / TEXT */
-
-  color: #e6e6e6;
-`;
-
-const Vector = styled.div`
-  position: absolute;
-  left: 33.58%;
-  right: 34.33%;
-  top: 24.64%;
-  bottom: 54.59%;
-
-  /* main / TEXT */
-
-  background: #e6e6e6;
-`;
-const Percentage = styled.text`
-  position: absolute;
-  left: 36.57%;
-  right: 37.31%;
-  top: 54.11%;
-  bottom: 38.65%;
-
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 35px;
-  line-height: 44%;
-  /* or 15px */
-
-  letter-spacing: 0.02em;
-
-  /* main / TEXT */
-
-  color: #e6e6e6;
-`;
-
-const CompletionText = styled.text`
-  position: absolute;
-  left: 25.37%;
-  right: 25.37%;
-  top: 68.6%;
-  bottom: 28.5%;
-
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 44%;
-  /* identical to box height, or 6px */
-
-  letter-spacing: 0.02em;
-
-  /* main / TEXT */
-
-  color: #e6e6e6;
-`;
-const FinishNowContainer = styled.div`
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 83.57%;
-  bottom: 0%;
-
-  /* main / side */
-
-  background: #3d3b91;
-  /* mobile / dashboard dropshadow */
-
-  box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-  border-radius: 0px 0px 2px 2px;
-`;
-const FinishNowText = styled.text`
-  position: absolute;
-  left: 11.19%;
-  right: 46.27%;
-  top: 59.86%;
-  bottom: 6.76%;
-
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 44%;
-  /* or 5px */
-
-  letter-spacing: 0.02em;
-
-  /* main / TEXT */
-
-  color: #e6e6e6;
-`;
-const FinishVector = styled.div`
-  position: absolute;
-  left: 82.09%;
-  right: 11.19%;
-  top: 59.37%;
-  bottom: 19.25%;
-
-  /* main / TEXT */
-
-  background: #e6e6e6;
-`;
-
+// COMPONENT
 const ProfileCompletion = () => {
-  return (
-    <>
-      <ProfileContainer>
-        <ProfileText>profile</ProfileText>
-        <Vector />
-        <Percentage>75%</Percentage>
-        <CompletionText>completion</CompletionText>
-        <FinishNowContainer>
-          <FinishNowText>Finish now</FinishNowText>
-          <FinishVector />
-        </FinishNowContainer>
-      </ProfileContainer>
-    </>
-  );
+    return (
+        <>
+            <ProfileWidget>
+                <h3>Profile</h3>
+                <UserPlaceholder src={UserImage} />
+                <span>75%</span>
+                <p>completion</p>
+                <FinishAction>
+                    <p>Finish now</p>
+                    <img src={RightArrow} />
+                </FinishAction>
+            </ProfileWidget>
+        </>
+    );
 };
 
+// STYLED COMPONENTS
+const ProfileWidget = styled.div`
+    width: 80%;
+    height: 20rem;
+    margin: 2rem 0;
+    margin-top: 0;
+    background-color: #CCC9FF;
+    box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+    border-radius: 2px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+
+        h3 {
+            color: #6762E3;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        span {
+            color: #6762E3;
+            font-size: 2.5rem;
+            font-weight: bold;
+
+        }
+
+        p {
+            color: #6762E3;
+        }
+`
+
+const UserPlaceholder = styled.img`
+    width: 35%;
+    height: auto;
+    margin-bottom: 1.5rem;
+`
+
+const FinishAction = styled.div`
+    width: 100%;
+    height: 3rem;
+    background-color: #6762E3;
+    margin-top: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+        img {
+            width: 8%;
+            height: auto;
+        }
+
+        p {
+            color: #CCC9FF;
+        }
+`
+
+// EXPORT
 export default ProfileCompletion;
