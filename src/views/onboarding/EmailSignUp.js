@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -20,7 +20,30 @@ const EmailSignUp = props => {
     confirmPassword: ""
   });
   const [err, setErr] = useState();
+  const [enabledBtn, setEnabledBtn] = useState(false);
 
+  let errors = {};
+  useEffect(() => {
+    errors.userName =
+      user.name.length < 4
+        && "username must be greater than 5 characters"
+    errors.userEmail =
+      user.email.length < 4
+        && "user email must be greater than 5 characters"
+    errors.userPassword =
+    user.confirmPassword.length < 4 &&  user.password.length < 4
+        && "user password must be greater than 5 characters"
+    errors.userConfirmedPass =
+      user.password === user.confirmPassword 
+        && "please make sure passwords match"
+    !errors.userName &&
+      !errors.userEmail &&
+      !errors.userPassword &&
+      errors.userConfirmedPass.length > 4 &&
+      !errors.confirmedPass &&
+      setEnabledBtn(true);
+    console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+  }, [user]);
   //route to sign up page
   const routeToSignUp = e => {
     e.preventDefault();
@@ -37,10 +60,14 @@ const EmailSignUp = props => {
 
   //handle submit of user info to backend
   const handleSubmit = e => {
-    if (user.password !== user.confirmPassword && user.password.length < 5) {
-      alert("Please make sure to enter the same password for confirm password");
-    }else if(user.password.length < 5){
-      alert("Please make sure password is longer than 5 characters")
+    console.log("handleSubmit enabledBtn:", enabledBtn);
+    if (!enabledBtn) {
+      alert(
+        errors.userName ||
+        errors.userEmail ||
+        errors.userPassword ||
+        errors.confirmedPass
+      );
     } else {
       axiosWithAuth()
         .post("/register", { email: user.email, password: user.password })
@@ -59,13 +86,13 @@ const EmailSignUp = props => {
     }
   };
 
+  let BtnStats = !enabledBtn && `disabledColor`
   //render
+  console.log(BtnStats);
   return (
     <OnBoardContainer>
-      <div>
         <ButtonNoColor onClick={routeToSignUp}>&lt;</ButtonNoColor>
-      </div>
-      <Logo src={welcome} />
+        <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -90,8 +117,9 @@ const EmailSignUp = props => {
           color={"#E6E6E6"}
         />
         <Input
-          type="text"
+          type="password"
           name="password"
+          autoComplete="new-password"
           placeholder="Password"
           onChange={handleChange}
           value={user.password}
@@ -101,8 +129,9 @@ const EmailSignUp = props => {
           color={"#E6E6E6"}
         />
         <Input
-          type="text"
+          type="password"
           name="confirmPassword"
+          autoComplete="new-password"
           placeholder="Confirm password"
           onChange={handleChange}
           value={user.confirmPassword}
@@ -111,7 +140,7 @@ const EmailSignUp = props => {
           backgroundColor={"#3D3B91"}
           color={"#E6E6E6"}
         />
-        <Button onClick={handleSubmit}>Sign Up</Button>
+        <Button onClick={handleSubmit} className={BtnStats}>Sign Up</Button>
       </Form>
     </OnBoardContainer>
   );
@@ -121,54 +150,64 @@ const EmailSignUp = props => {
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
   background-color: #4742bc;
   background-image: url(${waves});
-  background-size:contain;
+  background-size: contain;
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  padding: 2.5rem 4rem;
+  padding: 8%;
+  &:nth-child(*) {
+    background-color: green;
+    margin-bottom: 5%;
+  }
 `;
 
 const Logo = styled.img`
-  width: 100%;
-  max-width: 90%;
-  height: auto;
-  margin: 0 auto;
+height: calc(100vh / 3.5);
+width: 100%;
+max-width: 100%;
+margin: auto;
 `;
 
-
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin-left: 1rem;
-
+display: flex;
+margin: auto 0;
+flex-direction: column;
+width: 89%;
   input {
+    font-size: calc(100% + 0.2vw);
     ::-webkit-input-placeholder {
       font-family: "Catamaran", sans-serif;
-      color: #e6e6e6;
+      color:  #a6a6a6;
+      font-size: calc(100%);
     }
+  }
+
+  .disabledColor{
+    opacity: 30%;
   }
 `;
 
 const Input = styled.input`
-  border: 0;
-  border: 1px solid #3D3B91;
-  margin: 1rem 0;
-  padding: 1rem 0.5rem;
-  width:100%;
-  background: #3D3B91;
-  color: #ccc9ff;
+  border: 1px solid #3d3b91;
+  margin: 3% 0;
+  padding: 5%;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px #35347f;
+  background: #3d3b91;
+  color: #ffffff;
   outline: none;
-  font-size:1.4rem ::-webkit-input-placeholder {
+  font-size: calc(100%);
+  ::-webkit-input-placeholder {
     font-family: "Catamaran", sans-serif;
-    color: #E6E6E6;
+    font-size: calc(100%);
   }
 `;
 
@@ -176,19 +215,19 @@ const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
   border-radius: 0.5rem;
-  padding: 1.2rem 0.8rem;
-  width:85%;
+  padding: 1.5rem 0.8rem;
+  width:75%;
   text-align:center;
-  margin: 6rem auto 0;
+  margin: 13% auto auto;
   background: #E05CB3;
   color: white;
-  font-size:1.6rem;
+  font-size:calc(110% + 0.5vw);
   letter-spacing:0.1rem;
 }
 `;
 
 const ButtonNoColor = styled.a`
-  margin: auto;
+  margin-right:89%;
   font-size: 2rem;
   font-style: medium;
   color: #ccc9ff;
