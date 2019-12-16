@@ -132,6 +132,7 @@ const MissionComplete = props => {
                                     handleDrawer={handleDrawer}
                                     vertical={mission.vertical}
                                     missionId={mission.mission_id}
+                                    point_value={mission.point_value}
                                     setSelectedMission={setSelectedMission}
                                 />
                             )
