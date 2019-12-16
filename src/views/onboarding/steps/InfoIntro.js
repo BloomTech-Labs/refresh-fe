@@ -24,28 +24,15 @@ const InfoIntro = props => {
 //render
 const OnBoarding = ({ consent, setConsent }) => {
   return (
-    <OnBoardWrapper>
-      <OnBoardContainer>
-        <Logo src={slogan} />
-        <Button onClick={() => setConsent(true)}>Continue</Button>
-      </OnBoardContainer>
-    </OnBoardWrapper>
+    <OnBoardContainer>
+      <Logo src={slogan} />
+      <Button onClick={() => setConsent(true)}>Continue</Button>
+    </OnBoardContainer>
   );
 };
 
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
-const YouSpan = styled.span`
-  color: #e05cb3;
-`;
-
-const OnBoardWrapper = styled.div`
-background-color: #4742bc;
-background-image: url(${waves});
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-`;
 
 const OnBoardContainer = styled.div`
   display: flex;
@@ -55,24 +42,11 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   line-height: 1.5;
   color: #7f7cca;
+  background-color: #4742bc;
+  background-image: url(${waves});
+  width: 100vw;
   height: 100vh;
-`;
-
-const Refresh = styled.h1`
-  margin: 4rem 0;
-  font-weight: 600;
-  font-size: 4rem;
-  line-height: 6.6rem;
-  letter-spacing: 5px;
-  color: #ffffff;
-`;
-
-const OnboardTxt = styled.p`
-  font-size: 1.6rem;
-  line-height: 26px;
-  letter-spacing: 2px;
-  color: #a7a4e6;
-  margin-bottom: 5rem;
+  max-height: 100vh;
 `;
 
 const Button = styled.a`
@@ -88,19 +62,10 @@ const Button = styled.a`
 `;
 
 const Logo = styled.img`
-  width: 100%;
+  width: 85%;
   max-width: 100%;
-  height: auto;
-  margin: 10rem auto 0;
+  height: calc(100vh / 2);
+  margin: auto;
 `;
 
-const FlexHolder = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: auto;
-  align-items: flex-start;
-  width: 100%;
-  padding: 2.5rem 4rem;
-`;
 export default InfoIntro;

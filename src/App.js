@@ -13,7 +13,7 @@ import CreateAccount from "./views/onboarding/CreateAccount";
 import MobileMenu from "./views/mobile-menu/MobileMenu";
 import Dashboard from "./views/dashboard/Dashboard";
 import MissionComplete from "./views/mission-complete/MissionComplete";
-import Gauge from "./components/molecules/gauge/gauge";
+import Gauge from "./components/molecules/gauge/Gauge";
 import Atoms from "./views/componentTesting/componentTesting";
 import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
@@ -35,6 +35,7 @@ import TimerLongBreak from './views/Timer/TimerLongBreak';
 
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
+
 //COMPONENT
 const App = props => {
   // contexts
@@ -99,7 +100,7 @@ const App = props => {
     })
   }, []);
 
-if(!localStorage.getItem("token")){ // temp setting for testing purposes
+if(!localStorage.getItem('token')){ // temp setting for testing purposes
   return(
   <>
   <UserContext.Provider value={{...user, setUser: setUser}}>
@@ -118,7 +119,7 @@ if(!localStorage.getItem("token")){ // temp setting for testing purposes
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
         <Route path="/atoms" component={Atoms} />

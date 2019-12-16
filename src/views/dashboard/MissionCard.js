@@ -7,6 +7,8 @@ import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 // helpers
 import { test, flex } from "../../styles/global/Mixins";
+// gauges
+import WaterGauge from "../../components/molecules/gauge/waterGauge"
 
 // HELPERS
 const bgPicker = vertical => {

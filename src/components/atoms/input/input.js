@@ -3,17 +3,21 @@ import styled from "styled-components";
 import { inputTypes } from "../../../styles/global/constants";
 import Colors from "../../../styles/global/colors";
 
-const Input = ({ callback = () => {}, ...props }) => {
+const Input = ({ ...props }) => {
   const [value, setValue] = useState("");
   const node = useRef();
 
   const {
+    changeCallback = () => {},
+    eventCallback = () => {},
+    blurCallback = () => {},
     id,
     name,
     form,
     placeholder,
-    type = inputTypes.TEXT,
-    required = false,
+    type, 
+    required, 
+    resetValue, // boolean
     readOnly,
     disabled,
     autocomplete = true,
@@ -31,26 +35,45 @@ const Input = ({ callback = () => {}, ...props }) => {
     color,
     padding,
     height,
-    width
+    width,
+    actionColor,
+    actionBackground
   } = props;
 
   const updateValue = e => {
     e.preventDefault();
     setValue(e.target.value);
     //
-    callback(node.current.value);
+    changeCallback(node.current.value);
   };
 
-  const removeFocus = event => {
+  const removeFocus = e => {
     // Defocus on escape
-    if (event.keyCode === 27) {
-      event.target.blur();
+    if (e.keyCode === 27) {
+      e.target.blur();
     }
+    console.log(`[removeFocus Fired]`);
   };
+
+  const handleEnter = e => {
+    if (e.keyCode === 13) {
+      if (value.length > 0) {
+        eventCallback(e);
+        //
+        if (resetValue) setValue("");
+      }
+    }
+    console.log(`[handleEnter Fired]`);
+  };
+
+  const handleBlur = e => {
+    blurCallback(value)
+    console.log(`[handleBlur Fired]`);
+    
+  }
 
   return (
     <BaseInput
-    
       className="base-input"
       id={id}
       form={form}
@@ -59,11 +82,14 @@ const Input = ({ callback = () => {}, ...props }) => {
       type={type}
       value={value}
       ref={node}
+      resetValue={resetValue}
       required={required}
       readOnly={readOnly}
       disabled={disabled}
       onChange={updateValue}
       onKeyUp={removeFocus}
+      onKeyDown={handleEnter}
+      onBlur={handleBlur}
       autoComplete={autocomplete.toString()}
       autoFocus={autofocus}
       backgroundColor={backgroundColor}
@@ -80,6 +106,9 @@ const Input = ({ callback = () => {}, ...props }) => {
       padding={padding}
       height={height}
       width={width}
+      actionColor={actionColor}
+      backgroundColor={backgroundColor}
+      actionBackground={actionBackground}
     />
   );
 };
@@ -112,7 +141,6 @@ const BaseInput = styled.input.attrs(props => ({
   textAlign: props.textAlign,
   cursor: props.cursor
 }))`
-
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
   width: ${props => (props.width ? `${props.width}%` : `50%`)};
   border: ${props => (props.border ? props.border : "1px solid primary")};
