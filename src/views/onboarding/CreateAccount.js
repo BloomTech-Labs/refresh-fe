@@ -67,10 +67,11 @@ const CreateAccount = props => {
 
   //render
   return (
-    <OnBoardWrapper>
       <OnBoardContainer>
         <TopHolder>
-          <ButtonNoColor className="arrow" onClick={routeToHome}>&lt;</ButtonNoColor>
+          <ButtonNoColor className="arrow" onClick={routeToHome}>
+            &lt;
+          </ButtonNoColor>
           <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
         </TopHolder>
         <HeaderHolder>
@@ -95,7 +96,7 @@ const CreateAccount = props => {
             />
           </GoogleSignIn>
         </FlexHolder>
-        <Row width={97} height={1} padding={"5rem 0"}>
+        <Row width={97} height={1} padding={"12% 0"}>
           <Col width={30} marginLeft={-2}>
             <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
           </Col>
@@ -114,24 +115,29 @@ const CreateAccount = props => {
           </Button>
         </FlexHolder>
       </OnBoardContainer>
-    </OnBoardWrapper>
   );
 };
 
 // STYLED COMPONENTS
-const OnBoardWrapper = styled.div`
-  display: flex;
+// const OnBoardWrapper = styled.div`
+//   display: flex;
+//   width: 100vw;
+//   height: 100vh;
+//   max-height: 100vh;
+//   background-color: #4742bc;
+//   background-image: url(${waves});
+//   overflow-x: hidden;
+// `;
+
+const OnBoardContainer = styled.div`
+  font-family: "Catamaran", sans-serif;
+  display:flex;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
   background-color: #4742bc;
   background-image: url(${waves});
   overflow-x: hidden;
-`;
-
-const OnBoardContainer = styled.div`
-  font-family: "Catamaran", sans-serif;
-  display:flex;
   flex-direction:column;
   justify-content:space-between;
   align-items: flex-start
@@ -154,7 +160,7 @@ const HeaderHolder = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin-top:10%;
+  margin-top: 10%;
 `;
 
 const OnboardTxt = styled.p`
@@ -180,7 +186,7 @@ const TopHolder = styled.div`
   align-items: center;
   width: 100%;
 
-  .arrow{
+  .arrow {
     font-size: calc(110% + 3vw);
   }
 `;
@@ -193,7 +199,6 @@ const Button = styled.a`
   width:84%;
   text-align:center;
   margin: auto;
-  margin-bottom:6%;
   background: #E05CB3;
   color: white;
   font-size: calc(110% + 0.5vw);
@@ -208,7 +213,7 @@ border-radius: 0.5rem;
 padding: 1.5rem 0;
 width: 84%;
 text-align: center;
-margin: 4rem auto 2rem;
+margin: 16% auto 2%;
 background: #4A639E;
 color: white;
 font-size: calc(110% + 0.5vw);
@@ -223,7 +228,7 @@ justify-content: space-around;
   padding: 1.5rem 0.8rem;
   width:84%;
   text-align:center;
-  margin: 2rem auto;
+  margin: 5% auto;
   background: #6997F2;
   color: white;
   font-size: calc(110% + 0.5vw);
@@ -232,7 +237,7 @@ justify-content: space-around;
 `;
 
 const ButtonNoColor = styled.a`
-font-size: calc(110% + 0.5vw);
+  font-size: calc(110% + 0.5vw);
   font-style: medium;
   color: #ccc9ff;
 `;
