@@ -12,6 +12,7 @@ import { UserContext } from '../../contexts/UserContext';
 const TeamView = () => {
     // contexts
     const userContext = useContext(UserContext);
+    console.log('[check user context]', userContext);
     
     return (
         <>
