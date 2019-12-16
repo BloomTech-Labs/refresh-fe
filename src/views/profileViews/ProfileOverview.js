@@ -7,12 +7,17 @@ import WeeklySurvey from '../profileViews/WeeklySurvey';
 import YourReminders from '../profileViews/YourReminders';
 import ProfileBadges from '../profileViews/ProfileBadges';
 import ProfileHeader from '../profileViews/ProfileHeader';
-import {mobile} from './views/profileViews/ResponsiveMedia';
-//import WavyLines from '../../images/wavyLines.svg';
+//import {mobile} from './views/profileViews/ResponsiveMedia';
+import waves from "../../images/Onboarding/waves.svg";
 
 const PVContainer = styled.div`
-${mobile}
+  position: absolute;
+  width: 375px;
+  height: 812px;
+  background: #4742bc;
+  background-image:url(${waves});
 `;
+
 
 // const BackgroundWaves = styled.img`
 // background-img: url(wavyLines.svg);
