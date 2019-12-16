@@ -99,7 +99,7 @@ const Height = props => {
       let centerTick = ticks[i].getBoundingClientRect();
       if (
         centerTick.x >= mainDiv.width / 2 + (mainDiv.width / 2) * 0.15 &&
-        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.3
+        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.25
       ) {
         props.setAnswer(ticks[i].dataset.value);
         ticks[i].classList.add("active");
