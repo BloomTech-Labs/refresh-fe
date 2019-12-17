@@ -9,7 +9,7 @@ const Survey = () => {
         Earn 25 points by responding to this survey. Each survey helps us
         improve what kind of missions you can complete.
       </p>
-      {/* Onclick takes to Survey dash */}
+{/* onclick to actual survey */}
       <button>Take the survey</button>
     </>
   );

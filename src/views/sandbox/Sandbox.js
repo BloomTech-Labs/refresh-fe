@@ -10,7 +10,7 @@
 import React from "react";
 // import { Router } from "react-router-dom";
 import styled from "styled-components";
-import Survey from "../survey/Survey";
+import SurveyDash from "../survey/SurveyDash";
 // import ImageDial from "../team-view/ImageDial";
 // helpers
 // import { test, flex } from "../../styles/global/Mixins";
@@ -20,7 +20,9 @@ const Sandbox = () => {
   return (
     <>
       welcome to the sandbox
-      <div>{/* <Survey /> */}</div>
+      <div>
+        <SurveyDash />
+      </div>
     </>
   );
 };
