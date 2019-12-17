@@ -36,6 +36,24 @@ const TeamView = () => {
             background: 'orange'
         }
     });
+
+    const [missionSlide, setMissionSlide] = useState({
+        slide: {
+            padding: 15,
+            color: '#FFF',
+            minHeight: '15rem',
+            minWidth: '50rem'
+        },
+        slide1: {
+            background: 'red'
+        },
+        slide2: {
+            background: 'pink'
+        },
+        slide3: {
+            background: 'orange'
+        }
+    });
     
     return (
         <>
@@ -70,7 +88,19 @@ const TeamView = () => {
                     <TVSection>
                         <SectionTitle><h2>Team Missions</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
-                        <Pagination></Pagination>
+                        <SwipeableViews>
+                            <div style={{...feedSlide.slide, ...feedSlide.slide1}}>
+                                test 1
+                            </div>
+
+                            <div style={{...feedSlide.slide, ...feedSlide.slide2}}>
+                                test 2
+                            </div>
+
+                            <div style={{...feedSlide.slide, ...feedSlide.slide3}}>
+                                test 3
+                            </div>
+                        </SwipeableViews>
                     </TVSection>
                 </TVContainer>
             </TVWrapper>
