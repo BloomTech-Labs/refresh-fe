@@ -52,15 +52,15 @@ const TeamView = () => {
                         <SectionTitle><h2>Team Feed</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
                         <SwipeableViews>
-                            <div>
+                            <div style={styles.slide, styles.slide1}>
                                 test 1
                             </div>
 
-                            <div>
+                            <div style={styles.slide, styles.slide2}>
                                 test 2
                             </div>
 
-                            <div>
+                            <div style={styles.slide, styles.slide3}>
                                 test 3
                             </div>
                         </SwipeableViews>
