@@ -16,13 +16,11 @@ import waves from '../../images/Onboarding/waves.svg'
 const styles = {
     slide: {
         padding: 15,
-        minHeight: 100,
-        color: '#FFF'
+        color: '#FFF',
+        height: '10rem'
     },
     slide1: {
-        background: 'red',
-        width: '50rem',
-        minHeight: '10rem'
+        background: 'red'
     },
     slide2: {
         background: 'pink'
@@ -54,15 +52,15 @@ const TeamView = () => {
                         <SectionTitle><h2>Team Feed</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
                         <SwipeableViews>
-                            <div style={styles.slide, styles.slide1}>
+                            <div style={{...styles.slide, ...styles.slide1}}>
                                 test 1
                             </div>
 
-                            <div style={styles.slide, styles.slide2}>
+                            <div style={{...styles.slide, ...styles.slide2}}>
                                 test 2
                             </div>
 
-                            <div style={styles.slide, styles.slide3}>
+                            <div style={{...styles.slide, ...styles.slide3}}>
                                 test 3
                             </div>
                         </SwipeableViews>
