@@ -68,6 +68,10 @@ const TVSection = styled.div`
     height: 300px; // temporary
     margin: 2rem 0;
     ${test.redBg}
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
 
         h2 {
             color: #B8B7E1;
@@ -76,12 +80,13 @@ const TVSection = styled.div`
 
 const SectionTitle = styled.div`
         width: 50%;
+        height: 4rem;
         ${test.blueBg}
 `
 
 const SectionCTA = styled.div`
         width: 50%;
-        height: 25px; // temp
+        height: 4rem;
         ${test.greenBg}
 `
 
