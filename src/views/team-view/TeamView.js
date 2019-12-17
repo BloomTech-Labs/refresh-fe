@@ -70,13 +70,25 @@ const TeamView = () => {
         },
         slides: [
             {
-                background: '#3D3B91'
+                background: '#3D3B91',
+                title: 'Test Activity 1',
+                description: 'This is a description for Test Activity 1. Not feeling creative so yeah.',
+                point_value: '100',
+                date: '12/18/2019'
             },
             {
-                background: 'pink'
+                background: 'pink',
+                title: 'Test Activity 2',
+                description: 'This is a description for Test Activity 2. Not feeling creative so yeah.',
+                point_value: '90',
+                date: '12/23/2019'
             },
             {
-                background: 'orange'
+                background: 'orange',
+                title: 'Test Activity 3',
+                description: 'This is a description for Test Activity 3. Not feeling creative so yeah.',
+                point_value: '120',
+                date: '12/25/2019'
             }
         ]
     });
@@ -119,12 +131,12 @@ const TeamView = () => {
                             {missionSlide.slides.map((mission, i) => {
                                 return (
                                     <Slide style={{...missionSlide.slide, ...mission}}>
-                                        <h2>Zoom Dance Party</h2>
-                                        <span>150 PTS</span>
+                                        <h2>{mission.title}</h2>
+                                        <span>{mission.point_value} PTS</span>
 
-                                        <p>Time for a little hoe-down throw down. Tuesday night at 5PM PST.</p>
+                                        <p>{mission.description}</p>
 
-                                        <span>Tuesday, 5PM PST</span>
+                                        <span>{mission.date}</span>
 
                                         <button>Accept</button>
                                         <button>Decline</button>
