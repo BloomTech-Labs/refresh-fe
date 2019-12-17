@@ -36,13 +36,13 @@ const AddMember = props => {
   }, []);
 
   const handleSpaceBar = e => {
-      if(e.keyCode == 32){
-        setEmailList([...emailList, member]);
-        setMember({
-          email: ""
-        });
-      }
-  }
+    if (e.keyCode == 32) {
+      setEmailList([...emailList, member]);
+      setMember({
+        email: ""
+      });
+    }
+  };
 
   //handle change for email input
   const handleChange = e => {
@@ -81,8 +81,8 @@ const AddMember = props => {
       <Header>Invite Teammates</Header>
       <Form onSubmit={addEmail}>
         <FormHeader>Add By Email</FormHeader>
-        <InputDiv  onKeyDown={handleSpaceBar}>
-          <i className={icon[616].icon} onClick={addEmail}  />
+        <InputDiv onKeyDown={handleSpaceBar}>
+          <i className={icon[616].icon} onClick={addEmail} />
           <Input
             type="text"
             name="email"
@@ -106,9 +106,9 @@ const AddMember = props => {
               </EmailButton>
             ))}
         </EmailListDrop>
-        {emailList.length > 0 &&
-        <Button onClick={handleSubmit}>Send Invitations</Button>
-        }
+        {emailList.length > 0 && (
+          <Button onClick={handleSubmit}>Send Invitations</Button>
+        )}
       </Form>
     </OnBoardContainer>
   ) : (
@@ -150,12 +150,12 @@ const Header = styled.h1`
 `;
 
 const FormTxt = styled.p`
-font-weight: 500;
-font-size: 12px;
-line-height: 20px;
-text-align: center;
-letter-spacing: 0.035em;
-color:#B8B7E1;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.035em;
+  color: #b8b7e1;
 `;
 
 const FormHeader = styled.p`
