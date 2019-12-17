@@ -1,9 +1,9 @@
 // IMPORTS
 // react
-import React, { useState, useEffect, /*useContext*/} from "react"; 
+import React, { useState, useEffect, useContext } from "react";
 import { Route } from "react-router-dom"
 // contexts
-import { UserContext } from './contexts/UserContext'; 
+import { UserContext } from './contexts/UserContext';
 import { UserMissionsContext } from './contexts/UserMissionsContext';
 // helpers
 import { axiosWithAuth } from './helpers/axiosWithAuth';
@@ -32,10 +32,7 @@ import TimerThree from './views/Timer/TimerThree';
 import TimerShortBreakThree from './views/Timer/TimerShortBreakThree';
 import TimerFour from './views/Timer/TimerFour';
 import TimerLongBreak from './views/Timer/TimerLongBreak';
-import TeamView from './views/team-view/TeamView';
 
-// dummy data
-//import { userMissionsDummy } from './contexts/DummyData'; 
 
 //COMPONENT
 const App = props => {
@@ -79,7 +76,7 @@ const App = props => {
           updatedMission = {...mission, point_current: 0};
         } else {
           missionsInProgress.forEach(i => {
-            if (mission.mission_id === i.id) {
+            if (mission.id === i.id) {
               console.log('found a match!');
               updatedMission = {...mission, point_current: i.point_current};
             } else {
@@ -121,7 +118,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
-        <Route path="/" component={Dashboard} />
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
         <Route path="/atoms" component={Atoms} />
@@ -129,7 +126,8 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path='/profile-overview' component={ProfileOverview}/>
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
-        <Route path='/team-view' component={TeamView} />
+        
+        
         <Route path='/coming-soon' component={ComingSoon} />
         <Route path="/timer" component={TimerOne} />
         <Route path="/break-1" component={TimerShortBreakOne} />
