@@ -24,7 +24,7 @@ const TeamView = () => {
 
                     <TVSection>
                         <SectionTitle><h2>Teammates</h2></SectionTitle>
-                        <SectionCTA></SectionCTA>
+                        <SectionCTA>view all ></SectionCTA>
                         <Pagination className='carousel'></Pagination>
                     </TVSection>
 
@@ -93,6 +93,13 @@ const SectionTitle = styled.div`
 const SectionCTA = styled.div`
         width: 50%;
         height: 4rem;
+        color: #FFF;
+        text-align: right;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        letter-spacing: 0.15rem;
         ${test.greenBg}
 `
 
