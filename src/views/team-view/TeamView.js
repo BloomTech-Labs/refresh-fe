@@ -23,16 +23,19 @@ const TeamView = () => {
                     <TVSection>
                         <SectionTitle><h2>Teammates</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
+                        <Pagination></Pagination>
                     </TVSection>
 
                     <TVSection>
                         <SectionTitle><h2>Team Feed</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
+                        <Pagination></Pagination>
                     </TVSection>
 
                     <TVSection>
                         <SectionTitle><h2>Team Missions</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
+                        <Pagination></Pagination>
                     </TVSection>
                 </TVContainer>
             </TVWrapper>
@@ -87,6 +90,13 @@ const SectionTitle = styled.div`
 const SectionCTA = styled.div`
         width: 50%;
         height: 4rem;
+        ${test.greenBg}
+`
+
+// temporary pagination section - will remove once library is pulled in
+const Pagination = styled.div`
+        width: 100%;
+        height: 15rem;
         ${test.greenBg}
 `
 
