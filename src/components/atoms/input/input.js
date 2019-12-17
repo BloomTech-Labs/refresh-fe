@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import { inputTypes } from "../../../styles/global/constants";
+//import { inputTypes } from "../../../styles/global/constants"; 
 import Colors from "../../../styles/global/colors";
 
 const Input = ({ ...props }) => {

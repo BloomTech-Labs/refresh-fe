@@ -52,26 +52,25 @@ const UserAv = styled.img`
 
   background: #e6e6e6;
 `;
-const Percentage = styled.img`
+const Percentage = styled.div`
   position: absolute;
   left: 36.57%;
   right: 37.31%;
   top: 54.11%;
   bottom: 38.65%;
-  ${Percent}
   font-family: Catamaran;
   font-style: normal;
   font-weight: 500;
   font-size: 35px;
   line-height: 44%;
   /* or 15px */
-
+  background-img: url ('percent.svg');
   letter-spacing: 0.02em;
 
   /* main / TEXT */
 
   color: #e6e6e6;
-`;
+`
 
 const CompletionText = styled.text`
   position: absolute;
@@ -136,8 +135,8 @@ const FinnishArrow= styled.img`
   top: 59.37%;
   bottom: 19.25%;
   /* main / TEXT */
-
-  background: #e6e6e6;
+  background-img: url ('purple_right_arrow.svg');
+  
 `;
 
 const ProfileCompletion = () => {

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Colors from "../../../styles/global/colors";
-
+//import Colors from "../../../styles/global/colors"; 
 const spinner = require("../../../images/two_cubes.gif");
 
 const LoadingSpinner = ({ ...props }) => {

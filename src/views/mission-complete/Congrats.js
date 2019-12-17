@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, { useState } from 'react';
+import React, {useState}from 'react'; 
 // router
 import { Link } from 'react-router-dom';
 // styled components

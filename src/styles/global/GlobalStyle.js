@@ -1,7 +1,7 @@
 // IMPORTS
 // styled components
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 
 // Global Theme Stylesheet
 const GlobalStyle = createGlobalStyle`

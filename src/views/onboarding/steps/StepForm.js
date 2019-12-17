@@ -1,6 +1,6 @@
 // IMPORTS
 //react
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect,/* useContext*/ } from "react"; /* commented out useContext for trouble shooting only */
 import { Redirect } from "react-router-dom";
 //context
 import { UserContext } from "../../../contexts/UserContext";

@@ -9,7 +9,7 @@ import { UserMissionsContext } from '../../contexts/UserMissionsContext';
 // styled components
 import styled from 'styled-components';
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
+import { test,flex } from '../../styles/global/Mixins'; 
 // components
 import MissionCard from './MissionCard';
 

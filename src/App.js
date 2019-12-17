@@ -1,9 +1,9 @@
 // IMPORTS
 // react
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, /*useContext*/} from "react"; 
 import { Route } from "react-router-dom"
 // contexts
-import { UserContext } from './contexts/UserContext';
+import { UserContext } from './contexts/UserContext'; 
 import { UserMissionsContext } from './contexts/UserMissionsContext';
 // helpers
 import { axiosWithAuth } from './helpers/axiosWithAuth';
@@ -35,7 +35,7 @@ import TimerLongBreak from './views/Timer/TimerLongBreak';
 import TeamView from './views/team-view/TeamView';
 
 // dummy data
-import { userMissionsDummy } from './contexts/DummyData';
+//import { userMissionsDummy } from './contexts/DummyData'; 
 
 //COMPONENT
 const App = props => {
