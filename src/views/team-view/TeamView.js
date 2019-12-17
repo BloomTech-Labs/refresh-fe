@@ -21,15 +21,18 @@ const TeamView = () => {
                     <h1>{userContext.cohort || 'Lambda'} {userContext.fname}</h1>
 
                     <TVSection>
-                        <h2>Teammates</h2>
+                        <SectionTitle><h2>Teammates</h2></SectionTitle>
+                        <SectionCTA></SectionCTA>
                     </TVSection>
 
                     <TVSection>
-                        <h2>Team Feed</h2>
+                        <SectionTitle><h2>Team Feed</h2></SectionTitle>
+                        <SectionCTA></SectionCTA>
                     </TVSection>
 
                     <TVSection>
-                        <h2>Team Missions</h2>
+                        <SectionTitle><h2>Team Missions</h2></SectionTitle>
+                        <SectionCTA></SectionCTA>
                     </TVSection>
                 </TVContainer>
             </TVWrapper>
@@ -69,6 +72,14 @@ const TVSection = styled.div`
         h2 {
             color: #B8B7E1;
         }
+`
+
+const SectionTitle = styled.div`
+
+`
+
+const SectionCTA = styled.div`
+
 `
 
 
