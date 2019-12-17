@@ -298,6 +298,7 @@ const Option = styled.a`
   font-size: 2.5rem;
   line-height: 41px;
   letter-spacing: 2px;
+  margin-bottom: calc(100vh / 50);
   color: #e6e6e6;
   cursor:pointer;
   input {
@@ -308,10 +309,8 @@ const Option = styled.a`
   label{
     display: flex;
     position: relative;
-    font-weight: 300;
-    font-size: 1.35em;
-    height: 30px;
-    z-index: 9;
+    font-size: calc(100% + .1vw);
+    padding-left: 4rem;
     cursor: pointer;
     -webkit-transition: all 0.25s linear;
     &:hover {
@@ -386,7 +385,6 @@ const FlexHolder = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  padding: 2.5rem 0 9rem;
 `;
 
 //current step marker

@@ -33,6 +33,7 @@ import TimerShortBreakThree from './views/Timer/TimerShortBreakThree';
 import TimerFour from './views/Timer/TimerFour';
 import TimerLongBreak from './views/Timer/TimerLongBreak';
 import TeamView from './views/team-view/TeamView';
+import AddMember from './views/team-view/AddMember';
 
 // dummy data
 import { userMissionsDummy } from './contexts/DummyData';
@@ -121,7 +122,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
-        <Route path="/" component={Dashboard} />
+        <Route exact path="/" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
         <Route path="/atoms" component={Atoms} />
@@ -130,6 +131,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         <Route path='/team-view' component={TeamView} />
+        <Route path="/invite" component={AddMember} />
         <Route path='/coming-soon' component={ComingSoon} />
         <Route path="/timer" component={TimerOne} />
         <Route path="/break-1" component={TimerShortBreakOne} />
