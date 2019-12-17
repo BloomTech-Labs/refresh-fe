@@ -73,7 +73,6 @@ const TVSection = styled.div`
     width: 100%;
     margin: 2rem 0;
     margin-bottom: 0;
-    ${test.redBg}
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -87,7 +86,6 @@ const TVSection = styled.div`
 const SectionTitle = styled.div`
         width: 50%;
         height: 4rem;
-        ${test.blueBg}
 `
 
 const SectionCTA = styled.div`
@@ -100,7 +98,6 @@ const SectionCTA = styled.div`
         justify-content: flex-end;
         align-items: center;
         letter-spacing: 0.15rem;
-        ${test.greenBg}
 `
 
 // temporary pagination section - will remove once library is pulled in
