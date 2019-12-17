@@ -75,11 +75,14 @@ const TVSection = styled.div`
 `
 
 const SectionTitle = styled.div`
-
+        width: 50%;
+        ${test.blueBg}
 `
 
 const SectionCTA = styled.div`
-
+        width: 50%;
+        height: 25px; // temp
+        ${test.greenBg}
 `
 
 
