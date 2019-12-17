@@ -97,7 +97,15 @@ const TeamView = () => {
                             {missionSlide.slides.map((mission, i) => {
                                 return (
                                     <Slide style={{...missionSlide.slide, ...mission}}>
-                                        test
+                                        <h2>Zoom Dance Party</h2>
+                                        <span>150 PTS</span>
+
+                                        <p>Time for a little hoe-down throw down. Tuesday night at 5PM PST.</p>
+
+                                        <span>Tuesday, 5PM PST</span>
+
+                                        <button>Accept</button>
+                                        <button>Decline</button>
                                     </Slide>
                                 );
                             })}
