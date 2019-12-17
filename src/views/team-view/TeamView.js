@@ -12,25 +12,6 @@ import { UserContext } from '../../contexts/UserContext';
 // images
 import waves from '../../images/Onboarding/waves.svg'
 
-// SWIPEABLE VIEWS
-// const feedSlide = {
-//     slide: {
-//         padding: 15,
-//         color: '#FFF',
-//         minHeight: '15rem',
-//         minWidth: '50rem'
-//     },
-//     slide1: {
-//         background: 'red'
-//     },
-//     slide2: {
-//         background: 'pink'
-//     },
-//     slide3: {
-//         background: 'orange'
-//     }
-// };
-
 // COMPONENT
 const TeamView = () => {
     // contexts
