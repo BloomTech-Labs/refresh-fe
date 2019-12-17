@@ -27,7 +27,7 @@ const TeamView = () => {
             minWidth: '50rem'
         },
         slide1: {
-            background: 'red'
+            background: '#3D3B91'
         },
         slide2: {
             background: 'pink'
@@ -45,7 +45,7 @@ const TeamView = () => {
             minWidth: '50rem'
         },
         slide1: {
-            background: 'red'
+            background: '#3D3B91'
         },
         slide2: {
             background: 'pink'
