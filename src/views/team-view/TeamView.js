@@ -70,7 +70,7 @@ const TeamView = () => {
             padding: 15,
             color: '#FFF',
             minHeight: '15rem',
-            minWidth: '50rem'
+            minWidth: '25rem'
         },
         slides: [
             {
@@ -229,7 +229,11 @@ const Pagination = styled.div`
 `
 
 const Slide = styled.div`
-        
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 `
 
 
