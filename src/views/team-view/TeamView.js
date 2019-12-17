@@ -71,9 +71,9 @@ const TeamView = () => {
                         <SectionTitle><h2>Team Feed</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
                         <SwipeableViews>
-                            <div style={{...feedSlide.slide, ...feedSlide.slide1}}>
+                            <Slide style={{...feedSlide.slide, ...feedSlide.slide1}}>
                                 test 1
-                            </div>
+                            </Slide>
 
                             <div style={{...feedSlide.slide, ...feedSlide.slide2}}>
                                 test 2
@@ -174,6 +174,10 @@ const Pagination = styled.div`
             &.carousel {
                 height: 10rem;
             }
+`
+
+const Slide = styled.div`
+        
 `
 
 
