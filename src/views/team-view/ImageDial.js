@@ -39,7 +39,7 @@ const ImageDial = props => {
 
   //handle scroll for ticks
   const handleScroll = e => {
-  console.log(e.target);
+  
   };
 
   //render
