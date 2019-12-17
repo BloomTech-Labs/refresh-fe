@@ -7,7 +7,23 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 
 // DUMMY DATA
-const dummy = 5;
+const dummy = [
+    {
+        item: 1
+    },
+    {
+        item: 2
+    },
+    {
+        item: 3
+    },
+    {
+        item: 4
+    },
+    {
+        item: 5
+    }
+]
 
 // COMPONENT
 const Pagination = () => {
