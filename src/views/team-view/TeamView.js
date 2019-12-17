@@ -25,7 +25,7 @@ const TeamView = () => {
                     <TVSection>
                         <SectionTitle><h2>Teammates</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
-                        <Pagination></Pagination>
+                        <Pagination className='carousel'></Pagination>
                     </TVSection>
 
                     <TVSection>
@@ -57,7 +57,7 @@ const TVWrapper = styled.div`
 
 const TVContainer = styled.div`
     width: 90%;
-    height: 80vh;
+    height: 100%;
     margin: 0 auto;
 
         h1 {
@@ -72,6 +72,7 @@ const TVContainer = styled.div`
 const TVSection = styled.div`
     width: 100%;
     margin: 2rem 0;
+    margin-bottom: 0;
     ${test.redBg}
     display: flex;
     flex-flow: row wrap;
@@ -102,6 +103,10 @@ const Pagination = styled.div`
         margin: 2rem 0 0 0;
         background-color: #3D3B91;
         border-radius: 3px;
+
+            &.carousel {
+                height: 10rem;
+            }
 `
 
 
