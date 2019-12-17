@@ -28,7 +28,6 @@ const ImageDial = props => {
         items.push(
           <>
             <div className="bigtick tick" > 
-              <NumberP>{i}</NumberP>
               <img src={thumb[i]} />
             </div>
           </>
