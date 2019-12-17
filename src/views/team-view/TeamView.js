@@ -44,15 +44,17 @@ const TeamView = () => {
             minHeight: '15rem',
             minWidth: '50rem'
         },
-        slide1: {
-            background: '#3D3B91'
-        },
-        slide2: {
-            background: 'pink'
-        },
-        slide3: {
-            background: 'orange'
-        }
+        slides: [
+            {
+                background: '#3D3B91'
+            },
+            {
+                background: 'pink'
+            },
+            {
+                background: 'orange'
+            }
+        ]
     });
     
     return (
@@ -89,15 +91,15 @@ const TeamView = () => {
                         <SectionTitle><h2>Team Missions</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
                         <SwipeableViews>
-                            <div style={{...feedSlide.slide, ...feedSlide.slide1}}>
+                            <div style={{...missionSlide.slide, ...missionSlide.slide1}}>
                                 test 1
                             </div>
 
-                            <div style={{...feedSlide.slide, ...feedSlide.slide2}}>
+                            <div style={{...missionSlide.slide, ...missionSlide.slide2}}>
                                 test 2
                             </div>
 
-                            <div style={{...feedSlide.slide, ...feedSlide.slide3}}>
+                            <div style={{...missionSlide.slide, ...missionSlide.slide3}}>
                                 test 3
                             </div>
                         </SwipeableViews>
