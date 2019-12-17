@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import { test, flex } from '../../styles/global/Mixins';
 // contexts
 import { UserContext } from '../../contexts/UserContext';
+// images
+import waves from '../../images/Onboarding/waves.svg'
 
 // COMPONENT
 const TeamView = () => {
@@ -49,7 +51,8 @@ const TVWrapper = styled.div`
     height: 100vh;
     max-height: 100vh;
     padding-top: 10rem;
-    background-color: #3a3699;
+    background-color: #4742bc;
+    background-image: url(${waves});
 `
 
 const TVContainer = styled.div`
@@ -97,7 +100,8 @@ const Pagination = styled.div`
         width: 100%;
         height: 15rem;
         margin: 2rem 0 0 0;
-        ${test.greenBg}
+        background-color: #3D3B91;
+        border-radius: 3px;
 `
 
 
