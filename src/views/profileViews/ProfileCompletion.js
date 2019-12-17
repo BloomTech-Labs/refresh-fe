@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import User from '../../images/profile/user.svg';
+import Arrow from '../../images/profile/purple_right_arrow.svg';
+import Percent from '../profileViews/percent.svg'
 
 const ProfileContainer = styled.div`
   position: absolute;
@@ -38,24 +40,25 @@ const ProfileText = styled.text`
   color: #e6e6e6;
 `;
 
-const Vector = styled.div`
+const UserAv = styled.img`
   position: absolute;
+  width: 50px;
   left: 33.58%;
   right: 34.33%;
   top: 24.64%;
   bottom: 54.59%;
-
+  ${User}
   /* main / TEXT */
 
   background: #e6e6e6;
 `;
-const Percentage = styled.text`
+const Percentage = styled.img`
   position: absolute;
   left: 36.57%;
   right: 37.31%;
   top: 54.11%;
   bottom: 38.65%;
-
+  ${Percent}
   font-family: Catamaran;
   font-style: normal;
   font-weight: 500;
@@ -125,13 +128,13 @@ const FinishNowText = styled.text`
 
   color: #e6e6e6;
 `;
-const FinishVector = styled.div`
+const FinnishArrow= styled.img`
   position: absolute;
+  width: 25px;
   left: 82.09%;
   right: 11.19%;
   top: 59.37%;
   bottom: 19.25%;
-
   /* main / TEXT */
 
   background: #e6e6e6;
@@ -142,12 +145,12 @@ const ProfileCompletion = () => {
     <>
       <ProfileContainer>
         <ProfileText>profile</ProfileText>
-        <Vector />
-        <Percentage>75%</Percentage>
+        <UserAv src={User}/>
+        <Percentage src={Percent}>75</Percentage>
         <CompletionText>completion</CompletionText>
         <FinishNowContainer>
           <FinishNowText>Finish now</FinishNowText>
-          <FinishVector />
+          <FinnishArrow src={Arrow}/>
         </FinishNowContainer>
       </ProfileContainer>
     </>

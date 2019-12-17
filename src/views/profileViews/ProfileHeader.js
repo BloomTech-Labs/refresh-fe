@@ -5,6 +5,7 @@ import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
 import settings_cog from '../../images/profile/settings_cog.svg';
 import MobileMenu from '../../views/mobile-menu/MobileMenu';
+
 //import Hamburger from '../../images/mobile-profile/hamburger.svg';
 //import Slider from '../../styles/global/Slider';
 
@@ -29,7 +30,7 @@ left: 88.53%;
 right: 6.4%;
 top: 2.71%;
 bottom: 94.95%;
-
+${settings_cog}
 /* main / disabled */
 
 background-img{
@@ -196,7 +197,7 @@ const ProfileHeader = () => {
         <CogVector src={settings_cog}/>
         <MobileMenu/>
         <User>
-          <Link to='/dashboard'><UserAv src={maxine}></UserAv></Link>
+          <Link exact path='/dashboard'><UserAv src={maxine}></UserAv></Link>
         </User>
         <NameText>Maxine Woods</NameText>
         <TeamLeadText>TEAM LEAD</TeamLeadText>

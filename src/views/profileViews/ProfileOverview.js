@@ -15,9 +15,9 @@ width: 100vw;
 height: 100vh;
 max-height: 100vh;
 padding-top: 10rem;
-  background: #4742bc;
-  background-image:url(${waves});
-  z-index: -5;
+background: #4742bc;
+background-image:url(${waves});
+z-index: -5;
 `;
 
 
