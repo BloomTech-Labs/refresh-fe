@@ -53,7 +53,33 @@ width: 57.5px;
 height: 65.5px;
 left: 32px;
 top: 258px;
-background: #1575FF;
+background: .hexagon {
+  position: relative;
+  width: 55px; 
+  height: 31.75px;
+  background-color: #64C7CC;
+  margin: 15.88px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 27.5px solid transparent;
+  border-right: 27.5px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 15.88px solid #64C7CC;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 15.88px solid #64C7CC;
+};
 `
 const FoodBadge = styled.div`
 position: absolute;
