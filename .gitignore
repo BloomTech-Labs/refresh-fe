@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 .history
+.vscode
 # testing
 /coverage
 
@@ -32,3 +33,4 @@ yarn-error.log*
 # lockfiles
 package-lock.json
 yarn.lock
+.vscode/settings.json

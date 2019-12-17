@@ -3,21 +3,26 @@ import styled from "styled-components";
 import { inputTypes } from "../../../styles/global/constants";
 import Colors from "../../../styles/global/colors";
 
-const Input = ({ callback = () => {}, ...props }) => {
+const Input = ({ ...props }) => {
   const [value, setValue] = useState("");
   const node = useRef();
 
   const {
+    changeCallback = () => {},
+    eventCallback = () => {},
+    blurCallback = () => {},
     id,
     name,
     form,
     placeholder,
-    type = inputTypes.TEXT,
-    required = false,
+    type, 
+    required, 
+    resetValue, // boolean
     readOnly,
     disabled,
     autocomplete = true,
     autofocus = false,
+    backgroundColor,
     border,
     borderLeft,
     borderTop,
@@ -27,28 +32,48 @@ const Input = ({ callback = () => {}, ...props }) => {
     borderRadiusTopLeft,
     borderRadiusTopRight,
     borderRadiusBottomRight,
+    color,
     padding,
     height,
-    width
+    width,
+    actionColor,
+    actionBackground
   } = props;
 
   const updateValue = e => {
     e.preventDefault();
     setValue(e.target.value);
     //
-    callback(node.current.value);
+    changeCallback(node.current.value);
   };
 
-  const removeFocus = event => {
+  const removeFocus = e => {
     // Defocus on escape
-    if (event.keyCode === 27) {
-      event.target.blur();
+    if (e.keyCode === 27) {
+      e.target.blur();
     }
+    console.log(`[removeFocus Fired]`);
   };
+
+  const handleEnter = e => {
+    if (e.keyCode === 13) {
+      if (value.length > 0) {
+        eventCallback(e);
+        //
+        if (resetValue) setValue("");
+      }
+    }
+    console.log(`[handleEnter Fired]`);
+  };
+
+  const handleBlur = e => {
+    blurCallback(value)
+    console.log(`[handleBlur Fired]`);
+    
+  }
 
   return (
     <BaseInput
-    
       className="base-input"
       id={id}
       form={form}
@@ -57,13 +82,17 @@ const Input = ({ callback = () => {}, ...props }) => {
       type={type}
       value={value}
       ref={node}
+      resetValue={resetValue}
       required={required}
       readOnly={readOnly}
       disabled={disabled}
       onChange={updateValue}
       onKeyUp={removeFocus}
+      onKeyDown={handleEnter}
+      onBlur={handleBlur}
       autoComplete={autocomplete.toString()}
       autoFocus={autofocus}
+      backgroundColor={backgroundColor}
       border={border}
       borderLeft={borderLeft}
       borderTop={borderTop}
@@ -73,9 +102,13 @@ const Input = ({ callback = () => {}, ...props }) => {
       borderRadiusTopLeft={borderRadiusTopLeft}
       borderRadiusTopRight={borderRadiusTopRight}
       borderRadiusBottomRight={borderRadiusBottomRight}
+      color={color}
       padding={padding}
       height={height}
       width={width}
+      actionColor={actionColor}
+      backgroundColor={backgroundColor}
+      actionBackground={actionBackground}
     />
   );
 };
@@ -108,9 +141,8 @@ const BaseInput = styled.input.attrs(props => ({
   textAlign: props.textAlign,
   cursor: props.cursor
 }))`
-
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
-  width: ${props => (props.width ? `${props.width}rem` : `50%`)};
+  width: ${props => (props.width ? `${props.width}%` : `50%`)};
   border: ${props => (props.border ? props.border : "1px solid primary")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
@@ -130,7 +162,7 @@ const BaseInput = styled.input.attrs(props => ({
   outline: none;
   cursor: text;
   margin: ${props => (props.margin ? `${props.margin}rem` : ".5rem")};
-  padding: ${props => (props.padding ? `${props.margin}rem` : ".25rem")};
+  padding: ${props => (props.padding ? `${props.padding}rem` : ".25rem")};
 `;
 
 export default Input;

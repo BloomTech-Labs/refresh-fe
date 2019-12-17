@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+//IMPORTS
+//react
+import React from "react";
+//styled components
 import styled from "styled-components";
 
 const Weight = props => {
-  const [currentPosition, setCurrentPosition] = useState();
-
-  
+  //handle change to store selected tick
   const handleChanges = e => {
-    console.log(e.i);
+    // console.log(e);
+    props.setAnswer(e);
   };
 
+  //Scale of numbers
   const sliderScale = (unit, range) => {
     let items = [];
     for (let i = 100; i < range; i++) {
+      let n = 1;
       if (i % unit === 0) {
         items.push(
           <>
-            <div className="bigtick">
-              <p onClick={ () => handleChanges({i})}>
+            <div className="bigtick tick" data-value={i}>
+              <p onClick={() => handleChanges(i)}>
                 <svg
                   width="3"
                   height="67"
@@ -37,9 +41,9 @@ const Weight = props => {
               <NumberP>{i}</NumberP>
             </div>
             <div
-              className="smalltick"
-              data-value={i + 0.5}
-              onClick={() => console.log(i - 0.5)}
+              className="smalltick tick"
+              data-value={i + n / 2 - 1}
+              onClick={() => handleChanges(i + n / 2 - 1)}
             >
               <svg
                 width="2"
@@ -70,13 +74,29 @@ const Weight = props => {
     }
     return items;
   };
-  const handleScroll = e =>{
-    //     var myElement = document.getElementById('element_within_div');
-    // var topPos = myElement.offsetLeft;
+
+  //handle scroll for ticks
+  const handleScroll = e => {
+    let ticks = e.target.querySelectorAll(".tick");
+    let mainDiv = e.target.getBoundingClientRect();
+    ticks.forEach((tick, i) => {
+      let centerTick = ticks[i].getBoundingClientRect();
+      if (
+        centerTick.x >= mainDiv.width / 2 + (mainDiv.width / 2) * 0.15 &&
+        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.3
+      ) {
+        props.setAnswer(ticks[i].dataset.value);
+        ticks[i].classList.add("active");
+      } else {
+        ticks[i].classList.remove("active");
       }
+    });
+  };
+
+  //render
   return (
     <>
-      <WeightContainer>
+      <WeightContainer onScroll={handleScroll}>
         {sliderScale(1, 500).map((x, i) => (
           <DialStuff key={i}>{x}</DialStuff>
         ))}
@@ -87,13 +107,14 @@ const Weight = props => {
 
 export default Weight;
 
+// STYLED COMPONENTS
 const WeightContainer = styled.div`
-  max-width: 29rem;
-  height: 15rem;
-  margin-bottom: 6rem;
+  max-width: 85vw;
+  height: calc(100vh / 4);
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
+  align-self: center;
   align-items: center;
   overflow-x: auto;
   font-size: 2rem;
@@ -101,19 +122,29 @@ const WeightContainer = styled.div`
   .bigtick {
     display: flex;
     flex-direction: column;
-    color: black;
     margin-left: 5rem;
   }
 
   .smalltick {
-    margin-top: -9rem;
+    margin-top: -7rem;
     margin-left: 2rem;
+  }
+
+  .active {
+    color: #e05cb3;
+    p {
+      color: #e05cb3;
+    }
+    svg {
+      line {
+        stroke: #e05cb3;
+      }
+    }
   }
 `;
 const DialStuff = styled.div`
   flex: 0 0 auto;
 `;
-
 
 const NumberP = styled.p`
   margin-left: -1rem;

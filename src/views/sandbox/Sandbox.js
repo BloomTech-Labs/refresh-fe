@@ -6,20 +6,32 @@
 // -JC
 
 // IMPORTS
-// react 
-import React from 'react';
-// styled components
-import styled from 'styled-components';
+
+import React from "react";
+// import { Router } from "react-router-dom";
+import styled from "styled-components";
+import WaterBottleGauge from "../profileViews/WaterBottleGauge";
+import ImageDial from "../team-view/ImageDial";
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
+// import { test, flex } from "../../styles/global/Mixins";
+
 
 // COMPONENT
 const Sandbox = () => {
-    return (
-        <>
-            welcome to the sandbox
-        </>
-    );
+
+
+
+
+  return (
+    <>
+      welcome to the sandbox
+      <div>
+    <ImageDial />
+    </div>
+      <WaterBottleGauge />
+
+    </>
+  );
 };
 
 // STYLED COMPONENTS
