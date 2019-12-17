@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React, { useState, useContext } from 'react';
+// router
+import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // swipeable views
@@ -65,7 +67,7 @@ const TeamView = () => {
 
                     <TVSection>
                         <SectionTitle><h2>Teammates</h2></SectionTitle>
-                        <SectionCTA>view all ></SectionCTA>
+                        <SectionCTA><Link to='/team'>view all ></Link></SectionCTA>
                         <Pagination className='carousel'></Pagination>
                     </TVSection>
 
@@ -160,6 +162,11 @@ const SectionCTA = styled.div`
         justify-content: flex-end;
         align-items: center;
         letter-spacing: 0.15rem;
+
+            a {
+                color: #FFF;
+                text-decoration: none;
+            }
 `
 
 // temporary pagination section - will remove once library is pulled in
