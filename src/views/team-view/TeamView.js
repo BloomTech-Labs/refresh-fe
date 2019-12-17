@@ -20,7 +20,9 @@ const styles = {
         color: '#FFF'
     },
     slide1: {
-        background: 'red'
+        background: 'red',
+        width: '50rem',
+        minHeight: '10rem'
     },
     slide2: {
         background: 'pink'
