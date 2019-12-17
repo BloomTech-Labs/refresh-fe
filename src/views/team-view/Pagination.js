@@ -52,8 +52,12 @@ const Dot = styled.div`
     width: 1rem;
     height: 1rem;
     border-radius: 100px;
-    background-color: #FFF;
+    background-color: #716FC3;
     margin: 0.25rem;
+
+        .active {
+            background-color: #E05CB3;
+        }
 `
 
 // EXPORTS
