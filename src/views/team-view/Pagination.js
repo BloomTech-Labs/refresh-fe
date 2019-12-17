@@ -16,7 +16,21 @@ const Pagination = () => {
 };
 
 // STYLED COMPONENTS
-// TODO
+const PaginationWrapper = styled.div`
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+`
+
+const Dot = styled.div`
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100px;
+    background-color: #FFF;
+`
 
 // EXPORTS
 export default Pagination;
