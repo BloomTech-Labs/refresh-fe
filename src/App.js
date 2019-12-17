@@ -37,9 +37,6 @@ import AddMember from './views/team-view/AddMember';
 import CreateTMission from './views/team-view/CreateTMission';
 import Calendar from './views/team-view/Calendar';
 
-// dummy data
-import { userMissionsDummy } from './contexts/DummyData';
-
 //COMPONENT
 const App = props => {
   // contexts
