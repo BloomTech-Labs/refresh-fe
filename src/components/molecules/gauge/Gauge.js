@@ -45,7 +45,6 @@ const BaseRing = styled.div`
   width: 60px;
   height: 60px;
   margin-bottom: 2rem;
-  ${flex.flexCol}
 `;
 const ProgressRing = styled.div`
   position: absolute;
