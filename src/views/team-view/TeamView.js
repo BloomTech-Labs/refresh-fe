@@ -103,6 +103,16 @@ const TeamView = () => {
                                 test 3
                             </div>
                         </SwipeableViews>
+
+                        <SwipeableViews>
+                            {missionSlide.slides.map((mission, i) => {
+                                return (
+                                    <Slide style={{...missionSlide.slide, ...mission}}>
+                                        test
+                                    </Slide>
+                                );
+                            })}
+                        </SwipeableViews>
                     </TVSection>
                 </TVContainer>
             </TVWrapper>
