@@ -68,7 +68,6 @@ const TVContainer = styled.div`
 
 const TVSection = styled.div`
     width: 100%;
-    height: 300px; // temporary
     margin: 2rem 0;
     ${test.redBg}
     display: flex;
@@ -97,6 +96,7 @@ const SectionCTA = styled.div`
 const Pagination = styled.div`
         width: 100%;
         height: 15rem;
+        margin: 2rem 0 0 0;
         ${test.greenBg}
 `
 
