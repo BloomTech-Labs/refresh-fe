@@ -30,7 +30,9 @@ const Pagination = () => {
     return (
         <>
         <PaginationWrapper>
-
+            {dummy.map(slide => {
+                return <Dot />
+            })}
         </PaginationWrapper>
         </>
     );
@@ -42,15 +44,16 @@ const PaginationWrapper = styled.div`
     height: 3rem;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 `
 
 const Dot = styled.div`
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
     border-radius: 100px;
     background-color: #FFF;
+    margin: 0.25rem;
 `
 
 // EXPORTS
