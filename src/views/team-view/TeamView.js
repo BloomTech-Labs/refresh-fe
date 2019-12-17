@@ -14,6 +14,28 @@ import { UserContext } from '../../contexts/UserContext';
 // images
 import waves from '../../images/Onboarding/waves.svg'
 
+// TEMP DUMMY DATA
+const dummyData = [
+    {
+        title: 'Test Activity 1',
+        description: 'This is a description for Test Activity 1. Not feeling creative so yeah.',
+        point_value: '100',
+        date: '12/18/2019'
+    },
+    {
+        title: 'Test Activity 2',
+        description: 'This is a description for Test Activity 2. Not feeling creative so yeah.',
+        point_value: '90',
+        date: '12/23/2019'
+    },
+    {
+        title: 'Test Activity 3',
+        description: 'This is a description for Test Activity 3. Not feeling creative so yeah.',
+        point_value: '120',
+        date: '12/25/2019'
+    }
+];
+
 // COMPONENT
 const TeamView = () => {
     // contexts
