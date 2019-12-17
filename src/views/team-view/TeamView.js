@@ -61,6 +61,10 @@ const TeamView = () => {
         }
     });
 
+    // This is an active hook that will remain, but there is dummy data interjected for the time being
+    // until Roman finishes sending final payloads to us. Once that happens and we bring in real data, 
+    // we can init state using only the default slide styles and an empty slides array that is then
+    // populated based on the pending missions array coming back from the server
     const [missionSlide, setMissionSlide] = useState({
         slide: {
             padding: 15,
