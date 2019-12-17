@@ -11,6 +11,8 @@ import SwipeableViews from 'react-swipeable-views';
 import { test, flex } from '../../styles/global/Mixins';
 // contexts
 import { UserContext } from '../../contexts/UserContext';
+// components
+import Pagination from './Pagination';
 // images
 import waves from '../../images/Onboarding/waves.svg'
 
@@ -126,6 +128,8 @@ const TeamView = () => {
                                 );
                             })}
                         </SwipeableViews>
+
+                        <Pagination />
                     </TVSection>
                 </TVContainer>
             </TVWrapper>
@@ -190,19 +194,6 @@ const SectionCTA = styled.div`
             a {
                 color: #FFF;
                 text-decoration: none;
-            }
-`
-
-// temporary pagination section - will remove once library is pulled in
-const Pagination = styled.div`
-        width: 100%;
-        height: 15rem;
-        margin: 2rem 0 0 0;
-        background-color: #3D3B91;
-        border-radius: 3px;
-
-            &.carousel {
-                height: 10rem;
             }
 `
 
