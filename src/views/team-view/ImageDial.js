@@ -28,7 +28,6 @@ const ImageDial = props => {
         items.push(
           <>
             <div className="bigtick tick" > 
-              <NumberP>{i}</NumberP>
               <img src={thumb[i]} />
             </div>
           </>
@@ -40,7 +39,7 @@ const ImageDial = props => {
 
   //handle scroll for ticks
   const handleScroll = e => {
-  console.log(e.target);
+  
   };
 
   //render
