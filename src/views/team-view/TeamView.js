@@ -142,7 +142,7 @@ const TeamView = () => {
 
                                         <span>{mission.date}</span>
 
-                                        <button>Accept</button>
+                                        <button className='accept'>Accept</button>
                                         <button>Decline</button>
                                     </Slide>
                                 );
@@ -250,6 +250,16 @@ const Slide = styled.div`
                 color: #4E4829;
                 font-weight: bold;
                 border-radius: 3px;
+            }
+
+            button {
+                background-color: transparent;
+                border: none;
+                color: #FFF;
+            }
+
+            & .accept {
+                color: #E05CB3;
             }
 `
 
