@@ -136,7 +136,7 @@ const TeamView = () => {
                                 return (
                                     <Slide style={{...missionSlide.slide, ...mission}}>
                                         <h2>{mission.title}</h2>
-                                        <span>{mission.point_value} PTS</span>
+                                        <span className='points'>{mission.point_value} pts</span>
 
                                         <p>{mission.description}</p>
 
@@ -234,6 +234,23 @@ const Slide = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+
+            h2 {
+                font-weight: bold;
+                color: #FFF;
+            }
+
+            p {
+                color: #E6E6E6;
+            }
+
+            span.points {
+                background-color: #E9CC2F;
+                padding: 0.5rem;
+                color: #4E4829;
+                font-weight: bold;
+                border-radius: 3px;
+            }
 `
 
 
