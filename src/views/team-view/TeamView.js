@@ -3,12 +3,32 @@
 import React, { useContext } from 'react';
 // styled components
 import styled from 'styled-components';
+// swipeable views
+import SwipeableViews from 'react-swipeable-views';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
 // contexts
 import { UserContext } from '../../contexts/UserContext';
 // images
 import waves from '../../images/Onboarding/waves.svg'
+
+// SWIPEABLE VIEWS
+const views = {
+    slide: {
+        padding: 15,
+        minHeight: 100,
+        color: '#FFF'
+    },
+    slide1: {
+        background: 'red'
+    },
+    slide2: {
+        background: 'pink'
+    },
+    slide3: {
+        background: 'orange'
+    }
+};
 
 // COMPONENT
 const TeamView = () => {
