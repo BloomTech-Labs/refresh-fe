@@ -6,11 +6,16 @@ import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins';
 
+// DUMMY DATA
+const dummy = 5;
+
 // COMPONENT
 const Pagination = () => {
     return (
         <>
-        hi from pagination
+        <PaginationWrapper>
+
+        </PaginationWrapper>
         </>
     );
 };
