@@ -13,7 +13,7 @@ import { UserContext } from '../../contexts/UserContext';
 import waves from '../../images/Onboarding/waves.svg'
 
 // SWIPEABLE VIEWS
-const views = {
+const styles = {
     slide: {
         padding: 15,
         minHeight: 100,
@@ -51,7 +51,19 @@ const TeamView = () => {
                     <TVSection>
                         <SectionTitle><h2>Team Feed</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
-                        <Pagination></Pagination>
+                        <SwipeableViews>
+                            <div>
+                                test 1
+                            </div>
+
+                            <div>
+                                test 2
+                            </div>
+
+                            <div>
+                                test 3
+                            </div>
+                        </SwipeableViews>
                     </TVSection>
 
                     <TVSection>
