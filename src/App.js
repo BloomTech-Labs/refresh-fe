@@ -36,6 +36,8 @@ import TeamView from './views/team-view/TeamView';
 import AddMember from './views/team-view/AddMember';
 import CreateTMission from './views/team-view/CreateTMission';
 import Calendar from './views/team-view/Calendar';
+import Survey from "./views/survey/Survey";
+import SurveyDash from "./views/survey/SurveyDash";
 
 //COMPONENT
 const App = props => {
@@ -144,6 +146,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path="/break-4" component={TimerLongBreak} />
       </UserMissionsContext.Provider>
     </UserContext.Provider>
+    <Route path="/survey" component={SurveyDash} />
     </>
   );
 }

@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../helpers/axiosWithAuth";
+import SurveyForm from "./CreateSurvey"
 
 const SurveyDash = () => {
   const [currentSurveys, addCurrentSurveys] = useState([]);
 
   useEffect(()=> {
-    axiosWithAuth().get("https://apidevnow.com/questiongroups")
+    axiosWithAuth().get("https://apidevnow.com/questiongroups").then(res => {
+      console.log(res)
+    })
   })
 
 

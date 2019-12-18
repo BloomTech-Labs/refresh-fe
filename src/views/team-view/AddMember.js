@@ -36,7 +36,7 @@ const AddMember = props => {
   }, []);
 
   const handleSpaceBar = e => {
-    if (e.keyCode == 32) {
+    if (e.keyCode === 32) {
       setEmailList([...emailList, member]);
       setMember({
         email: ""
