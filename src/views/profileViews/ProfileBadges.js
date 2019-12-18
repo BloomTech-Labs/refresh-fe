@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-//import {Zap} from 'styled-icons/feather/Hexagon';
 
 
 const BadgeText = styled.text`
