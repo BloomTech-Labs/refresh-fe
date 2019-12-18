@@ -122,6 +122,8 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
+        {/* need redirect */}
+        {/* <Route path="/emaillogin" component={EmailLogIn} /> */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path='/sandbox' component={Sandbox} />

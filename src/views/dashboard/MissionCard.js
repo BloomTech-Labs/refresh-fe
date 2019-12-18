@@ -2,62 +2,62 @@
 // react
 import React from "react";
 // router
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 // styled components
 import styled from "styled-components";
 // helpers
 import { test, flex } from "../../styles/global/Mixins";
 // gauges
-import LiveGauge from "../../components/molecules/gauge/Gauge"
+import LiveGauge from "../../components/molecules/gauge/Gauge";
 
 // HELPERS
 const bgPicker = vertical => {
-  if (vertical === 'water') {
-      return '#1575FF'
-  } else if (vertical === 'activity') {
-      return '#FC5454'
-  } else if (vertical === 'sleep') {
-      return '#FC54EB'
-  } else if (vertical === 'mental') {
-      return '#FFA25F'
-  } else if (vertical === 'food') {
-      return '#27AE60'
-  } else if (vertical === 'social') {
-    return '#9B51E0'
+  if (vertical === "water") {
+    return "#1575FF";
+  } else if (vertical === "activity") {
+    return "#FC5454";
+  } else if (vertical === "sleep") {
+    return "#FC54EB";
+  } else if (vertical === "mental") {
+    return "#FFA25F";
+  } else if (vertical === "food") {
+    return "#27AE60";
+  } else if (vertical === "social") {
+    return "#9B51E0";
   } else {
-      return '#FFF'
+    return "#FFF";
   }
 };
 
 const colorPicker = vertical => {
-  if (vertical === 'water') {
-      return '#6091D6'
-  } else if (vertical === 'activity') {
-      return '#E36666'
-  } else if (vertical === 'sleep') {
-      return '#FC54EB'
-  } else if (vertical === 'mental') {
-      return '#DF8F53'
-  } else if (vertical === 'food') {
-      return '#448961'
+  if (vertical === "water") {
+    return "#6091D6";
+  } else if (vertical === "activity") {
+    return "#E36666";
+  } else if (vertical === "sleep") {
+    return "#FC54EB";
+  } else if (vertical === "mental") {
+    return "#DF8F53";
+  } else if (vertical === "food") {
+    return "#448961";
   } else {
-      return '#FFF'
+    return "#FFF";
   }
 };
 
 const iconPicker = vertical => {
-  if (vertical === 'water') {
-      return <i className="fas fa-tint"></i>
-  } else if (vertical === 'activity') {
-      return <i className="fas fa-running"></i>
-  } else if (vertical === 'sleep') {
-      return <i className="fas fa-bed"></i>
-  } else if (vertical === 'mental') {
-      return <i className="fas fa-volume-off"></i>
-  } else if (vertical === 'food') {
-      return <i className="fas fa-apple-alt"></i>
+  if (vertical === "water") {
+    return <i className="fas fa-tint"></i>;
+  } else if (vertical === "activity") {
+    return <i className="fas fa-running"></i>;
+  } else if (vertical === "sleep") {
+    return <i className="fas fa-bed"></i>;
+  } else if (vertical === "mental") {
+    return <i className="fas fa-volume-off"></i>;
+  } else if (vertical === "food") {
+    return <i className="fas fa-apple-alt"></i>;
   } else {
-      return <i className="fas fa-smile"></i>
+    return <i className="fas fa-smile"></i>;
   }
 };
 
@@ -65,17 +65,25 @@ const iconPicker = vertical => {
 const MissionCard = props => {
   // handlers
   const cardClickHandler = e => {
-    props.history.push('/mission-stats');
-    console.log('firing')
-};
-  
+    props.history.push("/mission-stats");
+    console.log("firing");
+  };
+
   return (
     <>
       <Container vertical={props.vertical} onClick={cardClickHandler}>
         <Gauge>
+          <LiveGauge
+            actual={props.actual}
+            goal={props.goal}
+            history={props.history}
+            color={props.color}
+          />
           {iconPicker(props.vertical)}
         </Gauge>
-        <p>{(props.goal - props.actual)} {props.description}</p>
+        <p>
+          {props.goal - props.actual} {props.description}
+        </p>
         <span>{props.points} Points</span>
       </Container>
     </>
@@ -91,7 +99,7 @@ const Container = styled.div`
   margin: 1rem 0.5rem;
   background-color: ${props => bgPicker(props.vertical)};
   padding: 1rem;
-  color: #FFF;
+  color: #fff;
   ${flex.flexCol}
 
   // this i needs to change later on when i work out
@@ -113,7 +121,6 @@ const Container = styled.div`
     align-self: flex-start;
     margin-top: auto;
   }
-
 `;
 
 const Gauge = styled.div`

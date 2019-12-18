@@ -9,54 +9,63 @@ import { test, flex } from "../../../styles/global/Mixins";
 // SVG Images
 
 const LiveGauge = ({ ...props }) => {
-  const goal = props.goal;
-  const actual = props.actual;
+  const { actual, goal } = props;
   const percent = (actual / goal) * 100;
 
-  console.log(props);
+  let currentStatus = (percent) => {
+    const baseDegree = -135;
+    const rotate = baseDegree + percent * 3.6;
+    return rotate;
+  };
 
-  // console.log(`[return goal]`, goal);
-  // console.log(`[return actual]`, actual);
-  // console.log(`[return percent]`, percent);
+  console.log({ ...props, percent });
+  console.log(currentStatus(percent));
+  
 
   return (
     <>
-      <BaseRing />
-      <ProgressRing>
-        <svg className="progress-circle" height="60" width="60">
-          <Circle
-            strokeWidth="4"
-            fill="transparent"
-            r="27"
-            cx="30"
-            cy="30"
-            stroke="white"
-          />
-        </svg>
-      </ProgressRing>
+      <Container className="Container">
+        <ProgressLayer className="ProgressLayer" />
+        <IncompleteLayer className="IncompleteLayer" />
+      </Container>
     </>
   );
 };
 
-const BaseRing = styled.div`
+const Container = styled.div`
   position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
   border: 2px solid #e6e6e6;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  margin-bottom: 2rem;
+  margin-bottom: 4px ${flex.flexCol};
 `;
-const ProgressRing = styled.div`
+
+const ProgressLayer = styled.div`
   position: absolute;
+  top: -2px;
   width: 60px;
   height: 60px;
-  margin-bottom: 2rem;
-  ${flex.flexCol}
+  border: 4px solid;
+  border-radius: 100%;
+  border-top-color: #fff;
+  border-right-color: #fff;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotateZ(-135deg);
 `;
-const Circle = styled.circle`
-  transition: 0.35s;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
+const IncompleteLayer = styled.div`
+  position: absolute;
+  top: -2px;
+  width: 60px;
+  height: 60px;
+  border: 4px solid;
+  border-radius: 100%;
+  border-top-color: #fff;
+  border-right-color: #fff;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotateZ(-135deg);
 `;
 
 export default LiveGauge;

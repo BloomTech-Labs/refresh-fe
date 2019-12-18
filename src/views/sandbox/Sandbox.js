@@ -16,22 +16,16 @@ import ImageDial from "../team-view/ImageDial";
 // helpers
 // import { test, flex } from "../../styles/global/Mixins";
 
-
 // COMPONENT
 const Sandbox = () => {
-
-
-
-
   return (
     <>
       welcome to the sandbox
       {/* <WaterBottleGauge /> */}
       <div>
-    <ImageDial />
-    </div>
+        <ImageDial />
+      </div>
       <WaterBottleGauge />
-
     </>
   );
 };
