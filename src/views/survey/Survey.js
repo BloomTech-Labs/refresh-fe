@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 
 const Survey = () => {
+  const [surveys, setSurveys] = useEffect([])
+  useEffect(()=> {
+    axiosWithAuth().get(`https://apidevnow.com/questiongroups/${id}`)
+  })
+
   return (
     <>
       <h1>Your opinion in 5 minutes.</h1>
@@ -14,4 +20,7 @@ const Survey = () => {
     </>
   );
 };
+
+
+//styles
 export default Survey;
