@@ -2,17 +2,24 @@ import React, { useEffect, useState } from "react";
 import { Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../helpers/axiosWithAuth";
-import SurveyForm from "./CreateSurvey"
+import SurveyForm from "./CreateSurvey";
 
-const SurveyDash = () => {
+const SurveyDash = props => {
   const [currentSurveys, addCurrentSurveys] = useState([]);
+    const { url } = props.match
 
-  useEffect(()=> {
-    axiosWithAuth().get("https://apidevnow.com/questiongroups").then(res => {
-      console.log(res)
-    })
-  })
 
+  useEffect(() => {
+    axiosWithAuth()
+      .get("https://apidevnow.com/questiongroups")
+      .then(res => {
+        console.log(res);
+      });
+  });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -27,7 +34,7 @@ const SurveyDash = () => {
          */}
       </div>
       {/* Onclick to survey creation */}
-      <button>Create Survey</button>
+      <button onClick={() => props.history.push(url + "/createsurvey")}>Create Survey</button>
     </>
   );
 };

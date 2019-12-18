@@ -5,14 +5,9 @@ import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 import axios from "axios";
 
 const SurveyForm = () => {
-  const [form, setForm] = useState({
-      
-  });
+  const [form, setForm] = useState({});
 
-  const postData = axios.post(
-    "https://apidevnow.com/questiongroups",
-    form
-  );
+  const postData = axios.post("https://apidevnow.com/questiongroups", form);
 
   const handleChange = e => {
     setForm({
@@ -26,9 +21,8 @@ const SurveyForm = () => {
   };
 
   return (
-        <>
-        <StyledWrapper>
-      
+    <>
+      <StyledWrapper>
         <StyledForm onSubmit={handleSubmit}>
           <label>SURVEY NAME</label>
           <input
@@ -42,15 +36,18 @@ const SurveyForm = () => {
             type="text"
             name="description"
             placeholder="Add a description for your mission..."
+            onChange={handleChange}
           />
           <label>QUESTION 1</label>
           <input
             type="text"
             name="question"
             placeholder="What question would you like to ask?"
+            onChange={handleChange}
           />
           <label>QUESTION TYPE</label>
           <select id="question_type">
+            <option value="null">Please Select One</option>
             <option value="multiple choice">Multiple Choice</option>
             <option value="slider">Slider</option>
             <option value="text reply">Text Reply</option>
@@ -58,17 +55,19 @@ const SurveyForm = () => {
           <button type="submit">Submit</button>
         </StyledForm>
       </StyledWrapper>
-      </>
+    </>
     //styled comp
-  )};
+  );
+};
 
- const StyledForm = styled.form`
- display: flex;
- margin: 0 auto;
- flex-direction: column;
-  `
+const StyledForm = styled.form`
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+`;
 const StyledWrapper = styled.div`
-margin: 0 auto;
-max-width: 500px;`
+  margin: 0 auto;
+  max-width: 500px;
+`;
 
 export default SurveyForm;
