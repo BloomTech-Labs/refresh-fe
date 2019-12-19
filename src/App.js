@@ -38,9 +38,6 @@ import CreateTMission from './views/team-view/CreateTMission';
 import Calendar from './views/team-view/Calendar';
 import TeamList from './views/team-view/TeamList';
 
-// dummy data
-import { userMissionsDummy } from './contexts/DummyData';
-
 //COMPONENT
 const App = props => {
   // contexts
@@ -125,7 +122,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
         <Route exact path="/login" component={Login} />
-        <Route exact path="/" component={Dashboard} />
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
         <Route path="/atoms" component={Atoms} />
