@@ -121,7 +121,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
     <UserContext.Provider value={{...user, setUser: setUser}}>
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
-        <Route exact path="/login" component={Login} />
+        {/* <Route exact path="/login" component={Login} /> */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
