@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import {Route} from 'react-router-dom';
 import User from '../../images/profile/user.svg';
 import Arrow from '../../images/profile/purple_right_arrow.svg';
+import EditProfile from '../profileViews/EditProfile.js';
 
 
 const ProfileContainer = styled.div`
@@ -140,18 +142,24 @@ const FinnishArrow= styled.img`
   
 `;
 
-const ProfileCompletion = () => {
+const ProfileCompletion = props => {
+  //routes
+  const editProfileRoute = e => {
+    e.preventDefault();
+    props.history.push('/edit-profile')
+  }
+
   return (
     <>
+    
       <ProfileContainer>
         <ProfileText>profile</ProfileText>
         <UserAv src={User}/>
         <Percentage>75</Percentage>
         <CompletionText>completion</CompletionText>
-        <FinishNowContainer>
-          <FinishNowText>Finish now</FinishNowText>
-          <FinnishArrow src={Arrow}/>
-        </FinishNowContainer>
+        <FinishNowContainer onClick={editProfileRoute}><FinishNowText>Finish now</FinishNowText>
+        <FinnishArrow src={Arrow}/>
+        </FinishNowContainer> 
       </ProfileContainer>
     </>
   );

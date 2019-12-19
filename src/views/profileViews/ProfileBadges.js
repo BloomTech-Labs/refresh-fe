@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+//import ActivityBadge from '../../images/badges/activity_badge.svg'
 
 const BadgeText = styled.text`
 position: absolute;
@@ -107,7 +107,7 @@ margin: 15.88px 0;
 }
 `
 
-const ActivityBadge = styled.div`
+const ActivitySVG = styled.div`
 position: absolute;
 left: 188px;
 top: 258px;
@@ -210,7 +210,7 @@ const ProfileBadges = () => {
       <ViewAllText>view all</ViewAllText>
       <WaterBadge/>
       <FoodBadge/>
-      <ActivityBadge/>
+      <ActivitySVG/>
       <PetsBadge/>
       <PartialBadge/>
     

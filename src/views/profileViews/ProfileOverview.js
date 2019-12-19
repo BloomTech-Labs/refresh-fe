@@ -11,13 +11,22 @@ import ProfileHeader from '../profileViews/ProfileHeader';
 import waves from "../../images/Onboarding/waves.svg";
 
 const PVContainer = styled.div`
-width: 100vw;
-height: 100vh;
-max-height: 100vh;
-padding-top: 10rem;
-background: #4742bc;
-background-image:url(${waves});
-z-index: -5;
+font-family: "Catamaran", sans-serif;
+  display:flex;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: #4742bc;
+  background-image: url(${waves});
+  overflow-x: hidden;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items: flex-start
+  line-height: 1.5;
+  padding:10%;
+  &:nth-child(*){
+    margin-bottom:5%;
+  }
 `;
 
 
@@ -38,7 +47,8 @@ border: 3px solid rgba(71, 69, 161, 0.85);
 
 
 
-const ProfileOverview = () => {
+const ProfileOverview = props => {
+  
   return (
     <>
       <PVContainer>

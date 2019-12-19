@@ -1,13 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
 import settings_cog from '../../images/profile/settings_cog.svg';
-//import MobileMenu from '../../views/mobile-menu/MobileMenu';
 
-//import Hamburger from '../../images/mobile-profile/hamburger.svg';
-//import Slider from '../../styles/global/Slider';
 
 const ProfileContainer = styled.div`
 height: 193px;
@@ -192,11 +189,12 @@ const ProfileHeader = () => {
   
   return (
     <>
+    <Router>
       <ProfileContainer>
         <BellVector src={notifications}/>
         <CogVector src={settings_cog}/>
         <User>
-          <Link exact path='/dashboard'><UserAv src={maxine}></UserAv></Link>
+          <Route path='/'><UserAv src={maxine}></UserAv></Route>
         </User>
         <NameText>Maxine Woods</NameText>
         <TeamLeadText>TEAM LEAD</TeamLeadText>
@@ -206,6 +204,7 @@ const ProfileHeader = () => {
         <MockSlideOne/>
         <MockSlideTwo/>
       </ProfileContainer>
+      </Router>
     </>
   )
 };

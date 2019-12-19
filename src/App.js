@@ -19,6 +19,7 @@ import StepStart from "./views/onboarding/steps/StepStart";
 import Login from "./views/onboarding/Login";
 import Sandbox from './views/sandbox/Sandbox';
 import ProfileOverview from './views/profileViews/ProfileOverview';
+import EditProfile from './views/profileViews/EditProfile';
 import Leaderboard from './views/leaderboard/Leaderboard';
 import MissionStats from './views/mission-stats/MissionStats';
 import ComingSoon from './views/coming-soon/ComingSoon';
@@ -124,6 +125,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path="/atoms" component={Atoms} />
         <Route path='/sandbox' component={Sandbox} />
         <Route path='/profile-overview' component={ProfileOverview}/>
+        <Route path='edit-profile' component={EditProfile}/>
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         
