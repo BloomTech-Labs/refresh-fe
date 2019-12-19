@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //styled components
 import styled from "styled-components";
 //axios with auth
@@ -18,6 +18,22 @@ const EmailLogin = props => {
     password: ""
   });
   const [err, setErr] = useState();
+  const [enabledBtn, setEnabledBtn] = useState(false);
+
+//errors useEffect
+let errors = {};
+useEffect(() => {
+  errors.userEmail =
+    user.email.length < 4
+      && "user email must be greater than 5 characters"
+  errors.userPassword =
+  user.password.length < 4
+      && "user password must be greater than 5 characters"
+    !errors.userEmail &&
+    !errors.userPassword &&
+    setEnabledBtn(true);
+  console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+}, [user]);
 
   //route to login
   const routeToLogin = e => {
@@ -35,7 +51,12 @@ const EmailLogin = props => {
 
   //handle submit to backend
   const handleSubmit = () => {
-    axiosWithAuth()
+    if (!enabledBtn) {
+      alert(
+        errors.userEmail ||
+        errors.userPassword
+      );
+      }else{axiosWithAuth()
       .post("/login", { email: user.email, password: user.password })
       .then(res => {
         if (res.data.token) {
@@ -49,14 +70,14 @@ const EmailLogin = props => {
       .catch(err => {
         console.log(err);
       });
+    }
   };
 
+  let BtnStats = !enabledBtn && `disabledColor`
   //render
   return (
     <OnBoardContainer>
-      <div>
-        <ButtonNoColor onClick={routeToLogin}>&lt;</ButtonNoColor>
-      </div>
+      <ButtonNoColor onClick={routeToLogin}>&lt;</ButtonNoColor>
       <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
         <Input
@@ -82,7 +103,7 @@ const EmailLogin = props => {
           color={"#E6E6E6"}
         />
         <ButtonNoColor className="smallTxt">Forgot password?</ButtonNoColor>
-        <Button onClick={handleSubmit}>Log In</Button>
+        <Button onClick={handleSubmit} className={BtnStats}>Log In</Button>
       </Form>
     </OnBoardContainer>
   );
@@ -92,80 +113,88 @@ const EmailLogin = props => {
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   font-family: "Catamaran", sans-serif;
   margin: auto;
   line-height: 1.5;
   background-color: #4742bc;
   background-image: url(${waves});
+  background-size: contain;
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  padding: 2.5rem 4rem;
+  padding: 8%;
 
   .smallTxt {
-    font-size: 1rem;
-    margin-top:2rem;
+    font-size: calc(80% + 0.1vw);
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
   }
 `;
 
-
-
 const Logo = styled.img`
+  height: calc(100vh / 3.5);
   width: 100%;
-  max-width: 90%;
-  height: auto;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: auto;
 `;
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 85%;
-  margin-left: 2rem;
-
-  input{
-    margin: 0.5rem 0.5rem 2rem;
+display: flex;
+margin: auto 0;
+flex-direction: column;
+width: 89%;
+  input {
+    font-size: calc(100% + 0.2vw);
     ::-webkit-input-placeholder {
       font-family: "Catamaran", sans-serif;
-      color: #E6E6E6;
+      color:  #a6a6a6;
+      font-size: calc(100%);
     }
+  }
+
+  .disabledColor{
+    opacity: 30%;
+  }
 `;
 
 const Input = styled.input`
-  border: 0;
-  border: 1px solid #3D3B91;
-  margin: 2.5rem 0;
-  padding: 1rem 0.5rem;
-  width:100%;
-  background: #3D3B91;
-  color: #ccc9ff;
-  outline: none;
-  font-size:1.4rem ::-webkit-input-placeholder {
-    font-family: "Catamaran", sans-serif;
-    color: #E6E6E6;
-  }
+border: 1px solid #3d3b91;
+margin: 3% 0;
+padding: 5%;
+width: 100%;
+border-radius: 3px;
+box-shadow: 1px 1px 1px 1px #35347f;
+background: #3d3b91;
+color: #ffffff;
+outline: none;
+font-size: calc(100%);
+::-webkit-input-placeholder {
+  font-family: "Catamaran", sans-serif;
+  font-size: calc(100%);
+}
 `;
 
 const Button = styled.a`
 display: flex;
 justify-content: space-evenly;
 border-radius: 0.5rem;
-padding: 1.2rem 0.8rem;
-width:85%;
+padding: 1.5rem 0.8rem;
+width:75%;
 text-align:center;
-margin: 6rem auto 0;
+margin: 13% auto auto;
 background: #E05CB3;
 color: white;
-font-size:1.6rem;
+font-size:calc(110% + 0.5vw);
 letter-spacing:0.1rem;
 }
 `;
 
 const ButtonNoColor = styled.a`
-  margin: auto;
-  font-size: 1.6rem;
+  margin-right: 89%;
+  font-size: 2rem;
   font-style: medium;
   color: #ccc9ff;
 `;

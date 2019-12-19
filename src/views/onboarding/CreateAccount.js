@@ -218,7 +218,7 @@ background: #4A639E;
 color: white;
 font-size: calc(110% + 0.5vw);
 letter-spacing: 0.1rem;
-}
+
 `;
 
 const GoogleSignIn = styled.a`
@@ -233,7 +233,6 @@ justify-content: space-around;
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing:0.1rem;
-}
 `;
 
 const ButtonNoColor = styled.a`
