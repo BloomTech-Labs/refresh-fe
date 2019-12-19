@@ -52,7 +52,7 @@ const StyledSlider = styled(ReactSlider).attrs(props => ({
     width: props.width,
     margin: props.margin,
 }))`
-  width: ${props => (props.width ? `${props.width}%` : `100%` )};
+  width: ${props => (props.width ? `${props.width}%` : `80%` )};
   height: ${props => (props.height ? `${props.height}rem` : "0.2rem" )};
   margin: ${props => (props.margin? `${props.margin}` : `8rem 0 13rem` )};
 `;

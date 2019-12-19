@@ -36,7 +36,7 @@ const AddMember = props => {
   }, []);
 
   const handleSpaceBar = e => {
-    if (e.keyCode == 32) {
+    if (e.keyCode === 32) {
       setEmailList([...emailList, member]);
       setMember({
         email: ""
@@ -76,7 +76,7 @@ const AddMember = props => {
 
   //render
   return icon ? (
-    <OnBoardContainer>
+    <TVContainer>
       <ButtonNoColor onClick={routeToTLView}>&lt;</ButtonNoColor>
       <Header>Invite Teammates</Header>
       <Form onSubmit={addEmail}>
@@ -110,16 +110,16 @@ const AddMember = props => {
           <Button onClick={handleSubmit}>Send Invitations</Button>
         )}
       </Form>
-    </OnBoardContainer>
+    </TVContainer>
   ) : (
-    <OnBoardContainer>
+    <TVContainer>
       <LoadingSpinner />
-    </OnBoardContainer>
+    </TVContainer>
   );
 };
 
 // STYLED COMPONENTS
-const OnBoardContainer = styled.div`
+const TVContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
