@@ -19,6 +19,7 @@ const Dashboard = props => {
     const activeUser = useContext(UserContext);
     const userMissions = useContext(UserMissionsContext);
     console.log('[userMissionsContext]', userMissions);
+    console.log('[activeUser]', activeUser);
     
     // state hooks
     // todo
@@ -34,7 +35,7 @@ const Dashboard = props => {
                 <Header>
                     <Greeting>
                         <h1>Hello</h1>
-                        <h1>Josh1!</h1>
+                        <h1>{activeUser.fname}</h1>
                     </Greeting>
 
                     <User>
@@ -49,7 +50,7 @@ const Dashboard = props => {
                     {userMissions.map((mission, i) => {
                             return (
                                 <MissionCard 
-                                    key={i}
+                                    key={mission.mission_id}
                                     color={mission.color}
                                     description={mission.description}
                                     points={mission.point_value}
