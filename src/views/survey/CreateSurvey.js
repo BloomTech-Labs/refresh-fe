@@ -33,14 +33,19 @@ const SurveyForm = () => {
       setEnabledBtn(true);
   }, [form]);
 
+  
   const handleSubmit = e => {
     e.preventDefault();
     if (!enabledBtn) {
       alert(errors.surveyName || errors.surveyDesc || errors.surveyQType);
     } else {
-      Object.keys(form).forEach(key => {
-        if (key.includes("question")) {
-          form.question_ids = [...form[key]];
+     
+      Object.keys(form).map(key => {
+        if (key.includes("question_")) {
+          console.table(form)
+          // console.log("question value", form.question_.value )
+           console.log("form{key}", form[key]);
+          form.question_ids = [form[key]];
         }
       });
       console.log("form", form);

@@ -6,8 +6,7 @@ import SurveyForm from "./CreateSurvey";
 
 const SurveyDash = props => {
   const [currentSurveys, addCurrentSurveys] = useState([]);
-    const { url } = props.match
-
+  const { url } = props.match;
 
   useEffect(() => {
     axiosWithAuth()
@@ -34,7 +33,9 @@ const SurveyDash = props => {
          */}
       </div>
       {/* Onclick to survey creation */}
-      <button onClick={() => props.history.push(url + "/createsurvey")}>Create Survey</button>
+      <button onClick={() => props.history.push(url + "/createsurvey")}>
+        Create Survey
+      </button>
     </>
   );
 };
