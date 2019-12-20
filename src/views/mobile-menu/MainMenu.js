@@ -36,20 +36,19 @@ const MenuWrapper = styled.div`
 const NavArea = styled.div`
     width: 70%;
     height: 100%;
-    ${test.redBg}
+    background-color: #3D3B91;
 `
 
 const UserSection = styled.div`
     width: 100%;
     height: 25%;
-    ${test.blueBg}
+    border-bottom: 0.25rem solid #4745A1;
 `
     
 const LinkSection = styled.div`
     width: 100%;
     height: 70%;
     margin-top: 1rem;
-    ${test.blueBg}
 `
 
 // EXPORT
