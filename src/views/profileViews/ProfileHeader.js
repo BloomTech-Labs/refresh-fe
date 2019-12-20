@@ -1,25 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
 import settings_cog from '../../images/profile/settings_cog.svg';
+import {deviceType} from '../profileViews/ResponsiveMedia';
 
 
-const ProfileContainer = styled.div`
-height: 193px;
+const Container = styled.div`
+display: flex;
+flex-flow: row nowrap;
+justify-content: space-between;
+align-items: center;  
+margin-bottom: auto;
+
+
+@media ${deviceType.smallMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.mediumMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.largeMobile} {
+  max-width: 100%;
+  
+}
 `
 const BellVector = styled.img`
 position: absolute;
 width: 25px;
 height: 25px;
-left: 288px;
-top: 21px;
-background-img{
-  background: #CCC9FF;
-  url: ('notifications.svg');
-}
-
+left: 78.53%;
+right: 6.4%;
+top: 2.71%;
+bottom: 94.95%;
 `
 const CogVector = styled.img`
 position: absolute;
@@ -27,38 +43,58 @@ left: 88.53%;
 right: 6.4%;
 top: 2.71%;
 bottom: 94.95%;
-${settings_cog}
 /* main / disabled */
-
-background-img{
-  url: ('settings_cog.svg');
-  background: #CCC9FF;
-}
 `
 const User = styled.div`
-position: absolute;
+width: 100%;
+margin: 0 auto;
 border-radius: 50%;
-width: 64px;
-height: 64px;
-left: 160px;
-top: 51px;
+width: 5rem;
+height: 5rem;
+left: 3.2%;
+top: 8.5%;
+@media ${deviceType.smallMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.mediumMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.largeMobile} {
+  
+  left: 65.2%;
+  
+}
 `
 
 const UserAv = styled.img`
+position: relative;
 width: 5rem;
 height: 5rem;
 border-radius: 50%;
 background-img:
 url('maxine.jpg');
 background: #C4C4C4;
-
-
+@media ${deviceType.smallMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.mediumMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.largeMobile} {
+  
+  left: 65.2%;
+  
+}
 `
 const NameText = styled.text`
 position: absolute;
 width: 124px;
 height: 9px;
-left: 125px;
+left: 38.0%;
 top: 131px;
 
 font-family: Catamaran;
@@ -72,13 +108,26 @@ line-height: 44%;
 /* main / TEXT */
 
 color: #E6E6E6;
+
+@media ${deviceType.smallMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.mediumMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.largeMobile} {
+  max-width: 100%;
+  
+}
 `
 const TeamLeadText = styled.div `
 position: absolute;
 width: 75px;
 height: 11px;
-left: 118px;
-top: 155px;
+left: 35.0%;
+top: 24.8%;
 
 font-family: Catamaran;
 font-style: normal;
@@ -93,13 +142,26 @@ align-items: flex-end;
 /* button / primary color */
 
 color: #E05CB3;
+
+@media ${deviceType.smallMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.mediumMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.largeMobile} {
+  max-width: 100%;
+  
+}
 `
 const PointsText = styled.div`
 position: absolute;
 width: 54px;
 height: 10px;
-left: 202px;
-top: 155px;
+left: 46.5%;
+top: 24.8%;
 
 font-family: Catamaran;
 font-style: normal;
@@ -121,7 +183,7 @@ const LvOneText = styled.text`
 position: absolute;
 width: 35px;
 height: 12px;
-left: 62px;
+left: 122px;
 top: 179px;
 
 font-family: Catamaran;
@@ -143,7 +205,7 @@ const LvTwoText = styled.div`
 position: absolute;
 width: 32px;
 height: 12px;
-left: 287px;
+left: 347px;
 top: 179px;
 
 font-family: Catamaran;
@@ -166,7 +228,7 @@ const MockSlideOne = styled.img`
 position: absolute;
 width: 160px;
 height: 7px;
-left: 107px;
+left: 165px;
 top: 183px;
 
 background: #E0B8D3;
@@ -177,7 +239,7 @@ const MockSlideTwo = styled.div`
 position: absolute;
 width: 52px;
 height: 7px;
-left: 107px;
+left: 165px;
 top: 183px;
 
 /* button / primary color */
@@ -189,12 +251,12 @@ const ProfileHeader = () => {
   
   return (
     <>
-    <Router>
-      <ProfileContainer>
+    
+      <Container>
         <BellVector src={notifications}/>
         <CogVector src={settings_cog}/>
         <User>
-          <Route path='/'><UserAv src={maxine}></UserAv></Route>
+          <Link to='/'><UserAv src={maxine}></UserAv></Link>
         </User>
         <NameText>Maxine Woods</NameText>
         <TeamLeadText>TEAM LEAD</TeamLeadText>
@@ -203,8 +265,8 @@ const ProfileHeader = () => {
         <LvTwoText>Lvl 2</LvTwoText>
         <MockSlideOne/>
         <MockSlideTwo/>
-      </ProfileContainer>
-      </Router>
+      </Container>
+      
     </>
   )
 };

@@ -2,6 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 //import ActivityBadge from '../../images/badges/activity_badge.svg'
 
+
+const BadgeContainer = styled.div`
+width: 100%;
+margin-bottom: auto;
+display: flex;
+flex-flow: row nowrap;
+justify-content: space-between;
+align-items: center;
+` 
 const BadgeText = styled.text`
 position: absolute;
 width: 66px;
@@ -116,7 +125,6 @@ height: 31.75px;
 background-color: #FC5454;
 margin: 15.88px 0;
 
-
 :before,
 :after {
   content: "";
@@ -205,15 +213,17 @@ margin: 15.88px 0;
 const ProfileBadges = () => {
   return (
     <>
-   
+  
     <BadgeText>BADGES</BadgeText>
       <ViewAllText>view all</ViewAllText>
+      <BadgeContainer>
       <WaterBadge/>
       <FoodBadge/>
       <ActivitySVG/>
       <PetsBadge/>
+      </BadgeContainer>
       <PartialBadge/>
-    
+      
     </>
   )
 };

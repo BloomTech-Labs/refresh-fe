@@ -127,7 +127,7 @@ const Button = styled.a`
   background: #E05CB3;
   color: white;
   font-size: calc(100% + 0.5vw);
-}
+
 `;
 
 const ButtonNoColor = styled.a`

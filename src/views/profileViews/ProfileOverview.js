@@ -7,51 +7,53 @@ import WeeklySurvey from '../profileViews/WeeklySurvey';
 import YourReminders from '../profileViews/YourReminders';
 import ProfileBadges from '../profileViews/ProfileBadges';
 import ProfileHeader from '../profileViews/ProfileHeader';
-//import {mobile} from './views/profileViews/ResponsiveMedia';
+import GlobalStyles from '../../styles/global/GlobalStyle';
 import waves from "../../images/Onboarding/waves.svg";
+import {deviceType} from '../profileViews/ResponsiveMedia';
 
 const PVContainer = styled.div`
-font-family: "Catamaran", sans-serif;
-  display:flex;
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  padding-top: 10rem;
   background-color: #4742bc;
   background-image: url(${waves});
   overflow-x: hidden;
-  flex-direction:column;
-  justify-content:space-between;
-  align-items: flex-start
-  line-height: 1.5;
-  padding:10%;
-  &:nth-child(*){
-    margin-bottom:5%;
+  @media ${deviceType.smallMobile}{
+    max-width: 100%;
+    max-height: 100vh;
+    overflow-x: hidden;
+  }
+  @media ${deviceType.mediumMobile}{
+    max-width: 100%;
+    max-height: 100vw;
+    overflow-x: hidden;
+  }
+  @media ${deviceType.largeMobile} {
+    max-width: 100%;
+    max-height: 100vh;
+    overflow-x: hidden;
   }
 `;
 
-
-// const BackgroundWaves = styled.img`
-// background-img: url(wavyLines.svg);
-// background: #4742BC;
-// `
+const ProfileWrapper = styled.div`
+width: 100%;
+`
 
 const ProfileLine = styled.div`
 position: absolute;
-width: 372px;
+width: 100%;
 height: 0px;
 left: 3px;
 top: 210px;
-
 border: 3px solid rgba(71, 69, 161, 0.85);
 `
 
 
 
-const ProfileOverview = props => {
+const ProfileOverview = () => {
   
   return (
     <>
-      <PVContainer>
+      <PVContainer src={GlobalStyles}>
+        <ProfileWrapper>
         <ProfileHeader/>
         <ProfileLine/>
         <WaterCard />
@@ -59,6 +61,7 @@ const ProfileOverview = props => {
         <WeeklySurvey/>
         <YourReminders/>
           <ProfileBadges/>
+          </ProfileWrapper> 
       </PVContainer>
     </>
   );

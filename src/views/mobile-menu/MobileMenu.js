@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../styles/global/Mixins'
-
+import waves from "../../images/Onboarding/waves.svg";
 // DUMMY DATA
 // hard coding some dummy data directly into the component to avoid too many unncessary files
 // will come back and clean all of this up later when we wire up FE/BE - JC
@@ -81,21 +81,19 @@ const MobileMenu = props => {
 const Wrapper = styled.div`
     width: 100vw;
     position: fixed;
-
     .active {
         width: 100vw;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-image: url(${waves});
+        background-color: #4742bc;
         position: fixed;
         z-index: -5;
         transition: 0.5s;
     }
-
     .inactive {
         background-color: rgba(0, 0, 0, 0);
         transition: 0.5s
     }
-
     a {
         text-decoration: none;
         color: #FFF;
@@ -108,7 +106,6 @@ const Container = styled.div`
     height: 5rem;
     ${flex.flexRowNoWrapAround}
     z-index: 1;
-
         button:active {
             border: none;
             text-decoration: none;
@@ -130,23 +127,17 @@ const DrawerContainer = styled.div`
     height: 90vh;
     position: fixed;
     z-index: -3;
-
     .closed {
         width: 90vw;
         height: 100vh;
         position: fixed;
         right: 100vw;
-        background-color: rgb(100,135,255, 0.95);
+        background-color: #4742bc;
         transition: 0.3s ease-in-out;
     }
-
         .open {
-            width: 90vw;
-            height: 100vh;
-            position: fixed;
-            right: 10vw;
-            background-color: rgb(100,135,255, 0.95);
-            transition: 0.3s ease-in-out;
+            background-color: #3D3B91;
+            transition: 0.5s ease-in-out;
         }
 `
 
@@ -223,27 +214,24 @@ const NavButton = styled.div`
         margin: 1rem 0;
         padding: 1rem;
         font-size: 1.5rem;
-        color: #FFF;
+        color: #CCC9FF;
         display: flex;
         flex-flow: row nowrap;
         justify-content: left;
         align-items: center;
         border-radius: 2px;
      
-
             i {
                 margin: 2rem 3rem 2rem 1rem;
                 font-size: 2rem;
             }
-
             &:hover {
                 background-color: #3A3699;
-                box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1)
+               
             }
 `
 
 const Darken = styled.div`
-
 `
 
 // EXPORT
