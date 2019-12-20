@@ -37,6 +37,7 @@ import AddMember from './views/team-view/AddMember';
 import CreateTMission from './views/team-view/CreateTMission';
 import Calendar from './views/team-view/Calendar';
 import TeamList from './views/team-view/TeamList';
+import MainMenu from './views/mobile-menu/MainMenu';
 
 //COMPONENT
 const App = props => {
@@ -120,7 +121,8 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
     <>
     <UserContext.Provider value={{...user, setUser: setUser}}>
       <UserMissionsContext.Provider value={userMissions}>
-        <Route path='/' component={MobileMenu} /> 
+        <Route path='/' component={MainMenu} />
+        {/* <Route path='/' component={MobileMenu} />  */}
         {/* <Route exact path="/login" component={Login} /> */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
