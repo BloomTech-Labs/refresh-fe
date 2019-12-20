@@ -24,7 +24,14 @@ const MainMenu = () => {
                 </UserSection>
 
                 <LinkSection>
-
+                    <ul>
+                        <li><i class="fas fa-tint"></i> Home</li>
+                        <li><i class="fas fa-tint"></i> Leaderboard</li>
+                        <li><i class="fas fa-tint"></i> Team</li>
+                        <li><i class="fas fa-tint"></i> Weekly Missions</li>
+                        <li><i class="fas fa-tint"></i> Pomodoro Timer</li>
+                        <li><i class="fas fa-tint"></i> Rewards</li>
+                    </ul>
                 </LinkSection>
             </NavArea>
         </MenuWrapper>
@@ -79,6 +86,17 @@ const LinkSection = styled.div`
     width: 100%;
     height: 70%;
     margin-top: 1rem;
+
+        ul li {
+            background-color: red;
+            margin: 1rem 0;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 2rem;
+            color: #B8B7E1;
+        }
 `
 
 // EXPORT
