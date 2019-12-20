@@ -13,7 +13,12 @@ const MainMenu = () => {
         <MenuWrapper>
             <NavArea>
                 <UserSection>
+                    <img src='https://tricityescaperooms.com/wp-content/uploads/2018/01/person-placeholder-male-5.jpg' alt='placeholder' />
 
+                    <h2>Name</h2>
+                    <h3>Cohort - Section Lead</h3>
+                    <span>Daily Points</span>
+                    <h3>Role</h3>
                 </UserSection>
 
                 <LinkSection>
