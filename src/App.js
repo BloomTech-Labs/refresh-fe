@@ -33,9 +33,10 @@ import TimerShortBreakThree from './views/Timer/TimerShortBreakThree';
 import TimerFour from './views/Timer/TimerFour';
 import TimerLongBreak from './views/Timer/TimerLongBreak';
 import TeamView from './views/team-view/TeamView';
-
-// dummy data
-import { userMissionsDummy } from './contexts/DummyData';
+import AddMember from './views/team-view/AddMember';
+import CreateTMission from './views/team-view/CreateTMission';
+import Calendar from './views/team-view/Calendar';
+import TeamList from './views/team-view/TeamList';
 
 //COMPONENT
 const App = props => {
@@ -120,8 +121,8 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
     <UserContext.Provider value={{...user, setUser: setUser}}>
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
-        <Route exact path="/login" component={Login} />
-        <Route path="/" component={Dashboard} />
+        {/* <Route exact path="/login" component={Login} /> */}
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
         <Route path="/atoms" component={Atoms} />
@@ -130,6 +131,10 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         <Route path='/team-view' component={TeamView} />
+        <Route path="/teamList" component={TeamList} />
+        <Route path="/invite" component={AddMember} />
+        <Route path="/createtm" component={CreateTMission} />
+        <Route path="/calendar" component={Calendar} />
         <Route path='/coming-soon' component={ComingSoon} />
         <Route path="/timer" component={TimerOne} />
         <Route path="/break-1" component={TimerShortBreakOne} />

@@ -88,7 +88,6 @@ const EmailSignUp = props => {
 
   let BtnStats = !enabledBtn && `disabledColor`
   //render
-  console.log(BtnStats);
   return (
     <OnBoardContainer>
         <ButtonNoColor onClick={routeToSignUp}>&lt;</ButtonNoColor>
