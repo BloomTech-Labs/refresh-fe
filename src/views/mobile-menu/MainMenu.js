@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React from 'react';
+// router
+import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // helpers
@@ -25,12 +27,12 @@ const MainMenu = () => {
 
                 <LinkSection>
                     <ul>
-                        <li><i class="fas fa-tint"></i> Home</li>
-                        <li><i class="fas fa-tint"></i> Leaderboard</li>
-                        <li><i class="fas fa-tint"></i> Team</li>
-                        <li><i class="fas fa-tint"></i> Weekly Missions</li>
-                        <li><i class="fas fa-tint"></i> Pomodoro Timer</li>
-                        <li><i class="fas fa-tint"></i> Rewards</li>
+                        <li><i class="fas fa-tint"></i> <Link to=''>Home</Link></li>
+                        <li><i class="fas fa-tint"></i> <Link to=''>Leaderboard</Link></li>
+                        <li><i class="fas fa-tint"></i> <Link to=''>Team</Link></li>
+                        <li><i class="fas fa-tint"></i> <Link to=''>Weekly Missions</Link></li>
+                        <li><i class="fas fa-tint"></i> <Link to=''>Pomodoro Timer</Link></li>
+                        <li><i class="fas fa-tint"></i> <Link to=''>Rewards</Link></li>
                     </ul>
                 </LinkSection>
             </NavArea>
@@ -88,7 +90,7 @@ const LinkSection = styled.div`
     margin-top: 1rem;
 
         ul li {
-            background-color: red;
+            height: 3rem;
             margin: 1rem 0;
             display: flex;
             flex-flow: row nowrap;
@@ -97,6 +99,25 @@ const LinkSection = styled.div`
             font-size: 2rem;
             color: #B8B7E1;
         }
+
+        ul li:first-child {
+            margin-top: 5rem;
+        }
+
+        ul li:hover {
+            background-color: #4745A1;
+        }
+
+        a {
+            text-decoration: none;
+            color: #B8B7E1;
+            margin: 0 1.5rem;
+        }
+
+        i {
+            margin-left: 5rem;
+        }
+        
 `
 
 // EXPORT
