@@ -17,7 +17,7 @@ const MainMenu = () => {
                 </UserSection>
 
                 <LinkSection>
-                
+
                 </LinkSection>
             </NavArea>
         </MenuWrapper>
@@ -40,11 +40,16 @@ const NavArea = styled.div`
 `
 
 const UserSection = styled.div`
-
+    width: 100%;
+    height: 25%;
+    ${test.blueBg}
 `
-
+    
 const LinkSection = styled.div`
-
+    width: 100%;
+    height: 70%;
+    margin-top: 1rem;
+    ${test.blueBg}
 `
 
 // EXPORT
