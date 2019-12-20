@@ -73,14 +73,29 @@ const UserSection = styled.div`
 `
 
 const UserInfo = styled.div`
-    margin-right: 2rem;
+    margin-right: 4rem;
         
-    h2, h3 {
+    h2, h3, span {
         font-size: 1.25rem;
+        margin: 0.15rem 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    span {
+        font-size: 1rem;
     }
 
     h3:last-child {
         color: #E05CB3;
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
     }
 `
     
@@ -106,6 +121,11 @@ const LinkSection = styled.div`
 
         ul li:hover {
             background-color: #4745A1;
+            color: #E05CB3;
+        }
+
+        ul li:hover a {
+            color: #E05CB3;
         }
 
         a {
