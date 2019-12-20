@@ -11,7 +11,15 @@ const MainMenu = () => {
     return (
         <>
         <MenuWrapper>
+            <NavArea>
+                <UserSection>
 
+                </UserSection>
+
+                <LinkSection>
+                
+                </LinkSection>
+            </NavArea>
         </MenuWrapper>
         </>
     );
@@ -23,6 +31,20 @@ const MenuWrapper = styled.div`
     height: 100vh;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
+`
+
+const NavArea = styled.div`
+    width: 70%;
+    height: 100%;
+    ${test.redBg}
+`
+
+const UserSection = styled.div`
+
+`
+
+const LinkSection = styled.div`
+
 `
 
 // EXPORT
