@@ -22,7 +22,7 @@ const MenuWrapper = styled.div`
     width: 100vw;
     height: 100vh;
     position: fixed;
-    ${test.redBg}
+    background-color: rgba(0, 0, 0, 0.5);
 `
 
 // EXPORT
