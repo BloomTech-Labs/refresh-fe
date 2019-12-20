@@ -5,7 +5,10 @@ import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 import axios from "axios";
 
 const SurveyForm = () => {
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+  
+  });
+  const [enabledBtn, setEnabledBtn] = useState(false);
   console.log(form);
   //   const [questions, setQuestions] = useState([]);
 
@@ -16,23 +19,38 @@ const SurveyForm = () => {
   //   const handleQuestions = () => {
   //       setQuestions([...questions, e.])
   //   }
+  let errors = {};
+  useEffect(() => {
+    errors.surveyName = !form.name && "Please enter a name for your survey";
+    errors.surveyDesc =
+      !form.description && "Please enter a description for your survey";
+    errors.surveyQType =
+      !form.questionType &&
+      "Please select which type of answers this survey is looking for";
+    !errors.surveyName &&
+      !errors.surveyDesc &&
+      !errors.surveyQType &&
+      setEnabledBtn(true);
+  }, [form]);
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("form before object", form);
-
-    Object.keys(form).forEach(key => {
-      if (key.includes("question")) {
-        form.question_ids = [...form[key]];
-      }
-    });
-    console.log("form", form);
-    e.preventDefault();
-    axiosWithAuth()
-      .post("https://apidevnow.com/questiongroups", form)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-    count = 0;
+    if (!enabledBtn) {
+      alert(errors.surveyName || errors.surveyDesc || errors.surveyQType);
+    } else {
+      Object.keys(form).forEach(key => {
+        if (key.includes("question")) {
+          form.question_ids = [...form[key]];
+        }
+      });
+      console.log("form", form);
+      e.preventDefault();
+      axiosWithAuth()
+        .post("https://apidevnow.com/questiongroups", form)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+      count = 1;
+    }
   };
   let count = 1;
   const questionCount = count++;
@@ -61,15 +79,13 @@ const SurveyForm = () => {
           placeholder="What question would you like to ask?"
           onChange={handleChange}
         />
-        <h3>
-          QUESTION TYPE
-          <select id="question_type">
-            <option value="">Please Select One</option>
-            <option value="multiple choice">Multiple Choice</option>
-            <option value="slider">Slider</option>
-            <option value="text reply">Text Reply</option>
-          </select>
-        </h3>
+        <h3>QUESTION TYPE</h3>
+        <select name="questionType" onChange={handleChange}>
+          <option value="">Please Select One</option>
+          <option value="multiple choice">Multiple Choice</option>
+          <option value="slider">Slider</option>
+          <option value="text reply">Text Reply</option>
+        </select>
         <button type="submit">Submit</button>
       </StyledForm>
     </StyledWrapper>
@@ -78,6 +94,7 @@ const SurveyForm = () => {
 };
 
 const StyledForm = styled.form`
+  display: flex;
   flex-direction: column;
   margin-top: 25%;
 `;

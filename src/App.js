@@ -45,7 +45,7 @@ const App = props => {
   // state hooks
   // this hook becomes the global user context
   // will abstract out later after we get all logic working properly
-  // do not touch, i repeat do not touch.... -JC
+  // do not touch, i repeat do not touch.... -JC *touch* -JB
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('activeUser')) || 
   {
     user_id: null,
