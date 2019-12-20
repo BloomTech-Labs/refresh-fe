@@ -26,11 +26,10 @@ const MissionInput = props => {
                 <InputMessage>
                     <i className="fas fa-tint"></i>
                     {missions.map(mission => {
-                        if (mission.mission_id === selectedMission) {
-                            console.log('[checking mapped missions]', mission);
-                            return <p key={mission.mission_id}>{mission.question}</p>
+                        if (selectedMission && (mission.mission_id === selectedMission.mission_id)) {
+                            return <p>{mission.question}</p>
                         } else {
-                            return null
+                            console.log('no match found');
                         }
                     })}
                 </InputMessage>
