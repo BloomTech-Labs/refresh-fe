@@ -15,10 +15,12 @@ const MainMenu = () => {
                 <UserSection>
                     <img src='https://tricityescaperooms.com/wp-content/uploads/2018/01/person-placeholder-male-5.jpg' alt='placeholder' />
 
+                    <UserInfo>
                     <h2>Name</h2>
                     <h3>Cohort - Section Lead</h3>
                     <span>Daily Points</span>
                     <h3>Role</h3>
+                    </UserInfo>
                 </UserSection>
 
                 <LinkSection>
@@ -46,8 +48,31 @@ const NavArea = styled.div`
 
 const UserSection = styled.div`
     width: 100%;
-    height: 25%;
+    height: 20%;
     border-bottom: 0.25rem solid #4745A1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    color: #FFF;
+
+        img {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 100px;
+        }
+`
+
+const UserInfo = styled.div`
+    margin-right: 2rem;
+        
+    h2, h3 {
+        font-size: 1.25rem;
+    }
+
+    h3:last-child {
+        color: #E05CB3;
+    }
 `
     
 const LinkSection = styled.div`
