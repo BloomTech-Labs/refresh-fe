@@ -10,13 +10,20 @@ import { test, flex } from '../../styles/global/Mixins';
 const MainMenu = () => {
     return (
         <>
-        hi from main menu
+        <MenuWrapper>
+
+        </MenuWrapper>
         </>
     );
 };
 
 // STYLED COMPONENTS
-// todo
+const MenuWrapper = styled.div`
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    ${test.redBg}
+`
 
 // EXPORT
 export default MainMenu;
