@@ -27,12 +27,12 @@ const MainMenu = () => {
 
                 <LinkSection>
                     <ul>
-                        <li><i class="fas fa-tint"></i> <Link to=''>Home</Link></li>
-                        <li><i class="fas fa-tint"></i> <Link to=''>Leaderboard</Link></li>
-                        <li><i class="fas fa-tint"></i> <Link to=''>Team</Link></li>
-                        <li><i class="fas fa-tint"></i> <Link to=''>Weekly Missions</Link></li>
-                        <li><i class="fas fa-tint"></i> <Link to=''>Pomodoro Timer</Link></li>
-                        <li><i class="fas fa-tint"></i> <Link to=''>Rewards</Link></li>
+                        <li><i class="fas fa-home"></i> <Link to=''>Home</Link></li>
+                        <li><i class="fas fa-gamepad"></i> <Link to=''>Leaderboard</Link></li>
+                        <li><i class="fas fa-user-friends"></i> <Link to=''>Team</Link></li>
+                        <li><i class="fas fa-calendar-alt"></i> <Link to=''>Weekly Missions</Link></li>
+                        <li><i class="fas fa-clock"></i> <Link to=''>Pomodoro Timer</Link></li>
+                        <li><i class="fas fa-gem"></i> <Link to=''>Rewards</Link></li>
                     </ul>
                 </LinkSection>
             </NavArea>
