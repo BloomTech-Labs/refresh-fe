@@ -3,36 +3,42 @@ import styled from "styled-components";
 
 // helpers
 import { test, flex } from "../../../styles/global/Mixins";
-import { BaseLayer } from "./BaseLayer";
-import { ProgressLayer } from "./ProgressLayer";
-
+import { ProgressLayer } from "./Progress";
 
 const LiveGauge = ({ ...props }) => {
-  const { actual, goal } = props;
-  const percent = (actual / goal) * 100;
+  const { actual, goal, vertical, value } = props;
 
-  const value = percent => {
+  const [progress, setProgress] = useState({});
+
+  const normalizedValue = () => {
+    let percent = (actual / goal) * 100;
     if (percent < 0) {
       return 0;
     } else if (percent > 100) {
       return 100;
     }
-    return percent;
+    return Math.round(percent);
   };
 
-  const [progress, setProgress] = useState(percent);
-
-  const dashArray = `${progress} ${100 - progress}`;
-
   useEffect(() => {
-    //set progress to value(percent)
-  })
+    setProgress(normalizedValue());
+  }, []);
+  // console.log(props);
+  console.log(`[value()]:`, vertical, normalizedValue());
+  // console.log(`[progress]:`, vertical, progress);
+  const dashArray = `${progress} ${100 - progress}`;
+  console.log(dashArray);
 
   return (
     <>
-      <Container className="container">
-        <ProgressLayer dashArray={dashArray} />
-        <BaseLayer />
+      <Container
+        className="container"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow={progress}
+        role="progressbar"
+      >
+        <ProgressLayer dashArray={dashArray} value={progress} />
       </Container>
     </>
   );
@@ -40,9 +46,7 @@ const LiveGauge = ({ ...props }) => {
 
 const Container = styled.div`
   position: absolute;
-  width: 60px;
-  height: 60px;
-  margin-bottom: 4px ${flex.flexCol};
+
 `;
 
 export default LiveGauge;

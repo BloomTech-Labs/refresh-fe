@@ -4,22 +4,11 @@ import styled from "styled-components";
 export const BaseLayer = () => {
   return (
     <>
-      <BaseLayerStyle>
-        <circle
-          cx="30"
-          cy="30"
-          r="29"
-          fill="none"
-          stroke="#E6E6E6"
-          strokeWidth="2"
-        />
-      </BaseLayerStyle>
+      <BaseLayerStyle cx="0" cy="0" r="29" fill="none" strokeWidth="2" stroke="#E6E6E6" />
     </>
   );
 };
 
-export const BaseLayerStyle = styled.svg`
-  position: absolute;
-  width: 60px;
-  height: 60px;
+ const BaseLayerStyle = styled.circle`
+  stroke: #e6e6e6;
 `;
