@@ -14,7 +14,6 @@ justify-content: space-between;
 align-items: center;  
 margin-bottom: auto;
 
-
 @media ${deviceType.smallMobile}{
   max-width: 100%;
   
@@ -27,6 +26,7 @@ margin-bottom: auto;
   max-width: 100%;
   
 }
+
 `
 const BellVector = styled.img`
 position: absolute;
@@ -43,18 +43,18 @@ left: 88.53%;
 right: 6.4%;
 top: 2.71%;
 bottom: 94.95%;
-/* main / disabled */
+
 `
 const User = styled.div`
+position: absolute;
 width: 100%;
-margin: 0 auto;
-border-radius: 50%;
 width: 5rem;
 height: 5rem;
-left: 3.2%;
 top: 8.5%;
+
 @media ${deviceType.smallMobile}{
   max-width: 100%;
+  left: 44.8%;
   
 }
 @media ${deviceType.mediumMobile}{
@@ -63,19 +63,18 @@ top: 8.5%;
 }
 @media ${deviceType.largeMobile} {
   
-  left: 65.2%;
+  max-width: 100%;
   
 }
 `
 
 const UserAv = styled.img`
-position: relative;
+position: absolute;
 width: 5rem;
 height: 5rem;
 border-radius: 50%;
-background-img:
-url('maxine.jpg');
 background: #C4C4C4;
+
 @media ${deviceType.smallMobile}{
   max-width: 100%;
   
@@ -85,8 +84,7 @@ background: #C4C4C4;
   
 }
 @media ${deviceType.largeMobile} {
-  
-  left: 65.2%;
+  max-width: 100%;
   
 }
 `
@@ -95,7 +93,7 @@ position: absolute;
 width: 124px;
 height: 9px;
 left: 38.0%;
-top: 131px;
+top: 128px;
 
 font-family: Catamaran;
 font-style: normal;
@@ -104,17 +102,18 @@ font-size: 20px;
 line-height: 44%;
 /* identical to box height, or 9px */
 
-
-/* main / TEXT */
-
 color: #E6E6E6;
 
 @media ${deviceType.smallMobile}{
   max-width: 100%;
+  left: 38.2%;
   
 }
 @media ${deviceType.mediumMobile}{
   max-width: 100%;
+  left: 38.2%;
+  right: 15%;
+ 
   
 }
 @media ${deviceType.largeMobile} {
@@ -160,7 +159,7 @@ const PointsText = styled.div`
 position: absolute;
 width: 54px;
 height: 10px;
-left: 46.5%;
+left: 54.5%;
 top: 24.8%;
 
 font-family: Catamaran;

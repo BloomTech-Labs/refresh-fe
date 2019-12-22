@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {deviceType} from '../profileViews/ResponsiveMedia';
 //import ActivityBadge from '../../images/badges/activity_badge.svg'
 
 
@@ -10,6 +11,20 @@ display: flex;
 flex-flow: row nowrap;
 justify-content: space-between;
 align-items: center;
+
+@media ${deviceType.smallMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.mediumMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.largeMobile} {
+  max-width: 100%;
+  
+}
+
 ` 
 const BadgeText = styled.text`
 position: absolute;
@@ -37,7 +52,7 @@ const ViewAllText = styled.text `
 position: absolute;
 width: 41px;
 height: 9px;
-left: 289px;
+left: 81.7%;
 top: 237px;
 
 font-family: Catamaran;
@@ -57,7 +72,7 @@ color: #B8B7E1;
 `
 
 const WaterBadge = styled.div`
-left: 32px;
+left: 7%;
 top: 258px;
 position: absolute;
 width: 55px;
@@ -88,7 +103,7 @@ margin: 15.88px 0;
 `
 const FoodBadge = styled.div`
 position: absolute;
-left: 110px;
+left: 22.8%;
 top: 258px;
 width: 55px;
 height: 31.75px;
@@ -118,7 +133,7 @@ margin: 15.88px 0;
 
 const ActivitySVG = styled.div`
 position: absolute;
-left: 188px;
+left: 53.9%;
 top: 258px;
 width: 55px;
 height: 31.75px;
@@ -148,7 +163,7 @@ margin: 15.88px 0;
 `
 const PetsBadge = styled.div`
 position: absolute;
-left: 266px;
+left: 67%;
 top: 258px;
 width: 55px;
 height: 31.75px;
@@ -179,7 +194,7 @@ margin: 15.88px 0;
 `
 const PartialBadge = styled.div`
 position: absolute;
-left: 344px;
+left: 94%;
 top: 258px;
 width: 55px;
 height: 31.75px;
