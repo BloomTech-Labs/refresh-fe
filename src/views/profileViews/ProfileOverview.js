@@ -12,12 +12,13 @@ import waves from "../../images/Onboarding/waves.svg";
 import {deviceType} from '../profileViews/ResponsiveMedia';
 
 const PVContainer = styled.div`
+border: 1px dashed red;
   padding-top: 10rem;
   background-color: #4742bc;
   background-image: url(${waves});
   overflow-x: hidden;
   @media ${deviceType.smallMobile}{
-    max-width: 100%;
+    max-width: 90%;
     max-height: 100vh;
     overflow-x: hidden;
   }
@@ -34,10 +35,12 @@ const PVContainer = styled.div`
 `;
 
 const ProfileWrapper = styled.div`
+border: 1px dashed red;
 width: 100%;
 `
 
 const ProfileLine = styled.div`
+border: 1px dashed red;
 position: absolute;
 width: 100%;
 height: 0px;

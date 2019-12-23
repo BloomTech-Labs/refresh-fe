@@ -4,10 +4,11 @@ import {Link} from 'react-router-dom';
 //import WaterBottleGauge from '../profileViews/WaterBottleGauge';
 
 const HydrationContainer = styled.div`
+border: 1px dashed red;
   position: absolute;
   width: 149px;
   height: 190px;
-  left: 31px;
+  left: 20%;
   top: 389px;
   /* water / background blue */
   background: #cee2ff;
@@ -17,6 +18,7 @@ const HydrationContainer = styled.div`
 `;
 
 const HydrationText = styled.text`
+border: 1px dashed red;
   position: absolute;
 left: 9.8%;
 right: 25.49%;
@@ -37,6 +39,7 @@ letter-spacing: 0.02em;
 color: #6091D6;
 `
 const NumOfCups = styled.text`
+border: 1px dashed red;
   position: absolute;
 left: 24.18%;
 right: 55.56%;
@@ -57,6 +60,7 @@ letter-spacing: 0.02em;
 color: #1575FF;
 `;
 const CupsOfWater = styled.text`
+border: 1px dashed red;
   position: absolute;
 left: 44.44%;
 right: 27.45%;
@@ -78,6 +82,7 @@ color: #9AB9E5;
 `;
 
 const OfEight = styled.text`
+border: 1px dashed red;
 position: absolute;
 left: 43.14%;
 right: 32.48%;

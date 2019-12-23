@@ -8,27 +8,30 @@ import {deviceType} from '../profileViews/ResponsiveMedia';
 
 
 const Container = styled.div`
-display: flex;
-flex-flow: row nowrap;
-justify-content: space-between;
-align-items: center;  
-margin-bottom: auto;
+border: 1px dashed red;
+  height: 20px;
+  margin: 0 25 0 25;
+
 
 @media ${deviceType.smallMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 @media ${deviceType.mediumMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 @media ${deviceType.largeMobile} {
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 
 `
 const BellVector = styled.img`
+border: 1px dashed red;
 position: absolute;
 width: 25px;
 height: 25px;
@@ -38,6 +41,7 @@ top: 2.71%;
 bottom: 94.95%;
 `
 const CogVector = styled.img`
+border: 1px dashed red;
 position: absolute;
 left: 88.53%;
 right: 6.4%;
@@ -46,6 +50,7 @@ bottom: 94.95%;
 
 `
 const User = styled.div`
+border: 1px dashed red;
 position: absolute;
 width: 100%;
 width: 5rem;
@@ -53,22 +58,28 @@ height: 5rem;
 top: 8.5%;
 
 @media ${deviceType.smallMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   left: 44.8%;
   
 }
 @media ${deviceType.mediumMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
+  left: 44.8%;
   
 }
 @media ${deviceType.largeMobile} {
   
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
+  left: 44.8%;
   
 }
 `
 
 const UserAv = styled.img`
+border: 1px dashed red;
 position: absolute;
 width: 5rem;
 height: 5rem;
@@ -76,19 +87,24 @@ border-radius: 50%;
 background: #C4C4C4;
 
 @media ${deviceType.smallMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
+ 
   
 }
 @media ${deviceType.mediumMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 @media ${deviceType.largeMobile} {
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 `
 const NameText = styled.text`
+border: 1px dashed red;
 position: absolute;
 width: 124px;
 height: 9px;
@@ -105,27 +121,34 @@ line-height: 44%;
 color: #E6E6E6;
 
 @media ${deviceType.smallMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   left: 38.2%;
   
 }
 @media ${deviceType.mediumMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   left: 38.2%;
   right: 15%;
  
   
 }
 @media ${deviceType.largeMobile} {
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 `
 const TeamLeadText = styled.div `
+border: 1px dashed red;
 position: absolute;
-width: 75px;
+border: 1px solid red;
+width: 100%;
 height: 11px;
-left: 35.0%;
+padding-left:5%;
+margin-left: 0%;
+margin-right: 75%;
 top: 24.8%;
 
 font-family: Catamaran;
@@ -143,19 +166,23 @@ align-items: flex-end;
 color: #E05CB3;
 
 @media ${deviceType.smallMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 @media ${deviceType.mediumMobile}{
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 @media ${deviceType.largeMobile} {
-  max-width: 100%;
+ max-width: 100%;
+  left: 44.8%;
   
 }
 `
 const PointsText = styled.div`
+border: 1px dashed red;
 position: absolute;
 width: 54px;
 height: 10px;
@@ -179,11 +206,12 @@ color: #B8B7E1;
 `
 
 const LvOneText = styled.text`
+border: 1px dashed red;
 position: absolute;
 width: 35px;
 height: 12px;
-left: 122px;
-top: 179px;
+left: 25%;
+top: 29.2%;
 
 font-family: Catamaran;
 font-style: normal;
@@ -201,11 +229,12 @@ letter-spacing: 0.04em;
 color: #B8B7E1;
 `
 const LvTwoText = styled.div`
+border: 1px dashed red;
 position: absolute;
-width: 32px;
+width: 35px;
 height: 12px;
-left: 347px;
-top: 179px;
+left: 72%;
+top: 29.2%;
 
 font-family: Catamaran;
 font-style: normal;
@@ -224,22 +253,24 @@ color: #B8B7E1;
 `
 
 const MockSlideOne = styled.img`
+border: 1px dashed red;
 position: absolute;
 width: 160px;
 height: 7px;
-left: 165px;
-top: 183px;
+left: 34%;
+top: 29.6%;
 
 background: #E0B8D3;
 opacity: 0.6;
 border-radius: 3px;
 `
 const MockSlideTwo = styled.div`
+border: 1px dashed red;
 position: absolute;
 width: 52px;
 height: 7px;
-left: 165px;
-top: 183px;
+left: 34%;
+top: 29.6%;
 
 /* button / primary color */
 
@@ -251,7 +282,7 @@ const ProfileHeader = () => {
   return (
     <>
     
-      <Container>
+      <Container className='profile-container'>
         <BellVector src={notifications}/>
         <CogVector src={settings_cog}/>
         <User>

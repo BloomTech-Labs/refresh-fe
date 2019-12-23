@@ -7,11 +7,12 @@ import EditProfile from '../profileViews/EditProfile.js';
 
 
 const ProfileContainer = styled.div`
+  border: 1px dashed red;
   position: absolute;
   width: 134px;
   height: 207px;
-  left: 208px;
-  top: 387px;
+  left: 57.3%;
+  top: 62.9%;
   /* main / side */
 
   background: #3d3b91;
@@ -43,6 +44,7 @@ const ProfileText = styled.text`
 `;
 
 const UserAv = styled.img`
+border: 1px dashed red;
   position: absolute;
   width: 50px;
   left: 33.58%;
@@ -56,7 +58,9 @@ const UserAv = styled.img`
 `;
 const Percentage = styled.div`
 position: absolute;
-left: 61.19%;
+width: 40%;
+padding-left: 8%;
+left: 50.19%;
 right: 26.12%;
 top: 54.11%;
 bottom: 41.06%;
@@ -96,49 +100,48 @@ const CompletionText = styled.text`
   color: #e6e6e6;
 `;
 const FinishNowContainer = styled.div`
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 83.57%;
-  bottom: 0%;
-
-  /* main / side */
-
-  background: #3d3b91;
-  /* mobile / dashboard dropshadow */
-
-  box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-  border-radius: 0px 0px 2px 2px;
+border: 1px dashed red;
+width: 100%;
+position: absolute;
+left: 0%;
+right: 0%;
+top: 83.57%;
+bottom: 0%;
+background: #3d3b91;
+/* mobile / dashboard dropshadow */
+box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+border-radius: 0px 0px 2px 2px;
 `;
 const FinishNowText = styled.text`
-  position: absolute;
-  left: 11.19%;
-  right: 46.27%;
-  top: 59.86%;
-  bottom: 6.76%;
-
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 44%;
-  /* or 5px */
-
-  letter-spacing: 0.02em;
-
-  /* main / TEXT */
-
-  color: #e6e6e6;
+border: 1px dashed red;
+position: absolute;
+height: 85%;
+padding-top: 5%;
+left: 11.19%;
+right: 46.27%;
+top: 58.86%;
+bottom: 6.76%;
+font-family: Catamaran;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 44%;
+/* or 5px */
+letter-spacing: 0.02em;
+/* main / TEXT */
+color: #e6e6e6;
 `;
 const FinnishArrow= styled.img`
-  position: absolute;
-  width: 25px;
-  left: 82.09%;
-  right: 11.19%;
-  top: 59.37%;
-  bottom: 19.25%;
-  /* main / TEXT */
-  background-img: url ('purple_right_arrow.svg');
+border: 1px dashed red;
+position: absolute;
+width: 40%;
+height: 40%;
+left: 82.09%;
+right: 11.19%;
+top: 59.37%;
+bottom: 19.25%;
+/* main / TEXT */
+background-img: url ('purple_right_arrow.svg');
   
 `;
 

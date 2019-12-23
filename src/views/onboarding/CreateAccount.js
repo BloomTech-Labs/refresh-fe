@@ -140,7 +140,7 @@ const OnBoardContainer = styled.div`
   overflow-x: hidden;
   flex-direction:column;
   justify-content:space-between;
-  align-items: flex-start
+  align-items: flex-start;
   line-height: 1.5;
   padding:10%;
   &:nth-child(*){

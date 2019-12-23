@@ -4,12 +4,12 @@ import {Link} from 'react-router-dom';
 import Rocket from '../../images/profile/rocket.svg'
 
 const SurveyContainer = styled.div`
+border: 1px dashed red;
 position: absolute;
 width: 162px;
 height: 149px;
-left: 31px;
+left: 20%;
 top: 614px;
-z-index: 100;
 /* main / side */
 
 background: #3D3B91;
@@ -19,6 +19,7 @@ box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
 border-radius: 2px;
 `
 const SurveyText = styled.text`
+border: 1px dashed red;
 position: absolute;
 left: 0%;
 right: 0.66%;
@@ -46,8 +47,6 @@ width: 800px;
 height: ;
 top: 12.75%;
 bottom: 31.54%;
-background-img: url ('rocket.svg')
-background: #FFFFFF;
 `
 
 const WeeklySurvey = () =>{
