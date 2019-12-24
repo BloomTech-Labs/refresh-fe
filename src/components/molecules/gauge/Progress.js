@@ -1,20 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { BaseLayer } from "./BaseLayer";
-
-export const ProgressLayer = ({ dashArray }) => {
-  console.log(`[dashArray]`, dashArray);
+export const ProgressLayer = ({ dashArray, dashOffset }) => {
+  // console.log(`[dashArray]`, dashArray);
+  // console.log(`[dashOffset]`, dashOffset());
   return (
     <>
       <StyledSvg
         width="61"
         height="61"
-        viewBox="0 0 120 120"
+        viewBox="-30 -30 61 61"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <BaseLayer />
-        <ProgressPathStyle strokeWidth="3" fill="none" cx="0" cy="0" r="29" />
+        <ProgressPathStyle strokeWidth="1" fill="none" cx="0" cy="0" r="29" />
+
         <ProgressLayerStyle
           cx="0"
           cy="0"
@@ -22,6 +21,7 @@ export const ProgressLayer = ({ dashArray }) => {
           fill="none"
           strokeWidth="3"
           strokeDasharray={dashArray}
+          strokeDashoffset={dashOffset}
           transform="rotate(-90)"
         />
       </StyledSvg>
@@ -31,16 +31,15 @@ export const ProgressLayer = ({ dashArray }) => {
 
 const StyledSvg = styled.svg`
   vertical-align: middle;
-  position: absolute;
 `;
 
 const ProgressPathStyle = styled.circle`
   width: 60px;
   height: 60px;
-  stroke: purple;
+  stroke: #e6e6e6;
 `;
 const ProgressLayerStyle = styled.circle`
   width: 60px;
   height: 60px;
-  stroke: green;
+  stroke: #ffffff;
 `;

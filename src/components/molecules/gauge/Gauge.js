@@ -6,28 +6,38 @@ import { test, flex } from "../../../styles/global/Mixins";
 import { ProgressLayer } from "./Progress";
 
 const LiveGauge = ({ ...props }) => {
-  const { actual, goal, vertical, value } = props;
+  const { actual, goal, vertical } = props;
 
   const [progress, setProgress] = useState({});
-
+  // Might be wise to use a use memo to hold previous state and compare so it doesn't need to re-render every time
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const normalizedValue = () => {
-    let percent = (actual / goal) * 100;
+    let percent = actual / goal;
+    // console.log(percent);
+
     if (percent < 0) {
       return 0;
-    } else if (percent > 100) {
+    } else if (percent >= 1) {
       return 100;
     }
-    return Math.round(percent);
+    return percent;
   };
 
   useEffect(() => {
     setProgress(normalizedValue());
-  }, []);
+  }, [normalizedValue]);
+
   // console.log(props);
-  console.log(`[value()]:`, vertical, normalizedValue());
+  // console.log(`[value()]:`, vertical, normalizedValue());
   // console.log(`[progress]:`, vertical, progress);
-  const dashArray = `${progress} ${100 - progress}`;
-  console.log(dashArray);
+
+  const dashArray = `182.212 182.212`;
+  const dashOffset = () => {
+    let offset = 182.212 * (1 - progress);
+    // console.log(`[dashoffset inside func]`, offset);
+    return offset;
+  };
+  // console.log(`[dashoffset after func]`, dashOffset());
 
   return (
     <>
@@ -38,7 +48,11 @@ const LiveGauge = ({ ...props }) => {
         aria-valuenow={progress}
         role="progressbar"
       >
-        <ProgressLayer dashArray={dashArray} value={progress} />
+        <ProgressLayer
+          dashArray={dashArray}
+          dashOffset={dashOffset()}
+          value={progress}
+        />
       </Container>
     </>
   );
@@ -46,7 +60,6 @@ const LiveGauge = ({ ...props }) => {
 
 const Container = styled.div`
   position: absolute;
-
 `;
 
 export default LiveGauge;
