@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 // contexts
 import { UserContext } from "../../contexts/UserContext";
 // styled components
@@ -187,6 +187,13 @@ const HeaderHolder = styled.div`
   margin-top: 10%;
 `;
 
+const OnboardTxt = styled.p`
+  margin: auto;
+  font-size: 2rem;
+  line-height: 33px;
+  letter-spacing: 0.035em;
+  color: #ccc9ff;
+`;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
@@ -217,6 +224,10 @@ color: white;
 font-size: calc(110% + 0.5vw);
 letter-spacing:0.1rem;
 }
+`;
+
+const LineTime = styled.hr`
+  width: 100%;
 `;
 
 const FBButton = styled.a`
@@ -261,6 +272,10 @@ const Cubes = styled.img`
 `;
 
 const Logo = styled.img``;
+
+const GoogleLogo = styled(Logo)`
+  border-radius: 50%;
+`;
 
 // EXPORT
 export default Login;

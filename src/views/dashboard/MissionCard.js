@@ -7,8 +7,11 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 // helpers
 import { test, flex } from "../../styles/global/Mixins";
+<<<<<<< HEAD
 // gauges
 import LiveGauge from "../../components/molecules/gauge/Gauge";
+=======
+>>>>>>> staging
 
 // HELPERS
 const bgPicker = vertical => {

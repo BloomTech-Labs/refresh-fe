@@ -134,6 +134,17 @@ const OnBoardContainer = styled.div`
   }
 `;
 
+<<<<<<< HEAD
+const Header = styled.h1`
+  font-weight: bold;
+  font-size: 4rem;
+  line-height: 82px;
+  letter-spacing: 3.5px;
+  color: #ffffff;
+`;
+
+=======
+>>>>>>> staging
 const Logo = styled.img`
   height: calc(100vh / 3.5);
   width: 100%;
