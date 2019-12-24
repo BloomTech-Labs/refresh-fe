@@ -34,9 +34,7 @@ import TeamView from './views/team-view/TeamView';
 import AddMember from './views/team-view/AddMember';
 import CreateTMission from './views/team-view/CreateTMission';
 import Calendar from './views/team-view/Calendar';
-
-// dummy data
-import { userMissionsDummy } from './contexts/DummyData';
+import TeamList from './views/team-view/TeamList';
 
 //COMPONENT
 const App = props => {
@@ -121,9 +119,9 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
     <UserContext.Provider value={{...user, setUser: setUser}}>
       <UserMissionsContext.Provider value={userMissions}>
         <Route path='/' component={MobileMenu} /> 
-        <Route exact path="/login" component={Login} />
         {/* need redirect */}
         {/* <Route path="/emaillogin" component={EmailLogIn} /> */}
+        {/* <Route exact path="/login" component={Login} /> */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path='/sandbox' component={Sandbox} />
@@ -131,6 +129,7 @@ if(!localStorage.getItem('token')){ // temp setting for testing purposes
         <Route path='/leaderboard' component={Leaderboard} />
         <Route path='/mission-stats' component={MissionStats} />
         <Route path='/team-view' component={TeamView} />
+        <Route path="/teamList" component={TeamList} />
         <Route path="/invite" component={AddMember} />
         <Route path="/createtm" component={CreateTMission} />
         <Route path="/calendar" component={Calendar} />

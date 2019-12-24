@@ -31,7 +31,7 @@ const CreateTMission = props => {
   };
 
   return (
-    <OnBoardContainer>
+    <TVContainer>
       <ButtonNoColor onClick={routeToTLView}>&lt;</ButtonNoColor>
       <Header>Create Team Mission</Header>
       <Form onSubmit={handleSubmit}>
@@ -79,11 +79,11 @@ const CreateTMission = props => {
         </InputDiv>
         <Button onClick={handleSubmit}>Share with your team</Button>
       </Form>
-    </OnBoardContainer>
+    </TVContainer>
   );
 };
 
-const OnBoardContainer = styled.div`
+const TVContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

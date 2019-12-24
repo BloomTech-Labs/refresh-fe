@@ -165,7 +165,7 @@ const StepForm = props => {
                   value="Never"
                 />
                 <label for="optionOne">Never</label>
-                <div class="check"></div>
+                <div className="check"></div>
               </Option>
               <Option onClick={() => setAnswer("Sometimes")}>
                 <input
@@ -175,7 +175,7 @@ const StepForm = props => {
                   value="Sometimes"
                 />
                 <label for="optionTwo">Sometimes</label>
-                <div class="check"></div>
+                <div className="check"></div>
               </Option>
               <Option onClick={() => setAnswer("Often")}>
                 <input
@@ -185,7 +185,7 @@ const StepForm = props => {
                   value="Never"
                 />
                 <label for="optionThree">Often</label>
-                <div class="check"></div>
+                <div className="check"></div>
               </Option>
               <Option onClick={() => setAnswer("Always")}>
                 <input
@@ -195,7 +195,7 @@ const StepForm = props => {
                   value="Never"
                 />
                 <label for="optionFour">Always</label>
-                <div class="check"></div>
+                <div className="check"></div>
               </Option>
             </FlexHolder>
           )}
