@@ -31,7 +31,9 @@ const Input = ({ callback = () => {}, ...props }) => {
     color,
     padding,
     height,
-    width
+    width,
+    actionColor,
+    actionBackground
   } = props;
 
   const updateValue = e => {
