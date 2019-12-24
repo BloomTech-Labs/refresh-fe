@@ -72,12 +72,11 @@ const MissionCard = props => {
   return (
     <>
       <Container vertical={props.vertical} onClick={cardClickHandler}>
-        <Gauge>
+        <Gauge className="gauge">
           <LiveGauge
             actual={props.actual}
             goal={props.goal}
-            history={props.history}
-            color={props.color}
+            vertical={props.vertical}
           />
           {iconPicker(props.vertical)}
         </Gauge>
@@ -124,6 +123,7 @@ const Container = styled.div`
 `;
 
 const Gauge = styled.div`
+  position: relative;
   width: 60px;
   height: 60px;
   margin-top: 1rem;
