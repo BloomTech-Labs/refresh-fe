@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
-//import WaterBottleGauge from '../profileViews/WaterBottleGauge';
+import WaterIntake from '../../contexts/WaterIntake';
+import {axiosWithAuth} from '../../helpers/axiosWithAuth';
+
 
 const HydrationContainer = styled.div`
-border: 1px dashed red;
   position: absolute;
   width: 149px;
   height: 190px;
@@ -18,8 +19,7 @@ border: 1px dashed red;
 `;
 
 const HydrationText = styled.text`
-border: 1px dashed red;
-  position: absolute;
+position: absolute;
 left: 9.8%;
 right: 25.49%;
 top: 14.21%;
@@ -39,8 +39,7 @@ letter-spacing: 0.02em;
 color: #6091D6;
 `
 const NumOfCups = styled.text`
-border: 1px dashed red;
-  position: absolute;
+position: absolute;
 left: 24.18%;
 right: 55.56%;
 top: 61.05%;
@@ -60,8 +59,7 @@ letter-spacing: 0.02em;
 color: #1575FF;
 `;
 const CupsOfWater = styled.text`
-border: 1px dashed red;
-  position: absolute;
+position: absolute;
 left: 44.44%;
 right: 27.45%;
 top: 68.95%;
@@ -82,7 +80,6 @@ color: #9AB9E5;
 `;
 
 const OfEight = styled.text`
-border: 1px dashed red;
 position: absolute;
 left: 43.14%;
 right: 32.48%;
@@ -105,16 +102,22 @@ color: #9AB9E5;
 opacity: 0.6;
 `;
 
-// const VectorContainer = styled.div`
-// position: absolute;
-// left: 43.14%;
-// right: 42.93%;
-// top: 29.47%;
-// bottom: 40%;
-// background: #FFFF;
-// `
 
+// component for profile water gauge
 const WaterCard = () => {
+  /*context*/
+  const water = useContext(WaterIntake);
+  console.log('[water]', water);
+  /*state*/
+  const [waterBottle, setWaterBottle] = useState({
+    status: '0'
+  });
+  /* handler*/
+  const handleWater = evt => {
+    waterBottle.status === '0' ?
+    setWaterBottle ({...water, status: '1'})
+  }
+
   return (
     <>
       
