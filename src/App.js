@@ -85,7 +85,7 @@ const App = props => {
               updatedMission = {...mission, point_current: i.point_current};
             } else {
               console.log('no match found!');
-              updatedMission = {...mission, point_current: 0};
+              // updatedMission = {...mission, point_current: 0};
             }
           });
         }
