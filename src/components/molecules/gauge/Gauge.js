@@ -34,8 +34,9 @@ const LiveGauge = ({ ...props }) => {
   const dashArray = `182.212 182.212`;
   const dashOffset = () => {
     let offset = 182.212 * (1 - progress);
-    // console.log(`[dashoffset inside func]`, offset);
-    return offset;
+    let complete = 182;
+    return [progress === 100 ? complete : offset];
+
   };
   // console.log(`[dashoffset after func]`, dashOffset());
 
