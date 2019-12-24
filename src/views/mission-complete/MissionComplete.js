@@ -68,7 +68,6 @@ const dummyMissions = [
 const MissionComplete = props => {
     // contexts
     const userMissions = useContext(UserMissionsContext);
-    console.log('[userMissions]', userMissions);
     
     // state hooks
     const [drawer, setDrawer] = useState({
@@ -126,13 +125,12 @@ const MissionComplete = props => {
                         {userMissions.map(mission => {
                             return (
                                 <MissionCard 
-                                    key={mission.mission_id}
+                                    key={mission.id}
                                     description={mission.description}
                                     color={mission.color}
                                     handleDrawer={handleDrawer}
                                     vertical={mission.vertical}
-                                    missionId={mission.mission_id}
-                                    point_value={mission.point_value}
+                                    missionId={mission.id}
                                     setSelectedMission={setSelectedMission}
                                 />
                             )

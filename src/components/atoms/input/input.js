@@ -3,21 +3,17 @@ import styled from "styled-components";
 import { inputTypes } from "../../../styles/global/constants";
 import Colors from "../../../styles/global/colors";
 
-const Input = ({ ...props }) => {
+const Input = ({ callback = () => {}, ...props }) => {
   const [value, setValue] = useState("");
   const node = useRef();
 
   const {
-    changeCallback = () => {},
-    eventCallback = () => {},
-    blurCallback = () => {},
     id,
     name,
     form,
     placeholder,
-    type, 
-    required, 
-    resetValue, // boolean
+    type = inputTypes.TEXT,
+    required = false,
     readOnly,
     disabled,
     autocomplete = true,
@@ -44,36 +40,19 @@ const Input = ({ ...props }) => {
     e.preventDefault();
     setValue(e.target.value);
     //
-    changeCallback(node.current.value);
+    callback(node.current.value);
   };
 
-  const removeFocus = e => {
+  const removeFocus = event => {
     // Defocus on escape
-    if (e.keyCode === 27) {
-      e.target.blur();
+    if (event.keyCode === 27) {
+      event.target.blur();
     }
-    console.log(`[removeFocus Fired]`);
   };
-
-  const handleEnter = e => {
-    if (e.keyCode === 13) {
-      if (value.length > 0) {
-        eventCallback(e);
-        //
-        if (resetValue) setValue("");
-      }
-    }
-    console.log(`[handleEnter Fired]`);
-  };
-
-  const handleBlur = e => {
-    blurCallback(value)
-    console.log(`[handleBlur Fired]`);
-    
-  }
 
   return (
     <BaseInput
+    
       className="base-input"
       id={id}
       form={form}
@@ -82,14 +61,11 @@ const Input = ({ ...props }) => {
       type={type}
       value={value}
       ref={node}
-      resetValue={resetValue}
       required={required}
       readOnly={readOnly}
       disabled={disabled}
       onChange={updateValue}
       onKeyUp={removeFocus}
-      onKeyDown={handleEnter}
-      onBlur={handleBlur}
       autoComplete={autocomplete.toString()}
       autoFocus={autofocus}
       backgroundColor={backgroundColor}
@@ -106,9 +82,6 @@ const Input = ({ ...props }) => {
       padding={padding}
       height={height}
       width={width}
-      actionColor={actionColor}
-      backgroundColor={backgroundColor}
-      actionBackground={actionBackground}
     />
   );
 };
@@ -141,6 +114,7 @@ const BaseInput = styled.input.attrs(props => ({
   textAlign: props.textAlign,
   cursor: props.cursor
 }))`
+
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
   width: ${props => (props.width ? `${props.width}%` : `50%`)};
   border: ${props => (props.border ? props.border : "1px solid primary")};

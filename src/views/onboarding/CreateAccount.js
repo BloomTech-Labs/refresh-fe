@@ -41,7 +41,7 @@ const CreateAccount = props => {
   const auth = e => {
     //Open Popup and declare Size
     window.open(
-      `https://apidevnow.com/${e.target.name}`,
+      `https://refresh-yo-beta.herokuapp.com/${e.target.name}`,
       "Sign In With Facebook ;)",
       "width=400,height=500"
     );
@@ -103,8 +103,6 @@ const CreateAccount = props => {
           <Col
             width={70}
             borderBottom={"1px solid white"}
-            height={1}
-            marginTop={1}
             marginBottom={3}
             marginLeft={-6}
           ></Col>
@@ -142,16 +140,11 @@ const OnBoardContainer = styled.div`
   justify-content:space-between;
   align-items: flex-start
   line-height: 1.5;
-  padding:10%;
-  &:nth-child(*){
-    margin-bottom:5%;
-  }
 `;
 
 const Header = styled.h1`
-  margin-right: 3rem;
   font-weight: bold;
-  font-size: calc(110% + 6.7vw);
+  font-size: 4rem;
   line-height: 6.6rem;
   letter-spacing: 3.5px;
   color: #ffffff;
@@ -177,13 +170,15 @@ const FlexHolder = styled.div`
   margin: auto;
   align-items: flex-start;
   width: 100%;
+  padding: 2.5rem 4rem;
 `;
 
 const TopHolder = styled.div`
   display: flex;
   justify-content: space-between;
   margin: auto;
-  align-items: center;
+  padding: 2.5rem 0;
+  align-items: flex-start;
   width: 100%;
 
   .arrow {
@@ -193,15 +188,15 @@ const TopHolder = styled.div`
 
 const Button = styled.a`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   border-radius: 0.5rem;
-  padding: 1.5rem 0;
-  width:84%;
+  padding: 1.5rem 0.8rem;
+  width:100%;
   text-align:center;
   margin: auto;
   background: #E05CB3;
   color: white;
-  font-size: calc(110% + 0.5vw);
+  font-size:1.6rem;
   letter-spacing:0.1rem;
 }
 `;
@@ -223,15 +218,15 @@ letter-spacing: 0.1rem;
 
 const GoogleSignIn = styled.a`
 display: flex;
-justify-content: space-around;
+justify-content: space-evenly;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
-  width:84%;
+  width:100%;
   text-align:center;
   margin: 5% auto;
   background: #6997F2;
   color: white;
-  font-size: calc(110% + 0.5vw);
+  font-size:1.6rem;
   letter-spacing:0.1rem;
 `;
 
@@ -241,11 +236,11 @@ const ButtonNoColor = styled.a`
   color: #ccc9ff;
 `;
 const Cubes = styled.img`
-  max-width: 39%;
   width: 100%;
+  max-width: 50%;
   height: auto;
   margin: auto;
-  padding-top: 3rem;
+  padding-top: 5rem;
 `;
 
 const Logo = styled.img``;
