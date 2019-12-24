@@ -15,12 +15,8 @@ import styled from "styled-components";
 // import ImageDial from "../team-view/ImageDial";
 // import activityBadge from "../../images/profile/activity_badge.svg";
 // helpers
-<<<<<<< HEAD
-// import { test, flex } from "../../styles/global/Mixins";
-=======
 import { test, flex } from '../../styles/global/Mixins';
 // Views to test
->>>>>>> staging
 
 // COMPONENT
 const Sandbox = () => {

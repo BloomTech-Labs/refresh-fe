@@ -7,12 +7,8 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 // helpers
 import { test, flex } from "../../styles/global/Mixins";
-<<<<<<< HEAD
 // gauges
 import LiveGauge from "../../components/molecules/gauge/Gauge";
-=======
->>>>>>> staging
-
 // HELPERS
 const bgPicker = vertical => {
   if (vertical === "water") {
@@ -31,7 +27,6 @@ const bgPicker = vertical => {
     return "#FFF";
   }
 };
-
 const colorPicker = vertical => {
   if (vertical === "water") {
     return "#6091D6";
@@ -47,7 +42,6 @@ const colorPicker = vertical => {
     return "#FFF";
   }
 };
-
 const iconPicker = vertical => {
   if (vertical === "water") {
     return <i className="fas fa-tint"></i>;
@@ -63,7 +57,6 @@ const iconPicker = vertical => {
     return <i className="fas fa-smile"></i>;
   }
 };
-
 // COMPONENT
 const MissionCard = props => {
   // handlers
@@ -71,7 +64,6 @@ const MissionCard = props => {
     props.history.push("/mission-stats");
     console.log("firing");
   };
-
   return (
     <>
       <Container vertical={props.vertical} onClick={cardClickHandler}>
@@ -91,7 +83,6 @@ const MissionCard = props => {
     </>
   );
 };
-
 // STYLED COMPONENTS
 const Container = styled.div`
   width: 150px;
@@ -103,7 +94,6 @@ const Container = styled.div`
   padding: 1rem;
   color: #fff;
   ${flex.flexCol}
-
   // this i needs to change later on when i work out
         // the gauge functionality for the cards -JC
         // JC was smart enough to foist i on me -MM
@@ -111,20 +101,17 @@ const Container = styled.div`
     font-size: 3rem;
     margin: 2rem 0;
   }
-
   p {
     font-size: 1.5rem;
     letter-spacing: 0.025rem;
     align-self: flex-start;
   }
-
   span {
     font-weight: bold;
     align-self: flex-start;
     margin-top: auto;
   }
 `;
-
 const Gauge = styled.div`
   position: relative;
   width: 60px;
@@ -133,6 +120,5 @@ const Gauge = styled.div`
   margin-bottom: 2rem;
   ${flex.flexCol}
 `;
-
 // EXPORT
 export default MissionCard;
