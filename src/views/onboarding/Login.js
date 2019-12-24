@@ -46,7 +46,7 @@ const Login = props => {
   const auth = e => {
     //Open Popup and declare Size
     window.open(
-      `https://apidevnow.com/${e.target.name}`,
+      `https://refresh-yo-beta.herokuapp.com/${e.target.name}`,
       "Sign In With Facebook ;)",
       "width=400,height=500"
     );
