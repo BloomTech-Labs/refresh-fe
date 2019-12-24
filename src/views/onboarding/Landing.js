@@ -80,8 +80,8 @@ const OnBoardContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  max-width: 80%;
   width: 100%;
+  max-width: 82%;
   height: auto;
   margin: 10% auto auto;
 `;

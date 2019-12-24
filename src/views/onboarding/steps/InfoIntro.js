@@ -68,4 +68,13 @@ const Logo = styled.img`
   margin: auto;
 `;
 
+const FlexHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+  align-items: flex-start;
+  width: 100%;
+  padding: 2.5rem 4rem;
+`;
 export default InfoIntro;
