@@ -99,7 +99,7 @@ const Height = props => {
       let centerTick = ticks[i].getBoundingClientRect();
       if (
         centerTick.x >= mainDiv.width / 2 + (mainDiv.width / 2) * 0.15 &&
-        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.3
+        centerTick.x <= mainDiv.width / 2 + (mainDiv.width / 2) * 0.25
       ) {
         props.setAnswer(ticks[i].dataset.value);
         ticks[i].classList.add("active");
@@ -110,9 +110,9 @@ const Height = props => {
   };
   return (
     <>
-      <WeightContainer onScroll={handleScroll}>
+      <HeightContainer onScroll={handleScroll}>
         {sliderScale(13, 50).map((x, i) => x)}
-      </WeightContainer>
+      </HeightContainer>
     </>
   );
 };
@@ -120,16 +120,16 @@ const Height = props => {
 export default Height;
 
 // STYLED COMPONENTS
-const WeightContainer = styled.div`
-  max-width: 29rem;
-  height: 15rem;
-  margin-bottom: 6rem;
-  display: flex;
-  flex-wrap: nowrap;
-  align-content: center;
-  align-items: center;
-  overflow-x: auto;
-  font-size: 2rem;
+const HeightContainer = styled.div`
+max-width: 85vw;
+height: calc(100vh / 4);
+display: flex;
+flex-wrap: nowrap;
+align-content: center;
+align-self: center;
+align-items: center;
+overflow-x: auto;
+font-size: 2rem;
 
   .bigtick {
     display: flex;

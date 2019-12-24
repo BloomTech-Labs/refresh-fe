@@ -10,6 +10,12 @@ const Clock = styled.div`
   flex-direction: column;
 `
 
+const Pomodoro = styled.h2`
+  color: white;
+  margin: 20px auto;
+  font-family: Catamaran;
+`
+
 const Timer = styled.div`
   margin: 20px auto;
   
@@ -26,14 +32,14 @@ const Timer = styled.div`
 `
 
 const Buttons = styled.div`
-  margin-top: 40px;
+  margin-top: 70px;
   display: flex;
   justify-content: center;
 `
 
 const FirstSecondIcon = styled.i`
   display: inline-block;
-  color: #6487FF;
+  color: #e05cb3;
   font-size: 50px;
   margin-bottom: 60px;
   margin-right: 40px;
@@ -41,7 +47,7 @@ const FirstSecondIcon = styled.i`
 
 const ThirdIcon = styled.i`
   display: inline-block;
-  color: #6487FF;
+  color: #e05cb3;
   font-size: 50px;
   margin-bottom: 60px;
 `
@@ -83,21 +89,20 @@ export function TimerShortBreakThree ({ expiryTimestamp }) {
 
   useEffect(() => {
     setMinutes(min - 1);
-    setPercentage(-1 * (min / 5));
+    setPercentage(-1 * (min / 3));
   }, [seconds])
 
   return (
     <Clock>
-      
+      <Pomodoro>Break #3</Pomodoro>
       <Timer>
       <>
       <CircularProgressbar value={percentage} strokeWidth={2} text={`${minutes}:${seconds}`}
         styles={buildStyles({
-          pathColor: `#6487FF, ${percentage}`,
+          pathColor: '#e05cb3', percentage,
           trailColor: 'white',
           textColor: 'white',
-          textSize: '16px',
-          pathTransitionDuration: 0.5,
+          textSize: '16px'
         })}
       > 
         <div className="time">
