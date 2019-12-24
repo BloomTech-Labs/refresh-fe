@@ -24,10 +24,10 @@ const MissionInput = props => {
                 <InputMessage>
                     <i className="fas fa-tint"></i>
                     {missions.map(mission => {
-                        if (mission.id === selectedMission) {
-                            return <p key={mission.id}>{mission.question}</p>
+                        if (selectedMission && (mission.mission_id === selectedMission.mission_id)) {
+                            return <p key={mission.mission_id}>{mission.question}</p>
                         } else {
-                            return null
+                            return null;
                         }
                     })}
                 </InputMessage>

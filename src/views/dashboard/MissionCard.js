@@ -94,10 +94,8 @@ const Container = styled.div`
   padding: 1rem;
   color: #fff;
   ${flex.flexCol}
-  // this i needs to change later on when i work out
-        // the gauge functionality for the cards -JC
-        // JC was smart enough to foist i on me -MM
-        i {
+
+  i {
     font-size: 3rem;
     margin: 2rem 0;
   }
