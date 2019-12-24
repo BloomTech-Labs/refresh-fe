@@ -1,6 +1,8 @@
 // IMPORTS
 // react
 import React, { useState, useContext } from 'react';
+// router
+import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // swipeable views
@@ -9,6 +11,8 @@ import SwipeableViews from 'react-swipeable-views';
 import { test, flex } from '../../styles/global/Mixins';
 // contexts
 import { UserContext } from '../../contexts/UserContext';
+// components
+import Pagination from './Pagination';
 // images
 import waves from '../../images/Onboarding/waves.svg'
 
@@ -37,22 +41,40 @@ const TeamView = () => {
         }
     });
 
+    // This is an active hook that will remain, but there is dummy data interjected for the time being
+    // until Roman finishes sending final payloads to us. Once that happens and we bring in real data, 
+    // we can init state using only the default slide styles and an empty slides array that is then
+    // populated based on the pending missions array coming back from the server
     const [missionSlide, setMissionSlide] = useState({
         slide: {
             padding: 15,
             color: '#FFF',
             minHeight: '15rem',
-            minWidth: '50rem'
+            minWidth: '25rem'
         },
-        slide1: {
-            background: '#3D3B91'
-        },
-        slide2: {
-            background: 'pink'
-        },
-        slide3: {
-            background: 'orange'
-        }
+        slides: [
+            {
+                background: '#3D3B91',
+                title: 'Test Activity 1',
+                description: 'This is a description for Test Activity 1. Not feeling creative so yeah.',
+                point_value: '100',
+                date: '12/18/2019'
+            },
+            {
+                background: 'pink',
+                title: 'Test Activity 2',
+                description: 'This is a description for Test Activity 2. Not feeling creative so yeah.',
+                point_value: '90',
+                date: '12/23/2019'
+            },
+            {
+                background: 'orange',
+                title: 'Test Activity 3',
+                description: 'This is a description for Test Activity 3. Not feeling creative so yeah.',
+                point_value: '120',
+                date: '12/25/2019'
+            }
+        ]
     });
     
     return (
@@ -63,7 +85,7 @@ const TeamView = () => {
 
                     <TVSection>
                         <SectionTitle><h2>Teammates</h2></SectionTitle>
-                        <SectionCTA>view all ></SectionCTA>
+                        <SectionCTA><Link to='/team'>view all ></Link></SectionCTA>
                         <Pagination className='carousel'></Pagination>
                     </TVSection>
 
@@ -71,9 +93,9 @@ const TeamView = () => {
                         <SectionTitle><h2>Team Feed</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
                         <SwipeableViews>
-                            <div style={{...feedSlide.slide, ...feedSlide.slide1}}>
+                            <Slide style={{...feedSlide.slide, ...feedSlide.slide1}}>
                                 test 1
-                            </div>
+                            </Slide>
 
                             <div style={{...feedSlide.slide, ...feedSlide.slide2}}>
                                 test 2
@@ -88,19 +110,26 @@ const TeamView = () => {
                     <TVSection>
                         <SectionTitle><h2>Team Missions</h2></SectionTitle>
                         <SectionCTA></SectionCTA>
+                        
                         <SwipeableViews>
-                            <div style={{...feedSlide.slide, ...feedSlide.slide1}}>
-                                test 1
-                            </div>
+                            {missionSlide.slides.map((mission, i) => {
+                                return (
+                                    <Slide style={{...missionSlide.slide, ...mission}}>
+                                        <h2>{mission.title}</h2>
+                                        <span className='points'>{mission.point_value} pts</span>
 
-                            <div style={{...feedSlide.slide, ...feedSlide.slide2}}>
-                                test 2
-                            </div>
+                                        <p>{mission.description}</p>
 
-                            <div style={{...feedSlide.slide, ...feedSlide.slide3}}>
-                                test 3
-                            </div>
+                                        <span>{mission.date}</span>
+
+                                        <button className='accept'>Accept</button>
+                                        <button>Decline</button>
+                                    </Slide>
+                                );
+                            })}
                         </SwipeableViews>
+
+                        <Pagination />
                     </TVSection>
                 </TVContainer>
             </TVWrapper>
@@ -161,18 +190,45 @@ const SectionCTA = styled.div`
         justify-content: flex-end;
         align-items: center;
         letter-spacing: 0.15rem;
+
+            a {
+                color: #FFF;
+                text-decoration: none;
+            }
 `
 
-// temporary pagination section - will remove once library is pulled in
-const Pagination = styled.div`
-        width: 100%;
-        height: 15rem;
-        margin: 2rem 0 0 0;
-        background-color: #3D3B91;
-        border-radius: 3px;
+const Slide = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 
-            &.carousel {
-                height: 10rem;
+            h2 {
+                font-weight: bold;
+                color: #FFF;
+            }
+
+            p {
+                color: #E6E6E6;
+            }
+
+            span.points {
+                background-color: #E9CC2F;
+                padding: 0.5rem;
+                color: #4E4829;
+                font-weight: bold;
+                border-radius: 3px;
+            }
+
+            button {
+                background-color: transparent;
+                border: none;
+                color: #FFF;
+            }
+
+            & .accept {
+                color: #E05CB3;
             }
 `
 
