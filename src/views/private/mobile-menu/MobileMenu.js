@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // helpers
-import { test, flex } from '../../styles/global/Mixins'
+import { test, flex } from '../../../styles/global/Mixins'
 
 // DUMMY DATA
 // hard coding some dummy data directly into the component to avoid too many unncessary files

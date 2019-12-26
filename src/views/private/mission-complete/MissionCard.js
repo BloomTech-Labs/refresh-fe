@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
+import { test, flex } from '../../../styles/global/Mixins';
 
 
 // HELPERS

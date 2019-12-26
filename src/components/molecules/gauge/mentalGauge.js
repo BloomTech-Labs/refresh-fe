@@ -7,11 +7,11 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import mental0 from "../../../../images/gauge/breakGauge/break0.svg";
-import mental15 from "../../../../images/gauge/breakGauge/break0.svg";
-import mental30 from "../../../../images/gauge/breakGauge/break0.svg";
-import mental45 from "../../../../images/gauge/breakGauge/break0.svg";
-import mentalComplete from "../../../../images/gauge/breakGauge/break0.svg";
+import mental0 from "../../../images/gauge/breakGauge/break0.svg";
+import mental15 from "../../../images/gauge/breakGauge/break0.svg";
+import mental30 from "../../../images/gauge/breakGauge/break0.svg";
+import mental45 from "../../../images/gauge/breakGauge/break0.svg";
+import mentalComplete from "../../../images/gauge/breakGauge/break0.svg";
 
 const MentalGauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState({

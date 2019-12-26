@@ -8,9 +8,9 @@ import styled from 'styled-components';
 // swipeable views
 import SwipeableViews from 'react-swipeable-views';
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
+import { test, flex } from '../../../styles/global/Mixins';
 // contexts
-import { UserContext } from '../../contexts/UserContext';
+import { UserContext } from '../../../contexts/UserContext';
 // components
 import Pagination from './Pagination';
 // images

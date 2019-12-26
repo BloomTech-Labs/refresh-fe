@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Redirect } from "react-router-dom";
 //context
-import { UserContext } from "../../../../contexts/UserContext";
 //axios with auth
 import { axiosWithAuth } from "../../../../helpers/axiosWithAuth";
 //styled components

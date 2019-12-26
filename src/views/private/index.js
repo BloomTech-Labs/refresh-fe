@@ -2,22 +2,22 @@ import React, { useState, useEffect, useContext } from "react";
 import { Route } from "react-router-dom";
 
 // contexts
-import { UserContext } from "../contexts/UserContext";
-import { UserMissionsContext } from "../contexts/UserMissionsContext";
+import { UserContext } from "../../contexts/UserContext";
+import { UserMissionsContext } from "../../contexts/UserMissionsContext";
 
 // helpers
-import { axiosWithAuth } from "../helpers/axiosWithAuth";
+import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 // components
 import MobileMenu from "./mobile-menu/MobileMenu";
-import Dashboard from "./private/dashboard/Dashboard";
-import MissionComplete from "./private/mission-complete/MissionComplete";
-import Gauge from "../components/molecules/gauge/Gauge";
+import Dashboard from "./dashboard/Dashboard";
+import MissionComplete from "./mission-complete/MissionComplete";
+import Gauge from "../../components/molecules/gauge/Gauge";
 import Atoms from "./componentTesting/componentTesting";
 import Sandbox from "./sandbox/Sandbox";
 import ProfileOverview from "./profileViews/ProfileOverview";
 import Leaderboard from "./leaderboard/Leaderboard";
 import MissionStats from "./mission-stats/MissionStats";
-import ComingSoon from "./coming-soon/ComingSoon";
+//import ComingSoon from "./coming-soon/ComingSoon";
 import TimerOne from "./Timer/TimerOne";
 import TimerShortBreakOne from "./Timer/TimerShortBreakOne";
 import TimerTwo from "./Timer/TimerTwo";
@@ -114,7 +114,7 @@ const PrivateViewCanvas = () => {
         <Route path="/invite" component={AddMember} />
         <Route path="/createtm" component={CreateTMission} />
         <Route path="/calendar" component={Calendar} />
-        <Route path="/coming-soon" component={ComingSoon} />
+        {/* <Route path="/coming-soon" component={ComingSoon} /> */}
         <Route path="/timer" component={TimerOne} />
         <Route path="/break-1" component={TimerShortBreakOne} />
         <Route path="/timer-2" component={TimerTwo} />

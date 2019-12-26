@@ -6,9 +6,9 @@ import styled from 'styled-components';
 // router
 import { Link } from 'react-router-dom';
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
+import { test, flex } from '../../../styles/global/Mixins';
 // images
-import Rocket from '../../../images/rocket.png';
+import Rocket from '../../../../images/rocket.png';
 // COMPONENT
 const ComingSoon = props => {
     // handlers

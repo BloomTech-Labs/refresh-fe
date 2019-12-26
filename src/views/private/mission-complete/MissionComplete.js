@@ -4,14 +4,14 @@ import React, { useState, useContext } from 'react';
 // styled components
 import styled from 'styled-components';
 // contexts
-import { UserMissionsContext } from '../../contexts/UserMissionsContext';
+import { UserMissionsContext } from '../../../contexts/UserMissionsContext';
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
+import { test, flex } from '../../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
 import MissionInput from './MissionInput';
 import Congrats from './Congrats';
-import { axiosWithAuth } from '../../helpers/axiosWithAuth';
+import { axiosWithAuth } from '../../../helpers/axiosWithAuth';
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling

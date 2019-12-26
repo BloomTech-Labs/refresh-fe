@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 //styled-components
 import styled from "styled-components";
 //axios with auth
-import { axiosWithAuth } from "../../helpers/axiosWithAuth";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 //atoms
-import LoadingSpinner from "../../components/atoms/spinner/spinner";
+import LoadingSpinner from "../../../components/atoms/spinner/spinner";
 
 const AddMember = props => {
   //hooks
