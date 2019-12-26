@@ -7,15 +7,15 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import water0 from "../../../images/gauge/waterGauge/water0.svg";
-import water1 from "../../../images/gauge/waterGauge/water1.svg";
-import water2 from "../../../images/gauge/waterGauge/water2.svg";
-import water3 from "../../../images/gauge/waterGauge/water3.svg";
-import water4 from "../../../images/gauge/waterGauge/water4.svg";
-import water5 from "../../../images/gauge/waterGauge/water5.svg";
-import water6 from "../../../images/gauge/waterGauge/water6.svg";
-import water7 from "../../../images/gauge/waterGauge/water7.svg";
-import waterComplete from "../../../images/gauge/waterGauge/water_complete.svg";
+import water0 from "../../../../images/gauge/waterGauge/water0.svg";
+import water1 from "../../../../images/gauge/waterGauge/water1.svg";
+import water2 from "../../../../images/gauge/waterGauge/water2.svg";
+import water3 from "../../../../images/gauge/waterGauge/water3.svg";
+import water4 from "../../../../images/gauge/waterGauge/water4.svg";
+import water5 from "../../../../images/gauge/waterGauge/water5.svg";
+import water6 from "../../../../images/gauge/waterGauge/water6.svg";
+import water7 from "../../../../images/gauge/waterGauge/water7.svg";
+import waterComplete from "../../../../images/gauge/waterGauge/water_complete.svg";
 
 const WaterGauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState({

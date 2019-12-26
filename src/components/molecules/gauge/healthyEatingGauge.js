@@ -7,10 +7,10 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import healthyEating0 from "../../../images/gauge/healthyEatingGauge/healthyEatingGauge_0.svg";
-import healthyEating1 from "../../../images/gauge/healthyEatingGauge/healthyEatingGauge_1.svg";
-import healthyEating2 from "../../../images/gauge/healthyEatingGauge/healthyEatingGauge_2.svg";
-import healthyEatingComplete from "../../../images/gauge/healthyEatingGauge/healthyEatingGauge_complete.svg";
+import healthyEating0 from "../../../../images/gauge/healthyEatingGauge/healthyEatingGauge_0.svg";
+import healthyEating1 from "../../../../images/gauge/healthyEatingGauge/healthyEatingGauge_1.svg";
+import healthyEating2 from "../../../../images/gauge/healthyEatingGauge/healthyEatingGauge_2.svg";
+import healthyEatingComplete from "../../../../images/gauge/healthyEatingGauge/healthyEatingGauge_complete.svg";
 
 
 const WaterGauge = ({ children, ...props }) => {

@@ -7,13 +7,13 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import sleep0 from "../../../images/gauge/sleepGauge/sleep0.svg";
-import sleep1 from "../../../images/gauge/sleepGauge/sleep1.svg";
-import sleep2 from "../../../images/gauge/sleepGauge/sleep2.svg";
-import sleep3 from "../../../images/gauge/sleepGauge/sleep3.svg";
-import sleep4 from "../../../images/gauge/sleepGauge/sleep4.svg";
-import sleep5 from "../../../images/gauge/sleepGauge/sleep5.svg";
-import sleepComplete from "../../../images/gauge/sleepGauge/sleepComplete.svg";
+import sleep0 from "../../../../images/gauge/sleepGauge/sleep0.svg";
+import sleep1 from "../../../../images/gauge/sleepGauge/sleep1.svg";
+import sleep2 from "../../../../images/gauge/sleepGauge/sleep2.svg";
+import sleep3 from "../../../../images/gauge/sleepGauge/sleep3.svg";
+import sleep4 from "../../../../images/gauge/sleepGauge/sleep4.svg";
+import sleep5 from "../../../../images/gauge/sleepGauge/sleep5.svg";
+import sleepComplete from "../../../../images/gauge/sleepGauge/sleepComplete.svg";
 
 const SleepGauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState({

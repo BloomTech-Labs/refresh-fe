@@ -7,11 +7,11 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import social0 from "../../../images/gauge/socialGauge/social0.svg";
-import social15 from "../../../images/gauge/socialGauge/social15.svg";
-import social30 from "../../../images/gauge/socialGauge/social30.svg";
-import social45 from "../../../images/gauge/socialGauge/social45.svg";
-import socialComplete from "../../../images/gauge/socialGauge/socialComplete.svg";
+import social0 from "../../../../images/gauge/socialGauge/social0.svg";
+import social15 from "../../../../images/gauge/socialGauge/social15.svg";
+import social30 from "../../../../images/gauge/socialGauge/social30.svg";
+import social45 from "../../../../images/gauge/socialGauge/social45.svg";
+import socialComplete from "../../../../images/gauge/socialGauge/socialComplete.svg";
 
 
 const SocialGauge = ({ children, ...props }) => {

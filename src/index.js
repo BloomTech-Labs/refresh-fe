@@ -9,7 +9,7 @@ import Reset from "./styles/global/Reset";
 import GlobalStyle from "./styles/global/GlobalStyle";
 // components
 import App from './App';
-import CreateAccount from './views/onboarding/CreateAccount';
+import CreateAccount from './views/public/onboarding/CreateAccount';
 
 // RENDER
 ReactDOM.render(

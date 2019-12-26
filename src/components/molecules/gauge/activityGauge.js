@@ -7,13 +7,13 @@ import Icon from "../../atoms/icon/icon";
 // SVG Images
 
 // Pulls in images
-import activity0 from "../../../images/gauge/activityGauge/activity0.svg";
-import activity5 from "../../../images/gauge/activityGauge/activity5.svg";
-import activity10 from "../../../images/gauge/activityGauge/activity10.svg";
-import activity15 from "../../../images/gauge/activityGauge/activity15.svg";
-import activity20 from "../../../images/gauge/activityGauge/activity20.svg";
-import activity25 from "../../../images/gauge/activityGauge/activity25.svg";
-import activityComplete from "../../../images/gauge/activityGauge/activityComplete.svg";
+import activity0 from "../../../../images/gauge/activityGauge/activity0.svg";
+import activity5 from "../../../../images/gauge/activityGauge/activity5.svg";
+import activity10 from "../../../../images/gauge/activityGauge/activity10.svg";
+import activity15 from "../../../../images/gauge/activityGauge/activity15.svg";
+import activity20 from "../../../../images/gauge/activityGauge/activity20.svg";
+import activity25 from "../../../../images/gauge/activityGauge/activity25.svg";
+import activityComplete from "../../../../images/gauge/activityGauge/activityComplete.svg";
 
 const ActivityGauge = ({ children, ...props }) => {
   const [gaugeData, setGaugeData] = useState({
