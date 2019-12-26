@@ -9,10 +9,12 @@ import TimerShortBreakTwo from "./TimerShortBreakTwo";
 import TimerShortBreakThree from "./TimerShortBreakThree";
 import TimerLongBreak from "./TimerLongBreak";
 const TimerCanvas = props => {
-  const { url } = props.match.path;
+  const { url } = props.match;
+  console.log('url',url)
+  console.log(props)
   return (
     <Switch>
-      <Route path={url} component={TimerOne} />
+      <Route exact path={url} component={TimerOne} />
       <Route path={url + "/timer-2"} component={TimerTwo} />
       <Route path={url + "/timer-3"} component={TimerThree} />
       <Route path={url + "/timer-4"} component={TimerFour} />

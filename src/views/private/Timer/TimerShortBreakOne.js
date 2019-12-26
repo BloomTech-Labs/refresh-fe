@@ -115,7 +115,7 @@ export function TimerShortBreakOne ({ expiryTimestamp }) {
       <Buttons>
         <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
         <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
-        <Link to="timer-2">
+        <Link to="/timer/timer-2">
           <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon> 
         </Link>
       </Buttons>
