@@ -24,6 +24,7 @@ import AddMember from "./team-view/AddMember";
 import CreateTMission from "./team-view/CreateTMission";
 import Calendar from "./team-view/Calendar";
 import TeamList from "./team-view/TeamList";
+import StepStart from './firstLogin/StepStart'
 
 const PrivateViewCanvas = () => {
   const [userMissions, setUserMissions] = useState([]);
@@ -31,21 +32,7 @@ const PrivateViewCanvas = () => {
   // this hook becomes the global user context
   // will abstract out later after we get all logic working properly
   // do not touch, i repeat do not touch.... -JC
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("activeUser")) || {
-      user_id: null,
-      display_name: "",
-      fname: "",
-      lname: "",
-      cohort: "",
-      section_lead: "",
-      avatar: "",
-      bio: "",
-      new_user: true,
-      testing: false,
-      hasLoggedIn: true // this true is a placeholder and will need to be removed after we finish logic
-    }
-  );
+  const [user, setUser] = useState();
   console.log("here");
   // useEffect
   useEffect(() => {
@@ -83,7 +70,7 @@ const PrivateViewCanvas = () => {
         });
 
         console.log("[new dailyMissions]", dailyMissions);
-
+        setUser(res.data.user_profile)
         setUserMissions(dailyMissions);
       })
       .catch(err => {
@@ -94,6 +81,7 @@ const PrivateViewCanvas = () => {
     <UserContext.Provider value={{ ...user, setUser: setUser }}>
       <UserMissionsContext.Provider value={userMissions}>
           <Route path="/" component={MobileMenu} />
+          <Route path="/firstlogin" component={StepStart}/>
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/mission-complete" component={MissionComplete} />
           <Route path="/gauge" component={Gauge} />
@@ -109,7 +97,6 @@ const PrivateViewCanvas = () => {
           <Route path="/calendar" component={Calendar} />
           <Route path="/coming-soon" component={ComingSoon} />
           <Route path="/timer" component={TimerCanvas} />
-
       </UserMissionsContext.Provider>
     </UserContext.Provider>
   );

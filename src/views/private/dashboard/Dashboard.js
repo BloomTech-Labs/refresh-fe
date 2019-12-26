@@ -40,7 +40,7 @@ const Dashboard = props => {
 
                     <User>
                         <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
-                        <Link to='/profile-overview'><Avatar></Avatar></Link>
+                        <Link to='/profile-overview'><Avatar ><img src={activeUser.avatar}/></Avatar></Link>
                     </User>
                 </Header>
 
@@ -137,6 +137,9 @@ const Avatar = styled.div`
     border-radius: 3px;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
+    img{
+        width:100%;
+    }
 `
 
 const MissionHub = styled.div`

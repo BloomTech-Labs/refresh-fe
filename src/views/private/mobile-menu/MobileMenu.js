@@ -1,13 +1,16 @@
 // IMPORTS
 // react
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,  useContext } from 'react';
 // router
 import { Link } from 'react-router-dom';
 // styled components
 import styled from 'styled-components';
 // helpers
 import { test, flex } from '../../../styles/global/Mixins'
-
+// contexts
+import { UserContext } from '../../../contexts/UserContext';
+import { UserMissionsContext } from '../../../contexts/UserMissionsContext';
+// styled components
 // DUMMY DATA
 // hard coding some dummy data directly into the component to avoid too many unncessary files
 // will come back and clean all of this up later when we wire up FE/BE - JC
@@ -26,6 +29,11 @@ const dummyUser = {
 // COMPONENT
 const MobileMenu = props => {
     // state hooks
+
+    const activeUser = useContext(UserContext);
+    const userMissions = useContext(UserMissionsContext);
+
+    console.log('From Menu',activeUser)
     const [menu, setMenu] = useState({
         status: 'closed',
         darken: 'inactive'

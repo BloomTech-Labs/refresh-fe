@@ -4,8 +4,8 @@ import React, { useState } from "react";
 // styled components
 import styled from "styled-components";
 //images
-import waves from "../../../../images/Onboarding/waves.svg";
-import slogan from "../../../../images/Onboarding/need_to_know_more.svg";
+import waves from "../../../images/Onboarding/waves.svg";
+import slogan from "../../../images/Onboarding/need_to_know_more.svg";
 //conditionally rendering steps component
 import StepForm from "./StepForm";
 

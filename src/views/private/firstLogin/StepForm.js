@@ -4,18 +4,18 @@ import React, { useState, useEffect, useContext } from "react";
 import { Redirect } from "react-router-dom";
 //context
 //axios with auth
-import { axiosWithAuth } from "../../../../helpers/axiosWithAuth";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //styled components
 import styled from "styled-components";
 //images
-import waves from "../../../../images/Onboarding/waves.svg";
+import waves from "../../../images/Onboarding/waves.svg";
 //slider component
-import Slider from "../../../../styles/global/Slider";
+import Slider from "../../../styles/global/Slider";
 //weight and height dials
 import Weight from "./Weight";
 import Height from "./Height";
 //loading spinner
-import LoadingSpinner from "../../../../components/atoms/spinner/spinner";
+import LoadingSpinner from "../../../components/atoms/spinner/spinner";
 
 const StepForm = props => {
   //context
