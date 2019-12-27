@@ -99,7 +99,7 @@ const MobileMenu = props => {
                 </Link>
               </NavButton>
               <NavButton>
-                <Link to="/coming-soon">
+                <Link to="/timer">
                   <i className="fas fa-stopwatch"></i>Pomodoro Clock
                 </Link>
               </NavButton>
