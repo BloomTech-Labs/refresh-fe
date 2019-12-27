@@ -134,7 +134,7 @@ export function TimerFour ({ expiryTimestamp }) {
       <Buttons>
         <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
         <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
-        <Link to="/break-4">
+        <Link to="/timer/break-4">
           <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon> 
         </Link>
       </Buttons>

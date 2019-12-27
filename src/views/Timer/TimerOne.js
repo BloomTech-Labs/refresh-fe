@@ -110,8 +110,6 @@ export function TimerOne ({ expiryTimestamp }) {
     setPercentage(-1 * (min / 15));
   }, [seconds])
 
-  console.log('Minutes: ', min);
-  console.log('Percentage: ', percentage);
   return (
 
     <Clock>
@@ -137,7 +135,7 @@ export function TimerOne ({ expiryTimestamp }) {
       <Buttons>
         <FirstSecondIcon className="far fa-play-circle" onClick={resume}></FirstSecondIcon>
         <FirstSecondIcon className="far fa-pause-circle" onClick={pause}></FirstSecondIcon>
-        <Link to="break-1">
+        <Link to="timer/break-1">
           <ThirdIcon className="far fa-arrow-alt-circle-right"></ThirdIcon>   
         </Link>    
       </Buttons>
