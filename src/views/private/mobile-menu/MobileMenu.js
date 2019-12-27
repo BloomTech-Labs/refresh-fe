@@ -40,7 +40,7 @@ const MobileMenu = props => {
 
   // use effect
   useEffect(() => {
-    setMenu({ ...menu, status: "open", darken: "active" });
+    setMenu({ ...menu, status: "closed", darken: "inactive" });
   }, [props.location]);
 
   // handlers
