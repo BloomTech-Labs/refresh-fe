@@ -31,7 +31,6 @@ const Dashboard = props => {
         <DashboardView>
             <DashboardWrapper>
             <DashboardContainer>
-
                 <Header>
                     <Greeting>
                         <h1>Hello</h1>
@@ -40,7 +39,7 @@ const Dashboard = props => {
 
                     <User>
                         <Link to='/coming-soon'><i className="fas fa-bell"></i></Link>
-                        <Link to='/profile-overview'><Avatar ><img src={activeUser.avatar}/></Avatar></Link>
+                        <Link to='/profile-overview'><Avatar >{activeUser.avatar && <img src={activeUser.avatar} alt="picture of your user profile"/>}</Avatar></Link>
                     </User>
                 </Header>
 

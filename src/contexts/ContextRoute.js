@@ -6,15 +6,9 @@ const PrivateRoute = ({ privateView: PrivateView,  publicView:PublicView,userSta
     <Route
       {...rest}
       render={() => {
-        if (localStorage.getItem("token")) {
-          // if token is in localstorage, render the given component
-          return <PrivateView />;
-        } else {
-          return <PublicView />;
-        }
+        
       }}
     />
   );
 };
 export default PrivateRoute;
-
