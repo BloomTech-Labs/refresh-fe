@@ -84,8 +84,10 @@ const MissionCard = props => {
 
 // STYLED COMPONENTS
 const Container = styled.div`
-  width: 150px;
-  height: 180px;
+  width: 40vw;
+  max-width: 25rem;
+  max-height: 25rem;
+  height: calc(40vw);
   box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
   border-radius: 3px;
   margin: 1rem 0.5rem;
@@ -98,12 +100,12 @@ const Container = styled.div`
         // the gauge functionality for the cards -JC
         // JC was smart enough to foist i on me -MM
         i {
-    font-size: 3rem;
+    font-size: calc(100vw / 20);
     margin: 2rem 0;
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: calc(100vw / 25);
     letter-spacing: 0.025rem;
     align-self: flex-start;
   }
@@ -117,8 +119,10 @@ const Container = styled.div`
 `;
 
 const Gauge = styled.div`
-  width: 60px;
-  height: 60px;
+  width: calc(100vw / 7);
+  max-width: 10rem;
+  max-height: 10rem;
+  height: calc(100vw / 7);
   border: 3px solid #FFF;
   border-radius: 100px;
   margin-top: 1rem;
