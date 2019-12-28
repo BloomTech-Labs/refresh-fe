@@ -151,15 +151,14 @@ const OnBoardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Catamaran", sans-serif;
-  margin: auto;
+  margin: auto auto 0 auto;
   line-height: 1.5;
   background-color: #4742bc;
   background-image: url(${waves});
   background-size: contain;
-  color: #7f7cca;
+  color: #4742bc;
   width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100%;
   padding: 8%;
   &:nth-child(*) {
     background-color: green;
@@ -172,6 +171,7 @@ height: calc(100vh / 3.5);
 width: 100%;
 max-width: 100%;
 margin: auto;
+padding-bottom: 20px;
 `;
 
 const Form = styled.form`
@@ -191,19 +191,12 @@ width: 89%;
   .disabledColor{
     opacity: 30%;
   }
-
-  @media screen and (min-width: 1000px) {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-items: center;
-    position: relative;
-  }
 `;
 
 const Input = styled.input`
   border: 1px solid #3d3b91;
   margin: 3% 0;
-  padding: 5%;
+  padding: 0.5%;
   width: 100%;
   border-radius: 3px;
   box-shadow: 1px 1px 1px 1px #35347f;
@@ -211,14 +204,10 @@ const Input = styled.input`
   color: #ffffff;
   outline: none;
   font-size: calc(100%);
+  text-align: center;
   ::-webkit-input-placeholder {
     font-family: "Catamaran", sans-serif;
     font-size: calc(100%);
-  }
-  @media screen and (min-width: 1000px) {
-    width: 50%;
-    text-align: center;
-    margin-left: 20px;
   }
 `;
 
@@ -226,25 +215,17 @@ const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
   border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
+  padding: 2%;
   width:75%;
-  text-align:center;
-  margin: 13% auto auto;
+  text-align: center;
+  margin: 1% auto 75px auto;
   background: #E05CB3;
   color: white;
-  font-size:calc(110% + 0.5vw);
+  font-size:calc(110% + 0.2vw);
   letter-spacing:0.1rem;
-}
-
-@media screen and (min-width: 1000px) {
-  position: absolute;
-  display: block;
-  margin: 200px auto;
-  width: 75vw;
-}
-
-@media screen and (min-width: 1250px) {
-  margin: 250px auto;
+  @media screen and (max-width: 700px) {
+    margin-bottom: 200px;
+  }
 }
 `;
 
