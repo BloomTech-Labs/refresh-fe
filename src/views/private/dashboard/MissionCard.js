@@ -100,7 +100,7 @@ const Container = styled.div`
         // the gauge functionality for the cards -JC
         // JC was smart enough to foist i on me -MM
         i {
-    font-size: calc(100vw / 20);
+    font-size: calc(100vw / 27);
     margin: 2rem 0;
   }
 
