@@ -119,12 +119,10 @@ const OnBoardContainer = styled.div`
   line-height: 1.5;
   background-color: #4742bc;
   background-image: url(${waves});
-  background-size: contain;
+  background-size: initial;
   color: #7f7cca;
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
   padding: 8%;
+  height: fit-content;
 
   .smallTxt {
     font-size: calc(80% + 0.1vw);
