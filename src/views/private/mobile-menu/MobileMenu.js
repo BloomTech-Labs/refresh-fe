@@ -123,6 +123,7 @@ const MobileMenu = props => {
 const Wrapper = styled.div`
   width: 100vw;
   position: fixed;
+  z-index: 1000;
 
   .active {
     width: 100vw;
