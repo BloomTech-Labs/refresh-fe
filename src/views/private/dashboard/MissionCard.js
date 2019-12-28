@@ -85,8 +85,8 @@ const MissionCard = props => {
 // STYLED COMPONENTS
 const Container = styled.div`
   width: 40vw;
-  max-width: 25rem;
-  max-height: 25rem;
+  max-width: 30rem;
+  max-height: 30rem;
   height: calc(40vw);
   box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
   border-radius: 3px;
