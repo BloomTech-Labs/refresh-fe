@@ -191,6 +191,13 @@ width: 89%;
   .disabledColor{
     opacity: 30%;
   }
+
+  @media screen and (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    position: relative;
+  }
 `;
 
 const Input = styled.input`
@@ -208,6 +215,11 @@ const Input = styled.input`
     font-family: "Catamaran", sans-serif;
     font-size: calc(100%);
   }
+  @media screen and (min-width: 1000px) {
+    width: 50%;
+    text-align: center;
+    margin-left: 20px;
+  }
 `;
 
 const Button = styled.a`
@@ -222,6 +234,17 @@ const Button = styled.a`
   color: white;
   font-size:calc(110% + 0.5vw);
   letter-spacing:0.1rem;
+}
+
+@media screen and (min-width: 1000px) {
+  position: absolute;
+  display: block;
+  margin: 200px auto;
+  width: 75vw;
+}
+
+@media screen and (min-width: 1250px) {
+  margin: 250px auto;
 }
 `;
 

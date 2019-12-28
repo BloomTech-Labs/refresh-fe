@@ -102,6 +102,7 @@ const DashboardContainer = styled.div`
     font-size: 2.5rem;
     letter-spacing: 0.25rem;
     margin: 3rem 0;
+    text-align: center;
   }
 `;
 

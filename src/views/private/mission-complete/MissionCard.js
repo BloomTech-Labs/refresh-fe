@@ -54,8 +54,10 @@ const MissionCard = props => {
 
 // STYLED COMPONENTS
 const CardContainer = styled.div`
-    width: 115px;
-    height: 115px;
+    width: 36vw;
+    max-width: 18rem;
+    max-height: 18rem;
+    height: calc(36vw);
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 3px;
     background-color: ${props => props.color};
@@ -71,6 +73,7 @@ const CardContainer = styled.div`
         }
 
         p {
+            font-size: 1.6rem;
             padding: 1rem;
             text-align: center;
         }
