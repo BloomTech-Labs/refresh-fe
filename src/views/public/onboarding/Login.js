@@ -179,6 +179,16 @@ const Header = styled.h1`
   line-height: 6.6rem;
   letter-spacing: 3.5px;
   color: #ffffff;
+
+  @media screen and (min-width: 950px) {
+    margin-top: -60px;
+    line-height: 8rem;
+  }
+
+  @media screen and (min-width: 1250px) {
+    line-height: 11rem;
+    margin-top: -100px;
+  }
 `;
 const HeaderHolder = styled.div`
   display: flex;
@@ -194,6 +204,14 @@ const FlexHolder = styled.div`
   margin: auto;
   align-items: flex-start;
   width: 100%;
+
+  @media screen and (min-width: 750px) {
+    margin-top: -60px;
+  }
+
+  @media screen and (min-width: 900px) {
+    margin-top: -90px;
+  }
 `;
 
 const TopHolder = styled.div`
@@ -231,6 +249,10 @@ const FBButton = styled.a`
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing: 0.1rem;
+
+  @media screen and (min-width: 1500px) {
+    margin-bottom: -30px;
+  }
 `;
 
 const GoogleSignIn = styled.a`
@@ -253,11 +275,19 @@ const ButtonNoColor = styled.a`
   color: #ccc9ff;
 `;
 const Cubes = styled.img`
-  max-width: 39%;
+  max-width: 20%;
   width: 100%;
   height: auto;
   margin: auto;
   padding-top: 3rem;
+
+  @media screen and (min-width: 950px) {
+    margin-top: -60px;
+  }
+
+  @media screen and (min-width: 1250px) {
+    margin-top: -100px; 
+  }
 `;
 
 const Logo = styled.img``;
