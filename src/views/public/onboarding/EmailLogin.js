@@ -178,8 +178,8 @@ font-size: calc(100%);
   font-size: calc(100%);
 }
 @media screen and (min-width: 800px) {
-  width: 80%;
-  margin: 20px auto;
+  margin: 5px auto;
+  padding: 0.1%:
 }
 @media screen and (min-width: 1300px) {
   height: 2vh;
@@ -198,6 +198,9 @@ background: #E05CB3;
 color: white;
 font-size:calc(110% + 0.5vw);
 letter-spacing:0.1rem;
+}
+@media screen and (min-width: 800px) {
+  padding: 0.1%;
 }
 @media screen and (min-width: 1000px) {
   margin-top: 20px;
