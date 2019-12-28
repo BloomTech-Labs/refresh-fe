@@ -161,8 +161,12 @@ const Header = styled.h1`
     line-height: 8rem;
   }
 
+  @media screen and (min-width: 700px) {
+    font-size: calc(110% + 4vw);
+    line-height: 5.2rem;
+  }
+
   @media screen and (min-width: 1250px) {
-    line-height: 11rem;
     margin-top: -120px;
   }
 
@@ -191,6 +195,14 @@ const FlexHolder = styled.div`
   margin: auto;
   align-items: flex-start;
   width: 100%;
+
+  @media screen and (min-width: 700px) {
+    margin-top: -40px;
+  }
+
+  @media screen and (min-width: 800px) {
+    margin-top: -80px;
+  }
 `;
 
 const TopHolder = styled.div`
@@ -264,12 +276,20 @@ const Cubes = styled.img`
   margin: auto;
   padding-top: 3rem;
 
-  @media screen and (min-width: 950px) {
+  @media screen and (min-width: 800px) {
     margin-top: -60px;
   }
 
+  @media screen and (min-width: 950px) {
+    margin-top: -100px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    margin-top: -120px;
+  }
+
   @media screen and (min-width: 1250px) {
-    margin-top: -120px; 
+    margin-top: -160px; 
   }
 
   @media screen and (min-width: 1400px) {

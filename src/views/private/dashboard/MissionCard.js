@@ -14,8 +14,7 @@ import WaterGauge from "../../../components/molecules/gauge/waterGauge"
 // COMPONENT
 const MissionCard = props => {
   // handlers
-  let {color,icon,goal,point_current,description,point_value} = props.mission
-  point_current = point_current ? point_current : 0;
+  const {color,icon,goal,point_current,description,point_value} = props.mission
   const cardClickHandler = e => {
     props.history.push('/mission-stats');
 };

@@ -182,12 +182,18 @@ const Header = styled.h1`
 
   @media screen and (min-width: 950px) {
     margin-top: -60px;
-    line-height: 8rem;
+    line-height: 6rem;
+    font-size: calc(110% + 5vw);
+  }
+
+  @media screen and (min-width: 700px) {
+    font-size: calc(110% + 4vw);
+    line-height: 5rem;
   }
 
   @media screen and (min-width: 1250px) {
-    line-height: 11rem;
-    margin-top: -100px;
+    margin-top: -120px;
+    line-height: 6rem;
   }
 `;
 const HeaderHolder = styled.div`
@@ -250,6 +256,10 @@ const FBButton = styled.a`
   font-size: calc(110% + 0.5vw);
   letter-spacing: 0.1rem;
 
+  @media screen and (min-width: 1200px) {
+    margin-bottom: -30px;
+  }
+
   @media screen and (min-width: 1500px) {
     margin-bottom: -30px;
   }
@@ -282,11 +292,11 @@ const Cubes = styled.img`
   padding-top: 3rem;
 
   @media screen and (min-width: 950px) {
-    margin-top: -60px;
+    margin-top: -100px;
   }
 
   @media screen and (min-width: 1250px) {
-    margin-top: -100px; 
+    margin-top: -160px; 
   }
 `;
 
