@@ -19,7 +19,7 @@ const Dashboard = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
-
+  console.log("userMissions",userMissions)
   return (
     <DashboardView>
       <DashboardWrapper>

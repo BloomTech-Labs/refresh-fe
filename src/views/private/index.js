@@ -24,7 +24,7 @@ import AddMember from "./team-view/AddMember";
 import CreateTMission from "./team-view/CreateTMission";
 import Calendar from "./team-view/Calendar";
 import TeamList from "./team-view/TeamList";
-import StepStart from './firstLogin/StepStart'
+import StepStart from "./firstLogin/StepStart";
 
 const PrivateViewCanvas = () => {
   const [userMissions, setUserMissions] = useState([]);
@@ -40,34 +40,23 @@ const PrivateViewCanvas = () => {
       .get(`/usermissions`)
       .then(res => {
         console.log("[server response]", res);
-        let dailyMissions = [];
         let missionSubscriptions = res.data.user_missions.mission_subscriptions;
         let missionsInProgress = res.data.user_missions.missions_in_progress;
-
-        dailyMissions = missionSubscriptions.map(mission => {
-          let updatedMission = {};
-
-          if (
-            missionsInProgress === "No Missions Currently in progress for today"
-          ) {
-            updatedMission = { ...mission, point_current: 0 };
-          } else {
-            missionsInProgress.forEach(i => {
-              if (mission.mission_id === i.mission_id) {
-                console.log("found a match!");
-                updatedMission = { ...i };
-              } else {
-                console.log("no match found!");
-                updatedMission = { ...mission, point_current: 0 };
-              }
+        if (!Array.isArray(missionsInProgress)) {
+          console.log('not Array')
+          setUser(res.data.user_profile);
+          setUserMissions(missionSubscriptions);
+        } else {
+          missionSubscriptions.map((mission, i) => {
+            missionsInProgress.forEach(missionInProgress => {
+              if (mission.mission_id === missionInProgress.mission_id) {
+                missionSubscriptions[i] = missionInProgress;
+              } 
             });
-          }
-
-          return updatedMission;
-        });
-
-        setUser(res.data.user_profile)
-        setUserMissions(dailyMissions);
+          });
+          setUser(res.data.user_profile);
+          setUserMissions(missionSubscriptions);
+        }   
       })
       .catch(err => {
         console.log(err);
@@ -76,23 +65,23 @@ const PrivateViewCanvas = () => {
   return (
     <UserContext.Provider value={{ ...user, setUser: setUser }}>
       <UserMissionsContext.Provider value={userMissions}>
-          <Route path="/" component={MobileMenu} />
-          <Route path="/firstlogin" component={StepStart}/>
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/mission-complete" component={MissionComplete} />
-          <Route path="/gauge" component={Gauge} />
-          <Route path="/atoms" component={Atoms} />
-          <Route path="/sandbox" component={Sandbox} />
-          <Route path="/profile-overview" component={ProfileOverview} />
-          <Route path="/leaderboard" component={Leaderboard} />
-          <Route path="/mission-stats" component={MissionStats} />
-          <Route path="/team-view" component={TeamView} />
-          <Route path="/teamList" component={TeamList} />
-          <Route path="/invite" component={AddMember} />
-          <Route path="/createtm" component={CreateTMission} />
-          <Route path="/calendar" component={Calendar} />
-          <Route path="/coming-soon" component={ComingSoon} />
-          <Route path="/timer" component={TimerCanvas} />
+        <Route path="/" component={MobileMenu} />
+        <Route path="/firstlogin" component={StepStart} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/mission-complete" component={MissionComplete} />
+        <Route path="/gauge" component={Gauge} />
+        <Route path="/atoms" component={Atoms} />
+        <Route path="/sandbox" component={Sandbox} />
+        <Route path="/profile-overview" component={ProfileOverview} />
+        <Route path="/leaderboard" component={Leaderboard} />
+        <Route path="/mission-stats" component={MissionStats} />
+        <Route path="/team-view" component={TeamView} />
+        <Route path="/teamList" component={TeamList} />
+        <Route path="/invite" component={AddMember} />
+        <Route path="/createtm" component={CreateTMission} />
+        <Route path="/calendar" component={Calendar} />
+        <Route path="/coming-soon" component={ComingSoon} />
+        <Route path="/timer" component={TimerCanvas} />
       </UserMissionsContext.Provider>
     </UserContext.Provider>
   );

@@ -12,7 +12,7 @@ const Progress = props => {
           currentPoints = currentPoints + mission.point_current;
       });
      
-      let percentComplete = currentPoints / goalCount;
+      let percentComplete = Number(currentPoints / goalCount) ?currentPoints / goalCount:0 ;
       return Math.round(percentComplete * 100);
     }
     const percentComplete = missionCount();
