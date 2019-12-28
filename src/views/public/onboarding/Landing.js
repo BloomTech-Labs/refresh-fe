@@ -67,7 +67,7 @@ const OnBoardContainer = styled.div`
   flex-direction:column;
   width: 100vw;
   height: 100vh;
-  max-height: 100vh;
+  overflow-y: auto;
   background-color: #4742bc;
   background-image: url(${waves});
   font-family: "Catamaran", sans-serif;
