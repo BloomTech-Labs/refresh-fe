@@ -103,10 +103,8 @@ const FlexHolder = styled.div`
     font-size: calc(100% + 3.9vw);
     line-height: 3.9rem;
     @media screen and (min-width: 1000px) {
-      
-    }
-    @media screen and (min-width: 1000px) {
-      line-height: 7rem;
+      font-size: calc(100% + 2vw);
+      line-height: 3rem;
       margin-top: 10px;
     }
   }
@@ -119,6 +117,10 @@ const Refresh = styled.h1`
   letter-spacing: 3.5px;
   color: #ffffff;
   margin-left:10%;
+  @media screen and (min-width: 1000px) {
+    font-size: calc(100% + 6.5vw);
+    margin-top: -20px;
+  }
 `;
 
 const OnboardTxt = styled.p`
@@ -135,7 +137,7 @@ const Button = styled.a`
   padding: 1.5rem 0.8rem;
   width: 64%;
   text-align: center;
-  margin: auto;
+  margin: 10px auto;
   background: #E05CB3;
   color: white;
   font-size: calc(100% + 0.5vw);
