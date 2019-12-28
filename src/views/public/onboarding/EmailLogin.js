@@ -139,6 +139,10 @@ const Logo = styled.img`
   width: 100%;
   max-width: 100%;
   margin: auto;
+
+  @media screen and (min-width: 1500px) {
+    margin-top: -40px;
+  }
 `;
 
 const Form = styled.form`
@@ -175,6 +179,13 @@ font-size: calc(100%);
   font-family: "Catamaran", sans-serif;
   font-size: calc(100%);
 }
+@media screen and (min-width: 800px) {
+  width: 80%;
+  margin: 20px auto;
+}
+@media screen and (min-width: 1300px) {
+  height: 2vh;
+}
 `;
 
 const Button = styled.a`
@@ -190,6 +201,10 @@ color: white;
 font-size:calc(110% + 0.5vw);
 letter-spacing:0.1rem;
 }
+@media screen and (min-width: 1000px) {
+  margin-top: 20px;
+}
+
 `;
 
 const ButtonNoColor = styled.a`
