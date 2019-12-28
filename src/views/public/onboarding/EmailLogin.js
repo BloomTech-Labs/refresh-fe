@@ -202,6 +202,9 @@ letter-spacing:0.1rem;
 @media screen and (min-width: 1000px) {
   margin-top: 20px;
 }
+@media screen and (max-width: 700px) {
+  margin-bottom: 200px;
+}
 
 `;
 
