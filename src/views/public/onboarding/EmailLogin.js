@@ -122,7 +122,8 @@ const OnBoardContainer = styled.div`
   background-size: initial;
   color: #7f7cca;
   padding: 8%;
-  height: fit-content;
+  height: 100vh;
+  overflow-y: auto;
 
   .smallTxt {
     font-size: calc(80% + 0.1vw);
@@ -137,9 +138,10 @@ const Logo = styled.img`
   width: 100%;
   max-width: 100%;
   margin: auto;
+  margin-bottom: 20px;
 
-  @media screen and (min-width: 1500px) {
-    margin-top: -40px;
+  @media screen and (min-width: 1000px) {
+    margin-top: -80px;
   }
 `;
 
@@ -164,8 +166,9 @@ width: 89%;
 
 const Input = styled.input`
 border: 1px solid #3d3b91;
-margin: 3% 0;
-padding: 5%;
+margin: 2% 0;
+padding: 1%;
+text-align: center;
 width: 100%;
 border-radius: 3px;
 box-shadow: 1px 1px 1px 1px #35347f;
@@ -177,12 +180,15 @@ font-size: calc(100%);
   font-family: "Catamaran", sans-serif;
   font-size: calc(100%);
 }
-@media screen and (min-width: 800px) {
-  margin: 5px auto;
-  padding: 0.1%:
+@media screen and (max-width: 800px) {
+  margin: 3% auto;
 }
-@media screen and (min-width: 1300px) {
-  height: 2vh;
+@media screen and (max-width: 600px) {
+  margin: 4% auto;
+}
+@media screen and (max-width: 500px) {
+  margin: 5% auto;
+  padding: 2%;
 }
 `;
 
@@ -190,25 +196,14 @@ const Button = styled.a`
 display: flex;
 justify-content: space-evenly;
 border-radius: 0.5rem;
-padding: 1.5rem 0.8rem;
+padding: 1%;
 width:75%;
 text-align:center;
-margin: 13% auto auto;
+margin: 3% auto;
 background: #E05CB3;
 color: white;
-font-size:calc(110% + 0.5vw);
+font-size:calc(110% + 0.2vw);
 letter-spacing:0.1rem;
-}
-@media screen and (min-width: 800px) {
-  padding: 0.1%;
-}
-@media screen and (min-width: 1000px) {
-  margin-top: 20px;
-}
-@media screen and (max-width: 700px) {
-  margin-bottom: 200px;
-}
-
 `;
 
 const ButtonNoColor = styled.a`
