@@ -100,8 +100,11 @@ const Container = styled.div`
         // the gauge functionality for the cards -JC
         // JC was smart enough to foist i on me -MM
         i {
-    font-size: calc(100vw / 27);
+    font-size: calc(100vw / 20);
     margin: 2rem 0;
+    @media screen and (min-width: 1000px) {
+      font-size: calc(100vw / 27);
+    }
   }
 
   p {
