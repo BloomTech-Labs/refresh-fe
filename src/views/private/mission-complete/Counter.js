@@ -24,7 +24,7 @@ const Counter = props => {
     // handlers
     const increment = e => {
         setCounter({ ...counter, value: counter.value + 1 });
-
+        console.log(selectedMission)
         if (missionTracker.length < 1) {
             setMissionTracker([{ question_id: selectedMission, answer: counter.value + 1 }]);
             console.log('[empty tracker fire]', missionTracker);
