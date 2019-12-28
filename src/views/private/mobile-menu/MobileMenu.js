@@ -32,7 +32,6 @@ const MobileMenu = props => {
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
 
-  console.log("From Menu", activeUser);
   const [menu, setMenu] = useState({
     status: "closed",
     darken: "inactive"

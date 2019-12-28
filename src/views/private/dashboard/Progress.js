@@ -2,18 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Progress = props => {
-    console.log(props.missions);
+    
     const { missions } = props;
     function missionCount() {
       let currentPoints = 0;
       let goalCount = 0;
       missions.forEach((mission, i) => {
-          mission.point_current = 5;
           goalCount = goalCount + mission.goal;
           currentPoints = currentPoints + mission.point_current;
       });
-      console.log('current', currentPoints);
-      console.log('goal', goalCount);
+     
       let percentComplete = currentPoints / goalCount;
       return Math.round(percentComplete * 100);
     }

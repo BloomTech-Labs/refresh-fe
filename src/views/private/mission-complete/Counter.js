@@ -26,13 +26,13 @@ const Counter = props => {
         setCounter({ ...counter, value: counter.value + 1 });
         console.log(selectedMission)
         if (missionTracker.length < 1) {
-            setMissionTracker([{ question_id: selectedMission, answer: counter.value + 1 }]);
+            setMissionTracker([{ question_id: selectedMission.question_id, answer: counter.value + 1 }]);
             console.log('[empty tracker fire]', missionTracker);
         } else {
             let missionIndex = missionTracker.findIndex(i => i.question_id === selectedMission);
 
             if (missionIndex === -1) {
-                setMissionTracker([...missionTracker, {question_id: selectedMission, answer: counter.value + 1}]);
+                setMissionTracker([...missionTracker, {question_id: selectedMission.question_id, answer: counter.value + 1}]);
                 console.log('[no index found fire]', missionTracker);
             } else {
                 let trackerCopy = [...missionTracker];
@@ -47,7 +47,7 @@ const Counter = props => {
         setCounter({ ...counter, value: counter.value - 1 });
 
         if (missionTracker.length < 1) {
-            setMissionTracker([{ question_id: selectedMission, answer: counter.value - 1 }]);
+            setMissionTracker([{ question_id: selectedMission.question_id, answer: counter.value - 1 }]);
             console.log('[empty tracker fire]', missionTracker);
         } else {
             let missionIndex = missionTracker.findIndex(i => i.question_id === selectedMission);

@@ -102,8 +102,7 @@ const MissionComplete = props => {
   };
 
   const submitMissionTracker = e => {
-    console.log("[missionTracker submitted]", missionTracker);
-
+   
     axiosWithAuth()
       .post("/answers", missionTracker)
       .then(res => {

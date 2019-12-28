@@ -33,7 +33,7 @@ const PrivateViewCanvas = () => {
   // will abstract out later after we get all logic working properly
   // do not touch, i repeat do not touch.... -JC
   const [user, setUser] = useState();
-  console.log("here");
+
   // useEffect
   useEffect(() => {
     axiosWithAuth()
@@ -44,9 +44,6 @@ const PrivateViewCanvas = () => {
         let missionSubscriptions = res.data.user_missions.mission_subscriptions;
         let missionsInProgress = res.data.user_missions.missions_in_progress;
 
-        console.log("[mission subscriptions]", missionSubscriptions);
-        console.log("[missions in progress]", missionsInProgress);
-
         dailyMissions = missionSubscriptions.map(mission => {
           let updatedMission = {};
 
@@ -56,9 +53,9 @@ const PrivateViewCanvas = () => {
             updatedMission = { ...mission, point_current: 0 };
           } else {
             missionsInProgress.forEach(i => {
-              if (mission.id === i.id) {
+              if (mission.mission_id === i.mission_id) {
                 console.log("found a match!");
-                updatedMission = { ...mission, point_current: i.point_current };
+                updatedMission = { ...i };
               } else {
                 console.log("no match found!");
                 updatedMission = { ...mission, point_current: 0 };
@@ -69,7 +66,6 @@ const PrivateViewCanvas = () => {
           return updatedMission;
         });
 
-        console.log("[new dailyMissions]", dailyMissions);
         setUser(res.data.user_profile)
         setUserMissions(dailyMissions);
       })

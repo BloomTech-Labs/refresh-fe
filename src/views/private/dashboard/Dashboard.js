@@ -19,14 +19,6 @@ const Dashboard = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
-  console.log("[userMissionsContext]", userMissions);
-  console.log("[activeUser]", activeUser);
-
-  // state hooks
-  // todo
-
-  // useEffect
-  // todo
 
   return (
     <DashboardView>
@@ -63,13 +55,8 @@ const Dashboard = props => {
               return (
                 <MissionCard
                   key={mission.mission_id}
-                  color={mission.color}
-                  description={mission.description}
-                  points={mission.point_value}
-                  goal={mission.goal}
-                  actual={mission.point_current}
-                  vertical={mission.vertical}
-                  history={props.history}
+                  mission={mission}
+                  {...props}
                 />
               );
             })}
