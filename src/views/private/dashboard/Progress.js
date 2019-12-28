@@ -47,11 +47,11 @@ const Progress = props => {
             width: ${props => props.width}%;
             height: 1rem;
             background: #E05CB3;
-            position: relative;
+            display: flex;
+            justify-content: flex-end;
             div {
               background: #E77EC3;
               border-radius: 50%;
-              position: absolute;
               right: 0;
               width: 12px;
               height: 12px;
