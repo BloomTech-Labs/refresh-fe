@@ -84,6 +84,11 @@ const Logo = styled.img`
   width: 100%;
   height: auto;
   margin: 10% auto auto;
+
+  @media screen and (min-width: 1000px) {
+    padding-left: 300px;
+    margin-top: 20px;
+  }
 `;
 
 const FlexHolder = styled.div`
@@ -97,6 +102,13 @@ const FlexHolder = styled.div`
   .slogan {
     font-size: calc(100% + 3.9vw);
     line-height: 3.9rem;
+    @media screen and (min-width: 1000px) {
+      
+    }
+    @media screen and (min-width: 1300px) {
+      line-height: 7rem;
+      margin-top: 10px;
+    }
   }
 `;
 
