@@ -105,7 +105,7 @@ const FlexHolder = styled.div`
     @media screen and (min-width: 1000px) {
       
     }
-    @media screen and (min-width: 1300px) {
+    @media screen and (min-width: 1000px) {
       line-height: 7rem;
       margin-top: 10px;
     }
