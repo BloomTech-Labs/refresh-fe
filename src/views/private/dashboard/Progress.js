@@ -7,6 +7,7 @@ const Progress = props => {
     let currentPoints = 0;
     let goalCount = 0;
     missions.forEach((mission, i) => {
+      mission.point_current = mission.point_current ? mission.point_current:0
       goalCount = goalCount + mission.goal;
       currentPoints = currentPoints + mission.point_current;
     });
