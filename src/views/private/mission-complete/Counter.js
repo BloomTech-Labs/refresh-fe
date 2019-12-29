@@ -1,39 +1,52 @@
-// IMPORTS
-// react
 import React, { useState, useEffect } from "react";
-// styled components
 import styled from "styled-components";
 
 const Counter = props => {
-  // props
   const {
     missionTracker,
     setMissionTracker,
     selectedMission,
     drawerStatus
   } = props;
-  console.log(selectedMission)
+
   const [answer, setAnswer] = useState(0);
-  const { question_id } = selectedMission ? selectedMission:'';
-  console.log(question_id)
+  const { question_id } = selectedMission ? selectedMission : "";
+
   useEffect(() => {
     setAnswer(0);
   }, [drawerStatus]);
 
-  const setAnswerValues = () => {
-    if (missionTracker.length) {
-      setMissionTracker([{ question_id, answer }]);
+  const setAnswerValues = operator => {
+    operator =
+      operator === "+"
+        ? setAnswer(answer > 0 ? answer - 1 : 0)
+        : operator === "-"
+        ? setAnswer(answer + 1)
+        : "";
+    
+    if (!missionTracker.length) {
+      missionTracker.push({ question_id, answer });
     } else {
-      console.log("Missions Not an array", missionTracker);
+      missionTracker.map((mission, i) => {
+          console.log(question_id,mission.question_id)
+        if (question_id === mission.question_id) {
+          missionTracker[i] = {question_id,answer};
+          console.log('Mission_tracekrinL',missionTracker)
+        } else {
+          missionTracker.push({ question_id, answer });
+        }
+      });
     }
+    console.log('mission_tracker',missionTracker)
+    setMissionTracker(missionTracker)
   };
-  setAnswerValues();
-
+  
+  console.log("Mission Answers", missionTracker);
   return (
     <CounterWrapper>
-      <button onClick={() => setAnswer(answer > 0 ? answer - 1 : 0)}>-</button>
+      <button onClick={() => setAnswerValues("+")}>-</button>
       <Display>{answer}</Display>
-      <button onClick={() => setAnswer(answer + 1)}>+</button>
+      <button onClick={() => setAnswerValues("-")}>+</button>
     </CounterWrapper>
   );
 };
