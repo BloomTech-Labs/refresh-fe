@@ -22,7 +22,7 @@ const Counter = props => {
         ? setAnswer(answer > 0 ? answer - 1 : 0)
         : operator === "-"
         ? setAnswer(answer + 1)
-        : "";
+        : setAnswer(answer);
 
     if (missionTracker.length < 1) {
       missionTracker.push({ question_id, answer });
