@@ -8,7 +8,6 @@ import {deviceType} from '../profileViews/ResponsiveMedia';
 
 
 const Container = styled.div`
-border: 1px dashed red;
   height: 20px;
   margin: 0 25 0 25;
 
@@ -31,7 +30,6 @@ border: 1px dashed red;
 
 `
 const BellVector = styled.img`
-border: 1px dashed red;
 position: absolute;
 width: 25px;
 height: 25px;
@@ -41,7 +39,6 @@ top: 2.71%;
 bottom: 94.95%;
 `
 const CogVector = styled.img`
-border: 1px dashed red;
 position: absolute;
 left: 88.53%;
 right: 6.4%;
@@ -50,7 +47,6 @@ bottom: 94.95%;
 
 `
 const User = styled.div`
-border: 1px dashed red;
 position: absolute;
 width: 100%;
 width: 5rem;
@@ -79,7 +75,6 @@ top: 8.5%;
 `
 
 const UserAv = styled.img`
-border: 1px dashed red;
 position: absolute;
 width: 5rem;
 height: 5rem;
@@ -104,7 +99,6 @@ background: #C4C4C4;
 }
 `
 const NameText = styled.text`
-border: 1px dashed red;
 position: absolute;
 width: 124px;
 height: 9px;
@@ -141,9 +135,7 @@ color: #E6E6E6;
 }
 `
 const TeamLeadText = styled.div `
-border: 1px dashed red;
 position: absolute;
-border: 1px solid red;
 width: 100%;
 height: 11px;
 padding-left:5%;
@@ -182,7 +174,6 @@ color: #E05CB3;
 }
 `
 const PointsText = styled.div`
-border: 1px dashed red;
 position: absolute;
 width: 54px;
 height: 10px;
@@ -206,7 +197,6 @@ color: #B8B7E1;
 `
 
 const LvOneText = styled.text`
-border: 1px dashed red;
 position: absolute;
 width: 35px;
 height: 12px;
@@ -229,7 +219,6 @@ letter-spacing: 0.04em;
 color: #B8B7E1;
 `
 const LvTwoText = styled.div`
-border: 1px dashed red;
 position: absolute;
 width: 35px;
 height: 12px;
@@ -253,7 +242,6 @@ color: #B8B7E1;
 `
 
 const MockSlideOne = styled.img`
-border: 1px dashed red;
 position: absolute;
 width: 160px;
 height: 7px;
@@ -265,7 +253,6 @@ opacity: 0.6;
 border-radius: 3px;
 `
 const MockSlideTwo = styled.div`
-border: 1px dashed red;
 position: absolute;
 width: 52px;
 height: 7px;

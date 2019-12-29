@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 
 
 const ReminderText = styled.text`
-border: 1px dashed red;
 position: absolute;
 left: 8.43%;
 right: 33.15%;
@@ -27,7 +26,6 @@ color: #3D3B91;
 `
 
 const ReminderDots = styled.img`
-border: 1px dashed red;
 position: absolute;
 left: 81.97%;
 right: 5.34%;
@@ -39,7 +37,6 @@ background: #3D3B91;
 `
 
 const ReminderContainer = styled.div`
-border: 1px dashed red;
 position: absolute;
 width: 131px;
 height: 142px;

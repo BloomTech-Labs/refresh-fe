@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import Rocket from '../../images/profile/rocket.svg'
 
 const SurveyContainer = styled.div`
-border: 1px dashed red;
 position: absolute;
 width: 162px;
 height: 149px;
@@ -19,7 +18,6 @@ box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
 border-radius: 2px;
 `
 const SurveyText = styled.text`
-border: 1px dashed red;
 position: absolute;
 left: 0%;
 right: 0.66%;

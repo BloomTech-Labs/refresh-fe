@@ -12,7 +12,6 @@ import waves from "../../images/Onboarding/waves.svg";
 import {deviceType} from '../profileViews/ResponsiveMedia';
 
 const PVContainer = styled.div`
-border: 1px dashed red;
   padding-top: 10rem;
   background-color: #4742bc;
   background-image: url(${waves});
@@ -35,12 +34,10 @@ border: 1px dashed red;
 `;
 
 const ProfileWrapper = styled.div`
-border: 1px dashed red;
 width: 100%;
 `
 
 const ProfileLine = styled.div`
-border: 1px dashed red;
 position: absolute;
 width: 100%;
 height: 0px;

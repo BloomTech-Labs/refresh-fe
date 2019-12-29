@@ -5,7 +5,6 @@ import {deviceType} from '../profileViews/ResponsiveMedia';
 
 
 const BadgeContainer = styled.div`
-border: 1px dashed red;
 width: 100%;
 margin-bottom: auto;
 display: flex;

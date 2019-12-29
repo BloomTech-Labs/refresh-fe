@@ -105,18 +105,18 @@ opacity: 0.6;
 
 // component for profile water gauge
 const WaterCard = () => {
-  /*context*/
-  const water = useContext(WaterIntake);
-  console.log('[water]', water);
-  /*state*/
-  const [waterBottle, setWaterBottle] = useState({
-    status: '0'
-  });
-  /* handler*/
-  const handleWater = evt => {
-    waterBottle.status === '0' ?
-    setWaterBottle ({...water, status: '1'})
-  }
+  // /*context*/
+  // const water = useContext(WaterIntake);
+  // console.log('[water]', water);
+  // /*state*/
+  // const [waterBottle, setWaterBottle] = useState({
+  //   status: '0'
+  // });
+  // /* handler*/
+  // const handleWater = evt => {
+  //   waterBottle.status === '0' ?
+  //   setWaterBottle ({...water, status: '1'})
+  // }
 
   return (
     <>
