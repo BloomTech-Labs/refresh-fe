@@ -6,10 +6,8 @@ import styled from "styled-components";
 // helpers
 import { test, flex } from "../../../styles/global/Mixins";
 
-// COMPONENT
 const MissionCard = props => {
   // props destructuring
-  console.log("From Mission", props);
   const {
     icon,
     mission_id,

@@ -18,50 +18,6 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 // this will probably change a lot after BE figures out all of the data models
 // but we can use it for now to move forward on FE -JC
 
-const dummyMissions = [
-  {
-    id: 1,
-    vertical: "water",
-    description: "drank a glass of water",
-    question: "how many glasses of water did you drink?",
-    color: "#CEE2FF"
-  },
-  {
-    id: 2,
-    vertical: "activity",
-    description: "got active",
-    question: "how many minutes where you active?",
-    color: "#FECDCD"
-  },
-  {
-    id: 3,
-    vertical: "food",
-    description: "ate healthy",
-    question: "how many fruits did you eat?",
-    color: "#D5F6E3"
-  },
-  {
-    id: 4,
-    vertical: "mental",
-    description: "took a break",
-    question: "how many minutes did you break for?",
-    color: "#FFE2CC"
-  },
-  {
-    id: 5,
-    vertical: "sleep",
-    description: "got some sleep",
-    question: "how many hours did you sleep for?",
-    color: "#FECDF9"
-  },
-  {
-    id: 6,
-    vertical: "social",
-    description: "pet quality time",
-    question: "how many minutes did you spend with your pet?",
-    color: "#DFC5F7"
-  }
-];
 
 // COMPONENT
 const MissionComplete = props => {
