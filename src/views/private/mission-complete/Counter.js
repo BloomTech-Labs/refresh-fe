@@ -23,24 +23,24 @@ const Counter = props => {
         : operator === "-"
         ? setAnswer(answer + 1)
         : "";
-    
-    if (!missionTracker.length) {
+
+    if (missionTracker.length < 1) {
       missionTracker.push({ question_id, answer });
     } else {
-      missionTracker.map((mission, i) => {
-          console.log(question_id,mission.question_id)
+        let newAnswer = true
+       missionTracker.map((mission, i) => {
+        console.log(question_id, mission.question_id);
         if (question_id === mission.question_id) {
-          missionTracker[i] = {question_id,answer};
-          console.log('Mission_tracekrinL',missionTracker)
-        } else {
-          missionTracker.push({ question_id, answer });
-        }
+          missionTracker[i] = { question_id, answer };
+          newAnswer = false
+        } 
       });
+      newAnswer && missionTracker.push({ question_id, answer });
     }
-    console.log('mission_tracker',missionTracker)
-    setMissionTracker(missionTracker)
+    console.log("mission_tracker", missionTracker);
+    setMissionTracker(missionTracker);
   };
-  
+
   console.log("Mission Answers", missionTracker);
   return (
     <CounterWrapper>
