@@ -8,6 +8,9 @@
         "fblogo",
         "firstlogin",
         "googlelogo",
-        "usermissions"
+        "mixins",
+        "progressbar",
+        "usermissions",
+        "valuenow"
     ]
 }
