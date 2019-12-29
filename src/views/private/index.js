@@ -28,10 +28,6 @@ import StepStart from "./firstLogin/StepStart";
 
 const PrivateViewCanvas = () => {
   const [userMissions, setUserMissions] = useState([]);
-  // state hooks
-  // this hook becomes the global user context
-  // will abstract out later after we get all logic working properly
-  // do not touch, i repeat do not touch.... -JC
   const [user, setUser] = useState();
 
   // useEffect
