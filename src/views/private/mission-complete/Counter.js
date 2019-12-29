@@ -29,7 +29,6 @@ const Counter = props => {
     } else {
         let newAnswer = true
        missionTracker.map((mission, i) => {
-        console.log(question_id, mission.question_id);
         if (question_id === mission.question_id) {
           missionTracker[i] = { question_id, answer };
           newAnswer = false
@@ -37,11 +36,9 @@ const Counter = props => {
       });
       newAnswer && missionTracker.push({ question_id, answer });
     }
-    console.log("mission_tracker", missionTracker);
     setMissionTracker(missionTracker);
   };
 
-  console.log("Mission Answers", missionTracker);
   return (
     <CounterWrapper>
       <button onClick={() => setAnswerValues("+")}>-</button>
