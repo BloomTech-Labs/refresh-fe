@@ -64,7 +64,7 @@ const CardContainer = styled.div`
     padding: 1rem;
     opacity: ${props => (props.selected === true ? "0.5" : "1")};
     ${flex.flexCol}
-    overflow-y: auto;
+    overflow-y: hidden;
     &:hover {
       cursor: pointer;
     }

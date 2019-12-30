@@ -50,6 +50,11 @@ const Container = styled.div`
     height: calc(50vw);
   }
 
+  @media screen and (min-width: 1200px) {
+    max-height: 17rem;
+    max-width: 17rem;
+  }
+
   // this i needs to change later on when i work out
         // the gauge functionality for the cards -JC
         // JC was smart enough to foist i on me -MM
