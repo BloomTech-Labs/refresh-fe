@@ -112,7 +112,7 @@ Install the dependencies listed above with "npm i" or "yarn add" before running 
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
-Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
+Please note we have a [code of conduct](https://github.com/Lambda-School-Labs/refresh-fe/blob/3059b5827cb9c2c127c5b7898145894eb2aade46/.github/CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
 
