@@ -11,36 +11,33 @@ const ContextRouter = ({
 }) => {
   const [userMissions, setUserMissions] = useState([]);
   const [user, setUser] = useState();
-  const [context, setContext] = useState();
+
   useEffect(() => {
     localStorage.getItem("token") &&
       axiosWithAuth()
         .get(`/usermissions`)
         .then(res => {
           console.log("[server response]", res);
-          let missionSubscriptions =
-            res.data.user_missions.mission_subscriptions;
-          let missionsInProgress = res.data.user_missions.missions_in_progress;
-          if (!Array.isArray(missionsInProgress)) {
-            console.log("not Array");
-            setUser(res.data.user_profile);
-            setUserMissions(missionSubscriptions);
-          } else {
-            missionSubscriptions.map((mission, i) => {
-              missionsInProgress.forEach(missionInProgress => {
+          const {
+            mission_subscriptions,
+            missions_in_progress
+          } = res.data.user_missions;
+
+          !Array.isArray(missions_in_progress) &&
+            mission_subscriptions.map((mission, i) => {
+              missions_in_progress.forEach(missionInProgress => {
                 if (mission.mission_id === missionInProgress.mission_id) {
-                  missionSubscriptions[i] = missionInProgress;
+                  mission_subscriptions[i] = missionInProgress;
                 }
               });
             });
-            setUser(res.data.user_profile);
-            setUserMissions(missionSubscriptions);
-          }
+          setUser(res.data.user_profile);
+          setUserMissions(mission_subscriptions);
         })
         .catch(err => {
           console.log(err);
         });
-  }, [context]);
+  }, []);
   return (
     <Route
       {...rest}
