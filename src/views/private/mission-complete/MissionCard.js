@@ -64,8 +64,12 @@ const CardContainer = styled.div`
     padding: 1rem;
     opacity: ${props => (props.selected === true ? "0.5" : "1")};
     ${flex.flexCol}
+    overflow-y: auto;
     &:hover {
       cursor: pointer;
+    }
+    @media screen and (max-width: 330px) {
+      height: calc(50vw);
     }
 
         i {

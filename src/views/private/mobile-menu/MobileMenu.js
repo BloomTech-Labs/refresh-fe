@@ -280,6 +280,10 @@ const NavButton = styled.div`
   align-items: center;
   border-radius: 2px;
 
+  @media screen and (max-width: 330px) {
+    font-size: 1.4rem;
+  }
+
   i {
     color:rgba(204, 201, 255,.6);
     margin: 1.5rem;

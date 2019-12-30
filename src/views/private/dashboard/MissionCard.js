@@ -46,6 +46,10 @@ const Container = styled.div`
   color: #FFF;
   ${flex.flexCol}
 
+  @media screen and (max-width: 330px) {
+    height: calc(50vw);
+  }
+
   // this i needs to change later on when i work out
         // the gauge functionality for the cards -JC
         // JC was smart enough to foist i on me -MM
