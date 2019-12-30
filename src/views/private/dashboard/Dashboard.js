@@ -86,6 +86,8 @@ const DashboardView = styled.div`
   max-height: 100vh;
   padding-top: 10rem;
   background-color: #3a3699;
+  overflow-x: hidden;
+  overflow-y: hidden;
 `;
 
 const DashboardWrapper = styled.div`
@@ -159,6 +161,9 @@ const MissionHub = styled.div`
   max-height: 42vh;
   overflow-y: scroll;
   ${flex.flexRowWrapAround}
+  @media screen and (min-width: 1200px) {
+    overflow-y: hidden;
+  }
 `;
 
 const AddMission = styled.div`
@@ -188,6 +193,11 @@ const MissionButton = styled.button`
   &:hover {
     cursor: pointer;
   }
+  @media screen and (min-width: 1200px) {
+    width: 50px;
+    height: 50px;
+    margin-top: -40px;
+  }
 `;
 
 const StartTimer = styled.div`
@@ -197,6 +207,9 @@ const StartTimer = styled.div`
   a {
     text-decoration: none;
     color: #fff;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: -20px;
   }
 `;
 
