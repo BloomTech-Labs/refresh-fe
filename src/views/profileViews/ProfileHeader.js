@@ -83,18 +83,18 @@ background: #C4C4C4;
 
 @media ${deviceType.smallMobile}{
  max-width: 100%;
-  left: 44.8%;
+ left: 44.8%;
  
   
 }
 @media ${deviceType.mediumMobile}{
  max-width: 100%;
-  left: 44.8%;
+ left: 44.8%;
   
 }
 @media ${deviceType.largeMobile} {
  max-width: 100%;
-  left: 44.8%;
+ left: 44.8%;
   
 }
 `

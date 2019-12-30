@@ -118,7 +118,7 @@ const PlaceholderButton = styled.button`
     height: 3rem;
     background-color: transparent;
     border: none;
-    color: #FFF;
+    color: #CCC9FF;
     font-size: 2rem;
     margin: 2rem auto 2rem 2rem;
 `

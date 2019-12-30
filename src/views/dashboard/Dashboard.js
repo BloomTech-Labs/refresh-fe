@@ -76,8 +76,6 @@ const Dashboard = props => {
 // STYLED COMPONENTS
 const DashboardView = styled.div`
     width: 100vw;
-    height: 100vh;
-    max-height: 100vh;
     padding-top: 10rem;
     background-color: #3a3699;
 `
@@ -88,7 +86,6 @@ const DashboardWrapper = styled.div`
 
 const DashboardContainer = styled.div`
     width: 90%;
-    height: 80vh;
     margin: 0 auto;
 
         .mission-message {
@@ -146,7 +143,6 @@ const MissionHub = styled.div`
 
 const AddMission = styled.div`
     width: 100%;
-    height: 10rem;
     margin-top: 2rem;
     display: flex;
     flex-flow: row nowrap;
@@ -160,7 +156,6 @@ const AddMission = styled.div`
 
 const MissionButton = styled.button`
     width: 56px;
-    height: 56px;
     margin-left: auto;
     background-color: #6487FF;
     border: none;

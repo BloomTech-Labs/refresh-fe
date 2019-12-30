@@ -117,10 +117,9 @@ const MissionCard = props => {
 // STYLED COMPONENTS
 const CardContainer = styled.div`
     width: 115px;
-    height: 115px;
     box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
     border-radius: 3px;
-    background-color: ${props => bgPicker(props.vertical)}
+    background-color: ${props => bgPicker(props.vertical)};
     color: #FFF;
     margin: 2rem;
     padding: 1rem;

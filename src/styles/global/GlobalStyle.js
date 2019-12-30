@@ -9,10 +9,8 @@ const GlobalStyle = createGlobalStyle`
     // these are basic placeholders for global reset styles -JC 
     html{
         font-size:62.5%;
-        height:100%;
     }
     body {
-        height:100%;
         width: 100%;
         font-family: 'Catamaran', sans-serif;
         font-size: 1.25rem;

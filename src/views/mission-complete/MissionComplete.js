@@ -167,7 +167,6 @@ const MissionComplete = props => {
 
 const MCView = styled.div`
     width: 100vw;
-    height: 100vh;
     max-height: 100vh;
     padding-top: 5rem;
     background-color: #3a3699;

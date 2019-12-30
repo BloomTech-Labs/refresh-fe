@@ -85,7 +85,6 @@ const MissionCard = props => {
 // STYLED COMPONENTS
 const Container = styled.div`
   width: 150px;
-  height: 180px;
   box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
   border-radius: 3px;
   margin: 1rem 0.5rem;

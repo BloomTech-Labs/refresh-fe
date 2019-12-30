@@ -123,8 +123,6 @@ const Leaderboard = () => {
 // STYLED COMPONENTS
 const LBView = styled.div`
     width: 100vw;
-    height: 100vh;
-    max-height: 100vh;
     padding-top: 10rem;
     background-color: #3a3699;
 `
