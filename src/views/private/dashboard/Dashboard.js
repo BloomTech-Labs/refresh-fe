@@ -185,6 +185,9 @@ const MissionButton = styled.button`
   box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
   font-size: 5rem;
   color: #fff;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const StartTimer = styled.div`

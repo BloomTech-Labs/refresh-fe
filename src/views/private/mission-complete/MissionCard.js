@@ -64,6 +64,9 @@ const CardContainer = styled.div`
     padding: 1rem;
     opacity: ${props => (props.selected === true ? "0.5" : "1")};
     ${flex.flexCol}
+    &:hover {
+      cursor: pointer;
+    }
 
         i {
             font-size: 2.5rem;

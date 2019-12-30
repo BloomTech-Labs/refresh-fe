@@ -156,6 +156,9 @@ const ContinueButton = styled.button`
   color: #fff;
   font-weight: normal;
   letter-spacing: 0.15rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Darken = styled.div`
