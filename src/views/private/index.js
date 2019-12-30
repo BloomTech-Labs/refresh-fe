@@ -1,13 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import React from "react";
+import { Route, Redirect} from "react-router-dom";
 
-// contexts
-import { UserContext } from "../../contexts/UserContext";
-import { UserMissionsContext } from "../../contexts/UserMissionsContext";
-
-// helpers
-import { axiosWithAuth } from "../../helpers/axiosWithAuth";
-// components
 import MobileMenu from "./mobile-menu/MobileMenu";
 import Dashboard from "./dashboard/Dashboard";
 import MissionComplete from "./mission-complete/MissionComplete";
@@ -27,59 +20,27 @@ import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
 
 const PrivateViewCanvas = () => {
-  const [userMissions, setUserMissions] = useState([]);
-  const [user, setUser] = useState();
-
-  // useEffect
-  useEffect(() => {
-    axiosWithAuth()
-      .get(`/usermissions`)
-      .then(res => {
-        console.log("[server response]", res);
-        let missionSubscriptions = res.data.user_missions.mission_subscriptions;
-        let missionsInProgress = res.data.user_missions.missions_in_progress;
-        if (!Array.isArray(missionsInProgress)) {
-          console.log('not Array')
-          setUser(res.data.user_profile);
-          setUserMissions(missionSubscriptions);
-        } else {
-          missionSubscriptions.map((mission, i) => {
-            missionsInProgress.forEach(missionInProgress => {
-              if (mission.mission_id === missionInProgress.mission_id) {
-                missionSubscriptions[i] = missionInProgress;
-              } 
-            });
-          });
-          setUser(res.data.user_profile);
-          setUserMissions(missionSubscriptions);
-        }   
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
   return (
-    <UserContext.Provider value={{ ...user, setUser: setUser }}>
-      <UserMissionsContext.Provider value={userMissions}>
-        <Route path="/" component={MobileMenu} />
-        <Route path="/firstlogin" component={StepStart} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/mission-complete" component={MissionComplete} />
-        <Route path="/gauge" component={Gauge} />
-        <Route path="/atoms" component={Atoms} />
-        <Route path="/sandbox" component={Sandbox} />
-        <Route path="/profile-overview" component={ProfileOverview} />
-        <Route path="/leaderboard" component={Leaderboard} />
-        <Route path="/mission-stats" component={MissionStats} />
-        <Route path="/team-view" component={TeamView} />
-        <Route path="/teamList" component={TeamList} />
-        <Route path="/invite" component={AddMember} />
-        <Route path="/createtm" component={CreateTMission} />
-        <Route path="/calendar" component={Calendar} />
-        <Route path="/coming-soon" component={ComingSoon} />
-        <Route path="/timer" component={TimerCanvas} />
-      </UserMissionsContext.Provider>
-    </UserContext.Provider>
+    <>
+      <Route path="/" component={MobileMenu} />
+      <Route path="/firstlogin" component={StepStart} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/mission-complete" component={MissionComplete} />
+      <Route path="/gauge" component={Gauge} />
+      <Route path="/atoms" component={Atoms} />
+      <Route path="/sandbox" component={Sandbox} />
+      <Route path="/profile-overview" component={ProfileOverview} />
+      <Route path="/leaderboard" component={Leaderboard} />
+      <Route path="/mission-stats" component={MissionStats} />
+      <Route path="/team-view" component={TeamView} />
+      <Route path="/teamList" component={TeamList} />
+      <Route path="/invite" component={AddMember} />
+      <Route path="/createtm" component={CreateTMission} />
+      <Route path="/calendar" component={Calendar} />
+      <Route path="/coming-soon" component={ComingSoon} />
+      <Route path="/timer" component={TimerCanvas} />
+      <Redirect to="/dashboard" />
+    </>
   );
 };
 
