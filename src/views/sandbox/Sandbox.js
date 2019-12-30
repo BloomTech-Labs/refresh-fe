@@ -10,12 +10,11 @@
 import React from "react";
 // import { Router } from "react-router-dom";
 import styled from "styled-components";
-// import WaterBottleGauge from "../profileViews/WaterBottleGauge";
-// import WaterBottleGauge from "../profileViews/WaterBottleGauge";
+import WaterBottleGauge from "../profileViews/";
 // import ImageDial from "../team-view/ImageDial";
 // import activityBadge from "../../images/profile/activity_badge.svg";
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
+import { test, flex } from "../../styles/global/Mixins";
 // Views to test
 
 // COMPONENT
@@ -23,11 +22,9 @@ const Sandbox = () => {
   return (
     <>
       welcome to the sandbox
-      {/* <WaterBottleGauge /> */}
-      <div>
-        {/* <ImageDial /> */}
-      </div>
-{/* <img src={activityBadge} alt="alt" /> */}
+      <WaterBottleGauge />
+      <div>{/* <ImageDial /> */}</div>
+      {/* <img src={activityBadge} alt="alt" /> */}
     </>
   );
 };

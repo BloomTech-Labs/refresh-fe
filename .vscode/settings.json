@@ -12,5 +12,16 @@
         "progressbar",
         "usermissions",
         "valuenow"
-    ]
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.history": true,
+        "**/.vscode": true,
+        "yarn.lock": true
+    },
+    "explorerExclude.backup": null
 }
