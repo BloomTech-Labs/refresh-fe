@@ -141,6 +141,9 @@ const Button = styled.a`
   background: #E05CB3;
   color: white;
   font-size: calc(100% + 0.5vw);
+  &:hover {
+    cursor: pointer;
+  }
 }
 `;
 
@@ -148,6 +151,9 @@ const ButtonNoColor = styled.a`
   margin: auto;
   padding: 0.7rem;
   font-size: 1.6rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 //EXPORT

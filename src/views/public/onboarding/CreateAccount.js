@@ -229,6 +229,9 @@ const Button = styled.a`
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing:0.1rem;
+  &:hover {
+    cursor: pointer;
+  }
 }
 `;
 
@@ -244,6 +247,9 @@ background: #4A639E;
 color: white;
 font-size: calc(110% + 0.5vw);
 letter-spacing: 0.1rem;
+&:hover {
+  cursor: pointer;
+}
 @media screen and (min-width: 1200px) {
   margin-bottom: -30px;
   margin-top: 100px;
@@ -262,12 +268,18 @@ justify-content: space-around;
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing:0.1rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ButtonNoColor = styled.a`
   font-size: calc(110% + 0.5vw);
   font-style: medium;
   color: #ccc9ff;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const Cubes = styled.img`
   max-width: 20%;

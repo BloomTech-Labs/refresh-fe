@@ -239,6 +239,9 @@ const Button = styled.a`
   color: white;
   font-size:calc(110% + 0.2vw);
   letter-spacing:0.1rem;
+  &:hover {
+    cursor: pointer;
+  }
 }
 `;
 

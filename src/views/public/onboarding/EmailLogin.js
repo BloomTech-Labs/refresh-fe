@@ -204,6 +204,9 @@ background: #E05CB3;
 color: white;
 font-size:calc(110% + 0.2vw);
 letter-spacing:0.1rem;
+&:hover {
+  cursor: pointer;
+}
 `;
 
 const ButtonNoColor = styled.a`
