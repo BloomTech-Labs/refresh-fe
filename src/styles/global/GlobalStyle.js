@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.25rem;
         background-color: #4742bc;
         background-image: url(${waves});
-
+        overflow-x:hidden;
         h1,h2,h3,h4,h5 {
             font-size: 2rem;
         }
