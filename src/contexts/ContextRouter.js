@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import { UserMissionsContext } from "./UserMissionsContext";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
+import * as ctx from "../views/globalFunctions";
 const ContextRouter = ({
   privateView: PrivateView,
   publicView: PublicView,
@@ -18,19 +19,15 @@ const ContextRouter = ({
         .get(`/usermissions`)
         .then(res => {
           console.log("[server response]", res);
-          const {
+          let {
             mission_subscriptions,
             missions_in_progress
           } = res.data.user_missions;
 
-          !Array.isArray(missions_in_progress) &&
-            mission_subscriptions.map((mission, i) => {
-              missions_in_progress.forEach(missionInProgress => {
-                if (mission.mission_id === missionInProgress.mission_id) {
-                  mission_subscriptions[i] = missionInProgress;
-                }
-              });
-            });
+          mission_subscriptions = Array.isArray(missions_in_progress)
+            ? ctx.missionMasher(mission_subscriptions, missions_in_progress)
+            : mission_subscriptions;
+          
           setUser(res.data.user_profile);
           setUserMissions(mission_subscriptions);
         })
