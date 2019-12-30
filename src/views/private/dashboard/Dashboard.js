@@ -193,6 +193,11 @@ const MissionButton = styled.button`
   &:hover {
     cursor: pointer;
   }
+  @media screen and (min-width: 1200px) {
+    width: 50px;
+    height: 50px;
+    margin-top: -40px;
+  }
 `;
 
 const StartTimer = styled.div`
@@ -202,6 +207,9 @@ const StartTimer = styled.div`
   a {
     text-decoration: none;
     color: #fff;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: -20px;
   }
 `;
 
