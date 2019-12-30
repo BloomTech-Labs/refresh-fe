@@ -1,5 +1,4 @@
 import React from "react";
-//import {Link} from 'react-router-dom';
 import styled from "styled-components";
 import WaterCard from "../profileViews/WaterCard";
 import ProfileCompletion from "../profileViews/ProfileCompletion";
@@ -7,39 +6,50 @@ import WeeklySurvey from '../profileViews/WeeklySurvey';
 import YourReminders from '../profileViews/YourReminders';
 import ProfileBadges from '../profileViews/ProfileBadges';
 import ProfileHeader from '../profileViews/ProfileHeader';
-//import {mobile} from './views/profileViews/ResponsiveMedia';
 import waves from "../../images/Onboarding/waves.svg";
+import {deviceType} from '../profileViews/ResponsiveMedia';
 
 const PVContainer = styled.div`
-  position: absolute;
-  width: 375px;
-  height: 812px;
-  background: #4742bc;
-  background-image:url(${waves});
+position: relative;
+width: 375px;
+height: 812px;
+
+/* bg */
+
+background: url(.png), #4742BC;
+  background-image: url(${waves});
+  overflow-x: hidden;
+  @media ${deviceType.smallMobile}{
+    
+    overflow-x: hidden;
+  }
+  @media ${deviceType.mediumMobile}{
+    
+    overflow-x: hidden;
+  }
+  @media ${deviceType.largeMobile} {
+    
+    overflow-x: hidden;
+  }
 `;
 
 
-// const BackgroundWaves = styled.img`
-// background-img: url(wavyLines.svg);
-// background: #4742BC;
-// `
-
 const ProfileLine = styled.div`
 position: absolute;
-width: 372px;
-height: 0px;
-left: 3px;
+width: 100%;
+height: 0%;
+left: 0%;
 top: 210px;
-
 border: 3px solid rgba(71, 69, 161, 0.85);
 `
 
 
 
 const ProfileOverview = () => {
+  
   return (
     <>
-      <PVContainer>
+      <PVContainer >
         <ProfileHeader/>
         <ProfileLine/>
         <WaterCard />

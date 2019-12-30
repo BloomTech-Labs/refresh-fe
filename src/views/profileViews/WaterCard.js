@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 import styled from "styled-components";
-//import WaterBottleGauge from '../profileViews/WaterBottleGauge';
+import {Link} from 'react-router-dom';
+import WaterIntake from '../../contexts/WaterIntake';
+import {axiosWithAuth} from '../../helpers/axiosWithAuth';
+
 
 const HydrationContainer = styled.div`
   position: absolute;
   width: 149px;
   height: 190px;
-  left: 31px;
+  left: 20%;
   top: 389px;
   /* water / background blue */
   background: #cee2ff;
@@ -16,7 +19,7 @@ const HydrationContainer = styled.div`
 `;
 
 const HydrationText = styled.text`
-  position: absolute;
+position: absolute;
 left: 9.8%;
 right: 25.49%;
 top: 14.21%;
@@ -36,7 +39,7 @@ letter-spacing: 0.02em;
 color: #6091D6;
 `
 const NumOfCups = styled.text`
-  position: absolute;
+position: absolute;
 left: 24.18%;
 right: 55.56%;
 top: 61.05%;
@@ -56,7 +59,7 @@ letter-spacing: 0.02em;
 color: #1575FF;
 `;
 const CupsOfWater = styled.text`
-  position: absolute;
+position: absolute;
 left: 44.44%;
 right: 27.45%;
 top: 68.95%;
@@ -99,19 +102,26 @@ color: #9AB9E5;
 opacity: 0.6;
 `;
 
-// const VectorContainer = styled.div`
-// position: absolute;
-// left: 43.14%;
-// right: 42.93%;
-// top: 29.47%;
-// bottom: 40%;
-// background: #FFFF;
-// `
 
+// component for profile water gauge
 const WaterCard = () => {
+  // /*context*/
+  // const water = useContext(WaterIntake);
+  // console.log('[water]', water);
+  // /*state*/
+  // const [waterBottle, setWaterBottle] = useState({
+  //   status: '0'
+  // });
+  // /* handler*/
+  // const handleWater = evt => {
+  //   waterBottle.status === '0' ?
+  //   setWaterBottle ({...water, status: '1'})
+  // }
+
   return (
     <>
-      <HydrationContainer>
+      
+        <Link to='/mission-stats'><HydrationContainer>
         <HydrationText>hydration<br/>station</HydrationText>
         
       <NumOfCups>6</NumOfCups>
@@ -121,7 +131,9 @@ const WaterCard = () => {
         water
       </CupsOfWater>
       <OfEight>of 8</OfEight>
+      
       </HydrationContainer>
+      </Link>
     </>
   );
 };

@@ -1,13 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
+import {deviceType} from '../profileViews/ResponsiveMedia';
+//import ActivityBadge from '../../images/badges/activity_badge.svg'
 
 
+const BadgeContainer = styled.div`
+width: 100%;
+margin-bottom: auto;
+display: flex;
+flex-flow: row nowrap;
+justify-content: space-between;
+align-items: center;
+
+@media ${deviceType.smallMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.mediumMobile}{
+  max-width: 100%;
+  
+}
+@media ${deviceType.largeMobile} {
+  max-width: 100%;
+  
+}
+
+` 
 const BadgeText = styled.text`
 position: absolute;
-width: 66px;
+padding-left: 3%;
+width: 20%;
 height: 15px;
-left: 30px;
-top: 233px;
+left: 18.5%;
+top: 37.2%;
 
 font-family: Catamaran;
 font-style: normal;
@@ -26,9 +51,10 @@ color: #B8B7E1;
 `
 const ViewAllText = styled.text `
 position: absolute;
-width: 41px;
-height: 9px;
-left: 289px;
+width: 10%;
+height: 2%;
+padding-left: 2%;
+left: 71.7%;
 top: 237px;
 
 font-family: Catamaran;
@@ -48,58 +74,173 @@ color: #B8B7E1;
 `
 
 const WaterBadge = styled.div`
-position: absolute;
-width: 57.5px;
-height: 65.5px;
-left: 32px;
+left: 19%;
 top: 258px;
-background: #1575FF;
+position: absolute;
+width: 55px;
+height: 31.75px;
+background-color: #1575FF;
+margin: 15.88px 0;
+
+
+:before,
+:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 27.5px solid transparent;
+  border-right: 27.5px solid transparent;
+}
+
+ :before {
+  bottom: 100%;
+  border-bottom: 15.88px solid #1575FF;
+}
+
+:after {
+  top: 100%;
+  width: 0;
+  border-top: 15.88px solid #1575FF;
+}
 `
 const FoodBadge = styled.div`
 position: absolute;
-width: 57.5px;
-height: 65.5px;
-left: 110px;
+left: 34.8%;
 top: 258px;
-background: #27AE60;
+width: 55px;
+height: 31.75px;
+background-color: #27AE60;
+margin: 15.88px 0;
+
+:before,
+:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 27.5px solid transparent;
+  border-right: 27.5px solid transparent;
+}
+
+ :before {
+  bottom: 100%;
+  border-bottom: 15.88px solid #27AE60;
+}
+
+:after {
+  top: 100%;
+  width: 0;
+  border-top: 15.88px solid #27AE60;
+}
 `
-const ActivityBadge = styled.div`
+
+const ActivitySVG = styled.div`
 position: absolute;
-width: 57.5px;
-height: 65.5px;
-left: 188px;
+left: 51.9%;
 top: 258px;
-background: #FC5454;
+width: 55px;
+height: 31.75px;
+background-color: #FC5454;
+margin: 15.88px 0;
+
+:before,
+:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 27.5px solid transparent;
+  border-right: 27.5px solid transparent;
+}
+
+ :before {
+  bottom: 100%;
+  border-bottom: 15.88px solid #FC5454;
+}
+
+:after {
+  top: 100%;
+  width: 0;
+  border-top: 15.88px solid #FC5454;
+}
+
 `
 const PetsBadge = styled.div`
 position: absolute;
-width: 57.5px;
-height: 65.5px;
-left: 266px;
+left: 68%;
 top: 258px;
-background: #9B51E0;
+width: 55px;
+height: 31.75px;
+background-color: #9B51E0;
+margin: 15.88px 0;
+
+
+:before,
+:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 27.5px solid transparent;
+  border-right: 27.5px solid transparent;
+}
+
+ :before {
+  bottom: 100%;
+  border-bottom: 15.88px solid #9B51E0;
+}
+
+:after {
+  top: 100%;
+  width: 0;
+  border-top: 15.88px solid #9B51E0;
+}
+
 `
 const PartialBadge = styled.div`
 position: absolute;
-width: 29.75px;
-height: 65.5px;
-left: 344px;
+left: 84%;
 top: 258px;
-background: #FC54EB;
+width: 55px;
+height: 31.75px;
+background-color: #FC54EB;
+margin: 15.88px 0;
+
+
+:before,
+:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 27.5px solid transparent;
+  border-right: 27.5px solid transparent;
+}
+
+ :before {
+  bottom: 100%;
+  border-bottom: 15.88px solid #FC54EB;
+}
+
+:after {
+  top: 100%;
+  width: 0;
+  border-top: 15.88px solid #FC54EB;
+}
+
 `
+
 
 const ProfileBadges = () => {
   return (
     <>
-   
+  
     <BadgeText>BADGES</BadgeText>
       <ViewAllText>view all</ViewAllText>
+      <BadgeContainer>
       <WaterBadge/>
       <FoodBadge/>
-      <ActivityBadge/>
+      <ActivitySVG/>
       <PetsBadge/>
+      </BadgeContainer>
       <PartialBadge/>
-    
+      
     </>
   )
 };
