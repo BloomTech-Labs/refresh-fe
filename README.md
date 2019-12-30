@@ -20,16 +20,6 @@ You can find the deployed project at [Netlify](https://confident-elion-57dd1e.ne
 <br>
 <br>
 
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
-
 ## Project Overview
 
 [Trello Board](https://trello.com/b/Zxyl0mTF/refresh)
@@ -42,40 +32,73 @@ Refresh is a healthy habit app designed specifically for Lambda School students 
 
 Unfortunately, this perspective can easily lead to burn-out and health consequences. Our app exists for the sole purpose of helping every Lambdanite build simple but powerful healthy habits that will transform them into strong, energetic, productive beings.
 
-### 4️⃣ Key Features
+### Key Features
 
-- feature one
-- feature two
-- feature three
-- feature four
-- feature five
+- Pomodoro Clock
+- Team Based Accounts
+- Custom Missions/Quests
+- Points System/Leaderboard
+- Push Notification Reminders
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
-### Front end built using:
+### Front end built using: 
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
+Why React?
 
-- point one
-- point two
-- point three
-- point four
+- Easy to scale
+- Many components
+- High performance
+- Fast loading time
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+Additional libraries/dependencies:
 
-#### Front end deployed to `🚫insert service here`
+- Moment
+- Formidable
+- React Slider
+- React Timer Hook
+- Styled Components
+- React Testing Library
+- Circular Progress Bar
 
-#### [Back end](🚫link to back end repo here) built using:
+#### Front end deployed to Netlify
 
-#### 🚫 back end framework goes here
+#### [Back end](https://github.com/Lambda-School-Labs/refresh-be) built using:
 
-- point one
-- point two
-- point three
+#### NodeJs
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+Why Node?
+
+- Consistent syntax
+- Efficient to test
+- High performance
+
+Additional libraries/dependencies:
+
+- Axios
+- Bcrypt
+- Chalk
+- Cors
+- Cross-Env
+- Crypto
+- Dotenv
+- Ejs
+- Express
+- Helmet
+- Jest
+- JSON Web Token
+- Knex
+- Knex-Cleaner
+- Morgan
+- Node Mailer
+- Nodemon
+- Passport
+- Postgres
+- SQLite
+- Supertest
+- Web-Push
 
 # APIs
 
@@ -84,30 +107,6 @@ Unfortunately, this perspective can easily lead to burn-out and health consequen
 🚫Replace text below with a description of the API
 
 Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
-
-## 2️⃣ Payment API here
-
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
 
 # 3️⃣ Environment Variables
 
