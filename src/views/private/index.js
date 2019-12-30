@@ -78,6 +78,7 @@ const PrivateViewCanvas = () => {
         <Route path="/calendar" component={Calendar} />
         <Route path="/coming-soon" component={ComingSoon} />
         <Route path="/timer" component={TimerCanvas} />
+        <Redirect to="/dashboard"/>
       </UserMissionsContext.Provider>
     </UserContext.Provider>
   );
