@@ -10,7 +10,7 @@
 import React from "react";
 // import { Router } from "react-router-dom";
 import styled from "styled-components";
-import WaterBottleGauge from "../profileViews/";
+import WaterBottleGauge from "../profileViews/WaterBottleGauge";
 // import ImageDial from "../team-view/ImageDial";
 // import activityBadge from "../../images/profile/activity_badge.svg";
 // helpers
