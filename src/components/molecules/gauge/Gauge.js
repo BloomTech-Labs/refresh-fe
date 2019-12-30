@@ -65,7 +65,7 @@ const Container = styled.div`
   Setting gauges to anything below 0 result 
   in gauges rendering below mission cards.
   Dashboard items do not have this 
-  issue, so perhaps it is how something is wrapped*/
+  issue, so perhaps it is how something is wrapped */
   /* z-index: 0; */
 `;
 

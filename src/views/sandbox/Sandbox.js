@@ -9,12 +9,13 @@
 
 import React from "react";
 // import { Router } from "react-router-dom";
-import styled from "styled-components";
-import WaterBottleGauge from "../profileViews/WaterBottleGauge";
+// import styled from "styled-components";
+// import WaterBottleGauge from "../profileViews/WaterBottleGauge";
 // import ImageDial from "../team-view/ImageDial";
 // import activityBadge from "../../images/profile/activity_badge.svg";
+// import MissionComplete from '../mission-complete/MissionComplete'
 // helpers
-import { test, flex } from "../../styles/global/Mixins";
+// import { test, flex } from "../../styles/global/Mixins";
 // Views to test
 
 // COMPONENT
@@ -22,9 +23,10 @@ const Sandbox = () => {
   return (
     <>
       welcome to the sandbox
-      <WaterBottleGauge />
-      <div>{/* <ImageDial /> */}</div>
+      {/* <WaterBottleGauge /> */}
+      {/* <div><ImageDial /></div> */}
       {/* <img src={activityBadge} alt="alt" /> */}
+      {/* <MissionComplete /> */}
     </>
   );
 };
