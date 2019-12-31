@@ -2,30 +2,44 @@
 // react
 import React from "react";
 // router
-import { NavLink } from 'react-router-dom';
 // styled components
 import styled from "styled-components";
 // helpers
-import { test, flex } from "../../../styles/global/Mixins";
+import { flex } from "../../../styles/global/Mixins";
 // gauges
-import WaterGauge from "../../../components/molecules/gauge/waterGauge"
+import LiveGauge from '../../../components/molecules/gauge/Gauge'
 
 
 // COMPONENT
 const MissionCard = props => {
   // handlers
-  const {color,icon,goal,point_current,description,point_value} = props.mission
+  const {
+    color,
+    icon,
+    goal,
+    point_current,
+    description,
+    point_value,
+    vertical
+  } = props.mission;
   const cardClickHandler = e => {
-    props.history.push('/mission-stats');
-};
-  
+    props.history.push("/mission-stats");
+  };
+
   return (
     <>
       <Container color={color} onClick={cardClickHandler}>
         <Gauge>
-          <i className={icon} ></i>
+          <LiveGauge
+            actual={point_current}
+            goal={goal}
+            vertical={vertical}
+          />
+          <i className={icon}></i>
         </Gauge>
-        <p>{(goal - point_current)} {description}</p>
+        <p>
+          {goal - point_current} {description}
+        </p>
         <span>{point_value} Points</span>
       </Container>
     </>
@@ -43,7 +57,7 @@ const Container = styled.div`
   margin: 1rem 0.5rem;
   background-color: ${props => props.color};
   padding: 1rem;
-  color: #FFF;
+  color: #fff;
   ${flex.flexCol}
 
   @media screen and (max-width: 361px) {
@@ -56,9 +70,9 @@ const Container = styled.div`
   }
 
   // this i needs to change later on when i work out
-        // the gauge functionality for the cards -JC
-        // JC was smart enough to foist i on me -MM
-        i {
+  // the gauge functionality for the cards -JC
+  // JC was smart enough to foist i on me -MM
+  i {
     font-size: calc(100vw / 20);
     margin: 2rem 0;
     @media screen and (min-width: 1000px) {
@@ -77,16 +91,12 @@ const Container = styled.div`
     align-self: flex-start;
     margin-top: auto;
   }
-
 `;
 
 const Gauge = styled.div`
-  width: calc(100vw / 7);
-  max-width: 10rem;
-  max-height: 10rem;
-  height: calc(100vw / 7);
-  border: 3px solid #FFF;
-  border-radius: 100px;
+  position: relative;
+  width: 60px;
+  height: 60px;
   margin-top: 1rem;
   margin-bottom: 2rem;
   ${flex.flexCol}
