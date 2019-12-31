@@ -19,7 +19,7 @@ const Dashboard = props => {
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
   console.log("[userMissionsContext]", userMissions);
-  console.log('activeUser', activeUser)
+  console.log("activeUser", activeUser);
 
   // state hooks
   // todo
@@ -34,7 +34,7 @@ const Dashboard = props => {
           <Header>
             <Greeting>
               <h1>Hello</h1>
-              <h1>{activeUser.fname}</h1>
+              <h1>{activeUser.display_name}</h1>
             </Greeting>
 
             <User>

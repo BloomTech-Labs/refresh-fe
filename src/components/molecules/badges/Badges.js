@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
+import styled from "styled-components";
+import BadgeBase from "./Base";
+import BadgeIcon from "./Icon";
 
 /*
  * => The current context value is determined by prop,
@@ -15,13 +18,22 @@ import { UserContext } from "../../../contexts/UserContext";
 
 const Badge = ({ ...props }) => {
   const activeUser = useContext(UserContext);
-  console.log("props/context/badges", activeUser);
+  console.log("userContext: badges", activeUser);
 
   return (
     <>
-      <div>{activeUser.display_name}</div>
+      <Container>
+        <BadgeBase />
+        <BadgeIcon />
+      </Container>
     </>
   );
 };
+
+const Container = styled.div`
+  position: relative;
+  width: 57.75px;
+  height: 65.5px;
+`;
 
 export default Badge;

@@ -9,6 +9,7 @@
 
 import React from "react";
 import Badge from "../../components/molecules/badges/Badges";
+import styled from "styled-components";
 // import { Router } from "react-router-dom";
 // import styled from "styled-components";
 // import WaterBottleGauge from "../profileViews/WaterBottleGauge";
@@ -28,13 +29,18 @@ const Sandbox = () => {
       {/* <div><ImageDial /></div> */}
       {/* <img src={activityBadge} alt="alt" /> */}
       {/* <MissionComplete /> */}
+      <Container>
       <Badge />
+      </Container>
     </>
   );
 };
 
 // STYLED COMPONENTS
 // todo
+const Container = styled.div`
+  margin: 10rem 5rem;
+`;
 
 // EXPORT
 export default Sandbox;
