@@ -14,7 +14,7 @@ const ContextRouter = ({
   const [user, setUser] = useState();
 
   useEffect(() => {
-    localStorage.getItem("token") &&
+    !user && localStorage.getItem("token") &&
       axiosWithAuth()
         .get(`/usermissions`)
         .then(res => {

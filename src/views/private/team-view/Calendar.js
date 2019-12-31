@@ -53,7 +53,7 @@ const Calendar = props => {
   //days in month
   let daysInMonth = [];
   for (let d = 1; d <= moment(dateObj).daysInMonth(); d++) {
-    let currentDate = d == currentDay() ? "today" : "";
+    let currentDate = d === currentDay() ? "today" : "";
     daysInMonth.push(
       <td key={d} className={`calendar-day ${currentDate}`}>
           <span onClick={() => selectDay(d)}>
@@ -112,7 +112,7 @@ const Calendar = props => {
     let cells = [];
 
     months.forEach((row, i) => {
-      if (i % 3 !== 0 || i == 0) {
+      if (i % 3 !== 0 || i === 0) {
         cells.push(row);
       } else {
         rows.push(cells);
@@ -195,7 +195,7 @@ const Calendar = props => {
     let cells = [];
 
     years.forEach((row, i) => {
-      if (i % 3 !== 0 || i == 0) {
+      if (i % 3 !== 0 || i === 0) {
         cells.push(row);
       } else {
         rows.push(cells);
@@ -236,7 +236,7 @@ const Calendar = props => {
 
   const onPrev = () => {
       let curr = "";
-      if(showYearTable == true){
+      if(showYearTable === true){
           curr = "year";
       } else {
           curr = "month"
