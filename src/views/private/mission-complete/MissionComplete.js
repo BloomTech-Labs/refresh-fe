@@ -23,6 +23,7 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 const MissionComplete = props => {
   // contexts
   const userMissions = useContext(UserMissionsContext);
+  const {missions} = userMissions
   console.log("[userMissions]", userMissions);
 
   // state hooks
@@ -78,7 +79,7 @@ const MissionComplete = props => {
           <h2 className="mission-message">What mission did you complete?</h2>
 
           <MissionsWrapper>
-            {userMissions.map(mission => {
+            {missions.map(mission => {
               mission.handleDrawer = handleDrawer;
               mission.setSelectedMission = setSelectedMission;
               return <MissionCard key={mission.mission_id} mission={mission} />;

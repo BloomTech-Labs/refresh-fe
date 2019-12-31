@@ -14,7 +14,7 @@ const ContextRouter = ({
   const [user, setUser] = useState();
 
   useEffect(() => {
-    !user && localStorage.getItem("token") &&
+    localStorage.getItem("token") &&
       axiosWithAuth()
         .get(`/usermissions`)
         .then(res => {
@@ -40,7 +40,7 @@ const ContextRouter = ({
       {...rest}
       render={() => {
         return (
-          <UserContext.Provider value={{ user, setUser }}>
+          <UserContext.Provider value={{...user, setUser }}>
             <UserMissionsContext.Provider value={{missions:userMissions,setUserMissions}}>
               {localStorage.getItem("token") ? <PrivateView /> : <PublicView />}
             </UserMissionsContext.Provider>
