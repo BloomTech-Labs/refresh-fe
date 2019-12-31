@@ -48,10 +48,11 @@ bottom: 94.95%;
 `
 const User = styled.div`
 position: absolute;
-width: 100%;
+/* width: 100%; */
 width: 5rem;
 height: 5rem;
 top: 8.5%;
+
 
 @media ${deviceType.smallMobile}{
  max-width: 100%;
@@ -83,18 +84,18 @@ background: #C4C4C4;
 
 @media ${deviceType.smallMobile}{
  max-width: 100%;
- left: 44.8%;
+ /* left: 0; */
  
   
 }
 @media ${deviceType.mediumMobile}{
  max-width: 100%;
- left: 44.8%;
+ /* left: 0; */
   
 }
 @media ${deviceType.largeMobile} {
  max-width: 100%;
- left: 44.8%;
+ /* left: 0; */
   
 }
 `
@@ -102,8 +103,10 @@ const NameText = styled.text`
 position: absolute;
 width: 124px;
 height: 9px;
-left: 38.0%;
-top: 128px;
+/* left: 38.0%; */
+/* top: 128px; */
+left: 12.5rem;
+top: 13.1rem;
 
 font-family: Catamaran;
 font-style: normal;
@@ -116,32 +119,32 @@ color: #E6E6E6;
 
 @media ${deviceType.smallMobile}{
  max-width: 100%;
-  left: 44.8%;
-  left: 38.2%;
+  /* left: 44.8%; */
+  /* left: 38.2%; */
   
 }
 @media ${deviceType.mediumMobile}{
  max-width: 100%;
-  left: 44.8%;
-  left: 38.2%;
-  right: 15%;
- 
+  /* left: 44.8%; */
+  /* left: 38.2%; */
+  /* right: 15%; */
   
 }
 @media ${deviceType.largeMobile} {
  max-width: 100%;
-  left: 44.8%;
+  /* left: 44.8%; */
   
 }
 `
 const TeamLeadText = styled.div `
 position: absolute;
-width: 100%;
-height: 11px;
-padding-left:5%;
-margin-left: 0%;
-margin-right: 75%;
-top: 24.8%;
+width: 6.4rem;
+height: 1.1rem;
+/* padding-left:5%; */
+/* margin-left: 0%; */
+/* margin-right: 75%; */
+top: 15.5rem;
+left: 11.8rem;
 
 font-family: Catamaran;
 font-style: normal;
@@ -159,26 +162,26 @@ color: #E05CB3;
 
 @media ${deviceType.smallMobile}{
  max-width: 100%;
-  left: 44.8%;
+  /* left: 44.8%; */
   
 }
 @media ${deviceType.mediumMobile}{
  max-width: 100%;
-  left: 44.8%;
+  /* left: 44.8%; */
   
 }
 @media ${deviceType.largeMobile} {
  max-width: 100%;
-  left: 44.8%;
+  /* left: 44.8%; */
   
 }
 `
 const PointsText = styled.div`
 position: absolute;
-width: 54px;
-height: 10px;
-left: 54.5%;
-top: 24.8%;
+width: 5.4rem;
+height: 1rem;
+left: 20.2rem;
+top: 15.5rem;
 
 font-family: Catamaran;
 font-style: normal;
@@ -188,7 +191,7 @@ line-height: 93.19%;
 /* or 10px */
 
 display: flex;
-align-items: flex-end;
+/* align-items: flex-end; */
 letter-spacing: 0.065em;
 
 /* main / menu text */
@@ -198,10 +201,10 @@ color: #B8B7E1;
 
 const LvOneText = styled.text`
 position: absolute;
-width: 35px;
-height: 12px;
-left: 25%;
-top: 29.2%;
+width: 2.5rem,;
+height: 1.2rem;
+left: 6.2rem;
+top: 17.9rem;
 
 font-family: Catamaran;
 font-style: normal;
@@ -220,15 +223,16 @@ color: #B8B7E1;
 `
 const LvTwoText = styled.div`
 position: absolute;
-width: 35px;
-height: 12px;
-left: 72%;
-top: 29.2%;
+width: 2.7rem;
+height: 1.2rem;
+left: 28.7rem;
+top: 17.9rem;
 
 font-family: Catamaran;
 font-style: normal;
 font-weight: normal;
 font-size: 13px;
+white-space: nowrap;
 line-height: 93.19%;
 /* or 12px */
 
@@ -243,10 +247,10 @@ color: #B8B7E1;
 
 const MockSlideOne = styled.img`
 position: absolute;
-width: 160px;
-height: 7px;
-left: 34%;
-top: 29.6%;
+width: 16rem;
+height: 0.7rem;
+left: 10.7rem;
+top: 18.2rem;
 
 background: #E0B8D3;
 opacity: 0.6;
@@ -254,10 +258,10 @@ border-radius: 3px;
 `
 const MockSlideTwo = styled.div`
 position: absolute;
-width: 52px;
-height: 7px;
-left: 34%;
-top: 29.6%;
+width: 5.2rem;
+height: 0.7rem;
+left: 10.7rem;
+top: 18.2rem;
 
 /* button / primary color */
 
@@ -272,7 +276,7 @@ const ProfileHeader = () => {
       <Container className='profile-container'>
         <BellVector src={notifications}/>
         <CogVector src={settings_cog}/>
-        <User>
+        <User className="User">
           <Link to='/'><UserAv src={maxine}></UserAv></Link>
         </User>
         <NameText>Maxine Woods</NameText>

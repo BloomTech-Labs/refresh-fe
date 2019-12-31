@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef} from "react"; 
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 // import axios from "axios";
 import { axiosWithAuth } from "../../helpers/axiosWithAuth";
@@ -136,13 +136,17 @@ const WaterBottleGauge = ({ children, ...props }) => {
 
 const StyledGauge = styled.div`
   position: relative;
+  height: 19rem;
+  width: 14.9rem;
 `;
 const MobileCardWater = styled.div`
   position: absolute;
-  width: 132px;
-  height: 147px;
-  left: 0px;
-  top: 0px;
+  width: 3.176rem;
+  height: 5.8rem;
+  left: 6.428rem;
+  right: 6.396rem;
+  top: 5.6rem;
+  bottom: 7.6rem;
 `;
 
 export default WaterBottleGauge;

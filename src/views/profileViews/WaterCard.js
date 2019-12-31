@@ -3,14 +3,15 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom';
 // import WaterIntake from '../../contexts/WaterIntake';
 import {axiosWithAuth} from '../../helpers/axiosWithAuth';
+import WaterBottleGauge from './WaterBottleGauge';
 
 
 const HydrationContainer = styled.div`
   position: absolute;
-  width: 149px;
-  height: 190px;
-  left: 20%;
-  top: 389px;
+  width: 14.9rem;
+  height: 19rem;
+  left: 3.1rem;
+  top: 38.9rem;
   /* water / background blue */
   background: #cee2ff;
   /* mobile / dashboard dropshadow */
@@ -123,7 +124,7 @@ const WaterCard = () => {
       
         <Link to='/mission-stats'><HydrationContainer>
         <HydrationText>hydration<br/>station</HydrationText>
-        
+        <WaterBottleGauge />
       <NumOfCups>6</NumOfCups>
       <CupsOfWater>
         cups of
