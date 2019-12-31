@@ -10,24 +10,26 @@ import waves from "../../images/Onboarding/waves.svg";
 //import {deviceType} from '../profileViews/ResponsiveMedia';
 
 const PVWrapper = styled.div`
-width: 100vw;
-
+width: 100%;
+margin-bottom: auto;
 background-color: #4742BC;
 background-image:url(${waves})
 `
 const PVContainer = styled.div`
-position: relative;
+position: absolute;
 width: 100%;
-background: url(.png), #4742BC;
-font-family: 'Catamaran';
+margin-bottom: auto;
+height: 100vh;
+z-index: -3;
+background-color: #4742BC;
+background-image:url(${waves});
 `;
 
 
 const ProfileLineBreak = styled.div`
 position: absolute;
-width: 100%;
-height: 0%;
-left: 0%;
+width: 100vw;
+height: 0px;
 top: 210px;
 border: 3px solid rgba(71, 69, 161, 0.85);
 `

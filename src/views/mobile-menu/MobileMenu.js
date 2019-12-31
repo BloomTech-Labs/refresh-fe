@@ -100,18 +100,7 @@ const Wrapper = styled.div`
     }
 `
 
-const Container = styled.div`
-    margin: 0 auto;
-    width: 100vw;
-    height: 5rem;
-    ${flex.flexRowNoWrapAround}
-    z-index: 1;
-        button:active {
-            border: none;
-            text-decoration: none;
-            outline: none;
-        }
-`
+
 
 const PlaceholderButton = styled.button`
     width: 3rem;

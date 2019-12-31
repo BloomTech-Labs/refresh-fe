@@ -9,18 +9,17 @@ import settings_cog from '../../images/profile/settings_cog.svg';
 
 const BellVector = styled.img`
 position: absolute;
-width: 25px;
-height: 25px;
-left: 78.53%;
+width: 2.5rem;
+height: 2.5rem;
+left: 88.3%;
 right: 6.4%;
 top: 2.71%;
 bottom: 94.95%;
 `
 const CogVector = styled.img`
 position: absolute;
-left: 88.53%;
-right: 6.4%;
-top: 2.71%;
+right: 6%;
+top: 5.71%;
 bottom: 94.95%;
 
 `
@@ -29,7 +28,7 @@ position: absolute;
 width: 5rem;
 height: 5rem;
 top: 8.5%;
-left: 42.8%;
+left: 72.8%;
 `
 
 const UserAv = styled.img`
@@ -43,7 +42,7 @@ const NameText = styled.text`
 position: absolute;
 width: 124px;
 height: 9px;
-left: 38.0%;
+left: 66.0%;
 top: 135px;
 
 font-family: Catamaran;

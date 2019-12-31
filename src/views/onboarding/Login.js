@@ -149,11 +149,11 @@ const OnBoardWrapper = styled.div`
   background-image:url(${waves})
 `;
 const OnBoardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-family: "Catamaran", sans-serif;
-  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: #4742BC;
+  background-image:url(${waves});
   padding-top: 5rem;
   line-height: 1.5;
   color: #7f7cca;
