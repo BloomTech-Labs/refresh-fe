@@ -8,6 +8,7 @@
 // IMPORTS
 
 import React from "react";
+import Badge from "../../components/molecules/badges/Badges";
 // import { Router } from "react-router-dom";
 // import styled from "styled-components";
 // import WaterBottleGauge from "../profileViews/WaterBottleGauge";
@@ -27,6 +28,7 @@ const Sandbox = () => {
       {/* <div><ImageDial /></div> */}
       {/* <img src={activityBadge} alt="alt" /> */}
       {/* <MissionComplete /> */}
+      <Badge />
     </>
   );
 };
