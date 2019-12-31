@@ -40,8 +40,8 @@ const ContextRouter = ({
       {...rest}
       render={() => {
         return (
-          <UserContext.Provider value={{ ...user, setUser: setUser }}>
-            <UserMissionsContext.Provider value={userMissions}>
+          <UserContext.Provider value={{ user, setUser }}>
+            <UserMissionsContext.Provider value={{missions:userMissions,setUserMissions}}>
               {localStorage.getItem("token") ? <PrivateView /> : <PublicView />}
             </UserMissionsContext.Provider>
           </UserContext.Provider>

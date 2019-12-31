@@ -9,7 +9,7 @@ import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 // styled components
 import styled from "styled-components";
 // helpers
-import { test, flex } from "../../../styles/global/Mixins";
+import {flex } from "../../../styles/global/Mixins";
 // components
 import MissionCard from "./MissionCard";
 import Progress from "./Progress";
@@ -19,8 +19,9 @@ const Dashboard = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
-  console.log("userMissions",userMissions)
-  return (
+  const {missions} = userMissions
+  
+  return  (
     <DashboardView>
       <DashboardWrapper>
         <DashboardContainer>
@@ -48,10 +49,10 @@ const Dashboard = props => {
 
           <h2 className="mission-message">Your missions today</h2>
 
-          <Progress missions={userMissions} />
+          <Progress missions={missions} />
 
           <MissionHub>
-            {userMissions.map((mission, i) => {
+            {missions.map(mission => {
               return (
                 <MissionCard
                   key={mission.mission_id}
