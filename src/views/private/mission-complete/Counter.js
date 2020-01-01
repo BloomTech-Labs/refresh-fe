@@ -12,7 +12,6 @@ const Counter = props => {
   const [answer, setAnswer] = useState();
   const { question_id } = selectedMission ? selectedMission : "";
 
-  console.log("Selected Mission", selectedMission);
   useEffect(() => {
     let newAnswer = true;
     missionTracker.map((mission, i) => {
