@@ -9,6 +9,9 @@ import { Link } from 'react-router-dom';
 import { test, flex } from '../../styles/global/Mixins';
 // images
 import Rocket from '../../images/rocket.png';
+
+import waves from "../../images/Onboarding/waves.svg";
+
 // COMPONENT
 const ComingSoon = props => {
     // handlers
@@ -19,7 +22,7 @@ const ComingSoon = props => {
     return (
         <>
         <SoonView>
-        <SoonWrapper >
+        <SoonWrapper>
             <SoonContainer>
                 <SoonImg src={Rocket} />
                 <h1>Coming Soon</h1>
@@ -35,8 +38,11 @@ const ComingSoon = props => {
 // STYLED COMPONENTS
 const SoonView = styled.div`
     width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
     padding-top: 10rem;
     background-color: #4742BC;
+    background-image:url(${waves})
 `
 
 const SoonWrapper = styled.div`
@@ -45,12 +51,12 @@ const SoonWrapper = styled.div`
 
 const SoonContainer = styled.div`
     width: 90%;
+    height: 80vh;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-
         h1 {
             font-size: 4rem;
             font-weight: bold;
@@ -73,7 +79,7 @@ const SoonContainer = styled.div`
             color: #FFF;
             letter-spacing: 0.1rem;
             margin: 2rem;
-            margin-top: auto
+            margin-top: 1rem;
             
         }
         `
@@ -83,6 +89,7 @@ const SoonContainer = styled.div`
         height: 30rem;
         margin: 0 auto;
         margin-top: auto;
+        
 `
 
 

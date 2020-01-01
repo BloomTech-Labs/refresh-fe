@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {deviceType} from '../profileViews/ResponsiveMedia';
+//import {deviceType} from '../profileViews/ResponsiveMedia';
 //import ActivityBadge from '../../images/badges/activity_badge.svg'
 
 
@@ -12,35 +12,19 @@ flex-flow: row nowrap;
 justify-content: space-between;
 align-items: center;
 
-@media ${deviceType.smallMobile}{
-  max-width: 100%;
-  
-}
-@media ${deviceType.mediumMobile}{
-  max-width: 100%;
-  
-}
-@media ${deviceType.largeMobile} {
-  max-width: 100%;
-  
-}
-
 ` 
 const BadgeText = styled.text`
 position: absolute;
-padding-left: 3%;
-width: 20%;
-height: 15px;
-left: 18.5%;
-top: 37.2%;
-
+width: 6.6rem;
+height: 1.5rem;
+left: 3rem;
+top: 23.3rem;
 font-family: Catamaran;
 font-style: normal;
 font-weight: bold;
-font-size: 16px;
-line-height: 93.19%;
+font-size: 1.6rem;
+line-height: 1.5rem;
 /* identical to box height, or 15px */
-
 display: flex;
 align-items: center;
 letter-spacing: 0.07em;
@@ -51,17 +35,16 @@ color: #B8B7E1;
 `
 const ViewAllText = styled.text `
 position: absolute;
-width: 10%;
-height: 2%;
-padding-left: 2%;
-left: 71.7%;
-top: 237px;
+width: 4.1rem;
+height: .9rem;
+left: 28.9rem;
+top: 23.7rem;
 
 font-family: Catamaran;
 font-style: normal;
 font-weight: 500;
-font-size: 10px;
-line-height: 93.19%;
+font-size: 1rem;
+line-height: .9rem;
 /* or 9px */
 
 display: flex;
@@ -74,103 +57,102 @@ color: #B8B7E1;
 `
 
 const WaterBadge = styled.div`
-left: 19%;
-top: 258px;
 position: absolute;
-width: 55px;
-height: 31.75px;
+width: 3.5rem;
+height: 2.3rem;
+left: 3.2rem;
+top: 25.8rem;
 background-color: #1575FF;
-margin: 15.88px 0;
-
+margin: 0.99rem 0;
 
 :before,
 :after {
   content: "";
   position: absolute;
   width: 0;
-  border-left: 27.5px solid transparent;
-  border-right: 27.5px solid transparent;
+  border-left: 1.71rem solid transparent;
+  border-right: 1.71rem solid transparent;
 }
 
  :before {
   bottom: 100%;
-  border-bottom: 15.88px solid #1575FF;
+  border-bottom: 0.99rem solid #1575FF;
 }
 
 :after {
   top: 100%;
   width: 0;
-  border-top: 15.88px solid #1575FF;
+  border-top: 0.99rem solid #1575FF;
 }
 `
 const FoodBadge = styled.div`
 position: absolute;
-left: 34.8%;
-top: 258px;
-width: 55px;
-height: 31.75px;
+left: 11rem;
+top: 25.8rem;
+width: 3.5rem;
+height: 2.3rem;
 background-color: #27AE60;
-margin: 15.88px 0;
+margin: 0.9925rem 0;
 
 :before,
 :after {
   content: "";
   position: absolute;
   width: 0;
-  border-left: 27.5px solid transparent;
-  border-right: 27.5px solid transparent;
+  border-left: 1.71875rem solid transparent;
+  border-right: 1.71875rem solid transparent;
 }
 
  :before {
   bottom: 100%;
-  border-bottom: 15.88px solid #27AE60;
+  border-bottom: 0.9925rem solid #27AE60;
 }
 
 :after {
   top: 100%;
   width: 0;
-  border-top: 15.88px solid #27AE60;
+  border-top: 0.9925rem solid #27AE60;
 }
 `
 
 const ActivitySVG = styled.div`
 position: absolute;
-left: 51.9%;
-top: 258px;
-width: 55px;
-height: 31.75px;
+left: 18.8rem;
+top: 25.8rem;
+width: 3.5rem;
+height: 2.3rem;
 background-color: #FC5454;
-margin: 15.88px 0;
+margin: 0.9925rem 0;
 
 :before,
 :after {
   content: "";
   position: absolute;
   width: 0;
-  border-left: 27.5px solid transparent;
-  border-right: 27.5px solid transparent;
+  border-left: 1.71875rem solid transparent;
+  border-right: 1.71875rem solid transparent;
 }
 
  :before {
   bottom: 100%;
-  border-bottom: 15.88px solid #FC5454;
+  border-bottom: 0.9925rem solid #FC5454;
 }
 
 :after {
   top: 100%;
   width: 0;
-  border-top: 15.88px solid #FC5454;
+  border-top: 0.9925rem solid #FC5454;
 }
 
 `
 const PetsBadge = styled.div`
 position: absolute;
-left: 68%;
-top: 258px;
-width: 55px;
-height: 31.75px;
+left: 26.6rem;
+top: 25.8rem;
+width: 3.5rem;
+height: 2.3rem;
 background-color: #9B51E0;
-margin: 15.88px 0;
+margin: 0.9925rem 0;
 
 
 :before,
@@ -178,50 +160,49 @@ margin: 15.88px 0;
   content: "";
   position: absolute;
   width: 0;
-  border-left: 27.5px solid transparent;
-  border-right: 27.5px solid transparent;
+  border-left: 1.71875rem solid transparent;
+  border-right: 1.71875rem solid transparent;
 }
 
  :before {
   bottom: 100%;
-  border-bottom: 15.88px solid #9B51E0;
+  border-bottom: 0.9925rem solid #9B51E0;
 }
 
 :after {
   top: 100%;
   width: 0;
-  border-top: 15.88px solid #9B51E0;
+  border-top: 0.9925rem solid #9B51E0;
 }
 
 `
 const PartialBadge = styled.div`
 position: absolute;
-left: 84%;
-top: 258px;
-width: 55px;
-height: 31.75px;
+left: 34.4rem;
+top: 25.8rem;
+width: 1.8rem;
+height: 2.3rem;
 background-color: #FC54EB;
-margin: 15.88px 0;
+margin: 0.9925rem 0;
 
 
 :before,
 :after {
   content: "";
   position: absolute;
-  width: 0;
-  border-left: 27.5px solid transparent;
-  border-right: 27.5px solid transparent;
+  width: .1rem;
+  border-left: 1.71875rem solid transparent;
 }
 
  :before {
   bottom: 100%;
-  border-bottom: 15.88px solid #FC54EB;
+  border-bottom: 0.9925rem solid #FC54EB;
 }
 
 :after {
   top: 100%;
-  width: 0;
-  border-top: 15.88px solid #FC54EB;
+  width: .1rem;
+  border-top: 0.9925rem solid #FC54EB;
 }
 
 `

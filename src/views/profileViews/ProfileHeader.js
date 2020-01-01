@@ -9,26 +9,28 @@ import settings_cog from '../../images/profile/settings_cog.svg';
 
 const BellVector = styled.img`
 position: absolute;
-width: 2.5rem;
-height: 2.5rem;
-left: 88.3%;
-right: 6.4%;
-top: 2.71%;
-bottom: 94.95%;
+width: 2rem;
+height: 2rem;
+left: 28.8rem;
+top: 2.1rem;
+
 `
 const CogVector = styled.img`
 position: absolute;
-right: 6%;
-top: 5.71%;
-bottom: 94.95%;
+width: 2rem;
+height: 2rem;
+left: 32rem;
+top: 2.1rem;
+
 
 `
+
 const User = styled.div`
 position: absolute;
-width: 5rem;
-height: 5rem;
-top: 8.5%;
-left: 72.8%;
+width: 6.4rem;
+height: 6.4rem;
+left: 16rem;
+top: 5.1rem;
 `
 
 const UserAv = styled.img`
@@ -40,34 +42,35 @@ background: #C4C4C4;
 `
 const NameText = styled.text`
 position: absolute;
-width: 124px;
-height: 9px;
-left: 66.0%;
-top: 135px;
+width: 12.4rem;
+height: 0.9rem;
+left: 12.5rem;
+top: 13.1rem;
 
 font-family: Catamaran;
 font-style: normal;
 font-weight: 500;
-font-size: 20px;
-line-height: 44%;
+font-size: 2rem;
+line-height: 0.9rem;
 /* identical to box height, or 9px */
+
+
+/* main / TEXT */
 
 color: #E6E6E6;
 `
 const TeamLeadText = styled.div `
 position: absolute;
-width: 100%;
-height: 11px;
-padding-left:5%;
-margin-left: 31.8%;
-margin-right: 75%;
-top: 24.8%;
+width: 6.4rem;
+height: 1.1rem;
+left: 11.8rem;
+top: 15.5rem;
 
 font-family: Catamaran;
 font-style: normal;
 font-weight: bold;
-font-size: 12px;
-line-height: 93.19%;
+font-size: 1.2rem;
+line-height: 1.1rem;
 /* or 11px */
 
 display: flex;
@@ -79,16 +82,16 @@ color: #E05CB3;
 `
 const PointsText = styled.div`
 position: absolute;
-width: 54px;
-height: 10px;
-left: 53.5%;
-top: 24.8%;
+width: 5.4rem;
+height: 1rem;
+left: 20.2rem;
+top: 15.5rem;
 
 font-family: Catamaran;
 font-style: normal;
 font-weight: 500;
-font-size: 11px;
-line-height: 93.19%;
+font-size: 1.1rem;
+line-height: 1rem;
 /* or 10px */
 
 display: flex;
@@ -102,18 +105,17 @@ color: #B8B7E1;
 
 const LvOneText = styled.text`
 position: absolute;
-width: 35px;
-height: 12px;
-left: 25%;
-top: 29.2%;
+width: 10rem;
+height: 1.2rem;
+left: 6.2rem;
+top: 17.9rem;
 
 font-family: Catamaran;
 font-style: normal;
 font-weight: normal;
-font-size: 13px;
-line-height: 93.19%;
+font-size: 1.3rem;
+line-height: 1.2rem;
 /* or 12px */
-
 display: flex;
 align-items: flex-end;
 letter-spacing: 0.04em;
@@ -124,16 +126,16 @@ color: #B8B7E1;
 `
 const LvTwoText = styled.div`
 position: absolute;
-width: 35px;
-height: 12px;
-left: 72%;
-top: 29.2%;
+width: 10rem;
+height: 1.2rem;
+left: 28.7rem;
+top: 17.9rem;
 
 font-family: Catamaran;
 font-style: normal;
 font-weight: normal;
-font-size: 13px;
-line-height: 93.19%;
+font-size: 1.3rem;
+line-height: 1.2rem;
 /* or 12px */
 
 display: flex;
@@ -147,26 +149,22 @@ color: #B8B7E1;
 
 const MockSlideOne = styled.img`
 position: absolute;
-width: 160px;
-height: 7px;
-left: 34%;
-top: 29.6%;
-
+width: 16rem;
+height: .7rem;
+left: 10.7rem;
+top: 18.3rem;
 background: #E0B8D3;
 opacity: 0.6;
-border-radius: 3px;
+border-radius: .3rem;
 `
 const MockSlideTwo = styled.div`
 position: absolute;
-width: 52px;
-height: 7px;
-left: 34%;
-top: 29.6%;
-
-/* button / primary color */
-
+width: 5.2rem;
+height: .7rem;
+left: 10.7rem;
+top: 18.3rem;
 background: #E05CB3;
-border-radius: 3px;
+border-radius: .3rem;
 `
 const ProfileHeader = () => {
   

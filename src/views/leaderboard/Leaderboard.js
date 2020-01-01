@@ -8,6 +8,8 @@ import { test, flex } from '../../styles/global/Mixins';
 // components
 import Scorecards from './Scorecards';
 
+import waves from "../../images/Onboarding/waves.svg";
+
 // DUMMY DATA
 const data = [
     {
@@ -124,7 +126,8 @@ const Leaderboard = () => {
 const LBView = styled.div`
     width: 100vw;
     padding-top: 10rem;
-    background-color: #3a3699;
+    background-color: #4742BC;
+    background-image:url(${waves})
 `
 
 const LBWrapper = styled.div`

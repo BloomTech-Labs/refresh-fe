@@ -9,9 +9,11 @@ import { UserMissionsContext } from '../../contexts/UserMissionsContext';
 // styled components
 import styled from 'styled-components';
 // helpers
-import { test,flex } from '../../styles/global/Mixins'; 
+import { test, flex } from '../../styles/global/Mixins';
 // components
 import MissionCard from './MissionCard';
+
+import waves from "../../images/Onboarding/waves.svg";
 
 // COMPONENT
 const Dashboard = props => {
@@ -75,19 +77,26 @@ const Dashboard = props => {
 
 // STYLED COMPONENTS
 const DashboardView = styled.div`
-    width: 100vw;
-    padding-top: 10rem;
-    background-color: #3a3699;
+width: 100vw;
+height: 100vh;
+max-height: 100vh;
+padding-top: 10rem;
+    background-color: #4742BC;
+    background-image:url(${waves});
 `
 
 const DashboardWrapper = styled.div`
     width: 100%;
+    background-color: #4742BC;
+    background-image:url(${waves});
 `
 
 const DashboardContainer = styled.div`
     width: 90%;
+    height: 80vh;
+    background-color: #4742BC;
+    background-image:url(${waves});
     margin: 0 auto;
-
         .mission-message {
             color: #CCC9FF;
             font-size: 2.5rem;
@@ -105,7 +114,6 @@ const Header = styled.div`
 
 const Greeting = styled.div`
     color: #FFF;
-
         h1 {
             font-size: 4.5rem;
             letter-spacing: 0.25rem;
@@ -118,11 +126,9 @@ const User = styled.div`
     width: 10rem;
     height: 5rem;
     ${flex.flexRowNoWrapAround}
-
         i {
             font-size: 2rem;
         }
-
         a {
             color: #CCC9FF;
         }
@@ -143,12 +149,12 @@ const MissionHub = styled.div`
 
 const AddMission = styled.div`
     width: 100%;
+    height: 10rem;
     margin-top: 2rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-
         a {
             margin-left: auto;
         }
@@ -156,6 +162,7 @@ const AddMission = styled.div`
 
 const MissionButton = styled.button`
     width: 56px;
+    height: 56px;
     margin-left: auto;
     background-color: #6487FF;
     border: none;

@@ -7,49 +7,44 @@ import YourReminders from '../profileViews/YourReminders';
 import ProfileBadges from '../profileViews/ProfileBadges';
 import ProfileHeader from '../profileViews/ProfileHeader';
 import waves from "../../images/Onboarding/waves.svg";
-//import {deviceType} from '../profileViews/ResponsiveMedia';
+
+
+/* All sizing for profile view & profile edit is for mobile only */
 
 const PVWrapper = styled.div`
-width: 100%;
-margin-bottom: auto;
-background-color: #4742BC;
-background-image:url(${waves})
-`
-const PVContainer = styled.div`
+border: 1px solid red;
+width: 37.5rem;
+height: 81.2rem;
 position: absolute;
-width: 100%;
-margin-bottom: auto;
-height: 100vh;
 z-index: -3;
 background-color: #4742BC;
 background-image:url(${waves});
-`;
-
+`
 
 const ProfileLineBreak = styled.div`
 position: absolute;
-width: 100vw;
-height: 0px;
-top: 210px;
-border: 3px solid rgba(71, 69, 161, 0.85);
+width: 37.4rem;
+height: 0;
+left: 0;
+top: 21rem;
+
+border: 0.3rem solid rgba(71, 69, 161, 0.85);
 `
 
 const ProfileOverview = () => {
   
   return (
     <>
-      <PVWrapper>
-        <PVContainer >
-        <ProfileHeader/>
-        <ProfileLineBreak/>
-        <WaterCard />
-        <ProfileCompletion />
-        <WeeklySurvey/>
-        <YourReminders/>
+      <PVWrapper >
+          <ProfileHeader/>
+          <ProfileLineBreak/>
+          <WaterCard />
+          <ProfileCompletion />
+          <WeeklySurvey/>
+          <YourReminders/>
           <ProfileBadges/>
-        </PVContainer>
-        </PVWrapper>  
-    </>
+      </PVWrapper> 
+    </>    
   );
 };
 

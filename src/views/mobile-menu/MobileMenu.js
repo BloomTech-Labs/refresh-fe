@@ -45,6 +45,7 @@ const MobileMenu = props => {
 
     // RENDER
     return (
+        <>
         <Wrapper>
             <Darken className={menu.darken} onClick={menuToggle}></Darken>
             <DrawerContainer>
@@ -71,8 +72,9 @@ const MobileMenu = props => {
                     </Column>
                 </Drawer>
             </DrawerContainer>
-            <PlaceholderButton onClick={menuToggle}><i className="fas fa-bars"></i></PlaceholderButton>
         </Wrapper>
+         <PlaceholderButton onClick={menuToggle}><i className="fas fa-bars"></i></PlaceholderButton>
+         </>
     );
 
 };
@@ -87,7 +89,7 @@ const Wrapper = styled.div`
         background-image: url(${waves});
         background-color: #4742bc;
         position: fixed;
-        z-index: -5;
+        z-index: -3;
         transition: 0.5s;
     }
     .inactive {
@@ -101,7 +103,6 @@ const Wrapper = styled.div`
 `
 
 
-
 const PlaceholderButton = styled.button`
     width: 3rem;
     height: 3rem;
@@ -109,7 +110,6 @@ const PlaceholderButton = styled.button`
     border: none;
     color: #CCC9FF;
     font-size: 2rem;
-    margin: 2rem auto 2rem 2rem;
 `
 
 const DrawerContainer = styled.div`
@@ -197,7 +197,7 @@ const Navigation = styled.div`
     align-items: center;
 `
 
-const NavButton = styled.div`
+export const NavButton = styled.div`
         width: 90%;
         height: 5rem;
         margin: 1rem 0;
