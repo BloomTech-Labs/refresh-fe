@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { UserContext } from '../../contexts/UserContext';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
 import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../images/profile/notifications.svg';
 import settings_cog from '../../images/profile/settings_cog.svg';
-//import {deviceType} from '../profileViews/ResponsiveMedia';
 
 
 const BellVector = styled.img`
@@ -13,7 +12,6 @@ width: 2rem;
 height: 2rem;
 left: 28.8rem;
 top: 2.1rem;
-
 `
 const CogVector = styled.img`
 position: absolute;
@@ -21,8 +19,6 @@ width: 2rem;
 height: 2rem;
 left: 32rem;
 top: 2.1rem;
-
-
 `
 
 const User = styled.div`
@@ -40,6 +36,7 @@ height: 5rem;
 border-radius: 50%;
 background: #C4C4C4;
 `
+
 const NameText = styled.text`
 position: absolute;
 width: 12.4rem;
@@ -54,11 +51,11 @@ font-size: 2rem;
 line-height: 0.9rem;
 /* identical to box height, or 9px */
 
-
 /* main / TEXT */
 
 color: #E6E6E6;
 `
+
 const TeamLeadText = styled.div `
 position: absolute;
 width: 6.4rem;
@@ -157,6 +154,7 @@ background: #E0B8D3;
 opacity: 0.6;
 border-radius: .3rem;
 `
+
 const MockSlideTwo = styled.div`
 position: absolute;
 width: 5.2rem;
@@ -166,16 +164,29 @@ top: 18.3rem;
 background: #E05CB3;
 border-radius: .3rem;
 `
-const ProfileHeader = () => {
+
+const ProfileHeader = props => {
+
+  const activeUser = useContext(UserContext);
+
+  const routeToEdit = evt =>{
+    evt.preventDefault();
+    props.history.push('/edit-profile');
+  }
+
+  const routeToDashboard = evt =>{
+    evt.preventDefault();
+    props.history.push('/dashboard');
+  }
   
   return (
     <>
-        <BellVector src={notifications}/>
-        <CogVector src={settings_cog}/>
+        <BellVector src={notifications} onClick={() => routeToDashboard()} />
+        <CogVector src={settings_cog} onClick={() => routeToEdit()} />
         <User>
-          <Link to='/'><UserAv src={maxine}></UserAv></Link>
+          <UserAv onClick={routeToDashboard} src={maxine}></UserAv>
         </User>
-        <NameText>Maxine Woods</NameText>
+        <NameText>{activeUser.fname}</NameText>
         <TeamLeadText>TEAM LEAD</TeamLeadText>
         <PointsText>150 points</PointsText>
         <LvOneText>Lvl 1</LvOneText>

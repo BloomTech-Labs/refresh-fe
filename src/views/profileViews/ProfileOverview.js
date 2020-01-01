@@ -6,13 +6,13 @@ import WeeklySurvey from '../profileViews/WeeklySurvey';
 import YourReminders from '../profileViews/YourReminders';
 import ProfileBadges from '../profileViews/ProfileBadges';
 import ProfileHeader from '../profileViews/ProfileHeader';
+//import EditProfile from '../profileViews/EditProfile';
 import waves from "../../images/Onboarding/waves.svg";
 
 
 /* All sizing for profile view & profile edit is for mobile only */
 
 const PVWrapper = styled.div`
-border: 1px solid red;
 width: 37.5rem;
 height: 81.2rem;
 position: absolute;
