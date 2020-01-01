@@ -35,6 +35,13 @@ letter-spacing: 0.035em;
 
 color: #E6E6E6;
 ` 
+const User = styled.div`
+position: absolute;
+width: 6.4rem;
+height: 6.4rem;
+left: 16rem;
+top: 5.1rem;
+`
 
 const UserAv = styled.img`
 position: absolute;
@@ -44,12 +51,19 @@ border-radius: 50%;
 background: #C4C4C4;
 `
 
-const EditProfile = () => {
+const EditProfile = props => {
+
+    const routeToOverview = evt =>{
+        evt.preventDefault();
+        props.history.push('/profile-overview');
+    }
     return (
         <>
         <EditContainer src={waves}>
             <EditText>Edit Profile</EditText>
-            <UserAv src={maxine}></UserAv>
+            <User>
+            <UserAv src={maxine} onClick={()=>routeToOverview()}></UserAv>
+            </User>
         </EditContainer>
         </>
     )
