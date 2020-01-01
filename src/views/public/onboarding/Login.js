@@ -63,9 +63,11 @@ const Login = props => {
 
   const authSuccess = userObject => {
     userObject = JSON.parse(userObject);
-    console.log(userObject);
-    const {mission_subscriptions, missions_in_progress } = userObject.user_missions;
-    
+    const {
+      mission_subscriptions,
+      missions_in_progress
+    } = userObject.user_missions;
+
     activeUser.setUser(userObject.user_profile);
     userMissions.setUserMissions(
       missionMasher(mission_subscriptions, missions_in_progress)

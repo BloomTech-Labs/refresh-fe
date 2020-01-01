@@ -56,7 +56,16 @@ const CreateAccount = props => {
 
   const authSuccess = userObject => {
     userObject = JSON.parse(userObject);
-    console.log(userObject);
+
+    const {
+      mission_subscriptions,
+      missions_in_progress
+    } = userObject.user_missions;
+
+    activeUser.setUser(userObject.user_profile);
+    userMissions.setUserMissions(
+      missionMasher(mission_subscriptions, missions_in_progress)
+    );
     localStorage.setItem("token", userObject.token);
     {
       userObject.newUser
@@ -67,54 +76,54 @@ const CreateAccount = props => {
 
   //render
   return (
-      <OnBoardContainer>
-        <TopHolder>
-          <ButtonNoColor className="arrow" onClick={routeToHome}>
-            &lt;
-          </ButtonNoColor>
-          <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
-        </TopHolder>
-        <HeaderHolder>
-          <Header>
-            Create <br /> Account.
-          </Header>
-          <Cubes src={cubes} />
-        </HeaderHolder>
-        <FlexHolder>
-          <FBButton name="facebookAuth" onClick={auth}>
-            Sign up with Facebook{" "}
-            <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
-          </FBButton>
-          <GoogleSignIn name="googleAuth" onClick={auth}>
-            Sign up with Google{" "}
-            <Image
-              src={googlelogo}
-              alt={"google image"}
-              height={2}
-              width={2}
-              borderRadius={100}
-            />
-          </GoogleSignIn>
-        </FlexHolder>
-        <Row width={97} height={1} padding={"12% 0"}>
-          <Col width={30} marginLeft={-2}>
-            <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-          </Col>
-          <Col
-            width={70}
-            borderBottom={"1px solid white"}
-            height={1}
-            marginTop={1}
-            marginBottom={3}
-            marginLeft={-6}
-          ></Col>
-        </Row>
-        <FlexHolder>
-          <Button onClick={routeToEmailSignUp}>
-            Sign up with Email <Image src={emailogo} height={2} width={2} />
-          </Button>
-        </FlexHolder>
-      </OnBoardContainer>
+    <OnBoardContainer>
+      <TopHolder>
+        <ButtonNoColor className="arrow" onClick={routeToHome}>
+          &lt;
+        </ButtonNoColor>
+        <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
+      </TopHolder>
+      <HeaderHolder>
+        <Header>
+          Create <br /> Account.
+        </Header>
+        <Cubes src={cubes} />
+      </HeaderHolder>
+      <FlexHolder>
+        <FBButton name="facebookAuth" onClick={auth}>
+          Sign up with Facebook{" "}
+          <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
+        </FBButton>
+        <GoogleSignIn name="googleAuth" onClick={auth}>
+          Sign up with Google{" "}
+          <Image
+            src={googlelogo}
+            alt={"google image"}
+            height={2}
+            width={2}
+            borderRadius={100}
+          />
+        </GoogleSignIn>
+      </FlexHolder>
+      <Row width={97} height={1} padding={"12% 0"}>
+        <Col width={30} marginLeft={-2}>
+          <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
+        </Col>
+        <Col
+          width={70}
+          borderBottom={"1px solid white"}
+          height={1}
+          marginTop={1}
+          marginBottom={3}
+          marginLeft={-6}
+        ></Col>
+      </Row>
+      <FlexHolder>
+        <Button onClick={routeToEmailSignUp}>
+          Sign up with Email <Image src={emailogo} height={2} width={2} />
+        </Button>
+      </FlexHolder>
+    </OnBoardContainer>
   );
 };
 
@@ -171,7 +180,7 @@ const Header = styled.h1`
   }
 
   @media screen and (min-width: 1400px) {
-    margin-top: -140px; 
+    margin-top: -140px;
   }
 `;
 const HeaderHolder = styled.div`
@@ -236,38 +245,38 @@ const Button = styled.a`
 `;
 
 const FBButton = styled.a`
-display: flex;
-justify-content: space-around;
-border-radius: 0.5rem;
-padding: 1.5rem 0;
-width: 84%;
-text-align: center;
-margin: 16% auto 2%;
-background: #4A639E;
-color: white;
-font-size: calc(110% + 0.5vw);
-letter-spacing: 0.1rem;
-&:hover {
-  cursor: pointer;
-}
-@media screen and (min-width: 1200px) {
-  margin-bottom: -30px;
-  margin-top: 100px;
-}
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0.5rem;
+  padding: 1.5rem 0;
+  width: 84%;
+  text-align: center;
+  margin: 16% auto 2%;
+  background: #4a639e;
+  color: white;
+  font-size: calc(110% + 0.5vw);
+  letter-spacing: 0.1rem;
+  &:hover {
+    cursor: pointer;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: -30px;
+    margin-top: 100px;
+  }
 `;
 
 const GoogleSignIn = styled.a`
-display: flex;
-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
-  width:84%;
-  text-align:center;
+  width: 84%;
+  text-align: center;
   margin: 5% auto;
-  background: #6997F2;
+  background: #6997f2;
   color: white;
   font-size: calc(110% + 0.5vw);
-  letter-spacing:0.1rem;
+  letter-spacing: 0.1rem;
   &:hover {
     cursor: pointer;
   }
@@ -301,11 +310,11 @@ const Cubes = styled.img`
   }
 
   @media screen and (min-width: 1250px) {
-    margin-top: -160px; 
+    margin-top: -160px;
   }
 
   @media screen and (min-width: 1400px) {
-    margin-top: -140px; 
+    margin-top: -140px;
   }
 `;
 

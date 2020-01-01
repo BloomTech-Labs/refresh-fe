@@ -25,17 +25,16 @@ const EmailSignUp = props => {
   let errors = {};
   useEffect(() => {
     errors.userName =
-      user.name.length < 4
-        && "username must be greater than 5 characters"
+      user.name.length < 4 && "username must be greater than 5 characters";
     errors.userEmail =
-      user.email.length < 4
-        && "user email must be greater than 5 characters"
+      user.email.length < 4 && "user email must be greater than 5 characters";
     errors.userPassword =
-    user.confirmPassword.length < 4 &&  user.password.length < 4
-        && "user password must be greater than 5 characters"
+      user.confirmPassword.length < 4 &&
+      user.password.length < 4 &&
+      "user password must be greater than 5 characters";
     errors.userConfirmedPass =
-      user.password === user.confirmPassword 
-        && "please make sure passwords match"
+      user.password === user.confirmPassword &&
+      "please make sure passwords match";
     !errors.userName &&
       !errors.userEmail &&
       !errors.userPassword &&
@@ -64,15 +63,25 @@ const EmailSignUp = props => {
     if (!enabledBtn) {
       alert(
         errors.userName ||
-        errors.userEmail ||
-        errors.userPassword ||
-        errors.confirmedPass
+          errors.userEmail ||
+          errors.userPassword ||
+          errors.confirmedPass
       );
     } else {
       axiosWithAuth()
         .post("/register", { email: user.email, password: user.password })
         .then(res => {
           if (res.data.token) {
+            const userObject = res.data;
+            const {
+              mission_subscriptions,
+              missions_in_progress
+            } = userObject.user_missions;
+
+            activeUser.setUser(userObject.user_profile);
+            userMissions.setUserMissions(
+              missionMasher(mission_subscriptions, missions_in_progress)
+            );
             localStorage.setItem("token", res.data.token);
             props.history.push("/firstlogin");
           } else {
@@ -86,12 +95,12 @@ const EmailSignUp = props => {
     }
   };
 
-  let BtnStats = !enabledBtn && `disabledColor`
+  let BtnStats = !enabledBtn && `disabledColor`;
   //render
   return (
     <OnBoardContainer>
-        <ButtonNoColor onClick={routeToSignUp}>&lt;</ButtonNoColor>
-        <Logo src={welcome} />
+      <ButtonNoColor onClick={routeToSignUp}>&lt;</ButtonNoColor>
+      <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -139,7 +148,9 @@ const EmailSignUp = props => {
           backgroundColor={"#3D3B91"}
           color={"#E6E6E6"}
         />
-        <Button onClick={handleSubmit} className={BtnStats}>Sign Up</Button>
+        <Button onClick={handleSubmit} className={BtnStats}>
+          Sign Up
+        </Button>
       </Form>
     </OnBoardContainer>
   );
@@ -168,33 +179,33 @@ const OnBoardContainer = styled.div`
 `;
 
 const Logo = styled.img`
-height: calc(100vh / 3.5);
-width: 100%;
-max-width: 100%;
-margin: auto;
-margin-top: -80px;
-padding-bottom: 20px;
+  height: calc(100vh / 3.5);
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  margin-top: -80px;
+  padding-bottom: 20px;
 
-@media screen and (max-width: 1000px) {
-  margin-top: auto;
-}
+  @media screen and (max-width: 1000px) {
+    margin-top: auto;
+  }
 `;
 
 const Form = styled.form`
-display: flex;
-margin: auto 0;
-flex-direction: column;
-width: 89%;
+  display: flex;
+  margin: auto 0;
+  flex-direction: column;
+  width: 89%;
   input {
     font-size: calc(100% + 0.2vw);
     ::-webkit-input-placeholder {
       font-family: "Catamaran", sans-serif;
-      color:  #a6a6a6;
+      color: #a6a6a6;
       font-size: calc(100%);
     }
   }
 
-  .disabledColor{
+  .disabledColor {
     opacity: 30%;
   }
 `;
@@ -246,7 +257,7 @@ const Button = styled.a`
 `;
 
 const ButtonNoColor = styled.a`
-  margin-right:89%;
+  margin-right: 89%;
   font-size: 2rem;
   font-style: medium;
   color: #ccc9ff;

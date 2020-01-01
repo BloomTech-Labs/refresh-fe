@@ -20,20 +20,17 @@ const EmailLogin = props => {
   const [err, setErr] = useState();
   const [enabledBtn, setEnabledBtn] = useState(false);
 
-//errors useEffect
-let errors = {};
-useEffect(() => {
-  errors.userEmail =
-    user.email.length < 4
-      && "user email must be greater than 5 characters"
-  errors.userPassword =
-  user.password.length < 4
-      && "user password must be greater than 5 characters"
-    !errors.userEmail &&
-    !errors.userPassword &&
-    setEnabledBtn(true);
-  console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
-}, [user]);
+  //errors useEffect
+  let errors = {};
+  useEffect(() => {
+    errors.userEmail =
+      user.email.length < 4 && "user email must be greater than 5 characters";
+    errors.userPassword =
+      user.password.length < 4 &&
+      "user password must be greater than 5 characters";
+    !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
+    console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+  }, [user]);
 
   //route to login
   const routeToLogin = e => {
@@ -52,28 +49,36 @@ useEffect(() => {
   //handle submit to backend
   const handleSubmit = () => {
     if (!enabledBtn) {
-      alert(
-        errors.userEmail ||
-        errors.userPassword
-      );
-      }else{axiosWithAuth()
-      .post("/login", { email: user.email, password: user.password })
-      .then(res => {
-        if (res.data.token) {
-          localStorage.setItem("token", res.data.token);
-          props.history.push("/dashboard");
-        } else {
-          setErr(res.data);
+      alert(errors.userEmail || errors.userPassword);
+    } else {
+      axiosWithAuth()
+        .post("/login", { email: user.email, password: user.password })
+        .then(res => {
+          if (res.data.token) {
+            const userObject = res.data;
+            const {
+              mission_subscriptions,
+              missions_in_progress
+            } = userObject.user_missions;
+
+            activeUser.setUser(userObject.user_profile);
+            userMissions.setUserMissions(
+              missionMasher(mission_subscriptions, missions_in_progress)
+            );
+            localStorage.setItem("token", res.data.token);
+            props.history.push("/dashboard");
+          } else {
+            setErr(res.data);
+            console.log(err);
+          }
+        })
+        .catch(err => {
           console.log(err);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        });
     }
   };
 
-  let BtnStats = !enabledBtn && `disabledColor`
+  let BtnStats = !enabledBtn && `disabledColor`;
   //render
   return (
     <OnBoardContainer>
@@ -103,7 +108,9 @@ useEffect(() => {
           color={"#E6E6E6"}
         />
         <ButtonNoColor className="smallTxt">Forgot password?</ButtonNoColor>
-        <Button onClick={handleSubmit} className={BtnStats}>Log In</Button>
+        <Button onClick={handleSubmit} className={BtnStats}>
+          Log In
+        </Button>
       </Form>
     </OnBoardContainer>
   );
@@ -146,67 +153,67 @@ const Logo = styled.img`
 `;
 
 const Form = styled.form`
-display: flex;
-margin: auto 0;
-flex-direction: column;
-width: 89%;
+  display: flex;
+  margin: auto 0;
+  flex-direction: column;
+  width: 89%;
   input {
     font-size: calc(100% + 0.2vw);
     ::-webkit-input-placeholder {
       font-family: "Catamaran", sans-serif;
-      color:  #a6a6a6;
+      color: #a6a6a6;
       font-size: calc(100%);
     }
   }
 
-  .disabledColor{
+  .disabledColor {
     opacity: 30%;
   }
 `;
 
 const Input = styled.input`
-border: 1px solid #3d3b91;
-margin: 2% 0;
-padding: 1%;
-text-align: center;
-width: 100%;
-border-radius: 3px;
-box-shadow: 1px 1px 1px 1px #35347f;
-background: #3d3b91;
-color: #ffffff;
-outline: none;
-font-size: calc(100%);
-::-webkit-input-placeholder {
-  font-family: "Catamaran", sans-serif;
+  border: 1px solid #3d3b91;
+  margin: 2% 0;
+  padding: 1%;
+  text-align: center;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px #35347f;
+  background: #3d3b91;
+  color: #ffffff;
+  outline: none;
   font-size: calc(100%);
-}
-@media screen and (max-width: 800px) {
-  margin: 3% auto;
-}
-@media screen and (max-width: 600px) {
-  margin: 4% auto;
-}
-@media screen and (max-width: 500px) {
-  margin: 5% auto;
-  padding: 2%;
-}
+  ::-webkit-input-placeholder {
+    font-family: "Catamaran", sans-serif;
+    font-size: calc(100%);
+  }
+  @media screen and (max-width: 800px) {
+    margin: 3% auto;
+  }
+  @media screen and (max-width: 600px) {
+    margin: 4% auto;
+  }
+  @media screen and (max-width: 500px) {
+    margin: 5% auto;
+    padding: 2%;
+  }
 `;
 
 const Button = styled.a`
-display: flex;
-justify-content: space-evenly;
-border-radius: 0.5rem;
-padding: 1%;
-width:75%;
-text-align:center;
-margin: 3% auto;
-background: #E05CB3;
-color: white;
-font-size:calc(110% + 0.2vw);
-letter-spacing:0.1rem;
-&:hover {
-  cursor: pointer;
-}
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 0.5rem;
+  padding: 1%;
+  width: 75%;
+  text-align: center;
+  margin: 3% auto;
+  background: #e05cb3;
+  color: white;
+  font-size: calc(110% + 0.2vw);
+  letter-spacing: 0.1rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ButtonNoColor = styled.a`
