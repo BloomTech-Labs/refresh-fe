@@ -3,10 +3,13 @@ import { Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 
+// name: "",
+// description: "",
+// questions: [{question: "", questionType: ""}]
 
 const SurveyForm = () => {
   const [questions, setQuestions] = useState([]);
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState([]);
   const [enabledBtn, setEnabledBtn] = useState(false);
 
   console.log(formValues);
@@ -14,7 +17,7 @@ const SurveyForm = () => {
   const questionHandleChange = (idx, e) => {
     const values = [...questions];
     if (e.target.name.includes("question_")) {
-      values[idx].question = e.target.value;
+      questions.push({question: [e.target.value], })
     } else {
       values[idx].questionType = e.target.value;
     }
@@ -66,7 +69,7 @@ const SurveyForm = () => {
       console.log("form", formValues);
       e.preventDefault();
       axiosWithAuth()
-        .post("https://apidevnow.com/questiongroups", formValues)
+        .post("/questiongroups", formValues)
         .then(res => console.log(res))
         .catch(err => console.log(err));
       count = 1;
@@ -75,10 +78,11 @@ const SurveyForm = () => {
   let count = 1;
   const questionCount = count++;
 
+
   return (
     <StyledWrapper>
       <StyledForm onSubmit={handleSubmit}>
-        {formValues.map((value, index) => (
+        {formValues && formValues.map((value, index) => (
           <Fragment key={`${value}~${index}`}>
             <>
               <h3>SURVEY NAME</h3>
@@ -101,6 +105,7 @@ const SurveyForm = () => {
               <input
                 type="text"
                 name={`question_` + questionCount}
+
                 placeholder="What question would you like to ask?"
                 onChange={questionHandleChange}
               />
@@ -111,6 +116,7 @@ const SurveyForm = () => {
                 <option value="slider">Slider</option>
                 <option value="text reply">Text Reply</option>
               </select>
+              <input type="hidden" value=""/>
               <div onClick={addQuestion}>Add Question</div>
             </>
           </Fragment>
