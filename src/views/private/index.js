@@ -41,7 +41,7 @@ const PrivateViewCanvas = () => {
       <Route path="/coming-soon" component={ComingSoon} />
       <Route path="/timer" component={TimerCanvas} />
       <Route path="/survey" component={SurveyCanvas} />
-      <Redirect to="/dashboard" />
+      {/* <Redirect to="/dashboard" /> */}
     </>
   );
 };
