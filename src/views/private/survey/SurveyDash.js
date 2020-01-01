@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link } from "react-router-dom";
 import styled from "styled-components";
-import { axiosWithAuth } from "../../helpers/axiosWithAuth";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import SurveyForm from "./CreateSurvey";
 
 const SurveyDash = props => {

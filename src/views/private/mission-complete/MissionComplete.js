@@ -6,7 +6,7 @@ import styled from "styled-components";
 // contexts
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 // helpers
-import { test, flex } from "../../../styles/global/Mixins";
+import {flex} from "../../../styles/global/Mixins";
 // components
 import MissionCard from "./MissionCard";
 import MissionInput from "./MissionInput";
@@ -69,7 +69,6 @@ const MissionComplete = props => {
         userMissions.setUserMissions(
           missionMasher(mission_subscriptions, missions_in_progress)
         );
-        console.log("Answer Response", res);
       })
       .catch(err => {
         console.log(err);

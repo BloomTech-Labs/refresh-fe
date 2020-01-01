@@ -4,16 +4,14 @@ import React, { useState, useEffect } from "react";
 // styled components
 import styled from "styled-components";
 // helpers
-import { test, flex } from "../../../styles/global/Mixins";
+import {flex} from "../../../styles/global/Mixins";
 
 const MissionCard = props => {
   // props destructuring
   const {
     icon,
-    mission_id,
     description,
     color,
-    point_value,
     setSelectedMission,
     vertical,
     handleDrawer

@@ -1,8 +1,8 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { Route, Link } from "react-router-dom";
 import styled from "styled-components";
-import { axiosWithAuth } from "../../helpers/axiosWithAuth";
-import axios from "axios";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+
 
 const SurveyForm = () => {
   const [questions, setQuestions] = useState([]);

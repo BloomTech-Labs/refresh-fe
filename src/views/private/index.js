@@ -18,6 +18,7 @@ import CreateTMission from "./team-view/CreateTMission";
 import Calendar from "./team-view/Calendar";
 import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
+import SurveyCanvas from "./survey";
 
 const PrivateViewCanvas = () => {
   return (
@@ -39,6 +40,7 @@ const PrivateViewCanvas = () => {
       <Route path="/calendar" component={Calendar} />
       <Route path="/coming-soon" component={ComingSoon} />
       <Route path="/timer" component={TimerCanvas} />
+      <Route path="/survey" component={SurveyCanvas} />
       <Redirect to="/dashboard" />
     </>
   );

@@ -9,41 +9,51 @@ const Counter = props => {
     drawerStatus
   } = props;
 
-  const [answer, setAnswer] = useState(0);
+  const [answer, setAnswer] = useState();
   const { question_id } = selectedMission ? selectedMission : "";
 
   useEffect(() => {
-    setAnswer(0);
+    let newAnswer = true
+    missionTracker.map((mission, i) => {
+      if (question_id === mission.question_id) {
+        newAnswer = false
+        setAnswer(missionTracker[i].answer);
+      }
+    }) 
+    newAnswer && setAnswer(0);
   }, [drawerStatus]);
 
   const setAnswerValues = operator => {
-    operator =
+    const updateAnswer =
       operator === "+"
-        ? setAnswer(answer > 0 ? answer - 1 : 0)
+        ? answer + 1
         : operator === "-"
-        ? setAnswer(answer + 1)
-        : setAnswer(answer);
+        ? answer > 0
+          ? answer - 1
+          : 0
+        : answer;
 
     if (missionTracker.length < 1) {
-      missionTracker.push({ question_id, answer });
+      missionTracker.push({ question_id, answer: updateAnswer });
     } else {
-        let newAnswer = true
-       missionTracker.map((mission, i) => {
+      let newAnswer = true;
+      missionTracker.map((mission, i) => {
         if (question_id === mission.question_id) {
-          missionTracker[i] = { question_id, answer };
-          newAnswer = false
-        } 
+          missionTracker[i] = { question_id, answer: updateAnswer };
+          newAnswer = false;
+        }
       });
-      newAnswer && missionTracker.push({ question_id, answer });
+      newAnswer && missionTracker.push({ question_id, answer: updateAnswer });
     }
+    setAnswer(updateAnswer);
     setMissionTracker(missionTracker);
   };
 
   return (
     <CounterWrapper>
-      <button onClick={() => setAnswerValues("+")}>-</button>
+      <button onClick={() => setAnswerValues("-")}>-</button>
       <Display>{answer}</Display>
-      <button onClick={() => setAnswerValues("-")}>+</button>
+      <button onClick={() => setAnswerValues("+")}>+</button>
     </CounterWrapper>
   );
 };
