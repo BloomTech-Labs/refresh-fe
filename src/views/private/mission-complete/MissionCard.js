@@ -14,11 +14,13 @@ const MissionCard = props => {
     color,
     setSelectedMission,
     vertical,
-    handleDrawer
+    handleDrawer,
+    point_current,
+    goal
   } = props.mission;
   // state hooks
   const [selected, setSelected] = useState(false);
-
+  const status = goal - point_current;
   // useEffect
   useEffect(() => {
     setSelected(false);
@@ -43,7 +45,7 @@ const MissionCard = props => {
     >
       <i className={icon}></i>
 
-      <p>{description}</p>
+      <p>{status + ' ' + description}</p>
     </CardContainer>
   );
 };
