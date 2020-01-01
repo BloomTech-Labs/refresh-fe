@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React from "react";
+import React, { useContext }  from "react";
 //styled components
 import styled from "styled-components";
 //images
@@ -16,8 +16,15 @@ import Row from "../../../components/atoms/row/row";
 import Col from "../../../components/atoms/col/col";
 import Text from "../../../components/atoms/text/text";
 import Image from "../../../components/atoms/image/image";
+//Context
+import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+import { UserContext } from "../../../contexts/UserContext";
+import { missionMasher } from "../../globalFunctions";
 
 const CreateAccount = props => {
+  // contexts
+  const activeUser = useContext(UserContext);
+  const userMissions = useContext(UserMissionsContext);
   //routes
   const routeToHome = e => {
     e.preventDefault();

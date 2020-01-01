@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 //styled components
 import styled from "styled-components";
 //axios with auth
@@ -10,6 +10,10 @@ import waves from "../../../images/Onboarding/waves.svg";
 import welcome from "../../../images/Onboarding/welcome_back.svg";
 //atoms
 // import Input from "../../components/atoms/input/input";
+//Context
+import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+import { UserContext } from "../../../contexts/UserContext";
+import { missionMasher } from "../../globalFunctions";
 
 const EmailLogin = props => {
   //hooks
@@ -19,6 +23,9 @@ const EmailLogin = props => {
   });
   const [err, setErr] = useState();
   const [enabledBtn, setEnabledBtn] = useState(false);
+  // contexts
+  const activeUser = useContext(UserContext);
+  const userMissions = useContext(UserMissionsContext);
 
   //errors useEffect
   let errors = {};

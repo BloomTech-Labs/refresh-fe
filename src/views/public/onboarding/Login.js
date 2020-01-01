@@ -1,8 +1,6 @@
 // IMPORTS
 // react
 import React, { useContext } from "react";
-// contexts
-import { UserContext } from "../../../contexts/UserContext";
 // styled components
 import styled from "styled-components";
 // images
@@ -17,8 +15,11 @@ import Row from "../../../components/atoms/row/row";
 import Col from "../../../components/atoms/col/col";
 import Text from "../../../components/atoms/text/text";
 import Image from "../../../components/atoms/image/image";
+//Context
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+import { UserContext } from "../../../contexts/UserContext";
 import { missionMasher } from "../../globalFunctions";
+
 
 // COMPONENT
 const Login = props => {
