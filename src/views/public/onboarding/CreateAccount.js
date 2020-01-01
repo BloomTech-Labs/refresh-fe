@@ -61,7 +61,7 @@ const CreateAccount = props => {
     {
       userObject.newUser
         ? props.history.push("/firstlogin")
-        : props.history.push("/firstlogin");
+        : props.history.push("/dashboard");
     }
   };
 

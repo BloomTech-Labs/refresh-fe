@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import { UserMissionsContext } from "./UserMissionsContext";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
@@ -36,6 +36,7 @@ const ContextRouter = ({
         });
   }, []);
   return (
+    <Switch>
     <Route
       {...rest}
       render={() => {
@@ -48,6 +49,7 @@ const ContextRouter = ({
         );
       }}
     />
+    </Switch>
   );
 };
 export default ContextRouter;

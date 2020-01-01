@@ -17,12 +17,14 @@ import Row from "../../../components/atoms/row/row";
 import Col from "../../../components/atoms/col/col";
 import Text from "../../../components/atoms/text/text";
 import Image from "../../../components/atoms/image/image";
+import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+import { missionMasher } from "../../globalFunctions";
 
 // COMPONENT
 const Login = props => {
   // contexts
   const activeUser = useContext(UserContext);
-
+  const userMissions = useContext(UserMissionsContext);
   //routes
   const routeToHome = e => {
     e.preventDefault();
@@ -62,32 +64,13 @@ const Login = props => {
   const authSuccess = userObject => {
     userObject = JSON.parse(userObject);
     console.log(userObject);
+    const {mission_subscriptions, missions_in_progress } = userObject.user_missions;
+    
+    activeUser.setUser(userObject.user_profile);
+    userMissions.setUserMissions(
+      missionMasher(mission_subscriptions, missions_in_progress)
+    );
     localStorage.setItem("token", userObject.token);
-    if (activeUser.user_id === null) {
-      activeUser.setUser({
-        ...activeUser,
-        user_id: userObject.user_profile.user_id || null,
-        display_name: userObject.user_profile.display_name || "",
-        fname: userObject.user_profile.fname || "",
-        lname: userObject.user_profile.lname || "",
-        cohort: userObject.user_profile.cohort || "",
-        section_lead: userObject.user_profile.section_lead || "",
-        avatar: userObject.user_profile.avatar || "",
-        bio: userObject.user_profile.bio || "",
-        new_user: userObject.user_profile.newUser ? true : false
-      });
-
-      localStorage.setItem(
-        "activeUser",
-        JSON.stringify(userObject.user_profile)
-      );
-    } else {
-      activeUser.setUser(...activeUser);
-      localStorage.setItem(
-        "activeUser",
-        JSON.stringify(userObject.user_profile)
-      );
-    }
     {
       userObject.newUser === true
         ? props.history.push("/firstlogin")
@@ -308,7 +291,7 @@ const Cubes = styled.img`
   }
 
   @media screen and (min-width: 1250px) {
-    margin-top: -160px; 
+    margin-top: -160px;
   }
 `;
 
