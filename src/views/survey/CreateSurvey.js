@@ -6,7 +6,11 @@ import axios from "axios";
 
 const SurveyForm = () => {
   const [questions, setQuestions] = useState([]);
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({
+    name: "",
+    description: "",
+    question: [...questions]
+  });
   const [enabledBtn, setEnabledBtn] = useState(false);
 
   console.log(formValues);
