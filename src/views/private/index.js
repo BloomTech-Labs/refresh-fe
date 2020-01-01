@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect} from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 
 import MobileMenu from "./mobile-menu/MobileMenu";
 import Dashboard from "./dashboard/Dashboard";
@@ -20,28 +20,33 @@ import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
 
-const PrivateViewCanvas = () => {
+const PrivateViewCanvas = (props) => {
+  console.log("Props From Mobile Menue",props)
   return (
     <>
-      <Route path="/" component={MobileMenu} />
-      <Route path="/firstlogin" component={StepStart} />
-      <Route path="/dashboard" component={Dashboard} />
-      <Route path="/mission-complete" component={MissionComplete} />
-      <Route path="/gauge" component={Gauge} />
-      <Route path="/atoms" component={Atoms} />
-      <Route path="/sandbox" component={Sandbox} />
-      <Route path="/profile-overview" component={ProfileOverview} />
-      <Route path="/leaderboard" component={Leaderboard} />
-      <Route path="/mission-stats" component={MissionStats} />
-      <Route path="/team-view" component={TeamView} />
-      <Route path="/teamList" component={TeamList} />
-      <Route path="/invite" component={AddMember} />
-      <Route path="/createtm" component={CreateTMission} />
-      <Route path="/calendar" component={Calendar} />
-      <Route path="/coming-soon" component={ComingSoon} />
-      <Route path="/timer" component={TimerCanvas} />
-      <Route path="/survey" component={SurveyCanvas} />
-      {/* <Redirect to="/dashboard" /> */}
+      {/* Mobile Menu Will not work Globaly if in Switch */}
+      <Route match path="/" component={MobileMenu} />
+
+      <Switch>
+        <Route path="/firstlogin" component={StepStart} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/mission-complete" component={MissionComplete} />
+        <Route path="/gauge" component={Gauge} />
+        <Route path="/atoms" component={Atoms} />
+        <Route path="/sandbox" component={Sandbox} />
+        <Route path="/profile-overview" component={ProfileOverview} />
+        <Route path="/leaderboard" component={Leaderboard} />
+        <Route path="/mission-stats" component={MissionStats} />
+        <Route path="/team-view" component={TeamView} />
+        <Route path="/teamList" component={TeamList} />
+        <Route path="/invite" component={AddMember} />
+        <Route path="/createtm" component={CreateTMission} />
+        <Route path="/calendar" component={Calendar} />
+        <Route path="/coming-soon" component={ComingSoon} />
+        <Route path="/timer" component={TimerCanvas} />
+        <Route path="/survey" component={SurveyCanvas} />
+        <Redirect to="/dashboard" />
+      </Switch>
     </>
   );
 };
