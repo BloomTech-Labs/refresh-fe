@@ -10,23 +10,24 @@ const SurveyDash = props => {
 
   useEffect(() => {
     axiosWithAuth()
-      .get("https://refresh-yo-beta.herokuapp.com/questiongroups")
+      .get("/questiongroups")
       .then(res => {
-        console.log(res);
+        addCurrentSurveys(res.data.forms);
       });
-  });
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  // };
+  }, []);
 
   return (
     <>
       <h1>Weekly Surveys</h1>
       <h2>IN PROGRESS</h2>
-      <div>{/* map in api call to surveys in prog */}</div>
-      {/*Onclick for each div takes to corresponding survey via the splash screen in Survey.js
-       */}
+      {currentSurveys.map((group, i) => {
+        return (
+          <div key={i}>
+            <div>{group.name}</div>
+          </div>
+        );
+      })}
+
       <h2>NEW</h2>
       <div>
         {/* onclick as well, will need to spread in res and map for each of these boxes

@@ -40,7 +40,6 @@ const SurveyForm = () => {
     //   "Please select which type of answers this survey is looking for";
     !errors.surveyName &&
       !errors.surveyDesc &&
-      !errors.surveyQType &&
       setEnabledBtn(true);
   }, [form]);
 
@@ -60,7 +59,7 @@ const SurveyForm = () => {
       console.log("data", data)
 
       axiosWithAuth()
-        .post("https://refresh-yo-beta.herokuapp.com/questiongroups", data)
+        .post("/questiongroups", data)
         .then(res => console.log(res))
         .catch(err => console.log(err));
     }
@@ -101,7 +100,7 @@ const SurveyForm = () => {
                 />
                 <h3>QUESTION TYPE</h3>
                 <select name="questionType" onChange={e => questionHandleChange(e,i)}>
-                  <option value="">Please Select One</option>
+                  <option selected value="">Please Select One</option>
                   <option value="multiple choice">Multiple Choice</option>
                   <option value="slider">Slider</option>
                   <option value="text reply">Text Reply</option>
