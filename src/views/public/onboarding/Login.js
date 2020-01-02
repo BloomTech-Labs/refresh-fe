@@ -189,6 +189,13 @@ const HeaderHolder = styled.div`
   margin-top: 10%;
 `;
 
+const OnboardTxt = styled.p`
+  margin: auto;
+  font-size: 2rem;
+  line-height: 33px;
+  letter-spacing: 0.035em;
+  color: #ccc9ff;
+`;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
@@ -230,6 +237,10 @@ letter-spacing:0.1rem;
   cursor: pointer;
 }
 }
+`;
+
+const LineTime = styled.hr`
+  width: 100%;
 `;
 
 const FBButton = styled.a`
@@ -299,6 +310,10 @@ const Cubes = styled.img`
 `;
 
 const Logo = styled.img``;
+
+const GoogleLogo = styled(Logo)`
+  border-radius: 50%;
+`;
 
 // EXPORT
 export default Login;

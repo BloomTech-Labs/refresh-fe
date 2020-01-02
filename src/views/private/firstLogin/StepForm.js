@@ -16,17 +16,14 @@ import Weight from "./Weight";
 import Height from "./Height";
 //loading spinner
 import LoadingSpinner from "../../../components/atoms/spinner/spinner";
-
 const StepForm = props => {
   //context
   // const user = useContext(UserContext);
-
   //hooks
   const [questions, setQuestions] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [answer, setAnswer] = useState();
   const [done, setDone] = useState(false);
-
   //Get Questions on Mount
   useEffect(() => {
     axiosWithAuth()
@@ -36,12 +33,10 @@ const StepForm = props => {
       })
       .catch(err => props.debug && console.log(err));
   }, []);
-
   //set values for slider
   const handleChanges = value => {
     setAnswer(value);
   };
-
   //handle submit to backend
   const handleSubmit = e => {
     props.debug && console.log(e.target);
@@ -61,14 +56,12 @@ const StepForm = props => {
       setCurrentStep(currentStep + 1);
     }
   };
-
   //axios post
   const postAnswer = answer => {
     return axiosWithAuth()
       .post("/answers", answer)
       .then(res => props.debug && console.log(res));
   };
-
   // //slider thumb and track
   // const Thumb = (props, state) => (
   //   <StyledThumb {...props}>{state.valueNow}</StyledThumb>
@@ -76,7 +69,6 @@ const StepForm = props => {
   // const Track = (props, state) => {
   //   return <StyledTrack {...props} index={state.index} value={7} />;
   // };
-
   //StepDot helper function for styled component
   const StepDotCount = currentStep => {
     return `&:nth-child(-n + ${currentStep + 1}){
@@ -84,7 +76,6 @@ const StepForm = props => {
       opacity:100%;
       `;
   };
-
   if (done) {
     return <Redirect to="/dashboard" />;
   } else {
@@ -220,11 +211,9 @@ const StepForm = props => {
     );
   }
 };
-
 // STYLED COMPONENTS
 //Onboarding Reusable Styles
 // we abstract out reusable global styles later on -JC
-
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -239,7 +228,6 @@ const OnBoardContainer = styled.div`
   height: 100vh;
   max-height: 100vh;
 `;
-
 //top arrow for dial components
 const TopArrow = styled.div`
   position: relative;
@@ -253,7 +241,6 @@ const TopArrow = styled.div`
     margin: auto;
   }
 `;
-
 const QuestionForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -264,7 +251,6 @@ const QuestionForm = styled.form`
     margin: auto;
   }
 `;
-
 const Question = styled.h1`
   font-weight: 600;
   font-size: calc(100% + 5.5vw);
@@ -273,7 +259,6 @@ const Question = styled.h1`
   text-align: center;
   color: #ffffff;
 `;
-
 const LongQuestion = styled.h1`
   font-weight: 600;
   font-size: calc(100% + 5.5vw);
@@ -282,7 +267,6 @@ const LongQuestion = styled.h1`
   text-align: center;
   color: #ffffff;
 `;
-
 const OnboardTxt = styled.p`
   font-size: calc(100% + 0.1vw);
   line-height: 2.6rem;
@@ -290,7 +274,6 @@ const OnboardTxt = styled.p`
   text-align: center;
   color: #ffffff;
 `;
-
 const Option = styled.a`
   display: flex;
   flex-direction: row-reverse;
@@ -304,7 +287,6 @@ const Option = styled.a`
     position: absolute;
     visibility: hidden;
   }
-
   label{
     display: flex;
     position: relative;
@@ -316,8 +298,6 @@ const Option = styled.a`
       color:#f3bfe1;
     }
   }
- 
-
   .check {
     display: flex;
     position: relative;
@@ -328,11 +308,9 @@ const Option = styled.a`
     transition: border 0.25s linear;
     -webkit-transition: border 0.25s linear;
   }
-
   &:hover .check {
     border: 5px solid #f3bfe1;
   }
-
   .check::before {
     position: relative;
     content: '';
@@ -343,20 +321,16 @@ const Option = styled.a`
     transition: background 0.25s linear;
     -webkit-transition: background 0.25s linear;
   }
-
   input[type=radio]:checked ~ .check {
     border: 5px solid #e05cb3;
   }
-
   input[type="radio"]:checked ~ .check::before {
     background: #e05cb3;
   }
-
   input[type="radio"]:checked ~ label {
     color: #e05cb3;
   }
 `;
-
 const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
@@ -370,14 +344,12 @@ const Button = styled.a`
   font-size: calc(100% + 0.5vw);
   letter-spacing: 0.1rem;
 `;
-
 const ButtonNoColor = styled.a`
   font-weight: 500;
   font-size: calc(100% + 0.1vw);
   letter-spacing: 2px;
   color: #a7a4e6;
 `;
-
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
@@ -385,7 +357,6 @@ const FlexHolder = styled.div`
   align-items: flex-start;
   width: 100%;
 `;
-
 //current step marker
 const StepDots = styled.div`
   display: flex;
@@ -402,5 +373,4 @@ const StepDots = styled.div`
     ${props => props.currentDot(props.currentStep)}
   }
 `;
-
 export default StepForm;

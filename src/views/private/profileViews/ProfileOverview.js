@@ -1,5 +1,4 @@
 import React from "react";
-//import {Link} from 'react-router-dom';
 import styled from "styled-components";
 import WaterCard from "./WaterCard";
 import ProfileCompletion from "./ProfileCompletion";
@@ -11,7 +10,7 @@ import ProfileHeader from './ProfileHeader';
 import waves from "../../../images/Onboarding/waves.svg";
 
 const PVContainer = styled.div`
-  position: absolute;
+  position: relative;
   width: 375px;
   height: 812px;
   background: #4742bc;
@@ -24,28 +23,25 @@ const PVContainer = styled.div`
 // `
 
 const ProfileLine = styled.div`
-position: absolute;
-width: 372px;
-height: 0px;
-left: 3px;
-top: 210px;
-
-border: 3px solid rgba(71, 69, 161, 0.85);
-`
-
-
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  left: 0%;
+  top: 210px;
+  border: 3px solid rgba(71, 69, 161, 0.85);
+`;
 
 const ProfileOverview = () => {
   return (
     <>
       <PVContainer>
-        <ProfileHeader/>
-        <ProfileLine/>
+        <ProfileHeader />
+        <ProfileLine />
         <WaterCard />
         <ProfileCompletion />
-        <WeeklySurvey/>
-        <YourReminders/>
-          <ProfileBadges/>
+        <WeeklySurvey />
+        <YourReminders />
+        <ProfileBadges />
       </PVContainer>
     </>
   );
