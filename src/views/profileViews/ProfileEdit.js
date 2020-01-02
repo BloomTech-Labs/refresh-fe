@@ -8,7 +8,7 @@ height: 1.5rem;
 const ProfileEdit = () => {
     return (
         <div>
-            <Button>what in the eternal fuck, yo?</Button>
+            <Button>what in the eternal ****, yo?</Button>
         </div>
     )
 }
