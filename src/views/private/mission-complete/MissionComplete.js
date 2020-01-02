@@ -24,7 +24,7 @@ const MissionComplete = props => {
   // contexts
   const userMissions = useContext(UserMissionsContext);
   const { missions } = userMissions;
-  console.log("[userMissions]", userMissions);
+  props.debug && console.log("[userMissions]", userMissions);
 
   // state hooks
   const [drawer, setDrawer] = useState({
@@ -71,10 +71,10 @@ const MissionComplete = props => {
         );
       })
       .catch(err => {
-        console.log(err);
+        props.debug && console.log(err);
       });
   };
-  console.log("[Mission Tracker]", missionTracker);
+  props.debug && console.log("[Mission Tracker]", missionTracker);
   // render
   return (
     <MCView>

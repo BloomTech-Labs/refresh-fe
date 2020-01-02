@@ -7,12 +7,12 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 // description: "",
 // questions: [{question: "", questionType: ""}]
 
-const SurveyForm = () => {
+const SurveyForm = props => {
   const [questions, setQuestions] = useState([]);
   const [formValues, setFormValues] = useState([]);
   const [enabledBtn, setEnabledBtn] = useState(false);
 
-  console.log(formValues);
+  props.debug && console.log(formValues);
 
   const questionHandleChange = (idx, e) => {
     const values = [...questions];
@@ -47,7 +47,7 @@ const SurveyForm = () => {
   }, [formValues]);
 
   const addQuestion = () => {
-    console.log("added question");
+    props.debug && console.log("added question");
     const values = [...questions];
     values.push({ question: "", questionType: "" });
     setQuestions(values);
@@ -61,12 +61,12 @@ const SurveyForm = () => {
       Object.keys(formValues).map(key => {
         if (key.includes("question_")) {
           console.table(formValues);
-          // console.log("question value", form.question_.value )
-          console.log("form{key}", formValues[key]);
+          // props.debug && console.log("question value", form.question_.value )
+          props.debug && console.log("form{key}", formValues[key]);
           formValues.question_ids = [formValues[key]];
         }
       });
-      console.log("form", formValues);
+      props.debug && console.log("form", formValues);
       e.preventDefault();
       axiosWithAuth()
         .post("/questiongroups", formValues)

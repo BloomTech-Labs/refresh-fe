@@ -7,7 +7,7 @@ import styled from "styled-components";
 const Height = props => {
   //handle change to store selected tick
   const handleChanges = e => {
-    console.log(e.target.dataset.value);
+    props.debug && console.log(e.target.dataset.value);
     props.setAnswer(e.target.dataset.value);
   };
   //Scale of numbers

@@ -4,7 +4,7 @@ import SurveyDash from "./SurveyDash";
 import SurveyForm from "./CreateSurvey";
 
 const SurveyCanvas = props => {
-  console.log("props on canvas", props);
+  props.debug && console.log("props on canvas", props);
   const { url } = props.match;
   return (
     <Switch>

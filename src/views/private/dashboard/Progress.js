@@ -15,8 +15,8 @@ const Progress = props => {
     let percentComplete = Number(currentPoints / goalCount)
       ? currentPoints / goalCount
       : 0;
-      console.log('currentPoints',currentPoints)
-      console.log('PercentComplete',percentComplete)
+      props.debug && console.log('currentPoints',currentPoints)
+      props.debug && console.log('PercentComplete',percentComplete)
     return Math.round(percentComplete * 100);
   }
   const percentComplete = missionCount();

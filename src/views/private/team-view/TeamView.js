@@ -17,10 +17,10 @@ import Pagination from './Pagination';
 import waves from '../../../images/Onboarding/waves.svg'
 
 // COMPONENT
-const TeamView = () => {
+const TeamView = (props) => {
     // contexts
     const userContext = useContext(UserContext);
-    console.log('[check user context]', userContext);
+    props.debug && console.log('[check user context]', userContext);
 
     // state hooks
     const [feedSlide, setFeedSlide] = useState({

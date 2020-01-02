@@ -27,7 +27,7 @@ const CreateTMission = props => {
   };
 
   const handleSubmit = e => {
-    console.log(missionInfo);
+    props.debug && console.log(missionInfo);
   };
 
   return (

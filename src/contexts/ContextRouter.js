@@ -8,6 +8,7 @@ const ContextRouter = ({
   privateView: PrivateView,
   publicView: PublicView,
   userStatus,
+  debug,
   ...rest
 }) => {
   const [userMissions, setUserMissions] = useState([]);
@@ -18,7 +19,7 @@ const ContextRouter = ({
       axiosWithAuth()
         .get(`/usermissions`)
         .then(res => {
-          console.log("[server response]", res);
+          debug && console.log("[server response]", res);
           let {
             mission_subscriptions,
             missions_in_progress

@@ -50,7 +50,7 @@ const EmailSignUp = props => {
       errors.userConfirmedPass.length > 4 &&
       !errors.confirmedPass &&
       setEnabledBtn(true);
-    console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+    props.debug && console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
   //route to sign up page
   const routeToSignUp = e => {
@@ -68,7 +68,7 @@ const EmailSignUp = props => {
 
   //handle submit of user info to backend
   const handleSubmit = e => {
-    console.log("handleSubmit enabledBtn:", enabledBtn);
+    props.debug && console.log("handleSubmit enabledBtn:", enabledBtn);
     if (!enabledBtn) {
       alert(
         errors.userName ||
@@ -81,7 +81,7 @@ const EmailSignUp = props => {
         .post("/register", { email: user.email, password: user.password })
         .then(res => {
           if (res.data.token) {
-            console.log(res.data)
+            props.debug && console.log(res.data)
             const userObject = res.data;
             const {
               mission_subscriptions,
@@ -96,11 +96,11 @@ const EmailSignUp = props => {
             props.history.push("/firstlogin");
           } else {
             setErr(res.data);
-            console.log(err);
+            props.debug && console.log(err);
           }
         })
         .catch(err => {
-          console.log(err);
+          props.debug && console.log(err);
         });
     }
   };

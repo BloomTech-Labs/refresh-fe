@@ -52,7 +52,7 @@ const Input = ({ ...props }) => {
     if (e.keyCode === 27) {
       e.target.blur();
     }
-    console.log(`[removeFocus Fired]`);
+    props.debug && console.log(`[removeFocus Fired]`);
   };
 
   const handleEnter = e => {
@@ -63,12 +63,12 @@ const Input = ({ ...props }) => {
         if (resetValue) setValue("");
       }
     }
-    console.log(`[handleEnter Fired]`);
+    props.debug && console.log(`[handleEnter Fired]`);
   };
 
   const handleBlur = e => {
     blurCallback(value)
-    console.log(`[handleBlur Fired]`);
+    props.debug && console.log(`[handleBlur Fired]`);
     
   }
 
