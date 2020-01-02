@@ -24,7 +24,7 @@ const SurveyDash = props => {
         {currentSurveys.map((group, i) => {
           return (
             <div key={i}>
-              <div>{group.name}</div>
+              <div onClick={()=> props.history.push(url +"/surveyintro")}>{group.name}</div>
             </div>
           );
         })}
