@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 export const ProgressLayer = ({ dashArray, dashOffset }) => {
-<<<<<<< HEAD
-
-=======
   // props.debug && console.log(`[dashArray]`, dashArray);
   // props.debug && console.log(`[dashOffset]`, dashOffset());
->>>>>>> romans-routing
   return (
     <>
       <StyledSvg

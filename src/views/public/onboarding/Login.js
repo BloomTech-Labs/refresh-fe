@@ -1,12 +1,6 @@
 // IMPORTS
 // react
-<<<<<<< HEAD:src/views/onboarding/Login.js
-import React, { useState, useContext } from "react";
-// contexts
-import { UserContext } from "../../contexts/UserContext";
-=======
 import React, { useContext } from "react";
->>>>>>> romans-routing:src/views/public/onboarding/Login.js
 // styled components
 import styled from "styled-components";
 // images

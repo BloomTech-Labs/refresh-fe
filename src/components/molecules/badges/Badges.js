@@ -18,11 +18,7 @@ import BadgeIcon from "./Icon";
 
 const Badge = ({ ...props }) => {
   const activeUser = useContext(UserContext);
-<<<<<<< HEAD
-  console.log("userContext: badges", activeUser);
-=======
   props.debug && console.log("userContext: badges", activeUser);
->>>>>>> romans-routing
 
   return (
     <>

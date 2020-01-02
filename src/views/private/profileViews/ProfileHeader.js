@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-<<<<<<< HEAD:src/views/profileViews/ProfileHeader.js
 import {Link} from 'react-router-dom';
 import maxine from '../profileViews/maxine.jpg';
-import notifications from '../../images/profile/notifications.svg';
-import settings_cog from '../../images/profile/settings_cog.svg';
+import notifications from '../../../images/profile/notifications.svg';
+import settings_cog from '../../../images/profile/settings_cog.svg';
 import {deviceType} from '../profileViews/ResponsiveMedia';
 
 
@@ -28,14 +27,6 @@ const Container = styled.div`
   left: 44.8%;
   
 }
-=======
-import maxine from './maxine.jpg';
-import notifications from '../../../images/profile/notifications.svg';
-import settings_cog from '../../../images/profile/settings_cog.svg';
-import MobileMenu from '../mobile-menu/MobileMenu';
-//import Hamburger from '../../../images/mobile-profile/hamburger.svg';
-//import Slider from '../../styles/global/Slider';
->>>>>>> romans-routing:src/views/private/profileViews/ProfileHeader.js
 
 `
 const BellVector = styled.img`

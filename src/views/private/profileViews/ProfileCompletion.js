@@ -1,14 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-<<<<<<< HEAD:src/views/profileViews/ProfileCompletion.js
 //import {Route} from 'react-router-dom';
-import User from '../../images/profile/user.svg';
-import Arrow from '../../images/profile/purple_right_arrow.svg';
+import User from '../../../images/profile/user.svg';
+import Arrow from '../../../images/profile/purple_right_arrow.svg';
 //import EditProfile from '../profileViews/EditProfile.js';
 
-=======
-//import User from '../../../images/profile/user.svg';
->>>>>>> romans-routing:src/views/private/profileViews/ProfileCompletion.js
 
 const ProfileContainer = styled.div`
   position: absolute;

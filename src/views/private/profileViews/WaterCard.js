@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react";
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
 // import WaterIntake from '../../contexts/WaterIntake';
-import {axiosWithAuth} from '../../helpers/axiosWithAuth';
+import {axiosWithAuth} from '../../../helpers/axiosWithAuth';
 import WaterBottleGauge from './WaterBottleGauge';
 
 
