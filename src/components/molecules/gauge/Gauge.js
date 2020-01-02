@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ProgressLayer } from "./Progress";
+<<<<<<< HEAD
 
 const LiveGauge = ({ ...props }) => {
   const { actual, goal, vertical } = props;
   const [progress, setProgress] = useState({});
 
+=======
+const LiveGauge = ({ ...props }) => {
+  const { actual, goal, vertical } = props;
+  const [progress, setProgress] = useState({});
+>>>>>>> romans-routing
   //// Might be wise to use a use memo to hold previous state and compare so it doesn't need to re-render every time
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const normalizedValue = () => {
@@ -19,12 +25,18 @@ const LiveGauge = ({ ...props }) => {
     }
     return percent;
   };
+<<<<<<< HEAD
 
+=======
+>>>>>>> romans-routing
   // set state w/ normalized percent value
   useEffect(() => {
     setProgress(normalizedValue());
   }, [normalizedValue]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> romans-routing
   // dash-array and dash-offset logic for svg progress path
   const dashArray = `182.212 182.212`;
   const dashOffset = () => {
@@ -56,7 +68,10 @@ const LiveGauge = ({ ...props }) => {
     </>
   );
 };
+<<<<<<< HEAD
 
+=======
+>>>>>>> romans-routing
 const Container = styled.div`
   position: absolute;
   /* NON BREAKING BUG */
@@ -68,5 +83,4 @@ const Container = styled.div`
   issue, so perhaps it is how something is wrapped */
   /* z-index: 0; */
 `;
-
 export default LiveGauge;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // IMPORTS
 // react
 import React, { useState, useEffect, useContext } from "react";
@@ -153,4 +154,21 @@ const App = props => {
 };
 // STYLED COMPONENTS
 // todo
+=======
+import React, { useState } from "react";
+
+import PrivateViewCanvas from "./views/private";
+import PublicViewCanvas from "./views/public";
+import ContextRouter from "./contexts/ContextRouter";
+
+const App = props => {
+  return (
+    <ContextRouter
+      privateView={PrivateViewCanvas}
+      publicView={PublicViewCanvas}
+    />
+  );
+};
+
+>>>>>>> romans-routing
 export default App;

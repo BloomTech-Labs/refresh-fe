@@ -48,8 +48,31 @@ const Input = ({ callback = () => {}, ...props }) => {
     if (event.keyCode === 27) {
       event.target.blur();
     }
+<<<<<<< HEAD
   };
 
+=======
+    props.debug && console.log(`[removeFocus Fired]`);
+  };
+
+  const handleEnter = e => {
+    if (e.keyCode === 13) {
+      if (value.length > 0) {
+        eventCallback(e);
+        //
+        if (resetValue) setValue("");
+      }
+    }
+    props.debug && console.log(`[handleEnter Fired]`);
+  };
+
+  const handleBlur = e => {
+    blurCallback(value)
+    props.debug && console.log(`[handleBlur Fired]`);
+    
+  }
+
+>>>>>>> romans-routing
   return (
     <BaseInput
     
