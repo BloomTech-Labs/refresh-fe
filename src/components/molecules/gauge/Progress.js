@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 export const ProgressLayer = ({ dashArray, dashOffset }) => {
-  // console.log(`[dashArray]`, dashArray);
-  // console.log(`[dashOffset]`, dashOffset());
+  // props.debug && console.log(`[dashArray]`, dashArray);
+  // props.debug && console.log(`[dashOffset]`, dashOffset());
   return (
     <>
       <StyledSvg

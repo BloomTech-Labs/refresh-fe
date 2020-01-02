@@ -16,8 +16,8 @@ const Icon = ({ ...props }) => {
     padding,
     svg,
     alt,
-    title,
-    display
+    display,
+    styledIcon
   } = props;
 
   return (
@@ -31,14 +31,13 @@ const Icon = ({ ...props }) => {
       display={display}
       padding={padding}
       alt={alt}
-      title={title}
     >
       {svg ? (
         <object type="image/svg+xml" data={svg} className="object-svg">
-          <img src={svg} alt={alt} title={title} className="img-svg" />
+          <img src={svg} alt={alt} className="img-svg" />
         </object>
       ) : (
-        <>{StyledIcon}</>
+        <>{styledIcon}</>
       )}
     </StyledIcon>
   );
@@ -53,7 +52,7 @@ const StyledIcon = styled.div.attrs(props => ({
   display: props.display,
   padding: props.padding
 }))`
-  height: ${props => (props.height ? `${props.height}rem` : "auto")};
+  height: ${props => (props.height ? `${props.height}rem` : "100%")};
   width: ${props => (props.width ? `${props.width}rem` : "100%")};
   color: ${props => props.color};
   background-color: ${props =>
@@ -67,7 +66,7 @@ const StyledIcon = styled.div.attrs(props => ({
     cursor: ${props => (props.cursor ? props.cursor : "pointer")};
     pointer-events: ${props => (props.cursor ? props.cursor : "none")};
     color: ${props => props.color};
-    padding: ${props => (props.padding ? `${props.padding}rem` : "1rem")};
+    padding: ${props => (props.padding ? `${props.padding}rem` : "0")};
     height: 100%;
     width: 100%;
   }
