@@ -5,53 +5,47 @@ import { axiosWithAuth } from "../../helpers/axiosWithAuth";
 import axios from "axios";
 
 const SurveyForm = () => {
-  const [questions, setQuestions] = useState([]);
-  const [formValues, setFormValues] = useState({
+  const [questions, setQuestions] = useState([
+    {
+      question: "",
+      questionType: ""
+    }
+  ]);
+  const [form, setForm] = useState({
     name: "",
-    description: "",
-    question: [...questions]
+    description: ""
   });
+  let count = 1
   const [enabledBtn, setEnabledBtn] = useState(false);
 
-  console.log(formValues);
-
-  const questionHandleChange = (idx, e) => {
-    const values = [...questions];
-    if (e.target.name.includes("question_")) {
-      values[idx].question = e.target.value;
-    } else {
-      values[idx].questionType = e.target.value;
-    }
-    setQuestions(values);
+  const questionHandleChange = (e, i) => {
+    questions[i] = {
+      ...questions[i],
+      [e.target.name]: e.target.value
+    };
   };
 
   const handleChange = e => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
-
-  //   const handleQuestions = () => {
-  //       setQuestions([...questions, e.])
-  //   }
   let errors = {};
   useEffect(() => {
-    errors.surveyName =
-      !formValues.name && "Please enter a name for your survey";
+    errors.surveyName = !form.name && "Please enter a name for your survey";
     errors.surveyDesc =
-      !formValues.description && "Please enter a description for your survey";
+      !form.description && "Please enter a description for your survey";
     errors.surveyQType =
-      !formValues.questionType &&
+      !form.questionType &&
       "Please select which type of answers this survey is looking for";
     !errors.surveyName &&
       !errors.surveyDesc &&
       !errors.surveyQType &&
       setEnabledBtn(true);
-  }, [formValues]);
+  }, [form]);
 
   const addQuestion = () => {
-    console.log("added question");
-    const values = [...questions];
-    values.push({ question: "", questionType: "" });
-    setQuestions(values);
+    setQuestions([...questions, { question: "", questionType: "" }]);
+    count++;
+    
   };
 
   const handleSubmit = e => {
@@ -59,66 +53,59 @@ const SurveyForm = () => {
     if (!enabledBtn) {
       alert(errors.surveyName || errors.surveyDesc || errors.surveyQType);
     } else {
-      Object.keys(formValues).map(key => {
-        if (key.includes("question_")) {
-          console.table(formValues);
-          // console.log("question value", form.question_.value )
-          console.log("form{key}", formValues[key]);
-          formValues.question_ids = [formValues[key]];
-        }
-      });
-      console.log("form", formValues);
-      e.preventDefault();
+      const data = { ...form, questions };
+
       axiosWithAuth()
-        .post("https://apidevnow.com/questiongroups", formValues)
+        .post("https://refresh-yo-beta.herokuapp.com/questiongroups", data)
         .then(res => console.log(res))
         .catch(err => console.log(err));
-      count = 1;
     }
   };
-  let count = 1;
-  const questionCount = count++;
 
   return (
     <StyledWrapper>
       <StyledForm onSubmit={handleSubmit}>
-        {formValues.map((value, index) => (
-          <Fragment key={`${value}~${index}`}>
-            <>
-              <h3>SURVEY NAME</h3>
-              <input
-                type="text"
-                name="name"
-                value={value.name}
-                placeholder="Create a name for this mission"
-                onChange={handleChange}
-              />
-              <h3>SURVEY DESCRIPTION</h3>
-              <input
-                type="text"
-                name="description"
-                value={value.description}
-                placeholder="Add a description for your mission..."
-                onChange={handleChange}
-              />
-              <h3>QUESTION {questionCount}</h3>
-              <input
-                type="text"
-                name={`question_` + questionCount}
-                placeholder="What question would you like to ask?"
-                onChange={questionHandleChange}
-              />
-              <h3>QUESTION TYPE</h3>
-              <select name="questionType" onChange={questionHandleChange}>
-                <option value="">Please Select One</option>
-                <option value="multiple choice">Multiple Choice</option>
-                <option value="slider">Slider</option>
-                <option value="text reply">Text Reply</option>
-              </select>
-              <div onClick={addQuestion}>Add Question</div>
-            </>
-          </Fragment>
-        ))}
+        <>
+          <h3>SURVEY NAME</h3>
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            placeholder="Create a name for this mission"
+            onChange={handleChange}
+          />
+          <h3>SURVEY DESCRIPTION</h3>
+          <input
+            type="text"
+            name="description"
+            value={form.description}
+            placeholder="Add a description for your mission..."
+            onChange={handleChange}
+          />
+
+          {questions.map(i => {
+            console.log(i);
+            return (
+              <div>
+                <h3>QUESTION {count}</h3>
+                <input
+                  type="text"
+                  name={`question_` + count}
+                  placeholder="What question would you like to ask?"
+                  onChange={questionHandleChange}
+                />
+                <h3>QUESTION TYPE</h3>
+                <select name="questionType" onChange={questionHandleChange}>
+                  <option value="">Please Select One</option>
+                  <option value="multiple choice">Multiple Choice</option>
+                  <option value="slider">Slider</option>
+                  <option value="text reply">Text Reply</option>
+                </select>
+              </div>
+            );
+          })}
+          <div onClick={() => {addQuestion()}}>Add Question</div>
+        </>
 
         <button type="submit">Submit</button>
       </StyledForm>
@@ -126,8 +113,6 @@ const SurveyForm = () => {
     //styled comp
   );
 };
-
-const StyledButton = styled.button``;
 
 const StyledForm = styled.form`
   display: flex;

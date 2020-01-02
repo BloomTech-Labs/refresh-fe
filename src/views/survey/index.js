@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import SurveyDash from "./SurveyDash";
 import SurveyForm from "./CreateSurvey";
+import CreateSurveyTest from "./CreateSurvey_test";
 
 const SurveyCanvas = props => {
   console.log("props on canvas", props);
