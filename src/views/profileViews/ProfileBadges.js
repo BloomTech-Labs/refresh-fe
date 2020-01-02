@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-//import {deviceType} from '../profileViews/ResponsiveMedia';
-//import ActivityBadge from '../../images/badges/activity_badge.svg'
-
 
 const BadgeContainer = styled.div`
 width: 100%;
