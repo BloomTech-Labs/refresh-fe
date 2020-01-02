@@ -7,72 +7,28 @@ import settings_cog from '../../../images/profile/settings_cog.svg';
 import {deviceType} from '../profileViews/ResponsiveMedia';
 
 
-const Container = styled.div`
-  height: 20px;
-  margin: 0 25 0 25;
-
-
-@media ${deviceType.smallMobile}{
- max-width: 100%;
-  left: 44.8%;
-  
-}
-@media ${deviceType.mediumMobile}{
- max-width: 100%;
-  left: 44.8%;
-  
-}
-@media ${deviceType.largeMobile} {
- max-width: 100%;
-  left: 44.8%;
-  
-}
-
-`
 const BellVector = styled.img`
 position: absolute;
-width: 25px;
-height: 25px;
-left: 78.53%;
+width: 2.5rem;
+height: 2.5rem;
+left: 88.3%;
 right: 6.4%;
 top: 2.71%;
 bottom: 94.95%;
 `
 const CogVector = styled.img`
 position: absolute;
-left: 88.53%;
-right: 6.4%;
-top: 2.71%;
+right: 6%;
+top: 5.71%;
 bottom: 94.95%;
 
 `
 const User = styled.div`
 position: absolute;
-/* width: 100%; */
 width: 5rem;
 height: 5rem;
 top: 8.5%;
-
-
-@media ${deviceType.smallMobile}{
- max-width: 100%;
-  left: 44.8%;
-  left: 44.8%;
-  
-}
-@media ${deviceType.mediumMobile}{
- max-width: 100%;
-  left: 44.8%;
-  left: 44.8%;
-  
-}
-@media ${deviceType.largeMobile} {
-  
- max-width: 100%;
-  left: 44.8%;
-  left: 44.8%;
-  
-}
+left: 72.8%;
 `
 
 const UserAv = styled.img`
@@ -81,32 +37,13 @@ width: 5rem;
 height: 5rem;
 border-radius: 50%;
 background: #C4C4C4;
-
-@media ${deviceType.smallMobile}{
- max-width: 100%;
- /* left: 0; */
- 
-  
-}
-@media ${deviceType.mediumMobile}{
- max-width: 100%;
- /* left: 0; */
-  
-}
-@media ${deviceType.largeMobile} {
- max-width: 100%;
- /* left: 0; */
-  
-}
 `
 const NameText = styled.text`
 position: absolute;
 width: 124px;
 height: 9px;
-/* left: 38.0%; */
-/* top: 128px; */
-left: 12.5rem;
-top: 13.1rem;
+left: 66.0%;
+top: 135px;
 
 font-family: Catamaran;
 font-style: normal;
@@ -116,35 +53,15 @@ line-height: 44%;
 /* identical to box height, or 9px */
 
 color: #E6E6E6;
-
-@media ${deviceType.smallMobile}{
- max-width: 100%;
-  /* left: 44.8%; */
-  /* left: 38.2%; */
-  
-}
-@media ${deviceType.mediumMobile}{
- max-width: 100%;
-  /* left: 44.8%; */
-  /* left: 38.2%; */
-  /* right: 15%; */
-  
-}
-@media ${deviceType.largeMobile} {
- max-width: 100%;
-  /* left: 44.8%; */
-  
-}
 `
 const TeamLeadText = styled.div `
 position: absolute;
-width: 6.4rem;
-height: 1.1rem;
-/* padding-left:5%; */
-/* margin-left: 0%; */
-/* margin-right: 75%; */
-top: 15.5rem;
-left: 11.8rem;
+width: 100%;
+height: 11px;
+padding-left:5%;
+margin-left: 31.8%;
+margin-right: 75%;
+top: 24.8%;
 
 font-family: Catamaran;
 font-style: normal;
@@ -159,29 +76,13 @@ align-items: flex-end;
 /* button / primary color */
 
 color: #E05CB3;
-
-@media ${deviceType.smallMobile}{
- max-width: 100%;
-  /* left: 44.8%; */
-  
-}
-@media ${deviceType.mediumMobile}{
- max-width: 100%;
-  /* left: 44.8%; */
-  
-}
-@media ${deviceType.largeMobile} {
- max-width: 100%;
-  /* left: 44.8%; */
-  
-}
 `
 const PointsText = styled.div`
 position: absolute;
-width: 5.4rem;
-height: 1rem;
-left: 20.2rem;
-top: 15.5rem;
+width: 54px;
+height: 10px;
+left: 53.5%;
+top: 24.8%;
 
 font-family: Catamaran;
 font-style: normal;
@@ -272,8 +173,6 @@ const ProfileHeader = () => {
   
   return (
     <>
-    
-      <Container className='profile-container'>
         <BellVector src={notifications}/>
         <CogVector src={settings_cog}/>
         <User className="User">
@@ -286,8 +185,6 @@ const ProfileHeader = () => {
         <LvTwoText>Lvl 2</LvTwoText>
         <MockSlideOne/>
         <MockSlideTwo/>
-      </Container>
-      
     </>
   )
 };

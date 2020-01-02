@@ -16,8 +16,9 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         font-family: 'Catamaran', sans-serif;
         font-size: 1.25rem;
-        background-color: #3a3699;
-
+        background-color: #4742bc;
+        background-image: url(${waves});
+        overflow-x:hidden;
         h1,h2,h3,h4,h5 {
             font-size: 2rem;
         }
