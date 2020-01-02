@@ -34,7 +34,7 @@ const PrivateViewCanvas = (props) => {
         <Route path="/gauge" component={Gauge} />
         <Route path="/atoms" component={Atoms} />
         <Route path="/sandbox" component={Sandbox} />
-        
+        <Route path="/profile-overview" component={ProfileOverview} />
         <Route path="/leaderboard" component={Leaderboard} />
         <Route path="/mission-stats" component={MissionStats} />
         <Route path="/team-view" component={TeamView} />
