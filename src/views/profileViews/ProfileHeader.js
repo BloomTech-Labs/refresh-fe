@@ -167,26 +167,26 @@ border-radius: .3rem;
 
 const ProfileHeader = props => {
 
-  const activeUser = useContext(UserContext);
+  // const activeUser = useContext(UserContext);
 
-  const routeToEdit = evt =>{
-    evt.preventDefault();
-    props.history.push('/edit-profile');
-  }
+  // const routeToEdit = evt =>{
+  //   evt.preventDefault();
+  //   props.history.push('profile-edit');
+  // }
 
-  const routeToDashboard = evt =>{
-    evt.preventDefault();
-    props.history.push('/dashboard');
-  }
+  // const routeToDashboard = evt =>{
+  //   evt.preventDefault();
+  //   props.history.push('/dashboard');
+  // }
   
   return (
     <>
-        <BellVector src={notifications} onClick={() => routeToDashboard()} />
-        <CogVector src={settings_cog} onClick={() => routeToEdit()} />
+        <BellVector src={notifications}  />
+        <CogVector src={settings_cog} />
         <User>
-          <UserAv onClick={routeToDashboard} src={maxine}></UserAv>
+          <UserAv src={maxine}></UserAv>
         </User>
-        <NameText>{activeUser.fname}</NameText>
+        <NameText>Maxine Woods</NameText>
         <TeamLeadText>TEAM LEAD</TeamLeadText>
         <PointsText>150 points</PointsText>
         <LvOneText>Lvl 1</LvOneText>

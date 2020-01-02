@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-//import {Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import User from '../../images/profile/user.svg';
 import Arrow from '../../images/profile/purple_right_arrow.svg';
-//import EditProfile from '../profileViews/EditProfile.js';
+
 
 
 const ProfileContainer = styled.div`
@@ -136,11 +136,11 @@ bottom: 7.25%;
 `;
 
 const ProfileCompletion = props => {
-  //routes
-  const editProfileRoute = e => {
-    e.preventDefault();
-    props.history.push('/edit-profile')
-  }
+  // //routes
+  // const editProfileRoute = e => {
+  //   e.preventDefault();
+  //   props.history.push('/edit-profile')
+  // }
 
   return (
     <>
@@ -151,7 +151,8 @@ const ProfileCompletion = props => {
         <PercentText>75</PercentText>
         <Percentage>%</Percentage>
         <CompletionText>completion</CompletionText>
-        <FinishNowContainer onClick={editProfileRoute}><FinishNowText>Finish now</FinishNowText>
+        <FinishNowContainer>
+        <Link to='/profile-edit'><FinishNowText>finish now</FinishNowText></Link>  
         <FinnishArrow src={Arrow}/>
         </FinishNowContainer> 
       </ProfileContainer>

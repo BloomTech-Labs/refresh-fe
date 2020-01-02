@@ -6,7 +6,6 @@ import WeeklySurvey from '../profileViews/WeeklySurvey';
 import YourReminders from '../profileViews/YourReminders';
 import ProfileBadges from '../profileViews/ProfileBadges';
 import ProfileHeader from '../profileViews/ProfileHeader';
-//import EditProfile from '../profileViews/EditProfile';
 import waves from "../../images/Onboarding/waves.svg";
 
 
@@ -27,7 +26,6 @@ width: 37.4rem;
 height: 0;
 left: 0;
 top: 21rem;
-
 border: 0.3rem solid rgba(71, 69, 161, 0.85);
 `
 
@@ -35,11 +33,11 @@ const ProfileOverview = () => {
   
   return (
     <>
-      <PVWrapper >
+      <PVWrapper>
           <ProfileHeader/>
           <ProfileLineBreak/>
           <WaterCard />
-          <ProfileCompletion />
+          <ProfileCompletion/>
           <WeeklySurvey/>
           <YourReminders/>
           <ProfileBadges/>

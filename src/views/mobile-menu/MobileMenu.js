@@ -104,12 +104,13 @@ const Wrapper = styled.div`
 
 
 const PlaceholderButton = styled.button`
-    width: 3rem;
-    height: 3rem;
-    background-color: transparent;
-    border: none;
-    color: #CCC9FF;
-    font-size: 2rem;
+width: 3rem;
+height: 3rem;
+margin: 5rem 0 2rem 3rem;
+background-color: transparent;
+border: none;
+color: #CCC9FF;
+font-size: 2rem;
 `
 
 const DrawerContainer = styled.div`
@@ -117,7 +118,7 @@ const DrawerContainer = styled.div`
     position: fixed;
     z-index: -3;
     .closed {
-        width: 90vw;
+        width: 70vw;
         height: 100vh;
         position: fixed;
         right: 100vw;
@@ -126,6 +127,7 @@ const DrawerContainer = styled.div`
     }
         .open {
             background-color: #3D3B91;
+            width: 70vw;
             transition: 0.5s ease-in-out;
         }
 `
@@ -152,17 +154,17 @@ const UserHud = styled.div`
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    border-bottom: .2rem solid rgba(255, 255, 255, 0.5);
 `
 
 
 const Avatar = styled.div`
-    width: 80px;
-    height: 80px;
+    width: 8rem;
+    height: 8rem;
     margin: 1rem;
     background-image: url('https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1');
     background-size: cover;
-    border-radius: 3px;
+    border-radius: .3rem;
     `
     
     const UserInfo = styled.div`
@@ -208,7 +210,7 @@ export const NavButton = styled.div`
         flex-flow: row nowrap;
         justify-content: left;
         align-items: center;
-        border-radius: 2px;
+        border-radius: .2rem;
      
             i {
                 margin: 2rem 3rem 2rem 1rem;
