@@ -47,7 +47,7 @@ const Calendar = props => {
 
   const selectDay = d =>{
       setSelectedDay(d);
-      console.log("selected day:", dateObj.date(d).format("dddd, MMMM Do YYYY, h:mm:ss a"))
+      props.debug && console.log("selected day:", dateObj.date(d).format("dddd, MMMM Do YYYY, h:mm:ss a"))
   }
 
   //days in month
@@ -65,7 +65,7 @@ const Calendar = props => {
 
   //slots for calendar
   let totalSlots = [...blanks, ...daysInMonth];
-  //   console.log(totalSlots);
+  //   props.debug && console.log(totalSlots);
   let rows = [];
   let cells = [];
 

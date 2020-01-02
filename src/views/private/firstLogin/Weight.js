@@ -7,7 +7,7 @@ import styled from "styled-components";
 const Weight = props => {
   //handle change to store selected tick
   const handleChanges = e => {
-    // console.log(e);
+    // props.debug && console.log(e);
     props.setAnswer(e);
   };
 

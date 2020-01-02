@@ -27,11 +27,11 @@ const AddMember = props => {
     axiosWithAuth()
       .get("/icons")
       .then(res => {
-        console.log("icons:", res.data);
+        props.debug && console.log("icons:", res.data);
         setIcon(res.data);
       })
       .catch(err => {
-        console.log(err);
+        props.debug && console.log(err);
       });
   }, []);
 
@@ -62,15 +62,15 @@ const AddMember = props => {
   //handle submit of user info to backend
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(member, emailList);
+    props.debug && console.log(member, emailList);
 
     //   axiosWithAuth()
     //     .post("/teammemberlist", { emailList})
     //     .then(res => {
-    //      console.log(res)
+    //      props.debug && console.log(res)
     //       })
     //     .catch(err => {
-    //       console.log(err);
+    //       props.debug && console.log(err);
     //     });
   };
 

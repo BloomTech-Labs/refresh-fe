@@ -12,7 +12,7 @@ const SurveyDash = props => {
     axiosWithAuth()
       .get("https://apidevnow.com/questiongroups")
       .then(res => {
-        console.log(res);
+        props.debug && console.log(res);
       });
   });
 

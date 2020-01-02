@@ -34,7 +34,7 @@ const StepForm = props => {
       .then(res => {
         setQuestions(res.data.questions);
       })
-      .catch(err => console.log(err));
+      .catch(err => props.debug && console.log(err));
   }, []);
 
   //set values for slider
@@ -44,16 +44,16 @@ const StepForm = props => {
 
   //handle submit to backend
   const handleSubmit = e => {
-    console.log(e.target);
+    props.debug && console.log(e.target);
     e.preventDefault();
     if (currentStep === questions.length - 1) {
-      console.log("here", questions[currentStep]);
+      props.debug && console.log("here", questions[currentStep]);
       postAnswer({ answer, question_id: questions[currentStep].id });
       setQuestions([]);
       setDone(true);
     } else {
       const defaultAnswer = answer ? answer : "Chose not to answer";
-      console.log("here", questions[currentStep]);
+      props.debug && console.log("here", questions[currentStep]);
       postAnswer({
         answer: defaultAnswer,
         question_id: questions[currentStep].id
@@ -66,7 +66,7 @@ const StepForm = props => {
   const postAnswer = answer => {
     return axiosWithAuth()
       .post("/answers", answer)
-      .then(res => console.log(res));
+      .then(res => props.debug && console.log(res));
   };
 
   // //slider thumb and track

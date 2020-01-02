@@ -36,7 +36,7 @@ const EmailLogin = props => {
       user.password.length < 4 &&
       "user password must be greater than 5 characters";
     !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
-    console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+    props.debug && console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
 
   //route to login
@@ -76,11 +76,11 @@ const EmailLogin = props => {
             props.history.push("/dashboard");
           } else {
             setErr(res.data);
-            console.log(err);
+            props.debug && console.log(err);
           }
         })
         .catch(err => {
-          console.log(err);
+          props.debug && console.log(err);
         });
     }
   };

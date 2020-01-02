@@ -10,8 +10,8 @@ import TimerShortBreakThree from "./TimerShortBreakThree";
 import TimerLongBreak from "./TimerLongBreak";
 const TimerCanvas = props => {
   const { url } = props.match;
-  console.log('url',url)
-  console.log(props)
+  props.debug && console.log('url',url)
+  props.debug && console.log(props)
   return (
     <Switch>
       <Route exact path={url} component={TimerOne} />

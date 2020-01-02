@@ -20,10 +20,10 @@ const TeamList = props => {
     axiosWithAuth()
       .get("/teams")
       .then(res => {
-        console.log("teams:", res.data);
+        props.debug && console.log("teams:", res.data);
       })
       .catch(err => {
-        console.log(err);
+        props.debug && console.log(err);
       });
   }, []);
 

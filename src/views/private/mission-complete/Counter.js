@@ -18,7 +18,9 @@ const Counter = props => {
       if (question_id === mission.question_id) {
         newAnswer = false;
         setAnswer(missionTracker[i].answer);
+    
       }
+      return
     });
     newAnswer && setAnswer(0);
   }, [drawerStatus]);
@@ -26,7 +28,7 @@ const Counter = props => {
   const setAnswerValues = operator => {
     const {goal,point_current} = selectedMission
     const maxInput = point_current ? goal - point_current:goal;
-    console.log('Max',maxInput)
+    console.log('Max', maxInput)
     const updateAnswer =
       operator === "+"
         ? answer >= maxInput

@@ -21,7 +21,7 @@ import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
 
 const PrivateViewCanvas = (props) => {
-  console.log("Props From Mobile Menue",props)
+  props.debug && console.log("Props From Mobile Menue",props)
   return (
     <>
       {/* Mobile Menu Will not work Globaly if in Switch */}

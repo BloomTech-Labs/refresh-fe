@@ -11,13 +11,13 @@ const ImageDial = props => {
     useEffect(()=>{
         axios.get("https://dog.ceo/api/breed/husky/images")
         .then(res =>{
-            console.log(res.data.message[0]);
+            props.debug && console.log(res.data.message[0]);
             setThumb(res.data.message)
         })
     }, [])
   //handle change to store selected tick
   const handleChanges = e => {
-    console.log(e);
+    props.debug && console.log(e);
   };
 
   //Scale of numbers
