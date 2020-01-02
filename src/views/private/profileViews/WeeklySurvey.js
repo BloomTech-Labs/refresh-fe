@@ -37,21 +37,21 @@ letter-spacing: 0.035em;
 color: #CCC9FF;
 `
 
-const RocketVector = styled.div`
-position: absolute;
-left: 23.03%;
-right: 22.37%;
-top: 12.75%;
-bottom: 31.54%;
+// const RocketVector = styled.div`
+// position: absolute;
+// left: 23.03%;
+// right: 22.37%;
+// top: 12.75%;
+// bottom: 31.54%;
 
-background: #FFFFFF;
-`
+// background: #FFFFFF;
+// `
 
 const WeeklySurvey = () =>{
   return (
     <>
       <SurveyContainer>
-        <RocketVector/>
+        {/* <RocketVector/> */}
         <SurveyText>surveys of the week</SurveyText>
       </SurveyContainer>
     </>
