@@ -17,30 +17,45 @@ const SurveyDash = props => {
   }, []);
 
   return (
-    <>
-      <h1>Weekly Surveys</h1>
-      <h2>IN PROGRESS</h2>
-      {currentSurveys.map((group, i) => {
-        return (
-          <div key={i}>
-            <div>{group.name}</div>
-          </div>
-        );
-      })}
+    <Wrapper>
+      <StyledContainer>
+        <h1>Weekly Surveys</h1>
+        <h2>IN PROGRESS</h2>
+        {currentSurveys.map((group, i) => {
+          return (
+            <div key={i}>
+              <div>{group.name}</div>
+            </div>
+          );
+        })}
 
-      <h2>NEW</h2>
-      <div>
-        {/* onclick as well, will need to spread in res and map for each of these boxes
-         */}
-      </div>
-      {/* Onclick to survey creation */}
-      <button onClick={() => props.history.push(url + "/createsurvey")}>
-        Create Survey
-      </button>
-    </>
+        <h2>NEW</h2>
+        <div>
+          {/* onclick as well, will need to spread in res and map for each of these boxes
+           */}
+        </div>
+        {/* Onclick to survey creation */}
+        <button onClick={() => props.history.push(url + "/createsurvey")}>
+          Create Survey
+        </button>
+      </StyledContainer>
+    </Wrapper>
   );
 };
 
 //styles
+const Wrapper = styled.div`
+display: flex;
+margin: 0 auto;
+
+
+`
+
+const StyledContainer = styled.div`
+display: flex;
+max-width: 500px;
+flex-direction: column
+margin: 0 auto;
+`
 
 export default SurveyDash;
