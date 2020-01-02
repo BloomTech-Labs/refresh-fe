@@ -2,11 +2,9 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { inputTypes } from "../../../styles/global/constants";
 import Colors from "../../../styles/global/colors";
-
 const Input = ({ callback = () => {}, ...props }) => {
   const [value, setValue] = useState("");
   const node = useRef();
-
   const {
     id,
     name,
@@ -35,24 +33,20 @@ const Input = ({ callback = () => {}, ...props }) => {
     actionColor,
     actionBackground
   } = props;
-
   const updateValue = e => {
     e.preventDefault();
     setValue(e.target.value);
     //
     callback(node.current.value);
   };
-
   const removeFocus = event => {
     // Defocus on escape
     if (event.keyCode === 27) {
       event.target.blur();
     }
   };
-
   return (
     <BaseInput
-    
       className="base-input"
       id={id}
       form={form}
@@ -85,7 +79,6 @@ const Input = ({ callback = () => {}, ...props }) => {
     />
   );
 };
-
 const BaseInput = styled.input.attrs(props => ({
   actionColor: props.actionColor,
   actionBackground: props.actionBackground,
@@ -114,7 +107,6 @@ const BaseInput = styled.input.attrs(props => ({
   textAlign: props.textAlign,
   cursor: props.cursor
 }))`
-
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
   width: ${props => (props.width ? `${props.width}%` : `50%`)};
   border: ${props => (props.border ? props.border : "1px solid primary")};
@@ -138,5 +130,4 @@ const BaseInput = styled.input.attrs(props => ({
   margin: ${props => (props.margin ? `${props.margin}rem` : ".5rem")};
   padding: ${props => (props.padding ? `${props.padding}rem` : ".25rem")};
 `;
-
 export default Input;
