@@ -8,32 +8,31 @@
 // IMPORTS
 
 import React from "react";
-// import { Router } from "react-router-dom";
 import styled from "styled-components";
-// import WaterBottleGauge from "../profileViews/WaterBottleGauge";
-// import WaterBottleGauge from "../profileViews/WaterBottleGauge";
+// import { Router } from "react-router-dom";
 // import ImageDial from "../team-view/ImageDial";
-// import activityBadge from "../../images/profile/activity_badge.svg";
+// import MissionComplete from '../mission-complete/MissionComplete'
 // helpers
-import { test, flex } from '../../styles/global/Mixins';
+// import { test, flex } from "../../styles/global/Mixins";
 // Views to test
+import CongratsComplete from '../mission-complete/CongratsComplete'
+import Atoms from '../componentTesting/componentTesting'
 
 // COMPONENT
 const Sandbox = () => {
   return (
     <>
-      welcome to the sandbox
-      {/* <WaterBottleGauge /> */}
-      <div>
-        {/* <ImageDial /> */}
-      </div>
-{/* <img src={activityBadge} alt="alt" /> */}
+      <CongratsComplete />
+      {/* <Atoms /> */}
     </>
   );
 };
 
 // STYLED COMPONENTS
 // todo
+const Container = styled.div`
+  padding: 5rem;
+`;
 
 // EXPORT
 export default Sandbox;
