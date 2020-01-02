@@ -2,10 +2,7 @@
 // styled components
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
-
-import waves from "../../images/Onboarding/waves.svg";
-
-// Global Theme Stylesheet
+import {waves} from '../../images/wavyLines.svg'
 // Global Theme Stylesheet
 const GlobalStyle = createGlobalStyle`
     // we can add any global styles or theming that we want here
@@ -18,9 +15,9 @@ const GlobalStyle = createGlobalStyle`
         height: 81.2rem;
         font-family: 'Catamaran', sans-serif;
         font-size: 1.25rem;
-        background-color: #4742BC;
-        background-image:url(${waves});
-        overflow-x: hidden;
+        background-color: #4742bc;
+        background-image: url(${waves});
+        overflow-x:hidden;
         h1,h2,h3,h4,h5 {
             font-size: 2rem;
         }
