@@ -11,7 +11,7 @@ const Counter = props => {
 
   const [answer, setAnswer] = useState();
   const { question_id } = selectedMission ? selectedMission : "";
-
+  
   useEffect(() => {
     let newAnswer = true;
     missionTracker.map((mission, i) => {
@@ -24,7 +24,9 @@ const Counter = props => {
   }, [drawerStatus]);
 
   const setAnswerValues = operator => {
-    const maxInput = selectedMission.goal - selectedMission.point_current;
+    const {goal,point_current} = selectedMission
+    const maxInput = point_current ? goal - point_current:goal;
+    console.log('Max',maxInput)
     const updateAnswer =
       operator === "+"
         ? answer >= maxInput
