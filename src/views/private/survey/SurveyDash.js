@@ -10,15 +10,15 @@ const SurveyDash = props => {
 
   useEffect(() => {
     axiosWithAuth()
-      .get("https://apidevnow.com/questiongroups")
+      .get("https://refresh-yo-beta.herokuapp.com/questiongroups")
       .then(res => {
-        props.debug && console.log(res);
+        console.log(res);
       });
   });
 
-  const handleSubmit = e => {
-    e.preventDefault();
-  };
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  // };
 
   return (
     <>
