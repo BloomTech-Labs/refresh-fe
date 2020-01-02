@@ -9,21 +9,19 @@
 
 import React from "react";
 import styled from "styled-components";
-// import { Router } from "react-router-dom";
+import SurveyForm from "../survey/CreateSurvey";
 // import ImageDial from "../team-view/ImageDial";
-// import MissionComplete from '../mission-complete/MissionComplete'
 // helpers
 // import { test, flex } from "../../styles/global/Mixins";
-// Views to test
-import CongratsComplete from '../mission-complete/CongratsComplete'
-import Atoms from '../componentTesting/componentTesting'
 
 // COMPONENT
 const Sandbox = () => {
   return (
     <>
-      <CongratsComplete />
-      {/* <Atoms /> */}
+      welcome to the sandbox
+      <div>
+        <SurveyForm />
+      </div>
     </>
   );
 };

@@ -3,7 +3,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 // router
-import { BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 // themes and styles
 import Reset from "./styles/global/Reset";
 import GlobalStyle from "./styles/global/GlobalStyle";
@@ -18,5 +18,5 @@ ReactDOM.render(
     <GlobalStyle />
     <App />
   </Router>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
