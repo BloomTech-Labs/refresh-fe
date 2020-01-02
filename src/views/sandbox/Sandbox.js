@@ -8,10 +8,9 @@
 // IMPORTS
 
 import React from "react";
-import Badge from "../../components/molecules/badges/Badges";
 import styled from "styled-components";
 // import { Router } from "react-router-dom";
-// import styled from "styled-components";
+// import Badge from "../../components/molecules/badges/Badges";
 // import WaterBottleGauge from "../profileViews/WaterBottleGauge";
 // import ImageDial from "../team-view/ImageDial";
 // import activityBadge from "../../images/profile/activity_badge.svg";
@@ -24,13 +23,8 @@ import styled from "styled-components";
 const Sandbox = () => {
   return (
     <>
-      welcome to the sandbox
-      {/* <WaterBottleGauge /> */}
-      {/* <div><ImageDial /></div> */}
-      {/* <img src={activityBadge} alt="alt" /> */}
-      {/* <MissionComplete /> */}
       <Container>
-      <Badge />
+      <p>Sandbox</p>
       </Container>
     </>
   );
