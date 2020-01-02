@@ -5,12 +5,10 @@ import Rocket from '../../../images/profile/rocket.svg'
 
 const SurveyContainer = styled.div`
 position: absolute;
-width: 162px;
-height: 149px;
-left: 20%;
-top: 614px;
-/* main / side */
-
+width: 16.2rem;
+height: 14.9rem;
+left: 3.1rem;
+top: 61.4rem;
 background: #3D3B91;
 /* mobile / dashboard dropshadow */
 

@@ -1,3 +1,4 @@
+
 // IMPORTS
 // react
 import React from "react";
@@ -9,7 +10,6 @@ import Reset from "./styles/global/Reset";
 import GlobalStyle from "./styles/global/GlobalStyle";
 // components
 import App from './App';
-
 
 // RENDER
 ReactDOM.render(

@@ -144,7 +144,6 @@ const Button = styled.a`
   &:hover {
     cursor: pointer;
   }
-}
 `;
 
 const ButtonNoColor = styled.a`
