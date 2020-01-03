@@ -17,7 +17,10 @@ const Icon = ({ ...props }) => {
     svg,
     alt,
     display,
-    styledIcon
+    styledIcon,
+    position,
+    top,
+    left
   } = props;
 
   return (
@@ -31,6 +34,9 @@ const Icon = ({ ...props }) => {
       display={display}
       padding={padding}
       alt={alt}
+      position={position}
+      top={top}
+      left={left}
     >
       {svg ? (
         <object type="image/svg+xml" data={svg} className="object-svg">
@@ -50,14 +56,20 @@ const StyledIcon = styled.div.attrs(props => ({
   height: props.height,
   cursor: props.cursor,
   display: props.display,
-  padding: props.padding
+  padding: props.padding,
+  position: props.position,
+  left: props.left,
+  top: props.top
 }))`
   height: ${props => (props.height ? `${props.height}rem` : "100%")};
   width: ${props => (props.width ? `${props.width}rem` : "100%")};
+  position: ${props => (props.position ? props.position : "relative")};
+  left: ${props => (props.left ? `${props.left}rem` : 0)};
+  top: ${props => (props.top ? `${props.top}rem` : 0)};
   color: ${props => props.color};
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : "transparent"};
-  display: flex;
+  display: ${props => (props.display ? props.display : "flex")};
   justify-content: center;
   align-items: center;
   .object-svg,
