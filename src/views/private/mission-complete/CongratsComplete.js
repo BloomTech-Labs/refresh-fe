@@ -1,18 +1,39 @@
-// IMPORTS
-// react
-import React from "react";
-
+// libraries
+import React, { useState } from "react";
+import styled from "styled-components";
+// atoms
 import Icon from "../../../components/atoms/icon/icon";
 import Container from "../../../components/atoms/container/container";
 import Text from "../../../components/atoms/text/text";
 import Button from "../../../components/atoms/button/button";
 // images
 import rocket from "../../../images/rocket.svg";
+import Confetti from "react-dom-confetti";
+// text
+const congratText = "Congratulations";
+const moreText = "To get more points and badges,";
+const moreText2 = "complete more missions.";
 
-const CongratsComplete = props => {
-  const congratText = "Congratulations";
-  const moreText = "To get more points and badges,";
-  const moreText2 = "complete more missions.";
+
+const CongratsComplete = ({...props}) => {
+  // const confettiTime = `something truthy`;
+  // if !isLoading then fire confetti
+  const [confettiTime, setConfettiTime] = useState({})
+
+  // Confetti config
+  const config = {
+    angle: 90,
+    spread: 45,
+    startVelocity: 45,
+    elementCount: 50,
+    dragFriction: 0.1,
+    duration: 3000,
+    stagger: 0,
+    width: "10px",
+    height: "10px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+  };
+
   return (
     <>
       <Container>
@@ -35,6 +56,9 @@ const CongratsComplete = props => {
           top={33.1}
           left={10.588}
         />
+        <ConfettiWrapper className="confettiWrapper">
+          <Confetti active={confettiTime} config={config} />
+        </ConfettiWrapper>
         <Text
           text={moreText}
           fontSize={1.5}
@@ -74,5 +98,13 @@ const CongratsComplete = props => {
     </>
   );
 };
+
+const ConfettiWrapper = styled.div`
+  /* position: absolute;
+top: 33.1rem;
+left: 10.588rem; */
+  width: 100%;
+  height: 100vh;
+`;
 
 export default CongratsComplete;
