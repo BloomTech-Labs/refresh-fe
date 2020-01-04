@@ -8,31 +8,30 @@
 // IMPORTS
 
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 // import { Router } from "react-router-dom";
 // import ImageDial from "../team-view/ImageDial";
 // import MissionComplete from '../mission-complete/MissionComplete'
 // helpers
 // import { test, flex } from "../../styles/global/Mixins";
 // Views to test
-import CongratsComplete from '../mission-complete/CongratsComplete'
-import Atoms from '../componentTesting/componentTesting'
+// import CongratsComplete from '../mission-complete/CongratsComplete'
+// import Atoms from '../componentTesting/componentTesting'
 
 // COMPONENT
 const Sandbox = () => {
   return (
     <>
-      <CongratsComplete />
+      {/* <CongratsComplete /> */}
       {/* <Atoms /> */}
     </>
   );
 };
 
-// STYLED COMPONENTS
-// todo
-const Container = styled.div`
-  padding: 5rem;
-`;
+
+// const Container = styled.div`
+//   padding: 5rem;
+// `;
 
 // EXPORT
 export default Sandbox;
