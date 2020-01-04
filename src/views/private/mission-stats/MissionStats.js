@@ -13,7 +13,7 @@ const MissionStats = () => {
     const start = '2019-11-20'
     const end = '2019-11-21'
     useEffect(()=>{
-        axiosWithAuth().post(`/answers/datefilter?startDate=${start}&endDate=${end}`)
+        axiosWithAuth().get(`/answers/datefilter?startDate=${start}&endDate=${end}`)
         .then(res=>console.log('resFrom ',res))
         .catch(err=>console.log(err))
     },[])
