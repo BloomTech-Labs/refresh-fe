@@ -59,7 +59,7 @@ const StyledText = styled.p.attrs(props => ({
 }))`
   font-size: ${props =>
     props.fontSize ? `${props.fontSize}rem` : Fonts.fontSize.baseMd};
-  color: ${props => (props.color ? props.color : Colors.primary)};
+  color: ${props => (props.color ? props.color : "#E6E6E6")};
   font-weight: ${props => (props.fontWeight ? props.fontWeight : "normal")};
   letter-spacing: ${props =>
     props.letterSpacing ? `${props.letterSpacing}em` : "normal"};

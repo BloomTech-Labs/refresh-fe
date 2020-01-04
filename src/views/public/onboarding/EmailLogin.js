@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 //styled components
 import styled from "styled-components";
 //axios with auth
@@ -36,7 +36,8 @@ const EmailLogin = props => {
       user.password.length < 4 &&
       "user password must be greater than 5 characters";
     !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
-    props.debug && console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+    props.debug &&
+      console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
 
   //route to login
@@ -101,7 +102,6 @@ const EmailLogin = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Input
           type="text"
@@ -112,7 +112,6 @@ const EmailLogin = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <ButtonNoColor className="smallTxt">Forgot password?</ButtonNoColor>
         <Button onClick={handleSubmit} className={BtnStats}>

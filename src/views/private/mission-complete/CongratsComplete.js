@@ -49,7 +49,6 @@ const CongratsComplete = ({ ...props }) => {
           <Text
             text={congratText}
             fontSize={3}
-            color={"#E6E6E6"}
             fontWeight={600}
             position={"absolute"}
             width={21.4}
@@ -71,7 +70,6 @@ const CongratsComplete = ({ ...props }) => {
           <Text
             text={moreText}
             fontSize={1.5}
-            color={"#E6E6E6"}
             fontWeight={600}
             position={"absolute"}
             top={55.7}
@@ -82,7 +80,6 @@ const CongratsComplete = ({ ...props }) => {
           <Text
             text={moreText2}
             fontSize={1.5}
-            color={"#E6E6E6"}
             fontWeight={600}
             position={"absolute"}
             top={58.2}
@@ -95,7 +92,6 @@ const CongratsComplete = ({ ...props }) => {
             boxShadow={"0px 4px 10px rgba(21, 15, 172, 0.1)"}
             width={25.1}
             height={5.6}
-            color={"#e6e6e6"}
             fontSize={1.6}
             letterSpacing={0.035}
             position={"absolute"}
@@ -106,7 +102,6 @@ const CongratsComplete = ({ ...props }) => {
             
               <Text
                 text={shareText}
-                color={"#e6e6e6"}
                 fontSize={1.6}
                 letterSpacing={0.035}
               />

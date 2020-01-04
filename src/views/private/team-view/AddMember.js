@@ -92,7 +92,6 @@ const AddMember = props => {
             width={100}
             border={"1px solid #3D3B91"}
             backgroundColor={"#3D3B91"}
-            color={"#E6E6E6"}
           />
         </InputDiv>
         <FormTxt>Space to enter multiple email addresses</FormTxt>
