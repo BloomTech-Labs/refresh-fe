@@ -1,5 +1,5 @@
 // libraries
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 // atoms
 import Icon from "../../../components/atoms/icon/icon";
@@ -14,11 +14,18 @@ const congratText = "Congratulations";
 const moreText = "To get more points and badges,";
 const moreText2 = "complete more missions.";
 
-
-const CongratsComplete = ({...props}) => {
+const CongratsComplete = ({ ...props }) => {
   // const confettiTime = `something truthy`;
   // if !isLoading then fire confetti
-  const [confettiTime, setConfettiTime] = useState({})
+  const [confettiTime, setConfettiTime] = useState(false);
+  useEffect(() => {
+    const runConfetti = setInterval(() => {
+      setConfettiTime(true);
+    }, 2000);
+    return () => {
+      clearInterval(runConfetti);
+    };
+  }, []);
 
   // Confetti config
   const config = {
@@ -31,7 +38,7 @@ const CongratsComplete = ({...props}) => {
     stagger: 0,
     width: "10px",
     height: "10px",
-    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+    colors: ["#FC5454", "#FFA25F", "#1575FF", "#27AE60", "#9B51E0", "#FC54EB"]
   };
 
   return (
@@ -100,10 +107,10 @@ const CongratsComplete = ({...props}) => {
 };
 
 const ConfettiWrapper = styled.div`
-  /* position: absolute;
-top: 33.1rem;
-left: 10.588rem; */
-  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50vh;
+  width: 50%;
   height: 100vh;
 `;
 
