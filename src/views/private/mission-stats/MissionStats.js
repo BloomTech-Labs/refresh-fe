@@ -1,13 +1,22 @@
 // IMPORTS
 // react
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
-import { test, flex } from '../../../styles/global/Mixins';
+import {flex } from '../../../styles/global/Mixins';
+
+import {axiosWithAuth} from '../../../helpers/axiosWithAuth'
 
 // COMPONENT
 const MissionStats = () => {
+    const start = '2019-11-20'
+    const end = '2019-11-21'
+    useEffect(()=>{
+        axiosWithAuth().post(`/answers/datefilter?startDate=${start}&endDate=${end}`)
+        .then(res=>console.log('resFrom ',res))
+        .catch(err=>console.log(err))
+    },[])
     return (
         <>
         <StatsView>
