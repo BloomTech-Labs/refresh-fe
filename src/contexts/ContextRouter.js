@@ -31,14 +31,13 @@ const ContextRouter = ({
           
           setUser(res.data.user_profile);
           setUserMissions(mission_subscriptions);
-          
+
         })
         .catch(err => {
           console.log(err);
         });
   }, []);
   return (
-    <Switch>
     <Route
       {...rest}
       render={(props) => {
@@ -51,7 +50,6 @@ const ContextRouter = ({
         );
       }}
     />
-    </Switch>
   );
 };
 export default ContextRouter;
