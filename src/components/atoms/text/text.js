@@ -21,6 +21,7 @@ const Text = ({ text, ...props }) => {
     textAlign,
     width,
     height,
+    textDecoration
   } = props;
   return (
     <StyledText
@@ -54,6 +55,7 @@ const StyledText = styled.p.attrs(props => ({
   textAlign: props.textAlign,
   height: props.height,
   width: props.width,
+  textDecoration: props.textDecoration
 }))`
   font-size: ${props =>
     props.fontSize ? `${props.fontSize}rem` : Fonts.fontSize.baseMd};
@@ -61,13 +63,16 @@ const StyledText = styled.p.attrs(props => ({
   font-weight: ${props => (props.fontWeight ? props.fontWeight : "normal")};
   letter-spacing: ${props =>
     props.letterSpacing ? `${props.letterSpacing}em` : "normal"};
-  line-height: ${props => (props.lineHeight ? `${props.lineHeight}rem` : "normal")};
+  line-height: ${props =>
+    props.lineHeight ? `${props.lineHeight}rem` : "normal"};
   text-align: ${props => (props.textAlign ? props.textAlign : "center")};
   position: ${props => (props.position ? props.position : "relative")};
   left: ${props => (props.left ? `${props.left}rem` : 0)};
   top: ${props => (props.top ? `${props.top}rem` : 0)};
   height: ${props => (props.height ? `${props.height}rem` : "100%")};
   width: ${props => (props.width ? `${props.width}rem` : `100%`)};
+  text-decoration: ${props =>
+    props.textDecoration ? props.textDecoration : "none"};
 `;
 
 export default Text;
