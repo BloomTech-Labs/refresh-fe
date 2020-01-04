@@ -9,7 +9,7 @@ const LiveGauge = ({ ...props }) => {
   const normalizedValue = () => {
     let percent = actual / goal;
     if (isNaN(percent)) {
-      console.info(`gauge fetching user data`);
+      props.debug && console.info(`gauge fetching user data`);
     } else if (percent < 0) {
       return 0;
     } else if (percent >= 1) {
@@ -26,7 +26,7 @@ const LiveGauge = ({ ...props }) => {
   const dashOffset = () => {
     let offset = 182.212 * (1 - progress);
     if (isNaN(offset)) {
-      console.info(`gauge fetching user data`);
+      props.debug && console.info(`gauge fetching user data`);
     } else if (offset >= 0) {
       return offset;
     } else {

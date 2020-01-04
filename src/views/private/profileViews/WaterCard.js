@@ -1,7 +1,7 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext} from "react"; // eslint-disable-line no-unused-vars
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
-import {axiosWithAuth} from '../../../helpers/axiosWithAuth';
+import {axiosWithAuth} from '../../../helpers/axiosWithAuth'; // eslint-disable-line no-unused-vars
 import WaterBottleGauge from './WaterBottleGauge';
 
 

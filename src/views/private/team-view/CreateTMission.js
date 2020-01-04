@@ -1,10 +1,10 @@
 //IMPORTS
 //react
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";// eslint-disable-line no-unused-vars
 //styled-components
 import styled from "styled-components";
 //axios with auth
-import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth"; // eslint-disable-line no-unused-vars
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 // Colors
-import Colors from "../../../styles/global/colors";
+import Colors from "../../../styles/global/colors"; // eslint-disable-line no-unused-vars
 // Fonts
 import Fonts from "../../../styles/global/fonts";
 
@@ -37,6 +37,7 @@ const Text = ({ text, ...props }) => {
       textAlign={textAlign}
       width={width}
       height={height}
+      textDecoration={textDecoration}
     >
       {text}
     </StyledText>

@@ -3,15 +3,13 @@
 import React from "react";
 // styled components
 import styled from "styled-components";
-// helpers
-import { test, flex } from "../../../styles/global/Mixins";
 // components
 import Counter from "./Counter";
 
 // COMPONENT
 const MissionInput = props => {
   // props
-  const { handleDrawer, status, missions, selectedMission } = props;
+  const { handleDrawer, status, missions, selectedMission } = props; // eslint-disable-line no-unused-vars
   
   //render
   return (

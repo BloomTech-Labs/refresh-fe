@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // styled components
 import styled from "styled-components";
 // helpers
-import { test, flex } from "../../../styles/global/Mixins";
+import { test, flex } from "../../../styles/global/Mixins"; // eslint-disable-line no-unused-vars
 // contexts
 import { UserContext } from "../../../contexts/UserContext";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
@@ -30,7 +30,7 @@ const dummyUser = {
 const MobileMenu = props => {
   // state hooks
   const activeUser = useContext(UserContext);
-  const userMissions = useContext(UserMissionsContext);
+  const userMissions = useContext(UserMissionsContext); // eslint-disable-line no-unused-vars
 
   const [menu, setMenu] = useState({
     status: "closed",
@@ -67,12 +67,8 @@ const MobileMenu = props => {
                 <p>
                   {dummyUser.cohort} - {dummyUser.section_lead}
                 </p>
-                <p>
-                  {dummyUser.points}{" "}
-                  Points
-                </p>
+                <p>{dummyUser.points} Points</p>
                 <p className="activeText">Team Lead</p>
-                
               </UserInfo>
             </UserHud>
 
@@ -112,7 +108,7 @@ const MobileMenu = props => {
         </Drawer>
       </DrawerContainer>
       <PlaceholderButton onClick={menuToggle}>
-        <i className={`fas fa-bars ${menu.status}` }></i>
+        <i className={`fas fa-bars ${menu.status}`}></i>
       </PlaceholderButton>
     </Wrapper>
   );
@@ -120,7 +116,6 @@ const MobileMenu = props => {
 
 // STYLED COMPONENTS
 const Wrapper = styled.div`
-  
   position: fixed;
   z-index: 1000;
 
@@ -132,8 +127,8 @@ const Wrapper = styled.div`
     z-index: -5;
     transition: 0.5s ease;
   }
-  .activeText{
-      color:#E05CB3;
+  .activeText {
+    color: #e05cb3;
   }
 
   .inactive {
@@ -147,19 +142,19 @@ const Wrapper = styled.div`
   }
 `;
 
-const Container = styled.div`
-  margin: 0 auto;
-  width: 100vw;
-  height: 5rem;
-  ${flex.flexRowNoWrapAround}
-  z-index: 1;
+// const Container = styled.div`
+//   margin: 0 auto;
+//   width: 100vw;
+//   height: 5rem;
+//   ${flex.flexRowNoWrapAround}
+//   z-index: 1;
 
-  button:active {
-    border: none;
-    text-decoration: none;
-    outline: none;
-  }
-`;
+//   button:active {
+//     border: none;
+//     text-decoration: none;
+//     outline: none;
+//   }
+// `;
 
 const PlaceholderButton = styled.button`
   width: 3rem;
@@ -169,9 +164,9 @@ const PlaceholderButton = styled.button`
   color: #fff;
   font-size: 2rem;
   margin: 2rem auto 2rem 2rem;
-  outline:none;
-  .open{
-      display:none;
+  outline: none;
+  .open {
+    display: none;
   }
 `;
 
@@ -216,7 +211,7 @@ const UserHud = styled.div`
   width: 100%;
   height: 20rem;
 
-  padding:1.2rem;
+  padding: 1.2rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -230,31 +225,29 @@ const Avatar = styled.div`
   background-image: url("https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1");
   background-size: cover;
   border-radius: 3px;
-  border-radius:50%;
+  border-radius: 50%;
   img {
-    border-radius:50%;
+    border-radius: 50%;
     width: 8rem;
   }
 `;
 
 const UserInfo = styled.div`
- 
   padding: 1rem;
   color: #fff;
   margin: 1rem;
   margin-right: 0;
-  
+
   h2 {
-    
-    font-size: calc(100% + .5rem);
+    font-size: calc(100% + 0.5rem);
     letter-spacing: 0.15rem;
   }
 
-  p{
-    font-family: 'Catamaran', sans-serif;
-      font-weight:100;
-      line-height:104%;
-      color:E6E6E6;
+  p {
+    font-family: "Catamaran", sans-serif;
+    font-weight: 100;
+    line-height: 104%;
+    color: E6E6E6;
   }
 
   i {
@@ -266,17 +259,17 @@ const Navigation = styled.div`
   width: 65%;
   display: flex;
   flex-direction: column;
-  align-content:center;
-  text-align:center;
-  margin:auto;
+  align-content: center;
+  text-align: center;
+  margin: auto;
 `;
 
 const NavButton = styled.div`
   font-size: 1.5rem;
-  color: #B8B7E1;
+  color: #b8b7e1;
   display: flex;
   flex-flow: row nowrap;
-  justify-content:left;
+  justify-content: left;
   align-items: center;
   border-radius: 2px;
 
@@ -285,7 +278,7 @@ const NavButton = styled.div`
   }
 
   i {
-    color:rgba(204, 201, 255,.6);
+    color: rgba(204, 201, 255, 0.6);
     margin: 1.5rem;
     font-size: 1.5rem;
   }

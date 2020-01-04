@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import { UserContext } from '../../../contexts/UserContext';
+import React, {useContext} from 'react'; //eslint-disable-line no-unused-vars
+import { UserContext } from '../../../contexts/UserContext'; // eslint-disable-line no-unused-vars
 import styled from 'styled-components';
 import maxine from '../profileViews/maxine.jpg';
 import notifications from '../../../images/profile/notifications.svg';

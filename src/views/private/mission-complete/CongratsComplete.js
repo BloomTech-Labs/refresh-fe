@@ -16,14 +16,13 @@ const congratText = "Congratulations!";
 const moreText = "To get more points and badges,";
 const moreText2 = "complete more missions.";
 const shareText = "Share with your team";
-const returnText = "return";
 
 const CongratsComplete = ({ ...props }) => {
-  const { status, handleClose, submitMissionTracker } = props;
+  const { status, submitMissionTracker } = props;
   const [confettiTime, setConfettiTime] = useState(false);
 
   useEffect(() => {
-    status == "closed" ? setConfettiTime(false) : setConfettiTime(status);
+    status === "closed" ? setConfettiTime(false) : setConfettiTime(status);
   }, [status]);
 
   // console.log('status :', status);
@@ -87,26 +86,20 @@ const CongratsComplete = ({ ...props }) => {
             width={26}
           />
           <Link to="/dashboard">
-          <Button
-            backgroundColor={"#E05CB3"}
-            boxShadow={"0px 4px 10px rgba(21, 15, 172, 0.1)"}
-            width={25.1}
-            height={5.6}
-            fontSize={1.6}
-            letterSpacing={0.035}
-            position={"absolute"}
-            left={5.7}
-            top={61.4}
-            onClick={submitMissionTracker}
-          >
-            
-              <Text
-                text={shareText}
-                fontSize={1.6}
-                letterSpacing={0.035}
-              />
-            
-          </Button>
+            <Button
+              backgroundColor={"#E05CB3"}
+              boxShadow={"0px 4px 10px rgba(21, 15, 172, 0.1)"}
+              width={25.1}
+              height={5.6}
+              fontSize={1.6}
+              letterSpacing={0.035}
+              position={"absolute"}
+              left={5.7}
+              top={61.4}
+              onClick={submitMissionTracker}
+            >
+              <Text text={shareText} fontSize={1.6} letterSpacing={0.035} />
+            </Button>
           </Link>
         </Container>
       </CongratsScreen>

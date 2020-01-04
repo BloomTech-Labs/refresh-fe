@@ -1,7 +1,7 @@
 // IMPORTS
 // styled components
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+import styled from 'styled-components';// eslint-disable-line no-unused-vars
 import {waves} from '../../images/wavyLines.svg'
 // Global Theme Stylesheet
 const GlobalStyle = createGlobalStyle`

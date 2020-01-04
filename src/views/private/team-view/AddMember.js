@@ -166,12 +166,12 @@ const FormHeader = styled.p`
   color: #b8b7e1;
 `;
 
-const Logo = styled.img`
-  height: calc(100vh / 3.5);
-  width: 100%;
-  max-width: 100%;
-  margin: auto;
-`;
+// const Logo = styled.img`
+//   height: calc(100vh / 3.5);
+//   width: 100%;
+//   max-width: 100%;
+//   margin: auto;
+// `;
 
 const Form = styled.form`
   display: flex;
@@ -230,7 +230,6 @@ const Button = styled.a`
   color: white;
   font-size:calc(110% + 0.5vw);
   letter-spacing:0.1rem;
-}
 `;
 
 const EmailListDrop = styled.div`
@@ -250,7 +249,7 @@ align-items:center;
       width:90%;
   }
   .fa-user-circle{
-      margin-left:2%
+      margin-left:2%;
       margin-right:2%;
       color:#3d3b91;
 

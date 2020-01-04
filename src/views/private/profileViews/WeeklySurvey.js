@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import Rocket from '../../../images/profile/rocket.svg'
+import Rocket from '../../../images/profile/rocket.svg' // eslint-disable-line no-unused-vars
 
 const SurveyContainer = styled.div`
 position: absolute;

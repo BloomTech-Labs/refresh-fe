@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Colors from "../../../styles/global/colors";
+// import Colors from "../../../styles/global/colors";
 
 const spinner = require("../../../images/two_cubes.gif");
 
@@ -28,7 +28,7 @@ const StyledSpinner = styled.div.attrs(props => ({
   height: ${props => (props.height ? `${props.height}%` : "100%")};
   width: ${props => (props.width ? `${props.width}%` : `100%`)};
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : 'transparent'};
+    props.backgroundColor ? props.backgroundColor : "transparent"};
   display: flex;
   align-items: center;
   justify-content: center;

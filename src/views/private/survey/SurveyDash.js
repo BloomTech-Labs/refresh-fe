@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Route, Link } from "react-router-dom";
-import styled from "styled-components";
+import { Route, Link } from "react-router-dom"; // eslint-disable-line no-unused-vars
+import styled from "styled-components"; // eslint-disable-line no-unused-vars
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
-import SurveyForm from "./CreateSurvey";
+import SurveyForm from "./CreateSurvey"; // eslint-disable-line no-unused-vars
 
 const SurveyDash = props => {
   const [currentSurveys, addCurrentSurveys] = useState([]);
