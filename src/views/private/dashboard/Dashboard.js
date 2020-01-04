@@ -29,7 +29,6 @@ const Dashboard = props => {
             <Greeting>
               <h1>Hello {activeUser.fname}!</h1>
             </Greeting>
-
             <User>
               <Link to="/coming-soon">
                 <i className="fas fa-bell"></i>
@@ -49,7 +48,7 @@ const Dashboard = props => {
 
           <h2 className="mission-message">Your missions today</h2>
 
-          <Progress missions={missions} />
+          <Progress  missions={missions} />
 
           <MissionHub>
             {missions.map(mission => {

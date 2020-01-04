@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import PrivateViewCanvas from "./views/private";
 import PublicViewCanvas from "./views/public";
