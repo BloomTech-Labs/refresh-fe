@@ -111,25 +111,23 @@ const CreateAccount = props => {
             borderRadius={100}
           />
         </GoogleSignIn>
+        <Button onClick={routeToEmailSignUp}>
+          Sign up with Email <Image src={emailogo} height={2} width={2} />
+        </Button>
       </FlexHolder>
       <Row width={97} height={1} padding={"12% 0"}>
-        <Col width={30} marginLeft={-2}>
+        {/* <Col width={30} marginLeft={-2}>
           <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-        </Col>
-        <Col
+        </Col> */}
+        {/* <Col
           width={70}
           borderBottom={"1px solid white"}
           height={1}
           marginTop={1}
           marginBottom={3}
           marginLeft={-6}
-        ></Col>
+        ></Col> */}
       </Row>
-      <FlexHolder>
-        <Button onClick={routeToEmailSignUp}>
-          Sign up with Email <Image src={emailogo} height={2} width={2} />
-        </Button>
-      </FlexHolder>
     </OnBoardContainer>
   );
 };
@@ -212,13 +210,13 @@ const FlexHolder = styled.div`
   align-items: flex-start;
   width: 100%;
 
-  @media screen and (min-width: 700px) {
-    margin-top: -40px;
-  }
+  // @media screen and (min-width: 700px) {
+  //   margin-top: -40px;
+  // }
 
-  @media screen and (min-width: 800px) {
-    margin-top: -80px;
-  }
+  // @media screen and (min-width: 800px) {
+  //   margin-top: -80px;
+  // }
 `;
 
 const TopHolder = styled.div`
@@ -258,7 +256,7 @@ const FBButton = styled.a`
   padding: 1.5rem 0;
   width: 84%;
   text-align: center;
-  margin: 16% auto 2%;
+  margin: 3% auto;
   background: #4a639e;
   color: white;
   font-size: calc(110% + 0.5vw);
@@ -266,9 +264,17 @@ const FBButton = styled.a`
   &:hover {
     cursor: pointer;
   }
-  @media screen and (min-width: 1200px) {
-    margin-bottom: -30px;
-    margin-top: 100px;
+
+  @media screen and (min-width: 1000px) {
+    margin: 1.5% auto;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin: 4% auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 7% auto;
   }
 `;
 
@@ -279,13 +285,22 @@ const GoogleSignIn = styled.a`
   padding: 1.5rem 0.8rem;
   width: 84%;
   text-align: center;
-  margin: 5% auto;
+  margin: 0 auto 3% auto;
   background: #6997f2;
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing: 0.1rem;
   &:hover {
     cursor: pointer;
+  }
+  @media screen and (min-width: 1000px) {
+    margin: 0 auto 1.5% auto;
+  }
+  @media screen and (max-width: 800px) {
+    margin: 0 auto 4% auto;
+  }
+  @media screen and (max-width: 500px) {
+    margin: 0 auto 7% auto;
   }
 `;
 
