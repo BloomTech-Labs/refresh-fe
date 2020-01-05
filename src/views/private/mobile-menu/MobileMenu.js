@@ -89,7 +89,7 @@ const MobileMenu = props => {
                 </Link>
               </NavButton>
               <NavButton>
-                <Link to="/coming-soon">
+                <Link to="/weekly-challenges">
                   <i className="fas fa-calendar-alt"></i>Weekly Challenge
                 </Link>
               </NavButton>

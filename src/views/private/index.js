@@ -19,6 +19,7 @@ import Calendar from "./team-view/Calendar";
 import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
+import WeeklyChallenge from './weeklyChallenge';
 
 const PrivateViewCanvas = (props) => {
   props.debug && console.log("Props From Mobile Menue",props)
@@ -45,6 +46,7 @@ const PrivateViewCanvas = (props) => {
         <Route path="/coming-soon" component={ComingSoon} />
         <Route path="/timer" component={TimerCanvas} />
         <Route path="/survey" component={SurveyCanvas} />
+        <Route path="/weekly-challenges" component={WeeklyChallenge} />
         <Redirect to="/dashboard" />
       </Switch>
     </>
