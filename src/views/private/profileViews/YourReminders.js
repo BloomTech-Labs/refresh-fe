@@ -4,29 +4,29 @@ import MenuDots from "../../../images/profile/purple_menu_dots.svg";
 import { Link } from "react-router-dom";
 
 const ReminderContainer = styled.div`
-  position: absolute;
-  width: 13.1rem;
-  height: 14.2rem;
-  left: 21.2rem;
-  top: 62.1rem;
-  background: #ccc9ff;
-  border-radius: 0.2rem;
-`;
+position: absolute;
+width: 13.1rem;
+height: 14.2rem;
+left: 21.2rem;
+top: 62.1rem;
+background: #CCC9FF;
+border-radius: .2rem;
+`
 const ReminderText = styled.p`
-  position: absolute;
-  left: 8.43%;
-  right: 33.15%;
-  top: 74.11%;
-  bottom: 13.39%;
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  /* or 15px */
-  /* main / side */
-  color: #3d3b91;
-`;
+position: absolute;
+left: 8.43%;
+right: 33.15%;
+top: 74.11%;
+bottom: 13.39%;
+font-family: Catamaran;
+font-style: normal;
+font-weight: normal;
+font-size: 1.5rem;
+line-height: 1.5rem;
+/* or 15px */
+/* main / side */
+color: #3D3B91;
+`
 
 const ReminderDots = styled.img`
   position: absolute;

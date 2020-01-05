@@ -5,32 +5,32 @@ import User from "../../../images/profile/user.svg";
 import Arrow from "../../../images/profile/purple_right_arrow.svg";
 
 const ProfileContainer = styled.div`
-  position: absolute;
-  width: 13.4rem;
-  height: 20.7rem;
-  left: 20.8rem;
-  top: 38.7rem;
-  background: #3d3b91;
-  /* mobile / dashboard dropshadow */
-  box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-  border-radius: 0.125rem;
+position: absolute;
+margin: 0 auto;
+width: 13.4rem;
+height: 20.7rem;
+left: 20.8rem;
+top: 38.7rem;
+background: #3d3b91;
+/* mobile / dashboard dropshadow */box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+border-radius: 0.125rem;
 `;
 
 const ProfileText = styled.p`
-  position: absolute;
-  left: 32.84%;
-  right: 32.84%;
-  top: 9.18%;
-  bottom: 86.47%;
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.6rem;
-  line-height: 0.7rem;
-  /* or 7px */
-  letter-spacing: 0.02em;
-  /* main / TEXT */
-  color: #e6e6e6;
+position: absolute;
+left: 32.84%;
+right: 32.84%;
+top: 9.18%;
+bottom: 86.47%;
+font-family: Catamaran;
+font-style: normal;
+font-weight: normal;
+font-size: 1.6rem;
+line-height: .7rem;
+/* or 7px */
+letter-spacing: 0.02em;
+/* main / TEXT */
+color: #E6E6E6;
 `;
 
 const UserAv = styled.img`
@@ -44,53 +44,53 @@ const UserAv = styled.img`
 background: #e6e6e6;
 `;
 const PercentText = styled.div`
-  position: absolute;
-  left: 36.57%;
-  right: 37.31%;
-  top: 54.11%;
-  bottom: 38.65%;
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 3.5rem;
-  line-height: 1.5rem;
-  /* or 15px */
-  letter-spacing: 0.02em;
-  /* main / TEXT */
-  color: #e6e6e6;
-`;
-const Percentage = styled.p`
-  position: absolute;
-  left: 61.19%;
-  right: 26.12%;
-  top: 54.11%;
-  bottom: 41.06%;
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 0.9rem;
-  /* or 9px */
-  letter-spacing: 0.02em;
-  /* main / TEXT */
-  color: #e6e6e6;
-`;
+position: absolute;
+left: 36.57%;
+right: 37.31%;
+top: 54.11%;
+bottom: 38.65%;
+font-family: Catamaran;
+font-style: normal;
+font-weight: 500;
+font-size: 3.5rem;
+line-height: 1.5rem;
+/* or 15px */
+letter-spacing: 0.02em;
+/* main / TEXT */
+color: #E6E6E6;
+`
+const Percentage =styled.p`
+position: absolute;
+left: 61.19%;
+right: 26.12%;
+top: 54.11%;
+bottom: 41.06%;
+font-family: Catamaran;
+font-style: normal;
+font-weight: 500;
+font-size: 2rem;
+line-height: .9rem;
+/* or 9px */
+letter-spacing: 0.02em;
+/* main / TEXT */
+color: #E6E6E6;
+`
 
 const CompletionText = styled.p`
-  position: absolute;
-  left: 25.37%;
-  right: 25.37%;
-  top: 68.6%;
-  bottom: 28.5%;
-  font-family: Catamaran;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.3rem;
-  line-height: 0.6rem;
-  /* identical to box height, or 6px */
-  letter-spacing: 0.02em;
-  /* main / TEXT */
-  color: #e6e6e6;
+position: absolute;
+left: 25.37%;
+right: 25.37%;
+top: 68.6%;
+bottom: 28.5%;
+font-family: Catamaran;
+font-style: normal;
+font-weight: normal;
+font-size: 1.3rem;
+line-height: .6rem;
+/* identical to box height, or 6px */
+letter-spacing: 0.02em;
+/* main / TEXT */
+color: #E6E6E6;
 `;
 const FinishNowContainer = styled.div`
   position: absolute;
