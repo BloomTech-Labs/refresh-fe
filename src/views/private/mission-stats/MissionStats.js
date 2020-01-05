@@ -10,8 +10,9 @@ import {axiosWithAuth} from '../../../helpers/axiosWithAuth'
 
 // COMPONENT
 const MissionStats = () => {
-    const start = '2019-11-20'
-    const end = '2019-11-21'
+    const start = '2020-01-01'
+    const end = '2020-01-05Z+-08'
+    
     useEffect(()=>{
         axiosWithAuth().get(`/answers/datefilter?startDate=${start}&endDate=${end}`)
         .then(res=>console.log('resFrom ',res))
