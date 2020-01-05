@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -29,7 +29,6 @@ const EmailSignUp = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
-  
 
   let errors = {};
   useEffect(() => {
@@ -50,7 +49,8 @@ const EmailSignUp = props => {
       errors.userConfirmedPass.length > 4 &&
       !errors.confirmedPass &&
       setEnabledBtn(true);
-    props.debug && console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+    props.debug &&
+      console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
   //route to sign up page
   const routeToSignUp = e => {
@@ -81,7 +81,7 @@ const EmailSignUp = props => {
         .post("/register", { email: user.email, password: user.password })
         .then(res => {
           if (res.data.token) {
-            props.debug && console.log(res.data)
+            props.debug && console.log(res.data);
             const userObject = res.data;
             const {
               mission_subscriptions,
@@ -121,7 +121,6 @@ const EmailSignUp = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Input
           type="text"
@@ -132,7 +131,6 @@ const EmailSignUp = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Input
           type="password"
@@ -144,7 +142,6 @@ const EmailSignUp = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Input
           type="password"
@@ -156,7 +153,6 @@ const EmailSignUp = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Button onClick={handleSubmit} className={BtnStats}>
           Sign Up

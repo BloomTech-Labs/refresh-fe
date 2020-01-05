@@ -1,8 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import MenuDots from '../../../images/profile/purple_menu_dots.svg';
-import {Link} from 'react-router-dom';
-
+import React from "react";
+import styled from "styled-components";
+import MenuDots from "../../../images/profile/purple_menu_dots.svg";
+import { Link } from "react-router-dom";
 
 const ReminderContainer = styled.div`
 position: absolute;
@@ -30,28 +29,31 @@ color: #3D3B91;
 `
 
 const ReminderDots = styled.img`
-position: absolute;
-left: 81.97%;
-right: 5.34%;
-width: 15%;
-top: 9.15%;
-bottom: 88.73%;
-/* main / side */
-background: #3D3B91;
-`
+  position: absolute;
+  left: 81.97%;
+  right: 5.34%;
+  width: 15%;
+  top: 9.15%;
+  bottom: 88.73%;
+  /* main / side */
+  background: #3d3b91;
+`;
 
-
-const YourReminders = () =>{
+const YourReminders = () => {
   return (
     <>
-    <Link to='coming-soon'>
-    <ReminderContainer>
-       <ReminderDots src={MenuDots}/>
-       <ReminderText>your<br/>reminders</ReminderText>
-    </ReminderContainer>
-    </Link>
+      <Link to="coming-soon">
+        <ReminderContainer>
+          <ReminderDots src={MenuDots} />
+          <ReminderText>
+            your
+            <br />
+            reminders
+          </ReminderText>
+        </ReminderContainer>
+      </Link>
     </>
-  )
+  );
 };
 
 export default YourReminders;

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // styled components
 import styled from 'styled-components';
 // helpers
-import { test, flex } from '../../../styles/global/Mixins';
+import { test, flex } from '../../../styles/global/Mixins'; // eslint-disable-line no-unused-vars
 // components
 import Scorecards from './Scorecards';
 
@@ -49,43 +49,43 @@ const data = [
     }
 ];
 
-const data2 = [
-    {
-        fname: 'Bob',
-        lname: 'Bobberton',
-        cohort: 'Web22',
-        sectionLead: 'Bryan',
-        points: 600
-    },
-    {
-        fname: 'Tom',
-        lname: 'Tommerton',
-        cohort: 'Web26',
-        sectionLead: 'Hannah',
-        points: 520
-    },
-    {
-        fname: 'Jim',
-        lname: 'Jimbob',
-        cohort: 'UX5',
-        sectionLead: 'Jessica',
-        points: 240
-    },
-    {
-        fname: 'John',
-        lname: 'Doe',
-        cohort: 'DS3',
-        sectionLead: 'Hank',
-        points: 560
-    },
-    {
-        fname: 'Susan',
-        lname: 'Susan',
-        cohort: 'UX6',
-        sectionLead: 'George',
-        points: 580
-    }
-];
+// const data2 = [
+//     {
+//         fname: 'Bob',
+//         lname: 'Bobberton',
+//         cohort: 'Web22',
+//         sectionLead: 'Bryan',
+//         points: 600
+//     },
+//     {
+//         fname: 'Tom',
+//         lname: 'Tommerton',
+//         cohort: 'Web26',
+//         sectionLead: 'Hannah',
+//         points: 520
+//     },
+//     {
+//         fname: 'Jim',
+//         lname: 'Jimbob',
+//         cohort: 'UX5',
+//         sectionLead: 'Jessica',
+//         points: 240
+//     },
+//     {
+//         fname: 'John',
+//         lname: 'Doe',
+//         cohort: 'DS3',
+//         sectionLead: 'Hank',
+//         points: 560
+//     },
+//     {
+//         fname: 'Susan',
+//         lname: 'Susan',
+//         cohort: 'UX6',
+//         sectionLead: 'George',
+//         points: 580
+//     }
+// ];
 
 // COMPONENT
 const Leaderboard = () => {

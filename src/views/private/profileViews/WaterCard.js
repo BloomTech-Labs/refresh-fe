@@ -1,21 +1,20 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext } from "react"; // eslint-disable-line no-unused-vars
 import styled from "styled-components";
-import {Link} from 'react-router-dom';
-import {axiosWithAuth} from '../../../helpers/axiosWithAuth';
-import WaterBottleGauge from './WaterBottleGauge';
-
+import { Link } from "react-router-dom";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth"; // eslint-disable-line no-unused-vars
+import WaterBottleGauge from "./WaterBottleGauge";
 
 const HydrationContainer = styled.div`
-position: absolute;
-width: 14.9rem;
-height: 19rem;
-left: 3.1rem;
-top: 38.9rem;
-/* water / background blue */
-background: #cee2ff;
-/* mobile / dashboard dropshadow */
-box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-border-radius: 0.125rem;
+  position: absolute;
+  width: 14.9rem;
+  height: 19rem;
+  left: 3.1rem;
+  top: 38.9rem;
+  /* water / background blue */
+  background: #cee2ff;
+  /* mobile / dashboard dropshadow */
+  box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+  border-radius: 0.125rem;
 `;
 
 const HydrationText = styled.p`
@@ -31,9 +30,9 @@ font-size: 1.5rem;
 line-height: 1.4rem;
 /* or 14px */
 
-letter-spacing: 0.02em;
+  letter-spacing: 0.02em;
 
-/* water / text blue */
+  /* water / text blue */
 
 color: #6091D6;
 `
@@ -66,11 +65,11 @@ font-size: 1.3rem;
 line-height: 1.1rem;
 /* or 11px */
 
-letter-spacing: 0.02em;
+  letter-spacing: 0.02em;
 
-/* water / text blue */
+  /* water / text blue */
 
-color: #9AB9E5;
+  color: #9ab9e5;
 `;
 
 const OfEight = styled.p`
@@ -92,7 +91,6 @@ color: #9AB9E5;
 opacity: 0.5;
 `;
 
-
 // component for profile water gauge
 const WaterCard = () => {
   // /*context*/
@@ -110,19 +108,22 @@ const WaterCard = () => {
 
   return (
     <>
-      
-        <Link to='/mission-stats'><HydrationContainer>
-        <HydrationText>hydration<br/>station</HydrationText>
-        <WaterBottleGauge />
-      <NumOfCups>6</NumOfCups>
-      <CupsOfWater>
-        cups of
-        <br />
-        water
-      </CupsOfWater>
-      <OfEight>of 8</OfEight>
-      
-      </HydrationContainer>
+      <Link to="/mission-stats">
+        <HydrationContainer>
+          <HydrationText>
+            hydration
+            <br />
+            station
+          </HydrationText>
+          <WaterBottleGauge />
+          <NumOfCups>6</NumOfCups>
+          <CupsOfWater>
+            cups of
+            <br />
+            water
+          </CupsOfWater>
+          <OfEight>of 8</OfEight>
+        </HydrationContainer>
       </Link>
     </>
   );

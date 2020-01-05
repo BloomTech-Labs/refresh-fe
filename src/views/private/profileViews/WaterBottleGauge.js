@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 // import axios from "axios";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
@@ -42,7 +42,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
   }, []);
 
   props.debug && console.log(`[waterData after useEffect]`, waterData);
-  // props.debug && console.log(`[waterStats after useEffect]`, waterStats);
+
 
   const gaugeFill = () => {
     props.debug && console.log(`[waterData inside gaugeFill]`, waterData);

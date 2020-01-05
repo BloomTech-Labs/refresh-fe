@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import {Link} from 'react-router-dom';
-import Rocket from '../../../images/profile/rocket.svg'
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Rocket from "../../../images/profile/rocket.svg"; // eslint-disable-line no-unused-vars
 
 const SurveyContainer = styled.div`
 position: absolute;
@@ -45,17 +45,17 @@ color: #CCC9FF;
 // background: #FFFFFF;
 // `
 
-const WeeklySurvey = () =>{
+const WeeklySurvey = () => {
   return (
     <>
-    <Link to='/dashboard'>
-      <SurveyContainer>
-        {/* <RocketVector/> */}
-        <SurveyText>surveys of the week</SurveyText>
-      </SurveyContainer>
+      <Link to="/dashboard">
+        <SurveyContainer>
+          {/* <RocketVector/> */}
+          <SurveyText>surveys of the week</SurveyText>
+        </SurveyContainer>
       </Link>
     </>
-  )
+  );
 };
 
 export default WeeklySurvey;

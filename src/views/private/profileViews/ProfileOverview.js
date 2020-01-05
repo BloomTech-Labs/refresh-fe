@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
+// contexts
+import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+// components
 import WaterCard from "../profileViews/WaterCard";
 import ProfileCompletion from "../profileViews/ProfileCompletion";
-import WeeklySurvey from '../profileViews/WeeklySurvey';
-import YourReminders from '../profileViews/YourReminders';
-import ProfileBadges from '../profileViews/ProfileBadges';
-import ProfileHeader from '../profileViews/ProfileHeader';
+import WeeklySurvey from "../profileViews/WeeklySurvey";
+import YourReminders from "../profileViews/YourReminders";
+import ProfileBadges from "../profileViews/ProfileBadges";
+import ProfileHeader from "../profileViews/ProfileHeader";
 import waves from "../../../images/Onboarding/waves.svg";
-
 
 /* All sizing for profile view & profile edit is for mobile only */
 
@@ -29,19 +31,22 @@ top: 21rem;
 border: 0.3rem solid rgba(71, 69, 161, 0.85);
 `
 
-const ProfileOverview = () => {
+const ProfileOverview = props => {
+  // contexts
+  const userMissions = useContext(UserMissionsContext);
+  const { missions } = userMissions;
   return (
     <>
       <PVWrapper>
-          <ProfileHeader/>
-          <ProfileLineBreak/>
-          <WaterCard />
-          <ProfileCompletion/>
-          <WeeklySurvey/>
-          <YourReminders/>
-          <ProfileBadges/>
-      </PVWrapper> 
-    </>    
+        <ProfileHeader />
+        <ProfileLineBreak />
+        <WaterCard />
+        <ProfileCompletion />
+        <WeeklySurvey />
+        <YourReminders />
+        <ProfileBadges />
+      </PVWrapper>
+    </>
   );
 };
 

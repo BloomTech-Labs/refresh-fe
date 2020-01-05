@@ -197,13 +197,13 @@ const HeaderHolder = styled.div`
   margin-top: 10%;
 `;
 
-const OnboardTxt = styled.p`
-  margin: auto;
-  font-size: 2rem;
-  line-height: 33px;
-  letter-spacing: 0.035em;
-  color: #ccc9ff;
-`;
+// const OnboardTxt = styled.p`
+//   margin: auto;
+//   font-size: 2rem;
+//   line-height: 33px;
+//   letter-spacing: 0.035em;
+//   color: #ccc9ff;
+// `;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
@@ -325,11 +325,11 @@ const Cubes = styled.img`
   }
 `;
 
-const Logo = styled.img``;
+// const Logo = styled.img``;
 
-const GoogleLogo = styled(Logo)`
-  border-radius: 50%;
-`;
+// const GoogleLogo = styled(Logo)`
+//   border-radius: 50%;
+// `;
 
 //EXPORT
 export default CreateAccount;
