@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
     }
     body {
+        min-height:100vh;
+        overflow-y:auto;
         font-family: 'Catamaran', sans-serif;
         font-size: 1.25rem;
         background-color: #4742bc;
