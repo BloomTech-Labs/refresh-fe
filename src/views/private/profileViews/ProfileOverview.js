@@ -22,7 +22,7 @@ background-image:url(${waves});
 
 const ProfileLineBreak = styled.div`
 position: absolute;
-width: 37.4rem;
+width: 100vw;
 height: 0;
 left: 0;
 top: 21rem;

@@ -8,6 +8,7 @@ import Arrow from '../../../images/profile/purple_right_arrow.svg';
 
 const ProfileContainer = styled.div`
 position: absolute;
+margin: 0 auto;
 width: 13.4rem;
 height: 20.7rem;
 left: 20.8rem;

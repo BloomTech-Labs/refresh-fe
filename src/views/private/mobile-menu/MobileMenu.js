@@ -113,7 +113,7 @@ const MobileMenu = props => {
       </DrawerContainer>
       <PlaceholderButton onClick={menuToggle}>
         <i className={`fas fa-bars ${menu.status}` }></i>
-      </PlaceholderButton>
+        </PlaceholderButton>
     </Wrapper>
   );
 };
