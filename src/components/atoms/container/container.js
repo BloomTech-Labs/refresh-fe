@@ -9,6 +9,7 @@ const Container = ({ ...props }) => {
     alignItems,
     backgroundColor,
     margin,
+    marginBottom,
     padding
   } = props;
 
@@ -20,6 +21,7 @@ const Container = ({ ...props }) => {
       height={height}
       backgroundColor={backgroundColor}
       margin={margin}
+      marginBottom={marginBottom}
       padding={padding}
       alignItems={alignItems}
     >
@@ -32,6 +34,7 @@ const StyledRow = styled.div.attrs(props => ({
   height: props.height,
   width: props.width,
   margin: props.margin,
+  marginBottom: props.marginBottom,
   padding: props.padding,
   position: props.position,
   alignItems: props.alignItems
@@ -40,7 +43,9 @@ const StyledRow = styled.div.attrs(props => ({
   width: ${props => (props.width ? `${props.width}%` : `100vw`)};
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : "transparent"};
-  margin: ${props => (props.margin ? `${props.margin}rem` : 'inherit')};
+  margin: ${props => (props.margin ? `${props.margin}rem` : "inherit")};
+  margin-bottom: ${props =>
+    props.marginBottom ? `${props.marginBottom}rem` : "inherit"};
   padding: ${props => (props.padding ? `${props.padding}rem` : "1rem")};
   position: ${props => (props.position ? `${props.position}` : "relative")};
   align-items: ${props =>

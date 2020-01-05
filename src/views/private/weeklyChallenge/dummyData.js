@@ -1,37 +1,42 @@
- export const weeklyChallengeData = [{
-    "id": 1,
-    "points": 305,
-    "due_by": "2019-02-01 00:44:33",
-    "challenge_title": "aggregate innovative convergence",
-    "description": "Maecenas pulvinar lobortis est."
-  }, {
-    "id": 2,
-    "points": 279,
-    "due_by": "2019-12-27 07:11:17",
-    "challenge_title": "evolve real-time web services",
-    "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem."
-  }, {
-    "id": 3,
-    "points": 300,
-    "due_by": "2019-02-20 01:28:43",
-    "challenge_title": "mesh scalable e-commerce",
-    "description": "Duis at velit eu est congue elementum. In hac habitasse platea dictumst."
-  }, {
-    "id": 4,
-    "points": 126,
-    "due_by": "2019-04-09 03:47:57",
-    "challenge_title": "engineer impactful schemas",
-    "description": "In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt."
-  }, {
-    "id": 5,
-    "points": 106,
-    "due_by": "2019-03-08 14:14:03",
-    "challenge_title": "facilitate viral initiatives",
-    "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy."
-  }, {
-    "id": 6,
-    "points": 100,
-    "due_by": "2019-09-30 12:27:35",
-    "challenge_title": "innovate B2B paradigms",
-    "description": "Donec semper sapien a libero. Nam dui."
-  }]
+export const weeklyChallengeData = [
+  {
+    id: 1,
+    points: 150,
+    due_by: "Tuesday, 5pm PST",
+    challenge_title: "Watch a foreign film",
+    description:
+      "Unwind by watching a foreign film. Bonus brownie points if you write a review and post it to Slack!."
+  },
+  {
+    id: 2,
+    points: 60,
+    due_by: "Saturday, 5pm PST",
+    challenge_title: "Go for a stroll",
+    description:
+      "Go for a pleasant stroll in your neighborhood. Snap some pics of the gorgeous scenery!."
+  },
+  {
+    id: 3,
+    points: 175,
+    due_by: "Sunday, 5pm PST",
+    challenge_title: "Finish a book",
+    description:
+      "Remember that novel you started a few months ago? Finish it! Let us know how you liked it in Slack"
+  },
+  {
+    id: 4,
+    points: 60,
+    due_by: "Monday, 5pm PST",
+    challenge_title: "Cook something healthy",
+    description:
+      "We want to see some healthy recipes you whip up. Share photos in your team slack channel!"
+  },
+  {
+    id: 5,
+    points: 75,
+    due_by: "Tuesday, 5pm PST",
+    challenge_title: "Get creative",
+    description:
+      "Break out the paints, pencils, or whatever strikes your fancy, and let your mind wander!"
+  }
+];
