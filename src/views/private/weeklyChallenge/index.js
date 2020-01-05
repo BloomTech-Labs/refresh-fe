@@ -10,18 +10,18 @@ import Container from "../../../components/atoms/container/container";
 const WeeklyChallenge = props => {
   return (
     <>
-      <Container>
-        <Text
-          text={"Weekly Challenges"}
-          position={"absolute"}
-          height={2.2}
-          width={37.5}
-          top={9.7}
-          left={0}
-          fontSize={2.4}
-          fontWeight={"bold"}
-          letterSpacing={0.035}
-        />
+      <Text
+        text={"Weekly Challenges"}
+        position={"absolute"}
+        height={2.2}
+        width={37.5}
+        top={9.7}
+        left={0}
+        fontSize={2.4}
+        fontWeight={"bold"}
+        letterSpacing={0.035}
+      />
+      <Container marginTop={3}>
         {weeklyChallengeData.map(challenge => {
           return (
             <ChallengeBox key={challenge.id} challenge={challenge} {...props} />

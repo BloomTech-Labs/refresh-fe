@@ -56,7 +56,12 @@ const ChallengeBox = props => {
 };
 
 const ChallengeContainer = styled.div`
-position: relative;
+  position: relative;
+  height: 15.2rem;
+  width: 31.1rem;
+  margin: 0 auto;
+  /* background-color: #3d3b91; */
+  border: 1px red solid;
 `;
 
 export default ChallengeBox;
