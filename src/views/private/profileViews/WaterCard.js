@@ -18,7 +18,7 @@ box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
 border-radius: 0.125rem;
 `;
 
-const HydrationText = styled.text`
+const HydrationText = styled.p`
 position: absolute;
 left: 9.8%;
 right: 25.49%;
@@ -37,7 +37,7 @@ letter-spacing: 0.02em;
 
 color: #6091D6;
 `
-const NumOfCups = styled.text`
+const NumOfCups = styled.p`
 position: absolute;
 left: 24.18%;
 right: 55.56%;
@@ -53,7 +53,7 @@ letter-spacing: 0.02em;
 /* water / primary */
 color: #1575FF;
 `;
-const CupsOfWater = styled.text`
+const CupsOfWater = styled.p`
 position: absolute;
 left: 44.44%;
 right: 27.45%;
@@ -73,7 +73,7 @@ letter-spacing: 0.02em;
 color: #9AB9E5;
 `;
 
-const OfEight = styled.text`
+const OfEight = styled.p`
 position: absolute;
 width: 4rem;
 left: 43.14%;

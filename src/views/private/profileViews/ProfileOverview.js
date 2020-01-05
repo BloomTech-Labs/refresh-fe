@@ -12,8 +12,8 @@ import waves from "../../../images/Onboarding/waves.svg";
 /* All sizing for profile view & profile edit is for mobile only */
 
 const PVWrapper = styled.div`
-width: 37.5rem;
-height: 81.2rem;
+width: 100vw;
+height: 100vh;
 position: absolute;
 z-index: -3;
 background-color: #4742BC;

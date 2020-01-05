@@ -17,7 +17,7 @@ background: #3d3b91;
 border-radius: 0.125rem;
 `;
 
-const ProfileText = styled.text`
+const ProfileText = styled.p`
 position: absolute;
 left: 32.84%;
 right: 32.84%;
@@ -60,7 +60,7 @@ letter-spacing: 0.02em;
 /* main / TEXT */
 color: #E6E6E6;
 `
-const Percentage =styled.text`
+const Percentage =styled.p`
 position: absolute;
 left: 61.19%;
 right: 26.12%;
@@ -77,7 +77,7 @@ letter-spacing: 0.02em;
 color: #E6E6E6;
 `
 
-const CompletionText = styled.text`
+const CompletionText = styled.p`
 position: absolute;
 left: 25.37%;
 right: 25.37%;

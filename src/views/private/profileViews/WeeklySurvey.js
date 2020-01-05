@@ -15,7 +15,7 @@ background: #3D3B91;
 box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
 border-radius: 2px;
 `
-const SurveyText = styled.text`
+const SurveyText = styled.p`
 position: absolute;
 left: 0%;
 right: 0.66%;

@@ -37,7 +37,7 @@ border-radius: 50%;
 background: #C4C4C4;
 `
 
-const NameText = styled.text`
+const NameText = styled.p`
 position: absolute;
 width: 12.4rem;
 height: 0.9rem;
@@ -100,7 +100,7 @@ letter-spacing: 0.065em;
 color: #B8B7E1;
 `
 
-const LvOneText = styled.text`
+const LvOneText = styled.p`
 position: absolute;
 width: 10rem;
 height: 1.2rem;

@@ -13,7 +13,7 @@ top: 62.1rem;
 background: #CCC9FF;
 border-radius: .2rem;
 `
-const ReminderText = styled.text`
+const ReminderText = styled.p`
 position: absolute;
 left: 8.43%;
 right: 33.15%;
