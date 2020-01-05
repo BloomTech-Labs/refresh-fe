@@ -179,7 +179,7 @@ const DrawerContainer = styled.div`
     width: 70vw;
     height: 100vh;
     position: fixed;
-    right: 100vw;
+    right: -2000px;
     background-color: rgb(100, 135, 255, 0.7);
     transition: 0.3s ease-in-out;
   }
