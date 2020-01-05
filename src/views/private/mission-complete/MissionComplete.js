@@ -60,6 +60,8 @@ const MissionComplete = props => {
     drawer.darken === "inactive"
       ? setDrawer({ ...drawer, darken: "active" })
       : setDrawer({ ...drawer, darken: "inactive" });
+
+      submitMissionTracker()
   };
 
   const submitMissionTracker = e => {
