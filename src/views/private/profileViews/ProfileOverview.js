@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 // contexts
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
@@ -40,7 +40,13 @@ const ProfileOverview = props => {
       <PVWrapper>
         <ProfileHeader />
         <ProfileLineBreak />
-        <WaterCard />
+
+        {missions.map(mission => {
+          return (
+            <WaterCard key={mission.mission_id} mission={mission} {...props} />
+          );
+        })}
+
         <ProfileCompletion />
         <WeeklySurvey />
         <YourReminders />

@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react"; // eslint-disable-line no-unused-vars
+import React, { useState, useEffect } from "react";
+// contexts
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { axiosWithAuth } from "../../../helpers/axiosWithAuth"; // eslint-disable-line no-unused-vars
 import WaterBottleGauge from "./WaterBottleGauge";
 
 const HydrationContainer = styled.div`
@@ -92,19 +92,9 @@ const OfEight = styled.p`
 `;
 
 // component for profile water gauge
-const WaterCard = () => {
-  // /*context*/
-  // const water = useContext(WaterIntake);
-  // console.log('[water]', water);
-  // /*state*/
-  // const [waterBottle, setWaterBottle] = useState({
-  //   status: '0'
-  // });
-  // /* handler*/
-  // const handleWater = evt => {
-  //   waterBottle.status === '0' ?
-  //   setWaterBottle ({...water, status: '1'})
-  // }
+const WaterCard = props => {
+  const { vertical, point_current } = props.mission;
+  console.log(props.mission);
 
   return (
     <>
