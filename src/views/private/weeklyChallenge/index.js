@@ -1,14 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-// atoms
-import Container from '../../../components/atoms/container/container';
-import Text from '../../../components/atoms/text/text';
+// dummy data
+import { weeklyChallengeData } from "./dummyData";
+// components
+import ChallengeBox from "./challengeBox";
 
 const WeeklyChallenge = props => {
   return (
-    <Container>
-      <Text text={`Waddup`} />
-    </Container>
+    <>
+      {weeklyChallengeData.map(challenge => {
+        return (
+          <ChallengeBox key={challenge.id} challenge={challenge} {...props} />
+        );
+      })}
+    </>
   );
 };
 
