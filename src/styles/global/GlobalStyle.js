@@ -1,7 +1,6 @@
 // IMPORTS
 // styled components
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';// eslint-disable-line no-unused-vars
 import {waves} from '../../images/wavyLines.svg'
 // Global Theme Stylesheet
 const GlobalStyle = createGlobalStyle`
@@ -11,8 +10,8 @@ const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
     }
     body {
-        min-height:100vh;
-        overflow-y:auto;
+        width: 100vw;
+        height: 100vh;
         font-family: 'Catamaran', sans-serif;
         font-size: 1.25rem;
         background-color: #4742bc;

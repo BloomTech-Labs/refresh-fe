@@ -1,33 +1,31 @@
-import React, {useContext} from 'react'; //eslint-disable-line no-unused-vars
-import { UserContext } from '../../../contexts/UserContext'; // eslint-disable-line no-unused-vars
-import styled from 'styled-components';
-import maxine from '../profileViews/maxine.jpg';
-import notifications from '../../../images/profile/notifications.svg';
-import settings_cog from '../../../images/profile/settings_cog.svg';
-
+import React, { useContext } from "react";
+import { UserContext } from "../../../contexts/UserContext";
+import styled from "styled-components";
+import notifications from "../../../images/profile/notifications.svg";
+import settings_cog from "../../../images/profile/settings_cog.svg";
 
 const BellVector = styled.img`
-position: absolute;
-width: 2rem;
-height: 2rem;
-left: 28.8rem;
-top: 2.1rem;
-`
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  left: 28.8rem;
+  top: 2.1rem;
+`;
 const CogVector = styled.img`
-position: absolute;
-width: 2rem;
-height: 2rem;
-left: 32rem;
-top: 2.1rem;
-`
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  left: 32rem;
+  top: 2.1rem;
+`;
 
 const User = styled.div`
-position: absolute;
-width: 6.4rem;
-height: 6.4rem;
-left: 16rem;
-top: 5.1rem;
-`
+  position: absolute;
+  width: 6.4rem;
+  height: 6.4rem;
+  left: 16rem;
+  top: 5.1rem;
+`;
 
 const UserAv = styled.img`
 position: absolute;
@@ -37,7 +35,7 @@ border-radius: 50%;
 background: #C4C4C4;
 `
 
-const NameText = styled.text`
+const NameText = styled.p`
 position: absolute;
 width: 12.4rem;
 height: 0.9rem;
@@ -100,7 +98,7 @@ letter-spacing: 0.065em;
 color: #B8B7E1;
 `
 
-const LvOneText = styled.text`
+const LvOneText = styled.p`
 position: absolute;
 width: 10rem;
 height: 1.2rem;
@@ -122,50 +120,52 @@ letter-spacing: 0.04em;
 color: #B8B7E1;
 `
 const LvTwoText = styled.div`
-position: absolute;
-width: 10rem;
-height: 1.2rem;
-left: 28.7rem;
-top: 17.9rem;
+  position: absolute;
+  width: 10rem;
+  height: 1.2rem;
+  left: 28.7rem;
+  top: 17.9rem;
 
-font-family: Catamaran;
-font-style: normal;
-font-weight: normal;
-font-size: 1.3rem;
-line-height: 1.2rem;
-/* or 12px */
+  font-family: Catamaran;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.3rem;
+  line-height: 1.2rem;
+  /* or 12px */
 
-display: flex;
-align-items: flex-end;
-letter-spacing: 0.04em;
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: 0.04em;
 
-/* main / menu text */
+  /* main / menu text */
 
-color: #B8B7E1;
-`
+  color: #b8b7e1;
+`;
 
 const MockSlideOne = styled.img`
-position: absolute;
-width: 16rem;
-height: .7rem;
-left: 10.7rem;
-top: 18.3rem;
-background: #E0B8D3;
-opacity: 0.6;
-border-radius: .3rem;
-`
+  position: absolute;
+  width: 16rem;
+  height: 0.7rem;
+  left: 10.7rem;
+  top: 18.3rem;
+  background: #e0b8d3;
+  opacity: 0.6;
+  border-radius: 0.3rem;
+`;
 
 const MockSlideTwo = styled.div`
-position: absolute;
-width: 5.2rem;
-height: .7rem;
-left: 10.7rem;
-top: 18.3rem;
-background: #E05CB3;
-border-radius: .3rem;
-`
+  position: absolute;
+  width: 5.2rem;
+  height: 0.7rem;
+  left: 10.7rem;
+  top: 18.3rem;
+  background: #e05cb3;
+  border-radius: 0.3rem;
+`;
 
 const ProfileHeader = props => {
+  const activeUser = useContext(UserContext);
+  console.log(activeUser);
 
   // const activeUser = useContext(UserContext);
 
@@ -178,23 +178,23 @@ const ProfileHeader = props => {
   //   evt.preventDefault();
   //   props.history.push('/dashboard');
   // }
-  
+
   return (
     <>
-        <BellVector src={notifications}  />
-        <CogVector src={settings_cog} />
-        <User>
-          <UserAv src={maxine}></UserAv>
-        </User>
-        <NameText>Maxine Woods</NameText>
-        <TeamLeadText>TEAM LEAD</TeamLeadText>
-        <PointsText>150 points</PointsText>
-        <LvOneText>Lvl 1</LvOneText>
-        <LvTwoText>Lvl 2</LvTwoText>
-        <MockSlideOne/>
-        <MockSlideTwo/>
+      <BellVector src={notifications} />
+      <CogVector src={settings_cog} />
+      <User>
+        <UserAv src={activeUser.avatar}></UserAv>
+      </User>
+      <NameText>{activeUser.display_name}</NameText>
+      <TeamLeadText>TEAM LEAD</TeamLeadText>
+      <PointsText>150 points</PointsText>
+      <LvOneText>Lvl 1</LvOneText>
+      <LvTwoText>Lvl 2</LvTwoText>
+      <MockSlideOne />
+      <MockSlideTwo />
     </>
-  )
+  );
 };
 
 export default ProfileHeader;

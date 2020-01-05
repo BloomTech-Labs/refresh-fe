@@ -42,7 +42,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
   }, []);
 
   props.debug && console.log(`[waterData after useEffect]`, waterData);
-  // props.debug && console.log(`[waterStats after useEffect]`, waterStats);
+
 
   const gaugeFill = () => {
     props.debug && console.log(`[waterData inside gaugeFill]`, waterData);
