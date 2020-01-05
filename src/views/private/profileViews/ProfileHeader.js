@@ -165,7 +165,7 @@ const MockSlideTwo = styled.div`
 
 const ProfileHeader = props => {
   const activeUser = useContext(UserContext);
-  console.log(activeUser);
+  // console.log(activeUser);
 
   // const activeUser = useContext(UserContext);
 

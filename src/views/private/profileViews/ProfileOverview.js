@@ -14,22 +14,22 @@ import waves from "../../../images/Onboarding/waves.svg";
 /* All sizing for profile view & profile edit is for mobile only */
 
 const PVWrapper = styled.div`
-width: 100vw;
-height: 100vh;
-position: absolute;
-z-index: -3;
-background-color: #4742BC;
-background-image:url(${waves});
-`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -3;
+  background-color: #4742bc;
+  background-image: url(${waves});
+`;
 
 const ProfileLineBreak = styled.div`
-position: absolute;
-width: 100vw;
-height: 0;
-left: 0;
-top: 21rem;
-border: 0.3rem solid rgba(71, 69, 161, 0.85);
-`
+  position: absolute;
+  width: 100vw;
+  height: 0;
+  left: 0;
+  top: 21rem;
+  border: 0.3rem solid rgba(71, 69, 161, 0.85);
+`;
 
 const ProfileOverview = props => {
   // contexts
@@ -42,9 +42,14 @@ const ProfileOverview = props => {
         <ProfileLineBreak />
 
         {missions.map(mission => {
-          return (
-            <WaterCard key={mission.mission_id} mission={mission} {...props} />
-          );
+          if (mission.vertical.toLowerCase() === "water")
+            return (
+              <WaterCard
+                key={mission.mission_id}
+                mission={mission}
+                {...props}
+              />
+            );
         })}
 
         <ProfileCompletion />
