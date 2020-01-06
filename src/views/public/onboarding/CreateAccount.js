@@ -112,10 +112,10 @@ const CreateAccount = props => {
           />
         </GoogleSignIn>
         
-          <div className="flexWrapper">
+          <FlexWrapper>
             <p>OR</p>
             <div></div>
-          </div>
+          </FlexWrapper>
        
         <Button onClick={routeToEmailSignUp}>
           Sign up with Email <Image src={emailogo} height={2} width={2} />
@@ -153,23 +153,6 @@ const OnBoardContainer = styled.div`
   &:nth-child(*){
     margin-bottom:5%;
   }
-  .flexWrapper{
-    margin:15% auto;
-    display:flex;
-    align-items:center;
-    flex-direction:row;
-    color:#fff;
-    width:90%;
-    p{
-
-    }
-    div{
-      border-bottom:.1rem solid #fff;
-      margin:0 1rem;
-      width:92%
-    }
-
-  }
 `;
 
 const Header = styled.h1`
@@ -191,11 +174,7 @@ const Header = styled.h1`
   }
 
   @media screen and (min-width: 1250px) {
-    margin-top: -120px;
-  }
-
-  @media screen and (min-width: 1400px) {
-    margin-top: -140px;
+    margin-top: -40px;
   }
 `;
 const HeaderHolder = styled.div`
@@ -243,6 +222,23 @@ const TopHolder = styled.div`
     font-size: calc(110% + 3vw);
   }
 `;
+
+const FlexWrapper = styled.div`
+    margin:15% auto;
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    color:#fff;
+    width:90%;
+    div{
+      border-bottom:.1rem solid #fff;
+      margin:0 1rem;
+      width:92%
+    }
+  @media screen and (min-width: 450px) {
+    display: none;
+  }
+`
 
 const Button = styled.a`
   display: flex;

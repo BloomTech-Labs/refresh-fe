@@ -310,7 +310,7 @@ const Cubes = styled.img`
   }
 
   @media screen and (min-width: 1250px) {
-    margin-top: -160px;
+    margin-top: -220px;
   }
 `;
 
