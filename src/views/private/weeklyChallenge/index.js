@@ -7,7 +7,7 @@ import { weeklyChallengeData } from "./dummyData";
 // components
 import Text from "../../../components/atoms/text/text";
 import Container from "../../../components/atoms/container/container";
-import ChallengeBox from "./ChallengeBox";
+import ChallengeBox from "./ChallengeBox"
 
 // set state to weeklyChallengeData
 const WeeklyChallenge = props => {
