@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+// import ComingSoon from "../../private/coming-soon/ComingSoon"
+// This page is more or less a placeholder for next releases -- after clicking "take survey" it will need to send user to the individual
+// survey based on the id from said "form group".  Use that to make an axios call to BE and it will retrieve questions.
 
-
-const Survey = () => {
+const Survey = props => {
   return (
     <>
       <StyledContainer>
@@ -14,7 +16,7 @@ const Survey = () => {
             improve what kind of missions you can complete.
           </p>
           {/* onclick to actual survey */}
-          <button>Take the survey</button>
+          <button onClick={()=> props.history.push("/coming-soon")}>Take the survey</button>
         </div>
       </StyledContainer>
     </>

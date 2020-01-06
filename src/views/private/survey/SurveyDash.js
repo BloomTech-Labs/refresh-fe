@@ -6,16 +6,24 @@ import SurveyForm from "./CreateSurvey";
 
 const SurveyDash = props => {
   const [currentSurveys, addCurrentSurveys] = useState([]);
+  const [allSurveys, setAllSurveys] = useState([]);
   const { url } = props.match;
 
   useEffect(() => {
     axiosWithAuth()
       .get("/questiongroups")
       .then(res => {
-        addCurrentSurveys(res.data.forms);
+        console.log(res);
+        if (res.data.forms.in_progress === true) {
+          addCurrentSurveys(res.data.forms);
+        } else {
+          setAllSurveys(res.data.forms);
+        }
       });
   }, []);
 
+  console.log("currentSurveys", currentSurveys);
+  console.log("allSurveys", allSurveys);
   return (
     <Wrapper>
       <StyledContainer>
@@ -24,16 +32,23 @@ const SurveyDash = props => {
         {currentSurveys.map((group, i) => {
           return (
             <div key={i}>
-              <div onClick={()=> props.history.push(url +"/surveyintro")}>{group.name}</div>
+              <div onClick={() => props.history.push(url + "/surveyintro")}>
+                {group.name}
+              </div>
             </div>
           );
         })}
 
         <h2>NEW</h2>
-        <div>
-          {/* onclick as well, will need to spread in res and map for each of these boxes
-           */}
-        </div>
+        {allSurveys.map((group, i) => {
+          return (
+            <div key={i}>
+              <div onClick={() => props.history.push(url + "/surveyintro")}>
+                {group.name}
+              </div>
+            </div>
+          );
+        })}
         {/* Onclick to survey creation */}
         <button onClick={() => props.history.push(url + "/createsurvey")}>
           Create Survey
@@ -45,17 +60,15 @@ const SurveyDash = props => {
 
 //styles
 const Wrapper = styled.div`
-display: flex;
-margin: 0 auto;
-
-
-`
+  display: flex;
+  margin: 0 auto;
+`;
 
 const StyledContainer = styled.div`
 display: flex;
 max-width: 500px;
 flex-direction: column
 margin: 0 auto;
-`
+`;
 
 export default SurveyDash;
