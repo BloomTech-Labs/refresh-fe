@@ -83,51 +83,51 @@ const Login = props => {
 
   return (
     <OnBoardContainer>
-      <TopHolder>
-        <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
-        <ButtonNoColor onClick={routeToSignUp}>Sign Up</ButtonNoColor>
-      </TopHolder>
-      <HeaderHolder>
-        <Header>
-          Welcome <br /> Back.
-        </Header>
-        <Cubes src={cubes} />
-      </HeaderHolder>
-      <FlexHolder>
-        <FBButton name="facebookAuth" onClick={auth}>
-          Log In with Facebook{" "}
-          <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
-        </FBButton>
-        <GoogleSignIn name="googleAuth" onClick={auth}>
-          Log In with Google{" "}
-          <Image
-            src={googlelogo}
-            alt={"google image"}
-            height={2}
-            width={2}
-            borderRadius={100}
-          />
-        </GoogleSignIn>
-        <Button onClick={routeToEmailLogIn}>
-          Log In with Email <Image src={emailogo} height={2} width={2} />
-        </Button>
-      </FlexHolder>
-      <Row width={97} height={1} padding={"12% 0"}>
-        {/* <Col width={30} marginLeft={-2}>
-          <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-        </Col> */}
-        {/* <Col
-          width={70}
-          borderBottom={"1px solid white"}
-          height={1}
-          marginTop={1}
-          marginBottom={3}
-          marginLeft={-6}
-        ></Col> */}
-      </Row>
-      <FlexHolder>
-      </FlexHolder>
-    </OnBoardContainer>
+    <TopHolder>
+      <ButtonNoColor onClick={routeToHome}>&lt;</ButtonNoColor>
+      <ButtonNoColor onClick={routeToSignUp}>Sign Up</ButtonNoColor>
+    </TopHolder>
+    <HeaderHolder>
+      <Header>
+        Welcome <br /> Back.
+      </Header>
+      <Cubes src={cubes} />
+    </HeaderHolder>
+    <FlexHolder>
+      <FBButton name="facebookAuth" onClick={auth}>
+        Log In with Facebook{" "}
+        <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
+      </FBButton>
+      <GoogleSignIn name="googleAuth" onClick={auth}>
+        Log In with Google{" "}
+        <Image
+          src={googlelogo}
+          alt={"google image"}
+          height={2}
+          width={2}
+          borderRadius={100}
+        />
+      </GoogleSignIn>
+    </FlexHolder>
+    <Row width={97} height={1} padding={"12% 0"}>
+      <Col width={30} marginLeft={-2}>
+        <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
+      </Col>
+      <Col
+        width={70}
+        borderBottom={"1px solid white"}
+        height={1}
+        marginTop={1}
+        marginBottom={3}
+        marginLeft={-6}
+      ></Col>
+    </Row>
+    <FlexHolder>
+      <Button onClick={routeToEmailLogIn}>
+        Log In with Email <Image src={emailogo} height={2} width={2} />
+      </Button>
+    </FlexHolder>
+  </OnBoardContainer>
   );
 };
 
