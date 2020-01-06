@@ -322,7 +322,7 @@ const ButtonNoColor = styled.a`
   }
 `;
 const Cubes = styled.img`
-  max-width: 20%;
+  max-width: 30%;
   width: 100%;
   height: auto;
   margin: auto;
