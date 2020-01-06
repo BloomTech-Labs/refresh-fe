@@ -13,7 +13,7 @@ const MissionStats = () => {
   const d = moment(); // get "now" as a moment
   const n = d.subtract(30, "days").format(); // the ISO format is the default so no parameters are needed
 
-  console.log("UTC DATE", n);
+  // console.log("UTC DATE", n);
   const start = n;
   const end = n;
 

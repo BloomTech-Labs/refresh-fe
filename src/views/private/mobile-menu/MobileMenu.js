@@ -53,7 +53,6 @@ const MobileMenu = props => {
       ? setMenu({ ...menu, status: "open", darken: "active" })
       : setMenu({ ...menu, status: "closed", darken: "inactive" });
   };
-  console.log(activeUser);
   // RENDER
   return (
     <Wrapper>
