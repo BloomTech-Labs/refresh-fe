@@ -19,11 +19,11 @@ import Calendar from "./team-view/Calendar";
 import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
-import WeeklyChallenge from './weeklyChallenge';
-import ProfileEdit from './profileViews/ProfileEdit';
+import WeeklyChallenge from "./weeklyChallenge";
+import ProfileEdit from "./profileViews/ProfileEdit";
 
-const PrivateViewCanvas = (props) => {
-  props.debug && console.log("Props From Mobile Menue",props)
+const PrivateViewCanvas = props => {
+  props.debug && console.log("Props From Mobile Menue", props);
   return (
     <>
       {/* Mobile Menu Will not work Globaly if in Switch */}
