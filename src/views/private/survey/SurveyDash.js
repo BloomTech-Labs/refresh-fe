@@ -3,7 +3,10 @@ import { Route, Link } from "react-router-dom"; // eslint-disable-line no-unused
 import styled from "styled-components"; // eslint-disable-line no-unused-vars
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import SurveyForm from "./CreateSurvey"; // eslint-disable-line no-unused-vars
-
+//Todo
+//--need to figure out how be wants to do the "dots" from figma (showing progress?)
+//--how do we want to store the "form id" to make the call to questionsgroups by id to get questions
+//--expiration dates on surveys?
 const SurveyDash = props => {
   const [currentSurveys, addCurrentSurveys] = useState([]);
   const [allSurveys, setAllSurveys] = useState([]);
@@ -31,22 +34,22 @@ const SurveyDash = props => {
         <h2>IN PROGRESS</h2>
         {currentSurveys.map((group, i) => {
           return (
-            <div key={i}>
+            <StyledSurveyDivs key={i}>
               <div onClick={() => props.history.push(url + "/surveyintro")}>
                 {group.name}
               </div>
-            </div>
+            </StyledSurveyDivs>
           );
         })}
 
         <h2>NEW</h2>
         {allSurveys.map((group, i) => {
           return (
-            <div key={i}>
+            <StyledSurveyDivs key={i}>
               <div onClick={() => props.history.push(url + "/surveyintro")}>
                 {group.name}
               </div>
-            </div>
+            </StyledSurveyDivs>
           );
         })}
         {/* Onclick to survey creation */}
@@ -61,14 +64,30 @@ const SurveyDash = props => {
 //styles
 const Wrapper = styled.div`
   display: flex;
-  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  padding-top: 10rem;
 `;
-
+const StyledSurveyDivs = styled.div`
+  display: flex;
+  background: #3d3b91;
+  padding: 2rem;
+`;
 const StyledContainer = styled.div`
-display: flex;
-max-width: 500px;
-flex-direction: column
-margin: 0 auto;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  color: #ccc9ff;
+  width: 90%;
+  height: 80vh;
+  h1 {
+    font-size: 2.4rem;
+    align-self: center;
+    font-weight: bold;
+  }
+
 `;
 
 export default SurveyDash;
