@@ -108,37 +108,37 @@ const Login = props => {
             borderRadius={100}
           />
         </GoogleSignIn>
+        <Button onClick={routeToEmailLogIn}>
+          Log In with Email <Image src={emailogo} height={2} width={2} />
+        </Button>
       </FlexHolder>
       <Row width={97} height={1} padding={"12% 0"}>
-        <Col width={30} marginLeft={-2}>
+        {/* <Col width={30} marginLeft={-2}>
           <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-        </Col>
-        <Col
+        </Col> */}
+        {/* <Col
           width={70}
           borderBottom={"1px solid white"}
           height={1}
           marginTop={1}
           marginBottom={3}
           marginLeft={-6}
-        ></Col>
+        ></Col> */}
       </Row>
       <FlexHolder>
-        <Button onClick={routeToEmailLogIn}>
-          Log In with Email <Image src={emailogo} height={2} width={2} />
-        </Button>
       </FlexHolder>
     </OnBoardContainer>
   );
 };
 
 // STYLED COMPONENTS
-const OnBoardWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-  background-color: #4742bc;
-  background-image: url(${waves});
-`;
+// const OnBoardWrapper = styled.div`
+//   width: 100vw;
+//   height: 100vh;
+//   max-height: 100vh;
+//   background-color: #4742bc;
+//   background-image: url(${waves});
+// `;
 const OnBoardContainer = styled.div`
 font-family: "Catamaran", sans-serif;
 display:flex;
@@ -189,13 +189,13 @@ const HeaderHolder = styled.div`
   margin-top: 10%;
 `;
 
-const OnboardTxt = styled.p`
-  margin: auto;
-  font-size: 2rem;
-  line-height: 33px;
-  letter-spacing: 0.035em;
-  color: #ccc9ff;
-`;
+// const OnboardTxt = styled.p`
+//   margin: auto;
+//   font-size: 2rem;
+//   line-height: 33px;
+//   letter-spacing: 0.035em;
+//   color: #ccc9ff;
+// `;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
@@ -203,14 +203,6 @@ const FlexHolder = styled.div`
   margin: auto;
   align-items: flex-start;
   width: 100%;
-
-  @media screen and (min-width: 750px) {
-    margin-top: -60px;
-  }
-
-  @media screen and (min-width: 900px) {
-    margin-top: -90px;
-  }
 `;
 
 const TopHolder = styled.div`
@@ -239,9 +231,9 @@ letter-spacing:0.1rem;
 }
 `;
 
-const LineTime = styled.hr`
-  width: 100%;
-`;
+// const LineTime = styled.hr`
+//   width: 100%;
+// `;
 
 const FBButton = styled.a`
   display: flex;
@@ -250,7 +242,7 @@ const FBButton = styled.a`
   padding: 1.5rem 0;
   width: 84%;
   text-align: center;
-  margin: 16% auto 2%;
+  margin: 3% auto%;
   background: #4a639e;
   color: white;
   font-size: calc(110% + 0.5vw);
@@ -259,12 +251,16 @@ const FBButton = styled.a`
     cursor: pointer;
   }
 
-  @media screen and (min-width: 1200px) {
-    margin-bottom: -30px;
+  @media screen and (min-width: 1000px) {
+    margin: 3% auto;
   }
 
-  @media screen and (min-width: 1500px) {
-    margin-bottom: -30px;
+  @media screen and (max-width: 1000px) {
+    margin: 4% auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 7% auto;
   }
 `;
 
@@ -275,13 +271,22 @@ const GoogleSignIn = styled.a`
   padding: 1.5rem 0.8rem;
   width: 84%;
   text-align: center;
-  margin: 5% auto;
+  margin: 0 auto 3% auto;
   background: #6997f2;
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing: 0.1rem;
   &:hover {
     cursor: pointer;
+  }
+  @media screen and (min-width: 1000px) {
+    margin: 0 auto 3% auto;
+  }
+  @media screen and (max-width: 1000px) {
+    margin: 0 auto 4% auto;
+  }
+  @media screen and (max-width: 500px) {
+    margin: 0 auto 7% auto;
   }
 `;
 
@@ -309,11 +314,11 @@ const Cubes = styled.img`
   }
 `;
 
-const Logo = styled.img``;
+// const Logo = styled.img``;
 
-const GoogleLogo = styled(Logo)`
-  border-radius: 50%;
-`;
+// const GoogleLogo = styled(Logo)`
+//   border-radius: 50%;
+// `;
 
 // EXPORT
 export default Login;

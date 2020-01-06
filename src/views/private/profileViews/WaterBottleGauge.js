@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-// import axios from "axios";
-import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 // Atoms
 import Icon from "../../../components/atoms/icon/icon";
 // SVG Images
@@ -16,33 +14,11 @@ import bottle7 from "../../../images/profile/water_bottle/bottle7.svg";
 import bottleEmpty from "../../../images/profile/water_bottle/bottleEmpty.svg";
 
 const WaterBottleGauge = ({ children, ...props }) => {
+  const { point_current } = props;
+  // console.log('props :', props);
   const [waterData, setWaterData] = useState({
-    waterStats: 0
+    waterStats: point_current
   });
-  props.debug && console.log(`[waterData before useEffect]`, waterData);
-
-  // useEffect axios call for user stats
-  useEffect(() => {
-    axiosWithAuth()
-      .get(`/usermissions`)
-      .then(res => {
-        props.debug && console.log(`user_missions response:`, res);
-        let missionsInProgress = res.data.user_missions.missions_in_progress;
-        !Array.isArray(missionsInProgress)
-          ? props.debug && console.log(`No missions currently in progress`)
-          : missionsInProgress.forEach(mission => {
-              props.debug && console.log(`[Mission after map]`, mission);
-              mission.vertical.toLowerCase() === "water"
-                ? setWaterData({
-                    waterStats: mission.point_current
-                  })
-                : props.debug && console.log(`[No water data / end of map]`);
-            });
-      });
-  }, []);
-
-  props.debug && console.log(`[waterData after useEffect]`, waterData);
-  // props.debug && console.log(`[waterStats after useEffect]`, waterStats);
 
   const gaugeFill = () => {
     props.debug && console.log(`[waterData inside gaugeFill]`, waterData);

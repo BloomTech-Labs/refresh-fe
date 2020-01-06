@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Calendar = props => {
   const [dateObj, setDateObj] = useState(moment());
-  const [selectedDay, setSelectedDay] = useState();
+  const [selectedDay, setSelectedDay] = useState();   // eslint-disable-line no-unused-vars
   const [showMonthTable, setShowMonthTable] = useState(false);
   const [showYearTable, setShowYearTable] = useState(false);
 

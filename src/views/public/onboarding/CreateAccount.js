@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useContext }  from "react";
+import React, { useContext } from "react";
 //styled components
 import styled from "styled-components";
 //images
@@ -111,21 +111,12 @@ const CreateAccount = props => {
             borderRadius={100}
           />
         </GoogleSignIn>
-      </FlexHolder>
-      <Row width={97} height={1} padding={"12% 0"}>
-        <Col width={30} marginLeft={-2}>
-          <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-        </Col>
-        <Col
-          width={70}
-          borderBottom={"1px solid white"}
-          height={1}
-          marginTop={1}
-          marginBottom={3}
-          marginLeft={-6}
-        ></Col>
-      </Row>
-      <FlexHolder>
+        
+          <div className="flexWrapper">
+            <p>OR</p>
+            <div></div>
+          </div>
+       
         <Button onClick={routeToEmailSignUp}>
           Sign up with Email <Image src={emailogo} height={2} width={2} />
         </Button>
@@ -155,12 +146,29 @@ const OnBoardContainer = styled.div`
   background-image: url(${waves});
   overflow-x: hidden;
   flex-direction:column;
-  justify-content:space-between;
+  justify-content:space-evenly;
   align-items: flex-start
   line-height: 1.5;
-  padding:10%;
+  padding:0 10%;
   &:nth-child(*){
     margin-bottom:5%;
+  }
+  .flexWrapper{
+    margin:15% auto;
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    color:#fff;
+    width:90%;
+    p{
+
+    }
+    div{
+      border-bottom:.1rem solid #fff;
+      margin:0 1rem;
+      width:92%
+    }
+
   }
 `;
 
@@ -194,37 +202,40 @@ const HeaderHolder = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin-top: 10%;
+  
 `;
 
-const OnboardTxt = styled.p`
-  margin: auto;
-  font-size: 2rem;
-  line-height: 33px;
-  letter-spacing: 0.035em;
-  color: #ccc9ff;
-`;
+// const OnboardTxt = styled.p`
+//   margin: auto;
+//   font-size: 2rem;
+//   line-height: 33px;
+//   letter-spacing: 0.035em;
+//   color: #ccc9ff;
+// `;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  margin:0 auto;
+  //align-items: flex-start;
   width: 100%;
-
-  @media screen and (min-width: 700px) {
-    margin-top: -40px;
+  &:nth-child(*){
+    margin-bottom:5%;
   }
 
-  @media screen and (min-width: 800px) {
-    margin-top: -80px;
-  }
+  // @media screen and (min-width: 700px) {
+  //   margin-top: -40px;
+  // }
+
+  // @media screen and (min-width: 800px) {
+  //   margin-top: -80px;
+  // }
 `;
 
 const TopHolder = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: auto;
+  margin:0 auto;
   align-items: center;
   width: 100%;
 
@@ -258,7 +269,7 @@ const FBButton = styled.a`
   padding: 1.5rem 0;
   width: 84%;
   text-align: center;
-  margin: 16% auto 2%;
+  margin: 3% auto;
   background: #4a639e;
   color: white;
   font-size: calc(110% + 0.5vw);
@@ -266,9 +277,17 @@ const FBButton = styled.a`
   &:hover {
     cursor: pointer;
   }
-  @media screen and (min-width: 1200px) {
-    margin-bottom: -30px;
-    margin-top: 100px;
+
+  @media screen and (min-width: 1000px) {
+    margin: 1.5% auto;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin: 4% auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 7% auto;
   }
 `;
 
@@ -279,13 +298,22 @@ const GoogleSignIn = styled.a`
   padding: 1.5rem 0.8rem;
   width: 84%;
   text-align: center;
-  margin: 5% auto;
+  margin: 0 auto 3% auto;
   background: #6997f2;
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing: 0.1rem;
   &:hover {
     cursor: pointer;
+  }
+  @media screen and (min-width: 1000px) {
+    margin: 0 auto 1.5% auto;
+  }
+  @media screen and (max-width: 800px) {
+    margin: 0 auto 4% auto;
+  }
+  @media screen and (max-width: 500px) {
+    margin: 0 auto 7% auto;
   }
 `;
 
@@ -298,7 +326,7 @@ const ButtonNoColor = styled.a`
   }
 `;
 const Cubes = styled.img`
-  max-width: 20%;
+  max-width: 30%;
   width: 100%;
   height: auto;
   margin: auto;
@@ -325,11 +353,11 @@ const Cubes = styled.img`
   }
 `;
 
-const Logo = styled.img``;
+// const Logo = styled.img``;
 
-const GoogleLogo = styled(Logo)`
-  border-radius: 50%;
-`;
+// const GoogleLogo = styled(Logo)`
+//   border-radius: 50%;
+// `;
 
 //EXPORT
 export default CreateAccount;

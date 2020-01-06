@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import {Link} from 'react-router-dom';
-import User from '../../../images/profile/user.svg';
-import Arrow from '../../../images/profile/purple_right_arrow.svg';
-
-
+import { Link } from "react-router-dom";
+import User from "../../../images/profile/user.svg";
+import Arrow from "../../../images/profile/purple_right_arrow.svg";
 
 const ProfileContainer = styled.div`
 position: absolute;
+margin: 0 auto;
 width: 13.4rem;
 height: 20.7rem;
 left: 20.8rem;
@@ -17,7 +16,7 @@ background: #3d3b91;
 border-radius: 0.125rem;
 `;
 
-const ProfileText = styled.text`
+const ProfileText = styled.p`
 position: absolute;
 left: 32.84%;
 right: 32.84%;
@@ -35,13 +34,13 @@ color: #E6E6E6;
 `;
 
 const UserAv = styled.img`
-position: absolute;
-left: 33.58%;
-right: 34.33%;
-top: 24.64%;
-bottom: 54.59%;
-${User}
-/* main / TEXT */
+  position: absolute;
+  left: 33.58%;
+  right: 34.33%;
+  top: 24.64%;
+  bottom: 54.59%;
+  ${User}
+  /* main / TEXT */
 background: #e6e6e6;
 `;
 const PercentText = styled.div`
@@ -60,7 +59,7 @@ letter-spacing: 0.02em;
 /* main / TEXT */
 color: #E6E6E6;
 `
-const Percentage =styled.text`
+const Percentage =styled.p`
 position: absolute;
 left: 61.19%;
 right: 26.12%;
@@ -77,7 +76,7 @@ letter-spacing: 0.02em;
 color: #E6E6E6;
 `
 
-const CompletionText = styled.text`
+const CompletionText = styled.p`
 position: absolute;
 left: 25.37%;
 right: 25.37%;
@@ -94,45 +93,43 @@ letter-spacing: 0.02em;
 color: #E6E6E6;
 `;
 const FinishNowContainer = styled.div`
-position: absolute;
-left: 0%;
-right: 0%;
-top: 83.57%;
-bottom: 0%;
-/* main / side */
-background: #3D3B91;
-/* mobile / dashboard dropshadow */
-box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-border-radius: 0px 0px 2px 2px;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 83.57%;
+  bottom: 0%;
+  /* main / side */
+  background: #3d3b91;
+  /* mobile / dashboard dropshadow */
+  box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
+  border-radius: 0px 0px 2px 2px;
 `;
-const FinishNowText = styled.text`
-position: absolute;
-left: 11.19%;
-right: 46.27%;
-top: 50%;
-font-family: Catamaran;
-font-style: normal;
-font-weight: normal;
-font-size: 1.2rem;
-line-height: .5rem;
-/* or 5px */
-letter-spacing: 0.02em;
+const FinishNowText = styled.p`
+  position: absolute;
+  left: 11.19%;
+  right: 46.27%;
+  top: 50%;
+  font-family: Catamaran;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2rem;
+  line-height: 0.5rem;
+  /* or 5px */
+  letter-spacing: 0.02em;
 
-/* main / TEXT */
+  /* main / TEXT */
 
-color: #E6E6E6;
+  color: #e6e6e6;
 `;
-const FinnishArrow= styled.img`
-position: absolute;
-width: 40%;
-height: 40%;
-left: 82.09%;
-right: 11.19%;
-top: 55.37%;
-bottom: 7.25%;
-/* main / TEXT */
-
-  
+const FinnishArrow = styled.img`
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  left: 82.09%;
+  right: 11.19%;
+  top: 55.37%;
+  bottom: 7.25%;
+  /* main / TEXT */
 `;
 
 const ProfileCompletion = props => {
@@ -144,17 +141,18 @@ const ProfileCompletion = props => {
 
   return (
     <>
-    
       <ProfileContainer>
         <ProfileText>profile</ProfileText>
-        <UserAv src={User}/>
+        <UserAv src={User} />
         <PercentText>75</PercentText>
         <Percentage>%</Percentage>
         <CompletionText>completion</CompletionText>
         <FinishNowContainer>
-        <Link to='/profile-edit'><FinishNowText>finish now</FinishNowText></Link>  
-        <FinnishArrow src={Arrow}/>
-        </FinishNowContainer> 
+          <Link to="/profile-edit">
+            <FinishNowText>finish now</FinishNowText>
+          </Link>
+          <FinnishArrow src={Arrow} />
+        </FinishNowContainer>
       </ProfileContainer>
     </>
   );

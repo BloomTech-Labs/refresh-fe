@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 // Colors
-import Colors from "../../../styles/global/colors";
+import Colors from "../../../styles/global/colors"; // eslint-disable-line no-unused-vars
 // Fonts
 import Fonts from "../../../styles/global/fonts";
 
@@ -11,6 +11,7 @@ import Fonts from "../../../styles/global/fonts";
 const Text = ({ text, ...props }) => {
   const {
     fontSize,
+    fontFamily,
     color,
     fontWeight,
     letterSpacing,
@@ -37,6 +38,8 @@ const Text = ({ text, ...props }) => {
       textAlign={textAlign}
       width={width}
       height={height}
+      textDecoration={textDecoration}
+      fontFamily={fontFamily}
     >
       {text}
     </StyledText>
@@ -55,10 +58,12 @@ const StyledText = styled.p.attrs(props => ({
   textAlign: props.textAlign,
   height: props.height,
   width: props.width,
-  textDecoration: props.textDecoration
+  textDecoration: props.textDecoration,
+  fontFamily: props.fontFamily
 }))`
   font-size: ${props =>
     props.fontSize ? `${props.fontSize}rem` : Fonts.fontSize.baseMd};
+  font-family: Catamaran;
   color: ${props => (props.color ? props.color : "#E6E6E6")};
   font-weight: ${props => (props.fontWeight ? props.fontWeight : "normal")};
   letter-spacing: ${props =>

@@ -3,8 +3,6 @@
 import React from 'react';
 // styled components
 import styled from 'styled-components';
-// helpers
-import { test, flex } from '../../../styles/global/Mixins';
 
 // DUMMY DATA
 const dummy = [

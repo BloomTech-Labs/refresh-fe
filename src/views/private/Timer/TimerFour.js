@@ -78,9 +78,9 @@ const Text = styled.p`
   line-height: 1.5;
 `
 
-const Bold = styled.span`
-  font-weight: 600;
-`
+// const Bold = styled.span`
+//   font-weight: 600;
+// `
  
 export function TimerFour ({ expiryTimestamp }) {
 
@@ -89,7 +89,7 @@ export function TimerFour ({ expiryTimestamp }) {
     minutes,
     pause,
     resume,
-    restart
+    restart // eslint-disable-line no-unused-vars
   } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
 
   if (seconds === 9) seconds = '09';

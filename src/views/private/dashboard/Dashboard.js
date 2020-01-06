@@ -38,7 +38,7 @@ const Dashboard = props => {
                   {activeUser.avatar && (
                     <img
                       src={activeUser.avatar}
-                      alt="picture of your user profile"
+                      alt="User avatar"
                     />
                   )}
                 </Avatar>
