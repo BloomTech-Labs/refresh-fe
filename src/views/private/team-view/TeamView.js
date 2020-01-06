@@ -107,7 +107,7 @@ const TeamView = (props) => {
 
                     <TVSection>
                         <SectionTitle><h2>Team Missions</h2></SectionTitle>
-                        <SectionCTA></SectionCTA>
+                        <SectionCTA><Link to='/createtm'>Create Mission</Link></SectionCTA>
                         
                         <SwipeableViews>
                             {missionSlide.slides.map((mission, i) => {
