@@ -7,12 +7,19 @@ import styled from "styled-components";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth"; // eslint-disable-line no-unused-vars
 //images
 import waves from "../../../images/Onboarding/waves.svg";
+// components
+import Calendar from './Calendar.js';
 
 const CreateTMission = props => {
   const [missionInfo, setMissionInfo] = useState({
     name: "",
     date: "",
     desc: ""
+  });
+
+  const [calendar, setCalendar] = useState({
+    isOpen: false,
+    selectedDay: null
   });
 
   const routeToTLView = e => {
@@ -28,6 +35,11 @@ const CreateTMission = props => {
 
   const handleSubmit = e => {
     props.debug && console.log(missionInfo);
+  };
+
+  const toggleCalendar = () => {
+    setCalendar({ ...calendar, isOpen: !calendar.isOpen });
+    console.log('[checking calendar state]', calendar);
   };
 
   return (
@@ -53,14 +65,16 @@ const CreateTMission = props => {
           <Input
             type="text"
             name="date"
-            placeholder="mm/dd"
+            placeholder={calendar.selectedDay === null ? 'mm/dd/yy' : calendar.selectedDay}
             onChange={handleChanges}
             value={missionInfo.date}
             width={100}
             border={"1px solid #3D3B91"}
             backgroundColor={"#3D3B91"}
+            onClick={setCalendar}
           />
         </InputDiv>
+        <Calendar calendar={calendar} setCalendar={setCalendar} />
         <FormHeader>Mission Description</FormHeader>
         <InputDiv>
           <Input

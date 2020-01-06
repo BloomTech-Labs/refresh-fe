@@ -4,15 +4,16 @@ import React, { useState } from "react";
 import moment from "moment";
 //styled-components
 import styled from "styled-components";
-
 const Calendar = props => {
   const [dateObj, setDateObj] = useState(moment());
   const [selectedDay, setSelectedDay] = useState();   // eslint-disable-line no-unused-vars
   const [showMonthTable, setShowMonthTable] = useState(false);
   const [showYearTable, setShowYearTable] = useState(false);
 
-  let weekdayshort = moment.weekdaysShort();
+  // drilling calendar props
+  const { calendar, setCalendar } = props;
 
+  let weekdayshort = moment.weekdaysShort();
   //short weekday logic
   let dayshortname = weekdayshort.map(day => {
     return (
@@ -21,7 +22,6 @@ const Calendar = props => {
       </th>
     );
   });
-
   //first weekday of a month getter
   let firstDayofMonth = () => {
     let firstDay = moment(dateObj)
@@ -29,46 +29,42 @@ const Calendar = props => {
       .format("d");
     return firstDay;
   };
-
   //blank area before filling the first date of month
   let blanks = [];
   for (let i = 0; i < firstDayofMonth(); i++) {
     blanks.push(
-      <td key={i} className="calendar-day empty">
+      <td key={i + "_day"} className="calendar-day empty">
         {""}
       </td>
     );
   }
-
   //highlighting current day
   let currentDay = () => {
     return dateObj.format("D");
   };
-
   const selectDay = d =>{
-      setSelectedDay(d);
+      setSelectedDay(dateObj.date(d).format("dddd, MMMM Do YYYY"));
+      console.log('[checking tina]', dateObj);
+      setCalendar({ ...calendar, selectedDay: selectedDay });
       props.debug && console.log("selected day:", dateObj.date(d).format("dddd, MMMM Do YYYY, h:mm:ss a"))
   }
-
   //days in month
   let daysInMonth = [];
   for (let d = 1; d <= moment(dateObj).daysInMonth(); d++) {
     let currentDate = d === currentDay() ? "today" : "";
     daysInMonth.push(
-      <td key={d} className={`calendar-day ${currentDate}`}>
+      <td key={d + "_d_in_month"} className={`calendar-day ${currentDate}`}>
           <span onClick={() => selectDay(d)}>
           {d}
           </span>
       </td>
     );
   }
-
   //slots for calendar
   let totalSlots = [...blanks, ...daysInMonth];
   //   props.debug && console.log(totalSlots);
   let rows = [];
   let cells = [];
-
   totalSlots.forEach((row, i) => {
     if (i % 7 !== 0) {
       cells.push(row);
@@ -81,16 +77,13 @@ const Calendar = props => {
       rows.push(cells);
     }
   });
-
   let daysinmonth = rows.map((d, i) => {
-    return <tr key={i}>{d}</tr>;
+    return <tr key={i + "d_in_month_rows"}>{d}</tr>;
   });
-
   //month picker
   let month = () => {
     return dateObj.format("MMMM");
   };
-
   //month table
   const MonthList = props => {
     let months = [];
@@ -107,10 +100,8 @@ const Calendar = props => {
         </td>
       );
     });
-
     let rows = [];
     let cells = [];
-
     months.forEach((row, i) => {
       if (i % 3 !== 0 || i === 0) {
         cells.push(row);
@@ -121,11 +112,9 @@ const Calendar = props => {
       }
     });
     rows.push(cells);
-
     let monthlist = rows.map((d, i) => {
-      return <tr key={i}>{d}</tr>;
+      return <tr key={i + "_monthlist_rows"}>{d}</tr>;
     });
-
     //select month logic
     let selectMonth = month => {
       let monthNo = moment(dateObj)
@@ -135,7 +124,6 @@ const Calendar = props => {
       setDateObj(dateObj);
       setShowMonthTable(!showMonthTable);
     };
-
     return (
       <table className="calendar-month">
         <thead>
@@ -147,16 +135,13 @@ const Calendar = props => {
       </table>
     );
   };
-
   const showMonth = (e, month) => {
     setShowMonthTable(!showMonthTable);
   };
-
   //year getter
   const year = () => {
     return dateObj.format("Y");
   };
-
   //year table
   const YearTable = props => {
     let years = [];
@@ -164,19 +149,16 @@ const Calendar = props => {
       .set("year", props)
       .add("year", 12)
       .format("Y");
-
     const getDates = (startDate, stopDate) => {
       let dateArray = [];
       let currentDate = moment(startDate);
       let stopD = moment(stopDate);
-
       while (currentDate <= stopD) {
         dateArray.push(moment(currentDate).format("YYYY"));
         currentDate = moment(currentDate).add(1, "year");
       }
       return dateArray;
     };
-
     let twelveyears = getDates(props, nexttwelve);
     twelveyears.map(data => {
       years.push(
@@ -193,7 +175,6 @@ const Calendar = props => {
     });
     let rows = [];
     let cells = [];
-
     years.forEach((row, i) => {
       if (i % 3 !== 0 || i === 0) {
         cells.push(row);
@@ -204,11 +185,9 @@ const Calendar = props => {
       }
     });
     rows.push(cells);
-
     let yearlist = rows.map((d, i) => {
       return <tr key={i}>{d}</tr>;
     });
-
     let setYear = year => {
       let yearNo = moment(dateObj)
         .year(year)
@@ -217,7 +196,6 @@ const Calendar = props => {
       setDateObj(dateObj);
       setShowYearTable(!showYearTable);
     };
-
     return (
       <table className="calendar-year">
         <thead>
@@ -229,11 +207,9 @@ const Calendar = props => {
       </table>
     );
   };
-
   const showYear = (e, year) => {
     setShowYearTable(!showYearTable);
   };
-
   const onPrev = () => {
       let curr = "";
       if(showYearTable === true){
@@ -254,7 +230,7 @@ const Calendar = props => {
   };
   //render
   return (
-    <CalendarHolder>
+    <CalendarHolder calendar={calendar.isOpen}>
       <MonthYear>
         <div
           onClick={() => {
@@ -299,7 +275,6 @@ const Calendar = props => {
     </CalendarHolder>
   );
 };
-
 const CalendarHolder = styled.div`
   align-items: center;
   display: flex;
@@ -310,16 +285,15 @@ const CalendarHolder = styled.div`
   background: #3d3b91;
   font-family: "Catamaran", sans-serif;
   color: #ffffff;
+  height:30vh;
+  display: ${props => props.calendar === false ? 'none' : 'flex'}
 `;
-
 const MonthYear = styled.div`
-  margin-top: 50%;
   display: flex;
   div {
     margin-right: 5%;
   }
 `;
-
 const WeekDays = styled.tr`
   color: rgba(204, 201, 255, 0.4);
   border-bottom: 1px solid rgba(204, 201, 255, 0.4);
