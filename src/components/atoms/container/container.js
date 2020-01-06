@@ -11,12 +11,13 @@ const Container = ({ ...props }) => {
     margin,
     marginBottom,
     marginTop,
-    padding
+    padding, 
+    className
   } = props;
 
   return (
     <StyledRow
-      className="container"
+      className={className}
       position={position}
       width={width}
       height={height}
@@ -40,7 +41,7 @@ const StyledRow = styled.div.attrs(props => ({
   padding: props.padding,
   position: props.position,
   alignItems: props.alignItems,
-  marginTop: props.marginTop
+  marginTop: props.marginTop,
 }))`
   height: ${props => (props.height ? `${props.height}%` : "100%")};
   width: ${props => (props.width ? `${props.width}%` : `100vw`)};
