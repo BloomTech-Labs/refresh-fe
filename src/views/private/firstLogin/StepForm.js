@@ -148,44 +148,52 @@ const StepForm = props => {
           {currentStep === 2 && (
             <FlexHolder>
               <Option onClick={() => setAnswer("Never")}>
-                <input
-                  type="radio"
-                  id="optionOne"
-                  name="overWhelmed"
-                  value="Never"
-                />
-                <label for="optionOne">Never</label>
-                <div className="check"></div>
+                <label for="optionOne">
+                  Never
+                  <input
+                    type="radio"
+                    id="optionOne"
+                    name="overWhelmed"
+                    value="Never"
+                  />
+                  <div className="check"></div>
+                </label>
               </Option>
               <Option onClick={() => setAnswer("Sometimes")}>
-                <input
-                  type="radio"
-                  id="optionTwo"
-                  name="overWhelmed"
-                  value="Sometimes"
-                />
-                <label for="optionTwo">Sometimes</label>
-                <div className="check"></div>
+                <label for="optionTwo">
+                  Sometimes
+                  <input
+                    type="radio"
+                    id="optionTwo"
+                    name="overWhelmed"
+                    value="Sometimes"
+                  />
+                  <div className="check"></div>
+                </label>
               </Option>
               <Option onClick={() => setAnswer("Often")}>
-                <input
-                  type="radio"
-                  id="optionThree"
-                  name="overWhelmed"
-                  value="Never"
-                />
-                <label for="optionThree">Often</label>
-                <div className="check"></div>
+                <label for="optionThree">
+                  Often
+                  <input
+                    type="radio"
+                    id="optionThree"
+                    name="overWhelmed"
+                    value="Often"
+                  />
+                  <div className="check"></div>
+                </label>
               </Option>
               <Option onClick={() => setAnswer("Always")}>
-                <input
-                  type="radio"
-                  id="optionFour"
-                  name="overWhelmed"
-                  value="Never"
-                />
-                <label for="optionFour">Always</label>
-                <div className="check"></div>
+                <label for="optionFour">
+                  Always
+                  <input
+                    type="radio"
+                    id="optionFour"
+                    name="overWhelmed"
+                    value="Always"
+                  />
+                  <div className="check"></div>
+                </label>
               </Option>
             </FlexHolder>
           )}
@@ -217,7 +225,7 @@ const StepForm = props => {
 const OnBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly
+  justify-content: space-evenly;
   align-items: flex-start;
   font-family: "Catamaran", sans-serif;
   margin: auto;
@@ -282,20 +290,23 @@ const Option = styled.a`
   letter-spacing: 2px;
   margin-bottom: calc(100vh / 50);
   color: #e6e6e6;
-  cursor:pointer;
+  cursor: pointer;
   input {
     position: absolute;
     visibility: hidden;
   }
-  label{
+  label {
     display: flex;
+    flex-direction:row-reverse;
     position: relative;
-    font-size: calc(100% + .1vw);
+    font-size: calc(100% + 0.1vw);
     padding-left: 4rem;
     cursor: pointer;
     -webkit-transition: all 0.25s linear;
-    &:hover {
-      color:#f3bfe1;
+    &:hover,
+    &:focus,
+    &:active {
+      color: #e05cb3;
     }
   }
   .check {
@@ -305,6 +316,7 @@ const Option = styled.a`
     border-radius: 100%;
     height: 40px;
     width: 40px;
+    margin-right: 2rem;
     transition: border 0.25s linear;
     -webkit-transition: border 0.25s linear;
   }
@@ -313,7 +325,7 @@ const Option = styled.a`
   }
   .check::before {
     position: relative;
-    content: '';
+    content: "";
     border-radius: 100%;
     height: 20px;
     width: 20px;
@@ -321,7 +333,7 @@ const Option = styled.a`
     transition: background 0.25s linear;
     -webkit-transition: background 0.25s linear;
   }
-  input[type=radio]:checked ~ .check {
+  input[type="radio"]:checked ~ .check {
     border: 5px solid #e05cb3;
   }
   input[type="radio"]:checked ~ .check::before {
