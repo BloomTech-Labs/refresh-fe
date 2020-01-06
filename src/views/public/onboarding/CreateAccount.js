@@ -84,53 +84,44 @@ const CreateAccount = props => {
   //render
   return (
     <OnBoardContainer>
-    <TopHolder>
-      <ButtonNoColor className="arrow" onClick={routeToHome}>
-        &lt;
-      </ButtonNoColor>
-      <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
-    </TopHolder>
-    <HeaderHolder>
-      <Header>
-        Create <br /> Account.
-      </Header>
-      <Cubes src={cubes} />
-    </HeaderHolder>
-    <FlexHolder>
-      <FBButton name="facebookAuth" onClick={auth}>
-        Sign up with Facebook{" "}
-        <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
-      </FBButton>
-      <GoogleSignIn name="googleAuth" onClick={auth}>
-        Sign up with Google{" "}
-        <Image
-          src={googlelogo}
-          alt={"google image"}
-          height={2}
-          width={2}
-          borderRadius={100}
-        />
-      </GoogleSignIn>
-    </FlexHolder>
-    <Row width={97} height={1} padding={"12% 0"}>
-      <Col width={30} marginLeft={-2}>
-        <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-      </Col>
-      <Col
-        width={70}
-        borderBottom={"1px solid white"}
-        height={1}
-        marginTop={1}
-        marginBottom={2}
-        marginLeft={-6}
-      ></Col>
-    </Row>
-    <FlexHolder>
-      <Button onClick={routeToEmailSignUp}>
-        Sign up with Email <Image src={emailogo} height={2} width={2} />
-      </Button>
-    </FlexHolder>
-  </OnBoardContainer>
+      <TopHolder>
+        <ButtonNoColor className="arrow" onClick={routeToHome}>
+          &lt;
+        </ButtonNoColor>
+        <ButtonNoColor onClick={routeToLogin}>Log In</ButtonNoColor>
+      </TopHolder>
+      <HeaderHolder>
+        <Header>
+          Create <br /> Account.
+        </Header>
+        <Cubes src={cubes} />
+      </HeaderHolder>
+      <FlexHolder>
+        <FBButton name="facebookAuth" onClick={auth}>
+          Sign up with Facebook{" "}
+          <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
+        </FBButton>
+        <GoogleSignIn name="googleAuth" onClick={auth}>
+          Sign up with Google{" "}
+          <Image
+            src={googlelogo}
+            alt={"google image"}
+            height={2}
+            width={2}
+            borderRadius={100}
+          />
+        </GoogleSignIn>
+        
+          <FlexWrapper>
+            <p>OR</p>
+            <div></div>
+          </FlexWrapper>
+       
+        <Button onClick={routeToEmailSignUp}>
+          Sign up with Email <Image src={emailogo} height={2} width={2} />
+        </Button>
+      </FlexHolder>
+    </OnBoardContainer>
   );
 };
 
@@ -171,6 +162,23 @@ const Header = styled.h1`
   line-height: 6.6rem;
   letter-spacing: 3.5px;
   color: #ffffff;
+<<<<<<< HEAD
+=======
+
+  @media screen and (min-width: 950px) {
+    margin-top: -60px;
+    line-height: 8rem;
+  }
+
+  @media screen and (min-width: 700px) {
+    font-size: calc(110% + 4vw);
+    line-height: 5.2rem;
+  }
+
+  @media screen and (min-width: 1250px) {
+    margin-top: -40px;
+  }
+>>>>>>> 271590e3471a8c100b570096c037144b4566eab8
 `;
 const HeaderHolder = styled.div`
   display: flex;
@@ -205,6 +213,23 @@ const TopHolder = styled.div`
     font-size: calc(110% + 3vw);
   }
 `;
+
+const FlexWrapper = styled.div`
+    margin:15% auto;
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    color:#fff;
+    width:90%;
+    div{
+      border-bottom:.1rem solid #fff;
+      margin:0 1rem;
+      width:92%
+    }
+  @media screen and (min-width: 450px) {
+    display: none;
+  }
+`
 
 const Button = styled.a`
   display: flex;
