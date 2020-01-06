@@ -34,6 +34,10 @@ const Button = ({ callback = () => {}, ...props }) => {
     margin,
     padding,
     width,
+    letterSpacing,
+    position,
+    top,
+    left,
     type = "button"
   } = props;
 
@@ -78,10 +82,14 @@ const Button = ({ callback = () => {}, ...props }) => {
       justifyContent={justifyContent}
       margin={margin}
       padding={padding}
+      position={position}
+      left={left}
+      top={top}
       type={type}
       width={width}
       cursor={cursor}
       href={href}
+      letterSpacing={letterSpacing}
       onMouseDown={preventFocus}
       onKeyUp={removeFocus}
       onClick={handleClick}
@@ -117,7 +125,11 @@ const StyledButton = styled.button.attrs(props => ({
   justifyContent: props.justifyContent,
   alignItems: props.alignItems,
   textAlign: props.textAlign,
-  cursor: props.cursor
+  cursor: props.cursor,
+  letterSpacing: props.letterSpacing,
+  position: props.position,
+  left: props.left,
+  top: props.top
 }))`
   height: ${props => (props.height ? `${props.height}rem` : "5rem")};
   width: ${props => (props.width ? `${props.width}rem` : `10rem`)};
@@ -154,6 +166,11 @@ const StyledButton = styled.button.attrs(props => ({
   font-size: ${props =>
     props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
   text-align: ${props => (props.textAlign ? props.textAlign : "left")};
+  letter-spacing: ${props =>
+    props.letterSpacing ? `${props.letterSpacing}em` : "normal"};
+  position: ${props => (props.position ? props.position : "relative")};
+  left: ${props => (props.left ? `${props.left}rem` : 0)};
+  top: ${props => (props.top ? `${props.top}rem` : 0)};
 
   .icon-object-svg,
   .icon-img-svg {
