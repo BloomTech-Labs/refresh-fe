@@ -162,8 +162,6 @@ const Header = styled.h1`
   line-height: 6.6rem;
   letter-spacing: 3.5px;
   color: #ffffff;
-<<<<<<< HEAD
-=======
 
   @media screen and (min-width: 950px) {
     margin-top: -60px;
@@ -178,7 +176,6 @@ const Header = styled.h1`
   @media screen and (min-width: 1250px) {
     margin-top: -40px;
   }
->>>>>>> 271590e3471a8c100b570096c037144b4566eab8
 `;
 const HeaderHolder = styled.div`
   display: flex;
