@@ -30,11 +30,11 @@ const dummyUser = {
 const MobileMenu = props => {
   // state hooks
   const activeUser = useContext(UserContext);
-  const userRole = activeUser.user_roles
-  const roleTitle = userRole ? userRole[userRole.length -1].role:"";
-  
-  if(!activeUser.roleTitle && roleTitle){
-    activeUser.setUser({...activeUser,roleTitle})
+  const userRole = activeUser.user_roles;
+  const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
+
+  if (!activeUser.roleTitle && roleTitle) {
+    activeUser.setUser({ ...activeUser, roleTitle });
   }
 
   const [menu, setMenu] = useState({
@@ -53,7 +53,7 @@ const MobileMenu = props => {
       ? setMenu({ ...menu, status: "open", darken: "active" })
       : setMenu({ ...menu, status: "closed", darken: "inactive" });
   };
-  console.log(activeUser)
+  console.log(activeUser);
   // RENDER
   return (
     <Wrapper>
@@ -73,7 +73,7 @@ const MobileMenu = props => {
                   {dummyUser.cohort} - {dummyUser.section_lead}
                 </p>
                 <p>{dummyUser.points} Points</p>
-  <p className="activeText">{activeUser.roleTitle}</p>
+                <p className="activeText">{activeUser.roleTitle}</p>
               </UserInfo>
             </UserHud>
 
