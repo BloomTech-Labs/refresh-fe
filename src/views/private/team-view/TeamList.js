@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; // eslint-disable-line no-unused-vars
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -8,7 +8,7 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 //atoms
-import LoadingSpinner from "../../../components/atoms/spinner/spinner";
+import LoadingSpinner from "../../../components/atoms/spinner/spinner"; // eslint-disable-line no-unused-vars
 
 const TeamList = props => {
   const routeToTLView = e => {

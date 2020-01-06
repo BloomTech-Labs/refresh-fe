@@ -76,6 +76,8 @@ const Input = ({ callback = () => {}, ...props }) => {
       padding={padding}
       height={height}
       width={width}
+      actionColor={actionColor}
+      actionBackground={actionBackground}
     />
   );
 };

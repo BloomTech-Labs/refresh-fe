@@ -10,7 +10,7 @@ import {flex} from "../../../styles/global/Mixins";
 // components
 import MissionCard from "./MissionCard";
 import MissionInput from "./MissionInput";
-import Congrats from "./Congrats";
+import Congrats from "./CongratsComplete";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import { missionMasher } from "../../globalFunctions";
 
@@ -25,6 +25,10 @@ const MissionComplete = props => {
   const userMissions = useContext(UserMissionsContext);
   const { missions } = userMissions;
   props.debug && console.log("[userMissions]", userMissions);
+  // console.log("[userMissions]", userMissions.missions.id);
+
+
+  // const missionsComplete
 
   // state hooks
   const [drawer, setDrawer] = useState({
@@ -56,6 +60,8 @@ const MissionComplete = props => {
     drawer.darken === "inactive"
       ? setDrawer({ ...drawer, darken: "active" })
       : setDrawer({ ...drawer, darken: "inactive" });
+
+      submitMissionTracker()
   };
 
   const submitMissionTracker = e => {

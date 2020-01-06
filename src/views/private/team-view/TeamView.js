@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // swipeable views
 import SwipeableViews from 'react-swipeable-views';
-// helpers
-import { test, flex } from '../../../styles/global/Mixins';
 // contexts
 import { UserContext } from '../../../contexts/UserContext';
 // components
@@ -23,7 +21,7 @@ const TeamView = (props) => {
     props.debug && console.log('[check user context]', userContext);
 
     // state hooks
-    const [feedSlide, setFeedSlide] = useState({
+    const [feedSlide, setFeedSlide] = useState({ // eslint-disable-line no-unused-vars
         slide: {
             padding: 15,
             color: '#FFF',
@@ -45,7 +43,7 @@ const TeamView = (props) => {
     // until Roman finishes sending final payloads to us. Once that happens and we bring in real data, 
     // we can init state using only the default slide styles and an empty slides array that is then
     // populated based on the pending missions array coming back from the server
-    const [missionSlide, setMissionSlide] = useState({
+    const [missionSlide, setMissionSlide] = useState({ // eslint-disable-line no-unused-vars
         slide: {
             padding: 15,
             color: '#FFF',

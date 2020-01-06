@@ -78,12 +78,12 @@ const Text = styled.p`
   line-height: 1.5;
 `;
 
-const Bold = styled.span`
-  font-weight: 600;
-`;
+// const Bold = styled.span`
+//   font-weight: 600;
+// `;
 
 export function TimerTwo({ expiryTimestamp }) {
-  let { seconds, minutes, pause, resume, restart } = useTimer({
+  let { seconds, minutes, pause, resume, restart } = useTimer({ // eslint-disable-line no-unused-vars
     expiryTimestamp,
     onExpire: () => console.warn("onExpire called")
   });
