@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useContext }  from "react";
+import React, { useContext } from "react";
 //styled components
 import styled from "styled-components";
 //images
@@ -111,23 +111,16 @@ const CreateAccount = props => {
             borderRadius={100}
           />
         </GoogleSignIn>
+        
+          <div className="flexWrapper">
+            <p>OR</p>
+            <div></div>
+          </div>
+       
         <Button onClick={routeToEmailSignUp}>
           Sign up with Email <Image src={emailogo} height={2} width={2} />
         </Button>
       </FlexHolder>
-      <Row width={97} height={1} padding={"12% 0"}>
-        {/* <Col width={30} marginLeft={-2}>
-          <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-        </Col> */}
-        {/* <Col
-          width={70}
-          borderBottom={"1px solid white"}
-          height={1}
-          marginTop={1}
-          marginBottom={3}
-          marginLeft={-6}
-        ></Col> */}
-      </Row>
     </OnBoardContainer>
   );
 };
@@ -153,12 +146,29 @@ const OnBoardContainer = styled.div`
   background-image: url(${waves});
   overflow-x: hidden;
   flex-direction:column;
-  justify-content:space-between;
+  justify-content:space-evenly;
   align-items: flex-start
   line-height: 1.5;
-  padding:10%;
+  padding:0 10%;
   &:nth-child(*){
     margin-bottom:5%;
+  }
+  .flexWrapper{
+    margin:15% auto;
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    color:#fff;
+    width:90%;
+    p{
+
+    }
+    div{
+      border-bottom:.1rem solid #fff;
+      margin:0 1rem;
+      width:92%
+    }
+
   }
 `;
 
@@ -192,7 +202,7 @@ const HeaderHolder = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin-top: 10%;
+  
 `;
 
 // const OnboardTxt = styled.p`
@@ -205,10 +215,13 @@ const HeaderHolder = styled.div`
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  margin:0 auto;
+  //align-items: flex-start;
   width: 100%;
+  &:nth-child(*){
+    margin-bottom:5%;
+  }
 
   // @media screen and (min-width: 700px) {
   //   margin-top: -40px;
@@ -222,7 +235,7 @@ const FlexHolder = styled.div`
 const TopHolder = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: auto;
+  margin:0 auto;
   align-items: center;
   width: 100%;
 
@@ -313,7 +326,7 @@ const ButtonNoColor = styled.a`
   }
 `;
 const Cubes = styled.img`
-  max-width: 20%;
+  max-width: 30%;
   width: 100%;
   height: auto;
   margin: auto;
