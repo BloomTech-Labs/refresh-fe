@@ -132,12 +132,12 @@ const OnBoardContainer = styled.div`
   line-height: 1.5;
   background-color: #4742bc;
   background-image: url(${waves});
-  background-size: initial;
+  background-size: contain;
   color: #7f7cca;
-  padding: 8%;
+  width: 100vw;
   height: 100vh;
-  overflow-y: auto;
-
+  max-height: 100vh;
+  padding: 8%;
   .smallTxt {
     font-size: calc(80% + 0.1vw);
     margin-top: 2rem;
@@ -151,75 +151,56 @@ const Logo = styled.img`
   width: 100%;
   max-width: 100%;
   margin: auto;
-  margin-bottom: 20px;
-
-  @media screen and (min-width: 1000px) {
-    margin-top: -80px;
-  }
 `;
 
 const Form = styled.form`
-  display: flex;
-  margin: auto 0;
-  flex-direction: column;
-  width: 89%;
+display: flex;
+margin: auto 0;
+flex-direction: column;
+width: 89%;
   input {
     font-size: calc(100% + 0.2vw);
     ::-webkit-input-placeholder {
       font-family: "Catamaran", sans-serif;
-      color: #a6a6a6;
+      color:  #a6a6a6;
       font-size: calc(100%);
     }
   }
-
-  .disabledColor {
+  .disabledColor{
     opacity: 30%;
   }
 `;
 
 const Input = styled.input`
-  border: 1px solid #3d3b91;
-  margin: 2% 0;
-  padding: 1%;
-  text-align: center;
-  width: 100%;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px 1px #35347f;
-  background: #3d3b91;
-  color: #ffffff;
-  outline: none;
+border: 1px solid #3d3b91;
+margin: 3% 0;
+padding: 5%;
+width: 100%;
+border-radius: 3px;
+box-shadow: 1px 1px 1px 1px #35347f;
+background: #3d3b91;
+color: #ffffff;
+outline: none;
+font-size: calc(100%);
+::-webkit-input-placeholder {
+  font-family: "Catamaran", sans-serif;
   font-size: calc(100%);
-  ::-webkit-input-placeholder {
-    font-family: "Catamaran", sans-serif;
-    font-size: calc(100%);
-  }
-  @media screen and (max-width: 800px) {
-    margin: 3% auto;
-  }
-  @media screen and (max-width: 600px) {
-    margin: 4% auto;
-  }
-  @media screen and (max-width: 500px) {
-    margin: 5% auto;
-    padding: 2%;
-  }
+}
 `;
 
 const Button = styled.a`
-  display: flex;
-  justify-content: space-evenly;
-  border-radius: 0.5rem;
-  padding: 1%;
-  width: 75%;
-  text-align: center;
-  margin: 3% auto;
-  background: #e05cb3;
-  color: white;
-  font-size: calc(110% + 0.2vw);
-  letter-spacing: 0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width:75%;
+text-align:center;
+margin: 13% auto auto;
+background: #E05CB3;
+color: white;
+font-size:calc(110% + 0.5vw);
+letter-spacing:0.1rem;
+}
 `;
 
 const ButtonNoColor = styled.a`

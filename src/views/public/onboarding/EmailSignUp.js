@@ -189,8 +189,7 @@ const Logo = styled.img`
   width: 100%;
   max-width: 100%;
   margin: auto;
-  margin-top: -80px;
-  padding-bottom: 20px;
+
 
   @media screen and (max-width: 1000px) {
     margin-top: auto;
@@ -217,45 +216,35 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  border: 1px solid #3d3b91;
-  margin: 2% 0;
-  padding: 0.5%;
-  width: 100%;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px 1px #35347f;
-  background: #3d3b91;
-  color: #ffffff;
-  outline: none;
+border: 1px solid #3d3b91;
+margin: 3% 0;
+padding: 5%;
+width: 100%;
+border-radius: 3px;
+box-shadow: 1px 1px 1px 1px #35347f;
+background: #3d3b91;
+color: #ffffff;
+outline: none;
+font-size: calc(100%);
+::-webkit-input-placeholder {
+  font-family: "Catamaran", sans-serif;
   font-size: calc(100%);
-  text-align: center;
-  ::-webkit-input-placeholder {
-    font-family: "Catamaran", sans-serif;
-    font-size: calc(100%);
   }
-  @media screen and (max-width: 800px) {
-    margin: 3% auto;
-  }
-  @media screen and (max-width: 600px) {
-    margin: 4% auto;
-  }
-  @media screen and (max-width: 500px) {
-    margin: 5% auto;
-    padding: 2%;
-  }
+
 `;
 
 const Button = styled.a`
-  display: flex;
-  justify-content: space-evenly;
-  border-radius: 0.5rem;
-  padding: 1%;
-  width:75%;
-  text-align: center;
-  margin: 1% auto;
-  background: #E05CB3;
-  color: white;
-  font-size:calc(110% + 0.2vw);
-  letter-spacing:0.1rem;
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width:75%;
+text-align:center;
+margin: 13% auto auto;
+background: #E05CB3;
+color: white;
+font-size:calc(110% + 0.5vw);
+letter-spacing:0.1rem;
   &:hover {
     cursor: pointer;
   }
