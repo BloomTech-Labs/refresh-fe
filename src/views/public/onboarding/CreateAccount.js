@@ -146,10 +146,10 @@ const OnBoardContainer = styled.div`
   background-image: url(${waves});
   overflow-x: hidden;
   flex-direction:column;
-  justify-content:space-evenly;
+  justify-content:space-between;
   align-items: flex-start
   line-height: 1.5;
-  padding:0 10%;
+  padding:10%;
   &:nth-child(*){
     margin-bottom:5%;
   }
@@ -181,43 +181,31 @@ const HeaderHolder = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  
+  margin-top: 10%;
 `;
 
-// const OnboardTxt = styled.p`
-//   margin: auto;
-//   font-size: 2rem;
-//   line-height: 33px;
-//   letter-spacing: 0.035em;
-//   color: #ccc9ff;
-// `;
+const OnboardTxt = styled.p`
+  margin: auto;
+  font-size: 2rem;
+  line-height: 33px;
+  letter-spacing: 0.035em;
+  color: #ccc9ff;
+`;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  margin:0 auto;
-  //align-items: flex-start;
+  justify-content: center;
+  margin: auto;
+  align-items: flex-start;
   width: 100%;
-  &:nth-child(*){
-    margin-bottom:5%;
-  }
-
-  // @media screen and (min-width: 700px) {
-  //   margin-top: -40px;
-  // }
-
-  // @media screen and (min-width: 800px) {
-  //   margin-top: -80px;
-  // }
 `;
 
 const TopHolder = styled.div`
   display: flex;
   justify-content: space-between;
-  margin:0 auto;
+  margin: auto;
   align-items: center;
   width: 100%;
-
   .arrow {
     font-size: calc(110% + 3vw);
   }
@@ -252,108 +240,55 @@ const Button = styled.a`
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing:0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
 }
 `;
 
 const FBButton = styled.a`
-  display: flex;
-  justify-content: space-around;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0;
-  width: 84%;
-  text-align: center;
-  margin: 3% auto;
-  background: #4a639e;
-  color: white;
-  font-size: calc(110% + 0.5vw);
-  letter-spacing: 0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
-
-  @media screen and (min-width: 1000px) {
-    margin: 1.5% auto;
-  }
-
-  @media screen and (max-width: 800px) {
-    margin: 4% auto;
-  }
-
-  @media screen and (max-width: 500px) {
-    margin: 7% auto;
-  }
+display: flex;
+justify-content: space-around;
+border-radius: 0.5rem;
+padding: 1.5rem 0;
+width: 84%;
+text-align: center;
+margin: 16% auto 2%;
+background: #4A639E;
+color: white;
+font-size: calc(110% + 0.5vw);
+letter-spacing: 0.1rem;
 `;
 
 const GoogleSignIn = styled.a`
-  display: flex;
-  justify-content: space-around;
+display: flex;
+justify-content: space-around;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
-  width: 84%;
-  text-align: center;
-  margin: 0 auto 3% auto;
-  background: #6997f2;
+  width:84%;
+  text-align:center;
+  margin: 5% auto;
+  background: #6997F2;
   color: white;
   font-size: calc(110% + 0.5vw);
-  letter-spacing: 0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (min-width: 1000px) {
-    margin: 0 auto 1.5% auto;
-  }
-  @media screen and (max-width: 800px) {
-    margin: 0 auto 4% auto;
-  }
-  @media screen and (max-width: 500px) {
-    margin: 0 auto 7% auto;
-  }
+  letter-spacing:0.1rem;
 `;
 
 const ButtonNoColor = styled.a`
   font-size: calc(110% + 0.5vw);
   font-style: medium;
   color: #ccc9ff;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 const Cubes = styled.img`
-  max-width: 30%;
+  max-width: 39%;
   width: 100%;
   height: auto;
   margin: auto;
   padding-top: 3rem;
-
-  @media screen and (min-width: 800px) {
-    margin-top: -60px;
-  }
-
-  @media screen and (min-width: 950px) {
-    margin-top: -100px;
-  }
-
-  @media screen and (min-width: 1000px) {
-    margin-top: -120px;
-  }
-
-  @media screen and (min-width: 1250px) {
-    margin-top: -160px;
-  }
-
-  @media screen and (min-width: 1400px) {
-    margin-top: -140px;
-  }
 `;
 
-// const Logo = styled.img``;
+const Logo = styled.img``;
 
-// const GoogleLogo = styled(Logo)`
-//   border-radius: 50%;
-// `;
+const GoogleLogo = styled(Logo)`
+  border-radius: 50%;
+`;
 
 //EXPORT
 export default CreateAccount;
