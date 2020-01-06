@@ -1,3 +1,4 @@
+
 // IMPORTS
 // react
 import React from "react";
@@ -9,8 +10,7 @@ import Reset from "./styles/global/Reset";
 import GlobalStyle from "./styles/global/GlobalStyle";
 // components
 import App from './App';
-import CreateAccount from './views/public/onboarding/CreateAccount';
-
+import * as serviceWorker from './serviceworker'
 // RENDER
 ReactDOM.render(
   <Router>
@@ -20,3 +20,5 @@ ReactDOM.render(
   </Router>,
   document.getElementById("root")
 );
+
+serviceWorker.unregister()

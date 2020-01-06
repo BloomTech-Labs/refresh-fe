@@ -156,6 +156,10 @@ font-size: 2rem;
   }
 `;
 
+// const DialStuff = styled.div`   
+//   flex: 0 0 auto;
+// `; 
+
 const NumberP = styled.p`
   margin-left: -1rem;
   margin-right: 1rem;

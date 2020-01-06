@@ -1,52 +1,62 @@
-import React from "react";
-//import {Link} from 'react-router-dom';
+import React, { useContext } from "react";
 import styled from "styled-components";
-import WaterCard from "./WaterCard";
-import ProfileCompletion from "./ProfileCompletion";
-import WeeklySurvey from './WeeklySurvey';
-import YourReminders from './YourReminders';
-import ProfileBadges from './ProfileBadges';
-import ProfileHeader from './ProfileHeader';
-//import {mobile} from './views/profileViews/ResponsiveMedia';
+// contexts
+import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+// components
+import WaterCard from "../profileViews/WaterCard";
+import ProfileCompletion from "../profileViews/ProfileCompletion";
+import WeeklySurvey from "../profileViews/WeeklySurvey";
+import YourReminders from "../profileViews/YourReminders";
+import ProfileBadges from "../profileViews/ProfileBadges";
+import ProfileHeader from "../profileViews/ProfileHeader";
 import waves from "../../../images/Onboarding/waves.svg";
 
-const PVContainer = styled.div`
+/* All sizing for profile view & profile edit is for mobile only */
+
+const PVWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  width: 375px;
-  height: 812px;
-  background: #4742bc;
-  background-image:url(${waves});
+  z-index: -3;
+  background-color: #4742bc;
+  background-image: url(${waves});
 `;
 
-// const BackgroundWaves = styled.img`
-// background-img: url(wavyLines.svg);
-// background: #4742BC;
-// `
+const ProfileLineBreak = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 0;
+  left: 0;
+  top: 21rem;
+  border: 0.3rem solid rgba(71, 69, 161, 0.85);
+`;
 
-const ProfileLine = styled.div`
-position: absolute;
-width: 372px;
-height: 0px;
-left: 3px;
-top: 210px;
-
-border: 3px solid rgba(71, 69, 161, 0.85);
-`
-
-
-
-const ProfileOverview = () => {
+const ProfileOverview = props => {
+  // contexts
+  const userMissions = useContext(UserMissionsContext);
+  const { missions } = userMissions;
   return (
     <>
-      <PVContainer>
-        <ProfileHeader/>
-        <ProfileLine/>
-        <WaterCard />
+      <PVWrapper>
+        <ProfileHeader />
+        <ProfileLineBreak />
+
+        {missions.map(mission => {
+          if (mission.vertical.toLowerCase() === "water")
+            return (
+              <WaterCard
+                key={mission.mission_id}
+                mission={mission}
+                {...props}
+              />
+            );
+        })}
+
         <ProfileCompletion />
-        <WeeklySurvey/>
-        <YourReminders/>
-          <ProfileBadges/>
-      </PVContainer>
+        <WeeklySurvey />
+        <YourReminders />
+        <ProfileBadges />
+      </PVWrapper>
     </>
   );
 };

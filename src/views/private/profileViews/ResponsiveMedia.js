@@ -1,38 +1,25 @@
-import React from 'react';
-import {useMediaQuery} from 'react-responsive';
+//setup for responsive screen sizing
 
 
 
-const ResponsiveMedia = () => {
-    
-    const deskTop = useMediaQuery({
-        query: `(min-device-width: 1224)`
-        //add styles here
-    })
-    const mobile = useMediaQuery({
-        query: '(min-device-width: 320px, max-device-width: 480px)'
-       [{
-           color: red,
-           background: white
-       }]
-    })
-    const mobileLandscape = useMediaQuery({
-        query: `(min-device-width: 320px)`
-        //add styles here
-    })
-    const tabletLandscape = useMediaQuery({
-        query: `(min-device-width: 768px, max-device-width: 1024)`
-        //add styles here
-    })
-    
-    return (
-        <>
-          {mobile}
-          {deskTop}
-          {mobileLandscape}
-          {tabletLandscape}
-        </>
-    )
-};
+/* define breakpoints */
 
-export default ResponsiveMedia;
+const screenSize = {
+    smallMobile: '320px',
+    mediumMobile: '375px',
+    largeMobile: '425px',
+    tablet: '768px',
+    laptop: '1024px',
+    largeLaptop: '1440px',
+    desktop: '2560px'
+  };
+
+  export const deviceType = {
+    smallMobile: `(min-width:${screenSize.smallMobile})`,
+    mediumMobile: `(min-width:${screenSize.mediumMobile})`,
+    largeMobile: `(min-width: ${screenSize.largeMobile})`,
+    tablet: `(min-width: ${screenSize.tablet})`,
+    laptop: `(min-width:${screenSize.laptop})`,
+    largeLaptop:`(min-width${screenSize.largeLaptop})`,
+    desktop: `(min-width:${screenSize.desktop})`
+  };

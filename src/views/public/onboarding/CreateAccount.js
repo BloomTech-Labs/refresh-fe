@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useContext }  from "react";
+import React, { useContext } from "react";
 //styled components
 import styled from "styled-components";
 //images
@@ -111,21 +111,12 @@ const CreateAccount = props => {
             borderRadius={100}
           />
         </GoogleSignIn>
-      </FlexHolder>
-      <Row width={97} height={1} padding={"12% 0"}>
-        <Col width={30} marginLeft={-2}>
-          <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-        </Col>
-        <Col
-          width={70}
-          borderBottom={"1px solid white"}
-          height={1}
-          marginTop={1}
-          marginBottom={3}
-          marginLeft={-6}
-        ></Col>
-      </Row>
-      <FlexHolder>
+        
+          <FlexWrapper>
+            <p>OR</p>
+            <div></div>
+          </FlexWrapper>
+       
         <Button onClick={routeToEmailSignUp}>
           Sign up with Email <Image src={emailogo} height={2} width={2} />
         </Button>
@@ -183,11 +174,7 @@ const Header = styled.h1`
   }
 
   @media screen and (min-width: 1250px) {
-    margin-top: -120px;
-  }
-
-  @media screen and (min-width: 1400px) {
-    margin-top: -140px;
+    margin-top: -40px;
   }
 `;
 const HeaderHolder = styled.div`
@@ -211,14 +198,6 @@ const FlexHolder = styled.div`
   margin: auto;
   align-items: flex-start;
   width: 100%;
-
-  @media screen and (min-width: 700px) {
-    margin-top: -40px;
-  }
-
-  @media screen and (min-width: 800px) {
-    margin-top: -80px;
-  }
 `;
 
 const TopHolder = styled.div`
@@ -227,11 +206,27 @@ const TopHolder = styled.div`
   margin: auto;
   align-items: center;
   width: 100%;
-
   .arrow {
     font-size: calc(110% + 3vw);
   }
 `;
+
+const FlexWrapper = styled.div`
+    margin:15% auto;
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    color:#fff;
+    width:90%;
+    div{
+      border-bottom:.1rem solid #fff;
+      margin:0 1rem;
+      width:92%
+    }
+  @media screen and (min-width: 450px) {
+    display: none;
+  }
+`
 
 const Button = styled.a`
   display: flex;
@@ -245,84 +240,48 @@ const Button = styled.a`
   color: white;
   font-size: calc(110% + 0.5vw);
   letter-spacing:0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
 }
 `;
 
 const FBButton = styled.a`
-  display: flex;
-  justify-content: space-around;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0;
-  width: 84%;
-  text-align: center;
-  margin: 16% auto 2%;
-  background: #4a639e;
-  color: white;
-  font-size: calc(110% + 0.5vw);
-  letter-spacing: 0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (min-width: 1200px) {
-    margin-bottom: -30px;
-    margin-top: 100px;
-  }
+display: flex;
+justify-content: space-around;
+border-radius: 0.5rem;
+padding: 1.5rem 0;
+width: 84%;
+text-align: center;
+margin: 16% auto 2%;
+background: #4A639E;
+color: white;
+font-size: calc(110% + 0.5vw);
+letter-spacing: 0.1rem;
 `;
 
 const GoogleSignIn = styled.a`
-  display: flex;
-  justify-content: space-around;
+display: flex;
+justify-content: space-around;
   border-radius: 0.5rem;
   padding: 1.5rem 0.8rem;
-  width: 84%;
-  text-align: center;
+  width:84%;
+  text-align:center;
   margin: 5% auto;
-  background: #6997f2;
+  background: #6997F2;
   color: white;
   font-size: calc(110% + 0.5vw);
-  letter-spacing: 0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
+  letter-spacing:0.1rem;
 `;
 
 const ButtonNoColor = styled.a`
   font-size: calc(110% + 0.5vw);
   font-style: medium;
   color: #ccc9ff;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 const Cubes = styled.img`
-  max-width: 20%;
+  max-width: 39%;
   width: 100%;
   height: auto;
   margin: auto;
   padding-top: 3rem;
-
-  @media screen and (min-width: 800px) {
-    margin-top: -60px;
-  }
-
-  @media screen and (min-width: 950px) {
-    margin-top: -100px;
-  }
-
-  @media screen and (min-width: 1000px) {
-    margin-top: -120px;
-  }
-
-  @media screen and (min-width: 1250px) {
-    margin-top: -160px;
-  }
-
-  @media screen and (min-width: 1400px) {
-    margin-top: -140px;
-  }
 `;
 
 const Logo = styled.img``;

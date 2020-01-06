@@ -20,16 +20,6 @@ You can find the deployed project at [Netlify](https://confident-elion-57dd1e.ne
 <br>
 <br>
 
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
-
 ## Project Overview
 
 [Trello Board](https://trello.com/b/Zxyl0mTF/refresh)
@@ -42,121 +32,87 @@ Refresh is a healthy habit app designed specifically for Lambda School students 
 
 Unfortunately, this perspective can easily lead to burn-out and health consequences. Our app exists for the sole purpose of helping every Lambdanite build simple but powerful healthy habits that will transform them into strong, energetic, productive beings.
 
-### 4️⃣ Key Features
+### Key Features
 
-- feature one
-- feature two
-- feature three
-- feature four
-- feature five
+- Pomodoro Clock
+- Team Based Accounts
+- Custom Missions/Quests
+- Points System/Leaderboard
+- Push Notification Reminders
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
-### Front end built using:
+### Front end built using: 
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
+Why React?
 
-- point one
-- point two
-- point three
-- point four
+- Easy to scale
+- Many components
+- High performance
+- Fast loading time
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+Additional libraries/dependencies:
 
-#### Front end deployed to `🚫insert service here`
+- Moment
+- Formidable
+- React Slider
+- React Timer Hook
+- Styled Components
+- React Testing Library
+- Circular Progress Bar
 
-#### [Back end](🚫link to back end repo here) built using:
+#### Front end deployed to Netlify
 
-#### 🚫 back end framework goes here
+#### [Back end](https://github.com/Lambda-School-Labs/refresh-be) built using:
 
-- point one
-- point two
-- point three
+#### NodeJs
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+Why Node?
 
-# APIs
+- Consistent syntax
+- Efficient to test
+- High performance
 
-## 2️⃣ Authentication API here
+Additional libraries/dependencies:
 
-🚫Replace text below with a description of the API
+- Axios
+- Bcrypt
+- Chalk
+- Cors
+- Cross-Env
+- Crypto
+- Dotenv
+- Ejs
+- Express
+- Helmet
+- Jest
+- JSON Web Token
+- Knex
+- Knex-Cleaner
+- Morgan
+- Node Mailer
+- Nodemon
+- Passport
+- Postgres
+- SQLite
+- Supertest
+- Web-Push
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+# Testing
 
-## 2️⃣ Payment API here
+We utilized React Testing Library coupled with Jest. Also, we integrated GitHub actions for continuous integration with the application. Furthermore, we used Code Climate as an extended mechanism for code reviews and overall quality of code maintenance. 
 
-🚫Replace text below with a description of the API
+# Installation Instructions
 
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
-🚫These are just examples, replace them with the specifics for your app
-
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
-
-# 5️⃣ Content Licenses
-
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
-
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
-
-# 4️⃣ Testing
-
-🚫Document what you used for testing and why
-
-# 4️⃣ Installation Instructions
-
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
-
-## Other Scripts
-
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+Install the dependencies listed above with "npm i" or "yarn add" before running the application. As the app is regularly updated, perhaps check the Package.json to verify you have every dependency you need.
 
 # Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
-Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
+Please note we have a [code of conduct](https://github.com/Lambda-School-Labs/refresh-fe/blob/3059b5827cb9c2c127c5b7898145894eb2aade46/.github/CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
 
@@ -191,4 +147,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫*link to your backend readme here*) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/refresh-be/blob/master/README.md) for details on the backend of our project.

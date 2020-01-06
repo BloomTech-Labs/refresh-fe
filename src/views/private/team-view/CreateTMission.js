@@ -1,10 +1,10 @@
 //IMPORTS
 //react
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";// eslint-disable-line no-unused-vars
 //styled-components
 import styled from "styled-components";
 //axios with auth
-import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth"; // eslint-disable-line no-unused-vars
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 
@@ -37,45 +37,42 @@ const CreateTMission = props => {
       <Form onSubmit={handleSubmit}>
         <FormHeader>Mission Name</FormHeader>
         <InputDiv>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Create a name for this mission"
-          onChange={handleChanges}
-          value={missionInfo.name}
-          width={100}
-          border={"1px solid #3D3B91"}
-          backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
-        />
+          <Input
+            type="text"
+            name="name"
+            placeholder="Create a name for this mission"
+            onChange={handleChanges}
+            value={missionInfo.name}
+            width={100}
+            border={"1px solid #3D3B91"}
+            backgroundColor={"#3D3B91"}
+          />
         </InputDiv>
         <FormHeader>Due Date</FormHeader>
         <InputDiv>
-        <Input
-          type="text"
-          name="date"
-          placeholder="mm/dd"
-          onChange={handleChanges}
-          value={missionInfo.date}
-          width={100}
-          border={"1px solid #3D3B91"}
-          backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
-        />
+          <Input
+            type="text"
+            name="date"
+            placeholder="mm/dd"
+            onChange={handleChanges}
+            value={missionInfo.date}
+            width={100}
+            border={"1px solid #3D3B91"}
+            backgroundColor={"#3D3B91"}
+          />
         </InputDiv>
         <FormHeader>Mission Description</FormHeader>
         <InputDiv>
-        <Input
-          type="text"
-          name="desc"
-          placeholder="Add a description for your mission..."
-          onChange={handleChanges}
-          value={missionInfo.desc}
-          width={100}
-          border={"1px solid #3D3B91"}
-          backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
-        />
+          <Input
+            type="text"
+            name="desc"
+            placeholder="Add a description for your mission..."
+            onChange={handleChanges}
+            value={missionInfo.desc}
+            width={100}
+            border={"1px solid #3D3B91"}
+            backgroundColor={"#3D3B91"}
+          />
         </InputDiv>
         <Button onClick={handleSubmit}>Share with your team</Button>
       </Form>
@@ -113,7 +110,6 @@ const Header = styled.h1`
   color: #ffffff;
 `;
 
-
 const FormHeader = styled.p`
   font-size: calc(100% + 0.1vw);
   font-weight: bold;
@@ -122,8 +118,6 @@ const FormHeader = styled.p`
   letter-spacing: 2px;
   color: #b8b7e1;
 `;
-
-
 
 const Form = styled.form`
   display: flex;
@@ -167,7 +161,6 @@ const Input = styled.input`
   ::-webkit-input-placeholder {
     font-family: "Catamaran", sans-serif;
     font-size: calc(100%);
-
   }
 `;
 
@@ -185,8 +178,6 @@ const Button = styled.a`
   letter-spacing:0.1rem;
 }
 `;
-
-
 
 const ButtonNoColor = styled.a`
   margin-right: 89%;

@@ -3,11 +3,8 @@
 import React from 'react';
 // styled components
 import styled from 'styled-components';
-// router
-import { Link } from 'react-router-dom';
-// helpers
-import { test, flex } from '../../../styles/global/Mixins';
 // images
+//// Should be changed to svg
 import Rocket from '../../../images/rocket.png';
 // COMPONENT
 const ComingSoon = props => {
@@ -15,7 +12,6 @@ const ComingSoon = props => {
     const dashboardHandler = e => {
         props.history.push('/dashboard');
     };
-    
     return (
         <>
         <SoonView>
@@ -31,7 +27,6 @@ const ComingSoon = props => {
         </>
     );
 };
-
 // STYLED COMPONENTS
 const SoonView = styled.div`
     width: 100vw;
@@ -40,11 +35,9 @@ const SoonView = styled.div`
     padding-top: 10rem;
     background-color: #3a3699;
 `
-
 const SoonWrapper = styled.div`
     width: 100%;
 `
-
 const SoonContainer = styled.div`
     width: 90%;
     height: 80vh;
@@ -53,19 +46,16 @@ const SoonContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-
         h1 {
             font-size: 4rem;
             font-weight: bold;
             color: #FFF;
             margin: 1rem 0;
         }
-        
         p {
             font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.5);
         }
-        
         button {
             width: 40%;
             height: 5rem;
@@ -77,17 +67,13 @@ const SoonContainer = styled.div`
             letter-spacing: 0.1rem;
             margin: 2rem;
             margin-top: auto
-            
         }
         `
-        
         const SoonImg = styled.img`
         width: 30rem;
         height: 30rem;
         margin: 0 auto;
         margin-top: auto;
 `
-
-
 // EXPORT
 export default ComingSoon;
