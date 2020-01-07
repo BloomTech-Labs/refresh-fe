@@ -21,6 +21,7 @@ import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
 import WeeklyChallenge from "./weeklyChallenge";
 import ProfileEdit from "./profileViews/ProfileEdit";
+import Scraper from './mobile-menu/Scraper'
 
 const PrivateViewCanvas = props => {
   props.debug && console.log("Props From Mobile Menue", props);
@@ -30,6 +31,7 @@ const PrivateViewCanvas = props => {
       <Route match path="/" component={MobileMenu} />
 
       <Switch>
+      <Route path="/scraper" component={Scraper} />
         <Route path="/firstlogin" component={StepStart} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
