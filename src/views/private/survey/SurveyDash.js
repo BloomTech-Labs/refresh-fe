@@ -5,7 +5,7 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import SurveyForm from "./CreateSurvey"; // eslint-disable-line no-unused-vars
 //Todo
 //--need to figure out how be wants to do the "dots" from figma (showing progress?)
-//--how do we want to store the "form id" to make the call to questionsgroups by id to get questions
+//--how do we want to store the "form id" to make the call to questiongroups by id to get questions
 //--expiration dates on surveys?
 const SurveyDash = props => {
   const [currentSurveys, addCurrentSurveys] = useState([]);

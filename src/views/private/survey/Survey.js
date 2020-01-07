@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 // import ComingSoon from "../../private/coming-soon/ComingSoon"
-// This page is more or less a placeholder for next releases -- after clicking "take survey" it will need to send user to the individual
-// survey based on the id from said "form group".  Use that to make an axios call to BE and it will retrieve questions.
+// This page is more or less a placeholder for next releases -- after clicking "take survey" it will need to send user to the individual survey based on the id from said "form group".  Use that to make an axios call to BE and it will retrieve questions.
 
 const Survey = props => {
   return (
@@ -16,9 +15,11 @@ const Survey = props => {
             improve what kind of missions you can complete.
           </p>
           {/* onclick to actual survey, should put to questiongroups with in_progress: "true" */}
-          <StyledButton onClick={() => props.history.push("/coming-soon")}>
-            Take the survey
-          </StyledButton>
+          <StyledButtonContainer>
+            <StyledButton onClick={() => props.history.push("/coming-soon")}>
+              Take the survey
+            </StyledButton>
+          </StyledButtonContainer>
         </StyledInner>
       </StyledContainer>
     </>
@@ -27,7 +28,7 @@ const Survey = props => {
 
 //styles
 const StyledContainer = styled.div`
-  font-family: catamaran;
+  font-family: Catamaran;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -36,11 +37,14 @@ const StyledContainer = styled.div`
   align-items: center;
   margin: 0 auto;
 `;
-
+const StyledButtonContainer = styled.div`
+display: flex;
+`
 const StyledButton = styled.button`
-  position: absolute;
+
   padding: 1rem;
   width: 251px;
+  text-align: center;
   margin: 0 auto;
   color: #e6e6e6;
   background-color: #e05cb3;

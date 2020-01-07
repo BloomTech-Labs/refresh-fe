@@ -91,7 +91,7 @@ const SurveyForm = () => {
           {questions.map((group, i) => {
             console.log(i);
             return (
-              <div>
+              <StyledQuestions>
                 <h3>QUESTION {i+1}</h3>
                 <input
                   type="text"
@@ -106,13 +106,13 @@ const SurveyForm = () => {
                   <option value="slider">Slider</option>
                   <option value="text reply">Text Reply</option>
                 </select>
-              </div>
+              </StyledQuestions>
             );
           })}
           <div onClick={() => {addQuestion()}}>Add Question</div>
         </>
 
-        <button type="submit">Submit</button>
+        <StyledButton type="submit">Submit your survey</StyledButton>
       </StyledForm>
     </StyledWrapper>
     //styled comp
@@ -121,13 +121,55 @@ const SurveyForm = () => {
 
 const StyledForm = styled.form`
   display: flex;
+  margin: 0 auto;
+  padding-top: 10rem;
+  width: 100%
   flex-direction: column;
-  margin-top: 25%;
+    input {
+      border: none;
+    width: 100%;
+    color: rgba(204, 201, 255, 0.4);
+    background: #3D3B91;
+  }
+  select {
+   border: none;
+    width: 100%;
+    color: rgba(204, 201, 255, 0.4);
+    background: #3D3B91;
+  }
+  h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    letter-spacing: 0.035em;
+    color:  #B8B7E1;
+  }
+
 `;
 const StyledWrapper = styled.div`
-  display: flex;
+  font-family: Catamaran;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 80vw;
+ 
 `;
+
+const StyledButton = styled.button`
+  padding: 1rem;
+  width: 251px;
+  text-align: center;
+  margin: 0 auto;
+  color: #e6e6e6;
+  background-color: #e05cb3;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+`;
+
+const StyledQuestions = styled.div`
+ width: 100%;
+ input{
+   width: 100%;
+ }
+`
 
 export default SurveyForm;
