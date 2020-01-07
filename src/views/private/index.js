@@ -31,7 +31,6 @@ const PrivateViewCanvas = props => {
       <Route match path="/" component={MobileMenu} />
 
       <Switch>
-      <Route path="/scraper" component={Scraper} />
         <Route path="/firstlogin" component={StepStart} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
