@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import waves from '../../../images/wavyLines.svg';
 //import DropdownMenu from './DropDownMenu';
 
 const EditContainer = styled.div`
@@ -9,6 +10,7 @@ const EditContainer = styled.div`
   height: 81.2rem;
   overflow-x: hidden;
   background: #4742bc;
+  background-image: url (${waves});
 `;
 
 const ArrowVector = styled.div`
@@ -24,10 +26,8 @@ const ArrowVector = styled.div`
 `;
 const EditProfText = styled.p`
   position: absolute;
-  left: 5.5rem;
-  right: 1rem;
-  top: 16.95%;
-  bottom: 85.34%;
+  left: 13.5rem;
+  top: 8rem;
   font-family: "Catamaran", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -36,30 +36,27 @@ const EditProfText = styled.p`
   display: flex;
   align-items: flex-end;
   text-align: center;
-  letter-spacing: 0.035rem;
+  letter-spacing: 0.2rem;
   color: #e6e6e6;
 `;
 
 const ImageContainer = styled.div`
   position: absolute;
-  left: 42.67%;
-  right: 40.27%;
-  top: 26%;
-  bottom: 74.75%;
+  left: 16rem;
+  top: 12rem;
   border-radius: 50%;
-  border: 1px solid black;
-  height: 4.5rem;
-  width: 4.5rem;
+  height: 6.5rem;
+  width: 6.5rem;
   background: url(.jpg), #c4c4c4;
 `;
 const CameraVector = styled.div`
   position: absolute;
-  left: 75.73%;
+  left: 4.8rem;
   right: 49.2%;
   top: 70%;
   bottom: 64.75%;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
 
   /* main / side */
@@ -73,16 +70,13 @@ const CameraVector = styled.div`
 
 const NameText = styled.p`
   position: absolute;
-  left: 8.27%;
-  right: 79.47%;
-  top: 44%;
-  bottom: 67.86%;
-
+  left: 3rem;
+  top: 22rem;
   font-family: "Catamaran", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
   letter-spacing: 0.035em;
 
   /* main / menu text */
@@ -91,11 +85,8 @@ const NameText = styled.p`
 `;
 const RoleText = styled.p`
   position: absolute;
-  left: 8.27%;
-  right: 80.53%;
-  top: 67%;
-  bottom: 55.17%;
-
+  left: 3rem;
+  top: 32rem;
   font-family: "Catamaran", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -110,26 +101,19 @@ const RoleText = styled.p`
 
 const PendingText = styled.p`
   position: absolute;
-  width: 3.5rem;
-  height: 0.5rem;
-  padding-top: .35rem;
-  margin: 0 auto;
+  left: .47rem;
   font-family: "Catamaran", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: .1rem;
-  line-height: .16rem;
+  font-size: 1rem;
+  line-height: 1.4rem;
   text-align: center;
-
   color: #fddcdc;
 `;
 const DescriptionText = styled.p`
   position: absolute;
-  left: 8.27%;
-  right: 68.8%;
-  top: 90%;
-  bottom: 42.49%;
-
+  left: 3rem;
+  top: 42rem;
   font-family: "Catamaran", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -143,11 +127,10 @@ const DescriptionText = styled.p`
 `;
 const NameForm = styled.div`
   position: absolute;
-  left: 8%;
-  right: 8.53%;
-  top: 52.14%;
-  width: 85%;
-  height: 10%;
+  left: 3rem;
+  top: 25rem;
+  width: 31rem;
+  height: 5rem;
 
   /* main / side */
 
@@ -158,13 +141,11 @@ const NameForm = styled.div`
   border-radius: 0.3rem;
 `;
 const RoleForm = styled.div`
-  position: absolute;
-  left: 8%;
-  right: 8.53%;
-  top: 75%;
-  bottom: 0%;
-  width: 85%;
-  height: 10%;
+position: absolute;
+left: 3rem;
+top: 35rem;
+width: 31rem;
+height: 5rem;
 
   /* main / side */
 
@@ -177,24 +158,19 @@ const RoleForm = styled.div`
 
 const PendingContainer = styled.div`
   position: absolute;
-  left: 24.53%;
-  right: 61.33%;
-  top: 69.2%;
-  bottom: 55.91%;
-  width: 3.5rem;
-  height: 0.8rem;
-
+  left: 10.7rem;
+  top: 32.5rem;
+  width: 5.2rem;
+  height: 1.25rem;
   background: #ca6162;
-  border-radius: 9px;
+  border-radius: .9rem;
 `;
 const DescriptionForm = styled.div`
-  position: absolute;
-  left: 8%;
-  right: 8.53%;
-  top: 98.9%;
-  bottom: 0%;
-  width: 85%;
-  height: 10%;
+position: absolute;
+left: 3rem;
+top: 45rem;
+width: 31rem;
+height: 5rem;
 
   /* main / side */
 
@@ -206,39 +182,29 @@ const DescriptionForm = styled.div`
 `;
 
 const SubmitChangeBtn = styled.button`
-  position: absolute;
-  left: 5.2rem;
-  top: 38rem;
-  width: 14.7rem;
-  height: 3.2rem;
-
-  /* primary / button color */
-
-  background: #e05cb3;
-  /* mobile / dashboard dropshadow */
-
-  box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
-  border-radius: 5px;
+position: absolute;
+left: 7.6rem;
+top: 56rem;
+width: 21.4rem;
+height: 4.7rem;
+bottom: 2rem;
+/* primary / button color */
+background: #e05cb3;
+border-radius: .5rem;
 `;
 
 const SubmitChangeText = styled.p`
   position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 33.93%;
-  bottom: 33.93%;
+  left: 1.6rem;
+  top: 1rem;
 
   font-family: "Catamaran", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 1rem;
-  line-height: 1rem;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
   text-align: center;
   letter-spacing: 0.035em;
-  padding-top: 0rem;
-  width: 100%;
-  height: 2rem;
-  margin: 0 auto;
   /* main / TEXT */
 
   color: #e6e6e6;
@@ -247,8 +213,7 @@ const SubmitChangeText = styled.p`
 const ProfileEdit = () => {
   return (
     <>
-      <EditContainer />
-      <form>
+      <EditContainer src={waves}/>
         <ArrowVector />
         <EditProfText>Edit Profile</EditProfText>
         <ImageContainer>
@@ -266,7 +231,6 @@ const ProfileEdit = () => {
         <PendingContainer>
           <PendingText>PENDING</PendingText>
         </PendingContainer>
-      </form>
     </>
   );
 };
