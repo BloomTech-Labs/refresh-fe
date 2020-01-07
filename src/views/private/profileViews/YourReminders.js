@@ -1,7 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-import MenuDots from "../../../images/profile/purple_menu_dots.svg";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+// components
+import Icon from '../../../components/atoms/icon/icon';
+//images
+import purpleMenuDots from "../../../images/profile/purple_menu_dots.svg"
+
 
 const ReminderContainer = styled.div`
 position: absolute;
@@ -44,7 +48,7 @@ const YourReminders = () => {
     <>
       <Link to="coming-soon">
         <ReminderContainer>
-          <ReminderDots src={MenuDots} />
+          <Icon svg={purpleMenuDots} height={0.3} width={1.4} position={"absolute"}top={1.3} left={11}/>
           <ReminderText>
             your
             <br />

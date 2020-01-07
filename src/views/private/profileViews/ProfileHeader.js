@@ -29,8 +29,8 @@ const User = styled.div`
 
 const UserAv = styled.img`
   position: absolute;
-  width: 5rem;
-  height: 5rem;
+  width: 6.4rem;
+  height: 6.4rem;
   border-radius: 50%;
   background: #c4c4c4;
 `;
@@ -54,7 +54,7 @@ const NameText = styled.p`
   color: #e6e6e6;
 `;
 
-const TeamLeadText = styled.div`
+const RoleText = styled.p`
   position: absolute;
   width: 6.4rem;
   height: 1.1rem;
@@ -65,6 +65,7 @@ const TeamLeadText = styled.div`
   font-style: normal;
   font-weight: bold;
   font-size: 1.2rem;
+  text-transform: uppercase;
   line-height: 1.1rem;
   /* or 11px */
 
@@ -172,7 +173,6 @@ const ProfileHeader = props => {
   if (!activeUser.roleTitle && roleTitle) {
     activeUser.setUser({ ...activeUser, roleTitle });
   }
-
   // const routeToEdit = evt =>{
   //   evt.preventDefault();
   //   props.history.push('/profile-edit');
@@ -191,7 +191,7 @@ const ProfileHeader = props => {
         <UserAv src={activeUser.avatar}></UserAv>
       </User>
       <NameText>{activeUser.display_name}</NameText>
-      <TeamLeadText>{activeUser.roleTitle}</TeamLeadText>
+      <RoleText>{activeUser.roleTitle}</RoleText>
       <PointsText>150 points</PointsText>
       <LvOneText>Lvl 1</LvOneText>
       <LvTwoText>Lvl 2</LvTwoText>
