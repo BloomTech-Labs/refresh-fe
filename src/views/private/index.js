@@ -19,7 +19,7 @@ import Calendar from "./team-view/Calendar";
 import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
-import WeeklyChallenge from "./weeklyChallenge";
+import WeeklyChallenge from "./weeklyChallenge/WeeklyChallenges";
 import ProfileEdit from "./profileViews/ProfileEdit";
 
 const PrivateViewCanvas = props => {
