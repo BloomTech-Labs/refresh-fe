@@ -23,10 +23,10 @@ import ProfileEdit from "./profileViews/ProfileEdit";
 
 
 const PrivateViewCanvas = props => {
-  props.debug && console.log("Props From Mobile Menue", props);
+  props.debug && console.log("Props From Mobile Menu", props);
   return (
     <>
-      {/* Mobile Menu Will not work Globaly if in Switch */}
+      {/* Mobile Menu Will not work Globally if in Switch */}
       <Route match path="/" component={MobileMenu} />
 
       <Switch>
