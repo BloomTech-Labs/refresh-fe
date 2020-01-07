@@ -14,8 +14,8 @@ const StepStart = props => {
   return (
     <>
       <Route exact path={url} component={InfoIntro} {...props} />
-      <Route exact path={`${url}/userrole`} component={UserRole} {...props} />
-      <Route exact path={`${url}/questions`} component={StepForm} {...props} />
+      <Route  path={`${url}/userrole`} component={UserRole} {...props} />
+      <Route  path={`${url}/questions`} component={StepForm} {...props} />
     </>
   );
 };

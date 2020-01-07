@@ -19,16 +19,26 @@ const UserRole = props => {
       .catch(err => console.log(err));
   }, []);
 
-  console.log(userRoles);
+const handleSubmit = e =>{
+    console.log(selectedRole)
+    e.preventDefault(); 
+       return axiosWithAuth()
+        .post("/roles/userroles", {role_id: selectedRole})
+        .then(res => {console.log(res)})
+        .catch(err => {console.log(err)});
+    props.history.push(`questions`)
+    
+}
 
   return (
     <OnBoardContainer>
+        <QuestionForm onSubmit={handleSubmit} >
       <Question>What best describes your role on the team?</Question>
       <RolesHolder>
         {userRoles.map(roles => {
           const { role, id } = roles;
           return (
-            <Option onClick={() => setSelectedRole(role)}>
+            <Option onClick={() => setSelectedRole(id)} key={id}>
               <label htmlFor={`option${id}`}>
                 {role}
                 <input
@@ -44,12 +54,11 @@ const UserRole = props => {
         })}
       </RolesHolder>
       <Button
-        onClick={() => {
-          console.log(selectedRole);
-        }}
+        onClick={handleSubmit}
       >
         Continue
       </Button>
+      </QuestionForm>
     </OnBoardContainer>
   );
 };
@@ -70,6 +79,16 @@ const OnBoardContainer = styled.div`
   max-height: 100vh;
 `;
 
+const QuestionForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-height: 100vh
+  &:nth-child(*) {
+    margin: auto;
+  }
+`;
 const Question = styled.h1`
   font-weight: 600;
   font-size: calc(100% + 5.5vw);
@@ -84,7 +103,7 @@ const RolesHolder = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 4rem auto;
+  margin: auto;
 `;
 
 const Option = styled.a`

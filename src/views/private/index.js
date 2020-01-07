@@ -19,10 +19,12 @@ import Calendar from "./team-view/Calendar";
 import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
-import WeeklyChallenge from './weeklyChallenge';
+import WeeklyChallenge from "./weeklyChallenge";
+import ProfileEdit from "./profileViews/ProfileEdit";
+import Scraper from './mobile-menu/Scraper'
 
-const PrivateViewCanvas = (props) => {
-  props.debug && console.log("Props From Mobile Menue",props)
+const PrivateViewCanvas = props => {
+  props.debug && console.log("Props From Mobile Menue", props);
   return (
     <>
       {/* Mobile Menu Will not work Globaly if in Switch */}
@@ -47,6 +49,7 @@ const PrivateViewCanvas = (props) => {
         <Route path="/timer" component={TimerCanvas} />
         <Route path="/survey" component={SurveyCanvas} />
         <Route path="/weekly-challenges" component={WeeklyChallenge} />
+        <Route path="/profile-edit" component={ProfileEdit} />
         <Redirect to="/dashboard" />
       </Switch>
     </>
