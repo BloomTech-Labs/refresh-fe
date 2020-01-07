@@ -5,8 +5,6 @@ import MobileMenu from "./mobile-menu/MobileMenu";
 import Dashboard from "./dashboard/Dashboard";
 import MissionComplete from "./mission-complete/MissionComplete";
 import Gauge from "../../components/molecules/gauge/Gauge";
-import Atoms from "./componentTesting/componentTesting";
-import Sandbox from "./sandbox/Sandbox";
 import ProfileOverview from "./profileViews/ProfileOverview";
 import Leaderboard from "./leaderboard/Leaderboard";
 import MissionStats from "./mission-stats/MissionStats";
@@ -35,8 +33,6 @@ const PrivateViewCanvas = props => {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
-        <Route path="/atoms" component={Atoms} />
-        <Route path="/sandbox" component={Sandbox} />
         <Route path="/profile-overview" component={ProfileOverview} />
         <Route path="/leaderboard" component={Leaderboard} />
         <Route path="/mission-stats" component={MissionStats} />

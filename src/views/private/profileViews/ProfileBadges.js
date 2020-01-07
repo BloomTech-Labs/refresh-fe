@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 // components
-import Icon from '../../../components/atoms/icon/icon';
-import Container from '../../../components/atoms/container/container';
+import Icon from "../../../components/atoms/icon/icon";
 // badge images
 import { badgeData } from "./badgeData";
 
@@ -60,28 +59,26 @@ const ViewAllText = styled.p`
 const ProfileBadges = () => {
   return (
     <>
-    <Container>
       <BadgeText>BADGES</BadgeText>
       <ViewAllText>view all &rsaquo;</ViewAllText>
       <BadgeHub className={`badge-hub`}>
-      <div>
-            {badgeData.map(badge => {
-
-              return (
-                <Icon
-                  className={`${badge.category} icon`}
-                  key={badge.id}
-                  badge={badge}
-                  svg={badge.svg}
-                  alt={badge.alt}
-                  width={5.775}
-                  height={6.55}
-                />
-              );
-            })}
-          </div>
+        <div>
+          {badgeData.map(badge => {
+            console.log(badge.svg);
+            return (
+              <Icon
+                className={`${badge.category} icon`}
+                key={badge.id}
+                badge={badge}
+                src={badge.svg}
+                alt={badge.alt}
+                width={5.775}
+                height={6.55}
+              />
+            );
+          })}
+        </div>
       </BadgeHub>
-      </Container>
     </>
   );
 };
