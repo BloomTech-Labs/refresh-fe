@@ -10,7 +10,7 @@ import Container from "../../../components/atoms/container/container";
 import ChallengeBox from "./ChallengeBox";
 // set state to weeklyChallengeData
 const WeeklyChallenge = props => {
-  console.log({ weeklyChallengeData });
+  // console.log({ weeklyChallengeData });
 
   return (
     <>
