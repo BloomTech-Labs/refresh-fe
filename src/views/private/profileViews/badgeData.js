@@ -1,26 +1,21 @@
-const activity1Unlocked = "./activityOneUnlocked.svg"
-const breaks1Unlocked = "./breaksOneUnlocked.svg"
-const food1Unlocked = "./foodOneUnlocked.svg"
-
-
 export const badgeData = [
   {
     id: 1,
-    svg: activity1Unlocked,
+    svg: "http://localhost:3000/images/badges/activityOneUnlocked.svg",
     alt: "Activity Badge, Lvl I : unlocked",
     category: "activity",
     status: "unlocked"
   },
   {
     id: 2,
-    svg: breaks1Unlocked,
+    svg: "http://localhost:3000/images/badges/breaksOneUnlocked.svg",
     alt: "Breaks Badge, Lvl I : unlocked",
     category: "breaks",
     status: "unlocked"
   },
   {
     id: 3,
-    svg: food1Unlocked,
+    svg: "http://localhost:3000/images/badges/foodOneUnlocked.svg",
     alt: "Food Badge, Lvl I : unlocked",
     category: "food",
     status: "unlocked"

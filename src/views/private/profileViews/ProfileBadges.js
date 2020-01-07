@@ -70,7 +70,7 @@ const ProfileBadges = () => {
                 className={`${badge.category} icon`}
                 key={badge.id}
                 badge={badge}
-                src={badge.svg}
+                svg={badge.svg}
                 alt={badge.alt}
                 width={5.775}
                 height={6.55}
