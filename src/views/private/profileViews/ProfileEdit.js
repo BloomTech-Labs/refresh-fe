@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
 import waves from '../../../images/wavyLines.svg';
-//import DropdownMenu from './DropDownMenu';
+
 
 const EditContainer = styled.div`
   position: relative;
@@ -210,12 +211,20 @@ const SubmitChangeText = styled.p`
 `;
 
 const ProfileEdit = () => {
+  // user context
+  const activeUser = useContext(UserContext);
+  // const userRole = activeUser.user_roles;
+  // const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
+  // // set user role
+  // if (!activeUser.roleTitle && roleTitle) {
+  //   activeUser.setUser({ ...activeUser, roleTitle });
+  // }
   return (
     <>
       <EditContainer src={waves}/>
         <ArrowVector />
         <EditProfText>Edit Profile</EditProfText>
-        <ImageContainer>
+        <ImageContainer src={activeUser.avatar}>
           <CameraVector />
         </ImageContainer>
         <NameText>NAME</NameText>
