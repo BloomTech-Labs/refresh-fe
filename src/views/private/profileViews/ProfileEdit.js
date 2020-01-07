@@ -4,7 +4,6 @@ import waves from '../../../images/wavyLines.svg';
 //import DropdownMenu from './DropDownMenu';
 
 const EditContainer = styled.div`
-  border: 1px solid red;
   position: relative;
   width: 37.5rem;
   height: 81.2rem;
