@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MenuDots from "../../../images/profile/purple_menu_dots.svg";
+import dots from "../../../images/mobile-profile/moarDots.svg";
 import { Link } from "react-router-dom";
 
 const ReminderContainer = styled.div`
@@ -32,11 +32,12 @@ const ReminderDots = styled.img`
   position: absolute;
   left: 81.97%;
   right: 5.34%;
-  width: 15%;
+  width: 2rem;
   top: 9.15%;
   bottom: 88.73%;
   /* main / side */
-  background: #3d3b91;
+  background: #3D3B91;
+  background-image: url(${dots});
 `;
 
 const YourReminders = () => {
@@ -44,7 +45,7 @@ const YourReminders = () => {
     <>
       <Link to="coming-soon">
         <ReminderContainer>
-          <ReminderDots src={MenuDots} />
+          <ReminderDots/>
           <ReminderText>
             your
             <br />
