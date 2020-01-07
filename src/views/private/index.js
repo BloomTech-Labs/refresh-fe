@@ -21,7 +21,7 @@ import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
 import WeeklyChallenge from "./weeklyChallenge";
 import ProfileEdit from "./profileViews/ProfileEdit";
-import Scraper from './mobile-menu/Scraper'
+
 
 const PrivateViewCanvas = props => {
   props.debug && console.log("Props From Mobile Menue", props);

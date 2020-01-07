@@ -25,8 +25,8 @@ const handleSubmit = e =>{
        return axiosWithAuth()
         .post("/roles/userroles", {role_id: selectedRole})
         .then(res => {console.log(res)})
-        .catch(err => {console.log(err)});
-    props.history.push(`questions`)
+        .catch(err => {console.log(err)})
+    .then(props.history.push(`questions`))
     
 }
 
