@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 // contexts
+import { UserContext } from "../../../contexts/UserContext";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 // components
 import WaterCard from "../profileViews/WaterCard";
@@ -32,7 +33,7 @@ const ProfileLineBreak = styled.div`
 `;
 
 const ProfileOverview = props => {
-  // contexts
+  // mission context
   const userMissions = useContext(UserMissionsContext);
   const { missions } = userMissions;
   return (
