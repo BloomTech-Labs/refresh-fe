@@ -123,12 +123,10 @@ const FinishNowText = styled.p`
 `;
 const FinnishArrow = styled.img`
   position: absolute;
-  width: 40%;
-  height: 40%;
-  left: 82.09%;
-  right: 11.19%;
-  top: 55.37%;
-  bottom: 7.25%;
+  width: 1rem;
+  height: 1rem;
+  left: 10rem;
+  top: 1.45rem;
   /* main / TEXT */
 `;
 
