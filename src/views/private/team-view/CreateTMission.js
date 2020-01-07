@@ -7,6 +7,8 @@ import styled from "styled-components";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth"; // eslint-disable-line no-unused-vars
 //images
 import waves from "../../../images/Onboarding/waves.svg";
+// components
+import Calendar from './Calendar.js';
 
 const CreateTMission = props => {
   const [missionInfo, setMissionInfo] = useState({
@@ -15,6 +17,13 @@ const CreateTMission = props => {
     desc: ""
   });
 
+  const [calendar, setCalendar] = useState({
+    isOpen: false,
+  });
+
+  const [selectedDay, setSelectedDay] = useState("mm/dd/yy")
+
+  console.log(selectedDay);
   const routeToTLView = e => {
     e.preventDefault();
     props.history.push("/team-view");
@@ -28,6 +37,11 @@ const CreateTMission = props => {
 
   const handleSubmit = e => {
     props.debug && console.log(missionInfo);
+  };
+
+  const toggleCalendar = () => {
+    setCalendar({isOpen: !calendar.isOpen });
+    console.log('[checking calendar state]', calendar);
   };
 
   return (
@@ -49,20 +63,22 @@ const CreateTMission = props => {
           />
         </InputDiv>
         <FormHeader>Due Date</FormHeader>
-        <InputDiv>
+        <InputDiv onClick={toggleCalendar}>
           <Input
             type="text"
             name="date"
-            placeholder="mm/dd"
+            placeholder={selectedDay}
             onChange={handleChanges}
             value={missionInfo.date}
             width={100}
             border={"1px solid #3D3B91"}
             backgroundColor={"#3D3B91"}
           />
+          <i className="fas fa-calendar-alt"></i>
         </InputDiv>
-        <FormHeader>Mission Description</FormHeader>
-        <InputDiv>
+        <Calendar calendar={calendar} setCalendar={setCalendar} setTheDay={setSelectedDay} />
+        {!calendar.isOpen && <> <FormHeader>Mission Description</FormHeader>
+        <InputDiv className="mission-desc">
           <Input
             type="text"
             name="desc"
@@ -73,7 +89,7 @@ const CreateTMission = props => {
             border={"1px solid #3D3B91"}
             backgroundColor={"#3D3B91"}
           />
-        </InputDiv>
+        </InputDiv> </>}
         <Button onClick={handleSubmit}>Share with your team</Button>
       </Form>
     </TVContainer>
@@ -137,6 +153,7 @@ const Form = styled.form`
 `;
 const InputDiv = styled.div`
   display: flex;
+  justify-content:space-between;
   border: 1px solid #3d3b91;
   margin: 3% 0;
   padding: 5%;
@@ -146,10 +163,8 @@ const InputDiv = styled.div`
   background: #3d3b91;
   color: #ffffff;
   i {
-    padding-top: 2%;
-    margin-right: 2%;
-    font-weight: lighter;
-    font-size: calc(81%);
+    color: rgba(204, 201, 255, 0.4);
+    font-size: 4.5vw;
   }
 `;
 const Input = styled.input`

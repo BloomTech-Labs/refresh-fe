@@ -22,6 +22,7 @@ import SurveyCanvas from "./survey";
 import WeeklyChallenge from "./weeklyChallenge/WeeklyChallenges";
 import ProfileEdit from "./profileViews/ProfileEdit";
 
+
 const PrivateViewCanvas = props => {
   props.debug && console.log("Props From Mobile Menue", props);
   return (

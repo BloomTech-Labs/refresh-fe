@@ -178,6 +178,19 @@ const OnBoardContainer = styled.div`
   height: 100vh;
   overflow-y: auto;
   padding: 8%;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: #ddd;
+    -webkit-text-fill-color: #fff;
+    transition: background-color 5000s ease-in-out 0s;
+  }
   &:nth-child(*) {
     background-color: green;
     margin-bottom: 5%;
@@ -189,7 +202,6 @@ const Logo = styled.img`
   width: 100%;
   max-width: 100%;
   margin: auto;
-
 
   @media screen and (max-width: 1000px) {
     margin-top: auto;
@@ -216,21 +228,20 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-border: 1px solid #3d3b91;
-margin: 3% 0;
-padding: 5%;
-width: 100%;
-border-radius: 3px;
-box-shadow: 1px 1px 1px 1px #35347f;
-background: #3d3b91;
-color: #ffffff;
-outline: none;
-font-size: calc(100%);
-::-webkit-input-placeholder {
-  font-family: "Catamaran", sans-serif;
+  border: 1px solid #3d3b91;
+  margin: 3% 0;
+  padding: 5%;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px #35347f;
+  background: #3d3b91;
+  color: #ffffff;
+  outline: none;
   font-size: calc(100%);
+  ::-webkit-input-placeholder {
+    font-family: "Catamaran", sans-serif;
+    font-size: calc(100%);
   }
-
 `;
 
 const Button = styled.a`
