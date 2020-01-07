@@ -20,25 +20,25 @@ export const badgeData = [
     category: "food",
     status: "unlocked"
   },
-  // {
-  //   id: 4,
-  //   svg: "../../../../images/profile/badges/petsOneLocked.svg",
-  //   alt: "Pets Badge, Lvl I : Locked",
-  //   category: "pets",
-  //   status: "locked"
-  // },
-  // {
-  //   id: 5,
-  //   svg: "../../../../images/profile/badges/restedOneLocked.svg",
-  //   alt: "Well Rested Badge, Lvl I : Locked",
-  //   category: "rested",
-  //   status: "locked"
-  // },
-  // {
-  //   id: 6,
-  //   svg: "../../../../images/profile/badges/waterOneLocked.svg",
-  //   alt: "Food Badge, Lvl I : unlocked",
-  //   category: "water",
-  //   status: "locked"
-  // }
+  {
+    id: 4,
+    svg: "http://localhost:3000/images/badges/petsOneLocked.svg",
+    alt: "Pets Badge, Lvl I : Locked",
+    category: "pets",
+    status: "locked"
+  },
+  {
+    id: 5,
+    svg: "http://localhost:3000/images/badges/restedOneLocked.svg",
+    alt: "Well Rested Badge, Lvl I : Locked",
+    category: "rested",
+    status: "locked"
+  },
+  {
+    id: 6,
+    svg: "http://localhost:3000/images/badges/waterOneLocked.svg",
+    alt: "Food Badge, Lvl I : unlocked",
+    category: "water",
+    status: "locked"
+  }
 ];
