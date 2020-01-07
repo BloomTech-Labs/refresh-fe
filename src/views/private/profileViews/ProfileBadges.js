@@ -65,7 +65,12 @@ const ProfileBadges = () => {
         <div>
           <SwipeableViews>
             {badgeData.map(badge => {
-              console.log(badge.svg);
+              {
+                /* console.log(badge.svg);
+                 */
+              }
+              const assignSlide = `Object.assign({}, styles.slide, styles.slide${badge.id}`;
+
               return (
                 <Icon
                   className={`${badge.category} icon`}
