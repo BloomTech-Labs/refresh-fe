@@ -38,10 +38,9 @@ const StyledContainer = styled.div`
   margin: 0 auto;
 `;
 const StyledButtonContainer = styled.div`
-display: flex;
-`
+  display: flex;
+`;
 const StyledButton = styled.button`
-
   padding: 1rem;
   width: 251px;
   text-align: center;
