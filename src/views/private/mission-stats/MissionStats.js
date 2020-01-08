@@ -10,12 +10,10 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import moment from "moment";
 // COMPONENT
 const MissionStats = () => {
-  const d = moment(); // get "now" as a moment
-  const n = d.subtract(30, "days").format(); // the ISO format is the default so no parameters are needed
 
-  // console.log("UTC DATE", n);
-  const start = n;
-  const end = n;
+  //Convert to ISO datestring
+  const start = moment().subtract(30, "days").format();
+  const end = moment().format()
 
   useEffect(() => {
     axiosWithAuth()
