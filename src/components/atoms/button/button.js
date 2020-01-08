@@ -131,8 +131,8 @@ const StyledButton = styled.button.attrs(props => ({
   left: props.left,
   top: props.top
 }))`
-  height: ${props => (props.height ? `${props.height}rem` : "5rem")};
-  width: ${props => (props.width ? `${props.width}rem` : `10rem`)};
+  height: ${props => (props.height ? `${props.height}rem` : "5.6rem")};
+  width: ${props => (props.width ? `${props.width}rem` : `25.1rem`)};
   border: ${props => (props.border ? props.border : "none")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
@@ -184,7 +184,9 @@ const StyledButton = styled.button.attrs(props => ({
     color: ${props => props.actionColor};
     opacity: ${props => (props.actionOpacity ? props.actionOpacity : 0.85)};
     box-shadow: ${props =>
-      props.boxShadow ? props.boxShadow : "0 1px 1px 1px 4px rgba(0,0,0,0.2)"};
+      props.boxShadow
+        ? props.boxShadow
+        : "0px 4px 10px rgba(21, 15, 172, 0.1)"};
   }
 
   &:active {

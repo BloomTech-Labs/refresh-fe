@@ -1,23 +1,26 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
-import waves from '../../../images/wavyLines.svg';
-
-
 
 // components
 import Icon from "../../../components/atoms/icon/icon";
+import Input from "../../../components/atoms/input/input";
+import Button from "../../../components/atoms/button/button";
+import Text from "../../../components/atoms/text/text";
+
 // images
 import leftArrow from "../../../images/profile/leftArrow.svg";
+import waves from "../../../images/Onboarding/waves.svg";
+import editImage from "../../../images/profile/edit_img.svg";
 //import DropdownMenu from './DropDownMenu';
 
 const EditContainer = styled.div`
   /* border: 1px solid red; */
   position: relative;
-  width: 37.5rem;
-  height: 81.2rem;
-  overflow-x: hidden;
-  /* background: #4742bc; */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(${waves});
 `;
 
 const ArrowVector = styled.div`
@@ -43,11 +46,19 @@ const EditProfText = styled.p`
 const ImageContainer = styled.div`
   position: absolute;
   left: 16rem;
-  top: 12rem;
+  top: 14.1rem;
   border-radius: 50%;
-  height: 6.5rem;
-  width: 6.5rem;
-  background: url(.jpg), #c4c4c4;
+  height: 6.4rem;
+  width: 6.4rem;
+  background: #c4c4c4;
+`;
+const UserImage = styled.img`
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  height: 6.4rem;
+  width: 6.4rem;
 `;
 const CameraVector = styled.div`
   position: absolute;
@@ -55,13 +66,6 @@ const CameraVector = styled.div`
   right: 49.2%;
   top: 70%;
   bottom: 64.75%;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-
-  /* main / side */
-
-  background: #3d3b91;
 
   /* card / shadow */
 
@@ -70,10 +74,8 @@ const CameraVector = styled.div`
 
 const NameText = styled.p`
   position: absolute;
-  left: 3rem;
-  top: 22rem;
-  font-family: "Catamaran", sans-serif;
-  font-style: normal;
+  left: 3.2rem;
+  top: 23.5rem;
   font-weight: bold;
   font-size: 1.6rem;
   line-height: 2.6rem;
@@ -85,10 +87,8 @@ const NameText = styled.p`
 `;
 const RoleText = styled.p`
   position: absolute;
-  left: 3rem;
-  top: 32rem;
-  font-family: "Catamaran", sans-serif;
-  font-style: normal;
+  left: 3.2rem;
+  top: 33.8rem;
   font-weight: bold;
   font-size: 16px;
   line-height: 26px;
@@ -101,21 +101,17 @@ const RoleText = styled.p`
 
 const PendingText = styled.p`
   position: absolute;
-  left: .47rem;
-  font-family: "Catamaran", sans-serif;
-  font-style: normal;
+  left: 0.675rem;
   font-weight: bold;
   font-size: 1rem;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
   text-align: center;
   color: #fddcdc;
 `;
 const DescriptionText = styled.p`
   position: absolute;
-  left: 3rem;
-  top: 42rem;
-  font-family: "Catamaran", sans-serif;
-  font-style: normal;
+  left: 3.1rem;
+  top: 44.1rem;
   font-weight: bold;
   font-size: 16px;
   line-height: 26px;
@@ -125,81 +121,33 @@ const DescriptionText = styled.p`
 
   color: #b8b7e1;
 `;
-const NameForm = styled.div`
-  position: absolute;
-  left: 3rem;
-  top: 25rem;
-  width: 31rem;
-  height: 5rem;
-
-  /* main / side */
-
-  background: #3d3b91;
-  /* input shadow */
-
-  box-shadow: 0px 1.5rem 3.5rem rgba(61, 59, 145, 0.15);
-  border-radius: 0.3rem;
-`;
-const RoleForm = styled.div`
-position: absolute;
-left: 3rem;
-top: 35rem;
-width: 31rem;
-height: 5rem;
-
-  /* main / side */
-
-  background: #3d3b91;
-  /* input shadow */
-
-  box-shadow: 0px 15px 35px rgba(61, 59, 145, 0.15);
-  border-radius: 3px;
-`;
 
 const PendingContainer = styled.div`
   position: absolute;
   left: 10.7rem;
-  top: 32.5rem;
-  width: 5.2rem;
-  height: 1.25rem;
+  top: 34.3rem;
+  width: 5.3rem;
+  height: 1.5rem;
   background: #ca6162;
-  border-radius: .9rem;
-`;
-const DescriptionForm = styled.div`
-position: absolute;
-left: 3rem;
-top: 45rem;
-width: 31rem;
-height: 5rem;
-
-  /* main / side */
-
-  background: #3d3b91;
-  /* input shadow */
-
-  box-shadow: 0px 15px 35px rgba(61, 59, 145, 0.15);
-  border-radius: 3px;
+  border-radius: 0.9rem;
 `;
 
 const SubmitChangeBtn = styled.button`
-position: absolute;
-left: 7.6rem;
-top: 56rem;
-width: 21.4rem;
-height: 4.7rem;
-bottom: 2rem;
-/* primary / button color */
-background: #e05cb3;
-border-radius: .5rem;
+  position: absolute;
+  left: 9.2rem;
+  top: 56rem;
+  width: 21.4rem;
+  height: 4.7rem;
+  bottom: 2rem;
+  /* primary / button color */
+  background: #e05cb3;
+  border-radius: 0.5rem;
 `;
 
 const SubmitChangeText = styled.p`
   position: absolute;
   left: 1.6rem;
   top: 1rem;
-
-  font-family: "Catamaran", sans-serif;
-  font-style: normal;
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 2.6rem;
@@ -221,26 +169,67 @@ const ProfileEdit = () => {
   // }
   return (
     <>
-      <EditContainer src={waves}/>
+      <EditContainer className="edit-container" />
       <ArrowVector>
-          <Icon svg={leftArrow} height={0.9} width={1.5} />
-        </ArrowVector>
-        <EditProfText>Edit Profile</EditProfText>
-        <ImageContainer src={activeUser.avatar}>
-          <CameraVector />
-        </ImageContainer>
-        <NameText>NAME</NameText>
-        <NameForm className="name-field" />
-        <RoleText>ROLE</RoleText>
-        <RoleForm className="form-field" />
-        <DescriptionText>DESCRIPTION</DescriptionText>
-        <DescriptionForm className="description-field" />
-        <SubmitChangeBtn>
-          <SubmitChangeText>Submit changes to profile</SubmitChangeText>
-        </SubmitChangeBtn>
-        <PendingContainer>
-          <PendingText>PENDING</PendingText>
-        </PendingContainer>
+        <Icon svg={leftArrow} height={0.9} width={1.5} />
+      </ArrowVector>
+      <EditProfText>Edit Profile</EditProfText>
+      <ImageContainer>
+        <UserImage src={activeUser.avatar} />
+        <CameraVector>
+          <Icon svg={editImage} height={1.9} width={1.9} />
+        </CameraVector>
+      </ImageContainer>
+      <NameText>NAME</NameText>
+      <Input
+        className="name-field"
+        position={"absolute"}
+        top={26.1}
+        left={3.2}
+        height={5.2}
+        width={31.1}
+        placeholder={"  Maxine Woods"}
+        color={"rgba(204, 201, 255, 0.4)"}
+      />
+      <RoleText>ROLE</RoleText>
+      {/* Need <select> */}
+      <Input
+        className="form-field"
+        position={"absolute"}
+        top={36.4}
+        left={3.2}
+        height={5.2}
+        width={31.1}
+        placeholder={"  Teammate"}
+      />
+      <DescriptionText>Description</DescriptionText>
+      <Input
+        className="description-field"
+        position={"absolute"}
+        top={46.7}
+        left={3.2}
+        height={5.2}
+        width={31.1}
+        placeholder={"  TL for Web 22 living in New York City"}
+      />
+      <Button
+        backgroundColor={"#E05CB3"}
+        fontSize={1.6}
+        letterSpacing={0.035}
+        position={"absolute"}
+        left={6.2}
+        top={61.4}
+        // onClick={needsSubmitHandler}
+      >
+        <Text
+          text={`Submit changes to profile`}
+          fontSize={1.6}
+          letterSpacing={0.035}
+        />
+      </Button>
+      <PendingContainer>
+        <PendingText>PENDING</PendingText>
+      </PendingContainer>
     </>
   );
 };

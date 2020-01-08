@@ -18,6 +18,7 @@ import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
 import ProfileEdit from "./profileViews/ProfileEdit";
+import WeeklyChallenges from './weeklyChallenge/WeeklyChallenges';
 
 
 const PrivateViewCanvas = props => {
@@ -44,6 +45,7 @@ const PrivateViewCanvas = props => {
         <Route path="/timer" component={TimerCanvas} />
         <Route path="/survey" component={SurveyCanvas} />
         <Route path="/profile-edit" component={ProfileEdit} />
+        <Route path="/weekly-challenges" component={WeeklyChallenges} />
         <Redirect to="/dashboard" />
       </Switch>
     </>

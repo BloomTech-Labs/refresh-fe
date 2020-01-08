@@ -82,9 +82,6 @@ const CongratsComplete = ({ ...props }) => {
           <Link to="/dashboard">
             <Button
               backgroundColor={"#E05CB3"}
-              boxShadow={"0px 4px 10px rgba(21, 15, 172, 0.1)"}
-              width={25.1}
-              height={5.6}
               fontSize={1.6}
               letterSpacing={0.035}
               position={"absolute"}

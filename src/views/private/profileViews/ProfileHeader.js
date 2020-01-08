@@ -1,23 +1,29 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
+// router
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+// components
+import Container from "../../../components/atoms/container/container";
+import Icon from "../../../components/atoms/icon/icon";
+// images
 import notifications from "../../../images/profile/notifications.svg";
 import settings_cog from "../../../images/profile/settings_cog.svg";
 
-const BellVector = styled.img`
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  left: 28.8rem;
-  top: 2.1rem;
-`;
-const CogVector = styled.img`
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  left: 32rem;
-  top: 2.1rem;
-`;
+// const BellVector = styled.img`
+//   position: absolute;
+//   width: 2rem;
+//   height: 2rem;
+//   left: 28.8rem;
+//   top: 2.1rem;
+// `;
+// const CogVector = styled.img`
+//   position: absolute;
+//   width: 2rem;
+//   height: 2rem;
+//   left: 32rem;
+//   top: 2.1rem;
+// `;
 
 const User = styled.div`
   position: absolute;
@@ -37,13 +43,15 @@ const UserAv = styled.img`
 
 const NameText = styled.p`
   position: absolute;
-  width: 12.4rem;
+  width: 37.5rem;
   height: 0.9rem;
-  left: 13.6rem;
+  left: 0;
+  right: 0;
   top: 13.1rem;
+  text-align: center;
 
-  font-family: Catamaran;
-  font-style: normal;
+  /* font-family: Catamaran;  already set at global*/
+  /* font-style: normal; already set for fallback */
   font-weight: 500;
   font-size: 2rem;
   line-height: 0.9rem;
@@ -185,18 +193,38 @@ const ProfileHeader = props => {
 
   return (
     <>
-      <BellVector src={notifications} />
-      <CogVector src={settings_cog} />
-      <User>
-        <UserAv src={activeUser.avatar}></UserAv>
-      </User>
-      <NameText>{activeUser.display_name}</NameText>
-      <RoleText>{activeUser.roleTitle}</RoleText>
-      <PointsText>150 points</PointsText>
-      <LvOneText>Lvl 1</LvOneText>
-      <LvTwoText>Lvl 2</LvTwoText>
-      <MockSlideOne />
-      <MockSlideTwo />
+      <Container>
+        <Link to="/coming-soon">
+          <Icon
+            svg={notifications}
+            height={2.5}
+            width={2.5}
+            position={"absolute"}
+            top={2.1}
+            left={28.8}
+          />
+        </Link>
+        <Link to="/profile-edit">
+          <Icon
+            svg={settings_cog}
+            height={1.9}
+            width={1.9}
+            position={"absolute"}
+            top={2.2}
+            left={33.2}
+          />
+        </Link>
+        <User>
+          <UserAv src={activeUser.avatar}></UserAv>
+        </User>
+        <NameText>{activeUser.display_name}</NameText>
+        <RoleText>{activeUser.roleTitle}</RoleText>
+        <PointsText>150 points</PointsText>
+        <LvOneText>Lvl 1</LvOneText>
+        <LvTwoText>Lvl 2</LvTwoText>
+        <MockSlideOne />
+        <MockSlideTwo />
+      </Container>
     </>
   );
 };
