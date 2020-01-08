@@ -14,7 +14,7 @@ import { flex } from "../../../styles/global/Mixins";
 import MissionCard from "./MissionCard";
 import Progress from "./Progress";
 // images
-import waves from '../../../images/Onboarding/waves.svg';
+import waves from "../../../images/Onboarding/waves.svg";
 // COMPONENT
 const Dashboard = props => {
   // contexts
@@ -80,10 +80,9 @@ const Dashboard = props => {
 // STYLED COMPONENTS
 const DashboardView = styled.div`
   width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  height: 100%;
   padding-top: 10rem;
-  background-color: #4742BC;
+  background-color: #4742bc;
   background-image: url(${waves});
   overflow-x: hidden;
   overflow-y: hidden;

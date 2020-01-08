@@ -10,7 +10,7 @@ const Input = ({ callback = () => {}, ...props }) => {
     name,
     form,
     placeholder,
-    type = inputTypes.TEXT,
+    type,
     required = false,
     readOnly,
     disabled,
@@ -74,6 +74,7 @@ const Input = ({ callback = () => {}, ...props }) => {
   );
 };
 const BaseInput = styled.input.attrs(props => ({
+  type: props.type,
   actionColor: props.actionColor,
   actionBackground: props.actionBackground,
   actionOpacity: props.actionOpacity,
@@ -97,10 +98,12 @@ const BaseInput = styled.input.attrs(props => ({
   left: props.left,
   top: props.top
 }))`
+  type: ${props => (props.type ? props.type.toUpperCase() : "TEXT")};
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
   width: ${props => (props.width ? `${props.width}rem` : `30rem`)};
   border: ${props => (props.border ? props.border : "1px solid #3d3b91")};
-  border-radius: ${props => (props.borderRadius ? props.borderRadius : "0.2rem")};
+  border-radius: ${props =>
+    props.borderRadius ? props.borderRadius : "0.2rem"};
 
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : "#3D3B91"};
