@@ -9,13 +9,39 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import waves from "../../../images/Onboarding/waves.svg";
 //atoms
 import LoadingSpinner from "../../../components/atoms/spinner/spinner"; // eslint-disable-line no-unused-vars
+//swipeable
+import {
+  SwipeableList,
+  SwipeableListItem
+} from "@sandstreamdev/react-swipeable-list";
+import "@sandstreamdev/react-swipeable-list/dist/styles.css";
 
 const TeamList = props => {
+  //route
   const routeToTLView = e => {
     e.preventDefault();
     props.history.push("/team-view");
   };
 
+  //swipe left data
+  const swipeLeftIcon = name => ({
+    content: (
+      <IconLogo>
+        <i class="far fa-trash-alt"></i>
+      </IconLogo>
+    ),
+    action: () => console.log("swiped!")
+  });
+
+  const TeamCardSwipe = i => (
+    <TMCard>
+      <TMAvatar className="avatarpic" src={teamMembers[i].avatar} />
+      <TMInfo>
+        <TMName>{teamMembers[i].displayName}</TMName>
+        <TMBio>{teamMembers[i].bio}</TMBio>
+      </TMInfo>
+    </TMCard>
+  );
   useEffect(() => {
     axiosWithAuth()
       .get("/teams")
@@ -89,15 +115,15 @@ const TeamList = props => {
     for (let i = 0; i < range; i++) {
       {
         items.push(
-          <>
-            <TMCard>
-              <TMAvatar className="avatarpic" src={teamMembers[i].avatar} />
-              <TMInfo>
-                <TMName>{teamMembers[i].displayName}</TMName>
-                <TMBio>{teamMembers[i].bio}</TMBio>
-              </TMInfo>
-            </TMCard>
-          </>
+          <SwipeHolder>
+            <SwipeableList threshold={0.25}>
+              <SwipeableListItem
+                swipeLeft={swipeLeftIcon("Circle logo eventually")}
+              >
+                {TeamCardSwipe(i)}
+              </SwipeableListItem>
+            </SwipeableList>
+          </SwipeHolder>
         );
       }
     }
@@ -149,7 +175,7 @@ const TVContainer = styled.div`
   max-height: 100vh;
   padding: 8%;
 
-  .team-title{
+  .team-title {
     margin: 5% 0;
   }
 `;
@@ -164,7 +190,7 @@ const ButtonNoColor = styled.a`
 const Header = styled.h1`
   font-weight: bold;
   font-size: calc(110% + 2vw);
-  margin-bottom:1rem;
+  margin-bottom: 1rem;
   letter-spacing: 3.5px;
   color: #ffffff;
 `;
@@ -176,16 +202,18 @@ const CardTitle = styled.p`
   line-height: 2.6rem;
   letter-spacing: 2px;
   color: #b8b7e1;
-  align-self:flex-start;
+  align-self: flex-start;
 `;
 const TMCard = styled.div`
-  max-height: 7rem;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   background: #3d3b91;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
   border-radius: 3px;
+  margin-bottom: 2%;
+  min-height: 7rem;
 `;
 
 const TMName = styled.p`
@@ -196,9 +224,9 @@ const TMName = styled.p`
 
 const TMAvatar = styled.img`
   max-width: 100%;
-  width: 14%;
+  width: 5rem;
   max-height: 100%;
-  height: 65%;
+  height: 5rem;
   border-radius: 50%;
 `;
 
@@ -218,6 +246,16 @@ const SectionBreak = styled.div`
   border-top: 3px solid rgba(71, 69, 161, 0.85);
 `;
 
+const IconLogo = styled.div`
+  background-color: #FC5454;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  margin: 0 2rem 1rem;
+  border-radius: 50%;
+`;
+
 const ImgContainer = styled.div`
   max-width: 85vw;
   height: calc(100vh);
@@ -231,21 +269,31 @@ const ImgContainer = styled.div`
   font-size: 2rem;
 
   div {
-    margin-bottom:2%;
-    p:nth-of-type(1){
-      padding-top:1rem;
+    p:nth-of-type(1) {
+      padding-top: 1rem;
     }
     .avatarpic {
       max-width: 100%;
-      width: 14%;
+      width: 5rem;
       max-height: 100%;
-      height: 3.8rem;
+      height: 5rem;
       border-radius: 50%;
     }
   }
 `;
+
+const SwipeHolder = styled.div`
+  .SwipeableList_swipeableList__3dl6y {
+    background: none;
+  }
+
+  .SwipeableListItem_content__1k1mn {
+    background-color: transparent;
+  }
+`;
 const DialStuff = styled.div`
   flex: 0 0 auto;
+  width: 85vw;
 `;
 
 export default TeamList;
