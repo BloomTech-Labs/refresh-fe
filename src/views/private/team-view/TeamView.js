@@ -11,6 +11,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { UserContext } from '../../../contexts/UserContext';
 // components
 import Pagination from './Pagination';
+import ImageDial from './ImageDial';
 // images
 import waves from '../../../images/Onboarding/waves.svg'
 
@@ -53,24 +54,24 @@ const TeamView = (props) => {
         slides: [
             {
                 background: '#3D3B91',
-                title: 'Test Activity 1',
-                description: 'This is a description for Test Activity 1. Not feeling creative so yeah.',
+                title: 'Zoom Dance Party',
+                description: 'Time for a little hoe-down throw down. Tuesday night at 5pm PST',
                 point_value: '100',
-                date: '12/18/2019'
+                date: 'Tuesday, 5pm PST'
             },
             {
-                background: 'pink',
-                title: 'Test Activity 2',
-                description: 'This is a description for Test Activity 2. Not feeling creative so yeah.',
+                background: '#3D3B91',
+                title: 'Edabit Stand Off',
+                description: 'Are you ready to put your edabit skills to the test? Stand off and see who can do the most. Thursday night at 7pm PST',
                 point_value: '90',
-                date: '12/23/2019'
+                date: 'Thursday, 7pm PST'
             },
             {
-                background: 'orange',
-                title: 'Test Activity 3',
-                description: 'This is a description for Test Activity 3. Not feeling creative so yeah.',
+                background: '#3D3B91',
+                title: 'Team Game Night',
+                description: 'We reached the end of another week team! Time to celebrate with team game night! Friday night at 5pm PST',
                 point_value: '120',
-                date: '12/25/2019'
+                date: 'Friday, 5pm PST'
             }
         ]
     });
@@ -79,12 +80,13 @@ const TeamView = (props) => {
         <>
             <TVWrapper>
                 <TVContainer>
-                    <h1>{userContext.cohort || 'Lambda'} {userContext.fname}</h1>
+                    <h1>{userContext.cohort || 'Web 22 Maxine'} {userContext.fname}</h1>
 
                     <TVSection>
                         <SectionTitle><h2>Teammates</h2></SectionTitle>
                         <SectionCTA><Link to='/teamList'>view all ></Link></SectionCTA>
-                        <Pagination className='carousel'></Pagination>
+                        {/* <Pagination className='carousel'></Pagination> */}
+                        <ImageDial />
                     </TVSection>
 
                     <TVSection>

@@ -23,7 +23,7 @@ const MissionCard = props => {
     vertical
   } = props.mission;
   const cardClickHandler = e => {
-    props.history.push("/mission-stats");
+    props.history.push("/mission-complete");
   };
   
   return (

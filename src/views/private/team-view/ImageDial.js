@@ -59,7 +59,7 @@ export default ImageDial;
 // STYLED COMPONENTS
 const ImgContainer = styled.div`
   max-width: 85vw;
-  height: calc(100vh / 4);
+  height: calc(100vh / 10);
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
@@ -71,7 +71,7 @@ const ImgContainer = styled.div`
   .bigtick {
     display: flex;
     flex-direction: column;
-    margin-left: 5rem;
+    margin-left: 1rem;
 
     img{
         max-width:100%;

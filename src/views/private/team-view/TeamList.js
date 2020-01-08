@@ -33,6 +33,7 @@ const TeamList = props => {
     action: () => console.log("swiped!")
   });
 
+//prop for reusable card
   const TeamCardSwipe = i => (
     <TMCard>
       <TMAvatar className="avatarpic" src={teamMembers[i].avatar} />
@@ -42,6 +43,8 @@ const TeamList = props => {
       </TMInfo>
     </TMCard>
   );
+
+  //axios call
   useEffect(() => {
     axiosWithAuth()
       .get("/teams")
