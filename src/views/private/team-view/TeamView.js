@@ -170,7 +170,7 @@ const TeamView = props => {
               <h2>Teammates</h2>
             </SectionTitle>
             <SectionCTA>
-              <Link to="/teamList">view all ></Link>
+              <Link to="/team-list">view all ></Link>
             </SectionCTA>
             <ImageDial />
           </TVSection>
