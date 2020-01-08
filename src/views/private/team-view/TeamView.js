@@ -1,237 +1,299 @@
 // IMPORTS
 // react
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from "react";
 // router
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // styled components
-import styled from 'styled-components';
+import styled from "styled-components";
 // swipeable views
-import SwipeableViews from 'react-swipeable-views';
+import SwipeableViews from "react-swipeable-views";
 // contexts
-import { UserContext } from '../../../contexts/UserContext';
+import { UserContext } from "../../../contexts/UserContext";
+import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+// helpers
+import { flex } from "../../../styles/global/Mixins";
 // components
-import Pagination from './Pagination';
-import ImageDial from './ImageDial';
+import Pagination from "./Pagination";
+import ImageDial from "./ImageDial";
 // images
-import waves from '../../../images/Onboarding/waves.svg'
+import waves from "../../../images/Onboarding/waves.svg";
 
 // COMPONENT
-const TeamView = (props) => {
+const TeamView = props => {
     // contexts
-    const userContext = useContext(UserContext);
-    props.debug && console.log('[check user context]', userContext);
+    const activeUser = useContext(UserContext);
+    const userMissions = useContext(UserMissionsContext);
+    const { missions } = userMissions;
 
-    // state hooks
-    const [feedSlide, setFeedSlide] = useState({ // eslint-disable-line no-unused-vars
-        slide: {
-            padding: 15,
-            color: '#FFF',
-            minHeight: '15rem',
-            minWidth: '50rem'
-        },
-        slide1: {
-            background: '#3D3B91'
-        },
-        slide2: {
-            background: 'pink'
-        },
-        slide3: {
-            background: 'orange'
-        }
-    });
+  // state hooks
+  const [feedSlide, setFeedSlide] = useState({
+    // eslint-disable-line no-unused-vars
+    slide: {
+      padding: 15,
+      color: "#FFF",
+      minHeight: "15rem",
+      minWidth: "50rem"
+    },
+    slide1: {
+      background: "#3D3B91"
+    },
+    slide2: {
+      background: "pink"
+    },
+    slide3: {
+      background: "orange"
+    }
+  });
 
-    // This is an active hook that will remain, but there is dummy data interjected for the time being
-    // until Roman finishes sending final payloads to us. Once that happens and we bring in real data, 
-    // we can init state using only the default slide styles and an empty slides array that is then
-    // populated based on the pending missions array coming back from the server
-    const [missionSlide, setMissionSlide] = useState({ // eslint-disable-line no-unused-vars
-        slide: {
-            padding: 15,
-            color: '#FFF',
-            minHeight: '15rem',
-            minWidth: '25rem'
-        },
-        slides: [
-            {
-                background: '#3D3B91',
-                title: 'Zoom Dance Party',
-                description: 'Time for a little hoe-down throw down. Tuesday night at 5pm PST',
-                point_value: '100',
-                date: 'Tuesday, 5pm PST'
-            },
-            {
-                background: '#3D3B91',
-                title: 'Edabit Stand Off',
-                description: 'Are you ready to put your edabit skills to the test? Stand off and see who can do the most. Thursday night at 7pm PST',
-                point_value: '90',
-                date: 'Thursday, 7pm PST'
-            },
-            {
-                background: '#3D3B91',
-                title: 'Team Game Night',
-                description: 'We reached the end of another week team! Time to celebrate with team game night! Friday night at 5pm PST',
-                point_value: '120',
-                date: 'Friday, 5pm PST'
-            }
-        ]
-    });
-    
-    return (
-        <>
-            <TVWrapper>
-                <TVContainer>
-                    <h1>{userContext.cohort || 'Web 22 Maxine'} {userContext.fname}</h1>
+  // This is an active hook that will remain, but there is dummy data interjected for the time being
+  // until Roman finishes sending final payloads to us. Once that happens and we bring in real data,
+  // we can init state using only the default slide styles and an empty slides array that is then
+  // populated based on the pending missions array coming back from the server
+  const [missionSlide, setMissionSlide] = useState({
+    // eslint-disable-line no-unused-vars
+    slide: {
+      padding: 15,
+      color: "#FFF",
+      minHeight: "15rem",
+      minWidth: "25rem"
+    },
+    slides: [
+      {
+        background: "#3D3B91",
+        title: "Zoom Dance Party",
+        description:
+          "Time for a little hoe-down throw down. Tuesday night at 5pm PST",
+        point_value: "100",
+        date: "Tuesday, 5pm PST"
+      },
+      {
+        background: "#3D3B91",
+        title: "Edabit Stand Off",
+        description:
+          "Are you ready to put your edabit skills to the test? Stand off and see who can do the most. Thursday night at 7pm PST",
+        point_value: "90",
+        date: "Thursday, 7pm PST"
+      },
+      {
+        background: "#3D3B91",
+        title: "Team Game Night",
+        description:
+          "We reached the end of another week team! Time to celebrate with team game night! Friday night at 5pm PST",
+        point_value: "120",
+        date: "Friday, 5pm PST"
+      }
+    ]
+  });
 
-                    <TVSection>
-                        <SectionTitle><h2>Teammates</h2></SectionTitle>
-                        <SectionCTA><Link to='/teamList'>view all ></Link></SectionCTA>
-                        {/* <Pagination className='carousel'></Pagination> */}
-                        <ImageDial />
-                    </TVSection>
+  return (
+    <>
+      <TVWrapper>
+        <TVContainer>
+          <User>
+            <Link to="/coming-soon">
+              <i className="fas fa-bell"></i>
+            </Link>
+            <Link to="/profile-overview">
+              <Avatar>
+                {activeUser.avatar && (
+                  <img src={activeUser.avatar} alt="User avatar" />
+                )}
+              </Avatar>
+            </Link>
+          </User>
 
-                    <TVSection>
-                        <SectionTitle><h2>Team Feed</h2></SectionTitle>
-                        <SectionCTA></SectionCTA>
-                        <SwipeableViews>
-                            <Slide style={{...feedSlide.slide, ...feedSlide.slide1}}>
-                                test 1
-                            </Slide>
+          <h1>
+            {UserContext.cohort || "Web 22 Maxine"} {UserContext.fname}
+          </h1>
 
-                            <div style={{...feedSlide.slide, ...feedSlide.slide2}}>
-                                test 2
-                            </div>
+          <TVSection>
+            <SectionTitle>
+              <h2>Teammates</h2>
+            </SectionTitle>
+            <SectionCTA>
+              <Link to="/teamList">view all ></Link>
+            </SectionCTA>
+            {/* <Pagination className='carousel'></Pagination> */}
+            <ImageDial />
+          </TVSection>
 
-                            <div style={{...feedSlide.slide, ...feedSlide.slide3}}>
-                                test 3
-                            </div>
-                        </SwipeableViews>
-                    </TVSection>
+          <TVSection>
+            <SectionTitle>
+              <h2>Team Feed</h2>
+            </SectionTitle>
+            <SectionCTA></SectionCTA>
+            <SwipeableViews>
+              <Slide style={{ ...feedSlide.slide, ...feedSlide.slide1 }}>
+                test 1
+              </Slide>
 
-                    <TVSection>
-                        <SectionTitle><h2>Team Missions</h2></SectionTitle>
-                        <SectionCTA><Link to='/createtm'>Create Mission</Link></SectionCTA>
-                        
-                        <SwipeableViews>
-                            {missionSlide.slides.map((mission, i) => {
-                                return (
-                                    <Slide style={{...missionSlide.slide, ...mission}}>
-                                        <h2>{mission.title}</h2>
-                                        <span className='points'>{mission.point_value} pts</span>
+              <div style={{ ...feedSlide.slide, ...feedSlide.slide2 }}>
+                test 2
+              </div>
 
-                                        <p>{mission.description}</p>
+              <div style={{ ...feedSlide.slide, ...feedSlide.slide3 }}>
+                test 3
+              </div>
+            </SwipeableViews>
+          </TVSection>
 
-                                        <span>{mission.date}</span>
+          <TVSection>
+            <SectionTitle>
+              <h2>Team Missions</h2>
+            </SectionTitle>
+            <SectionCTA>
+              <Link to="/createtm">Create Mission</Link>
+            </SectionCTA>
 
-                                        <button className='accept'>Accept</button>
-                                        <button>Decline</button>
-                                    </Slide>
-                                );
-                            })}
-                        </SwipeableViews>
+            <SwipeableViews>
+              {missionSlide.slides.map((mission, i) => {
+                return (
+                  <Slide style={{ ...missionSlide.slide, ...mission }}>
+                    <h2>{mission.title}</h2>
+                    <span className="points">{mission.point_value} pts</span>
 
-                        <Pagination />
-                    </TVSection>
-                </TVContainer>
-            </TVWrapper>
-        </>
-    );
+                    <p>{mission.description}</p>
+
+                    <span>{mission.date}</span>
+
+                    <button className="accept">Accept</button>
+                    <button>Decline</button>
+                  </Slide>
+                );
+              })}
+            </SwipeableViews>
+
+            <Pagination />
+          </TVSection>
+        </TVContainer>
+      </TVWrapper>
+    </>
+  );
 };
 
 // STYLED COMPONENTS
 const TVWrapper = styled.div`
-    width: 100vw;
-    height: 100vh;
-    max-height: 100vh;
-    padding-top: 10rem;
-    background-color: #4742bc;
-    background-image: url(${waves});
-`
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  padding-top: 10rem;
+  background-color: #4742bc;
+  background-image: url(${waves});
+`;
 
 const TVContainer = styled.div`
-    width: 90%;
-    height: 100%;
-    margin: 0 auto;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
 
-        h1 {
-            text-align: center;
-            color: #FFF;
-            font-weight: bold;
-            font-size: 2rem;
-            letter-spacing: 0.25rem;
-        }
-`
+  h1 {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 0.25rem;
+  }
+`;
+
+const User = styled.div`
+  width: 10rem;
+  height: 5rem;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  ${flex.flexRowNoWrapAround}
+
+  i {
+    font-size: 2rem;
+  }
+
+  a {
+    color: #ccc9ff;
+  }
+`;
+
+const Avatar = styled.div`
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-image: url("https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1");
+  background-size: cover;
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+`;
 
 const TVSection = styled.div`
-    width: 100%;
-    margin: 2rem 0;
-    margin-bottom: 0;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 
-        h2 {
-            color: #B8B7E1;
-        }
-`
+  h2 {
+    color: #b8b7e1;
+  }
+`;
 
 const SectionTitle = styled.div`
-        width: 50%;
-        height: 4rem;
-`
+  width: 50%;
+  height: 4rem;
+`;
 
 const SectionCTA = styled.div`
-        width: 50%;
-        height: 4rem;
-        color: #FFF;
-        text-align: right;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-end;
-        align-items: center;
-        letter-spacing: 0.15rem;
+  width: 50%;
+  height: 4rem;
+  color: #fff;
+  text-align: right;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  letter-spacing: 0.15rem;
 
-            a {
-                color: #FFF;
-                text-decoration: none;
-            }
-`
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+`;
 
 const Slide = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 
-            h2 {
-                font-weight: bold;
-                color: #FFF;
-            }
+  h2 {
+    font-weight: bold;
+    color: #fff;
+  }
 
-            p {
-                color: #E6E6E6;
-            }
+  p {
+    color: #e6e6e6;
+  }
 
-            span.points {
-                background-color: #E9CC2F;
-                padding: 0.5rem;
-                color: #4E4829;
-                font-weight: bold;
-                border-radius: 3px;
-            }
+  span.points {
+    background-color: #e9cc2f;
+    padding: 0.5rem;
+    color: #4e4829;
+    font-weight: bold;
+    border-radius: 3px;
+  }
 
-            button {
-                background-color: transparent;
-                border: none;
-                color: #FFF;
-            }
+  button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+  }
 
-            & .accept {
-                color: #E05CB3;
-            }
-`
-
+  & .accept {
+    color: #e05cb3;
+  }
+`;
 
 // EXPORT
 export default TeamView;

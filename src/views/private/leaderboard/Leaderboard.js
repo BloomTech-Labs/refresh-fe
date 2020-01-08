@@ -1,12 +1,19 @@
 //IMPORTS
 //react
-import React, { useState, useEffect } from "react"; // eslint-disable-line no-unused-vars
+import React, { useState, useEffect, useContext } from "react"; // eslint-disable-line no-unused-vars
+// router
+import { Link } from 'react-router-dom';
 //styled-components
 import styled from "styled-components";
 //axios with auth
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+// helpers
+import { flex } from "../../../styles/global/Mixins";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
+// contexts
+import { UserContext } from "../../../contexts/UserContext";
+import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 //atoms
 import LoadingSpinner from "../../../components/atoms/spinner/spinner"; // eslint-disable-line no-unused-vars
 //swipeable
@@ -17,6 +24,11 @@ import {
 import "@sandstreamdev/react-swipeable-list/dist/styles.css";
 
 const TeamList = props => {
+     // contexts
+  const activeUser = useContext(UserContext);
+  const userMissions = useContext(UserMissionsContext);
+  const { missions } = userMissions;
+    
   //route
   const routeToTLView = e => {
     e.preventDefault();
@@ -35,7 +47,7 @@ const TeamList = props => {
 
   const TeamCardSwipe = i => (
     <TMCard>
-<Rank><div>{teamMembers[i].id}</div></Rank>
+    <Rank rank={teamMembers[i].id}><div>{teamMembers[i].id}</div></Rank>
       <TMAvatar className="avatarpic" src={teamMembers[i].avatar} />
       <TMInfo>
         <TMName>{teamMembers[i].displayName}</TMName>
@@ -152,6 +164,18 @@ const TeamList = props => {
   return (
     <TVContainer>
       {/* <ButtonNoColor onClick={routeToTLView}>&lt;</ButtonNoColor> */}
+      <User>
+              <Link to="/coming-soon">
+                <i className="fas fa-bell"></i>
+              </Link>
+              <Link to="/profile-overview">
+                <Avatar>
+                  {activeUser.avatar && (
+                    <img src={activeUser.avatar} alt="User avatar" />
+                  )}
+                </Avatar>
+              </Link>
+            </User>
       <Header>Leaderboard</Header>
       <ImgContainer onScroll={handleScroll}>
         {teamListScroll(1, teamMembers.length).map((x, i) => (
@@ -310,8 +334,8 @@ const Rank = styled.div`
   div {
     width: 2.5rem;
     height: 2.5rem;
-    background-color: #E05CB3;
-    color: #FFF;
+    background-color: ${props => props.rank <= 3 ? '#E05CB3' : '#FFF'}
+    color: ${props => props.rank <= 3 ? '#FFF' : '#E05CB3'};
     border-radius: 100px;
     font-size: 1.5rem;
     display: flex;
@@ -331,5 +355,34 @@ const Points = styled.div`
       font-weight: normal;
   }
 `
+
+const User = styled.div`
+  width: 10rem;
+  height: 5rem;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  ${flex.flexRowNoWrapAround}
+
+  i {
+    font-size: 2rem;
+  }
+
+  a {
+    color: #ccc9ff;
+  }
+`;
+
+const Avatar = styled.div`
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-image: url("https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1");
+  background-size: cover;
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+`;
 
 export default TeamList;
