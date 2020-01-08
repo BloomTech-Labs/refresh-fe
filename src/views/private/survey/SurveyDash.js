@@ -12,7 +12,7 @@ const SurveyDash = props => {
   const [currentSurveys, addCurrentSurveys] = useState([]);
   const [allSurveys, setAllSurveys] = useState([]);
   const { url } = props.match;
-  console.log("activeUserContext", activeUser.roleTitle);
+  console.log("activeUserContext", activeUser);
 
   useEffect(() => {
     axiosWithAuth()
@@ -40,8 +40,16 @@ const SurveyDash = props => {
             </StyledSurveyDivs>
           );
         })}
-
-        <h2>NEW</h2>
+        <NewDiv>
+          <h2>NEW</h2>
+          {activeUser.roleTitle && activeUser.roleTitle !== "Student" && (
+            <StyledButton
+              onClick={() => props.history.push(url + "/createsurvey")}
+            >
+              Create Survey
+            </StyledButton>
+          )}
+        </NewDiv>
         {allSurveys.map((group, i) => {
           return (
             <StyledSurveyDivs key={i}>
@@ -52,17 +60,32 @@ const SurveyDash = props => {
           );
         })}
         {/* Onclick to survey creation */}
-        {activeUser.user_roles && activeUser.user_roles.id > 1 && (
-          <button onClick={() => props.history.push(url + "/createsurvey")}>
-            Create Survey
-          </button>
-        )}
       </StyledContainer>
     </Wrapper>
   );
 };
 
 //styles
+const NewDiv = styled.div`
+display: flex;
+justify-content: space-between;
+h2 {
+  width: 50%;
+}
+
+`
+const StyledButton = styled.button`
+  padding: 1rem;
+  width: 30%;
+  align-items: center;
+  text-align: center;
+  color: #e6e6e6;
+  background-color: #e05cb3;
+  border: none;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 1rem;
+`;
 const Wrapper = styled.div`
   display: flex;
   width: 100vw;
