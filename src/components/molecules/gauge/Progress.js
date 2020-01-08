@@ -34,12 +34,22 @@ const StyledSvg = styled.svg`
 `;
 
 const ProgressPathStyle = styled.circle`
-  width: 60px;
-  height: 60px;
+  width: 60rem;
+  height: 60rem;
   stroke: #e6e6e6;
+  animation: dash2 1.5s linear alternate;
 `;
 const ProgressLayerStyle = styled.circle`
-  width: 60px;
-  height: 60px;
+  width: 60rem;
+  height: 60rem;
   stroke: #ffffff;
+  animation: dash 1.5s linear alternate;
+  @keyframes dash {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: dashoffset;
+    }
+  }
 `;

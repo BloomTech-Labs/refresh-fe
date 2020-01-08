@@ -8,7 +8,6 @@ import waves from "../../../images/Onboarding/waves.svg";
 import slogan from "../../../images/Onboarding/need_to_know_more.svg";
 
 const InfoIntro = props => {
-  console.log(props)
   const {url} = props.match
   //hooks
   const [consent, setConsent] = useState(false);

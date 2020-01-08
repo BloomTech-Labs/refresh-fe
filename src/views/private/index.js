@@ -18,15 +18,17 @@ import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
 import ProfileEdit from "./profileViews/ProfileEdit";
-import WeeklyChallenges from './weeklyChallenge/WeeklyChallenges';
-
+import WeeklyChallenges from "./weeklyChallenge/WeeklyChallenges";
 
 const PrivateViewCanvas = props => {
+  const { pathname } = props.location;
   props.debug && console.log("Props From Mobile Menu", props);
   return (
     <>
       {/* Mobile Menu Will not work Globally if in Switch */}
-      <Route match path="/" component={MobileMenu} />
+      {pathname !== "/firstlogin" && pathname !== "/profile-edit" && pathname !== "/survey" && (
+        <Route match path="/" component={MobileMenu} />
+      )}
 
       <Switch>
         <Route path="/firstlogin" component={StepStart} />

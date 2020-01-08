@@ -55,7 +55,7 @@ const Height = props => {
       } else {
         items.push(
           <>
-            <div
+            <div key={i}
               className="bigtick tick"
               data-value={feet + "'" + inches + "''"}
               onClick={handleChanges}
