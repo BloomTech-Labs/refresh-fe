@@ -51,7 +51,7 @@ const SurveyText = styled.p`
 const WeeklySurvey = () => {
   return (
     <>
-      <Link to="/coming-soon">
+      <Link to="/survey">
         <SurveyContainer>
           <Icon
             svg={rocket}
