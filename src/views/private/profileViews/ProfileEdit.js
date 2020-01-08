@@ -162,12 +162,12 @@ const SubmitChangeText = styled.p`
 const ProfileEdit = () => {
   // user context
   const activeUser = useContext(UserContext);
-  // const userRole = activeUser.user_roles;
-  // const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
-  // // set user role
-  // if (!activeUser.roleTitle && roleTitle) {
-  //   activeUser.setUser({ ...activeUser, roleTitle });
-  // }
+  const userRole = activeUser.user_roles;
+  const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
+  // set user role
+  if (!activeUser.roleTitle && roleTitle) {
+    activeUser.setUser({ ...activeUser, roleTitle });
+  }
   return (
     <>
       <EditContainer className="edit-container" />
@@ -191,7 +191,7 @@ const ProfileEdit = () => {
         left={3.2}
         height={5.2}
         width={31.1}
-        placeholder={`  $`}
+        placeholder={`  ${activeUser.display_name}`}
         color={"rgba(204, 201, 255, 0.4)"}
       />
       <RoleText>ROLE</RoleText>
@@ -203,7 +203,7 @@ const ProfileEdit = () => {
         left={3.2}
         height={5.2}
         width={31.1}
-        placeholder={"  Teammate"}
+        placeholder={`  ${activeUser.roleTitle}`}
       />
       <DescriptionText>Description</DescriptionText>
       <Input
@@ -213,23 +213,27 @@ const ProfileEdit = () => {
         left={3.2}
         height={5.2}
         width={31.1}
-        placeholder={"  TL for Web 22 living in New York City"}
+        placeholder={`  ${activeUser.bio}`}
       />
-      <Button
-        backgroundColor={"#E05CB3"}
-        fontSize={1.6}
-        letterSpacing={0.035}
-        position={"absolute"}
-        left={6.2}
-        top={61.4}
-        // onClick={needsSubmitHandler}
-      >
-        <Text
-          text={`Submit changes to profile`}
+
+      {/* Link to be replaced w/ submit logic */}
+      <Link to="/dashboard">
+        <Button
+          backgroundColor={"#E05CB3"}
           fontSize={1.6}
           letterSpacing={0.035}
-        />
-      </Button>
+          position={"absolute"}
+          left={6.2}
+          top={61.4}
+          // onClick={needsSubmitHandler}
+        >
+          <Text
+            text={`Submit changes to profile`}
+            fontSize={1.6}
+            letterSpacing={0.035}
+          />
+        </Button>
+      </Link>
       <PendingContainer>
         <PendingText>PENDING</PendingText>
       </PendingContainer>
