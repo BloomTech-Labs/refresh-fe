@@ -18,20 +18,16 @@ const Input = ({ callback = () => {}, ...props }) => {
     autofocus = false,
     backgroundColor,
     border,
-    borderLeft,
-    borderTop,
-    borderRight,
-    borderBottom,
-    borderRadiusBottomLeft,
-    borderRadiusTopLeft,
-    borderRadiusTopRight,
-    borderRadiusBottomRight,
+    borderRadius,
     color,
     padding,
     height,
     width,
     actionColor,
-    actionBackground
+    actionBackground,
+    position,
+    left,
+    top
   } = props;
   const updateValue = e => {
     e.preventDefault();
@@ -64,20 +60,16 @@ const Input = ({ callback = () => {}, ...props }) => {
       autoFocus={autofocus}
       backgroundColor={backgroundColor}
       border={border}
-      borderLeft={borderLeft}
-      borderTop={borderTop}
-      borderRight={borderRight}
-      borderBottom={borderBottom}
-      borderRadiusBottomLeft={borderRadiusBottomLeft}
-      borderRadiusTopLeft={borderRadiusTopLeft}
-      borderRadiusTopRight={borderRadiusTopRight}
-      borderRadiusBottomRight={borderRadiusBottomRight}
+      borderRadius={borderRadius}
       color={color}
       padding={padding}
       height={height}
       width={width}
       actionColor={actionColor}
       actionBackground={actionBackground}
+      position={position}
+      left={left}
+      top={top}
     />
   );
 };
@@ -87,14 +79,7 @@ const BaseInput = styled.input.attrs(props => ({
   actionOpacity: props.actionOpacity,
   backgroundColor: props.backgroundColor,
   border: props.border,
-  borderLeft: props.borderLeft,
-  borderTop: props.borderTop,
-  borderRight: props.borderRight,
-  borderBottom: props.borderBottom,
-  borderRadiusBottomLeft: props.borderRadiusBottomLeft,
-  borderRadiusTopLeft: props.borderRadiusTopLeft,
-  borderRadiusTopRight: props.borderRadiusTopRight,
-  borderRadiusBottomRight: props.borderRadiusBottomRight,
+  borderRadius: props.borderRadius,
   boxShadow: props.boxShadow,
   color: props.color,
   fontSize: props.fontSize,
@@ -107,29 +92,25 @@ const BaseInput = styled.input.attrs(props => ({
   justifyContent: props.justifyContent,
   alignItems: props.alignItems,
   textAlign: props.textAlign,
-  cursor: props.cursor
+  cursor: props.cursor,
+  position: props.position,
+  left: props.left,
+  top: props.top
 }))`
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
-  width: ${props => (props.width ? `${props.width}%` : `50%`)};
-  border: ${props => (props.border ? props.border : "1px solid primary")};
-  border-left: ${props => props.borderLeft};
-  border-top: ${props => props.borderTop};
-  border-right: ${props => props.borderRight};
-  border-bottom: ${props => props.borderBottom};
-  border-bottom-left-radius: ${props =>
-    props.borderRadiusBottomLeft ? props.borderRadiusBottomLeft : "5px"};
-  border-top-left-radius: ${props =>
-    props.borderRadiusTopLeft ? props.borderRadiusTopLeft : "5px"};
-  border-top-right-radius: ${props =>
-    props.borderRadiusTopRight ? props.borderRadiusTopRight : "5px"};
-  border-bottom-right-radius: ${props =>
-    props.borderRadiusBottomRight ? props.borderRadiusBottomRight : "5px"};
+  width: ${props => (props.width ? `${props.width}rem` : `30rem`)};
+  border: ${props => (props.border ? props.border : "1px solid #3d3b91")};
+  border-radius: ${props => (props.borderRadius ? props.borderRadius : "0.2rem")};
+
   background-color: ${props =>
-    props.backgroundColor ? props.backgroundColor : Colors.white};
+    props.backgroundColor ? props.backgroundColor : "#3D3B91"};
   color: ${props => (props.color ? props.color : Colors.font.primary)};
   outline: none;
   cursor: text;
   margin: ${props => (props.margin ? `${props.margin}rem` : ".5rem")};
   padding: ${props => (props.padding ? `${props.padding}rem` : ".25rem")};
+  position: ${props => (props.position ? props.position : "relative")};
+  left: ${props => (props.left ? `${props.left}rem` : 0)};
+  top: ${props => (props.top ? `${props.top}rem` : 0)};
 `;
 export default Input;

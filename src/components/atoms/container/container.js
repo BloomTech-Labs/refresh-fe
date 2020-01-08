@@ -15,7 +15,9 @@ const Container = ({ ...props }) => {
     className,
     boxShadow,
     borderRadius,
-    zIndex
+    zIndex,
+    backgroundImage,
+    backgroundRepeat
   } = props;
 
   return (
@@ -33,6 +35,8 @@ const Container = ({ ...props }) => {
       boxShadow={boxShadow}
       borderRadius={borderRadius}
       zIndex={zIndex}
+      backgroundImage={backgroundImage}
+      backgroundRepeat={backgroundRepeat}
     >
       {props.children}
     </StyledRow>
@@ -50,7 +54,9 @@ const StyledRow = styled.div.attrs(props => ({
   marginTop: props.marginTop,
   boxShadow: props.boxShadow,
   borderRadius: props.borderRadius,
-  zIndex: props.zIndex
+  zIndex: props.zIndex,
+  backgroundImage: props.backgroundImage,
+  backgroundRepeat: props.backgroundRepeat
 }))`
   height: ${props => (props.height ? `${props.height}rem` : "100%")};
   width: ${props => (props.width ? `${props.width}rem` : `100vw`)};
@@ -69,6 +75,10 @@ const StyledRow = styled.div.attrs(props => ({
   border-radius: ${props =>
     props.borderRadius ? `${props.borderRadius}rem` : 0};
   z-index: ${props => (props.zIndex ? props.zIndex : "auto")};
+  background-image: ${props =>
+    props.backgroundImage ? `url(${props.backgroundImage})` : "none"};
+  background-repeat: ${props =>
+    props.backgroundRepeat ? props.backgroundRepeat : "no-repeat"};
 `;
 
 export default Container;

@@ -44,7 +44,7 @@ const NumOfCups = styled.p`
   bottom: 13.68%;
   font-family: Catamaran;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 4.5rem;
   line-height: 5.4rem;
   /* or 54px */

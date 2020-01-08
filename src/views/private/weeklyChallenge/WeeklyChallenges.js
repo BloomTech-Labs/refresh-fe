@@ -8,13 +8,15 @@ import { weeklyChallengeData } from "./dummyData";
 import Text from "../../../components/atoms/text/text";
 import Container from "../../../components/atoms/container/container";
 import ChallengeBox from "./ChallengeBox";
+//images
+import waves from "../../../images/Onboarding/waves.svg";
 // set state to weeklyChallengeData
-const WeeklyChallenge = props => {
+const WeeklyChallenges = props => {
   // console.log({ weeklyChallengeData });
 
   return (
     <>
-      <Container className="weekly-challenges">
+      <Container className="weekly-challenges" backgroundImage={waves}>
         <Text
           text={"Weekly Challenges"}
           position={"absolute"}
@@ -47,11 +49,11 @@ const ChallengeHub = styled.div`
   padding-top: 15rem;
   width: 100%;
   max-height: 100%;
-  overflow-y: scroll;
+  overflow: hidden;
   ${flex.flexRowWrapAround}
   @media screen and (min-width: 1200px) {
     overflow-y: hidden;
   }
 `;
 
-export default WeeklyChallenge;
+export default WeeklyChallenges;

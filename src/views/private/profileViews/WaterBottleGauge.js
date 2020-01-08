@@ -15,15 +15,10 @@ import bottleEmpty from "../../../images/profile/water_bottle/bottleEmpty.svg";
 
 const WaterBottleGauge = ({ children, ...props }) => {
   const { point_current } = props;
-  // console.log('props :', props);
-  const [waterData, setWaterData] = useState({
-    waterStats: point_current
-  });
 
   const gaugeFill = () => {
-    props.debug && console.log(`[waterData inside gaugeFill]`, waterData);
     switch (true) {
-      case waterData.waterStats === 1:
+      case point_current === 1:
         return (
           <Icon
             svg={bottle1}
@@ -31,7 +26,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
             title="Current: 1 serving of water"
           />
         );
-      case waterData.waterStats === 2:
+      case point_current === 2:
         return (
           <Icon
             svg={bottle2}
@@ -39,7 +34,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
             title="Current: 2 serving of water"
           />
         );
-      case waterData.waterStats === 3:
+      case point_current === 3:
         return (
           <Icon
             svg={bottle3}
@@ -47,7 +42,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
             title="Current: 3 serving of water"
           />
         );
-      case waterData.waterStats === 4:
+      case point_current === 4:
         return (
           <Icon
             svg={bottle4}
@@ -55,7 +50,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
             title="Current: 4 serving of water"
           />
         );
-      case waterData.waterStats === 5:
+      case point_current === 5:
         return (
           <Icon
             svg={bottle5}
@@ -63,7 +58,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
             title="Current: 5 serving of water"
           />
         );
-      case waterData.waterStats === 6:
+      case point_current === 6:
         return (
           <Icon
             svg={bottle6}
@@ -71,7 +66,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
             title="Current: 6 serving of water"
           />
         );
-      case waterData.waterStats === 7:
+      case point_current === 7:
         return (
           <Icon
             svg={bottle7}
@@ -79,7 +74,7 @@ const WaterBottleGauge = ({ children, ...props }) => {
             title="Current: 7 serving of water"
           />
         );
-      case waterData.waterStats >= 8:
+      case point_current >= 8:
         return (
           <Icon
             svg={bottleEmpty}
@@ -97,13 +92,13 @@ const WaterBottleGauge = ({ children, ...props }) => {
         );
     }
   };
-  props.debug && console.log(`[Before return]:`, waterData.waterStats);
+  props.debug && console.log(`[Before return]:`, point_current);
 
   return (
     <>
       <StyledGauge className="StyledGauge">
         <MobileCardWater className="MobileCardWater">
-          {gaugeFill(waterData)}
+          {gaugeFill(point_current)}
         </MobileCardWater>
       </StyledGauge>
     </>
