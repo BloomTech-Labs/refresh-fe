@@ -188,7 +188,7 @@ const ProfileEdit = () => {
         left={3.2}
         height={5.2}
         width={31.1}
-        placeholder={"  Maxine Woods"}
+        placeholder={`  $`}
         color={"rgba(204, 201, 255, 0.4)"}
       />
       <RoleText>ROLE</RoleText>
