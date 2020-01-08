@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SwipeableViews from "react-swipeable-views";
+import { bindKeyboard } from "react-swipeable-views-utils";
 // components
 import Icon from "../../../components/atoms/icon/icon";
 // badge images
@@ -11,7 +12,7 @@ const BadgeHub = styled.div`
   top: 27.8rem;
   left: 3rem;
   height: 7rem;
-  width: 100vw;
+  width: 100%;
 `;
 const BadgeText = styled.p`
   position: absolute;
@@ -56,35 +57,47 @@ const ViewAllText = styled.p`
   color: #b8b7e1;
 `;
 
+const styles = {
+  root: {
+    marginTop: 0
+  },
+  slideContainer: {
+    width: "5.775rem",
+    marginRight: "2.1rem",
+    marginTop: 0
+  },
+  slide: {
+    marginTop: 0
+  }
+};
+const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
+
+
 const ProfileBadges = () => {
   return (
     <>
       <BadgeText>BADGES</BadgeText>
       <ViewAllText>view all &rsaquo;</ViewAllText>
       <BadgeHub className={`badge-hub`}>
-        <div>
-          <SwipeableViews>
-            {badgeData.map(badge => {
-              {
-                /* console.log(badge.svg);
-                 */
-              }
-              const assignSlide = `Object.assign({}, styles.slide, styles.slide${badge.id}`;
-
-              return (
-                <Icon
-                  className={`${badge.category} icon`}
-                  key={badge.id}
-                  badge={badge}
-                  svg={badge.svg}
-                  alt={badge.alt}
-                  width={5.775}
-                  height={6.55}
-                />
-              );
-            })}
-          </SwipeableViews>
-        </div>
+        <BindKeyboardSwipeableViews
+          className="swipeable-views"
+          style={styles.root}
+          slideStyle={styles.slideContainer}
+        >
+          {badgeData.map(badge => {
+            return (
+              <Icon
+                className={`${badge.category} icon`}
+                key={badge.id}
+                badge={badge.id}
+                svg={badge.svg}
+                alt={badge.alt}
+                width={5.775}
+                height={6.55}
+              />
+            );
+          })}
+        </BindKeyboardSwipeableViews>
       </BadgeHub>
     </>
   );

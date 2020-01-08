@@ -1,23 +1,23 @@
 export const badgeData = [
   {
-    id: 1,
-    svg: "http://localhost:3000/images/badges/activityOneUnlocked.svg",
-    alt: "Activity Badge, Lvl I : unlocked",
-    category: "activity",
-    status: "unlocked"
-  },
-  {
-    id: 2,
-    svg: "http://localhost:3000/images/badges/breaksOneUnlocked.svg",
-    alt: "Breaks Badge, Lvl I : unlocked",
-    category: "breaks",
-    status: "unlocked"
+    id: 6,
+    svg: "http://localhost:3000/images/badges/waterOneLocked.svg",
+    alt: "Food Badge, Lvl I : unlocked",
+    category: "water",
+    status: "locked"
   },
   {
     id: 3,
     svg: "http://localhost:3000/images/badges/foodOneUnlocked.svg",
     alt: "Food Badge, Lvl I : unlocked",
     category: "food",
+    status: "unlocked"
+  },
+  {
+    id: 1,
+    svg: "http://localhost:3000/images/badges/activityOneUnlocked.svg",
+    alt: "Activity Badge, Lvl I : unlocked",
+    category: "activity",
     status: "unlocked"
   },
   {
@@ -35,10 +35,10 @@ export const badgeData = [
     status: "locked"
   },
   {
-    id: 6,
-    svg: "http://localhost:3000/images/badges/waterOneLocked.svg",
-    alt: "Food Badge, Lvl I : unlocked",
-    category: "water",
-    status: "locked"
+    id: 2,
+    svg: "http://localhost:3000/images/badges/breaksOneUnlocked.svg",
+    alt: "Breaks Badge, Lvl I : unlocked",
+    category: "breaks",
+    status: "unlocked"
   }
 ];
