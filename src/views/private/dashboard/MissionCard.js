@@ -25,7 +25,7 @@ const MissionCard = props => {
   const cardClickHandler = e => {
     props.history.push("/mission-stats");
   };
-
+  
   return (
     <>
       <Container color={color} onClick={cardClickHandler}>
@@ -38,7 +38,7 @@ const MissionCard = props => {
           <i className={icon}></i>
         </Gauge>
         <p>
-          {goal - point_current} {description}
+          {goal <= point_current ? 0 : goal - point_current} {description}
         </p>
         <span>{point_value} Points</span>
       </Container>
