@@ -18,7 +18,7 @@ import waves from "../../../images/Onboarding/waves.svg";
 const PVWrapper = styled.div`
   width: 100vw;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   position: absolute;
   background-color: #4742bc;
   background-image: url(${waves});
