@@ -273,7 +273,6 @@ const TMAvatar = styled.img`
   max-height: 100%;
   height: 5rem;
   border-radius: 50%;
-  background-color: red;
 `;
 
 const TMBio = styled.p`
