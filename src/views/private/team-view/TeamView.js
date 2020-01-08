@@ -235,7 +235,7 @@ const TeamView = props => {
               <h2>Team Missions</h2>
             </SectionTitle>
             <SectionCTA>
-              <Link to="/createtm">Create Mission</Link>
+              <Link to="/create-team">Create Mission</Link>
             </SectionCTA>
 
             <SwipeableViews>
