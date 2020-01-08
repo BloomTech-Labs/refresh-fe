@@ -14,7 +14,7 @@ import { flex } from "../../../styles/global/Mixins";
 import MissionCard from "./MissionCard";
 import Progress from "./Progress";
 // images
-import waves from '../../../images/Onboarding/waves.svg';
+import waves from "../../../images/Onboarding/waves.svg";
 // COMPONENT
 const Dashboard = props => {
   // contexts
