@@ -22,7 +22,8 @@ const Text = ({ text, ...props }) => {
     textAlign,
     width,
     height,
-    textDecoration
+    textDecoration,
+    bottom
   } = props;
   return (
     <StyledText
@@ -35,6 +36,7 @@ const Text = ({ text, ...props }) => {
       position={position}
       left={left}
       top={top}
+      bottom={bottom}
       textAlign={textAlign}
       width={width}
       height={height}
@@ -59,7 +61,8 @@ const StyledText = styled.p.attrs(props => ({
   height: props.height,
   width: props.width,
   textDecoration: props.textDecoration,
-  fontFamily: props.fontFamily
+  fontFamily: props.fontFamily,
+  bottom: props.bottom
 }))`
   font-size: ${props =>
     props.fontSize ? `${props.fontSize}rem` : Fonts.fontSize.baseMd};
@@ -74,6 +77,7 @@ const StyledText = styled.p.attrs(props => ({
   position: ${props => (props.position ? props.position : "relative")};
   left: ${props => (props.left ? `${props.left}rem` : 0)};
   top: ${props => (props.top ? `${props.top}rem` : 0)};
+  bottom: ${props => (props.bottom ? `${props.bottom}rem` : 0)};
   height: ${props => (props.height ? `${props.height}rem` : "100%")};
   width: ${props => (props.width ? `${props.width}rem` : `100%`)};
   text-decoration: ${props =>

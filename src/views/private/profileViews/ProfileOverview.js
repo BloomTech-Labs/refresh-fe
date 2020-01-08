@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 // contexts
+import { UserContext } from "../../../contexts/UserContext";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+
 // components
 import WaterCard from "../profileViews/WaterCard";
 import ProfileCompletion from "../profileViews/ProfileCompletion";
 import WeeklySurvey from "../profileViews/WeeklySurvey";
 import YourReminders from "../profileViews/YourReminders";
-import ProfileBadges from "../profileViews/ProfileBadges";
+import ProfileBadges from "./ProfileBadges";
 import ProfileHeader from "../profileViews/ProfileHeader";
 import waves from "../../../images/Onboarding/waves.svg";
 
@@ -15,9 +17,9 @@ import waves from "../../../images/Onboarding/waves.svg";
 
 const PVWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  overflow-x: hidden;
   position: absolute;
-  z-index: -3;
   background-color: #4742bc;
   background-image: url(${waves});
 `;
@@ -32,7 +34,7 @@ const ProfileLineBreak = styled.div`
 `;
 
 const ProfileOverview = props => {
-  // contexts
+  // mission context
   const userMissions = useContext(UserMissionsContext);
   const { missions } = userMissions;
   return (

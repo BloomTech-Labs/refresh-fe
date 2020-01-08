@@ -63,7 +63,7 @@ const CreateAccount = props => {
 
   const authSuccess = userObject => {
     userObject = JSON.parse(userObject);
-
+    console.log(userObject)
     const {
       mission_subscriptions,
       missions_in_progress

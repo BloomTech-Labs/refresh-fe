@@ -20,7 +20,6 @@ import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 import { UserContext } from "../../../contexts/UserContext";
 import { missionMasher } from "../../globalFunctions";
 
-
 // COMPONENT
 const Login = props => {
   // contexts
@@ -109,8 +108,8 @@ const Login = props => {
           />
         </GoogleSignIn>
         <FlexWrapper>
-            <p>OR</p>
-            <div></div>
+          <p>OR</p>
+          <div></div>
         </FlexWrapper>
         <Button onClick={routeToEmailLogIn}>
           Log In with Email <Image src={emailogo} height={2} width={2} />
@@ -129,8 +128,7 @@ const Login = props => {
           marginLeft={-6}
         ></Col> */}
       </Row>
-      <FlexHolder>
-      </FlexHolder>
+      <FlexHolder></FlexHolder>
     </OnBoardContainer>
   );
 };
@@ -295,21 +293,21 @@ const GoogleSignIn = styled.a`
 `;
 
 const FlexWrapper = styled.div`
-    margin:15% auto;
-    display:flex;
-    align-items:center;
-    flex-direction:row;
-    color:#fff;
-    width:90%;
-    div{
-      border-bottom:.1rem solid #fff;
-      margin:0 1rem;
-      width:92%
-    }
+  margin: 15% auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: #fff;
+  width: 90%;
+  div {
+    border-bottom: 0.1rem solid #fff;
+    margin: 0 1rem;
+    width: 92%;
+  }
   @media screen and (min-width: 450px) {
     display: none;
   }
-`
+`;
 
 const ButtonNoColor = styled.a`
   font-size: calc(110% + 0.5vw);

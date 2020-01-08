@@ -6,29 +6,25 @@ import styled from "styled-components";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 import slogan from "../../../images/Onboarding/need_to_know_more.svg";
-//conditionally rendering steps component
-import StepForm from "./StepForm";
 
 const InfoIntro = props => {
+  console.log(props)
+  const {url} = props.match
   //hooks
   const [consent, setConsent] = useState(false);
 
-  //if statement is true then render the steps component else stay on onboarding component
-  if (consent) {
-    return <StepForm {...props} />;
-  } else {
-    return <OnBoarding consent={consent} setConsent={setConsent} />;
+  //route
+  const routeToRoles = e => {
+    e.preventDefault();
+    props.history.push(`${url}/userrole`)
   }
-};
 
-//render
-const OnBoarding = ({ consent, setConsent }) => {
-  return (
-    <OnBoardContainer>
-      <Logo src={slogan} />
-      <Button onClick={() => setConsent(true)}>Continue</Button>
-    </OnBoardContainer>
-  );
+return(
+  <OnBoardContainer>
+  <Logo src={slogan} />
+  <Button onClick={routeToRoles}>Continue</Button>
+</OnBoardContainer>
+)
 };
 
 // STYLED COMPONENTS

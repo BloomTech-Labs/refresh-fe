@@ -1,13 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import SwipeableViews from "react-swipeable-views";
+import { bindKeyboard } from "react-swipeable-views-utils";
+// components
+import Icon from "../../../components/atoms/icon/icon";
+// badge images
+import { badgeData } from "./badgeData";
 
-const BadgeContainer = styled.div`
+const BadgeHub = styled.div`
+  position: absolute;
+  top: 27.8rem;
+  left: 3rem;
+  height: 7rem;
   width: 100%;
-  margin-bottom: auto;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
 `;
 const BadgeText = styled.p`
   position: absolute;
@@ -52,167 +57,48 @@ const ViewAllText = styled.p`
   color: #b8b7e1;
 `;
 
-// const WaterBadge = styled.div`
-// position: absolute;
-// width: 3.5rem;
-// height: 2.3rem;
-// left: 3.2rem;
-// top: 25.8rem;
-// background-color: #1575FF;
-// margin: 0.99rem 0;
+const styles = {
+  root: {
+    marginTop: 0
+  },
+  slideContainer: {
+    width: "5.775rem",
+    marginRight: "2.1rem",
+    marginTop: 0
+  },
+  slide: {
+    marginTop: 0
+  }
+};
+const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
 
-// :before,
-// :after {
-//   content: "";
-//   position: absolute;
-//   width: 0;
-//   border-left: 1.71rem solid transparent;
-//   border-right: 1.71rem solid transparent;
-// }
-
-//  :before {
-//   bottom: 100%;
-//   border-bottom: 0.99rem solid #1575FF;
-// }
-
-// :after {
-//   top: 100%;
-//   width: 0;
-//   border-top: 0.99rem solid #1575FF;
-// }
-// `
-// const FoodBadge = styled.div`
-// position: absolute;
-// left: 11rem;
-// top: 25.8rem;
-// width: 3.5rem;
-// height: 2.3rem;
-// background-color: #27AE60;
-// margin: 0.9925rem 0;
-
-// :before,
-// :after {
-//   content: "";
-//   position: absolute;
-//   width: 0;
-//   border-left: 1.71875rem solid transparent;
-//   border-right: 1.71875rem solid transparent;
-// }
-
-//  :before {
-//   bottom: 100%;
-//   border-bottom: 0.9925rem solid #27AE60;
-// }
-
-// :after {
-//   top: 100%;
-//   width: 0;
-//   border-top: 0.9925rem solid #27AE60;
-// }
-// `
-
-// const ActivitySVG = styled.div`
-// position: absolute;
-// left: 18.8rem;
-// top: 25.8rem;
-// width: 3.5rem;
-// height: 2.3rem;
-// background-color: #FC5454;
-// margin: 0.9925rem 0;
-
-// :before,
-// :after {
-//   content: "";
-//   position: absolute;
-//   width: 0;
-//   border-left: 1.71875rem solid transparent;
-//   border-right: 1.71875rem solid transparent;
-// }
-
-//  :before {
-//   bottom: 100%;
-//   border-bottom: 0.9925rem solid #FC5454;
-// }
-
-// :after {
-//   top: 100%;
-//   width: 0;
-//   border-top: 0.9925rem solid #FC5454;
-// }
-
-// `
-// const PetsBadge = styled.div`
-// position: absolute;
-// left: 26.6rem;
-// top: 25.8rem;
-// width: 3.5rem;
-// height: 2.3rem;
-// background-color: #9B51E0;
-// margin: 0.9925rem 0;
-
-// :before,
-// :after {
-//   content: "";
-//   position: absolute;
-//   width: 0;
-//   border-left: 1.71875rem solid transparent;
-//   border-right: 1.71875rem solid transparent;
-// }
-
-//  :before {
-//   bottom: 100%;
-//   border-bottom: 0.9925rem solid #9B51E0;
-// }
-
-// :after {
-//   top: 100%;
-//   width: 0;
-//   border-top: 0.9925rem solid #9B51E0;
-// }
-
-// `
-// const PartialBadge = styled.div`
-// position: absolute;
-// left: 34.4rem;
-// top: 25.8rem;
-// width: 1.8rem;
-// height: 2.3rem;
-// background-color: #FC54EB;
-// margin: 0.9925rem 0;
-
-// :before,
-// :after {
-//   content: "";
-//   position: absolute;
-//   width: .1rem;
-//   border-left: 1.71875rem solid transparent;
-// }
-
-//  :before {
-//   bottom: 100%;
-//   border-bottom: 0.9925rem solid #FC54EB;
-// }
-
-// :after {
-//   top: 100%;
-//   width: .1rem;
-//   border-top: 0.9925rem solid #FC54EB;
-// }
-
-// `
 
 const ProfileBadges = () => {
   return (
     <>
       <BadgeText>BADGES</BadgeText>
       <ViewAllText>view all &rsaquo;</ViewAllText>
-      <BadgeContainer>
-        {/* <WaterBadge/>  
-      <FoodBadge/>
-      <ActivitySVG/>
-      <PetsBadge/> */}
-      </BadgeContainer>
-      {/* <PartialBadge/> */}
+      <BadgeHub className={`badge-hub`}>
+        <BindKeyboardSwipeableViews
+          className="swipeable-views"
+          style={styles.root}
+          slideStyle={styles.slideContainer}
+        >
+          {badgeData.map(badge => {
+            return (
+              <Icon
+                className={`${badge.category} icon`}
+                key={badge.id}
+                badge={badge.id}
+                svg={badge.svg}
+                alt={badge.alt}
+                width={5.775}
+                height={6.55}
+              />
+            );
+          })}
+        </BindKeyboardSwipeableViews>
+      </BadgeHub>
     </>
   );
 };

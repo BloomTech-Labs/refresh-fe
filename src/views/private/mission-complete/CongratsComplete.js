@@ -11,11 +11,7 @@ import Button from "../../../components/atoms/button/button";
 import rocket from "../../../images/rocket.svg";
 import waves from "../../../images/Onboarding/waves.svg";
 import Confetti from "react-dom-confetti";
-// text
-const congratText = "Congratulations!";
-const moreText = "To get more points and badges,";
-const moreText2 = "complete more missions.";
-const shareText = "Share with your team";
+
 
 const CongratsComplete = ({ ...props }) => {
   const { status, submitMissionTracker } = props;
@@ -25,8 +21,6 @@ const CongratsComplete = ({ ...props }) => {
     status === "closed" ? setConfettiTime(false) : setConfettiTime(status);
   }, [status]);
 
-  // console.log('status :', status);
-  // console.log('confettiTime', confettiTime)
   // Confetti config
   const config = {
     angle: 90,
@@ -46,7 +40,7 @@ const CongratsComplete = ({ ...props }) => {
       <CongratsScreen className={status}>
         <Container>
           <Text
-            text={congratText}
+            text={"Congratulations!"}
             fontSize={3}
             fontWeight={600}
             position={"absolute"}
@@ -67,7 +61,7 @@ const CongratsComplete = ({ ...props }) => {
             <Confetti active={confettiTime} config={config} />
           </ConfettiWrapper>
           <Text
-            text={moreText}
+            text={`To get more points and badges,`}
             fontSize={1.5}
             fontWeight={600}
             position={"absolute"}
@@ -77,7 +71,7 @@ const CongratsComplete = ({ ...props }) => {
             letterSpacing={0.02}
           />
           <Text
-            text={moreText2}
+            text={`complete more missions.`}
             fontSize={1.5}
             fontWeight={600}
             position={"absolute"}
@@ -88,9 +82,6 @@ const CongratsComplete = ({ ...props }) => {
           <Link to="/dashboard">
             <Button
               backgroundColor={"#E05CB3"}
-              boxShadow={"0px 4px 10px rgba(21, 15, 172, 0.1)"}
-              width={25.1}
-              height={5.6}
               fontSize={1.6}
               letterSpacing={0.035}
               position={"absolute"}
@@ -98,7 +89,7 @@ const CongratsComplete = ({ ...props }) => {
               top={61.4}
               onClick={submitMissionTracker}
             >
-              <Text text={shareText} fontSize={1.6} letterSpacing={0.035} />
+              <Text text={`Share with your team`} fontSize={1.6} letterSpacing={0.035} />
             </Button>
           </Link>
         </Container>

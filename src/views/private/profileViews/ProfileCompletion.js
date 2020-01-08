@@ -106,7 +106,7 @@ const FinishNowContainer = styled.div`
 `;
 const FinishNowText = styled.p`
   position: absolute;
-  left: 11.19%;
+  left: 1.5rem;
   right: 46.27%;
   top: 50%;
   font-family: Catamaran;
@@ -121,10 +121,10 @@ const FinishNowText = styled.p`
 
   color: #e6e6e6;
 `;
-const FinnishArrow = styled.img`
+const FinishArrow = styled.img`
   position: absolute;
-  width: 40%;
-  height: 40%;
+  width: 0.9rem;
+  height: 0.7rem;
   left: 82.09%;
   right: 11.19%;
   top: 55.37%;
@@ -151,7 +151,7 @@ const ProfileCompletion = props => {
           <Link to="/profile-edit">
             <FinishNowText>finish now</FinishNowText>
           </Link>
-          <FinnishArrow src={Arrow} />
+          <FinishArrow src={Arrow} />
         </FinishNowContainer>
       </ProfileContainer>
     </>
