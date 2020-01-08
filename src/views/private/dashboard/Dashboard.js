@@ -81,7 +81,7 @@ const Dashboard = props => {
 const DashboardView = styled.div`
   width: 100vw;
   height: 100vh;
-  padding-top: 10rem;
+  padding-top: 9rem;
   overflow-x: hidden;
   
 `;
@@ -162,7 +162,7 @@ const MissionHub = styled.div`
 
 const AddMission = styled.div`
   width: 100%;
-  height: 10rem;
+  
   margin-top: 2rem;
   display: flex;
   flex-flow: row nowrap;
