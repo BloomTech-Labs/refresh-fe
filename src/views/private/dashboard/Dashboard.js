@@ -81,12 +81,9 @@ const Dashboard = props => {
 const DashboardView = styled.div`
   width: 100vw;
   height: 100vh;
-  max-height: 100vh;
   padding-top: 10rem;
-  background-color: #4742BC;
-  background-image: url(${waves});
   overflow-x: hidden;
-  overflow-y: hidden;
+  
 `;
 
 const DashboardWrapper = styled.div`
@@ -95,7 +92,6 @@ const DashboardWrapper = styled.div`
 
 const DashboardContainer = styled.div`
   width: 90%;
-  height: 80vh;
   margin: 0 auto;
 
   .mission-message {
@@ -157,8 +153,7 @@ const Avatar = styled.div`
 
 const MissionHub = styled.div`
   width: 100%;
-  max-height: 42vh;
-  overflow-y: scroll;
+ 
   ${flex.flexRowWrapAround}
   @media screen and (min-width: 1200px) {
     overflow-y: hidden;
