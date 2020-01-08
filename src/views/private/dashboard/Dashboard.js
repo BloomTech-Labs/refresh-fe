@@ -98,7 +98,7 @@ const DashboardContainer = styled.div`
     color: #ccc9ff;
     font-size: 2.5rem;
     letter-spacing: 0.25rem;
-    margin: 3rem 0;
+    margin: 2rem 0;
     text-align: center;
   }
 `;
