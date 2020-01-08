@@ -32,16 +32,17 @@ line-height: 1.5rem;
 color: #3D3B91;
 `
 
-const ReminderDots = styled.img`
-  position: absolute;
-  left: 81.97%;
-  right: 5.34%;
-  width: 15%;
-  top: 9.15%;
-  bottom: 88.73%;
-  /* main / side */
-  background: #3d3b91;
-`;
+// const ReminderDots = styled.img`
+//   position: absolute;
+//   left: 81.97%;
+//   right: 5.34%;
+//   width: 2rem;
+//   top: 9.15%;
+//   bottom: 88.73%;
+//   /* main / side */
+//   background: #3D3B91;
+//   background-image: url(${dots});
+// `;
 
 const YourReminders = () => {
   return (

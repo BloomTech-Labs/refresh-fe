@@ -39,7 +39,7 @@ const NameText = styled.p`
   position: absolute;
   width: 12.4rem;
   height: 0.9rem;
-  left: 12.5rem;
+  left: 13.6rem;
   top: 13.1rem;
 
   font-family: Catamaran;
