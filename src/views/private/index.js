@@ -26,7 +26,7 @@ const PrivateViewCanvas = props => {
   return (
     <>
       {/* Mobile Menu Will not work Globally if in Switch */}
-      {pathname !== "/firstlogin" && pathname !== "/profile-edit" && (
+      {pathname !== "/firstlogin" && pathname !== "/profile-edit" && pathname !== "/survey" && (
         <Route match path="/" component={MobileMenu} />
       )}
 

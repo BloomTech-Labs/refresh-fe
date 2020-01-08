@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
 
@@ -171,7 +172,9 @@ const ProfileEdit = () => {
     <>
       <EditContainer className="edit-container" />
       <ArrowVector>
-        <Icon svg={leftArrow} height={0.9} width={1.5} />
+        <Link to="/dashboard">
+          <Icon svg={leftArrow} height={0.9} width={1.5} />
+        </Link>
       </ArrowVector>
       <EditProfText>Edit Profile</EditProfText>
       <ImageContainer>
