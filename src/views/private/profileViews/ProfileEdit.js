@@ -8,6 +8,7 @@ import Icon from "../../../components/atoms/icon/icon";
 import Input from "../../../components/atoms/input/input";
 import Button from "../../../components/atoms/button/button";
 import Text from "../../../components/atoms/text/text";
+import Select from "../../../components/atoms/select/select";
 
 // images
 import leftArrow from "../../../images/profile/leftArrow.svg";
@@ -196,15 +197,21 @@ const ProfileEdit = () => {
       />
       <RoleText>ROLE</RoleText>
       {/* Need <select> */}
-      <Input
+      <Select
         className="form-field"
         position={"absolute"}
         top={36.4}
         left={3.2}
         height={5.2}
         width={31.1}
-        placeholder={`  ${activeUser.roleTitle}`}
-      />
+        color={"rgba(204, 201, 255, 0.4)"}
+      >
+        <option>Role</option>
+        <option>Student</option>
+        <option>Team Lead</option>
+        <option>Section Lead</option>
+        <option>Admin</option>
+      </Select>
       <DescriptionText>Description</DescriptionText>
       <Input
         className="description-field"
@@ -216,7 +223,7 @@ const ProfileEdit = () => {
         placeholder={`  ${activeUser.bio}`}
       />
 
-      {/* Link to be replaced w/ submit logic */}
+      {/* Link to be replaced w/ submit logicno */}
       <Link to="/dashboard">
         <Button
           backgroundColor={"#E05CB3"}
