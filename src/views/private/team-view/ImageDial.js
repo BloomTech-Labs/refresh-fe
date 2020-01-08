@@ -8,13 +8,71 @@ import axios from "axios";
 const ImageDial = props => {
     const [thumb, setThumb] = useState();
 
-    useEffect(()=>{
-        axios.get("https://dog.ceo/api/breed/husky/images")
-        .then(res =>{
-            props.debug && console.log(res.data.message[0]);
-            setThumb(res.data.message)
-        })
-    }, [])
+    let teamMembers = [
+      {
+        displayName: "Serenity Webb",
+        avatar:
+          "https://images.unsplash.com/photo-1495516372021-9c815fa7e668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        bio: "Web Development"
+      },
+  
+      {
+        displayName: "Wade Fisher",
+        avatar:
+          "https://images.unsplash.com/photo-1429117257281-73c32df3dcdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        bio: "Web Development"
+      },
+  
+      {
+        displayName: "Juanita Fox",
+        avatar:
+          "https://images.unsplash.com/photo-1494788185066-84d048a0115a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        bio: "Web Development"
+      },
+  
+      {
+        displayName: "Albert Cooper",
+        avatar:
+          "https://images.unsplash.com/photo-1461783436728-0a9217714694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        bio: "Web Development"
+      },
+  
+      {
+        displayName: "Debra Williamson",
+        avatar:
+          "https://images.unsplash.com/photo-1524154217857-45f012d0f167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        bio: "Web Development"
+      },
+  
+      {
+        displayName: "Nathan Alexander",
+        avatar:
+          "https://images.unsplash.com/photo-1477954417131-efc62c1b25cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        bio: "Web Development"
+      },
+  
+      {
+        displayName: "Glenn Ramirez",
+        avatar:
+          "https://images.unsplash.com/photo-1542643917516-fc8735e55612?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        bio: "Web Development"
+      },
+  
+      {
+        displayName: "Brandon Howard",
+        avatar:
+          "https://images.unsplash.com/photo-1490631537525-3b00d26805f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        bio: "Web Development"
+      }
+    ];
+
+    // useEffect(()=>{
+    //     axios.get("https://dog.ceo/api/breed/husky/images")
+    //     .then(res =>{
+    //         props.debug && console.log(res.data.message[0]);
+    //         setThumb(res.data.message)
+    //     })
+    // }, [])
   //handle change to store selected tick
   const handleChanges = e => {
     props.debug && console.log(e);
@@ -24,15 +82,15 @@ const ImageDial = props => {
   const sliderScale = (unit, range) => {
     let items = [];
     for (let i = 0; i < range; i++) {
-      {thumb &&
+   
         items.push(
           <>
             <div className="bigtick tick" > 
-              <img src={thumb[i]} />
+              <img src={teamMembers[i].avatar} />
             </div>
           </>
         );
-      } 
+
     }
     return items;
   };
@@ -46,7 +104,7 @@ const ImageDial = props => {
   return (
     <>
       <ImgContainer onScroll={handleScroll}>
-        {sliderScale(1, 15).map((x, i) => (
+        {sliderScale(1, teamMembers.length).map((x, i) => (
           <DialStuff key={i}>{x}</DialStuff>
         ))}
       </ImgContainer>

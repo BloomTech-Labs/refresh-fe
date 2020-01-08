@@ -27,7 +27,7 @@ const TeamList = props => {
   const swipeLeftIcon = name => ({
     content: (
       <IconLogo>
-        <i class="far fa-trash-alt"></i>
+        <i className="far fa-trash-alt"></i>
       </IconLogo>
     ),
     action: () => console.log("swiped!")
@@ -113,6 +113,7 @@ const TeamList = props => {
       bio: "Web Development"
     }
   ];
+  
   const teamListScroll = (unit, range) => {
     let items = [];
     for (let i = 0; i < range; i++) {

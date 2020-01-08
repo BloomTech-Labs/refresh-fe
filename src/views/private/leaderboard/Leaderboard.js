@@ -23,6 +23,19 @@ import {
 } from "@sandstreamdev/react-swipeable-list";
 import "@sandstreamdev/react-swipeable-list/dist/styles.css";
 
+  //styled color picker
+  const colorPicker = (rank, displayName) =>{
+    if(displayName === "Serenity Webb"){
+      return 'transparent';
+    }
+    else if(rank < 4){
+      return '#E05CB3'
+    }
+    else{
+      return '#fff'
+    }
+  }
+
 const TeamList = props => {
      // contexts
   const activeUser = useContext(UserContext);
@@ -35,11 +48,13 @@ const TeamList = props => {
     props.history.push("/team-view");
   };
 
+
+
   //swipe left data
   const swipeLeftIcon = name => ({
     content: (
       <IconLogo>
-        <i class="far fa-trash-alt"></i>
+        <i className="far fa-trash-alt"></i>
       </IconLogo>
     ),
     action: () => console.log("swiped!")
@@ -47,7 +62,7 @@ const TeamList = props => {
 
   const TeamCardSwipe = i => (
     <TMCard>
-    <Rank rank={teamMembers[i].id}><div>{teamMembers[i].id}</div></Rank>
+    <Rank rank={teamMembers[i].id} displayName={teamMembers[i].displayName}><div>{teamMembers[i].id}</div></Rank>
       <TMAvatar className="avatarpic" src={teamMembers[i].avatar} />
       <TMInfo>
         <TMName>{teamMembers[i].displayName}</TMName>
@@ -74,7 +89,7 @@ const TeamList = props => {
         "https://images.unsplash.com/photo-1495516372021-9c815fa7e668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
       bio: "Web Development",
       points: 999,
-      id: 1
+      id: <i className="fas fa-crown"></i>
     },
 
     {
@@ -334,7 +349,7 @@ const Rank = styled.div`
   div {
     width: 2.5rem;
     height: 2.5rem;
-    background-color: ${props => props.rank <= 3 ? '#E05CB3' : '#FFF'}
+    background-color: ${props => colorPicker(props.rank, props.displayName)}
     color: ${props => props.rank <= 3 ? '#FFF' : '#E05CB3'};
     border-radius: 100px;
     font-size: 1.5rem;

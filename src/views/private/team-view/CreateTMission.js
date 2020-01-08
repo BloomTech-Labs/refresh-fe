@@ -37,6 +37,7 @@ const CreateTMission = props => {
 
   const handleSubmit = e => {
     props.debug && console.log(missionInfo);
+    props.history.push("/team-view")
   };
 
   const toggleCalendar = () => {
@@ -54,7 +55,7 @@ const CreateTMission = props => {
           <Input
             type="text"
             name="name"
-            placeholder="Create a name for this mission"
+            placeholder="Create a name"
             onChange={handleChanges}
             value={missionInfo.name}
             width={100}
@@ -82,12 +83,13 @@ const CreateTMission = props => {
           <Input
             type="text"
             name="desc"
-            placeholder="Add a description for your mission..."
+            placeholder="Add a description"
             onChange={handleChanges}
             value={missionInfo.desc}
             width={100}
             border={"1px solid #3D3B91"}
             backgroundColor={"#3D3B91"}
+            className="missionInput"
           />
         </InputDiv> </>}
         <Button onClick={handleSubmit}>Share with your team</Button>
@@ -165,6 +167,13 @@ const InputDiv = styled.div`
   i {
     color: rgba(204, 201, 255, 0.4);
     font-size: 4.5vw;
+  }
+
+  .missionInput{
+    align-content:flex-start;
+    height:15rem;
+    ::-webkit-input-placeholder {
+    }
   }
 `;
 const Input = styled.input`

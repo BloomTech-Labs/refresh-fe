@@ -20,10 +20,10 @@ import waves from "../../../images/Onboarding/waves.svg";
 
 // COMPONENT
 const TeamView = props => {
-    // contexts
-    const activeUser = useContext(UserContext);
-    const userMissions = useContext(UserMissionsContext);
-    const { missions } = userMissions;
+  // contexts
+  const activeUser = useContext(UserContext);
+  const userMissions = useContext(UserMissionsContext);
+  const { missions } = userMissions;
 
   // state hooks
   const [feedSlide, setFeedSlide] = useState({
@@ -32,16 +32,17 @@ const TeamView = props => {
       padding: 15,
       color: "#FFF",
       minHeight: "15rem",
-      minWidth: "50rem"
+      minWidth: "25rem",
+      fontSize: "1.5rem"
     },
     slide1: {
       background: "#3D3B91"
     },
     slide2: {
-      background: "pink"
+      background: "#3D3B91"
     },
     slide3: {
-      background: "orange"
+      background: "#3D3B91"
     }
   });
 
@@ -85,6 +86,64 @@ const TeamView = props => {
     ]
   });
 
+  let teamMembers = [
+    {
+      displayName: "Serenity",
+      avatar:
+        "https://images.unsplash.com/photo-1495516372021-9c815fa7e668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      bio: "Web Development"
+    },
+
+    {
+      displayName: "Wade",
+      avatar:
+        "https://images.unsplash.com/photo-1429117257281-73c32df3dcdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      bio: "Web Development"
+    },
+
+    {
+      displayName: "Juanita",
+      avatar:
+        "https://images.unsplash.com/photo-1494788185066-84d048a0115a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      bio: "Web Development"
+    },
+
+    {
+      displayName: "Albert",
+      avatar:
+        "https://images.unsplash.com/photo-1461783436728-0a9217714694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      bio: "Web Development"
+    },
+
+    {
+      displayName: "Debra",
+      avatar:
+        "https://images.unsplash.com/photo-1524154217857-45f012d0f167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      bio: "Web Development"
+    },
+
+    {
+      displayName: "Nathan",
+      avatar:
+        "https://images.unsplash.com/photo-1477954417131-efc62c1b25cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      bio: "Web Development"
+    },
+
+    {
+      displayName: "Glenn",
+      avatar:
+        "https://images.unsplash.com/photo-1542643917516-fc8735e55612?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      bio: "Web Development"
+    },
+
+    {
+      displayName: "Brandon",
+      avatar:
+        "https://images.unsplash.com/photo-1490631537525-3b00d26805f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      bio: "Web Development"
+    }
+  ];
+
   return (
     <>
       <TVWrapper>
@@ -113,7 +172,6 @@ const TeamView = props => {
             <SectionCTA>
               <Link to="/teamList">view all ></Link>
             </SectionCTA>
-            {/* <Pagination className='carousel'></Pagination> */}
             <ImageDial />
           </TVSection>
 
@@ -121,19 +179,54 @@ const TeamView = props => {
             <SectionTitle>
               <h2>Team Feed</h2>
             </SectionTitle>
-            <SectionCTA></SectionCTA>
             <SwipeableViews>
               <Slide style={{ ...feedSlide.slide, ...feedSlide.slide1 }}>
-                test 1
+                <div className="feedStyling">
+                  <h2>
+                    {teamMembers[2].displayName}, {teamMembers[4].displayName}{" "}
+                    and {teamMembers[5].displayName}{" "}
+                    <span>completed their water goals for the day</span>
+                  </h2>
+                  <p>About ten minutes ago</p>
+                  <div>
+                    <FeedImg src={teamMembers[2].avatar} />
+                    <FeedImg src={teamMembers[4].avatar} />
+                    <FeedImg src={teamMembers[5].avatar} />
+                  </div>
+                </div>
               </Slide>
 
-              <div style={{ ...feedSlide.slide, ...feedSlide.slide2 }}>
-                test 2
-              </div>
+              <Slide style={{ ...feedSlide.slide, ...feedSlide.slide2 }}>
+                <div className="feedStyling">
+                  <h2>
+                    {teamMembers[3].displayName}, {teamMembers[6].displayName}{" "}
+                    and {teamMembers[7].displayName}{" "}
+                    <span>completed their activity goals for the day</span>
+                  </h2>
+                  <p>About one hour ago</p>
+                  <div>
+                    <FeedImg src={teamMembers[3].avatar} />
+                    <FeedImg src={teamMembers[6].avatar} />
+                    <FeedImg src={teamMembers[7].avatar} />
+                  </div>
+                </div>
+              </Slide>
 
-              <div style={{ ...feedSlide.slide, ...feedSlide.slide3 }}>
-                test 3
-              </div>
+              <Slide style={{ ...feedSlide.slide, ...feedSlide.slide3 }}>
+                <div className="feedStyling">
+                  <h2>
+                    {teamMembers[1].displayName}, {teamMembers[4].displayName}{" "}
+                    and {teamMembers[6].displayName}{" "}
+                    <span>completed their sleep goals for the day</span>
+                  </h2>
+                  <p>About three hours ago</p>
+                  <div>
+                    <FeedImg src={teamMembers[1].avatar} />
+                    <FeedImg src={teamMembers[4].avatar} />
+                    <FeedImg src={teamMembers[6].avatar} />
+                  </div>
+                </div>
+              </Slide>
             </SwipeableViews>
           </TVSection>
 
@@ -269,18 +362,28 @@ const Slide = styled.div`
 
   h2 {
     font-weight: bold;
-    color: #fff;
+    color: #e6e6e6;
+    font-size: 1.5rem;
+    letter-spacing: 0.035em;
   }
 
   p {
+    font-size: 1.2rem;
+    line-height: 150%;
     color: #e6e6e6;
+  }
+
+  span {
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 
   span.points {
     background-color: #e9cc2f;
     padding: 0.5rem;
     color: #4e4829;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: bolder;
     border-radius: 3px;
   }
 
@@ -288,11 +391,36 @@ const Slide = styled.div`
     background-color: transparent;
     border: none;
     color: #fff;
+    font-size: 1rem;
   }
 
   & .accept {
     color: #e05cb3;
   }
+
+  & .feedStyling {
+    display: flex;
+    flex-direction: column;
+
+    h2,
+    p {
+      padding: 0.5rem;
+    }
+
+    span {
+      font-size: 1.4rem;
+      font-weight: normal;
+    }
+  }
+`;
+
+const FeedImg = styled.img`
+  max-width: 100%;
+  width: 3rem;
+  max-height: 100%;
+  height: 3rem;
+  margin: 0.5rem;
+  border-radius: 50%;
 `;
 
 // EXPORT
