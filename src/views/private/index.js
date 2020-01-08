@@ -22,11 +22,11 @@ import WeeklyChallenges from './weeklyChallenge/WeeklyChallenges';
 
 
 const PrivateViewCanvas = props => {
-  props.debug && console.log("Props From Mobile Menu", props);
+  console.log("Props From Mobile Menu", props);
   return (
     <>
       {/* Mobile Menu Will not work Globally if in Switch */}
-      <Route match path="/" component={MobileMenu} />
+      {props.location.pathname !== "/firstlogin" &&<Route match path="/" component={MobileMenu} />}
 
       <Switch>
         <Route path="/firstlogin" component={StepStart} />
