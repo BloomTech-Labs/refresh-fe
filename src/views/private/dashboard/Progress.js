@@ -33,7 +33,7 @@ const Progress = props => {
 };
 
 const ProgressBar = styled.div`
-  height: 10vh;
+  
   width: 90vw;
   margin: auto;
   p {

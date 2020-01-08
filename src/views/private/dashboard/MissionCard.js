@@ -61,7 +61,8 @@ const Container = styled.div`
   ${flex.flexCol}
 
   @media screen and (max-width: 361px) {
-    height: calc(50vw);
+    height: 50vw;
+    width:50vw;
   }
 
   @media screen and (min-width: 1200px) {
