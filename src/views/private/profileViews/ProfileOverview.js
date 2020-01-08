@@ -20,7 +20,6 @@ const PVWrapper = styled.div`
   height: 100%;
   overflow: hidden;
   position: absolute;
-  z-index: -3;
   background-color: #4742bc;
   background-image: url(${waves});
 `;
