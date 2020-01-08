@@ -4,37 +4,37 @@ import styled from "styled-components";
 import waves from '../../../images/wavyLines.svg';
 
 
+
+// components
+import Icon from "../../../components/atoms/icon/icon";
+// images
+import leftArrow from "../../../images/profile/leftArrow.svg";
+//import DropdownMenu from './DropDownMenu';
+
 const EditContainer = styled.div`
+  /* border: 1px solid red; */
   position: relative;
   width: 37.5rem;
   height: 81.2rem;
   overflow-x: hidden;
-  background: #4742bc;
-  background-image: url (${waves});
+  /* background: #4742bc; */
 `;
 
 const ArrowVector = styled.div`
   position: absolute;
-  left: 8.53%;
-  right: 89.07%;
-  top: 7.64%;
-  bottom: 90.52%;
-
-  /* primary / disabled */
-
-  background: #ccc9ff;
+  left: 3.2rem;
+  top: 6.2rem;
 `;
 const EditProfText = styled.p`
+  height: 2.2rem;
+  width: 37.5rem;
   position: absolute;
-  left: 13.5rem;
-  top: 8rem;
-  font-family: "Catamaran", sans-serif;
-  font-style: normal;
+  left: 0;
+  right: 0;
+  top: 9.7rem;
   font-weight: bold;
   font-size: 2.4rem;
   line-height: 2.2rem; /*or 22px */
-  display: flex;
-  align-items: flex-end;
   text-align: center;
   letter-spacing: 0.2rem;
   color: #e6e6e6;
@@ -222,17 +222,19 @@ const ProfileEdit = () => {
   return (
     <>
       <EditContainer src={waves}/>
-        <ArrowVector />
+      <ArrowVector>
+          <Icon svg={leftArrow} height={0.9} width={1.5} />
+        </ArrowVector>
         <EditProfText>Edit Profile</EditProfText>
         <ImageContainer src={activeUser.avatar}>
           <CameraVector />
         </ImageContainer>
         <NameText>NAME</NameText>
-        <NameForm className='name-field'/>
+        <NameForm className="name-field" />
         <RoleText>ROLE</RoleText>
-        <RoleForm className='form-field' />
+        <RoleForm className="form-field" />
         <DescriptionText>DESCRIPTION</DescriptionText>
-        <DescriptionForm className='description-field'/>
+        <DescriptionForm className="description-field" />
         <SubmitChangeBtn>
           <SubmitChangeText>Submit changes to profile</SubmitChangeText>
         </SubmitChangeBtn>

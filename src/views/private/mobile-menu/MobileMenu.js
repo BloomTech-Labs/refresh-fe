@@ -6,15 +6,11 @@ import { Link } from "react-router-dom";
 // styled components
 import styled from "styled-components";
 // helpers
-import { test, flex } from "../../../styles/global/Mixins"; // eslint-disable-line no-unused-vars
 // contexts
 import { UserContext } from "../../../contexts/UserContext";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
-// styled components
-// DUMMY DATA
-// hard coding some dummy data directly into the component to avoid too many unncessary files
-// will come back and clean all of this up later when we wire up FE/BE - JC
 
+// DUMMY DATA
 const dummyUser = {
   username: "JohnDoe",
   first_name: "John",
@@ -39,20 +35,34 @@ const MobileMenu = props => {
 
   const [menu, setMenu] = useState({
     status: "closed",
-    darken: "inactive"
+    darken: "inactive",
+    hidden: false
   });
 
   // use effect
   useEffect(() => {
-    setMenu({ ...menu, status: "closed", darken: "inactive" });
+    let currentPage = props.location.pathname;
+    currentPage === "/profile-edit" || currentPage === "/survey" // depending on how many pages need menu hidden, userReducer may be wise
+      ? setMenu({ ...menu, hidden: "hidden" })
+      : setMenu({
+          ...menu,
+          status: "closed",
+          darken: "inactive",
+          hidden: "closed"
+        });
   }, [props.location]);
 
   // handlers
   const menuToggle = () => {
     menu.status === "closed"
-      ? setMenu({ ...menu, status: "open", darken: "active" })
-      : setMenu({ ...menu, status: "closed", darken: "inactive" });
+      ? setMenu({ ...menu, status: "open", darken: "active", hidden: "open" })
+      : setMenu({
+          ...menu,
+          status: "closed",
+          darken: "inactive", hidden: "closed"
+        });
   };
+
   // RENDER
   return (
     <Wrapper>
@@ -112,7 +122,7 @@ const MobileMenu = props => {
         </Drawer>
       </DrawerContainer>
       <PlaceholderButton onClick={menuToggle}>
-        <i className={`fas fa-bars ${menu.status}`}></i>
+        <i className={`fas fa-bars ${menu.status} ${menu.hidden}`}></i>
       </PlaceholderButton>
     </Wrapper>
   );
@@ -169,7 +179,8 @@ const PlaceholderButton = styled.button`
   font-size: 2rem;
   margin: 2rem auto 2rem 2rem;
   outline: none;
-  .open {
+  .open,
+  .hidden {
     display: none;
   }
 `;
