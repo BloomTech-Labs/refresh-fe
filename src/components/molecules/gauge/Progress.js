@@ -19,7 +19,7 @@ export const ProgressLayer = ({ dashArray, dashOffset }) => {
           cy="0"
           r="29"
           fill="none"
-          strokeWidth="3"
+          strokeWidth="4"
           strokeDasharray={dashArray}
           strokeDashoffset={dashOffset}
           transform="rotate(-90)"
@@ -37,16 +37,16 @@ const ProgressPathStyle = styled.circle`
   width: 60rem;
   height: 60rem;
   stroke: #e6e6e6;
-  animation: dash2 1.5s linear alternate;
 `;
 const ProgressLayerStyle = styled.circle`
   width: 60rem;
   height: 60rem;
   stroke: #ffffff;
-  animation: dash 1.5s linear alternate;
+  animation: dash 1.5s ease-in-out;
+  animation-delay: 1s;
   @keyframes dash {
     from {
-      stroke-dashoffset: 0;
+      stroke-dashoffset: 180;
     }
     to {
       stroke-dashoffset: dashoffset;
