@@ -34,7 +34,7 @@ const ContextRouter = ({
 
           setUser(res.data.user_profile);
           setUserMissions(mission_subscriptions);
-          setTeam(res.data.my_teams)
+          setTeam(res.data.my_teams[0])
    
         })
         .catch(err => {
