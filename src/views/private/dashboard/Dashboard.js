@@ -28,7 +28,7 @@ const Dashboard = props => {
         <DashboardContainer>
           <Header>
             <Greeting>
-              <h1>Hello {activeUser.fname}!</h1>
+              <h1>Hello {activeUser.display_name}!</h1>
             </Greeting>
             <User>
               <Link to="/coming-soon">

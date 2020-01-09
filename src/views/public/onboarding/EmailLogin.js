@@ -104,7 +104,7 @@ const EmailLogin = props => {
           backgroundColor={"#3D3B91"}
         />
         <Input
-          type="text"
+          type="password"
           name="password"
           placeholder="Password"
           onChange={handleChange}

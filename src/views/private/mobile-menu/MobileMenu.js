@@ -12,13 +12,6 @@ import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 
 // DUMMY DATA
 const dummyUser = {
-  username: "JohnDoe",
-  first_name: "John",
-  last_name: "Doe",
-  email: "johndoe@gmail.com",
-  cohort: "Labs 18",
-  team_lead: "Dayton",
-  section_lead: "Megan",
   points: 69
 };
 
@@ -79,7 +72,7 @@ const MobileMenu = props => {
               <UserInfo>
                 <h2>{activeUser.display_name}</h2>
                 <p>
-                  {dummyUser.cohort} - {dummyUser.section_lead}
+                  {activeUser.cohort} - {activeUser.section_lead}
                 </p>
                 <p>{dummyUser.points} Points</p>
                 <p className="activeText">{activeUser.roleTitle}</p>

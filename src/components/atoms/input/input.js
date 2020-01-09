@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import { inputTypes } from "../../../styles/global/constants";
 import Colors from "../../../styles/global/colors";
-const Input = ({ callback = () => {}, ...props }) => {
+const Input = ({ callback = () => {}, ...props }) => {  
   const [value, setValue] = useState("");
   const node = useRef();
   const {
@@ -10,7 +9,6 @@ const Input = ({ callback = () => {}, ...props }) => {
     name,
     form,
     placeholder,
-    type,
     required = false,
     readOnly,
     disabled,
@@ -48,7 +46,6 @@ const Input = ({ callback = () => {}, ...props }) => {
       form={form}
       name={name}
       placeholder={placeholder}
-      type={type}
       value={value}
       ref={node}
       required={required}
@@ -74,7 +71,6 @@ const Input = ({ callback = () => {}, ...props }) => {
   );
 };
 const BaseInput = styled.input.attrs(props => ({
-  type: props.type,
   actionColor: props.actionColor,
   actionBackground: props.actionBackground,
   actionOpacity: props.actionOpacity,
@@ -98,7 +94,6 @@ const BaseInput = styled.input.attrs(props => ({
   left: props.left,
   top: props.top
 }))`
-  type: ${props => (props.type ? props.type.toUpperCase() : "TEXT")};
   height: ${props => (props.height ? `${props.height}rem` : "4rem")};
   width: ${props => (props.width ? `${props.width}rem` : `30rem`)};
   border: ${props => (props.border ? props.border : "1px solid #3d3b91")};

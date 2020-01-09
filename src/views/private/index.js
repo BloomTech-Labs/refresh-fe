@@ -26,9 +26,14 @@ const PrivateViewCanvas = props => {
   return (
     <>
       {/* Mobile Menu Will not work Globally if in Switch */}
-      {pathname !== "/firstlogin" && pathname !== "/profile-edit" && pathname !== "/survey" && pathname !== "/team-list" && (
-        <Route match path="/" component={MobileMenu} />
-      )}
+      {pathname !== "/firstlogin" &&
+        pathname !== "/profile-edit" &&
+        pathname !== "/survey" &&
+        pathname !== "/team-list" &&
+        pathname !== "/create-team" &&
+         (
+          <Route match path="/" component={MobileMenu} />
+        )}
 
       <Switch>
         <Route path="/firstlogin" component={StepStart} />
@@ -41,7 +46,7 @@ const PrivateViewCanvas = props => {
         <Route path="/team-view" component={TeamView} />
         <Route path="/team-list" component={TeamList} />
         <Route path="/invite" component={AddMember} />
-        <Route path="/createtm" component={CreateTMission} />
+        <Route path="/create-team" component={CreateTMission} />
         <Route path="/calendar" component={Calendar} />
         <Route path="/coming-soon" component={ComingSoon} />
         <Route path="/timer" component={TimerCanvas} />
