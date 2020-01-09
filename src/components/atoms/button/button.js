@@ -42,9 +42,9 @@ const Button = ({ callback = () => {}, ...props }) => {
     // type = "button"
   } = props;
 
-  // const handleClick = event => {
-  //   return callback(event);
-  // };
+  const handleClick = event => {
+    return callback(event);
+  };
 
   // const preventFocus = event => {
   //   event.preventDefault();
