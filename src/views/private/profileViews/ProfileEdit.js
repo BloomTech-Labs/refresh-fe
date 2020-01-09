@@ -240,7 +240,7 @@ const ProfileEdit = () => {
         position={"absolute"}
         left={6.2}
         top={61.4}
-        onClick={handleSubmit}
+        handleClick={() => handleSubmit}
         type="submit"
       >
         <Text
