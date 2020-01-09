@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import { UserMissionsContext } from "./UserMissionsContext";
+import { TeamContext } from "./TeamContext"
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
 import * as ctx from "../views/globalFunctions";
 const ContextRouter = ({
@@ -13,6 +14,7 @@ const ContextRouter = ({
 }) => {
   const [userMissions, setUserMissions] = useState([]);
   const [user, setUser] = useState();
+  const [team, setTeam] = useState();
 
   useEffect(() => {
     !user && localStorage.getItem("token") &&
@@ -31,7 +33,8 @@ const ContextRouter = ({
           
           setUser(res.data.user_profile);
           setUserMissions(mission_subscriptions);
-
+          setTeam(res.data.my_teams)
+   
         })
         .catch(err => {
           console.log(err);
@@ -44,7 +47,9 @@ const ContextRouter = ({
         return (
           <UserContext.Provider value={{...user, setUser }}>
             <UserMissionsContext.Provider value={{missions:userMissions,setUserMissions}}>
+             <TeamContext.Provider value={{...team,setTeam}} >
               {localStorage.getItem("token") ? <PrivateView {...props}/> : <PublicView />}
+              </TeamContext.Provider>
             </UserMissionsContext.Provider>
           </UserContext.Provider>
         );

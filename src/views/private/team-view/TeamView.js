@@ -10,6 +10,7 @@ import SwipeableViews from "react-swipeable-views";
 // contexts
 import { UserContext } from "../../../contexts/UserContext";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+import { TeamContext } from "../../../contexts/TeamContext";
 // helpers
 import { flex } from "../../../styles/global/Mixins";
 // components
@@ -18,13 +19,15 @@ import ImageDial from "./ImageDial";
 // images
 import waves from "../../../images/Onboarding/waves.svg";
 
+
 // COMPONENT
 const TeamView = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
+  const teamContext = useContext(TeamContext)
   const { missions } = userMissions;
-
+  console.log(teamContext)
   // state hooks
   const [feedSlide, setFeedSlide] = useState({
     // eslint-disable-line no-unused-vars
