@@ -23,7 +23,7 @@ const ContextRouter = ({
         .get(`/usermissions`)
         .then(res => {
           debug && console.log("[server response]", res);
-          
+
           let {
             mission_subscriptions,
             missions_in_progress
@@ -39,7 +39,6 @@ const ContextRouter = ({
           setUser({...res.data.user_profile,roleTitle});
           setUserMissions(mission_subscriptions);
           setTeam(res.data.my_teams[0])
-   
         })
         .catch(err => {
           console.log(err);

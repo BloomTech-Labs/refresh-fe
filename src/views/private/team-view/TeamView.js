@@ -1,6 +1,6 @@
 // IMPORTS
 // react
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 // router
 import { Link } from "react-router-dom";
 // styled components
@@ -19,15 +19,20 @@ import ImageDial from "./ImageDial";
 // images
 import waves from "../../../images/Onboarding/waves.svg";
 
-
 // COMPONENT
 const TeamView = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
-  const teamContext = useContext(TeamContext)
+  const teamContext = useContext(TeamContext);
   const { missions } = userMissions;
-  console.log(teamContext)
+
+  const [team, setTeam] = useState(false);
+
+  useEffect(() => {
+    teamContext.id && setTeam(true);
+  }, [teamContext]);
+
   // state hooks
   const [feedSlide, setFeedSlide] = useState({
     // eslint-disable-line no-unused-vars
@@ -146,8 +151,9 @@ const TeamView = props => {
       bio: "Web Development"
     }
   ];
-
-  return (
+  return !team ? (
+    <p>Loading</p>
+  ) : (
     <>
       <TVWrapper>
         <TVContainer>
@@ -216,21 +222,22 @@ const TeamView = props => {
               </Slide>
 
               <Slide style={{ ...feedSlide.slide, ...feedSlide.slide3 }}>
-                {teamContext.members && teamContext.members.map((member,i)=>{
-                return(<div className="feedStyling">
-                  <h2>
-                    {teamMembers[1].displayName}, {teamMembers[4].displayName}{" "}
-                    and {teamMembers[6].displayName}{" "}
-                    <span>completed their sleep goals for the day</span>
-                  </h2>
-                  <p>About three hours ago</p>
-                  <div>
-                    <FeedImg src={teamMembers[1].avatar} />
-                    <FeedImg src={teamMembers[4].avatar} />
-                    <FeedImg src={teamMembers[6].avatar} />
-                  </div>
-                </div>)
-                })}
+                
+                      <div className="feedStyling">
+                        <h2>
+                          {teamMembers[1].displayName},{" "}
+                          {teamMembers[4].displayName} and{" "}
+                          {teamMembers[6].displayName}{" "}
+                          <span>completed their sleep goals for the day</span>
+                        </h2>
+                        <p>About three hours ago</p>
+                        <div>
+                          <FeedImg src={teamMembers[1].avatar} />
+                          <FeedImg src={teamMembers[4].avatar} />
+                          <FeedImg src={teamMembers[6].avatar} />
+                        </div>
+                      </div>
+                 
               </Slide>
             </SwipeableViews>
           </TVSection>
