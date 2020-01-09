@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
@@ -169,9 +169,12 @@ const ProfileEdit = () => {
   if (!activeUser.roleTitle && roleTitle) {
     activeUser.setUser({ ...activeUser, roleTitle });
   }
+  // edit user profile
+  const handleSubmit = e => {
+    e.preventDefault();
+    alert("Clicked");
+  };
 
-  console.log({activeUser});
-  
   return (
     <>
       <EditContainer className="edit-container" />
@@ -197,6 +200,8 @@ const ProfileEdit = () => {
         width={31.1}
         placeholder={`  ${activeUser.display_name}`}
         color={"rgba(204, 201, 255, 0.4)"}
+        value={activeUser.display_name}
+        type={"text"}
       />
       <RoleText>ROLE</RoleText>
       {/* Need <select> */}
@@ -219,32 +224,32 @@ const ProfileEdit = () => {
       <DescriptionText>Description</DescriptionText>
       <Input
         className="description-field"
+        type={"text"}
         position={"absolute"}
         top={46.7}
         left={3.2}
         height={5.2}
         width={31.1}
         placeholder={`  ${activeUser.bio}`}
+        value={activeUser.bio}
       />
-
-      {/* Link to be replaced w/ submit logicno */}
-      <Link to="/dashboard">
-        <Button
-          backgroundColor={"#E05CB3"}
+      <Button
+        backgroundColor={"#E05CB3"}
+        fontSize={1.6}
+        letterSpacing={0.035}
+        position={"absolute"}
+        left={6.2}
+        top={61.4}
+        onClick={handleSubmit}
+        type="submit"
+      >
+        <Text
+          text={`Submit changes to profile`}
           fontSize={1.6}
           letterSpacing={0.035}
-          position={"absolute"}
-          left={6.2}
-          top={61.4}
-          // onClick={needsSubmitHandler}
-        >
-          <Text
-            text={`Submit changes to profile`}
-            fontSize={1.6}
-            letterSpacing={0.035}
-          />
-        </Button>
-      </Link>
+        />
+      </Button>
+
       <PendingContainer>
         <PendingText>PENDING</PendingText>
       </PendingContainer>

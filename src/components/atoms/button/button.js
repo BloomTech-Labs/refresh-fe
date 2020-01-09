@@ -7,6 +7,7 @@ import Colors from "../../../styles/global/colors";
 // Theme
 
 const Button = ({ callback = () => {}, ...props }) => {
+  
   const {
     href,
     actionBackground,
@@ -38,16 +39,16 @@ const Button = ({ callback = () => {}, ...props }) => {
     position,
     top,
     left,
-    type = "button"
+    // type = "button"
   } = props;
 
-  const handleClick = event => {
-    return callback(event);
-  };
+  // const handleClick = event => {
+  //   return callback(event);
+  // };
 
-  const preventFocus = event => {
-    event.preventDefault();
-  };
+  // const preventFocus = event => {
+  //   event.preventDefault();
+  // };
 
   const removeFocus = event => {
     // Defocus on escape
@@ -85,12 +86,12 @@ const Button = ({ callback = () => {}, ...props }) => {
       position={position}
       left={left}
       top={top}
-      type={type}
+      // type={type}
       width={width}
       cursor={cursor}
       href={href}
       letterSpacing={letterSpacing}
-      onMouseDown={preventFocus}
+      // onMouseDown={preventFocus}
       onKeyUp={removeFocus}
       onClick={handleClick}
     >
