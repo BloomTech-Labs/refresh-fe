@@ -28,11 +28,13 @@ const ContextRouter = ({
             missions_in_progress
           } = res.data.user_missions;
 
+          const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
+
           mission_subscriptions = Array.isArray(missions_in_progress)
             ? ctx.missionMasher(mission_subscriptions, missions_in_progress)
             : mission_subscriptions;
 
-          setUser(res.data.user_profile);
+          setUser({...res.data.user_profile,roleTitle});
           setUserMissions(mission_subscriptions);
           setTeam(res.data.my_teams[0])
    

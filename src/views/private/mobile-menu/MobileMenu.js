@@ -20,11 +20,6 @@ const MobileMenu = props => {
   // state hooks
   const activeUser = useContext(UserContext);
   const userRole = activeUser.user_roles;
-  const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
-
-  if (!activeUser.roleTitle && roleTitle) {
-    activeUser.setUser({ ...activeUser, roleTitle });
-  }
 
   const [menu, setMenu] = useState({
     status: "closed",
