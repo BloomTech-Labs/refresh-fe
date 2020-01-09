@@ -23,19 +23,22 @@ const ContextRouter = ({
         .get(`/usermissions`)
         .then(res => {
           debug && console.log("[server response]", res);
+
           let {
             mission_subscriptions,
             missions_in_progress
           } = res.data.user_missions;
 
+          const userRole = res.data.user_profile.user_roles;
+          const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
+
           mission_subscriptions = Array.isArray(missions_in_progress)
             ? ctx.missionMasher(mission_subscriptions, missions_in_progress)
             : mission_subscriptions;
-
-          setUser(res.data.user_profile);
+       
+          setUser({...res.data.user_profile,roleTitle});
           setUserMissions(mission_subscriptions);
-          setTeam(res.data.my_teams)
-   
+          setTeam(res.data.my_teams[0])
         })
         .catch(err => {
           console.log(err);
@@ -45,6 +48,7 @@ const ContextRouter = ({
     <Route
       {...rest}
       render={props => {
+        console.log('here')
         return (
           <UserContext.Provider value={{...user, setUser }}>
             <UserMissionsContext.Provider value={{missions:userMissions,setUserMissions}}>
