@@ -74,7 +74,7 @@ const CameraVector = styled.div`
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
 `;
 
-const NameText = styled.p`
+const NameText = styled.label`
   position: absolute;
   left: 3.2rem;
   top: 23.5rem;
@@ -87,7 +87,7 @@ const NameText = styled.p`
 
   color: #b8b7e1;
 `;
-const RoleText = styled.p`
+const RoleText = styled.label`
   position: absolute;
   left: 3.2rem;
   top: 33.8rem;
@@ -101,7 +101,7 @@ const RoleText = styled.p`
   color: #b8b7e1;
 `;
 
-const PendingText = styled.p`
+const PendingText = styled.label`
   position: absolute;
   left: 0.675rem;
   font-weight: bold;
@@ -172,7 +172,7 @@ const ProfileEdit = () => {
   // edit user profile
   const handleSubmit = e => {
     e.preventDefault();
-    alert("Clicked");
+    alert("add: useEffect to put to BE");
   };
 
   return (
@@ -190,6 +190,7 @@ const ProfileEdit = () => {
           <Icon svg={editImage} height={1.9} width={1.9} />
         </CameraVector>
       </ImageContainer>
+      <form onSubmit={handleSubmit}>
       <NameText>NAME</NameText>
       <Input
         className="name-field"
@@ -204,7 +205,9 @@ const ProfileEdit = () => {
         type={"text"}
       />
       <RoleText>ROLE</RoleText>
-      {/* Need <select> */}
+      <PendingContainer>
+        <PendingText>PENDING</PendingText>
+      </PendingContainer>
       <Select
         className="form-field"
         position={"absolute"}
@@ -249,10 +252,8 @@ const ProfileEdit = () => {
           letterSpacing={0.035}
         />
       </Button>
+</form>
 
-      <PendingContainer>
-        <PendingText>PENDING</PendingText>
-      </PendingContainer>
     </>
   );
 };

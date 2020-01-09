@@ -30,8 +30,7 @@ const PrivateViewCanvas = props => {
         pathname !== "/profile-edit" &&
         pathname !== "/survey" &&
         pathname !== "/team-list" &&
-        pathname !== "/create-team" &&
-         (
+        pathname !== "/create-team" && (
           <Route match path="/" component={MobileMenu} />
         )}
 
