@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 // swipeable views
 import SwipeableViews from "react-swipeable-views";
+import LoadingSpinner from '../../../components/atoms/spinner/spinner'
 // contexts
 import { UserContext } from "../../../contexts/UserContext";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
@@ -152,7 +153,7 @@ const TeamView = props => {
     }
   ];
   return !team ? (
-    <p>Loading</p>
+    <LoadingSpinner />
   ) : (
     <>
       <TVWrapper>
