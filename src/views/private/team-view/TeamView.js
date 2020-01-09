@@ -216,7 +216,8 @@ const TeamView = props => {
               </Slide>
 
               <Slide style={{ ...feedSlide.slide, ...feedSlide.slide3 }}>
-                <div className="feedStyling">
+                {teamContext.members && teamContext.members.map((member,i)=>{
+                return(<div className="feedStyling">
                   <h2>
                     {teamMembers[1].displayName}, {teamMembers[4].displayName}{" "}
                     and {teamMembers[6].displayName}{" "}
@@ -228,7 +229,8 @@ const TeamView = props => {
                     <FeedImg src={teamMembers[4].avatar} />
                     <FeedImg src={teamMembers[6].avatar} />
                   </div>
-                </div>
+                </div>)
+                })}
               </Slide>
             </SwipeableViews>
           </TVSection>

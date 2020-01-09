@@ -12,9 +12,9 @@ const ContextRouter = ({
   debug,
   ...rest
 }) => {
-  const [userMissions, setUserMissions] = useState([]);
-  const [user, setUser] = useState();
-  const [team, setTeam] = useState();
+  let [userMissions, setUserMissions] = useState([]);
+  let [user, setUser] = useState();
+  let [team, setTeam] = useState();
 
   useEffect(() => {
     !user &&
@@ -33,10 +33,11 @@ const ContextRouter = ({
           mission_subscriptions = Array.isArray(missions_in_progress)
             ? ctx.missionMasher(mission_subscriptions, missions_in_progress)
             : mission_subscriptions;
-
-          setUser({...res.data.user_profile,roleTitle});
-          setUserMissions(mission_subscriptions);
-          setTeam(res.data.my_teams[0])
+          
+          //Sets Default Context
+          user = {...res.data.user_profile,roleTitle}
+          userMissions = mission_subscriptions;
+          team = res.data.my_teams[0]
    
         })
         .catch(err => {
@@ -47,6 +48,7 @@ const ContextRouter = ({
     <Route
       {...rest}
       render={props => {
+        console.log('here')
         return (
           <UserContext.Provider value={{...user, setUser }}>
             <UserMissionsContext.Provider value={{missions:userMissions,setUserMissions}}>
