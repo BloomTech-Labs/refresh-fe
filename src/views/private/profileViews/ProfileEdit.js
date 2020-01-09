@@ -169,6 +169,9 @@ const ProfileEdit = () => {
   if (!activeUser.roleTitle && roleTitle) {
     activeUser.setUser({ ...activeUser, roleTitle });
   }
+
+  console.log({activeUser});
+  
   return (
     <>
       <EditContainer className="edit-container" />
@@ -205,8 +208,9 @@ const ProfileEdit = () => {
         height={5.2}
         width={31.1}
         color={"rgba(204, 201, 255, 0.4)"}
+        placeholder={`  ${activeUser.roleTitle}`}
       >
-        <option>Role</option>
+        <option>{activeUser.roleTitle}</option>
         <option>Student</option>
         <option>Team Lead</option>
         <option>Section Lead</option>

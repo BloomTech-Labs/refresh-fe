@@ -15,7 +15,8 @@ const ContextRouter = ({
   const [user, setUser] = useState();
 
   useEffect(() => {
-    !user && localStorage.getItem("token") &&
+    !user &&
+      localStorage.getItem("token") &&
       axiosWithAuth()
         .get(`/usermissions`)
         .then(res => {
@@ -28,10 +29,9 @@ const ContextRouter = ({
           mission_subscriptions = Array.isArray(missions_in_progress)
             ? ctx.missionMasher(mission_subscriptions, missions_in_progress)
             : mission_subscriptions;
-          
+
           setUser(res.data.user_profile);
           setUserMissions(mission_subscriptions);
-
         })
         .catch(err => {
           console.log(err);
@@ -40,11 +40,17 @@ const ContextRouter = ({
   return (
     <Route
       {...rest}
-      render={(props) => {
+      render={props => {
         return (
-          <UserContext.Provider value={{...user, setUser }}>
-            <UserMissionsContext.Provider value={{missions:userMissions,setUserMissions}}>
-              {localStorage.getItem("token") ? <PrivateView {...props}/> : <PublicView />}
+          <UserContext.Provider value={{ ...user, setUser }}>
+            <UserMissionsContext.Provider
+              value={{ missions: userMissions, setUserMissions }}
+            >
+              {localStorage.getItem("token") ? (
+                <PrivateView {...props} />
+              ) : (
+                <PublicView />
+              )}
             </UserMissionsContext.Provider>
           </UserContext.Provider>
         );
