@@ -19,7 +19,7 @@ const dummyUser = {
 const MobileMenu = props => {
   // state hooks
   const activeUser = useContext(UserContext);
-  const userRole = activeUser.user_roles;
+  
 
   const [menu, setMenu] = useState({
     status: "closed",

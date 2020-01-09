@@ -27,7 +27,7 @@ const ContextRouter = ({
             mission_subscriptions,
             missions_in_progress
           } = res.data.user_missions;
-
+          const userRole = res.data.user_profile.user_roles;
           const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
 
           mission_subscriptions = Array.isArray(missions_in_progress)
