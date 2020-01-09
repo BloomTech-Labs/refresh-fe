@@ -23,10 +23,12 @@ const ContextRouter = ({
         .get(`/usermissions`)
         .then(res => {
           debug && console.log("[server response]", res);
+          
           let {
             mission_subscriptions,
             missions_in_progress
           } = res.data.user_missions;
+
           const userRole = res.data.user_profile.user_roles;
           const roleTitle = userRole ? userRole[userRole.length - 1].role : "";
 
