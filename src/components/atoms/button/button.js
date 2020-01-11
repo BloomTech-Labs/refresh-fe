@@ -7,7 +7,6 @@ import Colors from "../../../styles/global/colors";
 // Theme
 
 const Button = ({ callback = () => {}, ...props }) => {
-  
   const {
     href,
     actionBackground,
@@ -38,11 +37,15 @@ const Button = ({ callback = () => {}, ...props }) => {
     letterSpacing,
     position,
     top,
-    left,
+    left
     // type = "button"
   } = props;
 
   const handleClick = event => {
+    return callback(event);
+  };
+
+  const handleChange = event => {
     return callback(event);
   };
 
@@ -94,6 +97,7 @@ const Button = ({ callback = () => {}, ...props }) => {
       // onMouseDown={preventFocus}
       onKeyUp={removeFocus}
       onClick={handleClick}
+      onChange={handleChange}
     >
       {props.children}
     </StyledButton>

@@ -1,7 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../contexts/UserContext";
 import styled from "styled-components";
+
+// helpers
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 
 // components
 import Icon from "../../../components/atoms/icon/icon";
@@ -9,6 +12,7 @@ import Input from "../../../components/atoms/input/input";
 import Button from "../../../components/atoms/button/button";
 import Text from "../../../components/atoms/text/text";
 import Select from "../../../components/atoms/select/select";
+import LoadingSpinner from "../../../components/atoms/spinner";
 
 // images
 import leftArrow from "../../../images/profile/leftArrow.svg";
@@ -160,7 +164,7 @@ const SubmitChangeText = styled.p`
   color: #e6e6e6;
 `;
 
-const ProfileEdit = () => {
+const ProfileEdit = props => {
   // user context
   const activeUser = useContext(UserContext);
   const userRole = activeUser.user_roles;
@@ -169,14 +173,37 @@ const ProfileEdit = () => {
   if (!activeUser.roleTitle && roleTitle) {
     activeUser.setUser({ ...activeUser, roleTitle });
   }
-  // edit user profile
-  const handleSubmit = e => {
-    e.preventDefault();
-    alert("add: useEffect to put to BE");
-  };
+  const [profileData, setProfileData] = useState({});
+  const [showLoading, setShowLoading] = useState(true);
 
+  console.log(profileData);
+  
+  const updateProfile = e => {
+    setShowLoading(true);
+    e.preventDefault();
+    const data = {
+      display_name: profileData.display_name,
+      bio: profileData.bio
+    };
+
+    axiosWithAuth()
+      .put("/profile", data)
+      .then(res => {
+        setShowLoading(false);
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  const onChange = e => {
+    e.persist();
+    setProfileData({ ...profileData, [e.target.name]: e.target.value });
+  };
   return (
     <>
+      {/* {showLoading && <LoadingSpinner role="status" />} */}
+
       <EditContainer className="edit-container" />
       <ArrowVector>
         <Link to="/dashboard">
@@ -190,70 +217,74 @@ const ProfileEdit = () => {
           <Icon svg={editImage} height={1.9} width={1.9} />
         </CameraVector>
       </ImageContainer>
-      <form onSubmit={handleSubmit}>
-      <NameText>NAME</NameText>
-      <Input
-        className="name-field"
-        position={"absolute"}
-        top={26.1}
-        left={3.2}
-        height={5.2}
-        width={31.1}
-        placeholder={`  ${activeUser.display_name}`}
-        color={"rgba(204, 201, 255, 0.4)"}
-        value={activeUser.display_name}
-        type={"text"}
-      />
-      <RoleText>ROLE</RoleText>
-      <PendingContainer>
-        <PendingText>PENDING</PendingText>
-      </PendingContainer>
-      <Select
-        className="form-field"
-        position={"absolute"}
-        top={36.4}
-        left={3.2}
-        height={5.2}
-        width={31.1}
-        color={"rgba(204, 201, 255, 0.4)"}
-        placeholder={`  ${activeUser.roleTitle}`}
-      >
-        <option>{activeUser.roleTitle}</option>
-        <option>Student</option>
-        <option>Team Lead</option>
-        <option>Section Lead</option>
-        <option>Admin</option>
-      </Select>
-      <DescriptionText>Description</DescriptionText>
-      <Input
-        className="description-field"
-        type={"text"}
-        position={"absolute"}
-        top={46.7}
-        left={3.2}
-        height={5.2}
-        width={31.1}
-        placeholder={`  ${activeUser.bio}`}
-        value={activeUser.bio}
-      />
-      <Button
-        backgroundColor={"#E05CB3"}
-        fontSize={1.6}
-        letterSpacing={0.035}
-        position={"absolute"}
-        left={6.2}
-        top={61.4}
-        handleClick={() => handleSubmit}
-        type="submit"
-      >
-        <Text
-          text={`Submit changes to profile`}
+      <form onSubmit={updateProfile}>
+        <NameText>NAME</NameText>
+        <Input
+          className="display_name"
+          id="display_name"
+          name="display_name"
+          position={"absolute"}
+          top={26.1}
+          left={3.2}
+          height={5.2}
+          width={31.1}
+          placeholder={`  ${activeUser.display_name}`}
+          color={"rgba(204, 201, 255, 0.4)"}
+          value={profileData.display_name}
+          type="text"
+          onChange={onChange}
+        />
+        <RoleText>ROLE</RoleText>
+        <PendingContainer>
+          <PendingText>PENDING</PendingText>
+        </PendingContainer>
+        <Select
+          className="role_title"
+          name="bio"
+          position={"absolute"}
+          top={36.4}
+          left={3.2}
+          height={5.2}
+          width={31.1}
+          color={"rgba(204, 201, 255, 0.4)"}
+          placeholder={`  ${activeUser.roleTitle}`}
+        >
+          <option>{activeUser.roleTitle}</option>
+          <option>Student</option>
+          <option>Team Lead</option>
+          <option>Section Lead</option>
+          <option>Admin</option>
+        </Select>
+        <DescriptionText>Description</DescriptionText>
+        <Input
+          className="bio"
+          type="text"
+          position={"absolute"}
+          top={46.7}
+          left={3.2}
+          height={5.2}
+          width={31.1}
+          placeholder={`  ${activeUser.bio}`}
+          value={profileData.bio}
+          onChange={onChange}
+        />
+        <Button
+          backgroundColor={"#E05CB3"}
           fontSize={1.6}
           letterSpacing={0.035}
-        />
-      </Button>
-</form>
-
+          position={"absolute"}
+          left={6.2}
+          top={61.4}
+          onSubmit={() => console.log(`form submitted`)}
+          type="submit"
+        >
+          <Text
+            text={`Submit changes to profile`}
+            fontSize={1.6}
+            letterSpacing={0.035}
+          />
+        </Button>
+      </form>
     </>
   );
 };
