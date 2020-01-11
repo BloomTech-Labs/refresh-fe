@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 // swipeable views
 import SwipeableViews from "react-swipeable-views";
-import LoadingSpinner from '../../../components/atoms/spinner/spinner'
+import LoadingSpinner from "../../../components/atoms/spinner/spinner";
 // contexts
 import { UserContext } from "../../../contexts/UserContext";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
@@ -28,14 +28,13 @@ const TeamView = props => {
   const teamContext = useContext(TeamContext);
   const { missions } = userMissions;
 
-  const [team, setTeam] = useState(false);
+  const [team, setTeam] = useState([]);
 
   useEffect(() => {
-    teamContext.id && setTeam(true);
+    setTeam(teamContext);
   }, [teamContext]);
 
-  // console.log(team);
-  
+  // console.log(`team`, team);
 
   // state hooks
   const [feedSlide, setFeedSlide] = useState({
@@ -175,8 +174,11 @@ const TeamView = props => {
           </User>
 
           <h1>
-            {UserContext.cohort || "Web 22 Maxine"} {UserContext.fname}
+            {activeUser.display_name}
           </h1>
+          <h3>
+            {team.team_name}
+          </h3>
 
           <TVSection>
             <SectionTitle>
@@ -226,22 +228,19 @@ const TeamView = props => {
               </Slide>
 
               <Slide style={{ ...feedSlide.slide, ...feedSlide.slide3 }}>
-                
-                      <div className="feedStyling">
-                        <h2>
-                          {teamMembers[1].displayName},{" "}
-                          {teamMembers[4].displayName} and{" "}
-                          {teamMembers[6].displayName}{" "}
-                          <span>completed their sleep goals for the day</span>
-                        </h2>
-                        <p>About three hours ago</p>
-                        <div>
-                          <FeedImg src={teamMembers[1].avatar} />
-                          <FeedImg src={teamMembers[4].avatar} />
-                          <FeedImg src={teamMembers[6].avatar} />
-                        </div>
-                      </div>
-                 
+                <div className="feedStyling">
+                  <h2>
+                    {teamMembers[1].displayName}, {teamMembers[4].displayName}{" "}
+                    and {teamMembers[6].displayName}{" "}
+                    <span>completed their sleep goals for the day</span>
+                  </h2>
+                  <p>About three hours ago</p>
+                  <div>
+                    <FeedImg src={teamMembers[1].avatar} />
+                    <FeedImg src={teamMembers[4].avatar} />
+                    <FeedImg src={teamMembers[6].avatar} />
+                  </div>
+                </div>
               </Slide>
             </SwipeableViews>
           </TVSection>
@@ -257,7 +256,10 @@ const TeamView = props => {
             <SwipeableViews>
               {missionSlide.slides.map((mission, i) => {
                 return (
-                  <Slide key={i++} style={{ ...missionSlide.slide, ...mission }}>
+                  <Slide
+                    key={i++}
+                    style={{ ...missionSlide.slide, ...mission }}
+                  >
                     <h2>{mission.title}</h2>
                     <span className="points">{mission.point_value} pts</span>
 
@@ -301,6 +303,15 @@ const TVContainer = styled.div`
     font-weight: bold;
     font-size: 2rem;
     letter-spacing: 0.25rem;
+  }
+  h3 {
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.25rem;
+    font-size: 1.4rem;
+text-decoration: overline white;
+padding: 1rem
+
   }
 `;
 
