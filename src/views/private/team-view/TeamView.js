@@ -34,6 +34,9 @@ const TeamView = props => {
     teamContext.id && setTeam(true);
   }, [teamContext]);
 
+  // console.log(team);
+  
+
   // state hooks
   const [feedSlide, setFeedSlide] = useState({
     // eslint-disable-line no-unused-vars
@@ -254,7 +257,7 @@ const TeamView = props => {
             <SwipeableViews>
               {missionSlide.slides.map((mission, i) => {
                 return (
-                  <Slide style={{ ...missionSlide.slide, ...mission }}>
+                  <Slide key={i++} style={{ ...missionSlide.slide, ...mission }}>
                     <h2>{mission.title}</h2>
                     <span className="points">{mission.point_value} pts</span>
 
