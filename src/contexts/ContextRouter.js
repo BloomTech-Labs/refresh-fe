@@ -14,7 +14,7 @@ const ContextRouter = ({
 }) => {
   const [userMissions, setUserMissions] = useState([]);
   const [user, setUser] = useState();
-  const [team, setTeam] = useState();
+  const [team, setTeam] = useState([]);
 
   useEffect(() => {
     !user &&
