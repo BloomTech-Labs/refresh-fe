@@ -28,8 +28,8 @@ const Pagination = () => {
     return (
         <>
         <PaginationWrapper>
-            {dummy.map(slide => {
-                return <Dot />
+            {dummy.map((slide, i) => {
+                return <Dot key={i++}/>
             })}
         </PaginationWrapper>
         </>
