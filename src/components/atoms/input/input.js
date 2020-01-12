@@ -25,12 +25,13 @@ const Input = ({ callback = () => {}, ...props }) => {
     actionBackground,
     position,
     left,
-    top
+    top,
+    onChange
   } = props;
   const updateValue = e => {
-    e.preventDefault();
     setValue(e.target.value);
-    //
+    //callsCallback
+    onChange && onChange(e)
     callback(node.current.value);
   };
   const removeFocus = event => {

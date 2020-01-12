@@ -48,7 +48,6 @@ const ContextRouter = ({
     <Route
       {...rest}
       render={props => {
-        console.log(props);
         return (
           <UserContext.Provider value={{ ...user, setUser }}>
             <UserMissionsContext.Provider
@@ -56,7 +55,7 @@ const ContextRouter = ({
             >
               <TeamContext.Provider value={{ ...team, setTeam }}>
                 {localStorage.getItem("token") ? (
-                  <PrivateView {...props} debug />
+                  <PrivateView {...props} />
                 ) : (
                   <PublicView />
                 )}

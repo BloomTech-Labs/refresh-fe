@@ -6,7 +6,7 @@ import ContextRouter from "./contexts/ContextRouter";
 
 const App = props => {
   return (
-    <ContextRouter debug
+    <ContextRouter 
       privateView={PrivateViewCanvas}
       publicView={PublicViewCanvas}
     />
