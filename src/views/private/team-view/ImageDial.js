@@ -60,13 +60,13 @@ const ImageDial = props => {
   return (
     <>
       {activeTeam.map(({ members }, i) => {
-        <ImgContainer key={i} className="image-container">
+        return (<ImgContainer key={i} className="image-container">
           <div className="team-members">
             {members.map((member, j) => (
               <p key={j++}>{member.display_name}</p>
             ))}
           </div>
-        </ImgContainer>;
+        </ImgContainer>)
       })}
     </>
   );
