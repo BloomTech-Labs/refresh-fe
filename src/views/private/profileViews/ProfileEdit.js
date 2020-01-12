@@ -176,8 +176,6 @@ const ProfileEdit = props => {
   const [profileData, setProfileData] = useState({});
   const [showLoading, setShowLoading] = useState(true);
 
-  console.log(profileData);
-  
   const updateProfile = e => {
     setShowLoading(true);
     e.preventDefault();
@@ -197,7 +195,7 @@ const ProfileEdit = props => {
       });
   };
   const onChange = e => {
-    e.persist();
+    console.log('e',e.target.value)
     setProfileData({ ...profileData, [e.target.name]: e.target.value });
   };
   return (
@@ -258,6 +256,7 @@ const ProfileEdit = props => {
         <DescriptionText>Description</DescriptionText>
         <Input
           className="bio"
+          name="bio"
           type="text"
           position={"absolute"}
           top={46.7}
