@@ -1,6 +1,8 @@
 //IMPORTS
 //react
-import React, { useState, useEffect } from "react"; // eslint-disable-line no-unused-vars
+import React, { useState, useEffect, useContext } from "react"; // eslint-disable-line no-unused-vars
+// contexts
+import { TeamContext } from "../../../contexts/TeamContext";
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -17,6 +19,10 @@ import {
 import "@sandstreamdev/react-swipeable-list/dist/styles.css";
 
 const TeamList = props => {
+  const activeTeam = useContext(TeamContext);
+  const teamMembers = {activeTeam}
+console.log(`teamMembers|TeamList:`, teamMembers);
+
   //route
   const routeToTLView = e => {
     e.preventDefault();
@@ -33,87 +39,19 @@ const TeamList = props => {
     action: () => console.log("swiped!")
   });
 
-//prop for reusable card
+  //prop for reusable card
   const TeamCardSwipe = i => (
     <TMCard>
       <TMAvatar className="avatarpic" src={teamMembers[i].avatar} />
       <TMInfo>
-        <TMName>{teamMembers[i].displayName}</TMName>
+        <TMName>{teamMembers[i].display_name}</TMName>
         <TMBio>{teamMembers[i].bio}</TMBio>
       </TMInfo>
     </TMCard>
   );
 
-  //axios call
-  useEffect(() => {
-    axiosWithAuth()
-      .get("/teams")
-      .then(res => {
-        props.debug && console.log("teams:", res.data);
-      })
-      .catch(err => {
-        props.debug && console.log(err);
-      });
-  }, []);
-
-  let teamMembers = [
-    {
-      displayName: "Serenity Webb",
-      avatar:
-        "https://images.unsplash.com/photo-1495516372021-9c815fa7e668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Wade Fisher",
-      avatar:
-        "https://images.unsplash.com/photo-1429117257281-73c32df3dcdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Juanita Fox",
-      avatar:
-        "https://images.unsplash.com/photo-1494788185066-84d048a0115a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Albert Cooper",
-      avatar:
-        "https://images.unsplash.com/photo-1461783436728-0a9217714694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Debra Williamson",
-      avatar:
-        "https://images.unsplash.com/photo-1524154217857-45f012d0f167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Nathan Alexander",
-      avatar:
-        "https://images.unsplash.com/photo-1477954417131-efc62c1b25cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Glenn Ramirez",
-      avatar:
-        "https://images.unsplash.com/photo-1542643917516-fc8735e55612?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Brandon Howard",
-      avatar:
-        "https://images.unsplash.com/photo-1490631537525-3b00d26805f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    }
-  ];
   
+
   const teamListScroll = (unit, range) => {
     let items = [];
     for (let i = 0; i < range; i++) {
@@ -251,7 +189,7 @@ const SectionBreak = styled.div`
 `;
 
 const IconLogo = styled.div`
-  background-color: #FC5454;
+  background-color: #fc5454;
   color: white;
   display: flex;
   align-items: center;
