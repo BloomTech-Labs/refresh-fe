@@ -188,7 +188,8 @@ const ProfileEdit = props => {
       .put("/profile", data)
       .then(res => {
         setShowLoading(false);
-        console.log(res.data);
+        console.log(res.data)
+        activeUser.setUser({...activeUser,...res.data.user_profile})
       })
       .catch(err => {
         console.error(err);
