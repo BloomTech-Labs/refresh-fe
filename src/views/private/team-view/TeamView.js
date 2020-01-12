@@ -173,12 +173,8 @@ const TeamView = props => {
             </Link>
           </User>
 
-          <h1>
-            {activeUser.display_name}
-          </h1>
-          <h3>
-            {team.team_name}
-          </h3>
+          <h1>{activeUser.display_name}</h1>
+          <h3>{team.team_name}</h3>
 
           <TVSection>
             <SectionTitle>
@@ -309,9 +305,8 @@ const TVContainer = styled.div`
     color: #fff;
     letter-spacing: 0.25rem;
     font-size: 1.4rem;
-text-decoration: overline white;
-padding: 1rem
-
+    text-decoration: overline white;
+    padding: 1rem;
   }
 `;
 
