@@ -54,9 +54,10 @@ const ImageDial = props => {
         {/* {sliderScale(1, teamMembers.length).map((x, i) => (
           <DialStuff key={i}>{x}</DialStuff>
         ))} */}
-        {/* {activeTeam.members.map(member => {
-          return <p key={member.user_id}>{member.display_name}</p>;
-        })} */}
+        {/* {!activeTeam.members.length < 1 &&
+          activeTeam.members.map((member, i) => {
+            return <p key={i++}>{member.display_name}</p>;
+          })} */}
       </ImgContainer>
     </>
   );
