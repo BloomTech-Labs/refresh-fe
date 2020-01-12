@@ -62,7 +62,7 @@ const ImageDial = props => {
        <ImgContainer className="image-container">
           <div className="team-members">
             {activeTeam.members && activeTeam.members.map((member, j) => (
-              <p key={j++}>{member.display_name}</p>
+              <p key={j++}>{member.avatar}</p>
             ))}
           </div>
         </ImgContainer>
