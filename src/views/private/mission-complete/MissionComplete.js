@@ -12,7 +12,7 @@ import MissionCard from "./MissionCard";
 import MissionInput from "./MissionInput";
 import Congrats from "./CongratsComplete";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
-import { missionMasher } from "../../globalFunctions";
+import * as ctx from "../../globalFunctions";
 // images
 import waves from "../../../images/Onboarding/waves.svg"
 
@@ -67,14 +67,14 @@ const MissionComplete = props => {
 
   const submitMissionTracker = e => {
     axiosWithAuth()
-      .post("/answers", missionTracker)
+      .post(`/answers/${ctx.tzQuery}`, missionTracker)
       .then(res => {
         const {
           mission_subscriptions,
           missions_in_progress
         } = res.data.user_missions;
         userMissions.setUserMissions(
-          missionMasher(mission_subscriptions, missions_in_progress)
+          ctx.missionMasher(mission_subscriptions, missions_in_progress)
         );
       })
       .catch(err => {

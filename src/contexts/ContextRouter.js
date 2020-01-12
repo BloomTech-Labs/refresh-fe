@@ -18,15 +18,12 @@ const ContextRouter = ({
   const [team, setTeam] = useState([]);
 
   useEffect(() => {
-    const start = moment().startOf('day').format()
-    const end = moment().endOf('day').format()
-    console.log(start,end)
     !user &&
       localStorage.getItem("token") &&
       axiosWithAuth()
-        .get(`/usermissions/?start=${start}&end=${end}`)
+        .get(`/usermissions/${ctx.tzQuery}`)
         .then(res => {
-          console.log("[server response]", res);
+          debug && console.log("[server response]", res);
 
           let {
             mission_subscriptions,
@@ -40,6 +37,8 @@ const ContextRouter = ({
             ? ctx.missionMasher(mission_subscriptions, missions_in_progress)
             : mission_subscriptions;
 
+          // Causes 3 renders as it travels down the Component Tree
+          // Consider using a global contex and passing in vars
           setUser({ ...res.data.user_profile, roleTitle });
           setUserMissions(mission_subscriptions);
           setTeam(res.data.my_teams[0]);
