@@ -1,11 +1,12 @@
 //IMPORTS
 //react
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
+import SwipeableViews from "react-swipeable-views";
+import { bindKeyboard } from "react-swipeable-views-utils";
 // contexts
 import { TeamContext } from "../../../contexts/TeamContext";
 //styled components
 import styled from "styled-components";
-// import axios from "axios";
 
 const ImageDial = props => {
   const activeTeam = useContext(TeamContext);
@@ -15,57 +16,44 @@ const ImageDial = props => {
 
   const [thumb, setThumb] = useState();
 
-  // console.log(teamMembers());
-  // [""0""].user_id
-  // useEffect(()=>{
-  //     axios.get("https://dog.ceo/api/breed/husky/images")
-  //     .then(res =>{
-  //         props.debug && console.log(res.data.message[0]);
-  //         setThumb(res.data.message)
-  //     })
-  // }, [])
   //handle change to store selected tick
   const handleChanges = e => {
     props.debug && console.log(e);
   };
 
-  //Scale of numbers
-  // const sliderScale = (unit, range) => {
-  //   let items = [];
-  //   for (let i = 0; i < range; i++) {
-  //     items.push(
-  //       <>
-  //         <div className="bigtick tick">
-  //           <img src={teamMembers[i].avatar} />
-  //         </div>
-  //       </>
-  //     );
-  //   }
-  //   return items;
-  // };
-
   //handle scroll for ticks
   const handleScroll = e => {};
-
-  //   <ImgContainer onScroll={handleScroll}>
-  //   {/* {sliderScale(1, teamMembers.length).map((x, i) => (
-  //     <DialStuff key={i}>{x}</DialStuff>
-  //   ))} */}
-  //   {activeTeam.members.map((member, i) => {
-  //     return <p key={i++}>{member.display_name}</p>;
-  //   })}
-  // </ImgContainer>
-
-  //render
+  // slide styles
+  const styles = {
+    root: {
+      marginTop: 0
+    },
+    slideContainer: {
+      width: "5rem",
+      marginRight: "1rem",
+      marginTop: 0
+    },
+    slide: {
+      marginTop: 0
+    }
+  };
+  const BindKeyboardSwipeableViews = bindKeyboard(SwipeableViews);
   return (
     <>
-       <ImgContainer className="image-container">
-          <div className="team-members">
-            {activeTeam.members && activeTeam.members.map((member, j) => (
-              <p key={j++}>{member.avatar}</p>
-            ))}
-          </div>
-        </ImgContainer>
+      <ImgContainer className="image-container">
+        <div className="team-members bigtick">
+          <BindKeyboardSwipeableViews
+            className="swipeable-views"
+            style={styles.root}
+            slideStyle={styles.slideContainer}
+          >
+            {activeTeam.members &&
+              activeTeam.members.map((member, j) => (
+                <img key={j++} src={member.avatar}></img>
+              ))}
+          </BindKeyboardSwipeableViews>
+        </div>
+      </ImgContainer>
     </>
   );
 };
@@ -86,9 +74,7 @@ const ImgContainer = styled.div`
 
   .bigtick {
     display: flex;
-    flex-direction: column;
-    margin-left: 1rem;
-
+    flex-direction: row;
     img {
       max-width: 100%;
       width: 5rem;
