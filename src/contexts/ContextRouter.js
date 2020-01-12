@@ -5,6 +5,7 @@ import { UserMissionsContext } from "./UserMissionsContext";
 import { TeamContext } from "./TeamContext";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
 import * as ctx from "../views/globalFunctions";
+import moment from 'moment'
 const ContextRouter = ({
   privateView: PrivateView,
   publicView: PublicView,
@@ -17,12 +18,15 @@ const ContextRouter = ({
   const [team, setTeam] = useState([]);
 
   useEffect(() => {
+    const start = moment().startOf('day').format()
+    const end = moment().endOf('day').format()
+    console.log(start,end)
     !user &&
       localStorage.getItem("token") &&
       axiosWithAuth()
-        .get(`/usermissions`)
+        .get(`/usermissions/?start=${start}&end=${end}`)
         .then(res => {
-          debug && console.log("[server response]", res);
+          console.log("[server response]", res);
 
           let {
             mission_subscriptions,
