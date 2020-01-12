@@ -47,18 +47,27 @@ const ImageDial = props => {
   //handle scroll for ticks
   const handleScroll = e => {};
 
+  //   <ImgContainer onScroll={handleScroll}>
+  //   {/* {sliderScale(1, teamMembers.length).map((x, i) => (
+  //     <DialStuff key={i}>{x}</DialStuff>
+  //   ))} */}
+  //   {activeTeam.members.map((member, i) => {
+  //     return <p key={i++}>{member.display_name}</p>;
+  //   })}
+  // </ImgContainer>
+
   //render
   return (
     <>
-      <ImgContainer onScroll={handleScroll}>
-        {/* {sliderScale(1, teamMembers.length).map((x, i) => (
-          <DialStuff key={i}>{x}</DialStuff>
-        ))} */}
-        {/* {!activeTeam.members.length < 1 &&
-          activeTeam.members.map((member, i) => {
-            return <p key={i++}>{member.display_name}</p>;
-          })} */}
-      </ImgContainer>
+      {activeTeam.map(({ members }, i) => {
+        <ImgContainer key={i} className="image-container">
+          <div className="team-members">
+            {members.map((member, j) => (
+              <p key={j++}>{member.display_name}</p>
+            ))}
+          </div>
+        </ImgContainer>;
+      })}
     </>
   );
 };
