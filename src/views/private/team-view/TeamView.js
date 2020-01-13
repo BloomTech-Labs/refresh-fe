@@ -25,16 +25,17 @@ const TeamView = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
-  const teamContext = useContext(TeamContext);
+  const activeTeam = useContext(TeamContext);
   const { missions } = userMissions;
+  const teamMembers = activeTeam.members;
 
   const [team, setTeam] = useState([]);
 
   useEffect(() => {
-    setTeam(teamContext);
-  }, [teamContext]);
+    setTeam(teamMembers);
+  }, [teamMembers]);
 
-  // console.log(`team`, team);
+  // console.log({teamMembers[2].display_name});
 
   // state hooks
   const [feedSlide, setFeedSlide] = useState({
@@ -97,64 +98,7 @@ const TeamView = props => {
     ]
   });
 
-  let teamMembers = [
-    {
-      displayName: "Serenity",
-      avatar:
-        "https://images.unsplash.com/photo-1495516372021-9c815fa7e668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Wade",
-      avatar:
-        "https://images.unsplash.com/photo-1429117257281-73c32df3dcdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Juanita",
-      avatar:
-        "https://images.unsplash.com/photo-1494788185066-84d048a0115a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Albert",
-      avatar:
-        "https://images.unsplash.com/photo-1461783436728-0a9217714694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Debra",
-      avatar:
-        "https://images.unsplash.com/photo-1524154217857-45f012d0f167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Nathan",
-      avatar:
-        "https://images.unsplash.com/photo-1477954417131-efc62c1b25cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Glenn",
-      avatar:
-        "https://images.unsplash.com/photo-1542643917516-fc8735e55612?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    },
-
-    {
-      displayName: "Brandon",
-      avatar:
-        "https://images.unsplash.com/photo-1490631537525-3b00d26805f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development"
-    }
-  ];
-  return !team ? (
+  return !teamMembers ? (
     <LoadingSpinner />
   ) : (
     <>
@@ -174,7 +118,7 @@ const TeamView = props => {
           </User>
 
           <h1>{activeUser.display_name}</h1>
-          <h3>{team.team_name}</h3>
+          <h3>{activeTeam.team_name}</h3>
 
           <TVSection>
             <SectionTitle>
@@ -194,8 +138,8 @@ const TeamView = props => {
               <Slide style={{ ...feedSlide.slide, ...feedSlide.slide1 }}>
                 <div className="feedStyling">
                   <h2>
-                    {teamMembers[2].displayName}, {teamMembers[4].displayName}{" "}
-                    and {teamMembers[5].displayName}{" "}
+                    {teamMembers[2].display_name}, {teamMembers[4].display_name}{" "}
+                    and {teamMembers[5].display_name}{" "}
                     <span>completed their water goals for the day</span>
                   </h2>
                   <p>About ten minutes ago</p>
@@ -210,15 +154,15 @@ const TeamView = props => {
               <Slide style={{ ...feedSlide.slide, ...feedSlide.slide2 }}>
                 <div className="feedStyling">
                   <h2>
-                    {teamMembers[3].displayName}, {teamMembers[6].displayName}{" "}
-                    and {teamMembers[7].displayName}{" "}
+                  {teamMembers[3].display_name}, {teamMembers[2].display_name}{" "}
+                    and {teamMembers[2].display_name}{" "}
                     <span>completed their activity goals for the day</span>
                   </h2>
                   <p>About one hour ago</p>
                   <div>
                     <FeedImg src={teamMembers[3].avatar} />
-                    <FeedImg src={teamMembers[6].avatar} />
-                    <FeedImg src={teamMembers[7].avatar} />
+                    <FeedImg src={teamMembers[2].avatar} />
+                    <FeedImg src={teamMembers[4].avatar} />
                   </div>
                 </div>
               </Slide>
@@ -226,15 +170,15 @@ const TeamView = props => {
               <Slide style={{ ...feedSlide.slide, ...feedSlide.slide3 }}>
                 <div className="feedStyling">
                   <h2>
-                    {teamMembers[1].displayName}, {teamMembers[4].displayName}{" "}
-                    and {teamMembers[6].displayName}{" "}
+                    {teamMembers[1].display_name}, {teamMembers[4].display_name}{" "}
+                    and {teamMembers[5].display_name}{" "}
                     <span>completed their sleep goals for the day</span>
                   </h2>
                   <p>About three hours ago</p>
                   <div>
                     <FeedImg src={teamMembers[1].avatar} />
                     <FeedImg src={teamMembers[4].avatar} />
-                    <FeedImg src={teamMembers[6].avatar} />
+                    <FeedImg src={teamMembers[5].avatar} />
                   </div>
                 </div>
               </Slide>
