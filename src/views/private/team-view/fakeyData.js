@@ -1,4 +1,11 @@
 const seedTeam = {
+  0: {
+    display_name: "McFacey",
+    avatar:
+      "https://res.cloudinary.com/thinkmode/image/upload/v1578593341/spongebob_rainbow_meme_video_16x9.0_qwjtjl.jpg",
+    bio: "Be frands yeeeeeet",
+    user_id: 2
+  },
   1: {
     display_name: "Bob",
     avatar:

@@ -17,11 +17,14 @@ import {
   SwipeableListItem
 } from "@sandstreamdev/react-swipeable-list";
 import "@sandstreamdev/react-swipeable-list/dist/styles.css";
+// components
+import { TeamCard } from "./TeamCard";
+import { TLCard } from "./TeamCard";
 
 const TeamList = props => {
   const activeTeam = useContext(TeamContext);
-  const teamMembers = {activeTeam}
-console.log(`teamMembers|TeamList:`, teamMembers);
+  const teamMembers = activeTeam.members;
+  // console.log(`teamMembers`, teamMembers);
 
   //route
   const routeToTLView = e => {
@@ -39,62 +42,62 @@ console.log(`teamMembers|TeamList:`, teamMembers);
     action: () => console.log("swiped!")
   });
 
-  //prop for reusable card
-  const TeamCardSwipe = i => (
-    <TMCard>
-      <TMAvatar className="avatarpic" src={teamMembers[i].avatar} />
-      <TMInfo>
-        <TMName>{teamMembers[i].display_name}</TMName>
-        <TMBio>{teamMembers[i].bio}</TMBio>
-      </TMInfo>
-    </TMCard>
-  );
-
-  
-
-  const teamListScroll = (unit, range) => {
-    let items = [];
-    for (let i = 0; i < range; i++) {
-      {
-        items.push(
-          <SwipeHolder>
-            <SwipeableList threshold={0.25}>
-              <SwipeableListItem
-                swipeLeft={swipeLeftIcon("Circle logo eventually")}
-              >
-                {TeamCardSwipe(i)}
-              </SwipeableListItem>
-            </SwipeableList>
-          </SwipeHolder>
-        );
-      }
-    }
-    return items;
+  const teamListScroll = () => {
+    return (
+      <>
+        <SwipeHolder className="swipeHolder">
+          {teamMembers.map(member => {
+            {
+              /* console.log(activeTeam.team_lead_id); */
+            }
+            if (activeTeam.team_lead_id !== member.user_id)
+              return (
+                <SwipeableListItem key={member.user_id} member={member}>
+                  <SwipeableList threshold={0.25}>
+                    <SwipeableListItem
+                      swipeLeft={swipeLeftIcon("Circle logo eventually")}
+                    >
+                      <TeamCard
+                        display_name={member.display_name}
+                        bio={member.bio}
+                        avatar={member.avatar}
+                      />
+                    </SwipeableListItem>
+                  </SwipeableList>
+                </SwipeableListItem>
+              );
+          })}
+        </SwipeHolder>
+      </>
+    );
   };
   const handleScroll = e => {};
 
   return (
     <TVContainer>
       <ButtonNoColor onClick={routeToTLView}>&lt;</ButtonNoColor>
-      <Header>Web 22 Maxine</Header>
-      <CardTitle>Team Lead</CardTitle>
-      <TMCard>
-        <TMAvatar
-          src={
-            "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"
-          }
-        />
-        <TMInfo>
-          <TMName>Maxine Woods</TMName>
-          <TMBio>Web Development</TMBio>
-        </TMInfo>
-      </TMCard>
+      <Header>team {activeTeam.team_name}</Header>
+      {activeTeam.members &&
+        teamMembers.map((member, i) => {
+          if (activeTeam.team_lead_id === member.user_id)
+          return (
+            <TLCard
+              key={i}
+              display_name={member.display_name}
+              bio={member.bio}
+              avatar={member.avatar}
+            />
+          );
+        })}
       <SectionBreak />
       <CardTitle className="team-title">Team</CardTitle>
       <ImgContainer onScroll={handleScroll}>
-        {teamListScroll(1, teamMembers.length).map((x, i) => (
-          <DialStuff key={i}>{x}</DialStuff>
-        ))}
+        {activeTeam.members &&
+          activeTeam.members.map((member, i) => (
+            <DialStuff key={i} member={member}>
+              {teamListScroll()}
+            </DialStuff>
+          ))}
       </ImgContainer>
     </TVContainer>
   );
@@ -135,6 +138,8 @@ const Header = styled.h1`
   margin-bottom: 1rem;
   letter-spacing: 3.5px;
   color: #ffffff;
+  font-variant: small-caps;
+  border-bottom: 1px solid white;
 `;
 
 const CardTitle = styled.p`
@@ -145,41 +150,6 @@ const CardTitle = styled.p`
   letter-spacing: 2px;
   color: #b8b7e1;
   align-self: flex-start;
-`;
-const TMCard = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background: #3d3b91;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
-  border-radius: 3px;
-  margin-bottom: 2%;
-  min-height: 7rem;
-`;
-
-const TMName = styled.p`
-  font-size: small;
-  color: #e6e6e6;
-  letter-spacing: 0.04em;
-`;
-
-const TMAvatar = styled.img`
-  max-width: 100%;
-  width: 5rem;
-  max-height: 100%;
-  height: 5rem;
-  border-radius: 50%;
-`;
-
-const TMBio = styled.p`
-  font-size: x-small;
-  color: #e6e6e6;
-  letter-spacing: 0.04em;
-`;
-
-const TMInfo = styled.div`
-  flex-basis: 70%;
 `;
 
 const SectionBreak = styled.div`

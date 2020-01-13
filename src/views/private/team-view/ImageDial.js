@@ -8,7 +8,7 @@ import { TeamContext } from "../../../contexts/TeamContext";
 //styled components
 import styled from "styled-components";
 
-const ImageDial = props => {
+const ImageDial = (props, children) => {
   const activeTeam = useContext(TeamContext);
   // const {teamData} = teamContext;
 
@@ -30,6 +30,7 @@ const ImageDial = props => {
     },
     slideContainer: {
       width: "5rem",
+      height: "5rem",
       marginRight: "1rem",
       marginTop: 0
     },
