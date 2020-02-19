@@ -2,7 +2,7 @@
 //react
 import React, { useState, useEffect, useContext } from "react"; // eslint-disable-line no-unused-vars
 // router
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -14,6 +14,7 @@ import waves from "../../../images/Onboarding/waves.svg";
 // contexts
 import { UserContext } from "../../../contexts/UserContext";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+import { TeamContext } from "../../../contexts/TeamContext";
 //atoms
 import LoadingSpinner from "../../../components/atoms/spinner/spinner"; // eslint-disable-line no-unused-vars
 //swipeable
@@ -23,32 +24,39 @@ import {
 } from "@sandstreamdev/react-swipeable-list";
 import "@sandstreamdev/react-swipeable-list/dist/styles.css";
 
-  //styled color picker
-  const colorPicker = (rank, displayName) =>{
-    if(displayName === "Serenity Webb"){
-      return 'transparent';
-    }
-    else if(rank < 4){
-      return '#E05CB3'
-    }
-    else{
-      return '#fff'
-    }
+//styled color picker
+const colorPicker = (rank, displayName) => {
+  if (displayName === "Serenity Webb") {
+    return "transparent";
+  } else if (rank < 4) {
+    return "#E05CB3";
+  } else {
+    return "#fff";
   }
+};
 
 const TeamList = props => {
-     // contexts
+  // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
+  const activeTeam = useContext(TeamContext);
   const { missions } = userMissions;
-    
+  const { members } = activeTeam;
+
+  const [team, setTeam] = useState([]);
+
+  useEffect(() => {
+    if (!activeTeam) {
+      return <LoadingSpinner />;
+    }
+    setTeam({ members });
+  }, [activeTeam]);
+
   //route
   const routeToTLView = e => {
     e.preventDefault();
     props.history.push("/team-view");
   };
-
-
 
   //swipe left data
   const swipeLeftIcon = name => ({
@@ -62,99 +70,21 @@ const TeamList = props => {
 
   const TeamCardSwipe = i => (
     <TMCard>
-    <Rank rank={teamMembers[i].id} displayName={teamMembers[i].displayName}><div>{teamMembers[i].id}</div></Rank>
-      <TMAvatar className="avatarpic" src={teamMembers[i].avatar} />
+      <Rank rank={team[i].id} displayName={team[i].display_name}>
+        <div>{team[i].id}</div>
+      </Rank>
+      <TMAvatar className="avatarpic" src={team[i].avatar} />
       <TMInfo>
-        <TMName>{teamMembers[i].displayName}</TMName>
-        <TMBio>{teamMembers[i].bio}</TMBio>
+        <TMName>{team[i].display_name}</TMName>
+        <TMBio>{team[i].bio}</TMBio>
       </TMInfo>
-  <Points>{teamMembers[i].points}<br /> <span>Points</span></Points>
+      <Points>
+        {team[i].points}
+        <br /> <span>Points</span>
+      </Points>
     </TMCard>
   );
-  useEffect(() => {
-    axiosWithAuth()
-      .get("/teams")
-      .then(res => {
-        props.debug && console.log("teams:", res.data);
-      })
-      .catch(err => {
-        props.debug && console.log(err);
-      });
-  }, []);
 
-  let teamMembers = [
-    {
-      displayName: "Serenity Webb",
-      avatar:
-        "https://images.unsplash.com/photo-1495516372021-9c815fa7e668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development",
-      points: 999,
-      id: <i className="fas fa-crown"></i>
-    },
-
-    {
-      displayName: "Wade Fisher",
-      avatar:
-        "https://images.unsplash.com/photo-1429117257281-73c32df3dcdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development",
-      points: 888,
-      id: 2
-    },
-
-    {
-      displayName: "Juanita Fox",
-      avatar:
-        "https://images.unsplash.com/photo-1494788185066-84d048a0115a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development",
-      points: 777,
-      id: 3
-    },
-
-    {
-      displayName: "Albert Cooper",
-      avatar:
-        "https://images.unsplash.com/photo-1461783436728-0a9217714694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development",
-      points: 666,
-      id: 4
-    },
-
-    {
-      displayName: "Debra Williamson",
-      avatar:
-        "https://images.unsplash.com/photo-1524154217857-45f012d0f167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development",
-      points: 555,
-      id: 5
-    },
-
-    {
-      displayName: "Nathan Alexander",
-      avatar:
-        "https://images.unsplash.com/photo-1477954417131-efc62c1b25cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development",
-      points: 444,
-      id: 6
-    },
-
-    {
-      displayName: "Glenn Ramirez",
-      avatar:
-        "https://images.unsplash.com/photo-1542643917516-fc8735e55612?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development",
-      points: 333,
-      id: 7
-    },
-
-    {
-      displayName: "Brandon Howard",
-      avatar:
-        "https://images.unsplash.com/photo-1490631537525-3b00d26805f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-      bio: "Web Development",
-      points: 222,
-      id: 8
-    }
-  ];
   const teamListScroll = (unit, range) => {
     let items = [];
     for (let i = 0; i < range; i++) {
@@ -176,24 +106,33 @@ const TeamList = props => {
   };
   const handleScroll = e => {};
 
+  // 'a["b-a"][0]')
+
+  const peeps = Object.values(activeTeam)[4];
+  console.log(peeps);
+  const peepsmapped = peeps.map(peep => {
+    return peep;
+  });
+  console.log(Object.entries(peepsmapped));
+
   return (
     <TVContainer>
       {/* <ButtonNoColor onClick={routeToTLView}>&lt;</ButtonNoColor> */}
       <User>
-              <Link to="/coming-soon">
-                <i className="fas fa-bell"></i>
-              </Link>
-              <Link to="/profile-overview">
-                <Avatar>
-                  {activeUser.avatar && (
-                    <img src={activeUser.avatar} alt="User avatar" />
-                  )}
-                </Avatar>
-              </Link>
-            </User>
+        <Link to="/coming-soon">
+          <i className="fas fa-bell"></i>
+        </Link>
+        <Link to="/profile-overview">
+          <Avatar>
+            {activeUser.avatar && (
+              <img src={activeUser.avatar} alt="User avatar" />
+            )}
+          </Avatar>
+        </Link>
+      </User>
       <Header>Leaderboard</Header>
       <ImgContainer onScroll={handleScroll}>
-        {teamListScroll(1, teamMembers.length).map((x, i) => (
+        {teamListScroll(1, team.length).map((x, i) => (
           <DialStuff key={i}>{x}</DialStuff>
         ))}
       </ImgContainer>
@@ -293,7 +232,7 @@ const SectionBreak = styled.div`
 `;
 
 const IconLogo = styled.div`
-  background-color: #FC5454;
+  background-color: #fc5454;
   color: white;
   display: flex;
   align-items: center;
@@ -349,7 +288,7 @@ const Rank = styled.div`
     width: 2.5rem;
     height: 2.5rem;
     background-color: ${props => colorPicker(props.rank, props.displayName)}
-    color: ${props => props.rank <= 3 ? '#FFF' : '#E05CB3'};
+    color: ${props => (props.rank <= 3 ? "#FFF" : "#E05CB3")};
     border-radius: 100px;
     font-size: 1.5rem;
     display: flex;
@@ -357,18 +296,18 @@ const Rank = styled.div`
     justify-content: center;
     align-items: center;
     }
-`
-  
+`;
+
 const Points = styled.div`
   margin: 1rem;
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
   font-size: 1.5rem;
 
   span {
-      font-weight: normal;
+    font-weight: normal;
   }
-`
+`;
 
 const User = styled.div`
   width: 10rem;
