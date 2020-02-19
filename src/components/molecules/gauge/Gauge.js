@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ProgressLayer } from "./Progress";
 const LiveGauge = ({ ...props }) => {
+
   const { actual, goal, vertical } = props;
   const [progress, setProgress] = useState({});
+
   //// Might be wise to use a use memo to hold previous state and compare so it doesn't need to re-render every time
   // eslint-disable-next-line react-hooks/exhaustive-deps
+
   const normalizedValue = () => {
     let percent = actual / goal;
     if (isNaN(percent)) {
-      console.info(`gauge fetching user data`);
+      props.debug && console.info(`gauge fetching user data`);
     } else if (percent < 0) {
       return 0;
     } else if (percent >= 1) {
@@ -18,6 +21,7 @@ const LiveGauge = ({ ...props }) => {
     return percent;
   };
   // set state w/ normalized percent value
+  
   useEffect(() => {
     setProgress(normalizedValue());
   }, [normalizedValue]);
@@ -26,7 +30,7 @@ const LiveGauge = ({ ...props }) => {
   const dashOffset = () => {
     let offset = 182.212 * (1 - progress);
     if (isNaN(offset)) {
-      console.info(`gauge fetching user data`);
+      props.debug && console.info(`gauge fetching user data`);
     } else if (offset >= 0) {
       return offset;
     } else {

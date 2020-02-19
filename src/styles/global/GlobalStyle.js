@@ -1,8 +1,7 @@
 // IMPORTS
 // styled components
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
-import {waves} from '../../images/wavyLines.svg'
+import waves from '../../images/Onboarding/waves.svg'
 // Global Theme Stylesheet
 const GlobalStyle = createGlobalStyle`
     // we can add any global styles or theming that we want here
@@ -11,8 +10,8 @@ const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
     }
     body {
-        width: 37.5rem;
-        height: 81.2rem;
+        width: 100vw;
+        height: 100vh;
         font-family: 'Catamaran', sans-serif;
         font-size: 1.25rem;
         background-color: #4742bc;

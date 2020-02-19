@@ -34,16 +34,24 @@ const Button = ({ callback = () => {}, ...props }) => {
     margin,
     padding,
     width,
-    type = "button"
+    letterSpacing,
+    position,
+    top,
+    left
+    // type = "button"
   } = props;
 
   const handleClick = event => {
     return callback(event);
   };
 
-  const preventFocus = event => {
-    event.preventDefault();
+  const handleChange = event => {
+    return callback(event);
   };
+
+  // const preventFocus = event => {
+  //   event.preventDefault();
+  // };
 
   const removeFocus = event => {
     // Defocus on escape
@@ -78,13 +86,18 @@ const Button = ({ callback = () => {}, ...props }) => {
       justifyContent={justifyContent}
       margin={margin}
       padding={padding}
-      type={type}
+      position={position}
+      left={left}
+      top={top}
+      // type={type}
       width={width}
       cursor={cursor}
       href={href}
-      onMouseDown={preventFocus}
+      letterSpacing={letterSpacing}
+      // onMouseDown={preventFocus}
       onKeyUp={removeFocus}
       onClick={handleClick}
+      onChange={handleChange}
     >
       {props.children}
     </StyledButton>
@@ -117,10 +130,14 @@ const StyledButton = styled.button.attrs(props => ({
   justifyContent: props.justifyContent,
   alignItems: props.alignItems,
   textAlign: props.textAlign,
-  cursor: props.cursor
+  cursor: props.cursor,
+  letterSpacing: props.letterSpacing,
+  position: props.position,
+  left: props.left,
+  top: props.top
 }))`
-  height: ${props => (props.height ? `${props.height}rem` : "5rem")};
-  width: ${props => (props.width ? `${props.width}rem` : `10rem`)};
+  height: ${props => (props.height ? `${props.height}rem` : "5.6rem")};
+  width: ${props => (props.width ? `${props.width}rem` : `25.1rem`)};
   border: ${props => (props.border ? props.border : "none")};
   border-left: ${props => props.borderLeft};
   border-top: ${props => props.borderTop};
@@ -154,6 +171,11 @@ const StyledButton = styled.button.attrs(props => ({
   font-size: ${props =>
     props.fontSize ? props.fontSize : Fonts.fontSize.baseSm};
   text-align: ${props => (props.textAlign ? props.textAlign : "left")};
+  letter-spacing: ${props =>
+    props.letterSpacing ? `${props.letterSpacing}em` : "normal"};
+  position: ${props => (props.position ? props.position : "relative")};
+  left: ${props => (props.left ? `${props.left}rem` : 0)};
+  top: ${props => (props.top ? `${props.top}rem` : 0)};
 
   .icon-object-svg,
   .icon-img-svg {
@@ -167,7 +189,9 @@ const StyledButton = styled.button.attrs(props => ({
     color: ${props => props.actionColor};
     opacity: ${props => (props.actionOpacity ? props.actionOpacity : 0.85)};
     box-shadow: ${props =>
-      props.boxShadow ? props.boxShadow : "0 1px 1px 1px 4px rgba(0,0,0,0.2)"};
+      props.boxShadow
+        ? props.boxShadow
+        : "0px 4px 10px rgba(21, 15, 172, 0.1)"};
   }
 
   &:active {

@@ -70,7 +70,7 @@ export function TimerLongBreak ({ expiryTimestamp }) {
     minutes,
     pause,
     resume,
-    restart
+    restart // eslint-disable-line no-unused-vars
   } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
 
   if (seconds === 9) seconds = '09';

@@ -3,16 +3,14 @@
 import React from "react";
 // styled components
 import styled from "styled-components";
-// helpers
-import { test, flex } from "../../../styles/global/Mixins";
 // components
 import Counter from "./Counter";
 
 // COMPONENT
 const MissionInput = props => {
   // props
-  const { handleDrawer, status, missions, selectedMission } = props;
-  
+  const { handleDrawer, status, missions, selectedMission } = props; // eslint-disable-line no-unused-vars
+
   //render
   return (
     <>
@@ -21,7 +19,9 @@ const MissionInput = props => {
         <CloseButton onClick={handleDrawer}>X</CloseButton>
         <InputMessage>
           <i className={selectedMission && selectedMission.icon}></i>{" "}
-          <p key={selectedMission && selectedMission.mission_id}>{selectedMission && selectedMission.question}</p>
+          <p key={selectedMission && selectedMission.mission_id}>
+            {selectedMission && selectedMission.question}
+          </p>
         </InputMessage>
 
         <Counter
@@ -107,14 +107,14 @@ const InputMessage = styled.div`
   }
 `;
 
-const TestComponent = styled.button`
-  width: 20rem;
-  height: 5rem;
-  border-radius: 5px;
-  background-color: #fff;
-  border: none;
-  margin: 0 auto;
-`;
+// const TestComponent = styled.button`
+//   width: 20rem;
+//   height: 5rem;
+//   border-radius: 5px;
+//   background-color: #fff;
+//   border: none;
+//   margin: 0 auto;
+// `;
 
 // EXPORT
 export default MissionInput;

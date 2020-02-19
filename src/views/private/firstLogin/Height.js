@@ -55,7 +55,7 @@ const Height = props => {
       } else {
         items.push(
           <>
-            <div
+            <div key={i}
               className="bigtick tick"
               data-value={feet + "'" + inches + "''"}
               onClick={handleChanges}
@@ -155,9 +155,10 @@ font-size: 2rem;
     }
   }
 `;
-const DialStuff = styled.div`
-  flex: 0 0 auto;
-`;
+
+// const DialStuff = styled.div`   
+//   flex: 0 0 auto;
+// `; 
 
 const NumberP = styled.p`
   margin-left: -1rem;

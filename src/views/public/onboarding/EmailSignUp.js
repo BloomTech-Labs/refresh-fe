@@ -1,6 +1,6 @@
 //IMPORTS
 //react
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -29,7 +29,6 @@ const EmailSignUp = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
-  
 
   let errors = {};
   useEffect(() => {
@@ -50,7 +49,8 @@ const EmailSignUp = props => {
       errors.userConfirmedPass.length > 4 &&
       !errors.confirmedPass &&
       setEnabledBtn(true);
-    props.debug && console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+    props.debug &&
+      console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
   //route to sign up page
   const routeToSignUp = e => {
@@ -81,7 +81,7 @@ const EmailSignUp = props => {
         .post("/register", { email: user.email, password: user.password })
         .then(res => {
           if (res.data.token) {
-            props.debug && console.log(res.data)
+            props.debug && console.log(res.data);
             const userObject = res.data;
             const {
               mission_subscriptions,
@@ -121,7 +121,6 @@ const EmailSignUp = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Input
           type="text"
@@ -132,7 +131,6 @@ const EmailSignUp = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Input
           type="password"
@@ -144,7 +142,6 @@ const EmailSignUp = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Input
           type="password"
@@ -156,7 +153,6 @@ const EmailSignUp = props => {
           width={100}
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
         />
         <Button onClick={handleSubmit} className={BtnStats}>
           Sign Up
@@ -182,6 +178,19 @@ const OnBoardContainer = styled.div`
   height: 100vh;
   overflow-y: auto;
   padding: 8%;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: #ddd;
+    -webkit-text-fill-color: #fff;
+    transition: background-color 5000s ease-in-out 0s;
+  }
   &:nth-child(*) {
     background-color: green;
     margin-bottom: 5%;
@@ -193,8 +202,6 @@ const Logo = styled.img`
   width: 100%;
   max-width: 100%;
   margin: auto;
-  margin-top: -80px;
-  padding-bottom: 20px;
 
   @media screen and (max-width: 1000px) {
     margin-top: auto;
@@ -222,8 +229,8 @@ const Form = styled.form`
 
 const Input = styled.input`
   border: 1px solid #3d3b91;
-  margin: 2% 0;
-  padding: 0.5%;
+  margin: 3% 0;
+  padding: 5%;
   width: 100%;
   border-radius: 3px;
   box-shadow: 1px 1px 1px 1px #35347f;
@@ -231,35 +238,24 @@ const Input = styled.input`
   color: #ffffff;
   outline: none;
   font-size: calc(100%);
-  text-align: center;
   ::-webkit-input-placeholder {
     font-family: "Catamaran", sans-serif;
     font-size: calc(100%);
   }
-  @media screen and (max-width: 800px) {
-    margin: 3% auto;
-  }
-  @media screen and (max-width: 600px) {
-    margin: 4% auto;
-  }
-  @media screen and (max-width: 500px) {
-    margin: 5% auto;
-    padding: 2%;
-  }
 `;
 
 const Button = styled.a`
-  display: flex;
-  justify-content: space-evenly;
-  border-radius: 0.5rem;
-  padding: 1%;
-  width:75%;
-  text-align: center;
-  margin: 1% auto;
-  background: #E05CB3;
-  color: white;
-  font-size:calc(110% + 0.2vw);
-  letter-spacing:0.1rem;
+display: flex;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width:75%;
+text-align:center;
+margin: 13% auto auto;
+background: #E05CB3;
+color: white;
+font-size:calc(110% + 0.5vw);
+letter-spacing:0.1rem;
   &:hover {
     cursor: pointer;
   }

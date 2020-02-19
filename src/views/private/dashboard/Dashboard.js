@@ -9,27 +9,27 @@ import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 // styled components
 import styled from "styled-components";
 // helpers
-import {flex } from "../../../styles/global/Mixins";
+import { flex } from "../../../styles/global/Mixins";
 // components
 import MissionCard from "./MissionCard";
 import Progress from "./Progress";
-
+// images
+import waves from "../../../images/Onboarding/waves.svg";
 // COMPONENT
 const Dashboard = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
-  const {missions} = userMissions
- 
-  return  (
+  const { missions } = userMissions;
+
+  return (
     <DashboardView>
       <DashboardWrapper>
         <DashboardContainer>
           <Header>
             <Greeting>
-              <h1>Hello {activeUser.fname}!</h1>
+              <h1>Hello {activeUser.display_name}!</h1>
             </Greeting>
-
             <User>
               <Link to="/coming-soon">
                 <i className="fas fa-bell"></i>
@@ -37,10 +37,7 @@ const Dashboard = props => {
               <Link to="/profile-overview">
                 <Avatar>
                   {activeUser.avatar && (
-                    <img
-                      src={activeUser.avatar}
-                      alt="picture of your user profile"
-                    />
+                    <img src={activeUser.avatar} alt="User avatar" />
                   )}
                 </Avatar>
               </Link>
@@ -84,11 +81,9 @@ const Dashboard = props => {
 const DashboardView = styled.div`
   width: 100vw;
   height: 100vh;
-  max-height: 100vh;
-  padding-top: 10rem;
-  background-color: #3a3699;
+  padding-top: 9rem;
   overflow-x: hidden;
-  overflow-y: hidden;
+  
 `;
 
 const DashboardWrapper = styled.div`
@@ -97,14 +92,13 @@ const DashboardWrapper = styled.div`
 
 const DashboardContainer = styled.div`
   width: 90%;
-  height: 80vh;
   margin: 0 auto;
 
   .mission-message {
     color: #ccc9ff;
     font-size: 2.5rem;
     letter-spacing: 0.25rem;
-    margin: 3rem 0;
+    margin: 2rem 0;
     text-align: center;
   }
 `;
@@ -159,8 +153,7 @@ const Avatar = styled.div`
 
 const MissionHub = styled.div`
   width: 100%;
-  max-height: 42vh;
-  overflow-y: scroll;
+ 
   ${flex.flexRowWrapAround}
   @media screen and (min-width: 1200px) {
     overflow-y: hidden;
@@ -169,7 +162,7 @@ const MissionHub = styled.div`
 
 const AddMission = styled.div`
   width: 100%;
-  height: 10rem;
+  
   margin-top: 2rem;
   display: flex;
   flex-flow: row nowrap;

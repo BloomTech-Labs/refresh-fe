@@ -28,7 +28,7 @@ const Counter = props => {
   const setAnswerValues = operator => {
     const {goal,point_current} = selectedMission
     const maxInput = point_current ? goal - point_current:goal;
-    console.log('Max', maxInput)
+    props.debug && console.log('Max', maxInput)
     const updateAnswer =
       operator === "+"
         ? answer >= maxInput

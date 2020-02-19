@@ -1,8 +1,8 @@
-import React, { useEffect, useState, Fragment } from "react";
-import { Route, Link } from "react-router-dom";
+import React, { useEffect, useState, Fragment } from "react"; // eslint-disable-line no-unused-vars
+import { Route, Link } from "react-router-dom"; // eslint-disable-line no-unused-vars
 import styled from "styled-components";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
-import axios from "axios";
+import axios from "axios"; // eslint-disable-line no-unused-vars
 
 const SurveyForm = () => {
   const [questions, setQuestions] = useState([
@@ -15,16 +15,20 @@ const SurveyForm = () => {
     name: "",
     description: ""
   });
-  
-  const [enabledBtn, setEnabledBtn] = useState(false);
+  const [newQuestion, setNewQuestion] = useState(false);
 
+  const [enabledBtn, setEnabledBtn] = useState(false);
+  console.log("fresh q", questions);
   const questionHandleChange = (e, i) => {
-    console.log("name", e.target.name);
     questions[i] = {
       ...questions[i],
       [e.target.name]: e.target.value
     };
-    console.log("questions[i]", questions[i])
+    questions[i].question &&
+      questions[i].question.length > 2 &&
+      questions[i].questionType &&
+      questions[i].questionType.length > 2 &&
+      setNewQuestion(true);
   };
 
   const handleChange = e => {
@@ -35,37 +39,32 @@ const SurveyForm = () => {
     errors.surveyName = !form.name && "Please enter a name for your survey";
     errors.surveyDesc =
       !form.description && "Please enter a description for your survey";
+
+    //TODO -- figure out why this wasn't reading correctly
     // errors.surveyQType =
     //   !form.questionType &&
     //   "Please select which type of answers this survey is looking for";
-    !errors.surveyName &&
-      !errors.surveyDesc &&
-      setEnabledBtn(true);
+    !errors.surveyName && !errors.surveyDesc && setEnabledBtn(true);
   }, [form]);
 
   const addQuestion = () => {
     setQuestions([...questions, { question: "", questionType: "" }]);
-    
-    
+    setNewQuestion(false);
   };
 
   const handleSubmit = e => {
-  
     e.preventDefault();
     if (!enabledBtn) {
       alert(errors.surveyName || errors.surveyDesc || errors.surveyQType);
     } else {
-      const data = { ...form, question_ids:questions };
-      console.log("data", data)
-
+      const data = { ...form, question_ids: questions };
       axiosWithAuth()
         .post("/questiongroups", data)
         .then(res => console.log(res))
         .catch(err => console.log(err));
     }
   };
-
-
+  console.log("questions state", questions);
 
   return (
     <StyledWrapper>
@@ -89,10 +88,9 @@ const SurveyForm = () => {
           />
 
           {questions.map((group, i) => {
-            console.log(i);
             return (
-              <div>
-                <h3>QUESTION {i+1}</h3>
+              <StyledQuestions>
+                <h3>QUESTION {i + 1}</h3>
                 <input
                   type="text"
                   name="question"
@@ -100,19 +98,30 @@ const SurveyForm = () => {
                   onChange={e => questionHandleChange(e, i)}
                 />
                 <h3>QUESTION TYPE</h3>
-                <select name="questionType" onChange={e => questionHandleChange(e,i)}>
-                  <option selected value="">Please Select One</option>
+                <select
+                  name="questionType"
+                  onChange={e => questionHandleChange(e, i)}
+                >
+                  <option defaultValue="">Please Select One</option>
                   <option value="multiple choice">Multiple Choice</option>
                   <option value="slider">Slider</option>
                   <option value="text reply">Text Reply</option>
                 </select>
-              </div>
+              </StyledQuestions>
             );
           })}
-          <div onClick={() => {addQuestion()}}>Add Question</div>
         </>
 
-        <button type="submit">Submit</button>
+        {newQuestion && (
+          <div
+            onClick={() => {
+              addQuestion();
+            }}
+          >
+            Add Question
+          </div>
+        )}
+        <StyledButton type="submit">Submit your survey</StyledButton>
       </StyledForm>
     </StyledWrapper>
     //styled comp
@@ -121,13 +130,61 @@ const SurveyForm = () => {
 
 const StyledForm = styled.form`
   display: flex;
+  margin: 0 auto;
+  padding-top: 10rem;
+  width: 100%
   flex-direction: column;
-  margin-top: 25%;
+    input {
+       font-family: Catamaran;
+       font-size: 1.3rem;
+      padding: 1.0rem;
+      border: none;
+    width: 100%;
+    color: rgba(204, 201, 255, 0.4);
+    background: #3D3B91;
+  }
+  select {
+    font-size: 1.3rem;
+    padding: 1.0rem;
+    font-family: Catamaran;
+    border: none;
+    width: 100%;
+    color: rgba(204, 201, 255, 0.4);
+    background: #3D3B91;
+  }
+  h3 {
+    font-family: Catamaran;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    letter-spacing: 0.035em;
+    color:  #B8B7E1;
+  }
+
 `;
 const StyledWrapper = styled.div`
-  display: flex;
+  font-family: Catamaran;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 80vw;
+`;
+
+const StyledButton = styled.button`
+  padding: 1rem;
+  width: 251px;
+  text-align: center;
+  margin: 0 auto;
+  color: #e6e6e6;
+  background-color: #e05cb3;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+`;
+
+const StyledQuestions = styled.div`
+  width: 100%;
+  input {
+    width: 100%;
+  }
 `;
 
 export default SurveyForm;

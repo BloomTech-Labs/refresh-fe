@@ -1,20 +1,40 @@
 //IMPORTS
 //react
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react"; // eslint-disable-line no-unused-vars
 //styled-components
 import styled from "styled-components";
+// router
+import { Link } from "react-router-dom";
+// contexts
+import { UserContext } from "../../../contexts/UserContext";
+import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
+// helpers
+import { flex } from "../../../styles/global/Mixins";
 //axios with auth
-import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth"; // eslint-disable-line no-unused-vars
 //images
 import waves from "../../../images/Onboarding/waves.svg";
+// components
+import Calendar from "./Calendar.js";
 
 const CreateTMission = props => {
+  // contexts
+  const activeUser = useContext(UserContext);
+  const userMissions = useContext(UserMissionsContext);
+
   const [missionInfo, setMissionInfo] = useState({
     name: "",
     date: "",
     desc: ""
   });
 
+  const [calendar, setCalendar] = useState({
+    isOpen: false
+  });
+
+  const [selectedDay, setSelectedDay] = useState("mm/dd/yy");
+
+  console.log(selectedDay);
   const routeToTLView = e => {
     e.preventDefault();
     props.history.push("/team-view");
@@ -28,55 +48,82 @@ const CreateTMission = props => {
 
   const handleSubmit = e => {
     props.debug && console.log(missionInfo);
+    props.history.push("/team-view");
+  };
+
+  const toggleCalendar = () => {
+    setCalendar({ isOpen: !calendar.isOpen });
+    console.log("[checking calendar state]", calendar);
   };
 
   return (
     <TVContainer>
       <ButtonNoColor onClick={routeToTLView}>&lt;</ButtonNoColor>
+      <User>
+        <Link to="/coming-soon">
+          <i className="fas fa-bell"></i>
+        </Link>
+        <Link to="/profile-overview">
+          <Avatar>
+            {activeUser.avatar && (
+              <img src={activeUser.avatar} alt="User avatar" />
+            )}
+          </Avatar>
+        </Link>
+      </User>
       <Header>Create Team Mission</Header>
       <Form onSubmit={handleSubmit}>
         <FormHeader>Mission Name</FormHeader>
         <InputDiv>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Create a name for this mission"
-          onChange={handleChanges}
-          value={missionInfo.name}
-          width={100}
-          border={"1px solid #3D3B91"}
-          backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
-        />
+          <Input
+            type="text"
+            name="name"
+            placeholder="Create a name"
+            onChange={handleChanges}
+            value={missionInfo.name}
+            width={100}
+            border={"1px solid #3D3B91"}
+            backgroundColor={"#3D3B91"}
+          />
         </InputDiv>
         <FormHeader>Due Date</FormHeader>
-        <InputDiv>
-        <Input
-          type="text"
-          name="date"
-          placeholder="mm/dd"
-          onChange={handleChanges}
-          value={missionInfo.date}
-          width={100}
-          border={"1px solid #3D3B91"}
-          backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
-        />
+        <InputDiv onClick={toggleCalendar}>
+          <Input
+            type="text"
+            name="date"
+            placeholder={selectedDay}
+            onChange={handleChanges}
+            value={missionInfo.date}
+            width={100}
+            border={"1px solid #3D3B91"}
+            backgroundColor={"#3D3B91"}
+          />
+          <i className="fas fa-calendar-alt"></i>
         </InputDiv>
-        <FormHeader>Mission Description</FormHeader>
-        <InputDiv>
-        <Input
-          type="text"
-          name="desc"
-          placeholder="Add a description for your mission..."
-          onChange={handleChanges}
-          value={missionInfo.desc}
-          width={100}
-          border={"1px solid #3D3B91"}
-          backgroundColor={"#3D3B91"}
-          color={"#E6E6E6"}
+        <Calendar
+          calendar={calendar}
+          setCalendar={setCalendar}
+          setTheDay={setSelectedDay}
         />
-        </InputDiv>
+        {!calendar.isOpen && (
+          <>
+            {" "}
+            <FormHeader>Mission Description</FormHeader>
+            <InputDiv className="mission-desc">
+              <Input
+                type="text"
+                name="desc"
+                placeholder="Add a description"
+                onChange={handleChanges}
+                value={missionInfo.desc}
+                width={100}
+                border={"1px solid #3D3B91"}
+                backgroundColor={"#3D3B91"}
+                className="missionInput"
+              />
+            </InputDiv>{" "}
+          </>
+        )}
         <Button onClick={handleSubmit}>Share with your team</Button>
       </Form>
     </TVContainer>
@@ -113,7 +160,6 @@ const Header = styled.h1`
   color: #ffffff;
 `;
 
-
 const FormHeader = styled.p`
   font-size: calc(100% + 0.1vw);
   font-weight: bold;
@@ -122,8 +168,6 @@ const FormHeader = styled.p`
   letter-spacing: 2px;
   color: #b8b7e1;
 `;
-
-
 
 const Form = styled.form`
   display: flex;
@@ -143,6 +187,7 @@ const Form = styled.form`
 `;
 const InputDiv = styled.div`
   display: flex;
+  justify-content: space-between;
   border: 1px solid #3d3b91;
   margin: 3% 0;
   padding: 5%;
@@ -152,10 +197,15 @@ const InputDiv = styled.div`
   background: #3d3b91;
   color: #ffffff;
   i {
-    padding-top: 2%;
-    margin-right: 2%;
-    font-weight: lighter;
-    font-size: calc(81%);
+    color: rgba(204, 201, 255, 0.4);
+    font-size: 4.5vw;
+  }
+
+  .missionInput {
+    align-content: flex-start;
+    height: 15rem;
+    ::-webkit-input-placeholder {
+    }
   }
 `;
 const Input = styled.input`
@@ -167,7 +217,6 @@ const Input = styled.input`
   ::-webkit-input-placeholder {
     font-family: "Catamaran", sans-serif;
     font-size: calc(100%);
-
   }
 `;
 
@@ -186,13 +235,40 @@ const Button = styled.a`
 }
 `;
 
-
-
 const ButtonNoColor = styled.a`
   margin-right: 89%;
   font-size: 2rem;
   font-style: medium;
   color: #ccc9ff;
+`;
+
+const User = styled.div`
+  width: 10rem;
+  height: 5rem;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  ${flex.flexRowNoWrapAround}
+
+  i {
+    font-size: 2rem;
+  }
+
+  a {
+    color: #ccc9ff;
+  }
+`;
+
+const Avatar = styled.div`
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-image: url("https://i1.wp.com/grueneroadpharmacy.com/wp-content/uploads/2017/02/user-placeholder-1.jpg?ssl=1");
+  background-size: cover;
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
 `;
 
 export default CreateTMission;

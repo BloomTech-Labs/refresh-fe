@@ -6,13 +6,15 @@ import styled from "styled-components";
 // contexts
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 // helpers
-import {flex} from "../../../styles/global/Mixins";
+import { flex } from "../../../styles/global/Mixins";
 // components
 import MissionCard from "./MissionCard";
 import MissionInput from "./MissionInput";
-import Congrats from "./Congrats";
+import Congrats from "./CongratsComplete";
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
-import { missionMasher } from "../../globalFunctions";
+import * as ctx from "../../globalFunctions";
+// images
+import waves from "../../../images/Onboarding/waves.svg"
 
 // DUMMY DATA
 // adding some dummy data so that i can work out basic props drilling
@@ -25,6 +27,9 @@ const MissionComplete = props => {
   const userMissions = useContext(UserMissionsContext);
   const { missions } = userMissions;
   props.debug && console.log("[userMissions]", userMissions);
+  // console.log("[userMissions]", userMissions.missions.id);
+
+  // const missionsComplete
 
   // state hooks
   const [drawer, setDrawer] = useState({
@@ -56,18 +61,20 @@ const MissionComplete = props => {
     drawer.darken === "inactive"
       ? setDrawer({ ...drawer, darken: "active" })
       : setDrawer({ ...drawer, darken: "inactive" });
+
+    submitMissionTracker();
   };
 
   const submitMissionTracker = e => {
     axiosWithAuth()
-      .post("/answers", missionTracker)
+      .post(`/answers/${ctx.tzQuery}`, missionTracker)
       .then(res => {
         const {
           mission_subscriptions,
           missions_in_progress
         } = res.data.user_missions;
         userMissions.setUserMissions(
-          missionMasher(mission_subscriptions, missions_in_progress)
+          ctx.missionMasher(mission_subscriptions, missions_in_progress)
         );
       })
       .catch(err => {
@@ -121,7 +128,8 @@ const MCView = styled.div`
   height: 100vh;
   max-height: 100vh;
   padding-top: 5rem;
-  background-color: #3a3699;
+  background-color: #4742bc;
+  background-image: url(${waves});
 `;
 
 const MCWrapper = styled.div`

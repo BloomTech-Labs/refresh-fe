@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import PrivateViewCanvas from "./views/private";
 import PublicViewCanvas from "./views/public";
@@ -6,7 +6,7 @@ import ContextRouter from "./contexts/ContextRouter";
 
 const App = props => {
   return (
-    <ContextRouter
+    <ContextRouter 
       privateView={PrivateViewCanvas}
       publicView={PublicViewCanvas}
     />

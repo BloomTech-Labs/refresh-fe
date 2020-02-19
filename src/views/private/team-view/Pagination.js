@@ -3,8 +3,6 @@
 import React from 'react';
 // styled components
 import styled from 'styled-components';
-// helpers
-import { test, flex } from '../../../styles/global/Mixins';
 
 // DUMMY DATA
 const dummy = [
@@ -30,8 +28,8 @@ const Pagination = () => {
     return (
         <>
         <PaginationWrapper>
-            {dummy.map(slide => {
-                return <Dot />
+            {dummy.map((slide, i) => {
+                return <Dot key={i++}/>
             })}
         </PaginationWrapper>
         </>

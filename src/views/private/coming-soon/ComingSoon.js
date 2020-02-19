@@ -3,11 +3,8 @@
 import React from 'react';
 // styled components
 import styled from 'styled-components';
-// router
-import { Link } from 'react-router-dom';
-// helpers
-import { test, flex } from '../../../styles/global/Mixins';
 // images
+//// Should be changed to svg
 import Rocket from '../../../images/rocket.png';
 // COMPONENT
 const ComingSoon = props => {
