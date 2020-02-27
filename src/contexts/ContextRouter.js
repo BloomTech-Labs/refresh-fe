@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import { UserMissionsContext } from "./UserMissionsContext";
 import { TeamContext } from "./TeamContext";
+
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
 import * as ctx from "../views/globalFunctions";
 import moment from 'moment'
@@ -16,9 +17,12 @@ const ContextRouter = ({
   const [userMissions, setUserMissions] = useState([]);
   const [user, setUser] = useState();
   const [team, setTeam] = useState([]);
+  
+  
+
 
   useEffect(() => {
-    !user &&
+    !user && // else if statement , needs to have admin credentials email and password
       localStorage.getItem("token") &&
       axiosWithAuth()
         .get(`/usermissions/${ctx.tzQuery}`)
@@ -42,11 +46,12 @@ const ContextRouter = ({
           setUser({ ...res.data.user_profile, roleTitle });
           setUserMissions(mission_subscriptions);
           setTeam(res.data.my_teams[0]);
+         
         })
         .catch(err => {
           console.log(err);
         });
-  }, []);
+  }, [debug, user]);
   return (
     <Route
       {...rest}

@@ -19,6 +19,7 @@ import StepStart from "./firstLogin/StepStart";
 import SurveyCanvas from "./survey";
 import ProfileEdit from "./profileViews/ProfileEdit";
 import WeeklyChallenges from "./weeklyChallenge/WeeklyChallenges";
+import AdminDashBoard from "./admin-dashboard/AdminDashBoard";
 
 const PrivateViewCanvas = props => {
   const { pathname } = props.location;
@@ -52,7 +53,8 @@ const PrivateViewCanvas = props => {
         <Route path="/survey" component={SurveyCanvas} />
         <Route path="/profile-edit" component={ProfileEdit} />
         <Route path="/weekly-challenges" component={WeeklyChallenges} />
-        <Redirect to="/dashboard" />
+        <Route path="/admin" component={AdminDashBoard} />
+        <Redirect to="/" />
       </Switch>
     </>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 //IMPORTS
 //react
 import React, { useState, useEffect, useContext } from "react";
@@ -13,6 +14,7 @@ import welcome from "../../../images/Onboarding/welcome.svg";
 //Context
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 import { UserContext } from "../../../contexts/UserContext";
+import {AdminContext} from "../../../contexts/AdminContext"
 import { missionMasher } from "../../globalFunctions";
 
 const EmailSignUp = props => {
@@ -29,6 +31,7 @@ const EmailSignUp = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
+  const adminUser = useContext(AdminContext);
 
   let errors = {};
   useEffect(() => {
@@ -51,7 +54,7 @@ const EmailSignUp = props => {
       setEnabledBtn(true);
     props.debug &&
       console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
-  }, [user]);
+  }, [user]) 
   //route to sign up page
   const routeToSignUp = e => {
     e.preventDefault();
