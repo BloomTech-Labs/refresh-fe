@@ -19,6 +19,11 @@ const Landing = props => {
     props.history.push("/login");
   };
 
+  const routeToAdmin = e => {
+    e.preventDefault();
+    props.history.push("/admin")
+  }
+
   // const routeToComponentTesting = e => {
   //   e.preventDefault();
   //   props.history.push('/atoms');
@@ -44,6 +49,9 @@ const Landing = props => {
         <ButtonNoColor onClick={routeToLogin}>
           I already have an account
         </ButtonNoColor>
+        <FBButton onClick={routeToAdmin}>
+          Administrator Login
+        </FBButton>
       </FlexHolder>
     </OnBoardContainer>
   );
@@ -152,6 +160,35 @@ const ButtonNoColor = styled.a`
   font-size: 1.6rem;
   &:hover {
     cursor: pointer;
+  }
+`;
+
+const FBButton = styled.a`
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0.5rem;
+  padding: 1.5rem 0;
+  width: 84%;
+  text-align: center;
+  margin: 3% auto%;
+  background: #4a639e;
+  color: white;
+  font-size: calc(110% + 0.5vw);
+  letter-spacing: 0.1rem;
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1000px) {
+    margin: 3% auto;
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin: 4% auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 7% auto;
   }
 `;
 
