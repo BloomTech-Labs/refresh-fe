@@ -8,19 +8,17 @@ import Login from "./onboarding/Login";
 import AdminLogin from "./onboarding/AdminLogin";
 import EmailSignUp from "./onboarding/EmailSignUp";
 import EmailLogIn from "./onboarding/EmailLogin";
+import WithNavigation from './AdminNav';
 
 const PublicViewCanvas = () => {
   return (
     <Switch>
+      <Route path="/nav" component={WithNavigation} />
       <Route path="/signup" component={CreateAccount} />
       <Route path="/emailsignup" component={EmailSignUp} />
       <Route path="/emaillogin" component={EmailLogIn} />
       <Route path="/login" component={Login} />
-// admin-login
       <Route path="/adminlogin" component={AdminLogin} />
-// 
-      {/* <Route path="/admin" component={} /> */}
-//  staging
       <Route exact path="/" component={Landing} />
       <Redirect to="/" />
     </Switch>

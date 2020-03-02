@@ -19,15 +19,10 @@ const Landing = props => {
     props.history.push("/login");
   };
 
-//   const routeToAdmin = e => {
-//     e.preventDefault();
-//  admin-login
-//     props.history.push("/adminlogin");
-//   };
-// 
-//     props.history.push("/admin")
-//   }
-//  staging
+  // const routeToAdmin = e => {
+  //   e.preventDefault();
+  //   props.history.push("/adminlogin");
+  // };
 
   // const routeToComponentTesting = e => {
   //   e.preventDefault();
@@ -54,13 +49,13 @@ const Landing = props => {
         <ButtonNoColor onClick={routeToLogin}>
           I already have an account
         </ButtonNoColor>
-//  admin-login
-        <AdminSignin onClick={routeToAdmin}>Admin Login Here</AdminSignin>
-// 
-        <FBButton onClick={routeToAdmin}>
-          Administrator Login
-        </FBButton>
-//  staging
+        <AdminSignin></AdminSignin>
+         
+        {/* onClick=
+          // routeToAdmin
+        // }
+        
+        // </FlexHolder>/Admin Login Here</AdminSignin> */}
       </FlexHolder>
     </OnBoardContainer>
   );
