@@ -44,6 +44,7 @@ const Landing = props => {
         <ButtonNoColor onClick={routeToLogin}>
           I already have an account
         </ButtonNoColor>
+        <AdminSignin onClick={routeToSignUp}>Admin Login Here</AdminSignin>
       </FlexHolder>
     </OnBoardContainer>
   );
@@ -144,6 +145,21 @@ const Button = styled.a`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const AdminSignin = styled.a`
+display: inline-block;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width: 64%;
+text-align: center;
+margin: 10px auto;
+background: #6997F2;
+color: white;
+font-size: calc(100% + 0.5vw);
+&:hover {
+  cursor: pointer;
+}
 `;
 
 const ButtonNoColor = styled.a`
