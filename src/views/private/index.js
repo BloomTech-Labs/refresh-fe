@@ -20,6 +20,7 @@ import AdminDash from "./admindashboard/AdminDash";
 import SurveyCanvas from "./survey";
 import ProfileEdit from "./profileViews/ProfileEdit";
 import WeeklyChallenges from "./weeklyChallenge/WeeklyChallenges";
+import AdminDashBoard from "./admin-dashboard/AdminDashBoard";
 
 
 const PrivateViewCanvas = props => {
