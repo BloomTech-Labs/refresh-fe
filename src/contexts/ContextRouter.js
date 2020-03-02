@@ -18,7 +18,7 @@ const ContextRouter = ({
   const [team, setTeam] = useState([]);
 
   useEffect(() => {
-    !user &&
+    !user && //start if else statement here for admin (if they have these credentials else error)
       localStorage.getItem("token") &&
       axiosWithAuth()
         .get(`/usermissions/${ctx.tzQuery}`)

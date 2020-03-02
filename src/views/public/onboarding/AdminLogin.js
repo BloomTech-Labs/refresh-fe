@@ -31,16 +31,16 @@ const AdminLogin = props => {
   let errors = {};
   useEffect(() => {
     errors.userEmail =
-      user.email.length < 4 && "user email must be greater than 5 characters";
+      user.email.length < 2 && "user email must be greater than 3 characters";
     errors.userPassword =
-      user.password.length < 4 &&
-      "user password must be greater than 5 characters";
+      user.password.length < 2 &&
+      "user password must be greater than 3 characters";
     !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
     props.debug &&
       console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
 
-  //route to login
+  //route to adminlogin
   const routeToLogin = e => {
     e.preventDefault();
     props.history.push("/adminlogin");
@@ -74,7 +74,7 @@ const AdminLogin = props => {
               missionMasher(mission_subscriptions, missions_in_progress)
             );
             localStorage.setItem("token", res.data.token);
-            props.history.push("/dashboard");
+            props.history.push("/admindash");
           } else {
             setErr(res.data);
             props.debug && console.log(err);
