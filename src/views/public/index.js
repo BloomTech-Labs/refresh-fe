@@ -16,11 +16,7 @@ const PublicViewCanvas = () => {
       <Route path="/emailsignup" component={EmailSignUp} />
       <Route path="/emaillogin" component={EmailLogIn} />
       <Route path="/login" component={Login} />
-// admin-login
       <Route path="/adminlogin" component={AdminLogin} />
-// 
-      {/* <Route path="/admin" component={} /> */}
-//  staging
       <Route exact path="/" component={Landing} />
       <Redirect to="/" />
     </Switch>
