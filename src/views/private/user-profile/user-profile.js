@@ -9,7 +9,7 @@ const UserProfile = props => {
     const [editProfile, setEditProfile] = useState({team_id: ''})
 
     useEffect(() => {
-        axios.get('https://labs-refresh.herokuapp.com/users/1')
+        axios.get('https://labs-refresh.herokuapp.com/users/11')
             .then((response) => {
                 setUserProfile(response.data)
             })
@@ -27,12 +27,22 @@ const UserProfile = props => {
         event.preventDefault();
         axios.put(`https://labs-refresh.herokuapp.com/users/${userProfile.id}`, editProfile)
             .then(response => {
-                console.log(response)
+                console.log('UPDATE response: ', response)
             })
             .catch(error => {
-                console.log(error)
+                console.log('UPDATE error: ', error)
             })
-            console.log('hit submit')
+    }
+
+    const deleteUser = event => {
+        event.preventDefault()
+        axios.delete(`https://labs-refresh.herokuapp.com/users/${userProfile.id}`)
+            .then(response => {
+                console.log('DELETE response: ', response)
+            })
+            .catch(error => {
+                console.log('DELETE error', error)
+            })
     }
 
     if(userProfile === undefined) {
@@ -55,6 +65,7 @@ const UserProfile = props => {
                         onChange={handleChange}
                     /> 
                     <button>Submit Team Change</button>
+                    <button onClick={deleteUser}>Delete User</button>
                 </form>
             </div>
         )
