@@ -7,7 +7,6 @@ import CreateAccount from "./onboarding/CreateAccount";
 import Login from "./onboarding/Login";
 import EmailSignUp from "./onboarding/EmailSignUp";
 import EmailLogIn from "./onboarding/EmailLogin";
-import UserProfile from '../private/user-profile/user-profile';
 
 
 const PublicViewCanvas = () => {
@@ -19,7 +18,6 @@ const PublicViewCanvas = () => {
       <Route path="/login" component={Login} />
       {/* <Route path="/admin" component={} /> */}
       <Route exact path="/" component={Landing} />
-      <Route path="/userprofile" component={UserProfile} /> 
       <Redirect to="/" />
     </Switch>
   );

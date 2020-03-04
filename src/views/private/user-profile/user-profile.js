@@ -8,21 +8,6 @@ const UserProfile = props => {
     const [userProfile, setUserProfile] = useState()
     const [editProfile, setEditProfile] = useState({team_id: ''})
 
-    useEffect(() => {
-        axios.get('https://labs-refresh.herokuapp.com/users/11')
-            .then((response) => {
-                setUserProfile(response.data)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }, [])
-
-    const handleChange = event => {
-        setEditProfile({ ...editProfile, [event.target.name]: event.target.value })
-        console.log('editProfile team', editProfile)
-    }
-
     const handleSubmit = event => {
         event.preventDefault();
         axios.put(`https://labs-refresh.herokuapp.com/users/${userProfile.id}`, editProfile)
@@ -44,6 +29,22 @@ const UserProfile = props => {
                 console.log('DELETE error', error)
             })
     }
+
+    useEffect(() => {
+        axios.get('https://labs-refresh.herokuapp.com/users/11')
+            .then((response) => {
+                setUserProfile(response.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }, [handleSubmit, deleteUser])
+
+    const handleChange = event => {
+        setEditProfile({ ...editProfile, [event.target.name]: event.target.value })
+        console.log('editProfile team', editProfile)
+    }
+
 
     if(userProfile === undefined) {
         return <h1>Loading</h1>
