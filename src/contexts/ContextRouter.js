@@ -22,7 +22,11 @@ const ContextRouter = ({
 
 
   useEffect(() => {
+ // admin-login
+//    !user && //start if else statement here for admin (if they have these credentials else error)
+
     !user && // else if statement , needs to have admin credentials email and password
+// staging
       localStorage.getItem("token") &&
       axiosWithAuth()
         .get(`/usermissions/${ctx.tzQuery}`)
