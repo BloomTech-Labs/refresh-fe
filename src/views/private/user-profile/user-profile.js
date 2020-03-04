@@ -6,7 +6,8 @@ import axios from 'axios';
 const UserProfile = props => {
 
     const [userProfile, setUserProfile] = useState()
-    const [editProfile, setEditProfile] = useState({team_id: ''})
+    const [editProfile, setEditProfile] = useState({ team_id: '' })
+    const [dropdownItems, setDropdownItems] = useState({ listOpen: false, items: [] })
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -39,6 +40,17 @@ const UserProfile = props => {
                 console.log(error)
             })
     }, [handleSubmit, deleteUser])
+
+    useEffect(() => {
+        axios.get('https://labs-refresh.herokuapp.com/teams')
+            .then((response) => {
+                setDropdownItems(response.data)
+                console.log('RESPONSE dropdownItems', response.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }, [])
 
     const handleChange = event => {
         setEditProfile({ ...editProfile, [event.target.name]: event.target.value })
