@@ -54,7 +54,7 @@ const UserProfile = props => {
                 <h1>User Profile Page</h1>
                 <div className='profile'>
                     <h2>Team: {userProfile.team_id}</h2>
-                    <h2>{`${userProfile.first_name} ${userProfile.last_name} has ${userProfile.points} points!`}</h2>
+                    <h2>{`${userProfile.first_name} ${userProfile.last_name} has ${userProfile.points === null ? userProfile.points = 0 : userProfile.points} points!`}</h2>
                     <h2>{userProfile.email}</h2>
                 </div>
                 <form onSubmit={handleSubmit}>
