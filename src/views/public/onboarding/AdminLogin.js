@@ -17,40 +17,19 @@ import { missionMasher } from "../../globalFunctions";
 const AdminLogin = props => {
   //hooks
   const [user, setUser] = useState({
-    // name: "",
     email: "",
     password: ""
-    // confirmPassword: ""
   });
   const [err, setErr] = useState();
   const [enabledBtn, setEnabledBtn] = useState(false);
 
-  // contexts
-  const activeUser = useContext(UserContext);
-  const userMissions = useContext(UserMissionsContext);
-
   let errors = {};
   useEffect(() => {
-    // errors.userName =
-    //   user.name.length < 3 && "username must be greater than 4 characters";
-    // errors.userEmail =
-    //   user.email.length < 3 && "user email must be greater than 4 characters";
-    // errors.userPassword =
-    //   user.confirmPassword.length < 3 &&
-    //   user.password.length < 3 &&
-    //   "user password must be greater than 5 characters";
-    // errors.userConfirmedPass =
-    //   user.password === user.confirmPassword &&
-    //    "please make sure passwords match";
-    //  !errors.userName &&
-    //   !errors.userEmail &&
-    //   !errors.userPassword &&
-    //   errors.userConfirmedPass.length > 3 &&
-    //    !errors.confirmedPass &&
       setEnabledBtn(true);
     props.debug &&
       console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
+  
   //route to sign up page
   const routeToLanding = e => {
     e.preventDefault();
@@ -77,20 +56,10 @@ const AdminLogin = props => {
       );
     } else {
       axiosWithAuth()
-        .post("/login", { email: user.email, password: user.password })
+        .post("/admin/login", { email: user.email, password: user.password })
         .then(res => {
+          console.log(res.data.token);
           if (res.data.token) {
-            props.debug && console.log(res.data);
-            const userObject = res.data;
-            const {
-              mission_subscriptions,
-              missions_in_progress
-            } = userObject.user_missions;
-
-            activeUser.setUser(userObject.user_profile);
-            userMissions.setUserMissions(
-              missionMasher(mission_subscriptions, missions_in_progress)
-            );
             localStorage.setItem("token", res.data.token);
             props.history.push("/admindash");
           } else {
