@@ -16,7 +16,7 @@ import Progress from "./Progress";
 // images
 import waves from "../../../images/Onboarding/waves.svg";
 
-import TeamCard from '../../../components/molecules/teamCard'
+import TeamCard from '../../../components/molecules/team/teamCard'
 // COMPONENT
 const Dashboard = props => {
   // contexts
@@ -32,6 +32,7 @@ const Dashboard = props => {
             <Greeting>
               <h1>Hello {activeUser.display_name}!</h1>
             </Greeting>
+            <TeamCard></TeamCard>
             <User>
               <Link to="/coming-soon">
                 <i className="fas fa-bell"></i>
@@ -49,7 +50,6 @@ const Dashboard = props => {
           <h2 className="mission-message">Your missions today</h2>
 
           <Progress missions={missions} />
-          <TeamCard />
 
           <MissionHub>
             {missions.map(mission => {
