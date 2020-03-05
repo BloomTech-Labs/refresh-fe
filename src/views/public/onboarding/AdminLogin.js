@@ -1,15 +1,14 @@
 //IMPORTS
 //react
 import React, { useState, useEffect, useContext } from "react";
-//styled components
+//styled-components
 import styled from "styled-components";
 //axios with auth
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
-import welcome from "../../../images/Onboarding/welcome_back.svg";
-//atoms
-// import Input from "../../components/atoms/input/input";
+import welcome from "../../../images/Onboarding/welcome.svg";
+
 //Context
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 import { UserContext } from "../../../contexts/UserContext";
@@ -23,30 +22,21 @@ const AdminLogin = props => {
   });
   const [err, setErr] = useState();
   const [enabledBtn, setEnabledBtn] = useState(false);
-  // contexts
-  const activeUser = useContext(UserContext);
-  const userMissions = useContext(UserMissionsContext);
 
-  //errors useEffect
   let errors = {};
   useEffect(() => {
-    errors.userEmail =
-      user.email.length < 2 && "user email must be greater than 3 characters";
-    errors.userPassword =
-      user.password.length < 2 &&
-      "user password must be greater than 3 characters";
-    !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
+      setEnabledBtn(true);
     props.debug &&
       console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
-
-  //route to adminlogin
-  const routeToLogin = e => {
+  
+  //route to sign up page
+  const routeToLanding = e => {
     e.preventDefault();
-    props.history.push("/adminlogin");
+    props.history.push("/");
   };
 
-  //handle change for state
+  //handle change for user info
   const handleChange = e => {
     setUser({
       ...user,
@@ -54,25 +44,22 @@ const AdminLogin = props => {
     });
   };
 
-  //handle submit to backend
-  const handleSubmit = () => {
+  //handle submit of user info to backend
+  const handleSubmit = e => {
+    props.debug && console.log("handleSubmit enabledBtn:", enabledBtn);
     if (!enabledBtn) {
-      alert(errors.userEmail || errors.userPassword);
+      alert(
+        errors.userName ||
+          errors.userEmail ||
+          errors.userPassword ||
+          errors.confirmedPass
+      );
     } else {
       axiosWithAuth()
-        .post("/adminlogin", { email: user.email, password: user.password })
+        .post("/admin/login", { email: user.email, password: user.password })
         .then(res => {
+          console.log(res.data.token);
           if (res.data.token) {
-            const userObject = res.data;
-            const {
-              mission_subscriptions,
-              missions_in_progress
-            } = userObject.user_missions;
-
-            activeUser.setUser(userObject.user_profile);
-            userMissions.setUserMissions(
-              missionMasher(mission_subscriptions, missions_in_progress)
-            );
             localStorage.setItem("token", res.data.token);
             props.history.push("/admindash");
           } else {
@@ -90,7 +77,7 @@ const AdminLogin = props => {
   //render
   return (
     <OnBoardContainer>
-      <ButtonNoColor onClick={routeToLogin}>&lt;</ButtonNoColor>
+      <ButtonNoColor onClick={routeToLanding}>&lt;</ButtonNoColor>
       <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
         <Input
@@ -106,6 +93,7 @@ const AdminLogin = props => {
         <Input
           type="password"
           name="password"
+          autoComplete="new-password"
           placeholder="Password"
           onChange={handleChange}
           value={user.password}
@@ -113,9 +101,8 @@ const AdminLogin = props => {
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
         />
-        <ButtonNoColor className="smallTxt">Forgot password?</ButtonNoColor>
         <Button onClick={handleSubmit} className={BtnStats}>
-          Log In
+          Sign In
         </Button>
       </Form>
     </OnBoardContainer>
@@ -128,15 +115,15 @@ const OnBoardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Catamaran", sans-serif;
-  margin: auto;
+  margin: auto auto 0 auto;
   line-height: 1.5;
   background-color: #4742bc;
   background-image: url(${waves});
   background-size: contain;
-  color: #7f7cca;
+  color: #4742bc;
   width: 100vw;
   height: 100vh;
-  max-height: 100vh;
+  overflow-y: auto;
   padding: 8%;
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
@@ -151,11 +138,9 @@ const OnBoardContainer = styled.div`
     -webkit-text-fill-color: #fff;
     transition: background-color 5000s ease-in-out 0s;
   }
-  .smallTxt {
-    font-size: calc(80% + 0.1vw);
-    margin-top: 2rem;
-    width: 100%;
-    text-align: center;
+  &:nth-child(*) {
+    background-color: green;
+    margin-bottom: 5%;
   }
 `;
 
@@ -164,6 +149,10 @@ const Logo = styled.img`
   width: 100%;
   max-width: 100%;
   margin: auto;
+
+  @media screen and (max-width: 1000px) {
+    margin-top: auto;
+  }
 `;
 
 const Form = styled.form`
@@ -179,6 +168,7 @@ const Form = styled.form`
       font-size: calc(100%);
     }
   }
+
   .disabledColor {
     opacity: 30%;
   }
@@ -213,6 +203,9 @@ background: #E05CB3;
 color: white;
 font-size:calc(110% + 0.5vw);
 letter-spacing:0.1rem;
+  &:hover {
+    cursor: pointer;
+  }
 }
 `;
 

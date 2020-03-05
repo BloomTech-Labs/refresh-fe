@@ -11,8 +11,8 @@ import styled from "styled-components";
 // helpers
 import { flex } from "../../../styles/global/Mixins";
 // components
-import MissionCard from "./MissionCard";
-import Progress from "./Progress";
+// import MissionCard from "./MissionCard";
+// import Progress from "./Progress";
 // images
 import waves from "../../../images/Onboarding/waves.svg";
 // COMPONENT
@@ -26,51 +26,25 @@ const AdminDash = props => {
     <DashboardView>
       <DashboardWrapper>
         <DashboardContainer>
-          <Header>
+          {/* <Header> */}
             <Greeting>
-              <h1>Hello {activeUser.display_name}!</h1>
+              <h1>Welcome {activeUser.display_name}!</h1>
             </Greeting>
             <User>
               <Link to="/coming-soon">
                 <i className="fas fa-bell"></i>
               </Link>
               <Link to="/profile-overview">
-                <Avatar>
-                  {activeUser.avatar && (
-                    <img src={activeUser.avatar} alt="User avatar" />
-                  )}
-                </Avatar>
+                
               </Link>
             </User>
-          </Header>
+          {/* </Header> */}
 
-          <h2 className="mission-message">Your missions today</h2>
+          {/* <h2 className="mission-message">Your missions today</h2> */}
 
-          <Progress missions={missions} />
 
-          <MissionHub>
-            {missions.map(mission => {
-              return (
-                <MissionCard
-                  key={mission.mission_id}
-                  mission={mission}
-                  {...props}
-                />
-              );
-            })}
-          </MissionHub>
 
-          <AddMission>
-            <StartTimer>
-              <p>
-                Ready to work?<br></br>
-                <Link to="/timer">Start Pomodoro</Link>
-              </p>
-            </StartTimer>
-            <Link to="/mission-complete">
-              <MissionButton>+</MissionButton>
-            </Link>
-          </AddMission>
+          
         </DashboardContainer>
       </DashboardWrapper>
     </DashboardView>

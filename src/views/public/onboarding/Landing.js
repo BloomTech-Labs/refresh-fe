@@ -23,6 +23,10 @@ const Landing = props => {
   //   e.preventDefault();
   //   props.history.push("/adminlogin");
   // };
+  const routeToAdmin = e => {
+    e.preventDefault();
+    props.history.push("/adminlogin");
+  };
 
   // const routeToComponentTesting = e => {
   //   e.preventDefault();
@@ -56,6 +60,7 @@ const Landing = props => {
         // }
         
         // </FlexHolder>/Admin Login Here</AdminSignin> */}
+        <AdminSignin onClick={routeToAdmin}>Admin Login Here</AdminSignin>
       </FlexHolder>
     </OnBoardContainer>
   );
