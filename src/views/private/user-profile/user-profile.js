@@ -46,18 +46,6 @@ const UserProfile = props => {
 
 
 
-    useEffect(() => {
-        axios.get('https://labs-refresh.herokuapp.com/teams')
-            .then((response) => {
-                console.log(response.data)
-                setDropdownItems({ ...dropdownItems, items: response.data })
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }, [])
-
-
 
     const onChange = event => {
         setEditProfile({ team_id: event.target.value })
@@ -86,6 +74,7 @@ const UserProfile = props => {
                         <option value='3'>3</option>
                     </select>
                     <button>Submit Team Change</button>
+                    <button onClick={deleteUser}>Delete User</button>
                 </form>
             </div>
         )
