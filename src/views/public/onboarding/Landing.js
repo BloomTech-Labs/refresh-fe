@@ -19,19 +19,10 @@ const Landing = props => {
     props.history.push("/login");
   };
 
-  // const routeToAdmin = e => {
-  //   e.preventDefault();
-  //   props.history.push("/adminlogin");
-  // };
   const routeToAdmin = e => {
     e.preventDefault();
     props.history.push("/adminlogin");
   };
-
-  // const routeToComponentTesting = e => {
-  //   e.preventDefault();
-  //   props.history.push('/atoms');
-  // };
 
   //render
   return (
@@ -53,31 +44,12 @@ const Landing = props => {
         <ButtonNoColor onClick={routeToLogin}>
           I already have an account
         </ButtonNoColor>
-        <AdminSignin></AdminSignin>
-         
-        {/* onClick=
-          // routeToAdmin
-        // }
-        
-        // </FlexHolder>/Admin Login Here</AdminSignin> */}
         <AdminSignin onClick={routeToAdmin}>Admin Login Here</AdminSignin>
       </FlexHolder>
     </OnBoardContainer>
   );
 };
 
-// STYLED COMPONENTS
-//Onboarding Reusable Styles
-// we abstract out reusable global styles later on -JC
-// const OnBoardWrapper = styled.div`
-//   display: flex;
-//   width: 100vw;
-//   height: 100vh;
-//   max-height: 100vh;
-//   background-color: #4742BC;
-//   background-image:url(${waves});
-//   overflow-x: auto;
-// `;
 
 const OnBoardContainer = styled.div`
   display: flex;

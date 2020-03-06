@@ -9,10 +9,6 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import waves from "../../../images/Onboarding/waves.svg";
 import welcome from "../../../images/Onboarding/welcome.svg";
 
-//Context
-import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
-import { UserContext } from "../../../contexts/UserContext";
-import { missionMasher } from "../../globalFunctions";
 
 const AdminLogin = props => {
   //hooks
@@ -25,7 +21,12 @@ const AdminLogin = props => {
 
   let errors = {};
   useEffect(() => {
-      setEnabledBtn(true);
+    errors.userEmail =
+    user.email.length < 4 && "user email must be greater than 5 characters";
+  errors.userPassword =
+    user.password.length < 4 &&
+    "user password must be greater than 5 characters";
+    !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
     props.debug &&
       console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
@@ -49,10 +50,8 @@ const AdminLogin = props => {
     props.debug && console.log("handleSubmit enabledBtn:", enabledBtn);
     if (!enabledBtn) {
       alert(
-        errors.userName ||
           errors.userEmail ||
-          errors.userPassword ||
-          errors.confirmedPass
+          errors.userPassword
       );
     } else {
       axiosWithAuth()
