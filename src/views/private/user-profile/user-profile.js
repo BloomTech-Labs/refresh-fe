@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import Dropdown from '../dropdown/dropdown';
+
 
 
 const UserProfile = props => {
@@ -11,6 +13,7 @@ const UserProfile = props => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        console.log('handleSubmit', editProfile)
         axios.put(`https://labs-refresh.herokuapp.com/users/${userProfile.id}`, editProfile)
             .then(response => {
                 console.log('UPDATE response: ', response)
@@ -39,21 +42,25 @@ const UserProfile = props => {
             .catch((error) => {
                 console.log(error)
             })
-    }, [handleSubmit, deleteUser])
+    }, [])
+
+
 
     useEffect(() => {
         axios.get('https://labs-refresh.herokuapp.com/teams')
             .then((response) => {
-                setDropdownItems(response.data)
-                console.log('RESPONSE dropdownItems', response.data)
+                console.log(response.data)
+                setDropdownItems({ ...dropdownItems, items: response.data })
             })
             .catch((error) => {
                 console.log(error)
             })
     }, [])
 
-    const handleChange = event => {
-        setEditProfile({ ...editProfile, [event.target.name]: event.target.value })
+
+
+    const onChange = event => {
+        setEditProfile({ team_id: event.target.value })
         console.log('editProfile team', editProfile)
     }
 
@@ -61,7 +68,7 @@ const UserProfile = props => {
     if(userProfile === undefined) {
         return <h1>Loading</h1>
     } else {
-        return ( 
+        return (
             <div>
                 <h1>User Profile Page</h1>
                 <div className='profile'>
@@ -72,20 +79,19 @@ const UserProfile = props => {
                     <h2>{userProfile.email}</h2>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <label>Team: </label>
-                    <input 
-                        name='team_id'
-                        placeholder='Change Team'
-                        value={editProfile.team_id}
-                        onChange={handleChange}
-                    /> 
+                    <label>Edit team</label>
+                    <select value={editProfile.team_id} onChange={onChange}>
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                    </select>
                     <button>Submit Team Change</button>
-                    <button onClick={deleteUser}>Delete User</button>
                 </form>
             </div>
         )
     }
 }
+
 
 
 export default UserProfile;
