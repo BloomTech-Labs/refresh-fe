@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import {axiosWithAuth} from './axiosWithAuth'
-
+import deleteButton from './deleteButton'
 
 
 const Container = styled.div`
@@ -82,6 +82,15 @@ export default class TeamCard extends Component {
       .then(res => {
         const data = res.data
         console.log(data)
+        const team = data.map(t =>
+          <div>
+            <p>{t.name}</p>
+            {/* users go here */}
+            <p>{t.points}</p>
+
+          </div>)
+
+          this.setState({team})
       })
       .catch((error) => {
         console.log(error)
@@ -97,18 +106,18 @@ export default class TeamCard extends Component {
       <Container>
         <div>
           <TeamName>
-            Team 1
+            {this.state.team}
         </TeamName>
-          <Member>
+          {/* <Member>
             Member 1
         </Member>
           <Member>
             Member 2
-        </Member>
+        </Member> */}
         </div>
         <Buttons>
           <Edit size="small">Edit</Edit>
-          <Delete size="small">Delete</Delete>
+          <deleteButton/>
         </Buttons>
       </Container>
     );
