@@ -48,38 +48,50 @@ const UserList = props => {
     if(users === undefined) {return <h1>Loading...</h1>}
 
     var listRender;
-    if(searchTerm.length === 1) {
-        listRender = (
-        <section>
-                {users.map(user => {
-                    return (
-                        <div>
-                            <div key={user.id}>
-                                <UserCard info={user} />
-                            </div>
-                        </div>
-                    )
-                })}
-        </section>
-        )
-    }
+    // if() {
+    //     listRender = (
+    //     <section>
+    //             {users.map(user => {
+    //                 return (
+    //                     <div>
+    //                         <div key={user.id}>
+    //                             <UserCard info={user} />
+    //                         </div>
+    //                     </div>
+    //                 )
+    //             })}
+    //     </section>
+    //     ) 
+    // }
 
     return (
         <div>
             <h1>Users Profiles</h1>
-            <form>
-                <input
-                id="search"
-                type="text"
-                name="searchBar"
-                placeholder="Search"
-                onChange={changeHandler}
-                value={searchTerm}
-                />
+                <form>
+                    <input
+                    id="search"
+                    type="text"
+                    name="searchBar"
+                    placeholder="Search"
+                    onChange={changeHandler}
+                    value={searchTerm}
+                    />
+                    <List>
+                    {users.map(user => {
+                        return (
+                            <div>
+                                <div key={user.id}>
+                                    <UserCard info={user} />
+                                </div>
+                            </div>
+                        )
+                    })}
+                </List>
             </form>
         </div>
     )
-}
+ }
+
 
 
 export default UserList;
