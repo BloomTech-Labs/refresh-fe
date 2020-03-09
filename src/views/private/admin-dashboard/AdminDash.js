@@ -1,6 +1,7 @@
 // IMPORTS
 // react
 import React, { useContext } from "react";
+import { Route, Redirect, Switch } from "react-router-dom";
 // router
 import { Link } from "react-router-dom";
 // contexts
@@ -13,6 +14,8 @@ import { flex } from "../../../styles/global/Mixins";
 // components
 import AdminNav from "../AdminNav";
 import TeamCard from '../../../components/molecules/team/teamCard';
+import UserProfile from '../user-profile/user-profile'
+import UserList from '../user-list/user-list';
 
 // COMPONENT
 const AdminDash = props => {
@@ -24,8 +27,9 @@ const AdminDash = props => {
     <div>
       
       <CardContainer>
-      <AdminNav />
-      <TeamCard />
+        <AdminNav />
+        <Route path='/userprofile' component={UserProfile} />
+        <Route path='/userlist' component={UserList} />
       </CardContainer>
     </div>
     
