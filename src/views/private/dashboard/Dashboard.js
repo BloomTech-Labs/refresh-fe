@@ -15,6 +15,8 @@ import MissionCard from "./MissionCard";
 import Progress from "./Progress";
 // images
 import waves from "../../../images/Onboarding/waves.svg";
+
+// import TeamCard from '../../../components/molecules/teamCard'
 // COMPONENT
 const Dashboard = props => {
   // contexts
@@ -30,6 +32,7 @@ const Dashboard = props => {
             <Greeting>
               <h1>Hello {activeUser.display_name}!</h1>
             </Greeting>
+            {/* <TeamCard></TeamCard> */}
             <User>
               <Link to="/coming-soon">
                 <i className="fas fa-bell"></i>

@@ -21,13 +21,8 @@ const Landing = props => {
 
   const routeToAdmin = e => {
     e.preventDefault();
-    props.history.push("/admin")
-  }
-
-  // const routeToComponentTesting = e => {
-  //   e.preventDefault();
-  //   props.history.push('/atoms');
-  // };
+    props.history.push("/adminlogin");
+  };
 
   //render
   return (
@@ -49,26 +44,12 @@ const Landing = props => {
         <ButtonNoColor onClick={routeToLogin}>
           I already have an account
         </ButtonNoColor>
-        <FBButton onClick={routeToAdmin}>
-          Administrator Login
-        </FBButton>
+        <AdminSignin onClick={routeToAdmin}>Admin Login Here</AdminSignin>
       </FlexHolder>
     </OnBoardContainer>
   );
 };
 
-// STYLED COMPONENTS
-//Onboarding Reusable Styles
-// we abstract out reusable global styles later on -JC
-// const OnBoardWrapper = styled.div`
-//   display: flex;
-//   width: 100vw;
-//   height: 100vh;
-//   max-height: 100vh;
-//   background-color: #4742BC;
-//   background-image:url(${waves});
-//   overflow-x: auto;
-// `;
 
 const OnBoardContainer = styled.div`
   display: flex;
@@ -152,6 +133,21 @@ const Button = styled.a`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const AdminSignin = styled.a`
+display: inline-block;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width: 64%;
+text-align: center;
+margin: 10px auto;
+background: #6997F2;
+color: white;
+font-size: calc(100% + 0.5vw);
+&:hover {
+  cursor: pointer;
+}
 `;
 
 const ButtonNoColor = styled.a`
