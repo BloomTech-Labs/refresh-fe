@@ -30,6 +30,7 @@ const AdminDash = props => {
         <WithNavigation />
         <Route path='/userprofile' component={UserProfile} />
         <Route path='/userlist' component={UserList} />
+        <Route path='/teamcard' component={TeamCard} />
       </CardContainer>
     </div>
     
