@@ -6,7 +6,7 @@ import { TeamContext } from "./TeamContext";
 
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
 import * as ctx from "../views/globalFunctions";
-import moment from 'moment'
+// import moment from 'moment'
 const ContextRouter = ({
   privateView: PrivateView,
   publicView: PublicView,
