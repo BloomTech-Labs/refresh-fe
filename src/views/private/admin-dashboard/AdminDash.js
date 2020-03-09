@@ -23,10 +23,15 @@ const AdminDash = props => {
     
     <div>
       
-      <CardContainer>
-      <AdminNav />
-      <TeamCard />
-      </CardContainer>
+      <NavContainer>
+        <AdminNav />
+          <Header>
+            <h1>Leaderboard</h1>
+          </Header>
+        <CardContainer>
+          <TeamCard />
+        </CardContainer>
+      </NavContainer>
     </div>
     
   );
@@ -39,9 +44,18 @@ const AdminDash = props => {
 export default AdminDash;
 
 
+const NavContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+`;
+
 const CardContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  
-  align-items: center;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
 `;
