@@ -38,7 +38,7 @@ const PrivateViewCanvas = props => {
         )}
 
       <Switch>
-        <Route path="/nav" component={WithNavigation} />
+        {/* <Route path="/nav" component={WithNavigation} /> */}
         <Route path="/firstlogin" component={StepStart} />
         <Route path="/admindash" component={AdminDash} />
         <Route path="/dashboard" component={Dashboard} />

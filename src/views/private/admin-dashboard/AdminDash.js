@@ -12,8 +12,7 @@ import styled from "styled-components";
 import { flex } from "../../../styles/global/Mixins";
 // components
 import AdminNav from "../AdminNav"
-// images
-import waves from "../../../images/Onboarding/waves.svg";
+
 // COMPONENT
 const AdminDash = props => {
   // contexts
