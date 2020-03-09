@@ -63,14 +63,26 @@ export const Logout = styled.img`
     margin-bottom: 2vh;
 `;
 
+export const Space = styled.div `
+`;
+
+      
+
+
+// const clear = {localStorage.clear}
+
 function WithNavigation (props) {
+
+    function logoutClick() {
+        localStorage.clear();
+      }
     return <div>
         <NavBar>
             <Link to="/admindash">
                 <Stars className='img' src={logo} alt='stars'/>
             </Link>
-            <div></div>
-            <Link to="/admindash">
+            <Space></Space>
+            <Link to="/teamcard">
                 <Leaderboard className='img'src={leaderboard} alt='leaderboard'/>
             </Link>
             <Link to="/userlist">
@@ -79,8 +91,10 @@ function WithNavigation (props) {
             <Link to="/">
                 <Settings className='img' src={settings} alt='settings'/>
             </Link>
-            <div></div>
-            <Logout className='img' src={logout} alt='logout'/>
+            <Space></Space>
+            <Link to="/">
+                <Logout className='img' src={logout} alt='logout'  onClick={logoutClick}/>
+            </Link>
         </NavBar>
         <Content>
             {
