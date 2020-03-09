@@ -63,7 +63,18 @@ export const Logout = styled.img`
     margin-bottom: 2vh;
 `;
 
+
+
+      
+
+
+// const clear = {localStorage.clear}
+
 function WithNavigation (props) {
+
+    function logout() {
+        localStorage.clear();
+      }
     return <div>
         <NavBar>
             <Link to="/admindash">
@@ -80,7 +91,9 @@ function WithNavigation (props) {
                 <Settings className='img' src={settings} alt='settings'/>
             </Link>
             <div></div>
-            <Logout className='img' src={logout} alt='logout' onClick={localStorage.clear()}/>
+            <Link to="/">
+            <Logout className='img' src={logout} alt='logout'  onClick={logout}/>
+            </Link>
         </NavBar>
         <Content>
             {

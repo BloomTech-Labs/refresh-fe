@@ -12,7 +12,7 @@ import styled from "styled-components";
 // helpers
 import { flex } from "../../../styles/global/Mixins";
 // components
-import AdminNav from "../AdminNav";
+import WithNavigation from "../AdminNav";
 import TeamCard from '../../../components/molecules/team/teamCard';
 import UserProfile from '../user-profile/user-profile'
 import UserList from '../user-list/user-list';
@@ -27,7 +27,7 @@ const AdminDash = props => {
     <div>
       
       <CardContainer>
-        <AdminNav />
+        <WithNavigation />
         <Route path='/userprofile' component={UserProfile} />
         <Route path='/userlist' component={UserList} />
       </CardContainer>
