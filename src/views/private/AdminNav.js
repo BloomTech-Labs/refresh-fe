@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 //images
 import logo from './AdminNavImages/logo.png';
@@ -65,11 +66,19 @@ export const Logout = styled.img`
 function WithNavigation (props) {
     return <div>
         <NavBar>
-            <Stars className='img' src={logo} alt='stars'/>
+            <Link to="/admindash">
+                <Stars className='img' src={logo} alt='stars'/>
+            </Link>
             <div></div>
-            <Leaderboard className='img'src={leaderboard} alt='leaderboard'/>
-            <Users className='img' src={user} alt='user'/>
-            <Settings className='img' src={settings} alt='settings'/>
+            <Link to="/admindash">
+                <Leaderboard className='img'src={leaderboard} alt='leaderboard'/>
+            </Link>
+            <Link to="/userlist">
+                <Users className='img' src={user} alt='user'/>
+            </Link>
+            <Link to="/">
+                <Settings className='img' src={settings} alt='settings'/>
+            </Link>
             <div></div>
             <Logout className='img' src={logout} alt='logout'/>
         </NavBar>

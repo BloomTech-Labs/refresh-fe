@@ -43,9 +43,18 @@ const AdminDash = props => {
 export default AdminDash;
 
 
+const NavContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+`;
+
 const CardContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  
-  align-items: center;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
 `;
