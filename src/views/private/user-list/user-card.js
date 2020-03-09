@@ -11,7 +11,6 @@ margin: 30px;
 
 
 const UserCard = props => {
-    console.log('UserCard', props.info.first_name)
 
 
     return (
@@ -29,3 +28,5 @@ const UserCard = props => {
 }
 
 export default UserCard;
+
+
