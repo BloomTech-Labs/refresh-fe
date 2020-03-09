@@ -80,7 +80,7 @@ function WithNavigation (props) {
                 <Settings className='img' src={settings} alt='settings'/>
             </Link>
             <div></div>
-            <Logout className='img' src={logout} alt='logout'/>
+            <Logout className='img' src={logout} alt='logout' onClick={localStorage.clear()}/>
         </NavBar>
         <Content>
             {
