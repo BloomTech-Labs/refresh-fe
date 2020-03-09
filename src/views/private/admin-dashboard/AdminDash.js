@@ -21,10 +21,13 @@ const AdminDash = props => {
 
   return (
     
-    <>
+    <div>
+      
+      <CardContainer>
       <AdminNav />
-      <TeamCard></TeamCard>
-    </>
+      <TeamCard />
+      </CardContainer>
+    </div>
     
   );
 };
@@ -35,9 +38,10 @@ const AdminDash = props => {
 // EXPORT
 export default AdminDash;
 
-const Header = styled.div`
+
+const CardContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  
   align-items: center;
 `;
