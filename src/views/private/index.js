@@ -57,7 +57,6 @@ const PrivateViewCanvas = props => {
         <Route path="/survey" component={SurveyCanvas} />
         <Route path="/profile-edit" component={ProfileEdit} />
         <Route path="/weekly-challenges" component={WeeklyChallenges} />
-        
       </Switch>
     </>
   );
