@@ -15,14 +15,6 @@ const UserList = props => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([])
 
-    useEffect(() => {
-        const results = props.restData.filter(
-        user =>
-            user.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setSearchResults(results);
-    }, [searchTerm, users]);
-
 
     useEffect(() => {
         axios.get('https://labs-refresh.herokuapp.com/users/')
@@ -35,12 +27,35 @@ const UserList = props => {
             })
     }, [])
 
+    useEffect(() => {
+        const results = usersInfo.filter(
+        user =>
+            user.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setSearchResults(results);
+    }, [searchTerm, users]);
+
+    const changeHandler = event => {
+        event.preventDefault();
+        setSearchTerm(event.target.value);
+    };
+
     
     if(users === undefined) {
         return <h1>Loading Users...</h1>
     } else {
         return (
             <div>
+                <form>
+                    <input
+                    id="search"
+                    type="text"
+                    name="searchBar"
+                    placeholder="Search"
+                    onChange={changeHandler}
+                    value={searchTerm}
+                    />
+                </form>
                 <h1>All Users</h1>
                 <List>
                     {users.map((user, key) => {
