@@ -12,6 +12,17 @@ flex-wrap: wrap;
 
 const UserList = props => {
     const [users, setUsers] = useState();
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchResults, setSearchResults] = useState([])
+
+    useEffect(() => {
+        const results = props.restData.filter(
+        user =>
+            user.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setSearchResults(results);
+    }, [searchTerm, users]);
+
 
     useEffect(() => {
         axios.get('https://labs-refresh.herokuapp.com/users/')
@@ -46,3 +57,5 @@ const UserList = props => {
 }
 
 export default UserList;
+
+
