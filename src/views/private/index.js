@@ -16,9 +16,12 @@ import CreateTMission from "./team-view/CreateTMission";
 import Calendar from "./team-view/Calendar";
 import TeamList from "./team-view/TeamList";
 import StepStart from "./firstLogin/StepStart";
+import AdminDash from "./admin-dashboard/AdminDash";
 import SurveyCanvas from "./survey";
 import ProfileEdit from "./profileViews/ProfileEdit";
 import WeeklyChallenges from "./weeklyChallenge/WeeklyChallenges";
+import WithNavigation from './AdminNav';
+
 
 const PrivateViewCanvas = props => {
   const { pathname } = props.location;
@@ -31,11 +34,13 @@ const PrivateViewCanvas = props => {
         pathname !== "/survey" &&
         pathname !== "/team-list" &&
         pathname !== "/create-team" && (
-          <Route match path="/" component={MobileMenu} />
+          <Route match path="/" component={AdminDash} />
         )}
 
       <Switch>
+        <Route path="/nav" component={WithNavigation} />
         <Route path="/firstlogin" component={StepStart} />
+        <Route path="/admindash" component={AdminDash} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
@@ -52,7 +57,7 @@ const PrivateViewCanvas = props => {
         <Route path="/survey" component={SurveyCanvas} />
         <Route path="/profile-edit" component={ProfileEdit} />
         <Route path="/weekly-challenges" component={WeeklyChallenges} />
-        <Redirect to="/dashboard" />
+        
       </Switch>
     </>
   );

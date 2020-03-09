@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 //IMPORTS
 //react
 import React, { useState, useEffect, useContext } from "react"; // eslint-disable-line no-unused-vars
@@ -88,6 +89,7 @@ const TeamList = props => {
   const teamListScroll = (unit, range) => {
     let items = [];
     for (let i = 0; i < range; i++) {
+      // eslint-disable-next-line no-lone-blocks
       {
         items.push(
           <SwipeHolder>
