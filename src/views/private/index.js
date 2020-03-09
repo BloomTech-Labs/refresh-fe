@@ -21,6 +21,7 @@ import ProfileEdit from "./profileViews/ProfileEdit";
 import WeeklyChallenges from "./weeklyChallenge/WeeklyChallenges";
 import AdminDashBoard from "./admin-dashboard/AdminDashBoard";
 import UserProfile from '../private/user-profile/user-profile';
+import UserList from './user-list/user-list';
 
 const PrivateViewCanvas = props => {
   const { pathname } = props.location;
@@ -56,6 +57,7 @@ const PrivateViewCanvas = props => {
         <Route path="/weekly-challenges" component={WeeklyChallenges} />
         <Route path="/admin" component={AdminDashBoard} />
         <Route path="/userprofile" component={UserProfile} /> 
+        <Route path="/userlist" component={UserList} />
         <Redirect to="/" />
       </Switch>
     </>
