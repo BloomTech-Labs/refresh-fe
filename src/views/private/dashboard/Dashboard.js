@@ -16,7 +16,7 @@ import Progress from "./Progress";
 // images
 import waves from "../../../images/Onboarding/waves.svg";
 
-import TeamCard from '../../../components/molecules/teamCard'
+import TeamCard from '../../../components/molecules/team/teamCard'
 // COMPONENT
 const Dashboard = props => {
   // contexts

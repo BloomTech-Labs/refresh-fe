@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import {axiosWithAuth} from './axiosWithAuth'
+import { axiosWithAuth } from './axiosWithAuth'
 import deleteButton from './deleteButton'
-
+import TeamDetails from './teamDetails'
 
 const Container = styled.div`
 width: 40vw;
@@ -11,7 +11,8 @@ max-height: 18rem;
 height: 38vw;
 box-shadow: 0px 4px 10px rgba(21, 15, 172, 0.1);
 border-radius: 3px;
-margin: 1rem 0.5rem;
+margin: 0rem 0rem;
+display: center;
 background-color: ${props => props.color};
 padding: 1rem;
 color: #fff;
@@ -68,12 +69,21 @@ const Delete = styled.div`
 `;
 
 
+
+
 export default class TeamCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Users: []
+      Users: [],
+      showTeamDetails: false
     };
+  }
+
+  toggleTeamDetails() {
+    this.setState({
+      showTeamDetails: !this.state.showTeamDetails
+    });
   }
 
   getTeams() {
@@ -87,19 +97,25 @@ export default class TeamCard extends Component {
             <p>{t.name}</p>
             {/* users go here */}
             <p>{t.points}</p>
-
+            <button onClick={this.toggleTeamDetails.bind(this)}>TeamDetails</button>
+            {this.state.showTeamDetails ?
+              <TeamDetails
+                text='Click "Close Button" to hide TeamDetails'
+                closeTeamDetails={this.toggleTeamDetails.bind(this)}/>
+              : null
+            }
           </div>)
 
-          this.setState({team})
+        this.setState({ team })
       })
       .catch((error) => {
         console.log(error)
       })
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getTeams()
-}
+  }
 
   render() {
     return (
@@ -107,7 +123,7 @@ export default class TeamCard extends Component {
         <div>
           <TeamName>
             {this.state.team}
-        </TeamName>
+          </TeamName>
           {/* <Member>
             Member 1
         </Member>
@@ -117,7 +133,7 @@ export default class TeamCard extends Component {
         </div>
         <Buttons>
           <Edit size="small">Edit</Edit>
-          <deleteButton/>
+          <deleteButton />
         </Buttons>
       </Container>
     );

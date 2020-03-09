@@ -5,11 +5,14 @@ import {axiosWithAuth} from './axiosWithAuth'
 export default class deleteButton extends Component {
     constructor(props) {
       super(props);
+      this.state = {
+        id: ''
+      }
     }
   
-    deleteTeams() {
+    deleteTeams(id) {
       axiosWithAuth()
-        .delete(`/teams/{id}`, {params})
+        .delete(`/teams/${this.state.id}`)
         .then(() => {
           console.log("Deleted")
         })
