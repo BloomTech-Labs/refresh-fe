@@ -56,14 +56,13 @@ const UserList = props => {
     }).map(employees => {
         return (
             <div>
-                <List>
-                    <div key={employees.id}>
-                        <UserCard info={employees} />
-                    </div>
-                </List>
+                <div key={employees.id}>
+                    <UserCard info={employees} />
+                </div>
             </div>
         )
     })
+
     return (
         <div>
             <h1>Users Profiles</h1>
@@ -77,7 +76,9 @@ const UserList = props => {
                     value={searchTerm}
                     />
             </form>
-            {filteredUsers}
+            <List>
+                {filteredUsers}
+            </List>
         </div>
     )
 }
