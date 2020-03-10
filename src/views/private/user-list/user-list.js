@@ -50,7 +50,7 @@ const UserList = props => {
     const filteredUsers = users.filter(employees => {
         if(searchTerm === null) {
             return employees
-        } else if(employees.first_name.toLowerCase().includes(searchTerm.toLowerCase())) {
+        } else if(employees.first_name.toLowerCase().includes(searchTerm.toLowerCase()) || employees.last_name.toLowerCase().includes(searchTerm.toLowerCase())) {
             return employees
         }
     }).map(employees => {
