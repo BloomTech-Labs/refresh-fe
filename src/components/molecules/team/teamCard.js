@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import { axiosWithAuth } from './axiosWithAuth'
-import deleteButton from './deleteButton'
+import DeleteButton from './deleteButton'
 import TeamDetails from './teamDetails'
+
+const Body = styled.div`
+padding-left: 70px;
+`;
+
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-color: black;
+`;
 
 const Container = styled.div`
 width: 40vw;
@@ -47,6 +58,11 @@ span {
     margin-top: auto;
 }`
   ;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const TeamName = styled.div`
   width: 100%;
@@ -119,6 +135,10 @@ export default class TeamCard extends Component {
 
   render() {
     return (
+      <Body>
+        <Title>
+          <h1>Leaderboard</h1>
+        </Title>
       <Container>
         <div>
           <TeamName>
@@ -133,9 +153,10 @@ export default class TeamCard extends Component {
         </div>
         <Buttons>
           <Edit size="small">Edit</Edit>
-          <deleteButton />
+          <DeleteButton />
         </Buttons>
       </Container>
+      </Body>
     );
   }
 }

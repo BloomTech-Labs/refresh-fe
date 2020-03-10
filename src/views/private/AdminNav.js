@@ -9,7 +9,8 @@ import user from './AdminNavImages/user.png';
 import settings from './AdminNavImages/settings.png';
 import logout from './AdminNavImages/signout 1.png';
 
-export const NavBar = styled.div`      
+export const NavBar = styled.div`
+    position: fixed;    
     background-color: rgb(61,162,237);
     color: white;
     text-align: center;
@@ -29,8 +30,7 @@ export const NavBar = styled.div`
         &:hover {
         opacity: 100%; 
       }
-    }
-    
+    }  
 `;
 
 

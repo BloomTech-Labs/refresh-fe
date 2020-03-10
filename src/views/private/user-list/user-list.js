@@ -9,6 +9,10 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 `
+const Body = styled.div`
+display: flex;    
+padding-left: 70px;
+`
 
 const UserList = props => {
     const [users, setUsers] = useState();
@@ -65,6 +69,7 @@ const UserList = props => {
 
     return (
         <div>
+            <Body>
             <h1>Users Profiles</h1>
                 <form>
                     <input
@@ -79,6 +84,7 @@ const UserList = props => {
             <List>
                 {filteredUsers}
             </List>
+            </Body>
         </div>
     )
 }
