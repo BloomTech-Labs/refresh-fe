@@ -131,7 +131,6 @@ const TVContainer = styled.div`
   color: #7f7cca;
   width: 100vw;
   height: 100vh;
-  max-height: 100vh;
   padding: 8%;
   &:nth-child(*) {
     background-color: green;

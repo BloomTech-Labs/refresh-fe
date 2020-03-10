@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import {axiosWithAuth} from './axiosWithAuth'
+import deleteButton from './deleteButton'
 
 const TeamDetails = styled.div`  
   position: fixed;  
@@ -24,13 +25,13 @@ const TeamDetailsInner =styled.div`
   background: white;  
 `;
 
-export default class Popup extends React.Component {  
+export default class teamDetails extends React.Component {  
     render() {  
   return (  
   <TeamDetails>  
   <TeamDetailsInner>  
   <h1>{this.props.text}</h1>  
-  <button onClick={this.props.closePopup}>close me</button>  
+  <button onClick={this.props.closeTeamDetails}>close me</button>  
   </TeamDetailsInner>  
   </TeamDetails>  
   );  

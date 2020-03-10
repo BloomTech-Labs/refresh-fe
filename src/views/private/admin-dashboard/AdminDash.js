@@ -12,20 +12,30 @@ import styled from "styled-components";
 import { flex } from "../../../styles/global/Mixins";
 // components
 import AdminNav from "../AdminNav"
+import TeamCard from '../../../components/molecules/team/teamCard'
 // images
 import waves from "../../../images/Onboarding/waves.svg";
+
 // COMPONENT
 const AdminDash = props => {
   // contexts
 
 
   return (
-    <AdminNav />
+    <CardContainer>
+      <AdminNav />
+      <TeamCard />
+    </CardContainer>
   );
 };
 
 // STYLED COMPONENTS
-
+const CardContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  
+  align-items: center;
+`;
 
 // EXPORT
 export default AdminDash;
