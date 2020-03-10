@@ -13,7 +13,7 @@ flex-wrap: wrap;
 const UserList = props => {
     const [users, setUsers] = useState();
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = useState([])
+    const [showNulls, setShowNulls] = useState(false);
 
 
     useEffect(() => {
@@ -27,17 +27,6 @@ const UserList = props => {
             })
     }, [])
 
-    useEffect(() => {
-        console.log('SearchTerm.length', searchTerm.length)
-        if(users) {
-            const results = users.filter(user =>                
-                    user.first_name.toLowerCase().includes(searchTerm.toLowerCase())
-                );
-                setSearchResults(results);
-        }
-    }, [searchTerm, users]);
-
-
 
     const changeHandler = event => {
         event.preventDefault();
@@ -45,18 +34,28 @@ const UserList = props => {
         setSearchTerm(event.target.value);
     };
 
+    const toggleUsers = event => {
+        event.preventDefault();
+        setShowNulls(!showNulls);
+        console.log('toggled: ', showNulls)
+    }
+
     if(users === undefined) { return <h1>Loading</h1> }
+
     
     const filteredUsers = users.filter(employees => {
+        console.log(users);
         if(searchTerm === null) {
             return employees
+        } else if(showNulls === true) {
+            return employees.team_id === 'None'
         } else if(employees.first_name.toLowerCase().includes(searchTerm.toLowerCase()) || employees.last_name.toLowerCase().includes(searchTerm.toLowerCase())) {
             return employees
         }
     }).map(employees => {
         return (
-            <div>
-                <div key={employees.id}>
+            <div key={employees.id}>
+                <div>
                     <UserCard info={employees} />
                 </div>
             </div>
@@ -75,6 +74,13 @@ const UserList = props => {
                     onChange={changeHandler}
                     value={searchTerm}
                     />
+            </form>
+            <form onSubmit={toggleUsers}>
+                <select>
+                    <option value={showNulls}>All Users</option>
+                    <option value={showNulls}>No Team</option>
+                </select>
+                <button>Toggle</button>
             </form>
             <List>
                 {filteredUsers}
