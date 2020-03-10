@@ -13,30 +13,20 @@ flex-wrap: wrap;
 const UserList = props => {
     const [users, setUsers] = useState();
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = useState([])
+    const [showNulls, setShowNulls] = useState(false);
 
 
     useEffect(() => {
         axios.get('https://labs-refresh.herokuapp.com/users/')
             .then((response) => {
                 const usersInfo = response.data;
+                console.log('userInfo: ', usersInfo)
                 setUsers(usersInfo);
             })
             .catch((error) => {
                 console.log(error)
             })
     }, [])
-
-    useEffect(() => {
-        console.log('SearchTerm.length', searchTerm.length)
-        if(users) {
-            const results = users.filter(user =>                
-                    user.first_name.toLowerCase().includes(searchTerm.toLowerCase())
-                );
-                setSearchResults(results);
-        }
-    }, [searchTerm, users]);
-
 
 
     const changeHandler = event => {
@@ -46,6 +36,7 @@ const UserList = props => {
     };
 
     if(users === undefined) { return <h1>Loading</h1> }
+
     
     const filteredUsers = users.filter(employees => {
         if(searchTerm === null) {
@@ -55,8 +46,8 @@ const UserList = props => {
         }
     }).map(employees => {
         return (
-            <div>
-                <div key={employees.id}>
+            <div key={employees.id}>
+                <div>
                     <UserCard info={employees} />
                 </div>
             </div>
@@ -75,6 +66,13 @@ const UserList = props => {
                     onChange={changeHandler}
                     value={searchTerm}
                     />
+            </form>
+            <form>
+                <select>
+                    <option value={showNulls}>All Users</option>
+                    <option value={showNulls}>No Team</option>
+                </select>
+                <button>Toggle</button>
             </form>
             <List>
                 {filteredUsers}
