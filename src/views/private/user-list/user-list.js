@@ -20,7 +20,6 @@ const UserList = props => {
         axios.get('https://labs-refresh.herokuapp.com/users/')
             .then((response) => {
                 const usersInfo = response.data;
-                console.log('userInfo: ', usersInfo)
                 setUsers(usersInfo);
             })
             .catch((error) => {
@@ -35,12 +34,21 @@ const UserList = props => {
         setSearchTerm(event.target.value);
     };
 
+    const toggleUsers = event => {
+        event.preventDefault();
+        setShowNulls(!showNulls);
+        console.log('toggled: ', showNulls)
+    }
+
     if(users === undefined) { return <h1>Loading</h1> }
 
     
     const filteredUsers = users.filter(employees => {
+        console.log(users);
         if(searchTerm === null) {
             return employees
+        } else if(showNulls === true) {
+            return employees.team_id === 'None'
         } else if(employees.first_name.toLowerCase().includes(searchTerm.toLowerCase()) || employees.last_name.toLowerCase().includes(searchTerm.toLowerCase())) {
             return employees
         }
@@ -67,7 +75,7 @@ const UserList = props => {
                     value={searchTerm}
                     />
             </form>
-            <form>
+            <form onSubmit={toggleUsers}>
                 <select>
                     <option value={showNulls}>All Users</option>
                     <option value={showNulls}>No Team</option>
