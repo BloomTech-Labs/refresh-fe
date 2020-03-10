@@ -45,25 +45,25 @@ const UserList = props => {
         setSearchTerm(event.target.value);
     };
 
-    if(users === undefined) {return <h1>Loading...</h1>}
-
-    var listRender;
-    // if() {
-    //     listRender = (
-    //     <section>
-    //             {users.map(user => {
-    //                 return (
-    //                     <div>
-    //                         <div key={user.id}>
-    //                             <UserCard info={user} />
-    //                         </div>
-    //                     </div>
-    //                 )
-    //             })}
-    //     </section>
-    //     ) 
-    // }
-
+    if(users === undefined) { return <h1>Loading</h1> }
+    
+    const filteredUsers = users.filter(employees => {
+        if(searchTerm === null) {
+            return employees
+        } else if(employees.first_name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return employees
+        }
+    }).map(employees => {
+        return (
+            <div>
+                <List>
+                    <div key={employees.id}>
+                        <UserCard info={employees} />
+                    </div>
+                </List>
+            </div>
+        )
+    })
     return (
         <div>
             <h1>Users Profiles</h1>
@@ -76,21 +76,11 @@ const UserList = props => {
                     onChange={changeHandler}
                     value={searchTerm}
                     />
-                    <List>
-                    {users.map(user => {
-                        return (
-                            <div>
-                                <div key={user.id}>
-                                    <UserCard info={user} />
-                                </div>
-                            </div>
-                        )
-                    })}
-                </List>
             </form>
+            {filteredUsers}
         </div>
     )
- }
+}
 
 
 
