@@ -16,9 +16,8 @@ flex-wrap: wrap;
 `
 
 const UserList = props => {
-    console.log('props.allUsers', props.allUsers)
+    console.log('UserList Props', props)
 
-    const [users, setUsers] = useState();
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);
 
@@ -39,6 +38,11 @@ const UserList = props => {
         console.log('toggled: ', showNulls)
     }
 
+    const routeToUserProfile = userId => {
+        console.log('getId function: ', userId)
+        props.history.push(`/users/${userId}`)
+    }
+
     if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 
     
@@ -54,7 +58,7 @@ const UserList = props => {
         return (
             <div key={employees.id}>
                 <div>
-                    <UserCard info={employees} />
+                    <UserCard info={employees} routeToUserProfile={routeToUserProfile}/>
                 </div>
             </div>
         )

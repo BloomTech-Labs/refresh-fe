@@ -11,12 +11,16 @@ margin: 30px;
 
 
 const UserCard = props => {
+    // console.log('UserCard Props: ', props)
 
+    const passId = () => {
+        props.routeToUserProfile(props.info.id)
+    }
 
     return (
         <div>
             <ProfileCard>
-                <h2>{`${props.info.first_name} ${props.info.last_name}`}</h2>
+                <h2 onClick={passId}>{`${props.info.first_name} ${props.info.last_name}`}</h2>
                 <h2>{`Team: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}</h2>
                 <h2>
                     {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
