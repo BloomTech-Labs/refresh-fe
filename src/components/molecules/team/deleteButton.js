@@ -12,7 +12,7 @@ export default class deleteButton extends Component {
   
     deleteTeams(id) {
       axiosWithAuth()
-        .delete(`/teams/${this.state.id}`)
+        .delete(`/teams/${id}`)
         .then(() => {
           console.log("Deleted")
         })
@@ -26,7 +26,7 @@ export default class deleteButton extends Component {
   
     render() {
       return (
-        <button onClick = "this.deleteTeams()">
+        <button onClick = "this.deleteTeams(this.state.id)">
             Delete Team
         </button>
       );

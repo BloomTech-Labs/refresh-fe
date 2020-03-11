@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { axiosWithAuth } from './axiosWithAuth'
 import deleteButton from './deleteButton'
 import TeamDetails from './teamDetails'
+import updateForm from './updateForm'
+import userList from './userList'
+
 // background-color: #F7F7F7;
 const Container = styled.div`
 display: flex;
@@ -58,16 +61,15 @@ export default class TeamCard extends Component {
         const team = data.map(t =>
           <TeamDiv>
             <p>{t.name}</p>
-            {/* users go here */}
             <p>{t.points}</p>
-            <button onClick={this.toggleTeamDetails.bind(this)}>Team Details</button>
-            {this.state.showTeamDetails ?
+            {/* <button onClick={this.toggleTeamDetails.bind(this)}>Team Details</button> */}
+            {/* {this.state.showTeamDetails ?
               <TeamDetails
                 text='Click "Close Button" to hide Team Details'
                 closeTeamDetails={this.toggleTeamDetails.bind(this)}/>
               : null
-            }
-            <deleteButton />
+            } */}
+
           </TeamDiv>)
 
         this.setState({ team })
@@ -87,6 +89,9 @@ export default class TeamCard extends Component {
         <span>
           <TeamName>
             {this.state.team}
+            <userList />
+            <updateForm />
+            <deleteButton />
           </TeamName>
         </span>
       </Container>
