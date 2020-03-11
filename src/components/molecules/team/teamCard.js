@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import { axiosWithAuth } from './axiosWithAuth'
-import DeleteButton from './deleteButton'
-import TeamDetails from './teamDetails'
+import { axiosWithAuth } from './axiosWithAuth';
+import DeleteButton from './deleteButton';
+import TeamDetails from './teamDetails';
+import ModalButton from './modal';
 
 const Body = styled.div`
 padding-left: 70px;
@@ -154,6 +155,7 @@ export default class TeamCard extends Component {
         <Buttons>
           <Edit size="small">Edit</Edit>
           <DeleteButton />
+          <ModalButton />
         </Buttons>
       </Container>
       </Body>

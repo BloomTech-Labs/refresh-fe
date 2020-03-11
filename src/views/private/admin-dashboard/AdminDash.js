@@ -16,7 +16,7 @@ import WithNavigation from "../AdminNav";
 import TeamCard from '../../../components/molecules/team/teamCard';
 import UserProfile from '../user-profile/user-profile'
 import UserList from '../user-list/user-list';
-
+import Modal from '../../../components/molecules/team/modal';
 // COMPONENT
 const AdminDash = props => {
   // contexts
@@ -31,6 +31,7 @@ const AdminDash = props => {
         <Route path='/userprofile' component={UserProfile} />
         <Route path='/userlist' component={UserList} />
         <Route path='/teamcard' component={TeamCard} />
+        <Route path='/modal' component={Modal} />
       </CardContainer>
     </div>
     
