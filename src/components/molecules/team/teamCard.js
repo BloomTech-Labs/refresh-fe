@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import { axiosWithAuth } from './axiosWithAuth'
-import deleteButton from './deleteButton'
+import DeleteButton from './deleteButton'
 import TeamDetails from './teamDetails'
-import updateForm from './updateForm'
-import userList from './userList'
+import UpdateForm from './updateForm'
+import UserList from './userList'
 
 // background-color: #F7F7F7;
 const Container = styled.div`
@@ -33,10 +33,6 @@ const TeamName = styled.div`
   width: 100%;
 `;
 
-
-
-
-
 export default class TeamCard extends Component {
   constructor(props) {
     super(props);
@@ -46,11 +42,11 @@ export default class TeamCard extends Component {
     };
   }
 
-  toggleTeamDetails() {
-    this.setState({
-      showTeamDetails: !this.state.showTeamDetails
-    });
-  }
+  // toggleTeamDetails() {
+  //   this.setState({
+  //     showTeamDetails: !this.state.showTeamDetails
+  //   });
+  // }
 
   getTeams() {
     axiosWithAuth()
@@ -69,7 +65,9 @@ export default class TeamCard extends Component {
                 closeTeamDetails={this.toggleTeamDetails.bind(this)}/>
               : null
             } */}
-
+            <UserList />
+            {/* <UpdateForm /> */}
+            {/* <DeleteButton /> */}
           </TeamDiv>)
 
         this.setState({ team })
@@ -89,9 +87,7 @@ export default class TeamCard extends Component {
         <span>
           <TeamName>
             {this.state.team}
-            <userList />
-            <updateForm />
-            <deleteButton />
+
           </TeamName>
         </span>
       </Container>

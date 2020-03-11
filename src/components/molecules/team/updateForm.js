@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import updateTeam from './updateTeam'
 
-export default class updateForm extends Component {
+export default class UpdateForm extends Component {
     constructor(props) {
         super(props);
         this.state = {value: ''};

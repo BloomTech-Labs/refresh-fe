@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import {axiosWithAuth} from './axiosWithAuth'
 
-export default class deleteButton extends Component {
+export default class DeleteButton extends Component {
     constructor(props) {
       super(props);
       this.state = {
