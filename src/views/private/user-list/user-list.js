@@ -16,9 +16,15 @@ flex-wrap: wrap;
 `
 
 const UserList = props => {
+    console.log('props.allUsers', props.allUsers)
+
     const [users, setUsers] = useState();
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);
+
+    useEffect(() => {
+        props.fetchAllUsers();
+    }, [])
 
 
     const changeHandler = event => {
@@ -33,11 +39,10 @@ const UserList = props => {
         console.log('toggled: ', showNulls)
     }
 
-    if(users === undefined) { return <h1>Loading</h1> }
+    if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 
     
-    const filteredUsers = users.filter(employees => {
-        console.log(users);
+    const filteredUsers = props.allUsers.filter(employees => {
         if(searchTerm === null) {
             return employees
         } else if(showNulls === true) {
