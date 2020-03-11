@@ -27,6 +27,7 @@
     "react-switch-case": "^1.5.0",
     "react-timer-hook": "^2.0.0",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.1"
   },
   "scripts": {
