@@ -4,6 +4,7 @@ import { axiosWithAuth } from './axiosWithAuth';
 import DeleteButton from './deleteButton';
 import TeamDetails from './teamDetails';
 import ModalButton from './modal';
+import AddTeam from './addTeam';
 
 const Body = styled.div`
 padding-left: 70px;
@@ -156,6 +157,7 @@ export default class TeamCard extends Component {
           <Edit size="small">Edit</Edit>
           <DeleteButton />
           <ModalButton />
+          <AddTeam />
         </Buttons>
       </Container>
       </Body>
