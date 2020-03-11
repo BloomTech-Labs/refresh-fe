@@ -21,18 +21,6 @@ const UserList = props => {
     const [showNulls, setShowNulls] = useState(false);
 
 
-    useEffect(() => {
-        axios.get('https://labs-refresh.herokuapp.com/users/')
-            .then((response) => {
-                const usersInfo = response.data;
-                setUsers(usersInfo);
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }, [])
-
-
     const changeHandler = event => {
         event.preventDefault();
         console.log('searchTerm: ', event.target.value)
