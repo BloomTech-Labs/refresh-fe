@@ -20,15 +20,16 @@ const UserList = props => {
     const [showNulls, setShowNulls] = useState(false);
     const [update, setUpdate] = useState(false)
 
-
-    const rerender = (change) => {
-        console.log('Update State UserList: ', update)
-        setUpdate(!update)
-    }
     
     useEffect(() => {
         props.fetchAllUsers();
     }, [update])
+
+    const rerender = (change) => {
+        console.log('rerender change: ', change)
+        setUpdate(change)
+    }
+
 
     const changeHandler = event => {
         event.preventDefault();
@@ -64,6 +65,7 @@ const UserList = props => {
                     routeToUserProfile={routeToUserProfile}
                     update={update}
                     rerender={rerender}
+                    // onReload={ () => {setReload() }}
                     />
                 </div>
             </div>

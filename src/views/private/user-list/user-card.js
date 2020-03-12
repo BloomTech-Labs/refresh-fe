@@ -23,7 +23,6 @@ const UserCard = props => {
     const handleSubmit = event => {
         event.preventDefault();
         if(editUserTeam.team_id) {
-            console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
             props.updateUserTeam(props.info.id, editUserTeam)
             props.rerender(!props.update)
         } else {
