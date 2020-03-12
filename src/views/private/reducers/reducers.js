@@ -2,6 +2,9 @@ import {
     FETCH_ALL_USERS_LOADING,
     FETCH_ALL_USERS_SUCCESS,
     FETCH_ALL_USERS_FAILURE,
+    FETCH_USER_LOADING,
+    FETCH_USER_SUCCESS,
+    FETCH_USER_FAILURE,
     UPDATE_USER_TEAM_START,
     UPDATE_USER_TEAM_SUCCESS,
     UPDATE_USER_TEAM_FAILURE,
@@ -58,6 +61,21 @@ function reducer(state = initialState, action) {
                     ...state,
                 }
             case DELETE_USER_FAILURE:
+                return {
+                    ...state,
+                    error: action.payload
+                }
+            case FETCH_USER_LOADING:
+                return {
+                    ...state,
+                    isFetching: true,
+                }
+            case FETCH_USER_SUCCESS:
+                return {
+                    ...state,
+                    singleUser: action.payload
+                }
+            case FETCH_USER_FAILURE:
                 return {
                     ...state,
                     error: action.payload
