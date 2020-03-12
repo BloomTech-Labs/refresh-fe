@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import { axiosWithAuth } from './axiosWithAuth'
-import deleteButton from './deleteButton'
-import TeamDetails from './teamDetails'
+import { axiosWithAuth } from './axiosWithAuth';
+import DeleteButton from './deleteButton';
+import TeamDetails from './teamDetails';
+import ModalButton from './modal';
+import AddTeam from './addTeam';
+
+const Body = styled.div`
+padding-left: 70px;
+`;
+
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-color: black;
+`;
 
 const Container = styled.div`
 display: flex;
@@ -105,7 +118,10 @@ const Member = styled.div`
 `;
 
 const Buttons = styled.div`
-
+   text-align: center;
+  position: absolute; 
+  top: 5vh;
+  right: 20vw;
 `;
 
 const Edit = styled.div`
@@ -115,6 +131,9 @@ const Edit = styled.div`
 const Delete = styled.div`
 
 `;
+
+const Divider = styled.div `
+`
 
 
 
@@ -168,6 +187,11 @@ export default class TeamCard extends Component {
     return (
       <Container>
         <TeamName>
+        <Buttons>
+          <DeleteButton />
+          <ModalButton />
+          <AddTeam />
+        </Buttons>
           <h1>LEADERBOARD</h1>
           <BlueWords>
             <h2>STANDINGS</h2>
@@ -183,10 +207,6 @@ export default class TeamCard extends Component {
           <Member>
             Member 2
         </Member> */}
-        <Buttons>
-          <Edit size="small">Edit</Edit>
-          <deleteButton />
-        </Buttons>
       </Container>
     );
   }
