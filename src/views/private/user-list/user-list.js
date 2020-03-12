@@ -20,10 +20,10 @@ const UserList = props => {
     const [showNulls, setShowNulls] = useState(false);
     const [update, setUpdate] = useState(false)
 
-    console.log('Update State UserList: ', update)
 
     const rerender = (change) => {
-        setUpdate(change)
+        console.log('Update State UserList: ', update)
+        setUpdate(!update)
     }
     
     useEffect(() => {

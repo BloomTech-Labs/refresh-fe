@@ -38,7 +38,6 @@ const UserProfile = props => {
         event.preventDefault();
         props.deleteUser(props.match.params.id)
         setChanging(!changing)
-        props.history.push({ pathname: '/users' })
     }
 
 
@@ -54,6 +53,10 @@ const UserProfile = props => {
         // console.log('editProfile team', editUserTeam)
     }
 
+    if(changing === true) {
+        return <h1>Changes submitted</h1>
+        
+    }
 
     if(props.singleUser === undefined) {
         return <h1>Loading</h1>
