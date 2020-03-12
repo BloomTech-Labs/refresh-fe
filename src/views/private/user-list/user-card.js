@@ -19,7 +19,11 @@ const UserCard = props => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
+        if(editUserTeam.team_id) {
+            console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
+        } else {
+            alert('Must select a team first')
+        }
     }
 
     const onChange = event => {
