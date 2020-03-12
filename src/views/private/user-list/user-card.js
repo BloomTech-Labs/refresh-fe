@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { updateUserTeam } from '../actions/actions';
+import { updateUserTeam, deleteUser } from '../actions/actions';
 
 import styled from 'styled-components';
 
@@ -23,12 +23,17 @@ const UserCard = props => {
     const handleSubmit = event => {
         event.preventDefault();
         if(editUserTeam.team_id) {
-            console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
             props.updateUserTeam(props.info.id, editUserTeam)
             props.rerender(!props.update)
         } else {
             alert('Select team before submitting edit')
         }
+    }
+
+    const deleteUser = event => {
+        event.preventDefault();
+        props.deleteUser(props.info.id)
+        props.rerender(!props.update);
     }
 
     const onChange = event => {
@@ -58,6 +63,7 @@ const UserCard = props => {
                         <option value='7'>7</option>
                     </select>
                     <button>Submit Team Change</button>
+                    <button onClick={deleteUser}>Delete User</button>
                 </form>
             </ProfileCard>
         </div>
@@ -73,7 +79,7 @@ export default connect(
             error: state.error
         }
     },
-    { updateUserTeam }
+    { updateUserTeam, deleteUser }
 )(UserCard);
 
 

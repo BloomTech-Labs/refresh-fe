@@ -22,18 +22,21 @@ padding-left: 15%;
 `
 
 const UserList = props => {
-
+    
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);
     const [update, setUpdate] = useState(false)
 
-    const rerender = (change) => {
-        setUpdate(change)
-    }
     
     useEffect(() => {
         props.fetchAllUsers();
     }, [update])
+
+    const rerender = (change) => {
+        console.log('rerender change: ', change)
+        setUpdate(change)
+    }
+
 
     const changeHandler = event => {
         event.preventDefault();
@@ -69,6 +72,7 @@ const UserList = props => {
                     routeToUserProfile={routeToUserProfile}
                     update={update}
                     rerender={rerender}
+                    // onReload={ () => {setReload() }}
                     />
                 </div>
             </div>
