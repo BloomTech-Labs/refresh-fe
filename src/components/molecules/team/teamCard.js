@@ -3,25 +3,11 @@ import styled from "styled-components";
 import { axiosWithAuth } from './axiosWithAuth';
 import DeleteButton from './deleteButton';
 import TeamDetails from './teamDetails';
-<<<<<<< HEAD
-import ModalButton from './modal';
-=======
->>>>>>> 99076e9b04da5d1e7794fcdec35ff4dc88a3d085
 import AddTeam from './addTeam';
 
 const Body = styled.div`
 padding-left: 70px;
 `;
-<<<<<<< HEAD
-=======
-
-const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  border-color: black;
-`;
->>>>>>> 99076e9b04da5d1e7794fcdec35ff4dc88a3d085
 
 const Title = styled.div`
   display: flex;
@@ -104,18 +90,11 @@ span {
 }`
   ;
 
-<<<<<<< HEAD
 const BlueWords = styled.div`
 display: flex;
   flex-direction: row;
   justify-content: space-around;
 `
-=======
-const Header = styled.div`
-  display: flex;
-  justify-content: center;
-`;
->>>>>>> 99076e9b04da5d1e7794fcdec35ff4dc88a3d085
 
 const TeamName = styled.div`
 background: white;
@@ -206,14 +185,10 @@ export default class TeamCard extends Component {
   render() {
     return (
       <Body>
-        <Title>
-          <h1>Leaderboard</h1>
-        </Title>
       <Container>
         <TeamName>
         <Buttons>
           <DeleteButton />
-          <ModalButton />
           <AddTeam />
         </Buttons>
           <h1>LEADERBOARD</h1>
@@ -231,15 +206,6 @@ export default class TeamCard extends Component {
           <Member>
             Member 2
         </Member> */}
-<<<<<<< HEAD
-=======
-        </div>
-        <Buttons>
-          <Edit size="small">Edit</Edit>
-          <DeleteButton />
-          <AddTeam />
-        </Buttons>
->>>>>>> 99076e9b04da5d1e7794fcdec35ff4dc88a3d085
       </Container>
       </Body>
     );
