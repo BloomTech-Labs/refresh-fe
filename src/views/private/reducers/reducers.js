@@ -1,7 +1,10 @@
 import {
     FETCH_ALL_USERS_LOADING,
     FETCH_ALL_USERS_SUCCESS,
-    FETCH_ALL_USERS_FAILURE
+    FETCH_ALL_USERS_FAILURE,
+    UPDATE_USER_TEAM_START,
+    UPDATE_USER_TEAM_SUCCESS,
+    UPDATE_USER_TEAM_FAILURE
 } from '../actions/actions';
 
 const initialState = {
@@ -28,6 +31,20 @@ function reducer(state = initialState, action) {
                 ...state,
                 error: action.payload
             }
+            case UPDATE_USER_TEAM_START:
+                return {
+                    ...state,
+                    isFetching: true,
+                }
+            case UPDATE_USER_TEAM_SUCCESS :
+                return {
+                    ...state,
+                }
+            case UPDATE_USER_TEAM_FAILURE:
+                return {
+                    ...state,
+                    error: action.payload
+                }
         default:
             return state;
     }

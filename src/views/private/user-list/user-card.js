@@ -25,7 +25,8 @@ const UserCard = props => {
         event.preventDefault();
         if(editUserTeam.team_id) {
             console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
-            props.editUserTeam(props.info.id, editUserTeam)
+            props.updateUserTeam(props.info.id, editUserTeam)
+            props.rerender(!props.update)
         } else {
             alert('Select team before submitting edit')
         }
