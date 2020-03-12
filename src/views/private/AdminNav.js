@@ -85,7 +85,7 @@ function WithNavigation (props) {
             <Link to="/teamcard">
                 <Leaderboard className='img'src={leaderboard} alt='leaderboard'/>
             </Link>
-            <Link to="/userlist">
+            <Link to="/users">
                 <Users className='img' src={user} alt='user'/>
             </Link>
             <Link to="/">

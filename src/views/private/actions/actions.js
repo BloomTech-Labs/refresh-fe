@@ -19,10 +19,10 @@ export const fetchAllUsers = () => dispatch => {
         .catch(error => dispatch({ type: FETCH_ALL_USERS_FAILURE, payload: error }))
 }
 
-export const updateUserTeam = (userId, editedTeamId) => dispatch => {
-    dispatch({ type: UPDATE_USER_TEAM_START })
-    axios
-        .put(`https://labs-refresh.herokuapp.com/users/${userId}`, editedTeamId)
-        .then(response => )
-}
+// export const updateUserTeam = (userId, editedTeamId) => dispatch => {
+//     dispatch({ type: UPDATE_USER_TEAM_START })
+//     axios
+//         .put(`https://labs-refresh.herokuapp.com/users/${userId}`, editedTeamId)
+//         .then(response => )
+// }
 

@@ -15,6 +15,7 @@ flex-wrap: wrap;
 `
 
 const UserList = props => {
+    console.log('loading')
 
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);
