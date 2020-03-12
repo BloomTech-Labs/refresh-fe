@@ -14,7 +14,6 @@ margin: 30px;
 
 
 const UserCard = props => {
-    console.log('UserCard Props: ', props)
     const [editUserTeam, setEditUserTeam] = useState({ team_id: '' })
 
     const passId = () => {
