@@ -14,6 +14,7 @@ margin: 30px;
 
 
 const UserCard = props => {
+    console.log('UserCard Props: ', props)
     const [editUserTeam, setEditUserTeam] = useState({ team_id: '' })
 
     const passId = () => {
@@ -24,6 +25,7 @@ const UserCard = props => {
         event.preventDefault();
         if(editUserTeam.team_id) {
             console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
+            props.editUserTeam(props.info.id, editUserTeam)
         } else {
             alert('Select team before submitting edit')
         }
