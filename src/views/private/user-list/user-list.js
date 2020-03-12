@@ -15,15 +15,18 @@ flex-wrap: wrap;
 `
 
 const UserList = props => {
-    console.log('loading')
 
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);
+    const [update, setUpdate] = useState(false)
 
+    const rerender = (change) => {
+        setUpdate(change)
+    }
+    
     useEffect(() => {
         props.fetchAllUsers();
-    }, [])
-
+    }, [update])
 
     const changeHandler = event => {
         event.preventDefault();
@@ -54,7 +57,12 @@ const UserList = props => {
         return (
             <div key={employees.id}>
                 <div>
-                    <UserCard info={employees} routeToUserProfile={routeToUserProfile}/>
+                    <UserCard 
+                    info={employees} 
+                    routeToUserProfile={routeToUserProfile}
+                    update={update}
+                    rerender={rerender}
+                    />
                 </div>
             </div>
         )

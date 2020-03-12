@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { updateUserTeam } from '../actions/actions';
+
 import styled from 'styled-components';
 
 const ProfileCard = styled.div`
@@ -11,6 +14,7 @@ margin: 30px;
 
 
 const UserCard = props => {
+    console.log('UserCard Props: ', props)
     const [editUserTeam, setEditUserTeam] = useState({ team_id: '' })
 
     const passId = () => {
@@ -19,7 +23,13 @@ const UserCard = props => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
+        if(editUserTeam.team_id) {
+            console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
+            props.updateUserTeam(props.info.id, editUserTeam)
+            props.rerender(!props.update)
+        } else {
+            alert('Select team before submitting edit')
+        }
     }
 
     const onChange = event => {
@@ -39,9 +49,14 @@ const UserCard = props => {
                 <form onSubmit={handleSubmit}>
                     <label>Edit team</label>
                     <select value={editUserTeam.team_id} onChange={onChange}>
+                        <option></option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                        <option value='6'>6</option>
+                        <option value='7'>7</option>
                     </select>
                     <button>Submit Team Change</button>
                 </form>
@@ -50,6 +65,16 @@ const UserCard = props => {
     )
 }
 
-export default UserCard;
+export default connect(
+    state => {
+        return {
+            allUsers: state.allUsers,
+            singleUser: state.singleUser,
+            isFetching: state.isFetching,
+            error: state.error
+        }
+    },
+    { updateUserTeam }
+)(UserCard);
 
 
