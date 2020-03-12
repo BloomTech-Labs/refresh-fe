@@ -22,7 +22,7 @@ const UserCard = props => {
         if(editUserTeam.team_id) {
             console.log('userId: ', props.info.id, 'teamId: ', editUserTeam)
         } else {
-            alert('Must select a team first')
+            alert('Select team before submitting edit')
         }
     }
 
@@ -43,6 +43,7 @@ const UserCard = props => {
                 <form onSubmit={handleSubmit}>
                     <label>Edit team</label>
                     <select value={editUserTeam.team_id} onChange={onChange}>
+                        <option></option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
