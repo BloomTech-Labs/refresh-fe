@@ -10,10 +10,14 @@ import {
     UPDATE_USER_TEAM_FAILURE,
     DELETE_USER_START,
     DELETE_USER_SUCCESS,
-    DELETE_USER_FAILURE
+    DELETE_USER_FAILURE,
+    CREATE_NEW_TEAM_START,
+    CREATE_NEW_TEAM_SUCCESS,
+    CREATE_NEW_TEAM_FAILURE
 } from '../actions/actions';
 
 const initialState = {
+    teams: [],
     allUsers: [],
     singleUser: {},
     isFetching: false,
@@ -80,6 +84,21 @@ function reducer(state = initialState, action) {
                     ...state,
                     error: action.payload
                 }
+                case CREATE_NEW_TEAM_START:
+                return {
+                    ...state,
+                    isFetching: true,
+                    }
+                case CREATE_NEW_TEAM_SUCCESS :
+                    return {
+                        ...state,
+                        teams: action.payload
+                    }
+                case CREATE_NEW_TEAM_FAILURE:
+                    return {
+                        ...state,
+                        error: action.payload
+                    }
         default:
             return state;
     }

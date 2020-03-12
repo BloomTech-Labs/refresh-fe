@@ -4,7 +4,7 @@ import { flex } from '../../../styles/global/Mixins';
 
 Modal.setAppElement('#root')
 
-function DeleteButton () {
+function ModalButton () {
     
     const [modalIsOpen, setModalIsOpen] = useState(false);
     
@@ -39,7 +39,7 @@ function DeleteButton () {
     
     return (
         <div>
-            <button onClick={() => setModalIsOpen(true)}>Delete Button</button>
+            <button onClick={() => setModalIsOpen(true)}>Modal Button</button>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
                 style={modalStyle}
                 >
@@ -51,34 +51,4 @@ function DeleteButton () {
     );
 }
 
-export default DeleteButton;
-
-// constructor(props) {
-//     super(props);
-//     this.state = {
-//       id: ''
-//     }
-//   }
-
-//   deleteTeams(id) {
-//     axiosWithAuth()
-//       .delete(`/teams/${this.state.id}`)
-//       .then(() => {
-//         console.log("Deleted")
-//       })
-//       .catch((error) => {
-//         console.log(error)
-//       })
-//   }
-
-
-//   //   this.deleteTeams()
-
-//   render() {
-//     return (
-//       <button onClick = "this.deleteTeams()">
-//           Delete Team
-//       </button>
-//     );
-//   }
-// }
+export default ModalButton;

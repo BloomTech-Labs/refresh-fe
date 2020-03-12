@@ -8,6 +8,11 @@ const UserPage = styled.div`
 display: flex;
 align-content: center;
 flex-direction: column;
+margin-left: 20%;
+`
+
+const Changes = styled.div`
+margin-left: 20%;
 `
 
 const ProfileCard = styled.div`
@@ -54,8 +59,7 @@ const UserProfile = props => {
     }
 
     if(changing === true) {
-        return <h1>Changes submitted</h1>
-        
+        return <Changes>Changes submitted</Changes>
     }
 
     if(props.singleUser === undefined) {

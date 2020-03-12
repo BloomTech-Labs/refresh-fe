@@ -17,6 +17,9 @@ export const DELETE_USER_START = 'DELETE_USER_START'
 export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS'
 export const DELETE_USER_FAILURE = 'DELETE_USER_FAILURE'
 
+export const CREATE_NEW_TEAM_START = 'CREATE_NEW_TEAM_START'
+export const CREATE_NEW_TEAM_SUCCESS = 'CREATE_NEW_TEAM_SUCCESS'
+export const CREATE_NEW_TEAM_FAILURE = 'CREATE_NEW_TEAM_FAILURE'
 
 // Async Action Creators
 export const fetchAllUsers = () => dispatch => {
@@ -56,5 +59,16 @@ export const fetchUser = userId => dispatch => {
             dispatch({ type: FETCH_USER_SUCCESS, payload: response.data })
         })
         .catch(error => dispatch({ type: FETCH_USER_FAILURE, payload: error }))
-}
+    }
 
+
+export const createNewTeam = (Team) => dispatch => {
+    dispatch({ type: CREATE_NEW_TEAM_START })
+    axios
+        .post(`https://labs-refresh.herokuapp.com/teams/`, Team)
+        .then(response => {
+            console.log('createNewTeam response: ', response)
+            dispatch({ type: CREATE_NEW_TEAM_SUCCESS, payload: response.data })
+        })
+        .catch(error => dispatch({ type: CREATE_NEW_TEAM_FAILURE, payload: error }))
+}
