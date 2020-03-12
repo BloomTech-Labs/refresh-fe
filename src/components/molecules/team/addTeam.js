@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { flex } from '../../../styles/global/Mixins';
+import TeamCard from './teamCard';
+import { connect } from 'react-redux';
+import {createNewTeam} from '../../../views/private/actions/actions';
 
 Modal.setAppElement('#root')
 
-function AddTeam () {
+function AddTeam (props) {
+    console.log(props)
+
+        const [teamName, setTeamName] = useState({
+
+           name: '' 
+        });
     
     const [modalIsOpen, setModalIsOpen] = useState(false);
+
     
     const modalStyle = {
         overlay: {
@@ -37,6 +47,21 @@ function AddTeam () {
     }
 
     
+        
+        
+        const handleSubmit = e => {
+            e.preventDefault();
+            console.log(teamName, 'add team')
+          props.createNewTeam(teamName)
+        } 
+        
+        const handleChange = e => {
+            setTeamName({
+                ...teamName,
+                [e.target.name]: e.target.value
+            }); 
+        };
+    
     
     return (
         <div>
@@ -45,24 +70,36 @@ function AddTeam () {
                 style={modalStyle}
                 >
                 <p>Enter a team name</p>
-                <form>
+                
+                <form onSubmit={handleSubmit}>
                     <input
                     id="team"
                     type="text"
-                    name="addTeam"
+                    name="name"
                     placeholder="Team Name"
-                    // onChange={changeHandler}
-                    // value={searchTerm}
+                    value={teamName.name}
+                    onChange={handleChange}
                     />
-            </form>
-                <button>Confirm</button>
+                <button onSubmit={handleSubmit}>Confirm</button>
+                </form>
                 <button onClick={() => setModalIsOpen(false)}>Cancel</button>
             </Modal>
         </div>
     );
 }
 
-export default AddTeam;
+const mapStatetoProps = state => {
+    return {
+        teams: state.team
+    }
+  }
+
+  export default connect(
+    mapStatetoProps,
+    {createNewTeam}
+  )(AddTeam);
+
 // text above
 //add form for team name
 //button to accept (with redux will add to the component)
+
