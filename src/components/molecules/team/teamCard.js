@@ -33,14 +33,13 @@ const TeamName = styled.div`
   width: 100%;
 `;
 
-export default class TeamCard extends Component {
-  constructor(props) {
-    super(props);
+const TeamCard = props => {
+
     this.state = {
       Users: [],
       showTeamDetails: false
     };
-  }
+  
 
   // toggleTeamDetails() {
   //   this.setState({
@@ -48,7 +47,7 @@ export default class TeamCard extends Component {
   //   });
   // }
 
-  getTeams() {
+  function getTeams() {
     axiosWithAuth()
       .get(`/teams`, {})
       .then(res => {
@@ -77,11 +76,11 @@ export default class TeamCard extends Component {
       })
   }
 
-  componentDidMount() {
+  function componentDidMount() {
     this.getTeams()
   }
 
-  render() {
+ 
     return (
       <Container>
         <span>
@@ -93,4 +92,6 @@ export default class TeamCard extends Component {
       </Container>
     );
   }
-}
+
+
+export default TeamCard;

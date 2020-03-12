@@ -16,17 +16,15 @@ const UserDiv = styled.div`
 
 `;
 
-export default class UserList extends Component {
-  constructor(props) {
-    super(props);
+const UserList = props => {
+
     console.log("props", props)
     this.state = {
       team: 2
     };
-    
-  }
   
-  getUsers() {
+  
+  function getUsers() {
     const self = this;
     axiosWithAuth()
       .get(`/users`, {})
@@ -55,11 +53,11 @@ export default class UserList extends Component {
       })
   }
 
-  componentDidMount() {
+  function componentDidMount() {
     this.getUsers()
   }
 
-  render() {
+
     return (
       <UserCon>
         <span>
@@ -70,4 +68,6 @@ export default class UserList extends Component {
       </UserCon>
     );
   }
-}
+
+
+export default UserList;
