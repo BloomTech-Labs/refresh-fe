@@ -14,8 +14,11 @@ flex-direction: row;
 flex-wrap: wrap;
 `
 const Body = styled.div`
-display: flex;    
-padding-left: 70px;
+display: flex;  
+flex-direction: column;  
+height: 90vh;
+width: 100vw;
+padding-left: 20%;
 `
 
 const UserList = props => {
