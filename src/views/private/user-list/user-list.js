@@ -26,7 +26,7 @@ const UserList = props => {
     
     useEffect(() => {
         props.fetchAllUsers();
-    }, [rerender])
+    }, [update])
 
     const changeHandler = event => {
         event.preventDefault();
