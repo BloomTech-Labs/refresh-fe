@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { updateUserTeam } from '../actions/actions';
+
 import styled from 'styled-components';
 
 const ProfileCard = styled.div`
@@ -59,6 +62,16 @@ const UserCard = props => {
     )
 }
 
-export default UserCard;
+export default connect(
+    state => {
+        return {
+            allUsers: state.allUsers,
+            singleUser: state.singleUser,
+            isFetching: state.isFetching,
+            error: state.error
+        }
+    },
+    { updateUserTeam }
+)(UserCard);
 
 
