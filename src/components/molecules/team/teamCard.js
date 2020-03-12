@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { axiosWithAuth } from './axiosWithAuth';
 import DeleteButton from './deleteButton';
 import TeamDetails from './teamDetails';
-import ModalButton from './modal';
 import AddTeam from './addTeam';
 
 const Body = styled.div`
@@ -156,7 +155,6 @@ export default class TeamCard extends Component {
         <Buttons>
           <Edit size="small">Edit</Edit>
           <DeleteButton />
-          <ModalButton />
           <AddTeam />
         </Buttons>
       </Container>
