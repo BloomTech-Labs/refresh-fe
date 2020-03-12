@@ -9,6 +9,10 @@ export const UPDATE_USER_TEAM_START = 'UPDATE_USER_TEAM_START'
 export const UPDATE_USER_TEAM_SUCCESS = 'UPDATE_USER_TEAM_SUCCESS'
 export const UPDATE_USER_TEAM_FAILURE = 'UPDATE_USER_TEAM_FAILURE'
 
+export const DELETE_USER_START = 'DELETE_USER_START'
+export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS'
+export const DELETE_USER_FAILURE = 'DELETE_USER_FAILURE'
+
 
 // Async Action Creators
 export const fetchAllUsers = () => dispatch => {
@@ -28,5 +32,15 @@ export const updateUserTeam = (userId, editedTeamId) => dispatch => {
             dispatch({ type: UPDATE_USER_TEAM_SUCCESS, payload: response.data })
         })
         .catch(error => dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error }))
+}
+
+export const deleteUser = userId => dispatch => {
+    dispatch({ type: DELETE_USER_START })
+    axios
+        .delete(`https://labs-refresh.herokuapp.com/users/${userId}`)
+        .then(response => {
+            dispatch({ type: DELETE_USER_SUCCESS, payload: response })
+        })
+        .catch(error => dispatch({ type: DELETE_USER_FAILURE, payload: error }))
 }
 

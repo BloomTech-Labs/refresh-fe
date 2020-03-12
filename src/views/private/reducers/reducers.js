@@ -4,7 +4,10 @@ import {
     FETCH_ALL_USERS_FAILURE,
     UPDATE_USER_TEAM_START,
     UPDATE_USER_TEAM_SUCCESS,
-    UPDATE_USER_TEAM_FAILURE
+    UPDATE_USER_TEAM_FAILURE,
+    DELETE_USER_START,
+    DELETE_USER_SUCCESS,
+    DELETE_USER_FAILURE
 } from '../actions/actions';
 
 const initialState = {
@@ -41,6 +44,20 @@ function reducer(state = initialState, action) {
                     ...state,
                 }
             case UPDATE_USER_TEAM_FAILURE:
+                return {
+                    ...state,
+                    error: action.payload
+                }
+            case DELETE_USER_START:
+                return {
+                    ...state,
+                    isFetching: true
+                }
+            case DELETE_USER_SUCCESS:
+                return {
+                    ...state,
+                }
+            case DELETE_USER_FAILURE:
                 return {
                     ...state,
                     error: action.payload
