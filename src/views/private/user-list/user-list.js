@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchAllUsers } from '../actions/actions';
 
-import axios from 'axios';
 import styled from 'styled-components';
 
 import UserCard from './user-card';
@@ -16,7 +15,6 @@ flex-wrap: wrap;
 `
 
 const UserList = props => {
-    console.log('UserList Props', props)
 
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);
@@ -28,18 +26,15 @@ const UserList = props => {
 
     const changeHandler = event => {
         event.preventDefault();
-        console.log('searchTerm: ', event.target.value)
         setSearchTerm(event.target.value);
     };
 
     const toggleUsers = event => {
         event.preventDefault();
         setShowNulls(!showNulls);
-        console.log('toggled: ', showNulls)
     }
 
     const routeToUserProfile = userId => {
-        console.log('getId function: ', userId)
         props.history.push(`/users/${userId}`)
     }
 
