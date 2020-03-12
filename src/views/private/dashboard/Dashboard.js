@@ -16,6 +16,10 @@ import Progress from "./Progress";
 // images
 import waves from "../../../images/Onboarding/waves.svg";
 
+<<<<<<< HEAD
+=======
+// import TeamCard from '../../../components/molecules/teamCard'
+>>>>>>> 8ab8a169bc3dc891f490af0e08dc4f8b8ee83b70
 // COMPONENT
 const Dashboard = props => {
   // contexts
@@ -31,6 +35,10 @@ const Dashboard = props => {
             <Greeting>
               <h1>Hello {activeUser.display_name}!</h1>
             </Greeting>
+<<<<<<< HEAD
+=======
+            {/* <TeamCard></TeamCard> */}
+>>>>>>> 8ab8a169bc3dc891f490af0e08dc4f8b8ee83b70
             <User>
               <Link to="/coming-soon">
                 <i className="fas fa-bell"></i>

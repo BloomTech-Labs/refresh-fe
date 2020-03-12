@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 //images
 import logo from './AdminNavImages/logo.png';
@@ -62,16 +63,38 @@ export const Logout = styled.img`
     margin-bottom: 2vh;
 `;
 
+export const Space = styled.div `
+`;
+
+      
+
+
+// const clear = {localStorage.clear}
+
 function WithNavigation (props) {
+
+    function logoutClick() {
+        localStorage.clear();
+      }
     return <div>
         <NavBar>
-            <Stars className='img' src={logo} alt='stars'/>
-            <div></div>
-            <Leaderboard className='img'src={leaderboard} alt='leaderboard'/>
-            <Users className='img' src={user} alt='user'/>
-            <Settings className='img' src={settings} alt='settings'/>
-            <div></div>
-            <Logout className='img' src={logout} alt='logout'/>
+            <Link to="/admindash">
+                <Stars className='img' src={logo} alt='stars'/>
+            </Link>
+            <Space></Space>
+            <Link to="/teamcard">
+                <Leaderboard className='img'src={leaderboard} alt='leaderboard'/>
+            </Link>
+            <Link to="/users">
+                <Users className='img' src={user} alt='user'/>
+            </Link>
+            <Link to="/">
+                <Settings className='img' src={settings} alt='settings'/>
+            </Link>
+            <Space></Space>
+            <Link to="/">
+                <Logout className='img' src={logout} alt='logout'  onClick={logoutClick}/>
+            </Link>
         </NavBar>
         <Content>
             {
