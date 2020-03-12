@@ -14,11 +14,16 @@ flex-direction: row;
 flex-wrap: wrap;
 `
 const Body = styled.div`
+<<<<<<< HEAD
 display: flex;  
 flex-direction: column;  
 height: 90vh;
 width: 100vw;
 padding-left: 20%;
+=======
+display: flex;    
+padding-left: 70px;
+>>>>>>> 99076e9b04da5d1e7794fcdec35ff4dc88a3d085
 `
 
 const UserList = props => {
