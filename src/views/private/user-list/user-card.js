@@ -24,7 +24,7 @@ const UserCard = props => {
         event.preventDefault();
         if(editUserTeam.team_id) {
             props.updateUserTeam(props.info.id, editUserTeam)
-            props.rerender(!props.update)
+            setTimeout(() => {props.rerender(!props.update)}, 1000)
         } else {
             alert('Select team before submitting edit')
         }
