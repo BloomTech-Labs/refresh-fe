@@ -33,7 +33,7 @@ const UserProfile = props => {
         if(editUserTeam.team_id) {
             console.log('userId: ', props.match.params.id, 'teamId: ', editUserTeam)
             props.updateUserTeam(props.match.params.id, editUserTeam)
-            setChanging(!changing)
+            setTimeout(() => {setChanging(!changing)}, 100)
         } else {
             alert('Select team before submitting edit')
         }
@@ -43,6 +43,7 @@ const UserProfile = props => {
         event.preventDefault();
         props.deleteUser(props.match.params.id)
         setChanging(!changing)
+        setTimeout(() => {props.history.push('/users')}, 100)
     }
 
 
@@ -58,9 +59,9 @@ const UserProfile = props => {
         // console.log('editProfile team', editUserTeam)
     }
 
-    if(changing === true) {
-        return <Changes>Changes submitted</Changes>
-    }
+    // if(changing === true) {
+    //     return <Changes>Changes submitted</Changes>
+    // }
 
     if(props.singleUser === undefined) {
         return <h1>Loading</h1>
