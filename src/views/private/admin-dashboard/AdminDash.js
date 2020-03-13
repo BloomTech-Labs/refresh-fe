@@ -13,7 +13,7 @@ import styled from "styled-components";
 import { flex } from "../../../styles/global/Mixins";
 // components
 import WithNavigation from "../AdminNav";
-import TeamCard from '../team/teamCard';
+import TeamCard from '../admin-leaderboard/teamCard';
 import UserProfile from '../user-profile/user-profile'
 import UserList from '../user-list/user-list';
 // COMPONENT../team/modal
