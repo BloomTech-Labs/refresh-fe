@@ -22,8 +22,6 @@ padding-left: 15%;
 `
 
 const UserList = props => {
-
-    // console.log('UserList Props: ', props)
     
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);

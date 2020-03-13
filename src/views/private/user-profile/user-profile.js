@@ -43,7 +43,7 @@ const UserProfile = props => {
         event.preventDefault();
         props.deleteUser(props.match.params.id)
         setChanging(!changing)
-        setTimeout(() => {props.history.push('/users')}, 1000)
+        setTimeout(() => {props.history.push('/users')}, 100)
     }
 
 
