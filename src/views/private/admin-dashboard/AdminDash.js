@@ -13,10 +13,10 @@ import styled from "styled-components";
 import { flex } from "../../../styles/global/Mixins";
 // components
 import WithNavigation from "../AdminNav";
-import TeamCard from '../../../components/molecules/team/teamCard';
+import TeamCard from '../team/teamCard';
 import UserProfile from '../user-profile/user-profile'
 import UserList from '../user-list/user-list';
-// COMPONENT
+// COMPONENT../team/modal
 const AdminDash = props => {
   // contexts
 
