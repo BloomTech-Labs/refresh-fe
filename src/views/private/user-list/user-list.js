@@ -19,6 +19,11 @@ flex-direction: column;
 height: 90vh;
 width: 100vw;
 padding-left: 15%;
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
 `
 
 const UserList = props => {
