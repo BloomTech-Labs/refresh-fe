@@ -52,7 +52,10 @@ function AddTeam (props) {
         const handleSubmit = e => {
             e.preventDefault();
             console.log(teamName, 'add team')
+            setModalIsOpen(false);
           props.createNewTeam(teamName)
+          
+          setTimeout(() => {props.makeRender(!props.render)} , 5000)
         } 
         
         const handleChange = e => {

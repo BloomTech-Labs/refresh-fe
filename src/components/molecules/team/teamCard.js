@@ -141,8 +141,16 @@ export default class TeamCard extends Component {
     super(props);
     this.state = {
       Users: [],
-      showTeamDetails: false
+      showTeamDetails: false,
+      render: false
+
     };
+  }
+
+  makeRender(change) {
+    this.setState({
+      render: change
+    });
   }
 
   toggleTeamDetails() {
@@ -162,6 +170,7 @@ export default class TeamCard extends Component {
             <p className='name'>{t.name}</p>
             {/* users go here */}
             <p>{t.points}</p>
+            <DeleteButton />
             <button onClick={this.toggleTeamDetails.bind(this)}>TeamDetails</button>
             {this.state.showTeamDetails ?
               <TeamDetails
@@ -189,7 +198,7 @@ export default class TeamCard extends Component {
         <TeamName>
         <Buttons>
           <DeleteButton />
-          <AddTeam />
+          <AddTeam makeRender={this.makeRender.bind(this)} render={this.state.render} />
         </Buttons>
           <h1>LEADERBOARD</h1>
           <BlueWords>
