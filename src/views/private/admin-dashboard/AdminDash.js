@@ -13,11 +13,10 @@ import styled from "styled-components";
 import { flex } from "../../../styles/global/Mixins";
 // components
 import WithNavigation from "../AdminNav";
-import TeamCard from '../../../components/molecules/team/teamCard';
+import TeamCard from '../team/teamCard';
 import UserProfile from '../user-profile/user-profile'
 import UserList from '../user-list/user-list';
-import Modal from '../../../components/molecules/team/modal';
-// COMPONENT
+// COMPONENT../team/modal
 const AdminDash = props => {
   // contexts
 
@@ -31,7 +30,6 @@ const AdminDash = props => {
         <Route exact path='/users' component={UserList} />
         <Route path='/users/:id' component={UserProfile} />
         <Route path='/teamcard' component={TeamCard} />
-        <Route path='/modal' component={Modal} />
       </CardContainer>
     </div>
     
