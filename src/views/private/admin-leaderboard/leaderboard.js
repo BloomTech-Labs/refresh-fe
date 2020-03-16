@@ -4,6 +4,8 @@ import { fetchTeams } from '../actions/actions';
 import styled from 'styled-components';
 
 import TeamCard from './teamCard';
+import AddTeamButton from './addTeam';
+import DeleteTeamButton from './deleteButton';
 
 const Container = styled.div`
     display: flex;
@@ -15,32 +17,48 @@ const Container = styled.div`
 
 
 const Leaderboard = (props) => {
+    const [render, setRender] = useState(false)
 
-    console.log('Leaderboard Props: ', props.teams)
 
     useEffect(() => {
         props.fetchTeams()
     }, [])
 
-    const sortedTeams = props.teams.map(team => {
+    const makeRender = (change) => {
+        console.log('rerender change: ', change)
+        console.log('props.teams: ', props.teams)
+        setRender(change)
+    }
+
+    console.log('props.teams: ', props.teams)
+    // const sortedTeams = props.teams.map(team => {
+    //     return (
+    //         <div>
+    //             <TeamCard 
+    //                 team={team} 
+    //             />
+    //         </div>
+    //     )
+    // })
+
         return (
-            <div>
-                <TeamCard team={team} />
-            </div>
+            <Container>
+                <h1>Leaderboard</h1>
+                <AddTeamButton makeRender={makeRender} render={render} />
+                <div>
+                    {props.teams.map(team => {
+                        return (
+                            <div>
+                                <TeamCard 
+                                    team={team} 
+                                />
+                            </div>
+                        )
+                    })}
+                </div>
+            </Container>
         )
-    })
-
-
-
-    return (
-        <Container>
-            <h1>Leaderboard</h1>
-            <div>
-                {sortedTeams}
-            </div>
-        </Container>
-    )
-}
+    }
 
 export default connect(
     state => {

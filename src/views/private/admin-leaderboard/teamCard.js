@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 
-
-
 const Card = styled.div`
     background: white;
     margin-top: 10px;
@@ -13,7 +11,7 @@ const Card = styled.div`
 `
 
 const TeamCard = props => {
-    console.log('TeamCard Props: ', props)
+    // console.log('TeamCard Props: ', props)
 
     if(props.team === undefined) {
         return <h1>Loading...</h1>
