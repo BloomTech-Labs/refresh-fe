@@ -3,11 +3,7 @@ import Modal from 'react-modal';
 import { flex } from '../../../styles/global/Mixins';
 import TeamCard from './teamCard';
 import { connect } from 'react-redux';
-<<<<<<< HEAD:src/views/private/team/addTeam.js
 import { createNewTeam } from '../actions/actions';
-=======
-import {createNewTeam} from '../actions/actions';
->>>>>>> 9eb4ca0ae1a1c674e34923edeebb26109f90af40:src/views/private/team/addTeam.js
 
 Modal.setAppElement('#root')
 
