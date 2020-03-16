@@ -9,6 +9,10 @@ export const FETCH_USER_LOADING = 'FETCH_USER_LOADING';
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
 export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE';
 
+export const FETCH_TEAMS_LOADING = 'FETCH_TEAMS_LOADING';
+export const FETCH_TEAMS_SUCCESS = 'FETCH_TEAMS_SUCCESS';
+export const FETCH_TEAMS_FAILURE = 'FETCH_TEAMS_FAILURE';
+
 export const UPDATE_USER_TEAM_START = 'UPDATE_USER_TEAM_START'
 export const UPDATE_USER_TEAM_SUCCESS = 'UPDATE_USER_TEAM_SUCCESS'
 export const UPDATE_USER_TEAM_FAILURE = 'UPDATE_USER_TEAM_FAILURE'
@@ -72,3 +76,5 @@ export const createNewTeam = (Team) => dispatch => {
         })
         .catch(error => dispatch({ type: CREATE_NEW_TEAM_FAILURE, payload: error }))
 }
+
+

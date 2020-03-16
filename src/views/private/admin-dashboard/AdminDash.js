@@ -13,7 +13,7 @@ import styled from "styled-components";
 import { flex } from "../../../styles/global/Mixins";
 // components
 import WithNavigation from "../AdminNav";
-import TeamCard from '../admin-leaderboard/teamCard';
+import Leaderboard from '../admin-leaderboard/leaderboard'
 import UserProfile from '../user-profile/user-profile'
 import UserList from '../user-list/user-list';
 // COMPONENT../team/modal
@@ -29,7 +29,7 @@ const AdminDash = props => {
         <WithNavigation />
         <Route exact path='/users' component={UserList} />
         <Route path='/users/:id' component={UserProfile} />
-        <Route path='/teamcard' component={TeamCard} />
+        <Route path='/admin-leaderboard' component={Leaderboard} />
       </CardContainer>
     </div>
     
