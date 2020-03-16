@@ -3,11 +3,16 @@ import { connect } from 'react-redux';
 import { fetchTeams } from '../actions/actions';
 import styled from 'styled-components';
 
+import TeamCard from './teamCard';
+
 const Container = styled.div`
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
+    margin-left: 5%;
 `
+
 
 const Leaderboard = (props) => {
 
@@ -17,12 +22,22 @@ const Leaderboard = (props) => {
         props.fetchTeams()
     }, [])
 
-    
+    const sortedTeams = props.teams.map(team => {
+        return (
+            <div>
+                <TeamCard team={team} />
+            </div>
+        )
+    })
+
+
 
     return (
         <Container>
             <h1>Leaderboard</h1>
-            
+            <div>
+                {sortedTeams}
+            </div>
         </Container>
     )
 }

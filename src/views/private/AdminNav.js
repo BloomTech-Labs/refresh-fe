@@ -78,11 +78,11 @@ function WithNavigation (props) {
       }
     return <div>
         <NavBar>
-            <Link to="/admindash">
+            <Link to="/">
                 <Stars className='img' src={logo} alt='stars'/>
             </Link>
             <Space></Space>
-            <Link to="/teamcard">
+            <Link to="/">
                 <Leaderboard className='img'src={leaderboard} alt='leaderboard'/>
             </Link>
             <Link to="/users">
