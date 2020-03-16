@@ -22,15 +22,13 @@ const Leaderboard = (props) => {
 
     useEffect(() => {
         props.fetchTeams()
-    }, [])
+    }, [render])
 
     const makeRender = (change) => {
-        console.log('rerender change: ', change)
-        console.log('props.teams: ', props.teams)
+        console.log('makeRender', change)
         setRender(change)
     }
 
-    console.log('props.teams: ', props.teams)
     // const sortedTeams = props.teams.map(team => {
     //     return (
     //         <div>
@@ -50,7 +48,12 @@ const Leaderboard = (props) => {
                         return (
                             <div>
                                 <TeamCard 
-                                    team={team} 
+                                    team={team}
+                                />
+                                <DeleteTeamButton 
+                                    makeRender={makeRender} 
+                                    render={render}
+                                    id={team.id}
                                 />
                             </div>
                         )
