@@ -105,7 +105,6 @@ function reducer(state = initialState, action) {
                         ...state,
                         error: action.payload
                     }
-<<<<<<< HEAD
                 case FETCH_TEAMS_LOADING:
                     return {
                         ...state,
@@ -117,7 +116,6 @@ function reducer(state = initialState, action) {
                         teams: action.payload
                     }
                 case FETCH_TEAMS_FAILURE:
-=======
                 case DELETE_TEAM_START:
                     return {
                         ...state,
@@ -128,7 +126,6 @@ function reducer(state = initialState, action) {
                         ...state,
                     }
                 case DELETE_TEAM_FAILURE:
->>>>>>> cb430df5ac3c011522ec066443c9e9bda0ac7472
                     return {
                         ...state,
                         error: action.payload

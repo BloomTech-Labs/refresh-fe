@@ -81,7 +81,6 @@ export const createNewTeam = (Team) => dispatch => {
         .catch(error => dispatch({ type: CREATE_NEW_TEAM_FAILURE, payload: error }))
 }
 
-<<<<<<< HEAD
 export const fetchTeams = () => dispatch => {
     dispatch({ type: FETCH_TEAMS_LOADING })
     axios
@@ -93,7 +92,6 @@ export const fetchTeams = () => dispatch => {
 }
 
 
-=======
 export const deleteTeam = teamId => dispatch => {
     dispatch({ type: DELETE_USER_START })
     axios
@@ -103,4 +101,3 @@ export const deleteTeam = teamId => dispatch => {
         })
         .catch(error => dispatch({ type: DELETE_TEAM_FAILURE, payload: error }))
 }
->>>>>>> cb430df5ac3c011522ec066443c9e9bda0ac7472
