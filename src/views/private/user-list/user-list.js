@@ -19,6 +19,75 @@ flex-direction: column;
 height: 90vh;
 width: 100vw;
 padding-left: 15%;
+
+.ALLUSERS {
+text-decoration: underline;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 25px;
+line-height: 29px;
+font-variant: small-caps;
+}
+`
+
+/* x */
+
+const Title = styled.h1`
+h1 { 
+padding-top: 2%;
+padding-bottom: 2%;
+text-align: center;
+overflow: hidden;
+white-space: nowrap;
+padding-right: 15%;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: auto;
+/* identical to box height */
+
+font-variant: small-caps;
+
+color: #3B444B;
+}
+`
+
+
+const x = styled.div`
+width: 16px;
+height: 35px;
+left: 387px;
+top: 206px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 200;
+font-size: 30px;
+line-height: 35px;
+font-variant: small-caps;
+
+color: #4F5254;
+`
+
+const SearchFlex = styled.div `
+display: flex;
+justify-content: space-around;
+text-align: center;
+padding-right: 15%;
+padding-top 2%;
+`
+const SearchFlex2 = styled.div `
+display: flex;
+justify-content: space-between;
+::placeholder,
+::-webkit-input-placeholder {
+  color: blue;
+}
+:-ms-input-placeholder {
+   color: blue;
+}
 `
 
 const UserList = props => {
@@ -82,7 +151,12 @@ const UserList = props => {
     return (
         <div>
             <Body>
-            <h1>Users Profiles</h1>
+                <Title>
+            <h1>USER PROFILES</h1>
+            </Title>
+            <SearchFlex>
+            <h2 className='ALLUSERS'>ALL USERS</h2>
+            <SearchFlex2>
                 <form>
                     <input
                     id="search"
@@ -100,6 +174,8 @@ const UserList = props => {
                 </select>
                 <button>Toggle</button>
             </form>
+            </SearchFlex2>
+            </SearchFlex>
             <List>
                 {filteredUsers}
             </List>
