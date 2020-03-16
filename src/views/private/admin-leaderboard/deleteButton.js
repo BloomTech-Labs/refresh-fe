@@ -8,9 +8,7 @@ Modal.setAppElement('#root')
 
 //function DeleteButton (props) {
     const DeleteButton = props => {
-        const [ history ] = useState([])
-    console.log(props)
-    
+    // console.log('Delete Button Props: ', props)
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -42,18 +40,11 @@ Modal.setAppElement('#root')
         }
     }
 
-    // const deleteThisTeam = event => {
-    //     event.preventDefault();
-    //     console.log(teamName, 'delete team')
-    //     props.deleteTeam(props.team)
-    //     setTimeout(() => {props.rerender(!props.update)}, 100)
-    // }
     const handleDelete = id => {
-        console.log('click', id)
-        props.deleteTeam(props.id)
         setModalIsOpen(false);
-        setTimeout(() => {props.makeRender(!props.render)} , 100)
-        //setTimeout(()=> {history.push('/teams')} , 1000)
+        props.deleteTeam(props.id)
+        setTimeout(() => {props.makeRender(!props.render)} , 1000)
+        console.log('handleDelete', props.render)
     }
     
     return (

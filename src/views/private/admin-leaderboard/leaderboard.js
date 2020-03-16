@@ -4,6 +4,8 @@ import { fetchTeams } from '../actions/actions';
 import styled from 'styled-components';
 
 import TeamCard from './teamCard';
+import AddTeamButton from './addTeam';
+import DeleteTeamButton from './deleteButton';
 
 const Container = styled.div`
     display: flex;
@@ -15,32 +17,51 @@ const Container = styled.div`
 
 
 const Leaderboard = (props) => {
+    const [render, setRender] = useState(false)
 
-    console.log('Leaderboard Props: ', props.teams)
 
     useEffect(() => {
         props.fetchTeams()
-    }, [])
+    }, [render])
 
-    const sortedTeams = props.teams.map(team => {
+    const makeRender = (change) => {
+        console.log('makeRender', change)
+        setRender(change)
+    }
+
+    // const sortedTeams = props.teams.map(team => {
+    //     return (
+    //         <div>
+    //             <TeamCard 
+    //                 team={team} 
+    //             />
+    //         </div>
+    //     )
+    // })
+
         return (
-            <div>
-                <TeamCard team={team} />
-            </div>
+            <Container>
+                <h1>Leaderboard</h1>
+                <AddTeamButton makeRender={makeRender} render={render} />
+                <div>
+                    {props.teams.map(team => {
+                        return (
+                            <div>
+                                <TeamCard 
+                                    team={team}
+                                />
+                                <DeleteTeamButton 
+                                    makeRender={makeRender} 
+                                    render={render}
+                                    id={team.id}
+                                />
+                            </div>
+                        )
+                    })}
+                </div>
+            </Container>
         )
-    })
-
-
-
-    return (
-        <Container>
-            <h1>Leaderboard</h1>
-            <div>
-                {sortedTeams}
-            </div>
-        </Container>
-    )
-}
+    }
 
 export default connect(
     state => {

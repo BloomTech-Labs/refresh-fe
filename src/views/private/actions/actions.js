@@ -97,6 +97,7 @@ export const deleteTeam = teamId => dispatch => {
     axios
         .delete(`https://labs-refresh.herokuapp.com/teams/${teamId}`)
         .then(response => {
+            console.log('deleteTeam response: ', response)
             dispatch({ type: DELETE_TEAM_SUCCESS, payload: response })
         })
         .catch(error => dispatch({ type: DELETE_TEAM_FAILURE, payload: error }))
