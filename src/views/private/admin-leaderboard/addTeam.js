@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { flex } from '../../../styles/global/Mixins';
 import TeamCard from './teamCard';
 import { connect } from 'react-redux';
-import {createNewTeam} from '../../../views/private/actions/actions';
+import { createNewTeam } from '../actions/actions';
 
 Modal.setAppElement('#root')
 
@@ -11,7 +11,6 @@ function AddTeam (props) {
     console.log(props)
 
         const [teamName, setTeamName] = useState({
-
            name: '' 
         });
     
@@ -52,7 +51,10 @@ function AddTeam (props) {
         const handleSubmit = e => {
             e.preventDefault();
             console.log(teamName, 'add team')
+            setModalIsOpen(false);
           props.createNewTeam(teamName)
+          
+          setTimeout(() => {props.makeRender(!props.render)} , 100)
         } 
         
         const handleChange = e => {
@@ -80,7 +82,8 @@ function AddTeam (props) {
                     value={teamName.name}
                     onChange={handleChange}
                     />
-                <button onSubmit={handleSubmit}>Confirm</button>
+                <button >Confirm</button>
+                {/* <button onSubmit={handleSubmit}>Confirm</button> */}
                 </form>
                 <button onClick={() => setModalIsOpen(false)}>Cancel</button>
             </Modal>
