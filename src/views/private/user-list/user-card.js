@@ -146,15 +146,10 @@ const UserCard = props => {
                         <option value='6'>6</option>
                         <option value='7'>7</option>
                     </select>
-<<<<<<< HEAD
-                    <button>Submit Team Change</button>
-                    <div className='x spin medium'onClick={deleteUser}><b></b><b></b><b></b><b></b></div>
-=======
                     <Buttons>
                     <div>Submit Team Change</div>
                     </Buttons>
                     
->>>>>>> a847f8744e95b2f07e804ea854005d0f75e9f363
                 </form>
             </ProfileCard>
         </div>
