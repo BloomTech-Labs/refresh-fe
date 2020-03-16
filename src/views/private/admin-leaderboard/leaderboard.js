@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchTeams } from '../actions/actions';
 import styled from 'styled-components';
@@ -9,7 +9,13 @@ const Container = styled.div`
     width: 100%;
 `
 
-const Leaderboard = () => {
+const Leaderboard = (props) => {
+
+    console.log('Leaderboard Props: ', props.teams)
+
+    useEffect(() => {
+        props.fetchTeams()
+    }, [])
 
     return (
         <Container>
@@ -29,4 +35,4 @@ export default connect(
         }
     },
     { fetchTeams }
-)(LeaderBoard);
+)(Leaderboard);

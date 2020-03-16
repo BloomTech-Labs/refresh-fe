@@ -16,7 +16,10 @@ import {
     DELETE_USER_FAILURE,
     CREATE_NEW_TEAM_START,
     CREATE_NEW_TEAM_SUCCESS,
-    CREATE_NEW_TEAM_FAILURE
+    CREATE_NEW_TEAM_FAILURE,
+    DELETE_TEAM_START,
+    DELETE_TEAM_SUCCESS,
+    DELETE_TEAM_FAILURE
 } from '../actions/actions';
 
 const initialState = {
@@ -102,6 +105,7 @@ function reducer(state = initialState, action) {
                         ...state,
                         error: action.payload
                     }
+<<<<<<< HEAD
                 case FETCH_TEAMS_LOADING:
                     return {
                         ...state,
@@ -113,6 +117,18 @@ function reducer(state = initialState, action) {
                         teams: action.payload
                     }
                 case FETCH_TEAMS_FAILURE:
+=======
+                case DELETE_TEAM_START:
+                    return {
+                        ...state,
+                        isFetching: true
+                    }
+                case DELETE_TEAM_SUCCESS:
+                    return {
+                        ...state,
+                    }
+                case DELETE_TEAM_FAILURE:
+>>>>>>> cb430df5ac3c011522ec066443c9e9bda0ac7472
                     return {
                         ...state,
                         error: action.payload
