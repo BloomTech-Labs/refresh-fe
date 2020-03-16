@@ -9,6 +9,10 @@ export const FETCH_USER_LOADING = 'FETCH_USER_LOADING';
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
 export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE';
 
+export const FETCH_TEAMS_LOADING = 'FETCH_TEAMS_LOADING';
+export const FETCH_TEAMS_SUCCESS = 'FETCH_TEAMS_SUCCESS';
+export const FETCH_TEAMS_FAILURE = 'FETCH_TEAMS_FAILURE';
+
 export const UPDATE_USER_TEAM_START = 'UPDATE_USER_TEAM_START'
 export const UPDATE_USER_TEAM_SUCCESS = 'UPDATE_USER_TEAM_SUCCESS'
 export const UPDATE_USER_TEAM_FAILURE = 'UPDATE_USER_TEAM_FAILURE'
@@ -76,6 +80,17 @@ export const createNewTeam = (Team) => dispatch => {
         })
         .catch(error => dispatch({ type: CREATE_NEW_TEAM_FAILURE, payload: error }))
 }
+
+export const fetchTeams = () => dispatch => {
+    dispatch({ type: FETCH_TEAMS_LOADING })
+    axios
+        .get(`https://labs-refresh.herokuapp.com/teams/`)
+        .then(response => {
+            dispatch({ type: FETCH_TEAMS_SUCCESS, payload: response.data })
+        })
+        .catch(error => dispatch({ type: FETCH_TEAMS_FAILURE, payload: error }))
+}
+
 
 export const deleteTeam = teamId => dispatch => {
     dispatch({ type: DELETE_USER_START })

@@ -5,6 +5,9 @@ import {
     FETCH_USER_LOADING,
     FETCH_USER_SUCCESS,
     FETCH_USER_FAILURE,
+    FETCH_TEAMS_LOADING,
+    FETCH_TEAMS_SUCCESS,
+    FETCH_TEAMS_FAILURE,
     UPDATE_USER_TEAM_START,
     UPDATE_USER_TEAM_SUCCESS,
     UPDATE_USER_TEAM_FAILURE,
@@ -102,6 +105,17 @@ function reducer(state = initialState, action) {
                         ...state,
                         error: action.payload
                     }
+                case FETCH_TEAMS_LOADING:
+                    return {
+                        ...state,
+                        isFetching: true,
+                    }
+                case FETCH_TEAMS_SUCCESS:
+                    return {
+                        ...state,
+                        teams: action.payload
+                    }
+                case FETCH_TEAMS_FAILURE:
                 case DELETE_TEAM_START:
                     return {
                         ...state,
