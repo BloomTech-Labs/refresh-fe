@@ -77,4 +77,14 @@ export const createNewTeam = (Team) => dispatch => {
         .catch(error => dispatch({ type: CREATE_NEW_TEAM_FAILURE, payload: error }))
 }
 
+export const fetchTeams = () => dispatch => {
+    dispatch({ type: FETCH_TEAMS_LOADING })
+    axios
+        .get(`https://labs-refresh.herokuapp.com/teams/`)
+        .then(response => {
+            dispatch({ type: FETCH_TEAMS_SUCCESS, payload: response.data })
+        })
+        .catch(error => dispatch({ type: FETCH_TEAMS_FAILURE, payload: error }))
+}
+
 
