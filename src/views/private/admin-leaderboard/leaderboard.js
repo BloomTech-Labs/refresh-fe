@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { fetchTeams } from '../actions/actions';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -16,4 +18,15 @@ const Leaderboard = () => {
     )
 }
 
-export default Leaderboard;
+export default connect(
+    state => {
+        return {
+            teams: state.teams,
+            allUsers: state.allUsers,
+            singleUser: state.singleUser,
+            isFetching: state.isFetching,
+            error: state.error
+        }
+    },
+    { fetchTeams }
+)(LeaderBoard);
