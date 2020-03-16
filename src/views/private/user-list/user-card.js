@@ -8,142 +8,85 @@ const ProfileCard = styled.div`
 background: white;
 width: 250px;
 padding: 30px;
-border-radius: 3px;
+border-radius: 14px;
 margin: 30px;
 
+form {
+    text-align: center;
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+margin-top: 2%;
+}
 
-.close {
-    position: relative;
-    right: 32px;
-    top: 32px;
-    width: 32px;
-    height: 32px;
-    opacity: 0.3;
-  }
-  .close:hover {
-    opacity: 1;
-  }
-  .close:before, .close:after {
-    position: relative;
-    left: 15px;
-    content: ' ';
-    height: 33px;
-    width: 2px;
-    background-color: #333;
-  }
-  .close:before {
-    transform: rotate(45deg);
-  }
-  .close:after {
-    transform: rotate(-45deg);
-  }
+h3 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.fas fa-times {
+display: inline-block;
+float: right;
+background-color: red;
+width: 25px;
+height: 25px;
+left: 300px;
+top: 395px;
+margin-top: 2%;
+border: 1px solid #E7E7E7;
+box-sizing: border-box;
+}
+`
+const Buttons = styled.button`
+width: 120px;
+height: 46px;
+left: 300px;
+top: 395px;
+margin-top: 2%;
+border: 1px solid #E7E7E7;
+box-sizing: border-box;`
 
 
-  .ele div.x {
-    -webkit-transition-duration:0.5s;
-      transition-duration:0.5s;
-    }
-    
-    .ele div.x.slow {
-    -webkit-transition-duration:1s;
-      transition-duration:1s;
-    }
-    
-    ul { list-style:none;float:left;display:block;width:100%; }
-    li { display:inline;width:25%;float:left; }
-    .ele { width:25%;display:inline; }
-    .x {
-      float:left;
-      position:relative;
-      margin:0;
-      padding:0;
-      overflow:hidden;
-      background:#CCC;
-      border-radius:2px;
-      border:solid 2px #FFF;
-      transition: all .3s ease-out;
-      cursor:pointer;
-    }
-    .x.large { 
-      width:30px;
-      height:30px;
-    }
-    
-    .x.medium {
-      width:20px;
-      height:20px;
-    }
-    
-    .x.small {
-      width:10px;
-      height:10px;
-    }
-    
-    .x.switch {
-      width:15px;
-      height:15px;
-    }
-    .x.grow {
-    
-    }
-    
-    .x.spin:hover{
-      background:#BB3333;
-      transform: rotate(180deg);
-    }
-    .x.flop:hover{
-      background:#BB3333;
-      transform: rotate(90deg);
-    }
-    .x.t:hover{
-      background:#BB3333;
-      transform: rotate(45deg);
-    }
-    .x.shift:hover{
-      background:#BB3333;
-    }
-    
-    .x b{
-      display:block;
-      position:absolute;
-      height:0;
-      width:0;
-      padding:0;
-      margin:0;
-    }
-    .x.small b {
-      border:solid 5px rgba(255,255,255,0);
-    }
-    .x.medium b {
-      border:solid 10px rgba(255,255,255,0);
-    }
-    .x.large b {
-      border:solid 15px rgba(255,255,255,0);
-    }
-    .x.switch b {
-      border:solid 10px rgba(255,255,255,0);
-    }
-    
-    .x b:nth-child(2){
-      border-top-color:#FFF;
-      top:-2px;
-    }
-    .x b:nth-child(2){
-      border-left-color:#FFF;
-      left:-2px;
-    }
-    .x b:nth-child(3){
-      border-bottom-color:#FFF;
-      bottom:-2px;
-    }
-    .x b:nth-child(1){
-      border-right-color:#FFF;
-      right:-2px;
-    }
-    
-
+const ButtonX = styled.i `
+display: inline-block;
+float: right;
+padding: 2%;
+margin-top: 2%;
+box-sizing: border-box;
+transition: all 0.5s ease-out;
+:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+}
 `
 
+const Name = styled.div `
+
+overflow: hidden;
+white-space: nowrap;
+text-align: center;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+
+color: #4F5254;`
+
+const Blue = styled.div `
+text-align: center;
+overflow: hidden;
+white-space: nowrap;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 15.2138px;
+letter-spacing: 0.035em;
+
+color: #3DA2ED;`
 
 const UserCard = props => {
     const [editUserTeam, setEditUserTeam] = useState({ team_id: '' })
@@ -176,12 +119,21 @@ const UserCard = props => {
     return (
         <div>
             <ProfileCard>
+                    <ButtonX>
+                    <i class="fas fa-times" onClick={deleteUser}></i>
+                    </ButtonX>
+                <Name>
                 <h2 onClick={passId}>{`${props.info.first_name} ${props.info.last_name}`}</h2>
+                </Name>
+                <h3>{props.info.email}</h3>
+                <Blue>
                 <h2>{`Team: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}</h2>
+                </Blue>
+                <Blue>
                 <h2>
                     {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
                 </h2>
-                <h2>{props.info.email}</h2>
+                </Blue>
                 <form onSubmit={handleSubmit}>
                     <label>Edit team</label>
                     <select value={editUserTeam.team_id} onChange={onChange}>
@@ -194,8 +146,15 @@ const UserCard = props => {
                         <option value='6'>6</option>
                         <option value='7'>7</option>
                     </select>
+<<<<<<< HEAD
                     <button>Submit Team Change</button>
                     <div className='x spin medium'onClick={deleteUser}><b></b><b></b><b></b><b></b></div>
+=======
+                    <Buttons>
+                    <div>Submit Team Change</div>
+                    </Buttons>
+                    
+>>>>>>> a847f8744e95b2f07e804ea854005d0f75e9f363
                 </form>
             </ProfileCard>
         </div>

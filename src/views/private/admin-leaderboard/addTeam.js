@@ -8,7 +8,6 @@ import { createNewTeam } from '../actions/actions';
 Modal.setAppElement('#root')
 
 function AddTeam (props) {
-    console.log(props)
 
         const [teamName, setTeamName] = useState({
            name: '' 
@@ -48,14 +47,12 @@ function AddTeam (props) {
     
         
         
-        const handleSubmit = e => {
-            e.preventDefault();
-            console.log(teamName, 'add team')
-            setModalIsOpen(false);
-          props.createNewTeam(teamName)
-          
-          setTimeout(() => {props.makeRender(!props.render)} , 100)
-        } 
+    const handleSubmit = e => {
+        e.preventDefault();
+        setModalIsOpen(false);
+        props.createNewTeam(teamName)
+        setTimeout(() => {props.makeRender(!props.render)} , 0)
+    } 
         
         const handleChange = e => {
             setTeamName({
