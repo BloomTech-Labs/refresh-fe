@@ -17,9 +17,12 @@ const Leaderboard = (props) => {
         props.fetchTeams()
     }, [])
 
+    
+
     return (
         <Container>
             <h1>Leaderboard</h1>
+            
         </Container>
     )
 }
