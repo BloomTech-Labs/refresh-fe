@@ -55,11 +55,9 @@ float: right;
 padding: 2%;
 margin-top: 2%;
 box-sizing: border-box;
-transition: all 0.5s ease-out;
 color: red; 
 :hover {
     cursor: pointer;
-    transform: rotate(360deg);
 }
 `
 
@@ -121,7 +119,7 @@ const UserCard = props => {
         <div>
             <ProfileCard>
                     <ButtonX>
-                    <i class="fas fa-times" onClick={deleteUser}></i>
+                    <i class="fas fa-times fa-2x" onClick={deleteUser}></i>
                     </ButtonX>
                 <Name>
                 <h2 onClick={passId}>{`${props.info.first_name} ${props.info.last_name}`}</h2>
