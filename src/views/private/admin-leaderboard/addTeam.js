@@ -85,10 +85,6 @@ function AddTeam(props) {
         name: ''
     });
 
-        const [teamName, setTeamName] = useState({
-            name: '' 
-        });
-    
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
 

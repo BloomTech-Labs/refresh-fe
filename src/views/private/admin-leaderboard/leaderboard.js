@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import TeamCard from './teamCard';
 import AddTeamButton from './addTeam';
 import DeleteTeamButton from './deleteButton';
+import EditTeamButton from './editTeam';
 
 const Container = styled.div`
     display: flex;
@@ -127,6 +128,7 @@ const Leaderboard = (props) => {
                                 <TeamCard 
                                     team={team}
                                 />
+                                <EditTeamButton />
                                 <ButtonX>
                                 <DeleteTeamButton 
                                     makeRender={makeRender} 

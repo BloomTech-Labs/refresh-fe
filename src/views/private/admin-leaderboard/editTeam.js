@@ -1,19 +1,94 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { createNewTeam } from '../actions/actions';
+import { updateTeamName } from './actions';
 
+import styled from 'styled-components';
+
+const ButtonContainer = styled.div`
+position: absolute: 
+left: 50%;
+margin: 5%;
+display: flex;
+justify-content: center;
+`
+const CenterContainer = styled.div`
+position: absolute;
+left: 0;
+top: 25%;
+width: 100%;
+text-align: center;
+font-size: 18px;
+`
+const Words = styled.div`
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 47px;
+color: #3B444B;
+`
+const ButtonStyle1 = styled.div`
+width: 125px;
+height: 75px;
+display: flex;
+text-align: center;
+color: white;
+background: #F0372B;
+border-radius: 4px;
+font-size: 28px;
+font-margin-top: 16px;
+margin-right: 5%;
+:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+p {
+    text-align: center;
+    margin: auto;
+    font-family: Roboto;
+}
+`
+const ButtonStyle2 = styled.div`
+width: 125px;
+height: 75px;
+display: flex;
+text-align: center;
+color: white;
+background: #515257;
+border-radius: 4px;
+font-size: 28px;
+font-margin-top: 16px;
+:hover {
+    cursor: pointer;
+    opacity: 50%; 
+}
+p {
+    text-align: center;
+    margin: auto;
+    font-family: Roboto;
+}
+`
+const SearchBox = styled.div`
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 47px;
+color: #3B444B;
+`
 Modal.setAppElement('#root')
 
-function EditTeam (props) {
+function EditTeam(props) {
 
-        const [teamName, setTeamName] = useState({
-            name: '' 
-        });
-    
+
+    const [editTeamName, setEditTeamName] = useState({
+        name: ''
+    });
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    
+
     const modalStyle = {
         overlay: {
             position: 'fixed',
@@ -24,18 +99,19 @@ function EditTeam (props) {
             backgroundColor: 'rgba(128, 128, 128, 0.75)'
         },
         content: {
-            position: 'absolute',
-            top: '150px',
-            left: '250px',
-            right: '250px',
-            bottom: '150px',
+            position: 'fixed',
+            left: '0',
+            top: '25%',
+            right: '25%',
+            left: '25%',
+            bottom: '25%',
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
             borderRadius: '10px',
             outline: 'none',
-            padding: '20px',
-            
+            padding: '20px'
+
         },
         body: {
             font: '20px'
@@ -43,42 +119,50 @@ function EditTeam (props) {
     }
 
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        setModalIsOpen(false);
-        props.createNewTeam(teamName)
-        setTimeout(() => {props.makeRender(!props.render)} , 0)
-    } 
-        
-        const handleChange = e => {
-            setTeamName({
-                ...teamName,
-                [e.target.name]: e.target.value
-            }); 
-        };
+    const handleSubmit = event => {
+        event.preventDefault();
+        if(editTeamName.team) {
+            props.updateTeamName(props.info.id, editTeamName)
+            setTimeout(() => {props.rerender(!props.update)}, 100)
+        } else {
+            alert('Select team before submitting edit')
+        }
+    }
+
+
+    const onChange = event => {
+        setEditTeamName({ team: event.target.value })
+        // console.log('editProfile team', editUserTeam)
+    }
 
 
     return (
         <div>
-            <i class="fas fa-pencil-alt" onClick={() => setModalIsOpen(true)}> </i>
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
+            <i class="fas fa-pencil-alt fa-1.5x" onClick={() => setModalIsOpen(true)}> </i>
+            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
-                >
-                <p>Enter a team name</p>
-                
-                <form onSubmit={handleSubmit}>
-                    <input
-                    id="team"
-                    type="text"
-                    name="name"
-                    placeholder="Team Name"
-                    value={teamName.name}
-                    onChange={handleChange}
-                    />
-                <button >Confirm</button>
-                {/* <button onSubmit={handleSubmit}>Confirm</button> */}
-                </form>
-                <button onClick={() => setModalIsOpen(false)}>Cancel</button>
+            >
+                <CenterContainer>
+                    <Words>Edit the team name</Words>
+                    <SearchBox>
+                        <form onSubmit={handleSubmit} onChange={onChange}>
+                            <input
+                                id="team"
+                                type="text"
+                                name="name"
+                                placeholder="Team Name"
+                                value={teamName.name}
+                                onChange={handleChange}
+                            />
+                        </form>
+                    </SearchBox>
+                    <ButtonContainer>
+                        <ButtonStyle1 onClick={handleSubmit} ><p>Confirm</p></ButtonStyle1>
+                        {/* <button onSubmit={handleSubmit}>Confirm</button> */}
+
+                        <ButtonStyle2 onClick={() => setModalIsOpen(false)}><p>Cancel</p></ButtonStyle2>
+                    </ButtonContainer>
+                </CenterContainer>
             </Modal>
         </div>
     );
@@ -92,5 +176,5 @@ const mapStatetoProps = state => {
 
 export default connect(
     mapStatetoProps,
-    {createNewTeam}
+    { updateTeamName }
 )(EditTeam);
