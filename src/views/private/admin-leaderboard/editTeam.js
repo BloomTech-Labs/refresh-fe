@@ -5,7 +5,7 @@ import { createNewTeam } from '../actions/actions';
 
 Modal.setAppElement('#root')
 
-function AddTeam (props) {
+function EditTeam (props) {
 
         const [teamName, setTeamName] = useState({
             name: '' 
@@ -42,6 +42,7 @@ function AddTeam (props) {
         }
     }
 
+
     const handleSubmit = e => {
         e.preventDefault();
         setModalIsOpen(false);
@@ -55,11 +56,11 @@ function AddTeam (props) {
                 [e.target.name]: e.target.value
             }); 
         };
-    
-    
+
+
     return (
         <div>
-            <i class="fas fa-plus" onClick={() => setModalIsOpen(true)}> </i>
+            <i class="fas fa-pencil-alt" onClick={() => setModalIsOpen(true)}> </i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
                 style={modalStyle}
                 >
@@ -92,9 +93,4 @@ const mapStatetoProps = state => {
 export default connect(
     mapStatetoProps,
     {createNewTeam}
-)(AddTeam);
-
-// text above
-//add form for team name
-//button to accept (with redux will add to the component)
-
+)(EditTeam);

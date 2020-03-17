@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@sandstreamdev/react-swipeable-list": "^0.4.1",
-    "@testing-library/react": "^9.4.0",
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "formidable": "^1.2.1",
