@@ -4,6 +4,76 @@ import { flex } from '../../../styles/global/Mixins';
 import { connect } from 'react-redux';
 import { deleteTeam } from '../actions/actions';
 
+import styled from 'styled-components';
+
+
+const Words = styled.div `
+display: flex;
+justify-conent: center;
+float: center;
+
+position: absolute;
+margin-right: 203px;
+margin-left: 203px;
+margin-top: 84px;
+margin-bottom: 195px;
+text-align: center;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 47px;
+color: #3B444B;
+`
+const ButtonStyle1 = styled.div `
+width: 113px;
+height: 64px;
+
+position: absolute;
+margin-right: 500px;
+margin-left: 336px;
+margin-top: 242px;
+margin-bottom: 83px;
+text-align: center;
+color: white;
+background: #F0372B;
+border-radius: 4px;
+font-size: 28px;
+font-margin-top: 16px;
+:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+p {
+    margin-top: 16px;
+}
+
+`
+const ButtonStyle2 = styled.div `
+width: 113px;
+height: 64px;
+
+position: absolute;
+margin-right: 302px;
+margin-left: 500px;
+margin-top: 242px;
+margin-bottom: 83px;
+text-align: center;
+color: white;
+background: #515257;
+border-radius: 4px;
+font-size: 28px;
+font-margin-top: 16px;
+:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+p {
+    margin-top: 16px;
+}
+`
+
 Modal.setAppElement('#root')
 
 //function DeleteButton (props) {
@@ -24,10 +94,10 @@ Modal.setAppElement('#root')
         },
         content: {
             position: 'absolute',
-            top: '150px',
-            left: '250px',
-            right: '250px',
-            bottom: '150px',
+            top: '25vh',
+            left: '20vw',
+            right: '20vw',
+            bottom: '25vh',
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
@@ -49,13 +119,17 @@ Modal.setAppElement('#root')
     
     return (
         <div>
-            <button onClick={() => setModalIsOpen(true)}>Delete Button</button>
+            <i class="fas fa-times" onClick={() => setModalIsOpen(true)}></i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
                 style={modalStyle}
                 >
-                <p>Are you sure you want to delete this team?</p>
-                <button onClick={handleDelete}>Yes</button>
-                <button onClick={() => setModalIsOpen(false)}>No</button>
+                <Words>Are you sure you want to delete this team?</Words>
+                <ButtonStyle1>
+                <div onClick={handleDelete}><p>Yes</p></div>
+                </ButtonStyle1>
+                <ButtonStyle2>
+                <div onClick={() => setModalIsOpen(false)}><p>No</p></div>
+                </ButtonStyle2>
             </Modal>
         </div>
     );
