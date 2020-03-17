@@ -14,9 +14,7 @@ const Container = styled.div`
     width: 100%;
     margin-left: 10vw;
     margin-right: 5vw;
-
-
-.teamCardFlex{
+.teamCardFlex {
     display: flex;
     width: 100%;
 }
@@ -24,9 +22,7 @@ const Container = styled.div`
     align-content: right;
     padding: 500%;
 }
-
 `
-
 const Title = styled.h1 ` 
     padding-top: 2%;
     padding-bottom: 2%;
@@ -47,10 +43,10 @@ const Title = styled.h1 `
     `
 
 const ButtonX = styled.i `
-display: inline-block;
-float: top-right;
-box-sizing: border-box;
-size: 2;
+
+position: relative;
+right: 4%;
+margin-top: 2%;
 color: red;
 :hover {
     cursor: pointer;
