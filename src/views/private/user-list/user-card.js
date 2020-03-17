@@ -55,11 +55,9 @@ float: right;
 padding: 2%;
 margin-top: 2%;
 box-sizing: border-box;
-transition: all 0.5s ease-out;
 color: red; 
 :hover {
     cursor: pointer;
-    transform: rotate(360deg);
 }
 `
 
