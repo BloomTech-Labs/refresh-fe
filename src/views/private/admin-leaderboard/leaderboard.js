@@ -47,10 +47,10 @@ const Title = styled.h1 `
     `
 
 const ButtonX = styled.i `
-display: inline-block;
-float: top-right;
-box-sizing: border-box;
-size: 2;
+
+position: relative;
+right: 4%;
+margin-top: 2%;
 color: red;
 :hover {
     cursor: pointer;
