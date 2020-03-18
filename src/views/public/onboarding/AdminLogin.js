@@ -60,7 +60,7 @@ const AdminLogin = props => {
           console.log(res.data.token);
           if (res.data.token) {
             localStorage.setItem("token", res.data.token);
-            props.history.push("/admindash");
+            props.history.push("/");
           } else {
             setErr(res.data);
             props.debug && console.log(err);

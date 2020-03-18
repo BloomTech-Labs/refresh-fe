@@ -132,6 +132,7 @@ function AddTeam(props) {
     };
 
 
+
     return (
         <div>
             <i class="fas fa-plus fa-2x" onClick={() => setModalIsOpen(true)}> </i>
@@ -153,7 +154,7 @@ function AddTeam(props) {
                         </form>
                     </SearchBox>
                     <ButtonContainer>
-                        <ButtonStyle1 onClick={handleSubmit} ><p>Confirm</p></ButtonStyle1>
+                        <ButtonStyle1 onClick={handleSubmit}  ><p>Confirm</p></ButtonStyle1>
                         {/* <button onSubmit={handleSubmit}>Confirm</button> */}
 
                         <ButtonStyle2 onClick={() => setModalIsOpen(false)}><p>Cancel</p></ButtonStyle2>
