@@ -113,6 +113,7 @@ const UserList = props => {
     };
 
     const toggleUsers = event => {
+        console.log('toggleUsers: ', event.target.value)
         event.preventDefault();
         setShowNulls(!showNulls);
     }
@@ -120,6 +121,7 @@ const UserList = props => {
     const routeToUserProfile = userId => {
         props.history.push(`/users/${userId}`)
     }
+
 
     if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 
@@ -168,11 +170,7 @@ const UserList = props => {
                     />
             </form>
             <form onSubmit={toggleUsers}>
-                <select>
-                    <option value={showNulls}>All Users</option>
-                    <option value={showNulls}>No Team</option>
-                </select>
-                <button>Toggle</button>
+                <button>Toggle Users</button>
             </form>
             </SearchFlex2>
             </SearchFlex>
