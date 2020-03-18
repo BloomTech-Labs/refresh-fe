@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchTeams } from '../actions/actions';
+import { fetchTeams, editTeamName } from '../actions/actions';
 import styled from 'styled-components';
 
 import TeamCard from './teamCard';
@@ -128,7 +128,8 @@ const Leaderboard = (props) => {
                                 <TeamCard 
                                     team={team}
                                 />
-                                <EditTeamButton />
+                                <EditTeamButton id={team.id} editTeamName={props.editTeamName} makeRender={makeRender} render={render} />
+                                    
                                 <ButtonX>
                                 <DeleteTeamButton 
                                     makeRender={makeRender} 
@@ -154,5 +155,5 @@ export default connect(
             error: state.error
         }
     },
-    { fetchTeams }
+    { fetchTeams, editTeamName }
 )(Leaderboard);

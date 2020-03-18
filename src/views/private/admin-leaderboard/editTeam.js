@@ -82,13 +82,6 @@ Modal.setAppElement('#root')
 function EditTeam(props) {
     console.log(props)
 
-    const [editTeamName, setEditTeamName, match] = useState({
-        name: ''
-    });
-    const [updateTeam, setUpdateTeam] = useState({})
-
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-
 
     const modalStyle = {
         overlay: {
@@ -119,36 +112,38 @@ function EditTeam(props) {
         }
     }
 
+    const [teamName, setTeamName, match] = useState({
+        name: ''
+    });
 
-    const handleSubmit = (event, changes) => {
+    const [updateTeam, setUpdateTeam] = useState({})
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+
+    // const handleUpdate = (event, changes) => {
+    //     event.preventDefault();
+    //     const payload = {
+    //         name: changes.name
+    //     }
+    //     editTeamName(match.params.id,payload)
+    // }
+
+
+    const handleSubmit = (event) => {
         event.preventDefault();
-        // if(editTeamName.team) {
-        //     props.updateTeamName(props.info.id, editTeamName)
-        //     setTimeout(() => {props.rerender(!props.update)}, 100)
-        // } else {
-        //     alert('Select team before submitting edit')
-        // }
-        const payload = {
-            name: changes.name
-        }
-        editTeamName(match.params.id,payload)
+        setModalIsOpen(false); 
+            props.editTeamName(props.id, teamName)
+            setTimeout(() => {props.makeRender(!props.render)}, 100)
     } 
-    // useEffect(() => {
-    //     editTeamName()
-    //     //console.log(team, 'team name update')
-    // },[])
-
 
     // const onChange = event => {
     //     setEditTeamName({ team: event.target.value })
-    //         console.log('editProfile team', editUserTeam)
+    //     console.log('editProfile team', editUserTeam)
     // }
 
     const handleChange = event => {
-        updateTeam({
-            ...updateTeam,
-            [event.target.name]: event.target.value
-        })
+        setTeamName({name: event.target.value})
     }
 
 
@@ -161,20 +156,20 @@ function EditTeam(props) {
                 <CenterContainer>
                     <Words>Edit the team name</Words>
                     <SearchBox>
-                        <form onSubmit={handleSubmit} onSubmit={handleChange}>
+                        <form onSubmit={handleSubmit}>
                             <input
                                 id="team"
                                 type="text"
                                 name="name"
                                 placeholder="Team Name"
-                                value={updateTeam && updateTeam.name}
+                                value={updateTeam.name}
                                 onChange={handleChange}
                             />
                         </form>
                     </SearchBox>
                     <ButtonContainer>
                         <ButtonStyle1 onClick={handleSubmit} ><p>Confirm</p></ButtonStyle1>
-                        {/* <button onSubmit={handleSubmit}>Confirm</button> */}
+                        
 
                         <ButtonStyle2 onClick={() => setModalIsOpen(false)}><p>Cancel</p></ButtonStyle2>
                     </ButtonContainer>
