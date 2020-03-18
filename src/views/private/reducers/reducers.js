@@ -8,6 +8,9 @@ import {
     FETCH_TEAMS_LOADING,
     FETCH_TEAMS_SUCCESS,
     FETCH_TEAMS_FAILURE,
+    FETCH_USER_TEAM_NAME_LOADING,
+    FETCH_USER_TEAM_NAME_SUCCESS,
+    FETCH_USER_TEAM_NAME_FAILURE,
     UPDATE_USER_TEAM_START,
     UPDATE_USER_TEAM_SUCCESS,
     UPDATE_USER_TEAM_FAILURE,
@@ -26,6 +29,7 @@ import {
 } from '../actions/actions';
 
 const initialState = {
+    teamName: {},
     teams: [],
     allUsers: [],
     singleUser: {},
@@ -133,6 +137,21 @@ function reducer(state = initialState, action) {
                         ...state,
                         error: action.payload
                     }
+                case FETCH_USER_TEAM_NAME_LOADING:
+                    return {
+                        ...state,
+                        isFetching: true,
+                    }
+                case FETCH_USER_TEAM_NAME_SUCCESS:
+                    return {
+                        ...state,
+                        teamName: action.payload
+                    }
+                case FETCH_USER_TEAM_NAME_FAILURE:
+                return {
+                    ...state,
+                    error: action.payload
+                }
                     case UPDATE_TEAM_NAME_START:
                         return {
                             ...state,

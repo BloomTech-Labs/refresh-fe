@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { updateUserTeam, deleteUser } from '../actions/actions';
+import { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName } from '../actions/actions';
 
 import styled from 'styled-components';
 
 const ProfileCard = styled.div`
 background: white;
-width: 250px;
-padding: 30px;
+padding-top: 42%;
+width: 20vw;
+height: 20vw;
 border-radius: 14px;
-margin: 30px;
-
+margin-right: 2%;
+margin-bottom: 5%;
+border: 3px solid #E7E7E7;
+box-sizing: border-box;
 form {
-    text-align: center;
-    font-family: Roboto;
+text-align: center;
+font-family: Roboto;
 font-style: normal;
 font-weight: normal;
 font-size: 20px;
 margin-top: 2%;
 }
-
 h3 {
     overflow: hidden;
     white-space: nowrap;
     text-align: center;
 }
-
 .fas fa-times {
 display: inline-block;
 float: right;
@@ -39,55 +40,58 @@ border: 1px solid #E7E7E7;
 box-sizing: border-box;
 }
 `
-const Buttons = styled.button`
-width: 120px;
+const Buttons = styled.select`
+width: 250px;
 height: 46px;
 left: 300px;
 top: 395px;
+ margin-left: 15%;
 margin-top: 2%;
 border: 1px solid #E7E7E7;
-box-sizing: border-box;`
-
-
+box-sizing: border-box;
+text-align-last:center;
+`
 const ButtonX = styled.i `
-display: inline-block;
 float: right;
+position: relative;
+margin-top: -40%;
+margin-right: 2%;
 padding: 2%;
-margin-top: 2%;
 box-sizing: border-box;
 color: red; 
 :hover {
     cursor: pointer;
 }
 `
-
 const Name = styled.div `
-
 overflow: hidden;
 white-space: nowrap;
 text-align: center;
 font-family: Roboto;
 font-style: normal;
 font-weight: normal;
-font-size: 20px;
+font-size: 30px;
 line-height: 23px;
-
-color: #4F5254;`
-
+color: #4F5254;
+padding-bottom: 2%;
+`
 const Blue = styled.div `
 text-align: center;
 overflow: hidden;
 white-space: nowrap;
-
 font-family: Roboto;
 font-style: normal;
 font-weight: bold;
 font-size: 15.2138px;
 letter-spacing: 0.035em;
-
-color: #3DA2ED;`
-
+color: #3DA2ED;
+padding-top: 5%;
+`
 const UserCard = props => {
+    
+    // useEffect(() => {
+    //     props.fetchUserTeamName(props.info.id)
+    // }, [props.update])
 
     const passId = () => {
         props.routeToUserProfile(props.info.id)
@@ -124,20 +128,16 @@ const UserCard = props => {
                     {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
                 </h2>
                 </Blue>
-                <form>
-                    <select onChange={handleSubmit}>
-                        <option>
-                            {`Current: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
-                        </option>
-                        <option value='1'>Team: 1</option>
-                        <option value='2'>Team: 2</option>
-                        <option value='3'>Team: 3</option>
-                        <option value='4'>Team: 4</option>
-                        <option value='5'>Team: 5</option>
-                        <option value='6'>Team: 6</option>
-                        <option value='7'>Team: 7</option>
-                    </select>
-                </form>
+                <Buttons onChange={handleSubmit}>
+                    <option>
+                        {`Current:  ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
+                    </option>
+                    {props.teams.map((name, index) => {
+                        return (
+                            <option key={index} value={name.id}>{name.name}</option>
+                        )
+                    })}
+                </Buttons>
             </ProfileCard>
         </div>
     )
@@ -146,15 +146,15 @@ const UserCard = props => {
 export default connect(
     state => {
         return {
+            teamName: state.teamName,
+            teams: state.teams,
             allUsers: state.allUsers,
             singleUser: state.singleUser,
             isFetching: state.isFetching,
             error: state.error
         }
     },
-    { updateUserTeam, deleteUser }
+    { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName}
 )(UserCard);
 
 
-// {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
-// {`Team: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}

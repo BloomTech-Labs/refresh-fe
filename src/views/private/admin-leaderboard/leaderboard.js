@@ -42,19 +42,6 @@ const Title = styled.h1 `
     
     color: #3B444B;
     `
-
-const ButtonX = styled.i `
-
-position: relative;
-right: 4%;
-margin-top: 2%;
-color: red;
-:hover {
-    cursor: pointer;
-
-}
-`
-
 const BlueFlex = styled.div `
 text-align: center;
 overflow: hidden;
@@ -85,7 +72,23 @@ letter-spacing: 0.035em;
     text-decoration: underline;
 }
 `
-
+const Pencil = styled.i `
+position: relative;
+margin-left: 1%;
+margin-top: 2%;
+:hover {
+    cursor: pointer;
+}
+`
+const ButtonX = styled.i `
+position: relative;
+right: 5%;
+margin-top: 2%;
+color: red;
+:hover {
+    cursor: pointer;
+}
+`
 
 const Leaderboard = (props) => {
     const [render, setRender] = useState(false)
@@ -128,8 +131,9 @@ const Leaderboard = (props) => {
                                 <TeamCard 
                                     team={team}
                                 />
+                                <Pencil>
                                 <EditTeamButton id={team.id} editTeamName={props.editTeamName} makeRender={makeRender} render={render} />
-                                    
+                                </Pencil>
                                 <ButtonX>
                                 <DeleteTeamButton 
                                     makeRender={makeRender} 
