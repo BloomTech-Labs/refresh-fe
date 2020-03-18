@@ -95,14 +95,13 @@ const UserCard = props => {
     }
 
     const handleSubmit = event => {
-        console.log('click', props.info.id)
+        console.log('handleSubmit event.target.value: ', event.target.value)
+        let editedTeam = { team_id: event.target.value }
         event.preventDefault();
-        if(editUserTeam.team_id) {
-            props.updateUserTeam(props.info.id, editUserTeam)
+        if(editedTeam) {
+            props.updateUserTeam(props.info.id, editedTeam)
             setTimeout(() => {props.rerender(!props.update)}, 100)
-        } else {
-            alert('Select team before submitting edit')
-        }
+        } 
     }
 
     const deleteUser = event => {
@@ -111,12 +110,12 @@ const UserCard = props => {
         setTimeout(() => {props.rerender(!props.update)}, 100)
     }
 
-    const onClick = event => {
-        console.log('onChange:')
-        let team = event.target.value
-        setEditUserTeam({ team_id: team })
-        // console.log('editProfile team', editUserTeam)
-    }
+    // const onClick = event => {
+    //     let team = event.target.value
+    //     if(team) {
+    //         setEditUserTeam({ team_id: team }, handleSubmit)
+    //     }
+    // }
 
     return (
         <div>
@@ -134,14 +133,17 @@ const UserCard = props => {
                 </h2>
                 </Blue>
                 <form>
-                    <select defaultValue={props.info.team_id} onChange={handleSubmit} onClick={onClick}>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5</option>
-                        <option value='6'>6</option>
-                        <option value='7'>7</option>
+                    <select onChange={handleSubmit}>
+                        <option>
+                            {`Current: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
+                        </option>
+                        <option value='1'>Team: 1</option>
+                        <option value='2'>Team: 2</option>
+                        <option value='3'>Team: 3</option>
+                        <option value='4'>Team: 4</option>
+                        <option value='5'>Team: 5</option>
+                        <option value='6'>Team: 6</option>
+                        <option value='7'>Team: 7</option>
                     </select>
                     {/* <Buttons>
                     <div>Submit Team Change</div>
