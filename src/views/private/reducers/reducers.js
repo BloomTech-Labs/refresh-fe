@@ -19,7 +19,10 @@ import {
     CREATE_NEW_TEAM_FAILURE,
     DELETE_TEAM_START,
     DELETE_TEAM_SUCCESS,
-    DELETE_TEAM_FAILURE
+    DELETE_TEAM_FAILURE,
+    UPDATE_TEAM_NAME_START,
+    UPDATE_TEAM_NAME_SUCCESS,
+    UPDATE_TEAM_NAME_FAILURE,
 } from '../actions/actions';
 
 const initialState = {
@@ -130,6 +133,20 @@ function reducer(state = initialState, action) {
                         ...state,
                         error: action.payload
                     }
+                    case UPDATE_TEAM_NAME_START:
+                        return {
+                            ...state,
+                            isFetching: true,
+                        }
+                    case UPDATE_TEAM_NAME_SUCCESS :
+                        return {
+                            ...state,
+                        }
+                    case UPDATE_TEAM_NAME_FAILURE:
+                        return {
+                            ...state,
+                            error: action.payload
+                        }
         default:
             return state;
     }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { createNewTeam } from '../actions/actions';
+import { editTeamName } from '../actions/actions';
 
 import styled from 'styled-components';
 
@@ -79,13 +79,8 @@ color: #3B444B;
 `
 Modal.setAppElement('#root')
 
-function AddTeam(props) {
-
-    const [teamName, setTeamName] = useState({
-        name: ''
-    });
-
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+function EditTeam(props) {
+    console.log(props)
 
 
     const modalStyle = {
@@ -117,29 +112,49 @@ function AddTeam(props) {
         }
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        setModalIsOpen(false);
-        props.createNewTeam(teamName)
-        setTimeout(() => { props.makeRender(!props.render) }, 0)
-    }
+    const [teamName, setTeamName, match] = useState({
+        name: ''
+    });
 
-    const handleChange = e => {
-        setTeamName({
-            ...teamName,
-            [e.target.name]: e.target.value
-        });
-    };
+    const [updateTeam, setUpdateTeam] = useState({})
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+
+    // const handleUpdate = (event, changes) => {
+    //     event.preventDefault();
+    //     const payload = {
+    //         name: changes.name
+    //     }
+    //     editTeamName(match.params.id,payload)
+    // }
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setModalIsOpen(false); 
+            props.editTeamName(props.id, teamName)
+            setTimeout(() => {props.makeRender(!props.render)}, 100)
+    } 
+
+    // const onChange = event => {
+    //     setEditTeamName({ team: event.target.value })
+    //     console.log('editProfile team', editUserTeam)
+    // }
+
+    const handleChange = event => {
+        setTeamName({name: event.target.value})
+    }
 
 
     return (
         <div>
-            <i class="fas fa-plus fa-2x" onClick={() => setModalIsOpen(true)}> </i>
+            <i class="fas fa-pencil-alt fa-1.5x" onClick={() => setModalIsOpen(true)}> </i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
             >
                 <CenterContainer>
-                    <Words>Enter a team name</Words>
+                    <Words>Edit the team name</Words>
                     <SearchBox>
                         <form onSubmit={handleSubmit}>
                             <input
@@ -147,14 +162,14 @@ function AddTeam(props) {
                                 type="text"
                                 name="name"
                                 placeholder="Team Name"
-                                value={teamName.name}
+                                value={updateTeam.name}
                                 onChange={handleChange}
                             />
                         </form>
                     </SearchBox>
                     <ButtonContainer>
                         <ButtonStyle1 onClick={handleSubmit} ><p>Confirm</p></ButtonStyle1>
-                        {/* <button onSubmit={handleSubmit}>Confirm</button> */}
+                        
 
                         <ButtonStyle2 onClick={() => setModalIsOpen(false)}><p>Cancel</p></ButtonStyle2>
                     </ButtonContainer>
@@ -172,10 +187,5 @@ const mapStatetoProps = state => {
 
 export default connect(
     mapStatetoProps,
-    { createNewTeam }
-)(AddTeam);
-
-// text above
-//add form for team name
-//button to accept (with redux will add to the component)
-
+    { editTeamName }
+)(EditTeam);

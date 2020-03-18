@@ -188,6 +188,7 @@ export default class TeamCard extends Component {
       <Container>
         <TeamName>
         <Buttons>
+          
           <DeleteButton />
           <AddTeam />
         </Buttons>
