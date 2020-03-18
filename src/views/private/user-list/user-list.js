@@ -155,7 +155,7 @@ const UserList = props => {
             <h1>USER PROFILES</h1>
             </Title>
             <SearchFlex>
-            <h2 className='ALLUSERS'>ALL USERS</h2>
+            <h2 className='ALLUSERS'>{showNulls === true ? 'NO TEAM' : 'ALL USERS'}</h2>
             <SearchFlex2>
                 <form>
                     <input
