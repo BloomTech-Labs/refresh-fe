@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { updateTeamName } from './actions';
+import { editTeamName } from '../actions/actions';
 
 import styled from 'styled-components';
 
@@ -80,11 +80,12 @@ color: #3B444B;
 Modal.setAppElement('#root')
 
 function EditTeam(props) {
+    console.log(props)
 
-
-    const [editTeamName, setEditTeamName] = useState({
+    const [editTeamName, setEditTeamName, match] = useState({
         name: ''
     });
+    const [updateTeam, setUpdateTeam] = useState({})
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -119,20 +120,35 @@ function EditTeam(props) {
     }
 
 
-    const handleSubmit = event => {
+    const handleSubmit = (event, changes) => {
         event.preventDefault();
-        if(editTeamName.team) {
-            props.updateTeamName(props.info.id, editTeamName)
-            setTimeout(() => {props.rerender(!props.update)}, 100)
-        } else {
-            alert('Select team before submitting edit')
+        // if(editTeamName.team) {
+        //     props.updateTeamName(props.info.id, editTeamName)
+        //     setTimeout(() => {props.rerender(!props.update)}, 100)
+        // } else {
+        //     alert('Select team before submitting edit')
+        // }
+        const payload = {
+            name: changes.name
         }
-    }
+        editTeamName(match.params.id,payload)
+    } 
+    // useEffect(() => {
+    //     editTeamName()
+    //     //console.log(team, 'team name update')
+    // },[])
 
 
-    const onChange = event => {
-        setEditTeamName({ team: event.target.value })
-        // console.log('editProfile team', editUserTeam)
+    // const onChange = event => {
+    //     setEditTeamName({ team: event.target.value })
+    //         console.log('editProfile team', editUserTeam)
+    // }
+
+    const handleChange = event => {
+        updateTeam({
+            ...updateTeam,
+            [event.target.name]: event.target.value
+        })
     }
 
 
@@ -145,13 +161,13 @@ function EditTeam(props) {
                 <CenterContainer>
                     <Words>Edit the team name</Words>
                     <SearchBox>
-                        <form onSubmit={handleSubmit} onChange={onChange}>
+                        <form onSubmit={handleSubmit} onSubmit={handleChange}>
                             <input
                                 id="team"
                                 type="text"
                                 name="name"
                                 placeholder="Team Name"
-                                value={teamName.name}
+                                value={updateTeam && updateTeam.name}
                                 onChange={handleChange}
                             />
                         </form>
@@ -176,5 +192,5 @@ const mapStatetoProps = state => {
 
 export default connect(
     mapStatetoProps,
-    { updateTeamName }
+    { editTeamName }
 )(EditTeam);
