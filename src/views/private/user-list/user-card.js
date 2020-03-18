@@ -132,17 +132,18 @@ const UserCard = props => {
                     {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
                 </h2>
                 </Blue>
-                <Blue>{`Team: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}</Blue>
                 <form>
                     <select onChange={handleSubmit}>
-                        <option></option>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5</option>
-                        <option value='6'>6</option>
-                        <option value='7'>7</option>
+                        <option>
+                            {`Current: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
+                        </option>
+                        <option value='1'>Team: 1</option>
+                        <option value='2'>Team: 2</option>
+                        <option value='3'>Team: 3</option>
+                        <option value='4'>Team: 4</option>
+                        <option value='5'>Team: 5</option>
+                        <option value='6'>Team: 6</option>
+                        <option value='7'>Team: 7</option>
                     </select>
                     {/* <Buttons>
                     <div>Submit Team Change</div>
