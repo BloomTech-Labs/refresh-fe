@@ -134,7 +134,8 @@ const UserCard = props => {
                 </h2>
                 </Blue>
                 <form>
-                    <select defaultValue={props.info.team_id} onChange={handleSubmit} onClick={onClick}>
+                    <select onChange={handleSubmit} onClick={onClick}>
+                        <option></option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>

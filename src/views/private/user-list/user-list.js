@@ -128,11 +128,12 @@ const UserList = props => {
         if(searchTerm === null) {
             return employees
         } else if(showNulls === true) {
-            return employees.team_id === 'None'
+            return employees.team_id === null
         } else if(employees.first_name.toLowerCase().includes(searchTerm.toLowerCase()) || employees.last_name.toLowerCase().includes(searchTerm.toLowerCase())) {
             return employees
         }
     }).map(employees => {
+        console.log(employees.team_id)
         return (
             <div key={employees.id}>
                 <div>
