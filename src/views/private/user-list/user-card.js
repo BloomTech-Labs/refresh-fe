@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { updateUserTeam, deleteUser } from '../actions/actions';
+import { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName } from '../actions/actions';
 
 import styled from 'styled-components';
 
@@ -88,6 +88,10 @@ letter-spacing: 0.035em;
 color: #3DA2ED;`
 
 const UserCard = props => {
+    
+    // useEffect(() => {
+    //     props.fetchUserTeamName(props.info.id)
+    // }, [props.update])
 
     const passId = () => {
         props.routeToUserProfile(props.info.id)
@@ -124,20 +128,16 @@ const UserCard = props => {
                     {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
                 </h2>
                 </Blue>
-                <form>
-                    <select onChange={handleSubmit}>
-                        <option>
-                            {`Current: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
-                        </option>
-                        <option value='1'>Team: 1</option>
-                        <option value='2'>Team: 2</option>
-                        <option value='3'>Team: 3</option>
-                        <option value='4'>Team: 4</option>
-                        <option value='5'>Team: 5</option>
-                        <option value='6'>Team: 6</option>
-                        <option value='7'>Team: 7</option>
-                    </select>
-                </form>
+                <select onChange={handleSubmit}>
+                    <option>
+                        {`Current:  ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
+                    </option>
+                    {props.teams.map((name, index) => {
+                        return (
+                            <option key={index} value={name.id}>{name.name}</option>
+                        )
+                    })}
+                </select>
             </ProfileCard>
         </div>
     )
@@ -146,15 +146,15 @@ const UserCard = props => {
 export default connect(
     state => {
         return {
+            teamName: state.teamName,
+            teams: state.teams,
             allUsers: state.allUsers,
             singleUser: state.singleUser,
             isFetching: state.isFetching,
             error: state.error
         }
     },
-    { updateUserTeam, deleteUser }
+    { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName}
 )(UserCard);
 
 
-// {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
-// {`Team: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
