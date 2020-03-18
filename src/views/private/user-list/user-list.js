@@ -133,7 +133,6 @@ const UserList = props => {
             return employees
         }
     }).map(employees => {
-        console.log(employees.team_id)
         return (
             <div key={employees.id}>
                 <div>
