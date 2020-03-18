@@ -44,6 +44,7 @@ export const fetchAllUsers = () => dispatch => {
 }
 
 export const fetchUserTeamName = (userId) => dispatch => {
+    console.log('fetch')
     dispatch({ type: FETCH_USER_TEAM_NAME_LOADING })
     axios
         .get(`https://labs-refresh.herokuapp.com/users/${userId}/team`)

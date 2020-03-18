@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchAllUsers, fetchTeams } from '../actions/actions';
+import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
 
 import styled from 'styled-components';
 
@@ -193,5 +193,5 @@ export default connect(
             error: state.error
         }
     },
-    { fetchAllUsers, fetchTeams }
+    { fetchAllUsers, fetchTeams, fetchUserTeamName }
 )(UserList);
