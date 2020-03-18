@@ -95,6 +95,7 @@ const UserCard = props => {
     }
 
     const handleSubmit = event => {
+        console.log('click', props.info.id)
         event.preventDefault();
         if(editUserTeam.team_id) {
             props.updateUserTeam(props.info.id, editUserTeam)
@@ -110,8 +111,10 @@ const UserCard = props => {
         setTimeout(() => {props.rerender(!props.update)}, 100)
     }
 
-    const onChange = event => {
-        setEditUserTeam({ team_id: event.target.value })
+    const onClick = event => {
+        console.log('onChange:')
+        let team = event.target.value
+        setEditUserTeam({ team_id: team })
         // console.log('editProfile team', editUserTeam)
     }
 
@@ -126,17 +129,12 @@ const UserCard = props => {
                 </Name>
                 <h3>{props.info.email}</h3>
                 <Blue>
-                <h2>{`Team: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}</h2>
-                </Blue>
-                <Blue>
                 <h2>
                     {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
                 </h2>
                 </Blue>
-                <form onSubmit={handleSubmit}>
-                    <label>Edit team</label>
-                    <select value={editUserTeam.team_id} onChange={onChange}>
-                        <option></option>
+                <form>
+                    <select defaultValue={props.info.team_id} onChange={handleSubmit} onClick={onClick}>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -145,10 +143,9 @@ const UserCard = props => {
                         <option value='6'>6</option>
                         <option value='7'>7</option>
                     </select>
-                    <Buttons>
+                    {/* <Buttons>
                     <div>Submit Team Change</div>
-                    </Buttons>
-                    
+                    </Buttons> */}
                 </form>
             </ProfileCard>
         </div>
@@ -168,3 +165,5 @@ export default connect(
 )(UserCard);
 
 
+// {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
+// {`Team: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
