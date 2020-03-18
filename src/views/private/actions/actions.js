@@ -43,6 +43,14 @@ export const fetchAllUsers = () => dispatch => {
         .catch(error => dispatch({ type: FETCH_ALL_USERS_FAILURE, payload: error }))
 }
 
+export const fetchUserTeamName = (userId) => dispatch => {
+    dispatch({ type: FETCH_USER_TEAM_LOADING })
+    axios
+        .get(`https://labs-refresh.herokuapp.com/users/${userId}/team`)
+        .then(response => dispatch({ type: FETCH_USER_TEAM_SUCCESS, payload: response.data }))
+        .catch(error => dispatch({ type: FETCH_USER_TEAM_FAILURE, payload: error }))
+}
+
 export const updateUserTeam = (userId, editedTeamId) => dispatch => {
     dispatch({ type: UPDATE_USER_TEAM_START })
     axios
