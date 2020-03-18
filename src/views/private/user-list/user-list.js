@@ -168,7 +168,7 @@ const UserList = props => {
                     />
             </form>
             <form onSubmit={toggleUsers}>
-                <button>Toggle Users</button>
+                <button>{showNulls ? 'All Users' : 'Teamless Users'}</button>
             </form>
             </SearchFlex2>
             </SearchFlex>
