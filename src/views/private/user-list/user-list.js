@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchAllUsers } from '../actions/actions';
+import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
 
 import styled from 'styled-components';
 
@@ -89,7 +89,6 @@ margin-left: 50%;
 `
 
 const UserList = props => {
-    
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);
     const [update, setUpdate] = useState(false)
@@ -97,6 +96,7 @@ const UserList = props => {
     
     useEffect(() => {
         props.fetchAllUsers();
+        props.fetchTeams()
     }, [update])
 
     const rerender = (change) => {
@@ -136,7 +136,8 @@ const UserList = props => {
             <div key={employees.id}>
                 <div>
                     <UserCard 
-                    info={employees} 
+                    info={employees}
+                    teams={props.teams} 
                     routeToUserProfile={routeToUserProfile}
                     update={update}
                     rerender={rerender}
@@ -183,11 +184,12 @@ const UserList = props => {
 export default connect(
     state => {
         return {
+            teams: state.teams,
             allUsers: state.allUsers,
             singleUser: state.singleUser,
             isFetching: state.isFetching,
             error: state.error
         }
     },
-    { fetchAllUsers }
+    { fetchAllUsers, fetchTeams, fetchUserTeamName }
 )(UserList);

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { updateUserTeam, deleteUser } from '../actions/actions';
+import { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName } from '../actions/actions';
 
 import styled from 'styled-components';
 
@@ -45,6 +45,7 @@ width: 250px;
 height: 46px;
 left: 300px;
 top: 395px;
+ margin-left: 15%;
 margin-top: 2%;
 border: 1px solid #E7E7E7;
 box-sizing: border-box;
@@ -87,6 +88,10 @@ color: #3DA2ED;
 padding-top: 5%;
 `
 const UserCard = props => {
+    
+    // useEffect(() => {
+    //     props.fetchUserTeamName(props.info.id)
+    // }, [props.update])
 
     const passId = () => {
         props.routeToUserProfile(props.info.id)
@@ -123,20 +128,16 @@ const UserCard = props => {
                     {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
                 </h2>
                 </Blue>
-                <form>
-                    <Buttons onChange={handleSubmit}>
-                        <option>
-                            {`Current: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
-                        </option>
-                        <option value='1'>Team: 1</option>
-                        <option value='2'>Team: 2</option>
-                        <option value='3'>Team: 3</option>
-                        <option value='4'>Team: 4</option>
-                        <option value='5'>Team: 5</option>
-                        <option value='6'>Team: 6</option>
-                        <option value='7'>Team: 7</option>
-                    </Buttons>
-                </form>
+                <Buttons onChange={handleSubmit}>
+                    <option>
+                        {`Current:  ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
+                    </option>
+                    {props.teams.map((name, index) => {
+                        return (
+                            <option key={index} value={name.id}>{name.name}</option>
+                        )
+                    })}
+                </Buttons>
             </ProfileCard>
         </div>
     )
@@ -145,15 +146,15 @@ const UserCard = props => {
 export default connect(
     state => {
         return {
+            teamName: state.teamName,
+            teams: state.teams,
             allUsers: state.allUsers,
             singleUser: state.singleUser,
             isFetching: state.isFetching,
             error: state.error
         }
     },
-    { updateUserTeam, deleteUser }
+    { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName}
 )(UserCard);
 
 
-// {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
-// {`Team: ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
