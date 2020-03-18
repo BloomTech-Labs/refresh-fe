@@ -88,14 +88,12 @@ letter-spacing: 0.035em;
 color: #3DA2ED;`
 
 const UserCard = props => {
-    const [editUserTeam, setEditUserTeam] = useState({ team_id: '' })
 
     const passId = () => {
         props.routeToUserProfile(props.info.id)
     }
 
     const handleSubmit = event => {
-        console.log('handleSubmit event.target.value: ', event.target.value)
         let editedTeam = { team_id: event.target.value }
         event.preventDefault();
         if(editedTeam) {
@@ -110,12 +108,6 @@ const UserCard = props => {
         setTimeout(() => {props.rerender(!props.update)}, 100)
     }
 
-    // const onClick = event => {
-    //     let team = event.target.value
-    //     if(team) {
-    //         setEditUserTeam({ team_id: team }, handleSubmit)
-    //     }
-    // }
 
     return (
         <div>
@@ -145,9 +137,6 @@ const UserCard = props => {
                         <option value='6'>Team: 6</option>
                         <option value='7'>Team: 7</option>
                     </select>
-                    {/* <Buttons>
-                    <div>Submit Team Change</div>
-                    </Buttons> */}
                 </form>
             </ProfileCard>
         </div>

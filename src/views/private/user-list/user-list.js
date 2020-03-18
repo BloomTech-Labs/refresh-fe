@@ -113,7 +113,6 @@ const UserList = props => {
     };
 
     const toggleUsers = event => {
-        console.log('toggleUsers: ', event.target.value)
         event.preventDefault();
         setShowNulls(!showNulls);
     }
@@ -143,7 +142,6 @@ const UserList = props => {
                     routeToUserProfile={routeToUserProfile}
                     update={update}
                     rerender={rerender}
-                    // onReload={ () => {setReload() }}
                     />
                 </div>
             </div>
