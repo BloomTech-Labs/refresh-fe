@@ -77,6 +77,9 @@ font-size: 40px;
 line-height: 47px;
 color: #3B444B;
 `
+
+
+
 Modal.setAppElement('#root')
 
 function EditTeam(props) {
@@ -149,7 +152,7 @@ function EditTeam(props) {
 
     return (
         <div>
-            <i class="fas fa-pencil-alt fa-1.5x" onClick={() => setModalIsOpen(true)}> </i>
+            <i class="fas fa-pencil-alt fa-2x" onClick={() => setModalIsOpen(true)}> </i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
             >
