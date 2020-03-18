@@ -6,7 +6,7 @@ import Dashboard from "./dashboard/Dashboard";
 import MissionComplete from "./mission-complete/MissionComplete";
 import Gauge from "../../components/molecules/gauge/Gauge";
 import ProfileOverview from "./profileViews/ProfileOverview";
-import Leaderboard from "./leaderboard/Leaderboard";
+import Leaderboard from './admin-leaderboard/leaderboard';
 import MissionStats from "./mission-stats/MissionStats";
 // import ComingSoon from "./coming-soon/ComingSoon";
 import TimerCanvas from "./Timer/";
@@ -34,7 +34,11 @@ const PrivateViewCanvas = props => {
         pathname !== "/survey" &&
         pathname !== "/team-list" &&
         pathname !== "/create-team" && (
+          <div>
+          <WithNavigation />
           <Route match path="/" component={AdminDash} />
+          </div>
+          
         )}
 
       <Switch>
