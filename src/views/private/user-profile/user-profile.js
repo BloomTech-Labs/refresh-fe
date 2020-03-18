@@ -127,13 +127,9 @@ border-radius: 3px;
 `
 
 const UserProfile = props => {
-    console.log('UserProfile props: ', props)
-
-    const [editUserTeam, setEditUserTeam] = useState({ team_id: '' })
     const [changing, setChanging] = useState(false)
 
     const handleSubmit = event => {
-        console.log('handleSubmit event.target.value: ', event.target.value)
         let editedTeam = { team_id: event.target.value }
         event.preventDefault();
         if(editedTeam) {
@@ -155,16 +151,6 @@ const UserProfile = props => {
     }, [changing])
 
 
-
-
-    const onChange = event => {
-        setEditUserTeam({ team_id: event.target.value })
-        // console.log('editProfile team', editUserTeam)
-    }
-
-    // if(changing === true) {
-    //     return <Changes>Changes submitted</Changes>
-    // }
 
     if(props.singleUser === undefined) {
         return <h1>Loading</h1>

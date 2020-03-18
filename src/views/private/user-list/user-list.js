@@ -113,7 +113,6 @@ const UserList = props => {
     };
 
     const toggleUsers = event => {
-        console.log('toggleUsers: ', event.target.value)
         event.preventDefault();
         setShowNulls(!showNulls);
     }
