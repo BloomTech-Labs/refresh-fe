@@ -145,9 +145,6 @@ const UserCard = props => {
                         <option value='6'>Team: 6</option>
                         <option value='7'>Team: 7</option>
                     </select>
-                    {/* <Buttons>
-                    <div>Submit Team Change</div>
-                    </Buttons> */}
                 </form>
             </ProfileCard>
         </div>

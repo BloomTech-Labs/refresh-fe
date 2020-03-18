@@ -133,14 +133,13 @@ const UserProfile = props => {
     const [changing, setChanging] = useState(false)
 
     const handleSubmit = event => {
+        console.log('handleSubmit event.target.value: ', event.target.value)
+        let editedTeam = { team_id: event.target.value }
         event.preventDefault();
-        if(editUserTeam.team_id) {
-            console.log('userId: ', props.match.params.id, 'teamId: ', editUserTeam)
-            props.updateUserTeam(props.match.params.id, editUserTeam)
+        if(editedTeam) {
+            props.updateUserTeam(props.match.params.id, editedTeam)
             setTimeout(() => {setChanging(!changing)}, 100)
-        } else {
-            alert('Select team before submitting edit')
-        }
+        } 
     }
 
     const deleteUser = event => {
@@ -195,22 +194,20 @@ const UserProfile = props => {
                         </Blue>
                     </div>
                     
-                    <form onSubmit={handleSubmit}>
-                        <label>Edit team</label>
-                        <select value={editUserTeam.team_id} onChange={onChange}>
-                            <option></option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                            <option value='6'>6</option>
-                            <option value='7'>7</option>
-                        </select>
-                        <Buttons>
-                        <div>Submit Team Change</div>
-                        </Buttons>
-                    </form>
+                    <form>
+                    <select onChange={handleSubmit}>
+                        <option>
+                        {`Team: ${props.singleUser.team_id === null ? props.singleUser.team_id = 'None' : props.singleUser.team_id}`}
+                        </option>
+                        <option value='1'>Team: 1</option>
+                        <option value='2'>Team: 2</option>
+                        <option value='3'>Team: 3</option>
+                        <option value='4'>Team: 4</option>
+                        <option value='5'>Team: 5</option>
+                        <option value='6'>Team: 6</option>
+                        <option value='7'>Team: 7</option>
+                    </select>
+                </form>
                 </ProfileCard2>
             </UserPage>
         )

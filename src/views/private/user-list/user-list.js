@@ -143,7 +143,6 @@ const UserList = props => {
                     routeToUserProfile={routeToUserProfile}
                     update={update}
                     rerender={rerender}
-                    // onReload={ () => {setReload() }}
                     />
                 </div>
             </div>
