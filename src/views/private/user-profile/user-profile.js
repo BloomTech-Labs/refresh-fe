@@ -6,11 +6,14 @@ import styled from 'styled-components';
 
 const ProfileCard2 = styled.div`
 background: white;
-width: 250px;
-padding: 30px;
+padding-top: 43%;
+width: 20vw;
+height: 20vw;
 border-radius: 14px;
-margin: 30px;
-
+margin-right: 2%;
+margin-bottom: 5%;
+border: 3px solid #E7E7E7;
+box-sizing: border-box;
 form {
     text-align: center;
     font-family: Roboto;
@@ -61,21 +64,22 @@ color: #3B444B;
 }
 `
 
-const Buttons = styled.button`
-width: 120px;
+const Buttons = styled.select`
+width: 250px;
 height: 46px;
 left: 300px;
 top: 395px;
 margin-top: 2%;
 border: 1px solid #E7E7E7;
-box-sizing: border-box;`
-
-
+box-sizing: border-box;
+text-align-last:center;
+`
 const ButtonX = styled.i `
-display: inline-block;
 float: right;
+position: relative;
+margin-top: -40%;
+margin-right: 2%;
 padding: 2%;
-margin-top: 2%;
 box-sizing: border-box;
 color: red; 
 :hover {
@@ -181,7 +185,7 @@ const UserProfile = props => {
                     </div>
                     
                     <form>
-                    <select onChange={handleSubmit}>
+                    <Buttons onChange={handleSubmit}>
                         <option>
                         {`Team: ${props.singleUser.team_id === null ? props.singleUser.team_id = 'None' : props.singleUser.team_id}`}
                         </option>
@@ -192,7 +196,7 @@ const UserProfile = props => {
                         <option value='5'>Team: 5</option>
                         <option value='6'>Team: 6</option>
                         <option value='7'>Team: 7</option>
-                    </select>
+                    </Buttons>
                 </form>
                 </ProfileCard2>
             </UserPage>
