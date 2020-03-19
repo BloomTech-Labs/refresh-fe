@@ -130,7 +130,7 @@ const UserCard = props => {
                 </Blue>
                 <Buttons onChange={handleSubmit}>
                     <option>
-                        {`Current:  ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
+                        {`${props.info.team_id === null ? props.info.team_id = 'None' : props.info.name}`}
                     </option>
                     {props.teams.map((name, index) => {
                         return (
@@ -156,5 +156,3 @@ export default connect(
     },
     { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName}
 )(UserCard);
-
-

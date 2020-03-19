@@ -83,7 +83,7 @@ color: #3B444B;
 Modal.setAppElement('#root')
 
 function EditTeam(props) {
-    console.log(props)
+    
 
 
     const modalStyle = {
@@ -137,7 +137,7 @@ function EditTeam(props) {
         event.preventDefault();
         setModalIsOpen(false); 
             props.editTeamName(props.id, teamName)
-            setTimeout(() => {props.makeRender(!props.render)}, 100)
+            setTimeout(() => {props.makeRender(!props.render)}, 150)
     } 
 
     // const onChange = event => {
