@@ -1,5 +1,8 @@
 # Refresh
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/5e8535f341bfc8ceb65c/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/refresh-fe/maintainability)	
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5e8535f341bfc8ceb65c/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/refresh-fe/test_coverage)
+
 THIS IS THE STAGING BRANCH
 
 You can find the deployed project at [Netlify](https://confident-elion-57dd1e.netlify.com/).
