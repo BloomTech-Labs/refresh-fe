@@ -58,7 +58,6 @@ margin-bottom: 2%;
 color: #3DA2ED;
 `
 const AddTeam = styled.div `
-display: inline-block;
 float: right;
 margin-right: fixed;
 text-align: right;
