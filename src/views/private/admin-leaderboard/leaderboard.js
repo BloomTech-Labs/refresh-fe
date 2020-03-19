@@ -91,6 +91,7 @@ color: red;
 
 const Leaderboard = (props) => {
     const [render, setRender] = useState(false)
+    const [teamsData, setTeamsData] = useState()
 
 
     useEffect(() => {
@@ -124,7 +125,9 @@ const Leaderboard = (props) => {
                 <h2>DELETE TEAM</h2>
                 </BlueFlex>
                 <div>
-                    {props.teams.map(team => {
+                    {props.teams.sort((a, b) => {
+                        return b.points - a.points
+                    }).map(team => {
                         return (
                             <div className='teamCardFlex'>
                                 <TeamCard 
@@ -142,7 +145,8 @@ const Leaderboard = (props) => {
                                 </ButtonX>
                             </div>
                         )
-                    })}
+                    })
+                    }
                 </div>
             </Container>
         )

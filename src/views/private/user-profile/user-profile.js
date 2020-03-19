@@ -191,7 +191,7 @@ const UserProfile = props => {
                     <form>
                         <Buttons onChange={handleSubmit}>
                         <option>
-                            {`Current:  ${props.singleUser.team_id === null ? props.singleUser.team_id = 'None' : props.singleUser.team_id}`}
+                            {`Current:  ${props.singleUser.team_id === null ? props.singleUser.team_id = 'None' : props.singleUser.name}`}
                         </option>
                         {props.teams.map((name, index) => {
                             return (

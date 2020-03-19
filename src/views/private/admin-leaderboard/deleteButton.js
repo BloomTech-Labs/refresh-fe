@@ -107,7 +107,7 @@ Modal.setAppElement('#root')
     const handleDelete = id => {
         setModalIsOpen(false);
         props.deleteTeam(props.id)
-        setTimeout(() => {props.makeRender(!props.render)} , 1000)
+        setTimeout(() => {props.makeRender(!props.render)} , 100)
         console.log('handleDelete', props.render)
     }
     
