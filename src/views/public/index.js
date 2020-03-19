@@ -5,8 +5,10 @@ import { Route, Redirect,Switch } from "react-router-dom";
 import Landing from "./onboarding/Landing";
 import CreateAccount from "./onboarding/CreateAccount";
 import Login from "./onboarding/Login";
+import AdminLogin from "./onboarding/AdminLogin";
 import EmailSignUp from "./onboarding/EmailSignUp";
 import EmailLogIn from "./onboarding/EmailLogin";
+
 
 const PublicViewCanvas = () => {
   return (
@@ -15,6 +17,7 @@ const PublicViewCanvas = () => {
       <Route path="/emailsignup" component={EmailSignUp} />
       <Route path="/emaillogin" component={EmailLogIn} />
       <Route path="/login" component={Login} />
+      <Route path="/adminlogin" component={AdminLogin} />
       <Route exact path="/" component={Landing} />
       <Redirect to="/" />
     </Switch>

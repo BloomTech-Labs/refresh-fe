@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 //IMPORTS
 //react
 import React, { useState, useEffect, useContext } from "react";
@@ -9,56 +8,33 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 import welcome from "../../../images/Onboarding/welcome.svg";
-//atoms
-// import Input from "../../components/atoms/input/input";
-//Context
-import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
-import { UserContext } from "../../../contexts/UserContext";
-import {AdminContext} from "../../../contexts/AdminContext"
-import { missionMasher } from "../../globalFunctions";
 
-const EmailSignUp = props => {
+
+const AdminLogin = props => {
   //hooks
   const [user, setUser] = useState({
-    name: "",
     email: "",
-    password: "",
-    confirmPassword: ""
+    password: ""
   });
   const [err, setErr] = useState();
   const [enabledBtn, setEnabledBtn] = useState(false);
 
-  // contexts
-  const activeUser = useContext(UserContext);
-  const userMissions = useContext(UserMissionsContext);
-  const adminUser = useContext(AdminContext);
-
   let errors = {};
   useEffect(() => {
-    errors.userName =
-      user.name.length < 4 && "username must be greater than 5 characters";
     errors.userEmail =
-      user.email.length < 4 && "user email must be greater than 5 characters";
-    errors.userPassword =
-      user.confirmPassword.length < 4 &&
-      user.password.length < 4 &&
-      "user password must be greater than 5 characters";
-    errors.userConfirmedPass =
-      user.password === user.confirmPassword &&
-      "please make sure passwords match";
-    !errors.userName &&
-      !errors.userEmail &&
-      !errors.userPassword &&
-      errors.userConfirmedPass.length > 4 &&
-      !errors.confirmedPass &&
-      setEnabledBtn(true);
+    user.email.length < 4 && "user email must be greater than 5 characters";
+  errors.userPassword =
+    user.password.length < 4 &&
+    "user password must be greater than 5 characters";
+    !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
     props.debug &&
       console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
-  }, [user]) 
+  }, [user]);
+  
   //route to sign up page
-  const routeToSignUp = e => {
+  const routeToLanding = e => {
     e.preventDefault();
-    props.history.push("/signup");
+    props.history.push("/");
   };
 
   //handle change for user info
@@ -74,29 +50,17 @@ const EmailSignUp = props => {
     props.debug && console.log("handleSubmit enabledBtn:", enabledBtn);
     if (!enabledBtn) {
       alert(
-        errors.userName ||
           errors.userEmail ||
-          errors.userPassword ||
-          errors.confirmedPass
+          errors.userPassword
       );
     } else {
       axiosWithAuth()
-        .post("/register", { email: user.email, password: user.password })
+        .post("/admin/login", { email: user.email, password: user.password })
         .then(res => {
+          console.log(res.data.token);
           if (res.data.token) {
-            props.debug && console.log(res.data);
-            const userObject = res.data;
-            const {
-              mission_subscriptions,
-              missions_in_progress
-            } = userObject.user_missions;
-
-            activeUser.setUser(userObject.user_profile);
-            userMissions.setUserMissions(
-              missionMasher(mission_subscriptions, missions_in_progress)
-            );
             localStorage.setItem("token", res.data.token);
-            props.history.push("/firstlogin");
+            props.history.push("/");
           } else {
             setErr(res.data);
             props.debug && console.log(err);
@@ -112,19 +76,9 @@ const EmailSignUp = props => {
   //render
   return (
     <OnBoardContainer>
-      <ButtonNoColor onClick={routeToSignUp}>&lt;</ButtonNoColor>
+      <ButtonNoColor onClick={routeToLanding}>&lt;</ButtonNoColor>
       <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-          value={user.name}
-          width={100}
-          border={"1px solid #3D3B91"}
-          backgroundColor={"#3D3B91"}
-        />
         <Input
           type="text"
           name="email"
@@ -146,19 +100,8 @@ const EmailSignUp = props => {
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
         />
-        <Input
-          type="password"
-          name="confirmPassword"
-          autoComplete="new-password"
-          placeholder="Confirm password"
-          onChange={handleChange}
-          value={user.confirmPassword}
-          width={100}
-          border={"1px solid #3D3B91"}
-          backgroundColor={"#3D3B91"}
-        />
         <Button onClick={handleSubmit} className={BtnStats}>
-          Sign Up
+          Sign In
         </Button>
       </Form>
     </OnBoardContainer>
@@ -273,4 +216,4 @@ const ButtonNoColor = styled.a`
 `;
 
 //EXPORT
-export default EmailSignUp;
+export default AdminLogin;

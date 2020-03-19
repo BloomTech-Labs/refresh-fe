@@ -19,10 +19,10 @@ const Landing = props => {
     props.history.push("/login");
   };
 
-  // const routeToComponentTesting = e => {
-  //   e.preventDefault();
-  //   props.history.push('/atoms');
-  // };
+  const routeToAdmin = e => {
+    e.preventDefault();
+    props.history.push("/adminlogin");
+  };
 
   //render
   return (
@@ -44,23 +44,12 @@ const Landing = props => {
         <ButtonNoColor onClick={routeToLogin}>
           I already have an account
         </ButtonNoColor>
+        <AdminSignin onClick={routeToAdmin}>Admin Login Here</AdminSignin>
       </FlexHolder>
     </OnBoardContainer>
   );
 };
 
-// STYLED COMPONENTS
-//Onboarding Reusable Styles
-// we abstract out reusable global styles later on -JC
-// const OnBoardWrapper = styled.div`
-//   display: flex;
-//   width: 100vw;
-//   height: 100vh;
-//   max-height: 100vh;
-//   background-color: #4742BC;
-//   background-image:url(${waves});
-//   overflow-x: auto;
-// `;
 
 const OnBoardContainer = styled.div`
   display: flex;
@@ -146,12 +135,56 @@ const Button = styled.a`
   }
 `;
 
+const AdminSignin = styled.a`
+display: inline-block;
+border-radius: 0.5rem;
+padding: 1.5rem 0.8rem;
+width: 64%;
+text-align: center;
+margin: 10px auto;
+background: #6997F2;
+color: white;
+font-size: calc(100% + 0.5vw);
+&:hover {
+  cursor: pointer;
+}
+`;
+
 const ButtonNoColor = styled.a`
   margin: auto;
   padding: 0.7rem;
   font-size: 1.6rem;
   &:hover {
     cursor: pointer;
+  }
+`;
+
+const FBButton = styled.a`
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0.5rem;
+  padding: 1.5rem 0;
+  width: 84%;
+  text-align: center;
+  margin: 3% auto%;
+  background: #4a639e;
+  color: white;
+  font-size: calc(110% + 0.5vw);
+  letter-spacing: 0.1rem;
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1000px) {
+    margin: 3% auto;
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin: 4% auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 7% auto;
   }
 `;
 

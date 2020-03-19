@@ -20,11 +20,13 @@ import Image from "../../../components/atoms/image/image";
 import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 import { UserContext } from "../../../contexts/UserContext";
 import { missionMasher } from "../../globalFunctions";
+import {AdminContext} from "../../../contexts/AdminContext"
 
 const CreateAccount = props => {
   // contexts
   const activeUser = useContext(UserContext);
   const userMissions = useContext(UserMissionsContext);
+  const adminUser = useContext(AdminContext);
   //routes
   const routeToHome = e => {
     e.preventDefault();
@@ -40,6 +42,11 @@ const CreateAccount = props => {
     e.preventDefault();
     props.history.push("/emailsignup");
   };
+
+  const routeToAdminSignUp = e => {
+    e.preventDefault();
+    props.history.push("/admin")
+  }
 
   //Or for Row variable -atoms styling
   const colText = "OR";
@@ -97,7 +104,7 @@ const CreateAccount = props => {
         <Cubes src={cubes} />
       </HeaderHolder>
       <FlexHolder>
-        <FBButton name="facebookAuth" onClick={auth}>
+        {/* <FBButton name="facebookAuth" onClick={auth}>
           Sign up with Facebook{" "}
           <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
         </FBButton>
@@ -110,7 +117,7 @@ const CreateAccount = props => {
             width={2}
             borderRadius={100}
           />
-        </GoogleSignIn>
+        </GoogleSignIn> */}
         
           <FlexWrapper>
             <p>OR</p>
@@ -121,6 +128,9 @@ const CreateAccount = props => {
           Sign up with Email <Image src={emailogo} height={2} width={2} />
         </Button>
       </FlexHolder>
+      {/* <FBButton onClick={routeToAdminSignUp}>
+        Sign up as an Administrative
+      </FBButton> */}
     </OnBoardContainer>
   );
 };
