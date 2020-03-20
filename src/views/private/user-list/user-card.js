@@ -112,7 +112,7 @@ const UserCard = props => {
 
     return (
         <div>
-            <ProfileCard>y
+            <ProfileCard>
                 
                     <ButtonX>
                     <i class="fas fa-times fa-2x" onClick={deleteUser}></i>
