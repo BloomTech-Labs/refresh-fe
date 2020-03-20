@@ -47,7 +47,7 @@ const PrivateViewCanvas = props => {
         <Route path="/mission-complete" component={MissionComplete} />
         <Route path="/gauge" component={Gauge} />
         <Route path="/profile-overview" component={ProfileOverview} />
-        <Route path="/leaderboard" component={Leaderboard} />
+        {/* //<Route path="/leaderboard" component={Leaderboard} /> */}
         <Route path="/mission-stats" component={MissionStats} />
         <Route path="/team-view" component={TeamView} />
         <Route path="/team-list" component={TeamList} />
