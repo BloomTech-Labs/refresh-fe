@@ -28,7 +28,6 @@ h3 {
     text-align: center;
 }
 .fas fa-times {
-display: inline-block;
 float: right;
 background-color: red;
 width: 25px;
@@ -40,12 +39,10 @@ border: 1px solid #E7E7E7;
 box-sizing: border-box;
 }
 `
-const Buttons = styled.select`
-width: 250px;
-height: 46px;
-left: 300px;
-top: 395px;
- margin-left: 15%;
+const Dropdown = styled.select`
+width: 70%;
+height: 30%;
+margin-left: 15%;
 margin-top: 2%;
 border: 1px solid #E7E7E7;
 box-sizing: border-box;
@@ -70,7 +67,7 @@ text-align: center;
 font-family: Roboto;
 font-style: normal;
 font-weight: normal;
-font-size: 30px;
+font-size: 1.875rem;
 line-height: 23px;
 color: #4F5254;
 padding-bottom: 2%;
@@ -82,7 +79,7 @@ white-space: nowrap;
 font-family: Roboto;
 font-style: normal;
 font-weight: bold;
-font-size: 15.2138px;
+font-size: 1.575rem;
 letter-spacing: 0.035em;
 color: #3DA2ED;
 padding-top: 5%;
@@ -115,7 +112,8 @@ const UserCard = props => {
 
     return (
         <div>
-            <ProfileCard>
+            <ProfileCard>y
+                
                     <ButtonX>
                     <i class="fas fa-times fa-2x" onClick={deleteUser}></i>
                     </ButtonX>
@@ -128,16 +126,16 @@ const UserCard = props => {
                     {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
                 </h2>
                 </Blue>
-                <Buttons onChange={handleSubmit}>
+                <Dropdown onChange={handleSubmit}>
                     <option>
-                        {`Current:  ${props.info.team_id === null ? props.info.team_id = 'None' : props.info.team_id}`}
+                        {`${props.info.team_id === null ? props.info.team_id = 'None' : props.info.name}`}
                     </option>
                     {props.teams.map((name, index) => {
                         return (
                             <option key={index} value={name.id}>{name.name}</option>
                         )
                     })}
-                </Buttons>
+                </Dropdown>
             </ProfileCard>
         </div>
     )
@@ -156,5 +154,3 @@ export default connect(
     },
     { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName}
 )(UserCard);
-
-

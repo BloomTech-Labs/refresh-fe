@@ -6,8 +6,6 @@ import { createNewTeam } from '../actions/actions';
 import styled from 'styled-components';
 
 const ButtonContainer = styled.div`
-position: absolute: 
-left: 50%;
 margin: 5%;
 display: flex;
 justify-content: center;
@@ -37,7 +35,6 @@ color: white;
 background: #F0372B;
 border-radius: 4px;
 font-size: 28px;
-font-margin-top: 16px;
 margin-right: 5%;
 :hover {
     cursor: pointer;
@@ -58,7 +55,6 @@ color: white;
 background: #515257;
 border-radius: 4px;
 font-size: 28px;
-font-margin-top: 16px;
 :hover {
     cursor: pointer;
     opacity: 50%; 

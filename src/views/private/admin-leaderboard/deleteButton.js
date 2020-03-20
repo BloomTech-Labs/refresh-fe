@@ -8,8 +8,6 @@ import styled from 'styled-components';
 
 
 const ButtonContainer = styled.div`
-position: absolute: 
-left: 50%;
 margin: 5%;
 display: flex;
 justify-content: center;
@@ -39,7 +37,6 @@ color: white;
 background: #F0372B;
 border-radius: 4px;
 font-size: 28px;
-font-margin-top: 16px;
 margin-right: 5%;
 :hover {
     cursor: pointer;
@@ -60,7 +57,6 @@ color: white;
 background: #515257;
 border-radius: 4px;
 font-size: 28px;
-font-margin-top: 16px;
 :hover {
     cursor: pointer;
     opacity: 50%; 
@@ -111,7 +107,7 @@ Modal.setAppElement('#root')
     const handleDelete = id => {
         setModalIsOpen(false);
         props.deleteTeam(props.id)
-        setTimeout(() => {props.makeRender(!props.render)} , 1000)
+        setTimeout(() => {props.makeRender(!props.render)} , 100)
         console.log('handleDelete', props.render)
     }
     

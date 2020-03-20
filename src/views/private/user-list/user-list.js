@@ -43,33 +43,20 @@ font-style: normal;
 font-weight: bold;
 font-size: 40px;
 line-height: auto;
-/* identical to box height */
 
 font-variant: small-caps;
 
 color: #3B444B;
 }
 `
-const x = styled.div`
-width: 16px;
-height: 35px;
-left: 387px;
-top: 206px;
-font-family: Roboto;
-font-style: normal;
-font-weight: 200;
-font-size: 30px;
-line-height: 35px;
-font-variant: small-caps;
-color: #4F5254;
-`
+
 
 const SearchFlex = styled.div `
 display: flex;
 justify-content: space-around;
 text-align: center;
 padding-right: 15%;
-padding-top 2%;
+padding-top: 2%;
 padding-bottom: 3%;
 `
 const SearchFlex2 = styled.div `
@@ -77,14 +64,18 @@ display: flex;
 justify-content: space-between;
 margin-left: 50%;
 .toggleButton {
-    margin-left: 2%;
+    margin-left: 10%;
 }
-::placeholder,
-::-webkit-input-placeholder {
+.blueInput {
+    border-radius: 5px;
+    border: none;
+    width: 110%;
+    height: 130%;
+    box-sizing: border-box;
+    text-align: center;
+    ::placeholder {
   color: blue;
 }
-:-ms-input-placeholder {
-   color: blue;
 }
 `
 
@@ -123,7 +114,9 @@ const UserList = props => {
     if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 
     
-    const filteredUsers = props.allUsers.filter(employees => {
+    const filteredUsers = props.allUsers.sort((a, b) => {
+        return a.id - b.id
+    }).filter(employees => {
         if(searchTerm === null) {
             return employees
         } else if(showNulls === true) {
@@ -157,11 +150,11 @@ const UserList = props => {
             <h2 className='ALLUSERS'>{showNulls === true ? 'NO TEAM' : 'ALL USERS'}</h2>
             <SearchFlex2>
                 <form>
-                    <input
+                    <input className='blueInput'
                     id="search"
                     type="text"
                     name="searchBar"
-                    placeholder="Search"
+                    placeholder="Search Users"
                     onChange={changeHandler}
                     value={searchTerm}
                     />
