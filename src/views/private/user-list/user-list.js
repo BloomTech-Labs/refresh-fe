@@ -114,7 +114,9 @@ const UserList = props => {
     if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 
     
-    const filteredUsers = props.allUsers.filter(employees => {
+    const filteredUsers = props.allUsers.sort((a, b) => {
+        return a.id - b.id
+    }).filter(employees => {
         if(searchTerm === null) {
             return employees
         } else if(showNulls === true) {
