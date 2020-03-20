@@ -6,7 +6,7 @@ Modal.setAppElement('#root')
 
 function ModalButton () {
     
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(true);
     
     const modalStyle = {
         overlay: {
@@ -43,8 +43,8 @@ function ModalButton () {
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
                 style={modalStyle}
                 >
-                <p>Are you sure you want to delete this team?</p>
-                <button>Yes</button>
+                <p>Invalid Credentials</p>
+                <button>Continue</button>
                 <button onClick={() => setModalIsOpen(false)}>No</button>
             </Modal>
         </div>
