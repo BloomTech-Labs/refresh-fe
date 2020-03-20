@@ -101,6 +101,7 @@ const Leaderboard = (props) => {
     const makeRender = (change) => {
         console.log('makeRender', change)
         setRender(change)
+        
     }
 
     // const sortedTeams = props.teams.map(team => {
@@ -112,6 +113,7 @@ const Leaderboard = (props) => {
     //         </div>
     //     )
     // })
+
 
         return (
             <Container>
@@ -130,16 +132,18 @@ const Leaderboard = (props) => {
                             <div className='teamCardFlex'>
                                 <TeamCard 
                                     team={team}
+                                    makeRender={makeRender}
+                                    render={render}
                                 />
                                 <Pencil>
-                                <EditTeamButton id={team.id} editTeamName={props.editTeamName} makeRender={makeRender} render={render} />
+                                {/* <EditTeamButton id={team.id} editTeamName={props.editTeamName} makeRender={makeRender} render={render} /> */}
                                 </Pencil>
                                 <ButtonX>
-                                <DeleteTeamButton 
+                                {/* <DeleteTeamButton 
                                     makeRender={makeRender} 
                                     render={render}
                                     id={team.id}
-                                />
+                                /> */}
                                 </ButtonX>
                             </div>
                         )

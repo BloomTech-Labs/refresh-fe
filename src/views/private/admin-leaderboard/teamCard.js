@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import EditTeamButton from './editTeam';
+import DeleteTeamButton from './deleteButton';
 
 
 const Card = styled.div`
@@ -44,7 +46,16 @@ const TeamCard = props => {
         <Card>
             <h1 className='name'>{props.team.name}</h1>
             <h1 className='points'>{`${props.team.points === null ? props.team.points = 0 : props.team.points}`}</h1>
-            <div className='blank'></div>
+            <div className='blank'>
+                <EditTeamButton id={props.team.id} 
+                                editTeamName={props.editTeamName} 
+                                makeRender={props.makeRender} 
+                                render={props.render} /> 
+                <DeleteTeamButton makeRender={props.makeRender} 
+                                    render={props.render}
+                                    id={props.team.id}/>
+            </div>
+            
         </Card>
     )
 }
