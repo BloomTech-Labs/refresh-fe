@@ -18,8 +18,13 @@ const Body = styled.div`
 display: flex;  
 flex-direction: column;  
 height: 90vh;
-width: 100vw;
-padding-left: 15%;
+width: auto;
+margin-left: 120px;
+padding-left: 5%;
+@media (max-width: 768px) {
+    padding-left: 0%;
+  }
+
 .ALLUSERS {
 text-decoration: underline;
 font-family: Roboto;
@@ -28,6 +33,7 @@ font-weight: bold;
 font-size: 25px;
 line-height: 29px;
 font-variant: small-caps;
+
 }
 `
 const Title = styled.h1`
@@ -58,19 +64,37 @@ text-align: center;
 padding-right: 15%;
 padding-top: 2%;
 padding-bottom: 3%;
+@media (max-width: 768px) {
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
 `
 const SearchFlex2 = styled.div `
 display: flex;
 justify-content: space-between;
 margin-left: 50%;
+@media (max-width: 768px) {
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 5%;
+  }
 .toggleButton {
     margin-left: 10%;
+    @media (max-width: 768px) {
+        margin-left: 0px;
+        padding-top: 5%;
+    }
 }
 .blueInput {
     border-radius: 5px;
     border: none;
-    width: 110%;
-    height: 130%;
+    width: 175px;
+    height: 50px;
     box-sizing: border-box;
     text-align: center;
     ::placeholder {

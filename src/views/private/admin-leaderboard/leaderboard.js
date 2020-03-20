@@ -13,8 +13,12 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-left: 10vw;
-    margin-right: 5vw;
+    margin-left: 120px;
+    margin-right: 20px;
+    @media (max-width: 768px) {
+        margin-left: 101px;
+        margin-right: 1px;
+    }
 .teamCardFlex {
     display: flex;
     width: 100%;
@@ -57,7 +61,7 @@ margin-top: 2%;
 margin-bottom: 2%;
 color: #3DA2ED;
 `
-const AddTeam = styled.div `
+const AddTeam = styled.i `
 float: right;
 margin-right: fixed;
 text-align: right;
@@ -66,26 +70,13 @@ font-variant: small-caps;
 font-family: Roboto;
 font-size: 15.2138px;
 letter-spacing: 0.035em;
-:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-`
-const Pencil = styled.i `
-position: relative;
-margin-left: 1%;
-margin-top: 2%;
+@media (max-width: 768px) {
+        text-align: center;
+    }
+.fas{
 :hover {
     cursor: pointer;
 }
-`
-const ButtonX = styled.i `
-position: relative;
-right: 5%;
-margin-top: 2%;
-color: red;
-:hover {
-    cursor: pointer;
 }
 `
 
@@ -137,16 +128,6 @@ const Leaderboard = (props) => {
                                     makeRender={makeRender}
                                     render={render}
                                 />
-                                <Pencil>
-                                {/* <EditTeamButton id={team.id} editTeamName={props.editTeamName} makeRender={makeRender} render={render} /> */}
-                                </Pencil>
-                                <ButtonX>
-                                {/* <DeleteTeamButton 
-                                    makeRender={makeRender} 
-                                    render={render}
-                                    id={team.id}
-                                /> */}
-                                </ButtonX>
                             </div>
                         )
                     })

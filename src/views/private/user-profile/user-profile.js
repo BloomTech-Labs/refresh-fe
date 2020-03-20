@@ -7,13 +7,18 @@ import styled from 'styled-components';
 const ProfileCard2 = styled.div`
 background: white;
 padding-top: 43%;
-width: 20vw;
-height: 20vw;
+width: 300px;
+height: 300px;
 border-radius: 14px;
 margin-right: 2%;
 margin-bottom: 5%;
 border: 3px solid #E7E7E7;
 box-sizing: border-box;
+@media (max-width: 768px) {
+    margin: 20px;
+    padding-top: 43%;
+
+    }
 form {
     text-align: center;
     font-family: Roboto;
@@ -30,7 +35,6 @@ h3 {
 }
 
 .fas fa-times {
-display: inline-block;
 float: right;
 background-color: red;
 width: 25px;
@@ -45,8 +49,8 @@ box-sizing: border-box;
 
 const Title = styled.h1`
 h1 { 
-padding-top: 2%;
-padding-bottom: 2%;
+padding-top: 10%;
+padding-bottom: 15%;
 text-align: center;
 overflow: hidden;
 white-space: nowrap;
@@ -56,7 +60,6 @@ font-style: normal;
 font-weight: bold;
 font-size: 40px;
 line-height: auto;
-/* identical to box height */
 
 font-variant: small-caps;
 
@@ -64,12 +67,9 @@ color: #3B444B;
 }
 `
 
-const Buttons = styled.select`
+const Dropdown = styled.select`
 width: 250px;
-height: 46px;
-left: 300px;
-top: 395px;
-margin-top: 2%;
+height: 7vh;
 border: 1px solid #E7E7E7;
 box-sizing: border-box;
 text-align-last:center;
@@ -189,16 +189,16 @@ const UserProfile = props => {
                     </div>
                     
                     <form>
-                        <Buttons onChange={handleSubmit}>
+                        <Dropdown onChange={handleSubmit}>
                         <option>
-                            {`Current:  ${props.singleUser.team_id === null ? props.singleUser.team_id = 'None' : props.singleUser.name}`}
+                            {`  ${props.singleUser.team_id === null ? props.singleUser.team_id = 'None' : props.singleUser.name}`}
                         </option>
                         {props.teams.map((name, index) => {
                             return (
                                 <option key={index} value={name.id}>{name.name}</option>
                             )
                         })}
-                        </Buttons>
+                        </Dropdown>
                     </form>
                 </ProfileCard2>
             </UserPage>

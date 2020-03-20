@@ -7,8 +7,8 @@ import styled from 'styled-components';
 const ProfileCard = styled.div`
 background: white;
 padding-top: 42%;
-width: 20vw;
-height: 20vw;
+width: 300px;
+height: 300px;
 border-radius: 14px;
 margin-right: 2%;
 margin-bottom: 5%;
@@ -112,7 +112,7 @@ const UserCard = props => {
 
     return (
         <div>
-            <ProfileCard>y
+            <ProfileCard>
                 
                     <ButtonX>
                     <i class="fas fa-times fa-2x" onClick={deleteUser}></i>
