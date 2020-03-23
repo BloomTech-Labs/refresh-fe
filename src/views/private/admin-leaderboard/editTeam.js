@@ -6,7 +6,7 @@ import { editTeamName } from '../actions/actions';
 import styled from 'styled-components';
 
 const ButtonContainer = styled.div`
-position: absolute: 
+position: absolute; 
 left: 50%;
 margin: 5%;
 display: flex;

@@ -86,7 +86,7 @@ const FlexHolder = styled.div`
   justify-content: center;
   margin: 0 auto auto;
   align-items: flex-start;
-  width: 100%;
+  width: 80%;
 
   .slogan {
     font-size: calc(100% + 3.9vw);
