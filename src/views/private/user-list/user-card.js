@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName } from '../actions/actions';
-
-import styled from 'styled-components';
-
 import { Blue, Name, ButtonX, Dropdown, ProfileCard } from '../styled-components/user-card-styles.js';
 
 
 const UserCard = props => {
-    console.log('Usercard Props: ', props)
 
     const passId = () => {
         props.routeToUserProfile(props.info.id)
@@ -33,10 +29,9 @@ const UserCard = props => {
     return (
         <div>
             <ProfileCard>
-                
-                    <ButtonX>
+                <ButtonX>
                     <i class="fas fa-times fa-2x" onClick={deleteUser}></i>
-                    </ButtonX>
+                </ButtonX>
                 <Name>
                 <h2 onClick={passId}>{`${props.info.first_name} ${props.info.last_name}`}</h2>
                 </Name>

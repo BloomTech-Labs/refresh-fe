@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
-
 import { Body, Title, SearchFlex, SearchFlex2, List } from '../styled-components/user-list-styles'
-
 import UserCard from './user-card';
 
 
@@ -21,7 +17,6 @@ const UserList = props => {
     }, [update])
 
     const rerender = (change) => {
-        console.log('rerender change: ', change)
         setUpdate(change)
     }
 
@@ -39,7 +34,6 @@ const UserList = props => {
     const routeToUserProfile = userId => {
         props.history.push(`/users/${userId}`)
     }
-
 
     if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 

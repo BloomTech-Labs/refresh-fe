@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchTeams, editTeamName } from '../actions/actions';
-import styled from 'styled-components';
-
 import TeamCard from './teamCard';
 import AddTeamButton from './addTeam';
-
 import { Container, Title, BlueFlex, AddTeam } from '../styled-components/leaderboard-styles';
 
 const Leaderboard = (props) => {
