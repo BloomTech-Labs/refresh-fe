@@ -154,7 +154,7 @@ const Form = styled.form`
   display: flex;
   margin: auto 0;
   flex-direction: column;
-  width: 89%;
+  width: 45%;
   input {
     font-size: calc(100% + 0.2vw);
     ::-webkit-input-placeholder {

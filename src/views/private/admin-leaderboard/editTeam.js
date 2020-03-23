@@ -2,7 +2,87 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { editTeamName } from '../actions/actions';
+<<<<<<< HEAD
+
+import styled from 'styled-components';
+
+const ButtonContainer = styled.div`
+position: absolute; 
+left: 50%;
+margin: 5%;
+display: flex;
+justify-content: center;
+`
+const CenterContainer = styled.div`
+position: absolute;
+left: 0;
+top: 25%;
+width: 100%;
+text-align: center;
+font-size: 18px;
+`
+const Words = styled.div`
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 47px;
+color: #3B444B;
+`
+const ButtonStyle1 = styled.div`
+width: 125px;
+height: 75px;
+display: flex;
+text-align: center;
+color: white;
+background: #F0372B;
+border-radius: 4px;
+font-size: 28px;
+font-margin-top: 16px;
+margin-right: 5%;
+:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+p {
+    text-align: center;
+    margin: auto;
+    font-family: Roboto;
+}
+`
+const ButtonStyle2 = styled.div`
+width: 125px;
+height: 75px;
+display: flex;
+text-align: center;
+color: white;
+background: #515257;
+border-radius: 4px;
+font-size: 28px;
+font-margin-top: 16px;
+:hover {
+    cursor: pointer;
+    opacity: 50%; 
+}
+p {
+    text-align: center;
+    margin: auto;
+    font-family: Roboto;
+}
+`
+const SearchBox = styled.div`
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 40px;
+line-height: 47px;
+color: #3B444B;
+`
+
+
+=======
 import { SearchBox, ButtonStyle1, ButtonStyle2, Words, CenterContainer, ButtonContainer } from '../styled-components/edit-button-styles';
+>>>>>>> 1a0aa89588a97509a1337404d54cb925d621b58f
 
 Modal.setAppElement('#root')
 
