@@ -125,7 +125,7 @@ const UserCard = props => {
                 </Blue>
                 <Dropdown onChange={handleSubmit}>
                     <option>
-                        {`${props.info.team_id === null ? props.info.team_id = 'None' : props.info.name}`}
+                        {`${props.info.name === null ? props.info.name = 'None' : props.info.name}`}
                     </option>
                     {props.teams.map((name, index) => {
                         return (

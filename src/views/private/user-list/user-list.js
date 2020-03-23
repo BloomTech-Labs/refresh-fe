@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
 
-import { Body, Title, SearchFlex, SearchFlex2, List } from '../styled-components/user-list-styles';
+import { Body, Title, SearchFlex, SearchFlex2, List } from '../styled-components/user-styles'
 
 import UserCard from './user-card';
 
