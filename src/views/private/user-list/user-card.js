@@ -85,10 +85,7 @@ color: #3DA2ED;
 padding-top: 5%;
 `
 const UserCard = props => {
-    
-    // useEffect(() => {
-    //     props.fetchUserTeamName(props.info.id)
-    // }, [props.update])
+    console.log('Usercard Props: ', props)
 
     const passId = () => {
         props.routeToUserProfile(props.info.id)
