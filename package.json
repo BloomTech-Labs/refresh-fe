@@ -58,5 +58,8 @@
   },
   "devDependencies": {
     "fetch-mock": "^9.2.1"
+  },
+  "resolutions": {
+    "@babel/preset-env": "^7.8.7"
   }
 }
