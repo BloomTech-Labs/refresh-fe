@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { editTeamName } from '../actions/actions';
+<<<<<<< HEAD
 
 import styled from 'styled-components';
 
@@ -79,6 +80,9 @@ color: #3B444B;
 `
 
 
+=======
+import { SearchBox, ButtonStyle1, ButtonStyle2, Words, CenterContainer, ButtonContainer } from '../styled-components/edit-button-styles';
+>>>>>>> 1a0aa89588a97509a1337404d54cb925d621b58f
 
 Modal.setAppElement('#root')
 
@@ -118,19 +122,8 @@ function EditTeam(props) {
     const [teamName, setTeamName, match] = useState({
         name: ''
     });
-
     const [updateTeam, setUpdateTeam] = useState({})
-
     const [modalIsOpen, setModalIsOpen] = useState(false);
-
-
-    // const handleUpdate = (event, changes) => {
-    //     event.preventDefault();
-    //     const payload = {
-    //         name: changes.name
-    //     }
-    //     editTeamName(match.params.id,payload)
-    // }
 
 
     const handleSubmit = (event) => {
@@ -138,17 +131,11 @@ function EditTeam(props) {
         setModalIsOpen(false); 
             props.editTeamName(props.id, teamName)
             setTimeout(() => {props.makeRender(!props.render)}, 150)
-    } 
-
-    // const onChange = event => {
-    //     setEditTeamName({ team: event.target.value })
-    //     console.log('editProfile team', editUserTeam)
-    // }
+    }
 
     const handleChange = event => {
         setTeamName({name: event.target.value})
     }
-
 
     return (
         <div>
