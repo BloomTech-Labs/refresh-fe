@@ -112,15 +112,15 @@ const OnBoardContainer = styled.div`
   font-family: "Catamaran", sans-serif;
   margin: auto auto 0 auto;
   line-height: 1.5;
-  background-color: #4742bc;
-  background-image: url(${waves});
+  background-color: white;
+  
   background-size: contain;
-  color: #4742bc;
+  color: black;
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
   padding: 8%;
-  input:-webkit-autofill,
+  /* input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   textarea:-webkit-autofill,
@@ -131,7 +131,7 @@ const OnBoardContainer = styled.div`
   select:-webkit-autofill:focus {
     
     -webkit-text-fill-color: #fff;
-    transition: background-color 5000s ease-in-out 0s;
+    transition: background-color 5000s ease-in-out 0s; */
   }
   &:nth-child(*) {
     background-color: green;
@@ -209,6 +209,7 @@ const ButtonNoColor = styled.a`
   font-size: 2rem;
   font-style: medium;
   color: #ccc9ff;
+  cursor: pointer;
 `;
 
 const ErrorMessage = styled.div`
