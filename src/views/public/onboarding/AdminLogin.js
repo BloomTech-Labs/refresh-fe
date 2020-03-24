@@ -129,7 +129,7 @@ const OnBoardContainer = styled.div`
   select:-webkit-autofill,
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
-    -webkit-box-shadow: #ddd;
+    
     -webkit-text-fill-color: #fff;
     transition: background-color 5000s ease-in-out 0s;
   }
