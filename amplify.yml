@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        # # Temporarily delete node_modules before building add this in if you get into dependency hell again
+        # Temporarily delete node_modules before building add this in if you get into dependency hell again
         # Then deploy and comment the following two lines back out when you're done
         # - rm -rf node_modules
         # - yarn install
