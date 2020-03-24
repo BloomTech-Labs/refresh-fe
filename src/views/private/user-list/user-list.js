@@ -44,7 +44,7 @@ const UserList = props => {
 
     
     const filteredUsers = props.allUsers.sort((a, b) => {
-        return b.team_id - a.team_id
+        return a.team_id - b.team_id
     }).filter(employees => {
         if(searchTerm === null) {
             return employees
