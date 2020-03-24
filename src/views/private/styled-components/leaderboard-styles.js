@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+background-color: white;
+    font-family: Roboto;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -14,10 +16,14 @@ export const Container = styled.div`
 .teamCardFlex {
     display: flex;
     width: 100%;
+    border-bottom: 1px solid gray;
 }
 .addTeam {
     align-content: right;
     padding: 500%;
+}
+.blank {
+    width: 10vw;
 }
 `
 export const Title = styled.h1 ` 
@@ -33,9 +39,7 @@ export const Title = styled.h1 `
     font-weight: bold;
     font-size: 40px;
     line-height: auto;
-    
     font-variant: small-caps;
-    
     color: #3B444B;
     `
 export const BlueFlex = styled.div `
@@ -54,8 +58,10 @@ margin-bottom: 2%;
 color: #3DA2ED;
 `
 export const AddTeam = styled.i `
+
+font-weight: bold;
 float: right;
-margin-right: fixed;
+text-decoration: underline;
 text-align: right;
 color: #3DA2ED;
 font-variant: small-caps;

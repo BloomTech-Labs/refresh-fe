@@ -30,6 +30,10 @@ export const NavBar = styled.div`
         &:hover {
         opacity: 100%; 
       }
+    }
+    .starsDiv {
+        width: auto;
+        height: auto;
     }  
 `;
 
@@ -39,6 +43,8 @@ export const Content = styled.div`
 `;
 
  export const Stars = styled.img`
+    width: auto;
+    height: auto;
     margin-top: 2vh;
     margin-bottom: 15vh;
  `;
@@ -79,7 +85,9 @@ function WithNavigation (props) {
     return <div>
         <NavBar>
             <Link to="/">
+                <div classname='starsDiv'>
                 <Stars className='img' src={logo} alt='stars'/>
+                </div>
             </Link>
             <Space></Space>
             <Link to="/">

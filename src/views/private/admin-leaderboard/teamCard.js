@@ -47,7 +47,7 @@ margin-right: 2%;
 `
 
 const Xbutton = styled.i `
-color: red;
+color: gray;
 :hover {
     cursor: pointer;
     }   
