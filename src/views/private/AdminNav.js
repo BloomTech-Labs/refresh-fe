@@ -16,7 +16,7 @@ export const NavBar = styled.div`
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 10vh;
+    width: 100px;;
     height: 100vh;
     justify-content: space-between;
     .img {

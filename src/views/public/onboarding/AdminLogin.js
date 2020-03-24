@@ -1,6 +1,8 @@
 //IMPORTS
 //react
 import React, { useState, useEffect, useContext } from "react";
+import Popup from 'react-popup';
+import ModalButton from './modal.js'
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -16,7 +18,7 @@ const AdminLogin = props => {
     email: "",
     password: ""
   });
-  const [err, setErr] = useState();
+  const [err, setErr] = useState(false);
   const [enabledBtn, setEnabledBtn] = useState(false);
 
   let errors = {};
@@ -41,19 +43,12 @@ const AdminLogin = props => {
   const handleChange = e => {
     setUser({
       ...user,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value.toLowerCase()
     });
   };
 
   //handle submit of user info to backend
   const handleSubmit = e => {
-    props.debug && console.log("handleSubmit enabledBtn:", enabledBtn);
-    if (!enabledBtn) {
-      alert(
-          errors.userEmail ||
-          errors.userPassword
-      );
-    } else {
       axiosWithAuth()
         .post("/admin/login", { email: user.email, password: user.password })
         .then(res => {
@@ -62,20 +57,21 @@ const AdminLogin = props => {
             localStorage.setItem("token", res.data.token);
             props.history.push("/");
           } else {
-            setErr(res.data);
+            console.log(err.message)
             props.debug && console.log(err);
           }
         })
         .catch(err => {
           props.debug && console.log(err);
+          alert('Invalid Credentials')
         });
-    }
   };
 
   let BtnStats = !enabledBtn && `disabledColor`;
   //render
   return (
     <OnBoardContainer>
+      <Popup className="mm-popup"/>
       <ButtonNoColor onClick={routeToLanding}>&lt;</ButtonNoColor>
       <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
@@ -158,7 +154,7 @@ const Form = styled.form`
   display: flex;
   margin: auto 0;
   flex-direction: column;
-  width: 89%;
+  width: 45%;
   input {
     font-size: calc(100% + 0.2vw);
     ::-webkit-input-placeholder {
@@ -214,6 +210,11 @@ const ButtonNoColor = styled.a`
   font-style: medium;
   color: #ccc9ff;
 `;
+
+const ErrorMessage = styled.div`
+color: red;
+font-size: 3rem
+`
 
 //EXPORT
 export default AdminLogin;

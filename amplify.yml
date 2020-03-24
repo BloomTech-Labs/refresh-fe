@@ -1,0 +1,19 @@
+version: 0.1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Temporarily delete node_modules before building add this in if you get into dependency hell again
+        # Then deploy and comment the following two lines back out when you're done
+        # - rm -rf node_modules
+        # - yarn install
+    build:
+      commands:
+        - yarn build
+  artifacts:
+    baseDirectory: build
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*

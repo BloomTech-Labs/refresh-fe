@@ -1,92 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
-
-import styled from 'styled-components';
-
+import { Body, Title, SearchFlex, SearchFlex2, List } from '../styled-components/user-list-styles'
 import UserCard from './user-card';
 
-const List = styled.div`
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-margin-right: 5%;
-`
-const Body = styled.div`
-display: flex;  
-flex-direction: column;  
-height: 90vh;
-width: 100vw;
-padding-left: 15%;
-.ALLUSERS {
-text-decoration: underline;
-font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 25px;
-line-height: 29px;
-font-variant: small-caps;
-}
-`
-const Title = styled.h1`
-h1 { 
-padding-top: 2%;
-padding-bottom: 2%;
-text-align: center;
-overflow: hidden;
-white-space: nowrap;
-padding-right: 15%;
-font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 40px;
-line-height: auto;
-/* identical to box height */
-
-font-variant: small-caps;
-
-color: #3B444B;
-}
-`
-const x = styled.div`
-width: 16px;
-height: 35px;
-left: 387px;
-top: 206px;
-font-family: Roboto;
-font-style: normal;
-font-weight: 200;
-font-size: 30px;
-line-height: 35px;
-font-variant: small-caps;
-color: #4F5254;
-`
-
-const SearchFlex = styled.div `
-display: flex;
-justify-content: space-around;
-text-align: center;
-padding-right: 15%;
-padding-top 2%;
-padding-bottom: 3%;
-`
-const SearchFlex2 = styled.div `
-display: flex;
-justify-content: space-between;
-margin-left: 50%;
-.toggleButton {
-    margin-left: 2%;
-}
-::placeholder,
-::-webkit-input-placeholder {
-  color: blue;
-}
-:-ms-input-placeholder {
-   color: blue;
-}
-`
 
 const UserList = props => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -100,7 +17,6 @@ const UserList = props => {
     }, [update])
 
     const rerender = (change) => {
-        console.log('rerender change: ', change)
         setUpdate(change)
     }
 
@@ -119,15 +35,16 @@ const UserList = props => {
         props.history.push(`/users/${userId}`)
     }
 
-
     if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 
     
-    const filteredUsers = props.allUsers.filter(employees => {
+    const filteredUsers = props.allUsers.sort((a, b) => {
+        return a.id - b.id
+    }).filter(employees => {
         if(searchTerm === null) {
             return employees
         } else if(showNulls === true) {
-            return employees.team_id === 'None'
+            return employees.team_id === null
         } else if(employees.first_name.toLowerCase().includes(searchTerm.toLowerCase()) || employees.last_name.toLowerCase().includes(searchTerm.toLowerCase())) {
             return employees
         }
@@ -157,11 +74,11 @@ const UserList = props => {
             <h2 className='ALLUSERS'>{showNulls === true ? 'NO TEAM' : 'ALL USERS'}</h2>
             <SearchFlex2>
                 <form>
-                    <input
+                    <input className='blueInput'
                     id="search"
                     type="text"
                     name="searchBar"
-                    placeholder="Search"
+                    placeholder="Search Users"
                     onChange={changeHandler}
                     value={searchTerm}
                     />

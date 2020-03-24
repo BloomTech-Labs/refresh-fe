@@ -1,77 +1,12 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { flex } from '../../../styles/global/Mixins';
 import { connect } from 'react-redux';
 import { deleteTeam } from '../actions/actions';
+import { ButtonContainer, CenterContainer, Words, ButtonStyle1, ButtonStyle2 } from '../styled-components/delete-button-styles';
 
-import styled from 'styled-components';
-
-
-const ButtonContainer = styled.div`
-margin: 5%;
-display: flex;
-justify-content: center;
-`
-const CenterContainer = styled.div`
-position: absolute;
-left: 0;
-top: 25%;
-width: 100%;
-text-align: center;
-font-size: 18px;
-`
-const Words = styled.div`
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 40px;
-line-height: 47px;
-color: #3B444B;
-`
-const ButtonStyle1 = styled.div`
-width: 125px;
-height: 75px;
-display: flex;
-text-align: center;
-color: white;
-background: #F0372B;
-border-radius: 4px;
-font-size: 28px;
-margin-right: 5%;
-:hover {
-    cursor: pointer;
-    opacity: 50%;
-}
-p {
-    text-align: center;
-    margin: auto;
-    font-family: Roboto;
-}
-`
-const ButtonStyle2 = styled.div`
-width: 125px;
-height: 75px;
-display: flex;
-text-align: center;
-color: white;
-background: #515257;
-border-radius: 4px;
-font-size: 28px;
-:hover {
-    cursor: pointer;
-    opacity: 50%; 
-}
-p {
-    text-align: center;
-    margin: auto;
-    font-family: Roboto;
-}
-`
 Modal.setAppElement('#root')
 
-//function DeleteButton (props) {
-    const DeleteButton = props => {
-    // console.log('Delete Button Props: ', props)
+const DeleteButton = props => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -107,8 +42,7 @@ Modal.setAppElement('#root')
     const handleDelete = id => {
         setModalIsOpen(false);
         props.deleteTeam(props.id)
-        setTimeout(() => {props.makeRender(!props.render)} , 1000)
-        console.log('handleDelete', props.render)
+        setTimeout(() => {props.makeRender(!props.render)} , 100)
     }
     
     return (
@@ -117,7 +51,7 @@ Modal.setAppElement('#root')
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
                 style={modalStyle}
                 >
-                    <CenterContainer>
+                <CenterContainer>
                 <Words>Are you sure you want to delete this team?</Words>
                 <ButtonContainer>
                 <ButtonStyle1 onClick={handleDelete}>
