@@ -93,7 +93,6 @@ const LeftDiv = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-   border: 2px solid green;
   width: 45%;
 `;
 

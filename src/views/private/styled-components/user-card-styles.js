@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 export const ProfileCard = styled.div`
-background: white;
+border: 1px solid #E5E5E5;
 padding-top: 42%;
 width: 300px;
 height: 300px;
@@ -35,6 +35,7 @@ margin-top: 2%;
 border: 1px solid #E7E7E7;
 box-sizing: border-box;
 }
+
 `
 export const Dropdown = styled.select`
 width: 70%;
@@ -52,7 +53,7 @@ margin-top: -40%;
 margin-right: 2%;
 padding: 2%;
 box-sizing: border-box;
-color: grey; 
+color:  lightgrey; 
 :hover {
     cursor: pointer;
 }
@@ -68,6 +69,10 @@ font-size: 1.875rem;
 line-height: 23px;
 color: #4F5254;
 padding-bottom: 2%;
+
+&:hover {
+    cursor: pointer;
+}
 `
 export const Blue = styled.div `
 text-align: center;

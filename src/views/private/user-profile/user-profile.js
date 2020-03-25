@@ -36,7 +36,7 @@ const UserProfile = props => {
         return (
             <UserPage>
                 <Title>
-                <h1>USER PROFILE</h1>
+                <h1>User Profile</h1>
                 </Title>
                 <ProfileCard2>
                     <ButtonX>
