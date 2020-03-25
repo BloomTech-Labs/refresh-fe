@@ -8,7 +8,7 @@ height: 300px;
 border-radius: 14px;
 margin-right: 2%;
 margin-bottom: 5%;
-border: 3px solid #E7E7E7;
+border: 1px solid #E7E7E7;
 box-sizing: border-box;
 @media (max-width: 768px) {
     margin: 20px;
@@ -53,12 +53,8 @@ white-space: nowrap;
 padding-right: 15%;
 font-family: Roboto;
 font-style: normal;
-font-weight: bold;
 font-size: 40px;
 line-height: auto;
-
-font-variant: small-caps;
-
 color: #3B444B;
 }
 `
@@ -77,7 +73,7 @@ margin-top: -40%;
 margin-right: 2%;
 padding: 2%;
 box-sizing: border-box;
-color: red; 
+color: lightgrey; 
 :hover {
     cursor: pointer;
 }
