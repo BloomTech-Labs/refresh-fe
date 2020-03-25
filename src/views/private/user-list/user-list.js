@@ -34,11 +34,6 @@ const UserList = props => {
         props.history.push(`/users/${userId}`)
     }
 
-    const showImage = event => {
-        console.log('Show Image Click', display)
-        setDisplay(!display)
-    }
-
     if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 
     
@@ -74,14 +69,13 @@ const UserList = props => {
             <Title>
             <h1>Profiles</h1>
             </Title>
-            <SearchFlex>
             <SearchFlex2>
                 <Input>
                     <input
                     id="search"
                     type="text"
                     name="searchBar"
-                    placeholder="&#xF002; Search"
+                    placeholder="Search"
                     onChange={changeHandler}
                     value={searchTerm}
                     />
@@ -93,7 +87,6 @@ const UserList = props => {
                 </Dropdown>
             </form>
             </SearchFlex2>
-            </SearchFlex>
             <List>
                 {filteredUsers}
             </List>
