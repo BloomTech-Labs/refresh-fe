@@ -6,11 +6,10 @@ background: white;
 padding-top: 42%;
 width: 300px;
 height: 300px;
-border-radius: 14px;
-margin-right: 2%;
-margin-bottom: 5%;
-border: 3px solid #E7E7E7;
+border-radius: 5px;
+margin: 10px 10px 0 0;
 box-sizing: border-box;
+
 form {
 text-align: center;
 font-family: Roboto;
@@ -19,6 +18,7 @@ font-weight: normal;
 font-size: 20px;
 margin-top: 2%;
 }
+
 h3 {
     overflow: hidden;
     white-space: nowrap;
@@ -52,7 +52,7 @@ margin-top: -40%;
 margin-right: 2%;
 padding: 2%;
 box-sizing: border-box;
-color: red; 
+color: grey; 
 :hover {
     cursor: pointer;
 }
