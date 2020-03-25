@@ -60,6 +60,7 @@ width: 150px;
 
 export const Input = styled.div`
 display: flex;
+border: 1px solid #E5E5E5;
 input {
   border: none;
 }
