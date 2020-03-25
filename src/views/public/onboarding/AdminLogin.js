@@ -19,7 +19,6 @@ const AdminLogin = props => {
     password: ""
   });
   const [err, setErr] = useState(false);
-  const [enabledBtn, setEnabledBtn] = useState(false);
 
   let errors = {};
   useEffect(() => {
@@ -28,9 +27,8 @@ const AdminLogin = props => {
   errors.userPassword =
     user.password.length < 4 &&
     "user password must be greater than 5 characters";
-    !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
     props.debug &&
-      console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+      console.log("errors:", errors, "user:", user);
   }, [user]);
   
   //route to sign up page
@@ -67,7 +65,7 @@ const AdminLogin = props => {
         });
   };
 
-  let BtnStats = !enabledBtn && `disabledColor`;
+  
   //render
   return (
     <OnBoardContainer>
@@ -98,7 +96,7 @@ const AdminLogin = props => {
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
         />
-        <Button onClick={handleSubmit} className={BtnStats}>
+        <Button onClick={handleSubmit} >
           Sign In
         </Button>
       </Form>
@@ -180,7 +178,7 @@ const Input = styled.input`
   border-radius: 3px;
   /* box-shadow: 1px 1px 1px 1px #35347f; */
   /* background: #3d3b91; */
-  color: #ffffff;
+  color: black;
   outline: none;
   font-size: calc(100%);
   ::-webkit-input-placeholder {
@@ -197,7 +195,7 @@ padding: 1.5rem 0.8rem;
 width:75%;
 text-align:center;
 margin: 13% auto auto;
-background: #E05CB3;
+background: rgb(61,162,237);
 color: white;
 font-size:calc(110% + 0.5vw);
 letter-spacing:0.1rem;

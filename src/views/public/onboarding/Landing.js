@@ -33,8 +33,8 @@ const Landing = props => {
         <FlexHolder>
           <Refresh>Refresh</Refresh>
           <OnboardTxt className="slogan">
-            Made for students,
-            <br /> by students.
+          Encouraging healthier behaviors
+            <br />  through teamwork.
           </OnboardTxt>
           <br />
           <OnboardTxt>
@@ -192,7 +192,7 @@ width: 50%;
 text-align: center;
 margin: 10px auto;
 margin-left: 0;
-background: #6997F2;
+background: rgb(61,162,237);
 color: white;
 font-size: calc(100% + 0.5vw);
 &:hover {
