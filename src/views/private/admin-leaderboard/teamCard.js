@@ -26,6 +26,7 @@ const Card = styled.div`
     flex-grow: 2;
     margin-right: 15vw;
     width: 30vw;
+    
   }
   .blank {
     width: 17.5vw;
@@ -47,7 +48,7 @@ margin-right: 2%;
 `
 
 const Xbutton = styled.i `
-color: red;
+color: gray;
 :hover {
     cursor: pointer;
     }   
@@ -61,7 +62,7 @@ const TeamCard = props => {
   }
 
   return (
-    <Card>
+    <Card className='cardClass'>
       <h1 className="name">{props.team.name}</h1>
       <h1 className="points">{`${
         props.team.points === null ? (props.team.points = 0) : props.team.points

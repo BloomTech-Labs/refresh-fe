@@ -16,21 +16,28 @@ export const NavBar = styled.div`
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 100px;;
+    width: 100px;
     height: 100vh;
     justify-content: space-between;
     .img {
         display: flex;
+        text-align: center;
         justify-content: space-between;
         opacity: 70%; 
-        width:  5vh;
-        height: 5vh;
-        margin-left: 2.5vh;
+        max-width:  40px;
+        max-height: 40px;
+        margin-left: 25px;
+        
 
         &:hover {
         opacity: 100%; 
       }
-    }  
+    }
+    .starsDiv {
+        width: auto;
+        height: auto;
+    } 
+  
 `;
 
 
@@ -39,8 +46,13 @@ export const Content = styled.div`
 `;
 
  export const Stars = styled.img`
+    width: auto;
+    height: auto;
     margin-top: 2vh;
     margin-bottom: 15vh;
+    &:hover {
+        cursor: normal;
+      } 
  `;
 
 
@@ -64,6 +76,7 @@ export const Logout = styled.img`
 `;
 
 export const Space = styled.div `
+    cursor: normal;
 `;
 
       
@@ -79,7 +92,9 @@ function WithNavigation (props) {
     return <div>
         <NavBar>
             <Link to="/">
-                <Stars className='img' src={logo} alt='stars'/>
+                <div classname='starsDiv'>
+                <Stars className='img'/>
+                </div>
             </Link>
             <Space></Space>
             <Link to="/">

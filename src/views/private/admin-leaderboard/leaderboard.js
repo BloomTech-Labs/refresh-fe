@@ -22,14 +22,14 @@ const Leaderboard = (props) => {
 
         return (
             <Container>
-                <Title>LEADERBOARD</Title>
+                <Title>Leaderboard</Title>
                 <AddTeam>
-                <AddTeamButton makeRender={makeRender} render={render} />
+                <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
                 </AddTeam>
                 <BlueFlex>
-                <h2>TEAMS</h2>
-                <h2>POINTS</h2>
-                <h2>DELETE TEAM</h2>
+                <h2>Teams</h2>
+                <h2>Points</h2>
+                <div className='blank'>          </div>
                 </BlueFlex>
                 <div>
                     {props.teams.sort((a, b) => {
