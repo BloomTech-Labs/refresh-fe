@@ -13,35 +13,29 @@ import styled from "styled-components";
 import { flex } from "../../../styles/global/Mixins";
 // components
 import WithNavigation from "../AdminNav";
-import Leaderboard from '../admin-leaderboard/leaderboard'
-import UserProfile from '../user-profile/user-profile'
-import UserList from '../user-list/user-list';
+import Leaderboard from "../admin-leaderboard/leaderboard";
+import UserProfile from "../user-profile/user-profile";
+import UserList from "../user-list/user-list";
 // COMPONENT../team/modal
 const AdminDash = props => {
   // contexts
 
-
   return (
-    
     <div>
-      
       <CardContainer>
         <WithNavigation />
-        <Route exact path='/users' component={UserList} />
-        <Route path='/users/:id' component={UserProfile} />
-        <Route exact path='/' component={Leaderboard} />
+        <Route exact path="/users" component={UserList} />
+        <Route path="/users/:id" component={UserProfile} />
+        <Route exact path="/leaderboard" component={Leaderboard} />
       </CardContainer>
     </div>
-    
   );
 };
 
 // STYLED COMPONENTS
 
-
 // EXPORT
 export default AdminDash;
-
 
 const NavContainer = styled.div`
   display: flex;
