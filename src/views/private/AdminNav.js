@@ -16,7 +16,7 @@ export const NavBar = styled.div`
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 100px;
+    width: 50px;
     height: 100vh;
     justify-content: space-between;
     .img {
@@ -24,14 +24,9 @@ export const NavBar = styled.div`
         text-align: center;
         justify-content: space-between;
         opacity: 70%; 
-        max-width:  40px;
-        max-height: 40px;
-        margin-left: 25px;
-        
-
-        &:hover {
-        opacity: 100%; 
-      }
+        max-width:  30px;
+        max-height: 30px;
+        margin-left: 7.5px;
     }
     .starsDiv {
         width: auto;
