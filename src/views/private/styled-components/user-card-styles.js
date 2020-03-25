@@ -35,6 +35,7 @@ margin-top: 2%;
 border: 1px solid #E7E7E7;
 box-sizing: border-box;
 }
+
 `
 export const Dropdown = styled.select`
 width: 70%;
@@ -68,6 +69,10 @@ font-size: 1.875rem;
 line-height: 23px;
 color: #4F5254;
 padding-bottom: 2%;
+
+&:hover {
+    cursor: pointer;
+}
 `
 export const Blue = styled.div `
 text-align: center;

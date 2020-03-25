@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
 import { Body, Title, SearchFlex, SearchFlex2, List, Dropdown, Input, Photo } from '../styled-components/user-list-styles'
 import UserCard from './user-card';
-import glass from './glass.png'
 
 const UserList = props => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -44,7 +43,7 @@ const UserList = props => {
 
     
     const filteredUsers = props.allUsers.sort((a, b) => {
-        return a.team_id - b.team_id
+        return a.id - b.id
     }).filter(employees => {
         if(searchTerm === null) {
             return employees
