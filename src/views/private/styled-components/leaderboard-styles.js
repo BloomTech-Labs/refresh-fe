@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+background-color: white;
+    font-family: Roboto;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -9,33 +11,56 @@ export const Container = styled.div`
     margin-right: 20px;
     @media (max-width: 768px) {
         margin-left: 101px;
-        margin-right: 1px;
+        margin-right: 101px;
+        .cardClass {
+            justify-content: flex-start;
+        }
+        i {
+            width: 5vw;
+            margin: 0;
+            padding: 0;
+        }
+        .points {
+        }
     }
 .teamCardFlex {
     display: flex;
     width: 100%;
+    border-bottom: 1px solid gray;
+    @media (max-width: 768px) {
+        display: initial;
+        justify-content: flex-start;
+    }
 }
 .addTeam {
     align-content: right;
-    padding: 500%;
+    float: right;
+    padding: 2%;
+    padding-top: 0%;
+    padding-left: 1%;
+    font-family: Roboto;
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
+.plusButton {
+    width: 90vw;
+}
+.blank {
+    width: 10vw;
 }
 `
 export const Title = styled.h1 ` 
     padding-top: 2%;
     padding-bottom: 2%;
-    text-align: center;
+    text-align: left;
     overflow: hidden;
-    white-space: nowrap;
-    padding-right: 15%;
-    padding-left: 12.5%;    
+    white-space: nowrap;  
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
     line-height: auto;
-    
-    font-variant: small-caps;
-    
     color: #3B444B;
     `
 export const BlueFlex = styled.div `
@@ -51,11 +76,14 @@ font-size: 15.2138px;
 letter-spacing: 0.035em;
 margin-top: 2%;
 margin-bottom: 2%;
-color: #3DA2ED;
+color: black;
 `
 export const AddTeam = styled.i `
+display: flex;
+flex-direction: row;
+font-weight: bold;
 float: right;
-margin-right: fixed;
+text-decoration: underline;
 text-align: right;
 color: #3DA2ED;
 font-variant: small-caps;
@@ -64,6 +92,9 @@ font-size: 15.2138px;
 letter-spacing: 0.035em;
 @media (max-width: 768px) {
         text-align: center;
+        .addTeam {
+            display: none;
+        }
     }
 .fas{
 :hover {

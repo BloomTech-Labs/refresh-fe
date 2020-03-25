@@ -53,7 +53,7 @@ const AdminLogin = props => {
           console.log(res.data.token);
           if (res.data.token) {
             localStorage.setItem("token", res.data.token);
-            props.history.push("/");
+            props.history.push("/leaderboard");
           } else {
             console.log(err.message)
             props.debug && console.log(err);
@@ -202,7 +202,6 @@ letter-spacing:0.1rem;
   &:hover {
     cursor: pointer;
   }
-}
 `;
 
 const ButtonNoColor = styled.a`
@@ -211,7 +210,6 @@ const ButtonNoColor = styled.a`
   font-style: medium;
   color: black;
   cursor: pointer;
-  
 `;
 
 const ErrorMessage = styled.div`

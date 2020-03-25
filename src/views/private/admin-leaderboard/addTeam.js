@@ -9,6 +9,7 @@ const ButtonContainer = styled.div`
 margin: 5%;
 display: flex;
 justify-content: center;
+
 `
 const CenterContainer = styled.div`
 position: absolute;
@@ -17,6 +18,7 @@ top: 25%;
 width: 100%;
 text-align: center;
 font-size: 18px;
+
 `
 const Words = styled.div`
 font-family: Roboto;
@@ -131,7 +133,7 @@ function AddTeam(props) {
 
     return (
         <div>
-            <i class="fas fa-plus fa-2x" onClick={() => setModalIsOpen(true)}> </i>
+            <i class="fas fa-plus fa-lg plusButton" onClick={() => setModalIsOpen(true)}><p className='addTeam'>Add Team </p></i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
             >

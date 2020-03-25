@@ -5,17 +5,11 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 margin-left: 9%;
+width: 80vw;
 `
 export const Body = styled.div`
 margin-left: 120px;
 width: 80vw;
-.ALLUSERS {
-font-family: Roboto;
-font-size: 20px;
-padding-top: 2%;
-padding-bottom: 2%;
-margin-left: 9%;
-}
 `
 export const Title = styled.h1`
 font-family: Roboto;
@@ -30,21 +24,13 @@ h1 {
 `
 
 
-export const SearchFlex = styled.div `
-@media (max-width: 768px) {
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 0px;
-    padding-left: 0px;
-  }
-`
-
 export const SearchFlex2 = styled.div`
-width: 100%;
 display: flex;
 justify-content: flex-end;
 align-content: center;
 margin-bottom: 2%;
+margin-left: 9%;
+width: 65vw;
 `
 
 export const Dropdown = styled.select`

@@ -45,7 +45,7 @@ box-sizing: border-box;
 
 export const Title = styled.h1`
 h1 { 
-padding-top: 10%;
+padding-top: 7%;
 padding-bottom: 15%;
 text-align: center;
 overflow: hidden;
@@ -53,7 +53,7 @@ white-space: nowrap;
 padding-right: 15%;
 font-family: Roboto;
 font-style: normal;
-font-size: 40px;
+font-size: 35px;
 line-height: auto;
 color: #3B444B;
 }
@@ -108,7 +108,7 @@ export const UserPage = styled.div`
 display: flex;
 align-content: center;
 flex-direction: column;
-margin-left: 20%;
+margin-left: 13%;
 `
 
 export const Changes = styled.div`

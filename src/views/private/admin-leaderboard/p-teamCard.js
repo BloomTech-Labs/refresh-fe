@@ -77,7 +77,7 @@ h1 {
 }
 
 .blue {
-  color: blue
+  color: blue;
   display: flex;
   flex-direction: column;
 }
