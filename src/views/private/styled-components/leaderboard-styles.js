@@ -12,19 +12,15 @@ background-color: white;
     @media (max-width: 768px) {
         margin-left: 101px;
         margin-right: 101px;
-        border: 1px solid black;
         .cardClass {
             justify-content: flex-start;
-            border: 1px solid black;
         }
         i {
-            border: 1px solid black;
             width: 5vw;
             margin: 0;
             padding: 0;
         }
         .points {
-            border: 1px solid black;
         }
     }
 .teamCardFlex {
@@ -34,7 +30,6 @@ background-color: white;
     @media (max-width: 768px) {
         display: initial;
         justify-content: flex-start;
-        border-bottom: 1px solid blue;
     }
 }
 .addTeam {
@@ -58,17 +53,14 @@ background-color: white;
 export const Title = styled.h1 ` 
     padding-top: 2%;
     padding-bottom: 2%;
-    text-align: center;
+    text-align: left;
     overflow: hidden;
-    white-space: nowrap;
-    padding-right: 15%;
-    padding-left: 12.5%;    
+    white-space: nowrap;  
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
     line-height: auto;
-    font-variant: small-caps;
     color: #3B444B;
     `
 export const BlueFlex = styled.div `
@@ -84,7 +76,7 @@ font-size: 15.2138px;
 letter-spacing: 0.035em;
 margin-top: 2%;
 margin-bottom: 2%;
-color: #3DA2ED;
+color: black;
 `
 export const AddTeam = styled.i `
 display: flex;
