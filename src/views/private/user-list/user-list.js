@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
-import { Body, Title, SearchFlex, SearchFlex2, List } from '../styled-components/user-list-styles'
+import { Body, Title, SearchFlex, SearchFlex2, List, Dropdown, Input, Photo } from '../styled-components/user-list-styles'
 import UserCard from './user-card';
-
+import glass from './glass.png'
 
 const UserList = props => {
     const [searchTerm, setSearchTerm] = useState("");
     const [showNulls, setShowNulls] = useState(false);
     const [update, setUpdate] = useState(false)
-
+    const [display, setDisplay] = useState(false)
     
     useEffect(() => {
         props.fetchAllUsers();
@@ -35,11 +35,16 @@ const UserList = props => {
         props.history.push(`/users/${userId}`)
     }
 
+    const showImage = event => {
+        console.log('Show Image Click', display)
+        setDisplay(!display)
+    }
+
     if(props.allUsers.length === 0) { return <h1>Loading</h1> }
 
     
     const filteredUsers = props.allUsers.sort((a, b) => {
-        return a.id - b.id
+        return a.team_id - b.team_id
     }).filter(employees => {
         if(searchTerm === null) {
             return employees
@@ -67,24 +72,26 @@ const UserList = props => {
     return (
         <div>
             <Body>
-                <Title>
-            <h1>USER PROFILES</h1>
+            <Title>
+            <h1>Profiles</h1>
             </Title>
             <SearchFlex>
-            <h2 className='ALLUSERS'>{showNulls === true ? 'NO TEAM' : 'ALL USERS'}</h2>
             <SearchFlex2>
-                <form>
-                    <input className='blueInput'
+                <Input>
+                    <input
                     id="search"
                     type="text"
                     name="searchBar"
-                    placeholder="Search Users"
+                    placeholder="&#xF002; Search"
                     onChange={changeHandler}
                     value={searchTerm}
                     />
-            </form>
-            <form className='toggleButton' onSubmit={toggleUsers}>
-                <button>{showNulls ? 'All Users' : 'Teamless Users'}</button>
+                </Input>
+            <form className='toggleButton'>
+                <Dropdown onChange={toggleUsers}>
+                    <option>All Users</option>
+                    <option>No Team</option>
+                </Dropdown>
             </form>
             </SearchFlex2>
             </SearchFlex>
