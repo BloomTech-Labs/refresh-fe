@@ -8,8 +8,7 @@ margin-left: 9%;
 `
 export const Body = styled.div`
 margin-left: 120px;
-width: 80%;
-
+width: 80vw;
 .ALLUSERS {
 font-family: Roboto;
 font-size: 20px;
@@ -25,7 +24,6 @@ color: #3B444B;
 padding-top: 2%;
 padding-bottom: 2%;
 margin-left: 9%;
-
 h1 {
   font-size: 35px;
 }
@@ -33,7 +31,6 @@ h1 {
 
 
 export const SearchFlex = styled.div `
-
 @media (max-width: 768px) {
     justify-content: center;
     flex-direction: column;
@@ -52,6 +49,7 @@ margin-bottom: 2%;
 
 export const Dropdown = styled.select`
 height: 100%;
+padding: 10px 0;
 margin-right: 10px;
 border: 1px solid #E7E7E7;
 box-sizing: border-box;
@@ -62,7 +60,6 @@ width: 150px;
 
 export const Input = styled.div`
 display: flex;
-
 input {
   border: none;
 }
