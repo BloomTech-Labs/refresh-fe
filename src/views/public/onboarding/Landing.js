@@ -93,7 +93,7 @@ const LeftDiv = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* border: 2px solid green; */
+   border: 2px solid green;
   width: 45%;
 `;
 
@@ -150,7 +150,7 @@ const FlexHolder2 = styled.div`
 const Refresh = styled.h1`
   font-weight: bold;
   font-size: calc(100% + 9vw);
-  line-height: 82px;
+  line-height: 10vh;
   letter-spacing: 3.5px;
   color: black;
   margin-left:14.5%;
@@ -163,7 +163,7 @@ const Refresh = styled.h1`
 
 const OnboardTxt = styled.p`
   font-size: calc(100% + 1.7vw);
-  line-height: 40px;
+  line-height: 4vh;
   letter-spacing: 0.035em;
   color: black;
   margin-left:15%;
