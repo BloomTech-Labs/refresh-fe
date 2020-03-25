@@ -72,7 +72,9 @@ const AdminLogin = props => {
   return (
     <OnBoardContainer>
       <Popup className="mm-popup"/>
-      <ButtonNoColor onClick={routeToLanding}>&lt;</ButtonNoColor>
+      <ButtonNoColor>
+      <i class="fas fa-arrow-left fa-1x" onClick={routeToLanding}></i></ButtonNoColor>
+      {/* <ButtonNoColor onClick={routeToLanding}>&lt;</ButtonNoColor> */}
       <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
         <Input
@@ -113,14 +115,14 @@ const OnBoardContainer = styled.div`
   margin: auto auto 0 auto;
   line-height: 1.5;
   background-color: white;
-  
+  /* border: 2px solid red; */
   background-size: contain;
   color: black;
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
-  padding: 8%;
-  /* input:-webkit-autofill,
+  padding: 5%;
+  input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   textarea:-webkit-autofill,
@@ -131,7 +133,7 @@ const OnBoardContainer = styled.div`
   select:-webkit-autofill:focus {
     
     -webkit-text-fill-color: #fff;
-    transition: background-color 5000s ease-in-out 0s; */
+    transition: background-color 5000s ease-in-out 0s;
   }
   &:nth-child(*) {
     background-color: green;
@@ -144,7 +146,8 @@ const Logo = styled.img`
   width: 100%;
   max-width: 100%;
   margin: auto;
-
+  color: black;
+  
   @media screen and (max-width: 1000px) {
     margin-top: auto;
   }
@@ -155,6 +158,7 @@ const Form = styled.form`
   margin: auto 0;
   flex-direction: column;
   width: 45%;
+  /* border: 2px solid black; */
   input {
     font-size: calc(100% + 0.2vw);
     ::-webkit-input-placeholder {
@@ -163,20 +167,19 @@ const Form = styled.form`
       font-size: calc(100%);
     }
   }
-
   .disabledColor {
     opacity: 30%;
   }
 `;
 
 const Input = styled.input`
-  border: 1px solid #3d3b91;
+  border: 1px solid black;
   margin: 3% 0;
   padding: 5%;
   width: 100%;
   border-radius: 3px;
-  box-shadow: 1px 1px 1px 1px #35347f;
-  background: #3d3b91;
+  /* box-shadow: 1px 1px 1px 1px #35347f; */
+  /* background: #3d3b91; */
   color: #ffffff;
   outline: none;
   font-size: calc(100%);
@@ -205,11 +208,12 @@ letter-spacing:0.1rem;
 `;
 
 const ButtonNoColor = styled.a`
-  margin-right: 89%;
+  margin-right: 60%;
   font-size: 2rem;
   font-style: medium;
-  color: #ccc9ff;
+  color: black;
   cursor: pointer;
+  
 `;
 
 const ErrorMessage = styled.div`
