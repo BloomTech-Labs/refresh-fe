@@ -1,8 +1,8 @@
 //IMPORTS
 //react
 import React, { useState, useEffect, useContext } from "react";
-import Popup from 'react-popup';
-import ModalButton from './modal.js'
+import Popup from "react-popup";
+import ModalButton from "./modal.js";
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -10,7 +10,6 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 import welcome from "../../../images/Onboarding/welcome.svg";
-
 
 const AdminLogin = props => {
   //hooks
@@ -24,15 +23,15 @@ const AdminLogin = props => {
   let errors = {};
   useEffect(() => {
     errors.userEmail =
-    user.email.length < 4 && "user email must be greater than 5 characters";
-  errors.userPassword =
-    user.password.length < 4 &&
-    "user password must be greater than 5 characters";
+      user.email.length < 4 && "user email must be greater than 5 characters";
+    errors.userPassword =
+      user.password.length < 4 &&
+      "user password must be greater than 5 characters";
     !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
     props.debug &&
       console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
   }, [user]);
-  
+
   //route to sign up page
   const routeToLanding = e => {
     e.preventDefault();
@@ -49,31 +48,32 @@ const AdminLogin = props => {
 
   //handle submit of user info to backend
   const handleSubmit = e => {
-      axiosWithAuth()
-        .post("/admin/login", { email: user.email, password: user.password })
-        .then(res => {
-          console.log(res.data.token);
-          if (res.data.token) {
-            localStorage.setItem("token", res.data.token);
-            props.history.push("/");
-          } else {
-            console.log(err.message)
-            props.debug && console.log(err);
-          }
-        })
-        .catch(err => {
+    axiosWithAuth()
+      .post("/admin/login", { email: user.email, password: user.password })
+      .then(res => {
+        console.log(res.data.token);
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+          props.history.push("/leaderboard");
+        } else {
+          console.log(err.message);
           props.debug && console.log(err);
-          alert('Invalid Credentials')
-        });
+        }
+      })
+      .catch(err => {
+        props.debug && console.log(err);
+        alert("Invalid Credentials");
+      });
   };
 
   let BtnStats = !enabledBtn && `disabledColor`;
   //render
   return (
     <OnBoardContainer>
-      <Popup className="mm-popup"/>
+      <Popup className="mm-popup" />
       <ButtonNoColor>
-      <i class="fas fa-arrow-left fa-1x" onClick={routeToLanding}></i></ButtonNoColor>
+        <i class="fas fa-arrow-left fa-1x" onClick={routeToLanding}></i>
+      </ButtonNoColor>
       {/* <ButtonNoColor onClick={routeToLanding}>&lt;</ButtonNoColor> */}
       <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
@@ -131,7 +131,6 @@ const OnBoardContainer = styled.div`
   select:-webkit-autofill,
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
-    
     -webkit-text-fill-color: #fff;
     transition: background-color 5000s ease-in-out 0s;
   }
@@ -147,7 +146,7 @@ const Logo = styled.img`
   max-width: 100%;
   margin: auto;
   color: black;
-  
+
   @media screen and (max-width: 1000px) {
     margin-top: auto;
   }
@@ -213,13 +212,12 @@ const ButtonNoColor = styled.a`
   font-style: medium;
   color: black;
   cursor: pointer;
-  
 `;
 
 const ErrorMessage = styled.div`
-color: red;
-font-size: 3rem
-`
+  color: red;
+  font-size: 3rem;
+`;
 
 //EXPORT
 export default AdminLogin;
