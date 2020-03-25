@@ -24,7 +24,7 @@ const Leaderboard = (props) => {
             <Container>
                 <Title>Leaderboard</Title>
                 <AddTeam>
-                <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton><p>Add Team</p>
+                <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
                 </AddTeam>
                 <BlueFlex>
                 <h2>Teams</h2>

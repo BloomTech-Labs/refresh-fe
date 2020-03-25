@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
         height: 100vh;
         font-family: 'Catamaran', sans-serif;
         font-size: 1.25rem;
-        background-color: #E5E5E5;
+        background-color: white;
         overflow-x:hidden;
         h1,h2,h3,h4,h5 {
             font-size: 2rem;

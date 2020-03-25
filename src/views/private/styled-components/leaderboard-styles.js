@@ -11,16 +11,45 @@ background-color: white;
     margin-right: 20px;
     @media (max-width: 768px) {
         margin-left: 101px;
-        margin-right: 1px;
+        margin-right: 101px;
+        border: 1px solid black;
+        .cardClass {
+            justify-content: flex-start;
+            border: 1px solid black;
+        }
+        i {
+            border: 1px solid black;
+            width: 5vw;
+            margin: 0;
+            padding: 0;
+        }
+        .points {
+            border: 1px solid black;
+        }
     }
 .teamCardFlex {
     display: flex;
     width: 100%;
     border-bottom: 1px solid gray;
+    @media (max-width: 768px) {
+        display: initial;
+        justify-content: flex-start;
+        border-bottom: 1px solid blue;
+    }
 }
 .addTeam {
     align-content: right;
-    padding: 500%;
+    float: right;
+    padding: 2%;
+    padding-top: 0%;
+    padding-left: 1%;
+    font-family: Roboto;
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}
+.plusButton {
+    width: 90vw;
 }
 .blank {
     width: 10vw;
@@ -58,7 +87,8 @@ margin-bottom: 2%;
 color: #3DA2ED;
 `
 export const AddTeam = styled.i `
-
+display: flex;
+flex-direction: row;
 font-weight: bold;
 float: right;
 text-decoration: underline;
@@ -70,6 +100,9 @@ font-size: 15.2138px;
 letter-spacing: 0.035em;
 @media (max-width: 768px) {
         text-align: center;
+        .addTeam {
+            display: none;
+        }
     }
 .fas{
 :hover {
