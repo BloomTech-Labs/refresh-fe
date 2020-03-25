@@ -1,8 +1,8 @@
 //IMPORTS
 //react
 import React, { useState, useEffect, useContext } from "react";
-import Popup from "react-popup";
-import ModalButton from "./modal.js";
+import Popup from 'react-popup';
+import ModalButton from './modal.js'
 //styled-components
 import styled from "styled-components";
 //axios with auth
@@ -11,6 +11,7 @@ import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 import waves from "../../../images/Onboarding/waves.svg";
 import welcome from "../../../images/Onboarding/welcome.svg";
 
+
 const AdminLogin = props => {
   //hooks
   const [user, setUser] = useState({
@@ -18,20 +19,18 @@ const AdminLogin = props => {
     password: ""
   });
   const [err, setErr] = useState(false);
-  const [enabledBtn, setEnabledBtn] = useState(false);
 
   let errors = {};
   useEffect(() => {
     errors.userEmail =
-      user.email.length < 4 && "user email must be greater than 5 characters";
-    errors.userPassword =
-      user.password.length < 4 &&
-      "user password must be greater than 5 characters";
-    !errors.userEmail && !errors.userPassword && setEnabledBtn(true);
+    user.email.length < 4 && "user email must be greater than 5 characters";
+  errors.userPassword =
+    user.password.length < 4 &&
+    "user password must be greater than 5 characters";
     props.debug &&
-      console.log("errors:", errors, "enabledBtn:", enabledBtn, "user:", user);
+      console.log("errors:", errors, "user:", user);
   }, [user]);
-
+  
   //route to sign up page
   const routeToLanding = e => {
     e.preventDefault();
@@ -48,32 +47,31 @@ const AdminLogin = props => {
 
   //handle submit of user info to backend
   const handleSubmit = e => {
-    axiosWithAuth()
-      .post("/admin/login", { email: user.email, password: user.password })
-      .then(res => {
-        console.log(res.data.token);
-        if (res.data.token) {
-          localStorage.setItem("token", res.data.token);
-          props.history.push("/leaderboard");
-        } else {
-          console.log(err.message);
+      axiosWithAuth()
+        .post("/admin/login", { email: user.email, password: user.password })
+        .then(res => {
+          console.log(res.data.token);
+          if (res.data.token) {
+            localStorage.setItem("token", res.data.token);
+            props.history.push("/leaderboard");
+          } else {
+            console.log(err.message)
+            props.debug && console.log(err);
+          }
+        })
+        .catch(err => {
           props.debug && console.log(err);
-        }
-      })
-      .catch(err => {
-        props.debug && console.log(err);
-        alert("Invalid Credentials");
-      });
+          alert('Invalid Credentials')
+        });
   };
 
-  let BtnStats = !enabledBtn && `disabledColor`;
+  
   //render
   return (
     <OnBoardContainer>
-      <Popup className="mm-popup" />
+      <Popup className="mm-popup"/>
       <ButtonNoColor>
-        <i class="fas fa-arrow-left fa-1x" onClick={routeToLanding}></i>
-      </ButtonNoColor>
+      <i class="fas fa-arrow-left fa-1x" onClick={routeToLanding}></i></ButtonNoColor>
       {/* <ButtonNoColor onClick={routeToLanding}>&lt;</ButtonNoColor> */}
       <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>
@@ -98,7 +96,7 @@ const AdminLogin = props => {
           border={"1px solid #3D3B91"}
           backgroundColor={"#3D3B91"}
         />
-        <Button onClick={handleSubmit} className={BtnStats}>
+        <Button onClick={handleSubmit} >
           Sign In
         </Button>
       </Form>
@@ -131,6 +129,7 @@ const OnBoardContainer = styled.div`
   select:-webkit-autofill,
   select:-webkit-autofill:hover,
   select:-webkit-autofill:focus {
+    
     -webkit-text-fill-color: #fff;
     transition: background-color 5000s ease-in-out 0s;
   }
@@ -146,7 +145,7 @@ const Logo = styled.img`
   max-width: 100%;
   margin: auto;
   color: black;
-
+  
   @media screen and (max-width: 1000px) {
     margin-top: auto;
   }
@@ -179,7 +178,7 @@ const Input = styled.input`
   border-radius: 3px;
   /* box-shadow: 1px 1px 1px 1px #35347f; */
   /* background: #3d3b91; */
-  color: #ffffff;
+  color: black;
   outline: none;
   font-size: calc(100%);
   ::-webkit-input-placeholder {
@@ -196,14 +195,13 @@ padding: 1.5rem 0.8rem;
 width:75%;
 text-align:center;
 margin: 13% auto auto;
-background: #E05CB3;
+background: rgb(61,162,237);
 color: white;
 font-size:calc(110% + 0.5vw);
 letter-spacing:0.1rem;
   &:hover {
     cursor: pointer;
   }
-}
 `;
 
 const ButtonNoColor = styled.a`
@@ -215,9 +213,9 @@ const ButtonNoColor = styled.a`
 `;
 
 const ErrorMessage = styled.div`
-  color: red;
-  font-size: 3rem;
-`;
+color: red;
+font-size: 3rem
+`
 
 //EXPORT
 export default AdminLogin;
