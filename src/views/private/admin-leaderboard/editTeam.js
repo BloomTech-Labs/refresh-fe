@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { editTeamName } from '../actions/actions';
-import { SearchBox, ButtonStyle1, ButtonStyle2, Words, CenterContainer, ButtonContainer } from '../styled-components/edit-button-styles';
+import { SearchBox, ButtonStyle1, ButtonStyle2, Words, CenterContainer, ButtonContainer, StyledInput } from '../styled-components/edit-button-styles';
 
 Modal.setAppElement('#root')
 
@@ -22,10 +22,10 @@ function EditTeam(props) {
         content: {
             position: 'fixed',
             left: '0',
-            top: '25%',
-            right: '25%',
-            left: '25%',
-            bottom: '25%',
+            top: '35%',
+            right: '35%',
+            left: '35%',
+            bottom: '35%',
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
@@ -67,7 +67,7 @@ function EditTeam(props) {
                     <Words>Edit the team name</Words>
                     <SearchBox>
                         <form onSubmit={handleSubmit}>
-                            <input
+                            <StyledInput
                                 id="team"
                                 type="text"
                                 name="name"

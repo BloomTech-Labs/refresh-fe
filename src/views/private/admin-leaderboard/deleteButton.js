@@ -23,10 +23,10 @@ const DeleteButton = props => {
         content: {
             position: 'fixed',
             left: '0',
-            top: '25%',
-            right: '25%',
-            left: '25%',
-            bottom: '25%',  
+            top: '35%',
+            right: '35%',
+            left: '35%',
+            bottom: '35%',  
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
@@ -52,7 +52,7 @@ const DeleteButton = props => {
                 style={modalStyle}
                 >
                 <CenterContainer>
-                <Words>Are you sure you want to delete this team?</Words>
+                <Words>Are you sure you want to<br /> delete this team?</Words>
                 <ButtonContainer>
                 <ButtonStyle1 onClick={handleDelete}>
                 <p>Yes</p>

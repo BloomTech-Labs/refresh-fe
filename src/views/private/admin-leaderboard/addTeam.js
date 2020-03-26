@@ -6,7 +6,7 @@ import { createNewTeam } from '../actions/actions';
 import styled from 'styled-components';
 
 const ButtonContainer = styled.div`
-margin: 5%;
+margin: 2%;
 display: flex;
 justify-content: center;
 
@@ -18,7 +18,6 @@ top: 25%;
 width: 100%;
 text-align: center;
 font-size: 18px;
-
 `
 const Words = styled.div`
 font-family: Roboto;
@@ -29,14 +28,14 @@ line-height: 47px;
 color: #3B444B;
 `
 const ButtonStyle1 = styled.div`
-width: 125px;
-height: 75px;
+width: 4vw;
+height: 3.5vh;
 display: flex;
 text-align: center;
 color: white;
 background: #F0372B;
 border-radius: 4px;
-font-size: 28px;
+font-size: 2rem;
 margin-right: 5%;
 :hover {
     cursor: pointer;
@@ -49,14 +48,14 @@ p {
 }
 `
 const ButtonStyle2 = styled.div`
-width: 125px;
-height: 75px;
+width: 4vw;
+height: 3.5vh;
 display: flex;
 text-align: center;
 color: white;
 background: #515257;
 border-radius: 4px;
-font-size: 28px;
+font-size: 2rem;
 :hover {
     cursor: pointer;
     opacity: 50%; 
@@ -74,7 +73,19 @@ font-weight: normal;
 font-size: 40px;
 line-height: 47px;
 color: #3B444B;
+margin-bottom: 2.5vh;
 `
+
+const StyledInput = styled.input`
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 2%;
+`
+
+
 Modal.setAppElement('#root')
 
 function AddTeam(props) {
@@ -98,10 +109,10 @@ function AddTeam(props) {
         content: {
             position: 'fixed',
             left: '0',
-            top: '25%',
-            right: '25%',
-            left: '25%',
-            bottom: '25%',
+            top: '35%',
+            right: '35%',
+            left: '35%',
+            bottom: '35%',
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
@@ -141,7 +152,7 @@ function AddTeam(props) {
                     <Words>Enter a team name</Words>
                     <SearchBox>
                         <form onSubmit={handleSubmit}>
-                            <input
+                            <StyledInput
                                 id="team"
                                 type="text"
                                 name="name"
