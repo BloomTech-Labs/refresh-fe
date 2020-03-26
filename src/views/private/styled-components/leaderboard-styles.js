@@ -55,7 +55,7 @@ font-family: Roboto;
 font-size: 35px;
 color: #3B444B;
 padding-top: 2%;
-margin-left: 3%;
+margin-left: 20px;
 padding-bottom: 2%;
 `
 export const BlueFlex = styled.div `
@@ -70,6 +70,7 @@ font-weight: bold;
 font-size: 15.2138px;
 letter-spacing: 0.035em;
 margin-top: 2%;
+margin-left: 20px;
 margin-bottom: 2%;
 color: black;
 `
