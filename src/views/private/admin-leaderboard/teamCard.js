@@ -31,9 +31,6 @@ const Card = styled.div`
   .blank {
     width: 17.5vw;
     text-align: right;
-    :hover {
-    cursor: help;
-    }
   }
   .editTeamButton {
       width: 100vw;
