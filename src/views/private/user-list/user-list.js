@@ -64,7 +64,6 @@ const UserList = props => {
     })
 
     return (
-        <div>
             <Body>
             <Title>
             <h1>Profiles</h1>
@@ -91,7 +90,6 @@ const UserList = props => {
                 {filteredUsers}
             </List>
             </Body>
-        </div>
     )
 }
 

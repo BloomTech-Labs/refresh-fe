@@ -4,12 +4,17 @@ export const List = styled.div`
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-justify-content: flex-end;
-width: 71vw;
+justify-content: center;
+width: 100%;
+padding-left: 1%;
+padding-right: 1%;
 `
 export const Body = styled.div`
-margin-left: 120px;
 width: 100%;
+margin-left: 100px;
+display: flex;
+flex-direction: column;
+justify-content: center;
 `
 export const Title = styled.h1`
 font-family: Roboto;
@@ -17,7 +22,7 @@ font-size: 50px;
 color: #3B444B;
 padding-top: 2%;
 padding-bottom: 2%;
-margin-left: 9%;
+margin-left: 10vw;
 h1 {
   font-size: 35px;
 }
@@ -28,7 +33,8 @@ display: flex;
 justify-content: flex-end;
 align-content: center;
 margin-bottom: 2%;
-width: 71vw;
+width: 100%;
+padding-right: 14%;
 `
 
 export const Dropdown = styled.select`

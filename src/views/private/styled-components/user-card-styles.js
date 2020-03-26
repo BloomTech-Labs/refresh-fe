@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const ProfileCard = styled.div`
 border: 1px solid #E5E5E5;
 padding-top: 42%;
-width: 300px;
+width: 280px;
 height: 300px;
 border-radius: 5px;
 margin: 10px 10px 0 0;
