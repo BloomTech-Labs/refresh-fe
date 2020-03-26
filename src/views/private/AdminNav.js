@@ -16,7 +16,7 @@ export const NavBar = styled.div`
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	width: 100px;
+	width: 50px;
 	height: 100vh;
 	justify-content: space-between;
 	.img {
@@ -24,9 +24,9 @@ export const NavBar = styled.div`
 		text-align: center;
 		justify-content: space-between;
 		opacity: 70%;
-		max-width: 40px;
-		max-height: 40px;
-		margin-left: 25px;
+		max-width: 30px;
+		max-height: 30px;
+		margin-left: 7.5px;
 	}
 	.starsDiv {
 		width: auto;
@@ -52,7 +52,6 @@ export const Users = styled.img``;
 export const Settings = styled.img``;
 
 export const Logout = styled.img`
-	margin-top: 35vh;
 	margin-bottom: 2vh;
 `;
 const activeClassName = "active";
@@ -65,6 +64,9 @@ const StyledNavLink = styled(NavLink).attrs({
 `;
 export const Space = styled.div``;
 
+export const Blank = styled.div`
+margin-bottom: 35vh;
+`;
 /* const clear = {localStorage.clear} */
 
 function WithNavigation(props) {
@@ -74,11 +76,11 @@ function WithNavigation(props) {
 	return (
 		<div>
 			<NavBar>
-				<StyledNavLink to="/">
+				<Space>
 					<div classname="starsDiv">
 						<Stars className="img" />
 					</div>
-				</StyledNavLink>
+				</Space>
 				<Space></Space>
 				<StyledNavLink to="/leaderboard">
 					<Leaderboard className="img" src={leaderboard} alt="leaderboard" />
@@ -89,7 +91,11 @@ function WithNavigation(props) {
 				<StyledNavLink to="/settings">
 					<Settings className="img" src={settings} alt="settings" />
 				</StyledNavLink>
-				<Space></Space>
+				<Space>
+                    <div>
+                        <Blank></Blank>
+                    </div>
+                </Space>
 				<StyledNavLink to="/">
 					<Logout
 						className="img"
