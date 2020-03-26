@@ -11,7 +11,7 @@ padding-right: 1%;
 `
 export const Body = styled.div`
 width: 100%;
-margin-left: 100px;
+margin-left: 50px;
 display: flex;
 flex-direction: column;
 justify-content: center;
