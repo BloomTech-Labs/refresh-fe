@@ -51,18 +51,13 @@ background-color: white;
 }
 `
 export const Title = styled.h1 ` 
-    padding-top: 2%;
-    padding-bottom: 2%;
-    text-align: left;
-    overflow: hidden;
-    white-space: nowrap;  
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: auto;
-    color: #3B444B;
-    `
+font-family: Roboto;
+font-size: 35px;
+color: #3B444B;
+padding-top: 2%;
+margin-left: 3%;
+padding-bottom: 2%;
+`
 export const BlueFlex = styled.div `
 text-align: center;
 overflow: hidden;
