@@ -78,8 +78,15 @@ Additional libraries/dependencies:
 - Styled Components
 - React Testing Library
 - Circular Progress Bar
+- React-Redux
+- Redux-Thunk
+- React-Modal
+- React-Popup
+- redux-mock-store
+- redux
 
-#### Front end deployed to Netlify
+
+#### Front end deployed to AWS Amplify
 
 #### [Back end](https://github.com/Lambda-School-Labs/refresh-be) built using:
 
