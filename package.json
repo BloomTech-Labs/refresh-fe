@@ -39,7 +39,16 @@
     "build": "react-scripts build",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coverage": "CI=true yarn test --coverage --watchAll=false || true"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/__tests__/**"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
