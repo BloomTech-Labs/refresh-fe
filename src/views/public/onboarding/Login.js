@@ -4,10 +4,7 @@ import React, { useContext } from "react";
 // styled components
 import styled from "styled-components";
 // images
-import fblogo from "../../../images/Onboarding/facebook_round_transparent_logo.svg";
 import emailogo from "../../../images/Onboarding/email.svg";
-import googlelogo from "../../../images/Onboarding/google_icon_round_color.svg";
-import waves from "../../../images/Onboarding/waves.svg";
 //cube elements
 import cubes from "../../../images/Onboarding/red_purple_cubes.svg";
 // components
@@ -16,7 +13,6 @@ import Col from "../../../components/atoms/col/col";
 import Text from "../../../components/atoms/text/text";
 import Image from "../../../components/atoms/image/image";
 //Context
-import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 import { UserContext } from "../../../contexts/UserContext";
 import { missionMasher } from "../../globalFunctions";
 import {AdminContext} from "../../../contexts/AdminContext";
@@ -25,7 +21,6 @@ import {AdminContext} from "../../../contexts/AdminContext";
 const Login = props => {
   // contexts
   const activeUser = useContext(UserContext);
-  const userMissions = useContext(UserMissionsContext);
   const adminUser = useContext(AdminContext);
   //routes
   const routeToHome = e => {
@@ -74,11 +69,6 @@ const Login = props => {
       mission_subscriptions,
       missions_in_progress
     } = userObject.user_missions;
-
-    activeUser.setUser(userObject.user_profile);
-    userMissions.setUserMissions(
-      missionMasher(mission_subscriptions, missions_in_progress)
-    );
     localStorage.setItem("token", userObject.token);
     {
       userObject.newUser === true
@@ -100,20 +90,6 @@ const Login = props => {
         <Cubes src={cubes} />
       </HeaderHolder>
       <FlexHolder>
-        {/* <FBButton name="facebookAuth" onClick={auth}>
-          Log In with Facebook{" "}
-          <Image src={fblogo} height={2} width={2} borderRadius={100} />{" "}
-        </FBButton>
-        <GoogleSignIn name="googleAuth" onClick={auth}>
-          Log In with Google{" "}
-          <Image
-            src={googlelogo}
-            alt={"google image"}
-            height={2}
-            width={2}
-            borderRadius={100}
-          />
-        </GoogleSignIn> */}
         <FlexWrapper>
           <p>OR</p>
           <div></div>
@@ -121,22 +97,8 @@ const Login = props => {
         <Button onClick={routeToEmailLogIn}>
           Log In with Email <Image src={emailogo} height={2} width={2} />
         </Button>
-        {/* <FBButton onClick={routeToAdminLogin}>
-          Login as an Administrator
-        </FBButton> */}
       </FlexHolder>
       <Row width={97} height={1} padding={"12% 0"}>
-        {/* <Col width={30} marginLeft={-2}>
-          <Text fontSize={"1.6rem"} color={"#CFCDFF"} text={colText}></Text>
-        </Col> */}
-        {/* <Col
-          width={70}
-          borderBottom={"1px solid white"}
-          height={1}
-          marginTop={1}
-          marginBottom={3}
-          marginLeft={-6}
-        ></Col> */}
       </Row>
       <FlexHolder></FlexHolder>
     </OnBoardContainer>
@@ -144,13 +106,7 @@ const Login = props => {
 };
 
 // STYLED COMPONENTS
-// const OnBoardWrapper = styled.div`
-//   width: 100vw;
-//   height: 100vh;
-//   max-height: 100vh;
-//   background-color: #4742bc;
-//   background-image: url(${waves});
-// `;
+
 const OnBoardContainer = styled.div`
 font-family: "Catamaran", sans-serif;
 display:flex;
@@ -158,7 +114,6 @@ width: 100vw;
 height: 100vh;
 max-height: 100vh;
 background-color: #4742bc;
-background-image: url(${waves});
 overflow-x: hidden;
 flex-direction:column;
 justify-content:space-between;
@@ -201,13 +156,6 @@ const HeaderHolder = styled.div`
   margin-top: 10%;
 `;
 
-// const OnboardTxt = styled.p`
-//   margin: auto;
-//   font-size: 2rem;
-//   line-height: 33px;
-//   letter-spacing: 0.035em;
-//   color: #ccc9ff;
-// `;
 const FlexHolder = styled.div`
   display: flex;
   flex-direction: column;
@@ -241,65 +189,6 @@ letter-spacing:0.1rem;
   cursor: pointer;
 }
 }
-`;
-
-// const LineTime = styled.hr`
-//   width: 100%;
-// `;
-
-const FBButton = styled.a`
-  display: flex;
-  justify-content: space-around;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0;
-  width: 84%;
-  text-align: center;
-  margin: 3% auto%;
-  background: #4a639e;
-  color: white;
-  font-size: calc(110% + 0.5vw);
-  letter-spacing: 0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
-
-  @media screen and (min-width: 1000px) {
-    margin: 3% auto;
-  }
-
-  @media screen and (max-width: 1000px) {
-    margin: 4% auto;
-  }
-
-  @media screen and (max-width: 500px) {
-    margin: 7% auto;
-  }
-`;
-
-const GoogleSignIn = styled.a`
-  display: flex;
-  justify-content: space-around;
-  border-radius: 0.5rem;
-  padding: 1.5rem 0.8rem;
-  width: 84%;
-  text-align: center;
-  margin: 0 auto 3% auto;
-  background: #6997f2;
-  color: white;
-  font-size: calc(110% + 0.5vw);
-  letter-spacing: 0.1rem;
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (min-width: 1000px) {
-    margin: 0 auto 3% auto;
-  }
-  @media screen and (max-width: 1000px) {
-    margin: 0 auto 4% auto;
-  }
-  @media screen and (max-width: 500px) {
-    margin: 0 auto 7% auto;
-  }
 `;
 
 const FlexWrapper = styled.div`

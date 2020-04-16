@@ -4,9 +4,6 @@ import React, { useContext } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 // router
 import { Link } from "react-router-dom";
-// contexts
-import { UserContext } from "../../../contexts/UserContext";
-import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 // styled components
 import styled from "styled-components";
 // helpers

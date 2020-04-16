@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import { UserContext } from "./UserContext";
-import { UserMissionsContext } from "./UserMissionsContext";
 import { TeamContext } from "./TeamContext";
 
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
@@ -62,9 +61,6 @@ const ContextRouter = ({
       render={props => {
         return (
           <UserContext.Provider value={{ ...user, setUser }}>
-            <UserMissionsContext.Provider
-              value={{ missions: userMissions, setUserMissions }}
-            >
               <TeamContext.Provider value={{ ...team, setTeam }}>
                 {localStorage.getItem("token") ? (
                   <PrivateView {...props} />
@@ -72,7 +68,6 @@ const ContextRouter = ({
                   <PublicView />
                 )}
               </TeamContext.Provider>
-            </UserMissionsContext.Provider>
           </UserContext.Provider>
         );
       }}

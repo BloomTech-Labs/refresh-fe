@@ -6,9 +6,7 @@ import styled from "styled-components";
 //images
 import waves from "../../../images/Onboarding/waves.svg";
 //logos
-import fblogo from "../../../images/Onboarding/facebook_round_transparent_logo.svg";
 import emailogo from "../../../images/Onboarding/email.svg";
-import googlelogo from "../../../images/Onboarding/google_icon_round_color.svg";
 //cube elements
 import cubes from "../../../images/Onboarding/red_purple_cubes.svg";
 //atoms
@@ -17,7 +15,6 @@ import Col from "../../../components/atoms/col/col";
 import Text from "../../../components/atoms/text/text";
 import Image from "../../../components/atoms/image/image";
 //Context
-import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 import { UserContext } from "../../../contexts/UserContext";
 import { missionMasher } from "../../globalFunctions";
 import {AdminContext} from "../../../contexts/AdminContext"
@@ -25,7 +22,6 @@ import {AdminContext} from "../../../contexts/AdminContext"
 const CreateAccount = props => {
   // contexts
   const activeUser = useContext(UserContext);
-  const userMissions = useContext(UserMissionsContext);
   const adminUser = useContext(AdminContext);
   //routes
   const routeToHome = e => {
@@ -76,10 +72,6 @@ const CreateAccount = props => {
       missions_in_progress
     } = userObject.user_missions;
 
-    activeUser.setUser(userObject.user_profile);
-    userMissions.setUserMissions(
-      missionMasher(mission_subscriptions, missions_in_progress)
-    );
     localStorage.setItem("token", userObject.token);
     {
       userObject.newUser
