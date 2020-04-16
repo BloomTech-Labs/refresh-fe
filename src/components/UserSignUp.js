@@ -24,7 +24,21 @@ function UserSignUp() {
     //handle form submit
     const submitForm = event => {
         event.preventDefault();
-        //add login action for redux 
+
+        if (verifyPass()) {
+             //add login action for redux 
+             console.log("Passwords match!")
+        }
+        else {
+            console.log("Passwords do not match")
+            //add validation response
+        }
+
+    }
+
+    //handle verifying password
+    const verifyPass = () => {
+        return (user.password === user.verifyPassword ? true : false);
     }
 
     return (
