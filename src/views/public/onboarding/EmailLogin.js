@@ -6,12 +6,10 @@ import styled from "styled-components";
 //axios with auth
 import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
 //images
-import waves from "../../../images/Onboarding/waves.svg";
 import welcome from "../../../images/Onboarding/welcome_back.svg";
 //atoms
 // import Input from "../../components/atoms/input/input";
 //Context
-import { UserMissionsContext } from "../../../contexts/UserMissionsContext";
 import { UserContext } from "../../../contexts/UserContext";
 import { missionMasher } from "../../globalFunctions";
 
@@ -25,7 +23,6 @@ const EmailLogin = props => {
   const [enabledBtn, setEnabledBtn] = useState(false);
   // contexts
   const activeUser = useContext(UserContext);
-  const userMissions = useContext(UserMissionsContext);
 
   //errors useEffect
   let errors = {};
@@ -69,10 +66,6 @@ const EmailLogin = props => {
               missions_in_progress
             } = userObject.user_missions;
 
-            activeUser.setUser(userObject.user_profile);
-            userMissions.setUserMissions(
-              missionMasher(mission_subscriptions, missions_in_progress)
-            );
             localStorage.setItem("token", res.data.token);
             props.history.push("/dashboard");
           } else {
@@ -131,7 +124,6 @@ const OnBoardContainer = styled.div`
   margin: auto;
   line-height: 1.5;
   background-color: #4742bc;
-  background-image: url(${waves});
   background-size: contain;
   color: #7f7cca;
   width: 100vw;
