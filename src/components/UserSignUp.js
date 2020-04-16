@@ -1,15 +1,14 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom';
-import UserSignUp from './UserSignUp.js'
 
-
-function UserLogin() {
+function UserSignUp() {
 
 
     const [user, setUser] = useState({
+        fullName: '',
         email: '',
         password: '',
-        admin: false
+        verifyPassword: ''
     });
 
 
@@ -21,13 +20,6 @@ function UserLogin() {
         })
     }
 
-    //handle any changes made to the checkbox field
-    const handleCheckboxChanges = event => {
-        setUser({
-            ...user,
-            [event.target.name]: event.target.checked
-        });
-    }
 
     //handle form submit
     const submitForm = event => {
@@ -39,7 +31,16 @@ function UserLogin() {
         <div>
             <form onSubmit={submitForm}>
 
-            <label for="email">Email: </label>
+               <label for="fullName">Full Name: </label>
+               <input
+                    id="fullName"
+                    type="text"
+                    name="fullName"
+                    onChange={handleChanges}
+                    value={user.fullName}
+                />
+
+                <label for="email">Email: </label>
                <input
                     id="email"
                     type="email"
@@ -57,22 +58,23 @@ function UserLogin() {
                     value={user.password}
                 />
 
-                <label for="admin">Are you an administrator?</label>
-                <input 
-                    id="admin"
-                    type="checkbox"
-                    name="admin"
-                    onChange={handleCheckboxChanges}
-                    value={user.admin}
+                <label for="verifyPassword">Password: </label>
+                <input
+                    id="verifyPassword"
+                    type="password"
+                    name="verifyPassword"
+                    onChange={handleChanges}
+                    value={user.verifyPassword}
                 />
+
 
                 <button type="submit">Log in</button>
                 
-                <Link to="/sign-up">Don't have an account? Click here to sign up</Link>
+                <Link to="/">Already have an account? Click here to sign in</Link>
 
             </form>
         </div>
     );
 }
 
-export default UserLogin
+export default UserSignUp
