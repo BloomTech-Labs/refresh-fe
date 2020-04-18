@@ -52,7 +52,7 @@ function UserSignUp() {
                 <label for="password">Password: </label>
                 <input
                     id="password"
-                    type="text"
+                    type="password"
                     name="password"
                     onChange={handleChanges}
                     defaultValue={enteredPassword}
@@ -64,7 +64,7 @@ function UserSignUp() {
                 <label for="verifyPassword">Verify password: </label>
                 <input
                     id="verifyPassword"
-                    type="text"
+                    type="password"
                     name="verifyPassword"
                     ref={register({ required: "Please verify your password", validate: value => value === enteredPassword || "Passwords must match"})}
                 />
