@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom';
-import UserSignUp from './UserSignUp.js'
 import {useForm} from 'react-hook-form';
 
 function UserLogin() {
