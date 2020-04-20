@@ -5,14 +5,7 @@ import {useForm} from 'react-hook-form';
 function UserSignUp() {
 
      //adjusted the 'mode' argument from the default value of 'onSubmit' for the useForm hook, in order to allow live error changes as user types
-    const {register, handleSubmit, errors} = useForm({mode: 'onChange'});
-
-    const [enteredPassword, setEnteredPassword] = useState('');
-
-    //handle changes for password field in order to validate password matching
-    const handleChanges = event => {
-        setEnteredPassword(event.target.value);
-    }
+    const {register, handleSubmit, errors, watch} = useForm({mode: 'onChange'});
     
     //handle form submit
     const submitForm = (data, event) => {
@@ -20,7 +13,7 @@ function UserSignUp() {
 
         console.log("data from submitForm", data)
 
-        //add login action here for redux, can create new object from 'data' only including email/pass to send to the db
+        //add login action here for redux, can create new object from 'data' only including name/email/pass to send to the db
 
     }
 
@@ -54,8 +47,6 @@ function UserSignUp() {
                     id="password"
                     type="password"
                     name="password"
-                    onChange={handleChanges}
-                    defaultValue={enteredPassword}
                     ref={register({ required: "Password is required", minLength: {value: 5, message: "Password must be at least 5 letters"} })}
                 />
 
@@ -66,7 +57,7 @@ function UserSignUp() {
                     id="verifyPassword"
                     type="password"
                     name="verifyPassword"
-                    ref={register({ required: "Please verify your password", validate: value => value === enteredPassword || "Passwords must match"})}
+                    ref={register({ required: "Please verify your password", validate: value => value === watch('password') || "Passwords must match"})}
                 />
 
                 {errors.verifyPassword && <p>{errors.verifyPassword.message}</p>}
