@@ -3,6 +3,24 @@ import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import {login} from '../views/private/actions/actions-user';
 import {connect} from 'react-redux';
+import {
+    CardWrapper,
+    CardHeader,
+    CardHeading,
+    CardBody,
+    CardIcon,
+    CardFieldset,
+    CardInput,
+    CardOptionsItem,
+    CardOptions,
+    CardOptionsNote,
+    CardButton,
+    CardLink,
+    StyledDiv,
+    CardBodyStyled,
+    CardWrapperStyled
+  } from "./styles";
+
 
 function UserLogin(props) {
 
@@ -25,43 +43,51 @@ function UserLogin(props) {
     }
 
     return (
-        <div>
+        <CardWrapper>
+            <CardHeader><CardHeading>Welcome to Refresh!</CardHeading></CardHeader> 
+            <CardBody>
             <form onSubmit={handleSubmit(submitForm)}>
-
+            <CardFieldset>
                <label for="email">Email: </label>
-               <input
+               <CardInput
                     id="email"
                     type="email"
                     name="email"
                     ref={register({required: "Email is required to login"})}
                 />
+          
 
                 {errors.email && <p>{errors.email.message}</p>}
+                </CardFieldset>
+                <CardFieldset>
+                    <label for="password">Password: </label>
+                    <CardInput
+                        id="password"
+                        type="password"
+                        name="password"
+                        ref={register({required: "Password is required to login"})}
+                    />
 
-                <label for="password">Password: </label>
-                <input
-                    id="password"
-                    type="password"
-                    name="password"
-                    ref={register({required: "Password is required to login"})}
-                />
-
-                {errors.password && <p>{errors.password.message}</p>}
-
-                <label for="admin">Are you an administrator?</label>
-                <input 
-                    id="admin"
-                    type="checkbox"
-                    name="admin"
-                    ref={register}
-                />
-
-                <button type="submit">Log in</button>
-                
-                <Link to="/sign-up">Don't have an account? Click here to sign up</Link>
-
+                     {errors.password && <p>{errors.password.message}</p>}
+                </CardFieldset>
+                <CardFieldset>
+                    <label for="admin">Are you an administrator?</label>
+                    <CardInput
+                        id="admin"
+                        type="checkbox"
+                        name="admin"
+                        ref={register}
+                    />
+                </CardFieldset>  
+                <CardFieldset>  
+                <CardButton type="submit">Log in</CardButton>
+                </CardFieldset>
+                <CardFieldset>   
+               <CardOptionsNote><Link to="/sign-up">Don't have an account? <br/> Click here to sign up</Link></CardOptionsNote> 
+               </CardFieldset> 
             </form>
-        </div>
+            </CardBody>
+        </CardWrapper>
     );
 }
 
