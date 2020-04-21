@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
+import {login} from '../views/private/actions/actions-user';
+import {connect} from 'react-redux';
 
-function UserLogin() {
+function UserLogin(props) {
 
     //adjusted the 'mode' argument from the default value of 'onSubmit' for the useForm hook, in order to allow live error changes as user types
     const { register, handleSubmit, errors } = useForm({mode: 'onChange'});
@@ -11,9 +13,15 @@ function UserLogin() {
     const submitForm = (data, event) => {
         event.preventDefault();
 
-        console.log("data: ", data)
+        //send data of user object with email/password through to login action
+        const user = {
+            email: data.email,
+            password: data.password
+        }
 
-        //add login action for redux 
+        props.login(user); 
+
+       
     }
 
     return (
@@ -57,4 +65,10 @@ function UserLogin() {
     );
 }
 
-export default UserLogin
+const mapStateToProps = state => {
+    return {
+        
+    }
+}
+
+export default connect(mapStateToProps, {login})(UserLogin)
