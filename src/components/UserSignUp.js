@@ -8,17 +8,10 @@ import {
     CardHeader,
     CardHeading,
     CardBody,
-    CardIcon,
     CardFieldset,
     CardInput,
-    CardOptionsItem,
-    CardOptions,
-    CardOptionsNote,
     CardButton,
-    CardLink,
-    StyledDiv,
-    CardBodyStyled,
-    CardWrapperStyled
+    CardLink
   } from "./styles";
 
 
@@ -97,7 +90,7 @@ function UserSignUp(props) {
                         <CardButton type="submit">Sign up</CardButton>
                     </CardFieldset>
                     <CardFieldset>
-                    <Link to="/">Already have an account? Click here to sign in</Link>
+                   <CardLink> <Link to="/">Already have an account? Click here to sign in</Link></CardLink>
                     </CardFieldset>
 
                 </form>
