@@ -2,7 +2,8 @@ import {
     FETCHING_START,
     SET_ERROR,
     LOGIN,
-    REGISTER
+    REGISTER,
+    LOGOUT
 } from '../actions/actions-user.js';
 
 
