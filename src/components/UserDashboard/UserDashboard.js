@@ -2,7 +2,7 @@ import React from 'react'
 
 // Import Components
 import Main from './Main/Main.js'
-// import Sidebar from './Sidebar/Sidebar.js'
+import UserSidebar from './UserSidebar/UserSidebar.js'
 
 
 class UserDashboard extends React.Component{
@@ -11,7 +11,7 @@ class UserDashboard extends React.Component{
             <div className='user-dashboard'>
                 <h1>User Dashboard</h1>
                 <Main />
-                {/* <Sidebar /> */}
+                <UserSidebar />
             </div>
         )
     }
