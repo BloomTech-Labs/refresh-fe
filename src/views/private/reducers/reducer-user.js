@@ -34,20 +34,18 @@ export const reducer = (state = initialState, action) => {
                 isFetching: false
                 //fullName: action.payload.full_name
             }
-        case REGISTER: {
+        case REGISTER: 
             return {
                 ...state,
                 isFetching: false
                 //fullName: action.payload.full_name
             }
-        }
-        case LOGOUT: {
+        case LOGOUT: 
             return {
                 isFetching: false,
                 fullName: '',
                 error: null
             }
-        }
         default: 
             return state;
     }
