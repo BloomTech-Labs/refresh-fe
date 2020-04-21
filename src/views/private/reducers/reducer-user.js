@@ -1,7 +1,8 @@
 import {
     FETCHING_START,
+    SET_ERROR,
     LOGIN,
-    SET_ERROR
+    REGISTER
 } from '../actions/actions-user.js';
 
 
@@ -21,18 +22,25 @@ export const reducer = (state = initialState, action) => {
                 isFetching: true,
                 error: null
             }
-        case LOGIN: 
-            return {
-                ...state
-                //userEmail: action.payload.username
-                //userPassword: action.payload.userPassword
-            }
         case SET_ERROR: 
             return {
                 ...state, 
                 error: action.payload,
                 isFetching: false
             }
+        case LOGIN: 
+            return {
+                ...state
+                //userEmail: action.payload.username
+                //userPassword: action.payload.userPassword
+            }
+        case REGISTER: {
+            return {
+                ...state,
+                isFetching: false
+            }
+        }
+
     }
 }
 

@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
+import {register} from "../views/private/actions/actions-user"
+import { connect } from "react-redux";
 
-function UserSignUp() {
+function UserSignUp(props) {
 
      //adjusted the 'mode' argument from the default value of 'onSubmit' for the useForm hook, in order to allow live error changes as user types
     const {register, handleSubmit, errors, watch} = useForm({mode: 'onChange'});
@@ -11,9 +13,14 @@ function UserSignUp() {
     const submitForm = (data, event) => {
         event.preventDefault();
 
-        console.log("data from submitForm", data)
-
-        //add login action here for redux, can create new object from 'data' only including name/email/pass to send to the db
+        //send data of user object with email/fullname/password through to register action
+        const user = {
+            email: data.email,
+            full_name: data.fullName,
+            password: data.password
+        }
+ 
+        props.register(user);
 
     }
 
@@ -62,7 +69,7 @@ function UserSignUp() {
 
                 {errors.verifyPassword && <p>{errors.verifyPassword.message}</p>}
 
-                <button type="submit">Log in</button>
+                <button type="submit">Sign up</button>
                 
                 <Link to="/">Already have an account? Click here to sign in</Link>
 
@@ -71,4 +78,9 @@ function UserSignUp() {
     );
 }
 
-export default UserSignUp
+const mapStateToProps = state => {
+    return {
+
+    }
+}
+export default connect(mapStateToProps, {register})(UserSignUp)
