@@ -8,8 +8,7 @@ import {
 
 const initialState = {
     isFetching: false,
-    userEmail: '',
-    userPassword: '',
+    fullName: '',
     error: null
 }
 
@@ -30,17 +29,26 @@ export const reducer = (state = initialState, action) => {
             }
         case LOGIN: 
             return {
-                ...state
-                //userEmail: action.payload.username
-                //userPassword: action.payload.userPassword
+                ...state,
+                isFetching: false
+                //fullName: action.payload.full_name
             }
         case REGISTER: {
             return {
                 ...state,
                 isFetching: false
+                //fullName: action.payload.full_name
             }
         }
-
+        case LOGOUT: {
+            return {
+                isFetching: false,
+                fullName: '',
+                error: null
+            }
+        }
+        default: 
+            return state;
     }
 }
 
