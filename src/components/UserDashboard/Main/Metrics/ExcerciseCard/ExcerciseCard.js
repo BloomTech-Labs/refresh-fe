@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {connect} from 'react-redux'
 
 class ExcerciseCard extends React.Component{
     render(){
@@ -9,7 +9,7 @@ class ExcerciseCard extends React.Component{
                 <p>How many minutes of excercise have you done today?</p>
                 <div className='metric-card-input'>
                 <button>-</button>
-                <h1>15</h1>
+                <h1>{this.props.exercise}</h1>
                 <button>+</button>
                 </div>
             </div>
@@ -17,4 +17,10 @@ class ExcerciseCard extends React.Component{
     }
 }
 
-export default ExcerciseCard
+const mapStateToProps = state => {
+    return {
+        exercise: state.userReducer.exercise
+    }
+}
+
+export default connect(mapStateToProps, {})(ExcerciseCard)

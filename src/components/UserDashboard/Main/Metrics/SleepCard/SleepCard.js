@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {connect} from 'react-redux'
 
 class SleepCard extends React.Component{
     render(){
@@ -9,7 +9,7 @@ class SleepCard extends React.Component{
                 <p>How many hours did you sleep last night?</p>
                 <div className='metric-card-input'>
                 <button>-</button>
-                <h1>6</h1>
+                <h1>{this.props.sleep}</h1>
                 <button>+</button>
                 </div>
             </div>
@@ -17,4 +17,10 @@ class SleepCard extends React.Component{
     }
 }
 
-export default SleepCard
+const mapStateToProps = state => {
+    return {
+        sleep: state.userReducer.sleep
+    }
+}
+
+export default connect(mapStateToProps, {})(SleepCard)
