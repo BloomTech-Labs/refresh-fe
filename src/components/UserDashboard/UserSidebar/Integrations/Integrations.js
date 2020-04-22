@@ -6,9 +6,9 @@ class Integrations extends React.Component{
         return(
             <div className='integrations'>
                 <h1>Integrations</h1>
-                <h2><a>Slack</a></h2>
-                <h2><a>MyFitnessPal</a></h2>
-                <h2><a>Apple Health</a></h2>
+                <h2><a href="">Slack</a></h2>
+                <h2><a href="">MyFitnessPal</a></h2>
+                <h2><a href="">Apple Health</a></h2>
             </div>
         )
     }
