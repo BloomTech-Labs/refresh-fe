@@ -9,8 +9,16 @@ import {
 
 const initialState = {
     isFetching: false,
+    error: null,
     fullName: '',
-    error: null
+    avatar: null,
+    points: 0,
+    admin: false,
+    water: 0,
+    exercise: 0,
+    breaks: 0,
+    sleep: 0,
+    team_id: 0
 }
 
 

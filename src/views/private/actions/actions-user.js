@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {axiosWithAuth} from '../../../helpers/axiosWithAuth';
+import history from '../../../helpers/history';
 
 export const FETCHING_START = 'FETCHING_START'
 export const SET_ERROR = 'SET_ERROR'
@@ -14,14 +15,15 @@ export const login = (user) => dispatch => {
     axiosWithAuth()
         .post('/users/login', user)
             .then(response => {
-                dispatch({ type: LOGIN })
+                dispatch({ type: LOGIN, payload: response.data.UserInfo })
 
-                console.log("login response", response)
+                //console.log("login response", response)
+                console.log("login response", response.data.UserInfo)
 
                 //set token to local storage
                 window.localStorage.setItem('token', response.data.token)
 
-                //history.push('/UserDashboard') <--- to be built out
+                history.push('/UserDashboard');
             })
             .catch(error => {
                 console.log("ERROR: ", error)
@@ -42,7 +44,7 @@ export const register = (user) => dispatch => {
                 //set token to local storage
                 window.localStorage.setItem('token', response.data.token)
 
-                //history.push('/')
+                history.push('/UserDashboard')
             })
             .catch(error => {
                 dispatch({type: SET_ERROR, payload: error})

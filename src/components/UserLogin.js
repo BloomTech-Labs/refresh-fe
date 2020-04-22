@@ -23,7 +23,7 @@ function UserLogin(props) {
 
     //handle form submit
     const submitForm = (data, event) => {
-        event.preventDefault();
+        //event.preventDefault();
 
         //send data of user object with email/password through to login action
         const user = {

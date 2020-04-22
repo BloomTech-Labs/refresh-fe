@@ -1,16 +1,16 @@
 import React from "react";
 import {Redirect,Route} from 'react-router-dom'
-const PrivateRoute = ({ privateView: PrivateView,  publicView:PublicView,userStatus,...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   // const Component = props.component
   return (
     <Route
       {...rest}
-      render={() => {
+      render={(props) => {
         if (localStorage.getItem("token")) {
           // if token is in localstorage, render the given component
-          return <PrivateView />;
+          return <Component {...props} />;
         } else {
-          return <PublicView />;
+          return <Redirect to="/" />;
         }
       }}
     />
