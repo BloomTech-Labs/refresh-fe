@@ -17,6 +17,7 @@ class WaterCard extends React.Component{
         )
     }
 }
+
 const mapStateToProps = state => {
     return {
         water: state.userReducer.water,
