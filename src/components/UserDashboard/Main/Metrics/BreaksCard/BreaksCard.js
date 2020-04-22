@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 
 class BreaksCard extends React.Component{
@@ -9,7 +10,7 @@ class BreaksCard extends React.Component{
                 <p>How many 15+ minute breaks have you taken today?</p>
                 <div className='metric-card-input'>
                 <button>-</button>
-                <h1>2</h1>
+                <h1>{this.props.breaks}</h1>
                 <button>+</button>
                 </div>
             </div>
@@ -17,4 +18,10 @@ class BreaksCard extends React.Component{
     }
 }
 
-export default BreaksCard
+const mapStateToProps = state => {
+    return {
+        breaks: state.userReducer.breaks
+    }
+}
+
+export default connect(mapStateToProps, {})(BreaksCard)
