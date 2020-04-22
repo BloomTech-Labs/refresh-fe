@@ -1,9 +1,10 @@
 import React from "react";
 
-import PrivateViewCanvas from "./views/private";
-import PublicViewCanvas from "./views/public";
-import AdminViewCanvas from "./views/private"
-import ContextRouter from "./contexts/ContextRouter";
+// import PrivateViewCanvas from "./views/private";
+// import PublicViewCanvas from "./views/public";
+// import AdminViewCanvas from "./views/private"
+// import ContextRouter from "./contexts/ContextRouter";
+import UserDashbord from './components/UserDashboard/UserDashboard'
 
 import {Route} from 'react-router-dom';
 import UserLogin from './components/UserLogin.js'
@@ -15,7 +16,6 @@ const App = props => {
     //   privateView={PrivateViewCanvas}
     //   publicView={PublicViewCanvas}
     // />
-
     <>
     <Route path="/sign-up" component={UserSignUp} />
     <Route exact path='/' component={UserLogin} />

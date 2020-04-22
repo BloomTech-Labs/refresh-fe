@@ -3,6 +3,7 @@
 // react
 import React from "react";
 import ReactDOM from "react-dom";
+import './styles/css/main.css';
 
 // redux
 import { applyMiddleware, createStore } from 'redux';
