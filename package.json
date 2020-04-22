@@ -31,6 +31,7 @@
     "react-switch-case": "^1.5.0",
     "react-timer-hook": "^2.0.0",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.1"

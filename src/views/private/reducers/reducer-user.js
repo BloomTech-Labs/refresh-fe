@@ -22,7 +22,7 @@ const initialState = {
 }
 
 
-export const reducer = (state = initialState, action) => {
+function reducer(state = initialState, action) {
     switch(action.type) {
         case FETCHING_START: 
             return {
@@ -39,23 +39,48 @@ export const reducer = (state = initialState, action) => {
         case LOGIN: 
             return {
                 ...state,
-                isFetching: false
-                //fullName: action.payload.full_name
+                isFetching: false,
+                fullName: action.payload.full_name,
+                avatar: action.payload.avatar,
+                points: action.payload.points,
+                admin: action.payload.admin,
+                water: action.payload.water,
+                exercise: action.payload.exercise,
+                breaks: action.payload.breaks,
+                sleep: action.payload.sleep,
+                team_id: action.payload.team_id
             }
         case REGISTER: 
             return {
                 ...state,
-                isFetching: false
-                //fullName: action.payload.full_name
+                isFetching: false,
+                fullName: action.payload.full_name,
+                avatar: action.payload.avatar,
+                points: action.payload.points,
+                admin: action.payload.admin,
+                water: action.payload.water,
+                exercise: action.payload.exercise,
+                breaks: action.payload.breaks,
+                sleep: action.payload.sleep,
+                team_id: action.payload.team_id
             }
         case LOGOUT: 
             return {
                 isFetching: false,
+                error: null,
                 fullName: '',
-                error: null
+                avatar: null,
+                points: 0,
+                admin: false,
+                water: 0,
+                exercise: 0,
+                breaks: 0,
+                sleep: 0,
+                team_id: 0
             }
         default: 
             return state;
     }
 }
 
+export default reducer
