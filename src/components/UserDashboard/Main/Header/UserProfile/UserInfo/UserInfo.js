@@ -7,7 +7,7 @@ class UserInfo extends React.Component{
         return(
             <div className='user-info'>
                 <h3>{this.props.fullName}</h3>
-                <h3>User Team</h3>
+                <h3>{this.props.teamName}</h3>
             </div>
         )
     }
@@ -16,7 +16,8 @@ class UserInfo extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        fullName: state.userReducer.fullName
+        fullName: state.userReducer.fullName,
+        teamName: state.userReducer.teamName
     }
 }
 export default connect(mapStateToProps, {})(UserInfo)

@@ -2,7 +2,6 @@ import {
     FETCHING_START,
     SET_ERROR,
     LOGIN,
-    REGISTER,
     LOGOUT
 } from '../actions/actions-user.js';
 
@@ -18,7 +17,8 @@ const initialState = {
     exercise: 0,
     breaks: 0,
     sleep: 0,
-    team_id: 0
+    team_id: 0,
+    teamName: ''
 }
 
 
@@ -40,29 +40,16 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 isFetching: false,
-                fullName: action.payload.full_name,
-                avatar: action.payload.avatar,
-                points: action.payload.points,
-                admin: action.payload.admin,
-                water: action.payload.water,
-                exercise: action.payload.exercise,
-                breaks: action.payload.breaks,
-                sleep: action.payload.sleep,
-                team_id: action.payload.team_id
-            }
-        case REGISTER: 
-            return {
-                ...state,
-                isFetching: false,
-                fullName: action.payload.full_name,
-                avatar: action.payload.avatar,
-                points: action.payload.points,
-                admin: action.payload.admin,
-                water: action.payload.water,
-                exercise: action.payload.exercise,
-                breaks: action.payload.breaks,
-                sleep: action.payload.sleep,
-                team_id: action.payload.team_id
+                fullName: action.payload.user.full_name,
+                avatar: action.payload.user.avatar,
+                points: action.payload.user.points,
+                admin: action.payload.user.admin,
+                water: action.payload.user.water,
+                exercise: action.payload.user.exercise,
+                breaks: action.payload.user.breaks,
+                sleep: action.payload.user.sleep,
+                team_id: action.payload.user.team_id,
+                teamName: action.payload.teamName
             }
         case LOGOUT: 
             return {
