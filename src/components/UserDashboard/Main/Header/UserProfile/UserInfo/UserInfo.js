@@ -16,7 +16,7 @@ class UserInfo extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        fullName: state.fullName,
+        fullName: state.userReducer.fullName
     }
 }
 export default connect(mapStateToProps, {})(UserInfo)

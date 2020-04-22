@@ -4,6 +4,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import './styles/css/main.css';
+import history from '../src/helpers/history';
 
 // redux
 import { applyMiddleware, createStore, combineReducers } from 'redux';
@@ -14,7 +15,7 @@ import userReducer from './views/private/reducers/reducer-user';
 import logger from 'redux-logger';
 
 // router
-import { BrowserRouter as Router } from "react-router-dom";
+import { Router } from "react-router-dom";
 
 // themes and styles
 import Reset from "./styles/global/Reset";
@@ -34,7 +35,7 @@ const store = createStore(rootReducer, applyMiddleware(thunk, logger))
 // RENDER
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <Reset />
       <GlobalStyle />
       <App />
