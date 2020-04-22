@@ -10,7 +10,6 @@ class UserSidebar extends React.Component{
     render(){
         return(
             <div className='user-sidebar'>
-                <h1>User sidebar</h1>
                 <PersonalGoals />
                 <LeaderBoard />
                 <Integrations />

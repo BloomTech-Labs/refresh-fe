@@ -170,12 +170,118 @@ img {
 }
 .user-dashboard {
   background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  border: solid black;
+  border-width: 1.5px;
 }
 .user-dashboard .main {
-  background-color: yellow;
   width: 70%;
+  border: solid black;
+  border-width: 1.5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.user-dashboard .main .header {
+  width: 100%;
+  border: solid black;
+  border-width: 1.5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.user-dashboard .main .header .user-profile {
+  border: solid black;
+  border-width: 1px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.user-dashboard .main .header .user-profile .user-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.user-dashboard .main .metrics {
+  width: 100%;
+  height: 100%;
+  border: solid black;
+  border-width: 1.5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+.user-dashboard .main .metric-card {
+  width: 25%;
+  height: 250px;
+  border: solid black;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+.user-dashboard .main .metric-card .metric-card-input {
+  width: 100%;
+  border: solid black;
+  border-width: 1px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 }
 .user-dashboard .user-sidebar {
-  background-color: yellowgreen;
   width: 30%;
+  border: solid black;
+  border-radius: 1.5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .personal-goals {
+  width: 100%;
+  height: 33%;
+  border: solid black;
+  border-radius: 1.5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .leader-board {
+  width: 100%;
+  height: 33%;
+  border: solid black;
+  border-radius: 1.5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .integrations {
+  width: 100%;
+  height: 33%;
+  border: solid black;
+  border-radius: 1.5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
 }

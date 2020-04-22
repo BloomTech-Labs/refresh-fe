@@ -1,5 +1,5 @@
 import React from 'react'
-
+import profilepic from './profilepic.png'
 // Import Components
 
 import UserInfo from './UserInfo/UserInfo.js'
@@ -8,7 +8,7 @@ class UserProfile extends React.Component{
     render(){
         return(
             <div className='user-profile'>
-                <h3>User Image</h3>
+                <img  src={profilepic} alt="profile-pic" width="60"></img>
                 <UserInfo />
             </div>
         )
