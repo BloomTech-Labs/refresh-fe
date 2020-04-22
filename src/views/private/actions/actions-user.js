@@ -30,7 +30,7 @@ export const login = (user) => dispatch => {
                             })
                 }
                 else {
-                    teamName = "Unassigned a team"
+                    teamName = "Team not assigned"
                 }
              
                 dispatch({ type: LOGIN, payload: {user: response.data.UserInfo, teamName: teamName} })
@@ -69,7 +69,7 @@ export const register = (user) => dispatch => {
                             })
                 }
                 else {
-                    teamName = "Unassigned a team"
+                    teamName = "Team not assigned"
                 }
              
                 dispatch({ type: LOGIN, payload: {user: response.data.UserInfo, teamName: teamName} })
