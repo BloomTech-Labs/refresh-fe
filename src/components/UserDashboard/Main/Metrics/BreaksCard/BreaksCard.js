@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {addBreaks} from '../../../../../views/private/actions/actions-user'
 
 class BreaksCard extends React.Component{
     render(){
@@ -11,7 +11,7 @@ class BreaksCard extends React.Component{
                 <div className='metric-card-input'>
                 <button>-</button>
                 <h1>{this.props.breaks}</h1>
-                <button>+</button>
+                <button onClick={() => this.props.addBreaks(1, this.props.userId)}>+</button>
                 </div>
             </div>
         )
@@ -20,8 +20,9 @@ class BreaksCard extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        breaks: state.userReducer.breaks
+        breaks: state.userReducer.breaks,
+        userId: state.userReducer.userId
     }
 }
 
-export default connect(mapStateToProps, {})(BreaksCard)
+export default connect(mapStateToProps, {addBreaks})(BreaksCard)

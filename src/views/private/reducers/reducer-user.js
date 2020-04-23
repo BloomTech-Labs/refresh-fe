@@ -5,7 +5,8 @@ import {
     LOGOUT, 
     UPDATE_WATER,
     UPDATE_SLEEP,
-    UPDATE_EXERCISE
+    UPDATE_EXERCISE,
+    UPDATE_BREAKS
 } from '../actions/actions-user.js';
 
 
@@ -84,6 +85,11 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 exercise: state.exercise + action.payload
+            }
+        case UPDATE_BREAKS:
+            return {
+                ...state,
+                breaks: state.breaks + action.payload
             }
         default: 
             return state;

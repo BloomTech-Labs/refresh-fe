@@ -9,6 +9,7 @@ export const LOGOUT = 'LOGOUT'
 export const UPDATE_WATER = 'UPDATE_WATER'
 export const UPDATE_SLEEP = 'UPDATE_SLEEP'
 export const UPDATE_EXERCISE = 'UPDATE_EXERCISE'
+export const UPDATE_BREAKS = 'UPDATE_BREAKS'
 
 
 //login
@@ -261,6 +262,33 @@ export const subtractExercise = (decreaseNum, userId) => dispatch => {
                                     dispatch({type: SET_ERROR, payload: error})
                                 })
                 }
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update breaks metrics, addition 
+export const addBreaks= (increaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the breaks metric, in order to know what the current breaks number is to increase it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
+                axiosWithAuth()
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + increaseNum}) 
+                        .then(response => {
+                            console.log(response)
+                            dispatch({ type: UPDATE_BREAKS, payload: increaseNum })
+                        })
+                        .catch(error => {
+                            dispatch({type: SET_ERROR, payload: error})
+                        })
 
             })
             .catch(error => {
