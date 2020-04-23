@@ -6,7 +6,7 @@ export const FETCHING_START = 'FETCHING_START'
 export const SET_ERROR = 'SET_ERROR'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
-export const ADD_WATER = 'ADD_WATER'
+export const UPDATE_WATER = 'UPDATE_WATER'
 
 
 //login
@@ -98,20 +98,19 @@ export const logout = () => dispatch => {
 
 //update water metrics, addition 
 export const addWater = (increaseNum, userId) => dispatch => {
-    console.log("hit addWater")
     dispatch({ type: FETCHING_START })
-
 
     //first GET the water metric, in order to know what the current water number is to increase it by
     axiosWithAuth()
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
 
+                //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
                     .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + increaseNum}) 
                         .then(response => {
                             console.log(response)
-                            dispatch({ type: ADD_WATER, payload: increaseNum })
+                            dispatch({ type: UPDATE_WATER, payload: increaseNum })
             
                         })
                         .catch(error => {
@@ -123,27 +122,38 @@ export const addWater = (increaseNum, userId) => dispatch => {
                 dispatch({type: SET_ERROR, payload: error})
             })
 
+}
 
+//update water metrics, subtraction
+export const subtractWater = (decreaseNum, userId) => dispatch => {
+    console.log("hit subtractWater")
+    dispatch({ type: FETCHING_START })
 
+    //first GET the water metric, in order to know what the current water number is to decrease it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //check to make sure water metric isn't currently at 0, to avoid negative metric input
+                if (response.data.water != 0) {
+                    
+                       //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
+                        axiosWithAuth()
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + decreaseNum}) 
+                                .then(response => {
+                                    console.log(response)
+                                    dispatch({ type: UPDATE_WATER, payload: decreaseNum })
+                    
+                                })
+                                .catch(error => {
+                                    dispatch({type: SET_ERROR, payload: error})
+                                })
+                }
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
 
 }
 
-// export function addWater (increaseNum) {
-//     return (dispatch, getState) => {
-//         dispatch({ type: FETCHING_START })
-    
-//         const test = getState().userReducer;
-//         console.log("getState() test", test)
-    
-//         // axios
-//         //     .put(`https://lab23-refresh-be.herokuapp.com/users/${}/metrics`, increaseNum) 
-//         //         .then(response => {
-    
-//         //         })
-//         //         .catch(error => {
-    
-//         //         })
-    
-//     }
-    
-//     }
