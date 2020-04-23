@@ -36,25 +36,30 @@ function UserSignUp(props) {
     }
 
     return (
-        <CardWrapper>
+        <div className="cardwrapper">
        
-                <CardHeader><CardHeading>Welcome to Refresh!</CardHeading></CardHeader>
-                <CardBody>
-                <form onSubmit={handleSubmit(submitForm)}>
-                <CardFieldset>
-                <label for="fullName">Full Name: </label>
-                <CardInput
-                        id="fullName"
-                        type="text"
-                        name="fullName"
-                        ref={register({required: "Full name is required"})}
-                    />
+                <header className="cardheader">
+                    <h1 className="cardheading">Welcome to Refresh!</h1>
+                </header>
 
-                    {errors.fullName && <p>{errors.fullName.message}</p>}
-                    </CardFieldset>
-                    <CardFieldset>
+                <div className="cardbody">
+
+                    <form onSubmit={handleSubmit(submitForm)}>
+
+                        <fieldset className="cardfieldset" >
+                            <label for="fullName">Full Name: </label>
+                                <input className="cardinput"
+                                        id="fullName"
+                                        type="text"
+                                        name="fullName"
+                                        ref={register({required: "Full name is required"})}
+                                    />
+
+                                            {errors.fullName && <p>{errors.fullName.message}</p>}
+                    </fieldset>
+                    <fieldset className="cardfieldset">
                 <label for="email">Email: </label>
-                <CardInput
+                <input className="cardinput"
                         id="email"
                         type="email"
                         name="email"
@@ -63,10 +68,11 @@ function UserSignUp(props) {
                     />
 
                     {errors.email && <p>{errors.email.message}</p>}
-                    </CardFieldset>
-                    <CardFieldset>
+                    </fieldset>
+
+                    <fieldset className="cardfieldset">
                     <label for="password">Password: </label>
-                    <CardInput
+                    <input className="cardinput"
                         id="password"
                         type="password"
                         name="password"
@@ -74,28 +80,30 @@ function UserSignUp(props) {
                     />
 
                     {errors.password && <p>{errors.password.message}</p>}
-                    </CardFieldset>
-                    <CardFieldset>
+                    </fieldset>
+
+                    <fieldset className="cardfieldset">
                     <label for="verifyPassword">Verify password: </label>
-                    <CardInput
+                    <input className="cardinput"
                         id="verifyPassword"
                         type="password"
                         name="verifyPassword"
                         ref={register({ required: "Please verify your password", validate: value => value === watch('password') || "Passwords must match"})}
                     />
-
                     {errors.verifyPassword && <p>{errors.verifyPassword.message}</p>}
-                    </CardFieldset>
-                    <CardFieldset>
-                        <CardButton type="submit">Sign up</CardButton>
-                    </CardFieldset>
-                    <CardFieldset>
-                   <CardLink> <Link to="/">Already have an account? Click here to sign in</Link></CardLink>
-                    </CardFieldset>
+                    </fieldset>
+
+                    <fieldset className="cardfieldset">
+                        <button className="card-button" type="submit">Sign up</button>
+                    </fieldset>
+
+                    <fieldset className="cardfieldset">
+                   <a className="cardlink"> <Link to="/">Already have an account? Click here to sign in</Link></a>
+                    </fieldset>
 
                 </form>
-            </CardBody>
-        </CardWrapper>
+            </div>
+        </div>
     );
 }
 
