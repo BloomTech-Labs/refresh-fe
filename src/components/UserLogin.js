@@ -3,17 +3,6 @@ import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import {login} from '../views/private/actions/actions-user';
 import {connect} from 'react-redux';
-import {
-    CardWrapper,
-    CardHeader,
-    CardHeading,
-    CardBody,
-    CardFieldset,
-    CardInput,
-    CardOptionsNote,
-    CardButton,
-    CardLink
- } from "./styles";
 
 
 function UserLogin(props) {
@@ -37,51 +26,62 @@ function UserLogin(props) {
     }
 
     return (
-        <CardWrapper>
-            <CardHeader><CardHeading>Welcome to Refresh!</CardHeading></CardHeader> 
-            <CardBody>
-            <form onSubmit={handleSubmit(submitForm)}>
-            <CardFieldset>
-               <label for="email">Email: </label>
-               <CardInput
-                    id="email"
-                    type="email"
-                    name="email"
-                    ref={register({required: "Email is required to login"})}
-                />
-          
+        <div className="cardwrapper">
 
-                {errors.email && <p>{errors.email.message}</p>}
-                </CardFieldset>
-                <CardFieldset>
-                    <label for="password">Password: </label>
-                    <CardInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        ref={register({required: "Password is required to login"})}
-                    />
+            <header className="cardheader">
+                <h1 className="cardheading">Welcome to Refresh!</h1>
+            </header> 
 
-                     {errors.password && <p>{errors.password.message}</p>}
-                </CardFieldset>
-                <CardFieldset>
-                    <label for="admin">Are you an administrator?</label>
-                    <CardInput
-                        id="admin"
-                        type="checkbox"
-                        name="admin"
-                        ref={register}
-                    />
-                </CardFieldset>  
-                <CardFieldset>  
-                <CardButton type="submit">Log in</CardButton>
-                </CardFieldset>
-                <CardFieldset>   
-                <CardLink><Link to="/sign-up">Don't have an account? <br/> Click here to sign up</Link></CardLink>
-               </CardFieldset> 
-            </form>
-            </CardBody>
-        </CardWrapper>
+            <div className="cardbody">
+
+                <form onSubmit={handleSubmit(submitForm)}>
+
+                    <fieldset className="cardfieldset">
+                        <label for="email">Email: </label>
+                            <input
+                                    className="cardinput"
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    ref={register({required: "Email is required to login"})}
+                            />
+                            {errors.email && <p>{errors.email.message}</p>}
+                    </fieldset>
+
+                    <fieldset className="cardfieldset">
+                        <label for="password">Password: </label>
+                        <input
+                            className="cardinput"
+                            id="password"
+                            type="password"
+                            name="password"
+                            ref={register({required: "Password is required to login"})}
+                        />
+                        {errors.password && <p>{errors.password.message}</p>}
+                    </fieldset>
+
+                    <fieldset className="cardfieldset">
+                        <label for="admin">Are you an administrator?</label>
+                        <input
+                            className="cardinput"
+                            id="admin"
+                            type="checkbox"
+                            name="admin"
+                            ref={register}
+                        />
+                    </fieldset>  
+
+                    <fieldset className="cardfieldset">  
+                    <button className="card-button" type="submit">Log in</button>
+                    </fieldset>
+
+                    <fieldset className="cardfieldset">   
+                    <a className="cardlink"><Link to="/sign-up">Don't have an account? <br/> Click here to sign up</Link></a>
+                </fieldset> 
+
+                </form>
+            </div>
+        </div>
     );
 }
 
