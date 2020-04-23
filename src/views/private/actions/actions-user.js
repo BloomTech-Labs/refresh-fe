@@ -8,6 +8,7 @@ export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const UPDATE_WATER = 'UPDATE_WATER'
 export const UPDATE_SLEEP = 'UPDATE_SLEEP'
+export const UPDATE_EXERCISE = 'UPDATE_EXERCISE'
 
 
 //login
@@ -190,7 +191,6 @@ export const subtractSleep = (decreaseNum, userId) => dispatch => {
     axiosWithAuth()
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
-
                 //check to make sure sleep metric isn't currently at 0, to avoid negative metric input
                 if (response.data.sleep != 0) {
 
@@ -204,6 +204,33 @@ export const subtractSleep = (decreaseNum, userId) => dispatch => {
                                     dispatch({type: SET_ERROR, payload: error})
                                 })
                 }
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update exercise metrics, addition 
+export const addExercise= (increaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the exercise metric, in order to know what the current exercise number is to increase it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
+                axiosWithAuth()
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + increaseNum}) 
+                        .then(response => {
+                            console.log(response)
+                            dispatch({ type: UPDATE_EXERCISE, payload: increaseNum })
+                        })
+                        .catch(error => {
+                            dispatch({type: SET_ERROR, payload: error})
+                        })
 
             })
             .catch(error => {
