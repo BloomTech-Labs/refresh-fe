@@ -3,7 +3,10 @@ import {
     SET_ERROR,
     LOGIN,
     LOGOUT, 
-    ADD_WATER
+    UPDATE_WATER,
+    UPDATE_SLEEP,
+    UPDATE_EXERCISE,
+    UPDATE_BREAKS
 } from '../actions/actions-user.js';
 
 
@@ -68,10 +71,25 @@ function reducer(state = initialState, action) {
                 sleep: 0,
                 team_id: 0
             }
-        case ADD_WATER: 
+        case UPDATE_WATER: 
             return {
                 ...state, 
                 water: state.water + action.payload
+            }
+        case UPDATE_SLEEP:
+            return {
+                ...state,
+                sleep: state.sleep + action.payload
+            }
+        case UPDATE_EXERCISE:
+            return {
+                ...state,
+                exercise: state.exercise + action.payload
+            }
+        case UPDATE_BREAKS:
+            return {
+                ...state,
+                breaks: state.breaks + action.payload
             }
         default: 
             return state;

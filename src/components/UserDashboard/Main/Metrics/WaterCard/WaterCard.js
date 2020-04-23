@@ -1,5 +1,5 @@
 import React from 'react'
-import {addWater} from '../../../../../views/private/actions/actions-user'
+import {addWater, subtractWater} from '../../../../../views/private/actions/actions-user'
 import {connect} from 'react-redux'
 
 class WaterCard extends React.Component{
@@ -9,7 +9,7 @@ class WaterCard extends React.Component{
                 <h3>Water</h3>
                 <p>How many 8 OZ glasses of water have you consumed today?</p>
                 <div className='metric-card-input'>
-                <button>-</button>
+                <button onClick={() => this.props.subtractWater(-1, this.props.userId)}>-</button>
                 <h1>{this.props.water}</h1>
                 <button onClick={() => this.props.addWater(1, this.props.userId)}>+</button>
                 </div>
@@ -24,4 +24,4 @@ const mapStateToProps = state => {
         userId: state.userReducer.userId
     }
 }
-export default connect(mapStateToProps, {addWater})(WaterCard)
+export default connect(mapStateToProps, {addWater, subtractWater})(WaterCard)

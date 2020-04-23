@@ -6,7 +6,10 @@ export const FETCHING_START = 'FETCHING_START'
 export const SET_ERROR = 'SET_ERROR'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
-export const ADD_WATER = 'ADD_WATER'
+export const UPDATE_WATER = 'UPDATE_WATER'
+export const UPDATE_SLEEP = 'UPDATE_SLEEP'
+export const UPDATE_EXERCISE = 'UPDATE_EXERCISE'
+export const UPDATE_BREAKS = 'UPDATE_BREAKS'
 
 
 //login
@@ -16,7 +19,7 @@ export const login = (user) => dispatch => {
         .post('/users/login', user)
             .then(response => {
 
-                console.log("LOGIN USER DATA: ", response.data.UserInfo)
+                console.log("LOGIN USER DATA: ", response)
 
                 //set up to grab teamName from team_id that is given after login, so we can set team name to state to show on dashboard
                 let teamName = '';
@@ -98,20 +101,18 @@ export const logout = () => dispatch => {
 
 //update water metrics, addition 
 export const addWater = (increaseNum, userId) => dispatch => {
-    console.log("hit addWater")
     dispatch({ type: FETCHING_START })
-
 
     //first GET the water metric, in order to know what the current water number is to increase it by
     axiosWithAuth()
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
 
+                //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
                     .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + increaseNum}) 
                         .then(response => {
-                            console.log(response)
-                            dispatch({ type: ADD_WATER, payload: increaseNum })
+                            dispatch({ type: UPDATE_WATER, payload: increaseNum })
             
                         })
                         .catch(error => {
@@ -123,27 +124,201 @@ export const addWater = (increaseNum, userId) => dispatch => {
                 dispatch({type: SET_ERROR, payload: error})
             })
 
+}
 
+//update water metrics, subtraction
+export const subtractWater = (decreaseNum, userId) => dispatch => {
+    console.log("hit subtractWater")
+    dispatch({ type: FETCHING_START })
 
+    //first GET the water metric, in order to know what the current water number is to decrease it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //check to make sure water metric isn't currently at 0, to avoid negative metric input
+                if (response.data.water != 0) {
+
+                       //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
+                        axiosWithAuth()
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + decreaseNum}) 
+                                .then(response => {
+                                    dispatch({ type: UPDATE_WATER, payload: decreaseNum })
+                    
+                                })
+                                .catch(error => {
+                                    dispatch({type: SET_ERROR, payload: error})
+                                })
+                }
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
 
 }
 
-// export function addWater (increaseNum) {
-//     return (dispatch, getState) => {
-//         dispatch({ type: FETCHING_START })
-    
-//         const test = getState().userReducer;
-//         console.log("getState() test", test)
-    
-//         // axios
-//         //     .put(`https://lab23-refresh-be.herokuapp.com/users/${}/metrics`, increaseNum) 
-//         //         .then(response => {
-    
-//         //         })
-//         //         .catch(error => {
-    
-//         //         })
-    
-//     }
-    
-//     }
+//update sleep metrics, addition 
+export const addSleep = (increaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the sleep metric, in order to know what the current sleep number is to increase it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
+                axiosWithAuth()
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + increaseNum}) 
+                        .then(response => {
+                            dispatch({ type: UPDATE_SLEEP, payload: increaseNum })
+                        })
+                        .catch(error => {
+                            dispatch({type: SET_ERROR, payload: error})
+                        })
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update sleep metrics, subtraction
+export const subtractSleep = (decreaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the sleep metric, in order to know what the current sleep number is to decrease it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+                //check to make sure sleep metric isn't currently at 0, to avoid negative metric input
+                if (response.data.sleep != 0) {
+
+                       //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
+                        axiosWithAuth()
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + decreaseNum}) 
+                                .then(response => {
+                                    dispatch({ type: UPDATE_SLEEP, payload: decreaseNum })
+                                })
+                                .catch(error => {
+                                    dispatch({type: SET_ERROR, payload: error})
+                                })
+                }
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update exercise metrics, addition 
+export const addExercise= (increaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the exercise metric, in order to know what the current exercise number is to increase it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
+                axiosWithAuth()
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + increaseNum}) 
+                        .then(response => {
+                            dispatch({ type: UPDATE_EXERCISE, payload: increaseNum })
+                        })
+                        .catch(error => {
+                            dispatch({type: SET_ERROR, payload: error})
+                        })
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update exercise metrics, subtraction
+export const subtractExercise = (decreaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the exercise metric, in order to know what the current exercise number is to decrease it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+                //check to make sure exercise metric isn't currently at 0, to avoid negative metric input
+                if (response.data.exercise != 0) {
+
+                       //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
+                        axiosWithAuth()
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + decreaseNum}) 
+                                .then(response => {
+                                    dispatch({ type: UPDATE_EXERCISE, payload: decreaseNum })
+                                })
+                                .catch(error => {
+                                    dispatch({type: SET_ERROR, payload: error})
+                                })
+                }
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update breaks metrics, addition 
+export const addBreaks= (increaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the breaks metric, in order to know what the current breaks number is to increase it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
+                axiosWithAuth()
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + increaseNum}) 
+                        .then(response => {
+                            dispatch({ type: UPDATE_BREAKS, payload: increaseNum })
+                        })
+                        .catch(error => {
+                            dispatch({type: SET_ERROR, payload: error})
+                        })
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update breaks metrics, subtraction
+export const subtractBreaks = (decreaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the breaks metric, in order to know what the current breaks number is to decrease it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+                //check to make sure breaks metric isn't currently at 0, to avoid negative metric input
+                if (response.data.breaks != 0) {
+
+                       //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
+                        axiosWithAuth()
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + decreaseNum}) 
+                                .then(response => {
+                                    dispatch({ type: UPDATE_BREAKS, payload: decreaseNum })
+                                })
+                                .catch(error => {
+                                    dispatch({type: SET_ERROR, payload: error})
+                                })
+                }
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
