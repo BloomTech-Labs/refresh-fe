@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {addSleep} from '../../../../../views/private/actions/actions-user'
+
 
 class SleepCard extends React.Component{
     render(){
@@ -10,7 +12,7 @@ class SleepCard extends React.Component{
                 <div className='metric-card-input'>
                 <button>-</button>
                 <h1>{this.props.sleep}</h1>
-                <button>+</button>
+                <button onClick={() => this.props.addSleep(1, this.props.userId)}>+</button>
                 </div>
             </div>
         )
@@ -19,8 +21,9 @@ class SleepCard extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        sleep: state.userReducer.sleep
+        sleep: state.userReducer.sleep,
+        userId: state.userReducer.userId
     }
 }
 
-export default connect(mapStateToProps, {})(SleepCard)
+export default connect(mapStateToProps, {addSleep})(SleepCard)

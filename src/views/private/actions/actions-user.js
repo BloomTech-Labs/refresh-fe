@@ -7,6 +7,7 @@ export const SET_ERROR = 'SET_ERROR'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const UPDATE_WATER = 'UPDATE_WATER'
+export const UPDATE_SLEEP = 'UPDATE_SLEEP'
 
 
 //login
@@ -109,7 +110,6 @@ export const addWater = (increaseNum, userId) => dispatch => {
                 axiosWithAuth()
                     .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + increaseNum}) 
                         .then(response => {
-                            console.log(response)
                             dispatch({ type: UPDATE_WATER, payload: increaseNum })
             
                         })
@@ -136,12 +136,11 @@ export const subtractWater = (decreaseNum, userId) => dispatch => {
 
                 //check to make sure water metric isn't currently at 0, to avoid negative metric input
                 if (response.data.water != 0) {
-                    
+
                        //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
                             .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + decreaseNum}) 
                                 .then(response => {
-                                    console.log(response)
                                     dispatch({ type: UPDATE_WATER, payload: decreaseNum })
                     
                                 })
@@ -157,3 +156,30 @@ export const subtractWater = (decreaseNum, userId) => dispatch => {
 
 }
 
+//update sleep metrics, addition 
+export const addSleep = (increaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the sleep metric, in order to know what the current sleep number is to increase it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
+                axiosWithAuth()
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + increaseNum}) 
+                        .then(response => {
+                            console.log(response)
+                            dispatch({ type: UPDATE_SLEEP, payload: increaseNum })
+            
+                        })
+                        .catch(error => {
+                            dispatch({type: SET_ERROR, payload: error})
+                        })
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
