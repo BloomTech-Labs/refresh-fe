@@ -2,7 +2,8 @@ import {
     FETCHING_START,
     SET_ERROR,
     LOGIN,
-    LOGOUT
+    LOGOUT, 
+    ADD_WATER
 } from '../actions/actions-user.js';
 
 
@@ -10,6 +11,7 @@ const initialState = {
     isFetching: false,
     error: null,
     fullName: '',
+    userId: null,
     avatar: null,
     points: 0,
     admin: false,
@@ -41,6 +43,7 @@ function reducer(state = initialState, action) {
                 ...state,
                 isFetching: false,
                 fullName: action.payload.user.full_name,
+                userId: action.payload.user.id,
                 avatar: action.payload.user.avatar,
                 points: action.payload.user.points,
                 admin: action.payload.user.admin,
@@ -64,6 +67,11 @@ function reducer(state = initialState, action) {
                 breaks: 0,
                 sleep: 0,
                 team_id: 0
+            }
+        case ADD_WATER: 
+            return {
+                ...state, 
+                water: state.water + action.payload
             }
         default: 
             return state;

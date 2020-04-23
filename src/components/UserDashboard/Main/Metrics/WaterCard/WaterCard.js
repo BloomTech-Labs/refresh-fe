@@ -1,5 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux';
+import {addWater} from '../../../../../views/private/actions/actions-user'
+import {connect} from 'react-redux'
 
 class WaterCard extends React.Component{
     render(){
@@ -10,7 +11,7 @@ class WaterCard extends React.Component{
                 <div className='metric-card-input'>
                 <button>-</button>
                 <h1>{this.props.water}</h1>
-                <button>+</button>
+                <button onClick={() => this.props.addWater(1, this.props.userId)}>+</button>
                 </div>
             </div>
         )
@@ -19,8 +20,8 @@ class WaterCard extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        water: state.userReducer.water
+        water: state.userReducer.water,
+        userId: state.userReducer.userId
     }
 }
-
-export default connect(mapStateToProps, {})(WaterCard)
+export default connect(mapStateToProps, {addWater})(WaterCard)
