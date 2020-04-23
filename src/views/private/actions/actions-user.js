@@ -169,13 +169,41 @@ export const addSleep = (increaseNum, userId) => dispatch => {
                 axiosWithAuth()
                     .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + increaseNum}) 
                         .then(response => {
-                            console.log(response)
                             dispatch({ type: UPDATE_SLEEP, payload: increaseNum })
-            
                         })
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
                         })
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update sleep metrics, subtraction
+export const subtractSleep = (decreaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the sleep metric, in order to know what the current sleep number is to decrease it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+
+                //check to make sure sleep metric isn't currently at 0, to avoid negative metric input
+                if (response.data.sleep != 0) {
+
+                       //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
+                        axiosWithAuth()
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + decreaseNum}) 
+                                .then(response => {
+                                    dispatch({ type: UPDATE_SLEEP, payload: decreaseNum })
+                                })
+                                .catch(error => {
+                                    dispatch({type: SET_ERROR, payload: error})
+                                })
+                }
 
             })
             .catch(error => {
