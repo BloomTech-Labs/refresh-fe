@@ -226,7 +226,6 @@ export const addExercise= (increaseNum, userId) => dispatch => {
                 axiosWithAuth()
                     .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + increaseNum}) 
                         .then(response => {
-                            console.log(response)
                             dispatch({ type: UPDATE_EXERCISE, payload: increaseNum })
                         })
                         .catch(error => {
@@ -255,7 +254,6 @@ export const subtractExercise = (decreaseNum, userId) => dispatch => {
                         axiosWithAuth()
                             .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + decreaseNum}) 
                                 .then(response => {
-                                    console.log(response)
                                     dispatch({ type: UPDATE_EXERCISE, payload: decreaseNum })
                                 })
                                 .catch(error => {
@@ -283,12 +281,40 @@ export const addBreaks= (increaseNum, userId) => dispatch => {
                 axiosWithAuth()
                     .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + increaseNum}) 
                         .then(response => {
-                            console.log(response)
                             dispatch({ type: UPDATE_BREAKS, payload: increaseNum })
                         })
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
                         })
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update breaks metrics, subtraction
+export const subtractBreaks = (decreaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the breaks metric, in order to know what the current breaks number is to decrease it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+                //check to make sure breaks metric isn't currently at 0, to avoid negative metric input
+                if (response.data.breaks != 0) {
+
+                       //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
+                        axiosWithAuth()
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + decreaseNum}) 
+                                .then(response => {
+                                    dispatch({ type: UPDATE_BREAKS, payload: decreaseNum })
+                                })
+                                .catch(error => {
+                                    dispatch({type: SET_ERROR, payload: error})
+                                })
+                }
 
             })
             .catch(error => {
