@@ -18,7 +18,7 @@ export const login = (user) => dispatch => {
         .post('/users/login', user)
             .then(response => {
 
-                console.log("LOGIN USER DATA: ", response.data.UserInfo)
+                console.log("LOGIN USER DATA: ", response)
 
                 //set up to grab teamName from team_id that is given after login, so we can set team name to state to show on dashboard
                 let teamName = '';
@@ -231,6 +231,36 @@ export const addExercise= (increaseNum, userId) => dispatch => {
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
                         })
+
+            })
+            .catch(error => {
+                dispatch({type: SET_ERROR, payload: error})
+            })
+
+}
+
+//update exercise metrics, subtraction
+export const subtractExercise = (decreaseNum, userId) => dispatch => {
+    dispatch({ type: FETCHING_START })
+
+    //first GET the exercise metric, in order to know what the current exercise number is to decrease it by
+    axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+            .then(response => {
+                //check to make sure exercise metric isn't currently at 0, to avoid negative metric input
+                if (response.data.exercise != 0) {
+
+                       //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
+                        axiosWithAuth()
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + decreaseNum}) 
+                                .then(response => {
+                                    console.log(response)
+                                    dispatch({ type: UPDATE_EXERCISE, payload: decreaseNum })
+                                })
+                                .catch(error => {
+                                    dispatch({type: SET_ERROR, payload: error})
+                                })
+                }
 
             })
             .catch(error => {
