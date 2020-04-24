@@ -93,6 +93,8 @@ function UserSignUp(props) {
                     {errors.verifyPassword && <p>{errors.verifyPassword.message}</p>}
                     </fieldset>
 
+                    <p>{(props.error == null ? '' : (props.error.response.data.errorMessage))}</p>
+
                     <fieldset className="cardfieldset">
                         <button className="card-button" type="submit">Sign up</button>
                     </fieldset>
@@ -109,7 +111,7 @@ function UserSignUp(props) {
 
 const mapStateToProps = state => {
     return {
-
+        error: state.userReducer.error
     }
 }
 export default connect(mapStateToProps, {register})(UserSignUp)
