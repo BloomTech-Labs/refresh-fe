@@ -237,19 +237,27 @@ export const subtractSleep = (decreaseNum, userId, dailyPoints, totalPoints) => 
 }
 
 //update exercise metrics, addition 
-export const addExercise= (increaseNum, userId) => dispatch => {
+export const addExercise= (increaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the exercise metric, in order to know what the current exercise number is to increase it by
     axiosWithAuth()
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
+                
+                //call helper function to find out how many points to update by
+                const pointsToUpdate = updatePointsExercise(response.data.exercise, 4, 'add', increaseNum);
 
                 //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + increaseNum}) 
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                        {exercise: response.data.exercise + increaseNum,
+                         daily_points: dailyPoints + pointsToUpdate, 
+                         total_points: totalPoints + pointsToUpdate}) 
                         .then(response => {
                             dispatch({ type: UPDATE_EXERCISE, payload: increaseNum })
+                            
+                            dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                         })
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
@@ -263,7 +271,7 @@ export const addExercise= (increaseNum, userId) => dispatch => {
 }
 
 //update exercise metrics, subtraction
-export const subtractExercise = (decreaseNum, userId) => dispatch => {
+export const subtractExercise = (decreaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the exercise metric, in order to know what the current exercise number is to decrease it by
@@ -272,12 +280,20 @@ export const subtractExercise = (decreaseNum, userId) => dispatch => {
             .then(response => {
                 //check to make sure exercise metric isn't currently at 0, to avoid negative metric input
                 if (response.data.exercise != 0) {
+                           
+                        //call helper function to find out how many points to update by
+                        const pointsToUpdate = updatePointsExercise(response.data.exercise, 4, 'subtract', decreaseNum);
 
                        //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
-                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + decreaseNum}) 
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                                {exercise: response.data.exercise + decreaseNum,
+                                 daily_points: dailyPoints + pointsToUpdate, 
+                                 total_points: totalPoints + pointsToUpdate}) 
                                 .then(response => {
                                     dispatch({ type: UPDATE_EXERCISE, payload: decreaseNum })
+                                    
+                                    dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                                 })
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
@@ -383,6 +399,59 @@ function updatePointsSleep (metricNum, goal, operation) {
             // -3 points for sleep metrics 6
             else if (metricNum == 6) {
                 pointsToAdd = -3
+            }
+        }
+
+    }
+
+    return pointsToAdd;
+}
+
+//update points for exercise helper function
+function updatePointsExercise (metricNum, goal, operation, changeInMetric) {
+
+    let pointsToAdd = 0;
+    let currentMetricNum = metricNum / Math.abs(changeInMetric); //(divide metricNum by changeInMetric, since exercise is currently measured in intervals of 15)
+
+    //update points only if at or below goal 
+    if (currentMetricNum / Math.abs(changeInMetric) <= goal) {
+
+        //check to see what operation is requested, and update points accordingly
+        if (operation === 'add') {
+            // +1 point for exercise 
+            if (currentMetricNum == 0 ) {
+                pointsToAdd = 1;
+            }
+            // +2 point for exercise metrics 1
+            else if (currentMetricNum == 1) {
+                pointsToAdd = 2;
+            }
+            // +3 point for exercise metrics 2
+            else if (currentMetricNum == 2 ) {
+                pointsToAdd = 3;
+            }
+            // +4 points for exercise metrics 3
+            else if (currentMetricNum == 3) {
+                pointsToAdd = 4;
+            }
+        }
+        else if (operation === 'subtract') {
+
+            // -1 point for exercise 
+            if (currentMetricNum == 1 ) {
+                pointsToAdd = -1;
+            }
+            // -2 point for exercise metrics 1
+            else if (currentMetricNum == 2) {
+                pointsToAdd = -2;
+            }
+            // -3 point for exercise metrics 2
+            else if (currentMetricNum == 3 ) {
+                pointsToAdd = -3;
+            }
+            // -4 points for exercise metrics 3
+            else if (currentMetricNum == 4) {
+                pointsToAdd = -4;
             }
         }
 

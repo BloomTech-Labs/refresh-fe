@@ -9,9 +9,9 @@ class ExcerciseCard extends React.Component{
                 <h3>Excercise</h3>
                 <p>How many minutes of excercise have you done today?</p>
                 <div className='metric-card-input'>
-                <button onClick={() => this.props.subtractExercise(-15, this.props.userId)}>-</button>
+                <button onClick={() => this.props.subtractExercise(-15, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
                 <h1>{this.props.exercise}</h1>
-                <button onClick={() => this.props.addExercise(15, this.props.userId)}>+</button>
+                <button onClick={() => this.props.addExercise(15, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>
         )
@@ -21,7 +21,9 @@ class ExcerciseCard extends React.Component{
 const mapStateToProps = state => {
     return {
         exercise: state.userReducer.exercise,
-        userId: state.userReducer.userId
+        userId: state.userReducer.userId,
+        dailyPoints: state.userReducer.dailyPoints,
+        totalPoints: state.userReducer.totalPoints
     }
 }
 
