@@ -10,6 +10,7 @@ export const UPDATE_WATER = 'UPDATE_WATER'
 export const UPDATE_SLEEP = 'UPDATE_SLEEP'
 export const UPDATE_EXERCISE = 'UPDATE_EXERCISE'
 export const UPDATE_BREAKS = 'UPDATE_BREAKS'
+export const UPDATE_POINTS = 'UPDATE_POINTS'
 
 
 //login
@@ -87,6 +88,7 @@ export const register = (user) => dispatch => {
                 history.push('/UserDashboard')
             })
             .catch(error => {
+                console.log("ERROR FROM REGISTER", error)
                 dispatch({type: SET_ERROR, payload: error})
             })
 }
@@ -159,7 +161,7 @@ export const subtractWater = (decreaseNum, userId) => dispatch => {
 }
 
 //update sleep metrics, addition 
-export const addSleep = (increaseNum, userId) => dispatch => {
+export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the sleep metric, in order to know what the current sleep number is to increase it by
@@ -167,15 +169,27 @@ export const addSleep = (increaseNum, userId) => dispatch => {
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
 
+
+                //call helper function to find out how many points to update by
+                const pointsToUpdate = updatePointsSleep(response.data.sleep, 6, 'add');
+
+                console.log("response.data.daily_points: ", dailyPoints);
+                console.log("pointsToUpdate: ", pointsToUpdate);
+
                 //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + increaseNum}) 
-                        .then(response => {
-                            dispatch({ type: UPDATE_SLEEP, payload: increaseNum })
-                        })
-                        .catch(error => {
-                            dispatch({type: SET_ERROR, payload: error})
-                        })
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                        {sleep: response.data.sleep + increaseNum, 
+                         daily_points: dailyPoints + pointsToUpdate, 
+                         total_points: totalPoints + pointsToUpdate}) 
+                            .then(response => {
+                                dispatch({ type: UPDATE_SLEEP, payload: increaseNum })
+
+                                dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
+                            })
+                            .catch(error => {
+                                dispatch({type: SET_ERROR, payload: error})
+                            })
 
             })
             .catch(error => {
@@ -185,7 +199,7 @@ export const addSleep = (increaseNum, userId) => dispatch => {
 }
 
 //update sleep metrics, subtraction
-export const subtractSleep = (decreaseNum, userId) => dispatch => {
+export const subtractSleep = (decreaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the sleep metric, in order to know what the current sleep number is to decrease it by
@@ -195,15 +209,24 @@ export const subtractSleep = (decreaseNum, userId) => dispatch => {
                 //check to make sure sleep metric isn't currently at 0, to avoid negative metric input
                 if (response.data.sleep != 0) {
 
+
+                    //call helper function to find out how many points to update by
+                    const pointsToUpdate = updatePointsSleep(response.data.sleep, 6, 'subtract');
+
                        //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
-                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + decreaseNum}) 
-                                .then(response => {
-                                    dispatch({ type: UPDATE_SLEEP, payload: decreaseNum })
-                                })
-                                .catch(error => {
-                                    dispatch({type: SET_ERROR, payload: error})
-                                })
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                                {sleep: response.data.sleep + decreaseNum,
+                                 daily_points: dailyPoints + pointsToUpdate, 
+                                 total_points: totalPoints + pointsToUpdate}) 
+                                    .then(response => {
+                                        dispatch({ type: UPDATE_SLEEP, payload: decreaseNum })
+
+                                        dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
+                                    })
+                                    .catch(error => {
+                                        dispatch({type: SET_ERROR, payload: error})
+                                    })
                 }
 
             })
@@ -321,4 +344,49 @@ export const subtractBreaks = (decreaseNum, userId) => dispatch => {
                 dispatch({type: SET_ERROR, payload: error})
             })
 
+}
+
+
+//update points for sleep helper function
+function updatePointsSleep (metricNum, goal, operation) {
+
+    let pointsToAdd = 0;
+
+    //update points only if at or below goal
+    if (metricNum <= goal) {
+
+        //check to see what operation is requested, and update points accordingly
+        if (operation === 'add') {
+            // +1 point for sleep metrics 0-2
+            if (metricNum <= 2) {
+                pointsToAdd = 1;
+            }
+            // +2 point for sleep metrics 3-4
+            else if (metricNum >= 3 && metricNum <= 4) {
+                pointsToAdd = 2;
+            }
+            // +3 points for sleep metrics 5
+            else if (metricNum == 5) {
+                pointsToAdd = 3
+            }
+        }
+        else if (operation === 'subtract') {
+
+            // -1 point for sleep metrics 1-3
+            if (metricNum <= 3) {
+                pointsToAdd = -1;
+            }
+            // -2 point for sleep metrics 4-5
+            else if (metricNum >= 4 && metricNum <= 5) {
+                pointsToAdd = -2;
+            }
+            // -3 points for sleep metrics 6
+            else if (metricNum == 6) {
+                pointsToAdd = -3
+            }
+        }
+
+    }
+
+    return pointsToAdd;
 }
