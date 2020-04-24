@@ -292,7 +292,7 @@ export const subtractExercise = (decreaseNum, userId, dailyPoints, totalPoints) 
                                  total_points: totalPoints + pointsToUpdate}) 
                                 .then(response => {
                                     dispatch({ type: UPDATE_EXERCISE, payload: decreaseNum })
-                                    
+
                                     dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                                 })
                                 .catch(error => {
@@ -308,7 +308,7 @@ export const subtractExercise = (decreaseNum, userId, dailyPoints, totalPoints) 
 }
 
 //update breaks metrics, addition 
-export const addBreaks= (increaseNum, userId) => dispatch => {
+export const addBreaks= (increaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the breaks metric, in order to know what the current breaks number is to increase it by
@@ -316,11 +316,19 @@ export const addBreaks= (increaseNum, userId) => dispatch => {
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
 
+                //call helper function to find out how many points to update by
+                const pointsToUpdate = updatePointsBreaks(response.data.breaks, 4, 'add', increaseNum);
+
                 //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + increaseNum}) 
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                    {breaks: response.data.breaks + increaseNum,
+                     daily_points: dailyPoints + pointsToUpdate, 
+                     total_points: totalPoints + pointsToUpdate}) 
                         .then(response => {
                             dispatch({ type: UPDATE_BREAKS, payload: increaseNum })
+
+                            dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                         })
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
@@ -334,7 +342,7 @@ export const addBreaks= (increaseNum, userId) => dispatch => {
 }
 
 //update breaks metrics, subtraction
-export const subtractBreaks = (decreaseNum, userId) => dispatch => {
+export const subtractBreaks = (decreaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the breaks metric, in order to know what the current breaks number is to decrease it by
@@ -344,11 +352,19 @@ export const subtractBreaks = (decreaseNum, userId) => dispatch => {
                 //check to make sure breaks metric isn't currently at 0, to avoid negative metric input
                 if (response.data.breaks != 0) {
 
+                    //call helper function to find out how many points to update by
+                    const pointsToUpdate = updatePointsBreaks(response.data.breaks, 4, 'subtract', decreaseNum);
+
                        //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
-                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + decreaseNum}) 
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                            {breaks: response.data.breaks + decreaseNum,
+                             daily_points: dailyPoints + pointsToUpdate, 
+                             total_points: totalPoints + pointsToUpdate}) 
                                 .then(response => {
                                     dispatch({ type: UPDATE_BREAKS, payload: decreaseNum })
+
+                                    dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                                 })
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
@@ -418,7 +434,7 @@ function updatePointsExercise (metricNum, goal, operation, changeInMetric) {
 
         //check to see what operation is requested, and update points accordingly
         if (operation === 'add') {
-            // +1 point for exercise 
+            // +1 point for exercise metric 0
             if (currentMetricNum == 0 ) {
                 pointsToAdd = 1;
             }
@@ -437,24 +453,75 @@ function updatePointsExercise (metricNum, goal, operation, changeInMetric) {
         }
         else if (operation === 'subtract') {
 
-            // -1 point for exercise 
+            // -1 point for exercise metric 1
             if (currentMetricNum == 1 ) {
                 pointsToAdd = -1;
             }
-            // -2 point for exercise metrics 1
+            // -2 point for exercise metrics 2
             else if (currentMetricNum == 2) {
                 pointsToAdd = -2;
             }
-            // -3 point for exercise metrics 2
+            // -3 point for exercise metrics 3
             else if (currentMetricNum == 3 ) {
                 pointsToAdd = -3;
             }
-            // -4 points for exercise metrics 3
+            // -4 points for exercise metrics 4
             else if (currentMetricNum == 4) {
                 pointsToAdd = -4;
             }
         }
 
+    }
+
+    return pointsToAdd;
+}
+
+//update points for sleep helper function
+function updatePointsBreaks (metricNum, goal, operation) {
+
+    let pointsToAdd = 0;
+
+    //update points only if at or below goal
+    if (metricNum <= goal) {
+
+        //check to see what operation is requested, and update points accordingly
+        if (operation === 'add') {
+            // +1 point for breaks metric 0 
+            if (metricNum == 0 ) {
+                pointsToAdd = 1;
+            }
+            // +2 point for breaks metric 1
+            else if (metricNum == 1) {
+                pointsToAdd = 2;
+            }
+            // +3 point for breaks metrics 2
+            else if (metricNum == 2 ) {
+                pointsToAdd = 3;
+            }
+            // +4 points for breaks metrics 3
+            else if (metricNum == 3) {
+                pointsToAdd = 4;
+            }
+        }
+        else if (operation === 'subtract') {
+
+            // -1 point for breaks metric 1
+            if (metricNum == 1 ) {
+                pointsToAdd = -1;
+            }
+            // -2 point for breaks metric 2
+            else if (metricNum == 2) {
+                pointsToAdd = -2;
+            }
+            // -3 point for breaks metric 3
+            else if (metricNum == 3 ) {
+                pointsToAdd = -3;
+            }
+            // -4 points for breaks metric 4
+            else if (metricNum == 4) {
+                pointsToAdd = -4;
+            }
+        }
     }
 
     return pointsToAdd;
