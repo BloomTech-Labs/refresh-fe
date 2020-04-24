@@ -3,16 +3,6 @@ import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import {register} from "../views/private/actions/actions-user"
 import { connect } from "react-redux";
-import {
-    CardWrapper,
-    CardHeader,
-    CardHeading,
-    CardBody,
-    CardFieldset,
-    CardInput,
-    CardButton,
-    CardLink
-  } from "./styles";
 
 
 function UserSignUp(props) {
