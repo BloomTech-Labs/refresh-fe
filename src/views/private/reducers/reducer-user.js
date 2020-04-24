@@ -1,5 +1,6 @@
 import {
     FETCHING_START,
+    FETCHING_END,
     SET_ERROR,
     LOGIN,
     LOGOUT, 
@@ -36,6 +37,11 @@ function reducer(state = initialState, action) {
                 ...state,
                 isFetching: true,
                 error: null
+            }
+        case FETCHING_END: 
+            return {
+                ...state, 
+                isFetching: false
             }
         case SET_ERROR: 
             return {
@@ -77,21 +83,25 @@ function reducer(state = initialState, action) {
         case UPDATE_WATER: 
             return {
                 ...state, 
+                isFetching: false,
                 water: state.water + action.payload
             }
         case UPDATE_SLEEP:
             return {
                 ...state,
+                isFetching: false,
                 sleep: state.sleep + action.payload
             }
         case UPDATE_EXERCISE:
             return {
                 ...state,
+                isFetching: false,
                 exercise: state.exercise + action.payload
             }
         case UPDATE_BREAKS:
             return {
                 ...state,
+                isFetching: false,
                 breaks: state.breaks + action.payload
             }
         case UPDATE_POINTS: {

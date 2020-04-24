@@ -9,9 +9,9 @@ class WaterCard extends React.Component{
                 <h3>Water</h3>
                 <p>How many 8 OZ glasses of water have you consumed today?</p>
                 <div className='metric-card-input'>
-                <button onClick={() => this.props.subtractWater(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
+                <button disabled={this.props.isFetching} onClick={() => this.props.subtractWater(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
                 <h1>{this.props.water}</h1>
-                <button onClick={() => this.props.addWater(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
+                <button disabled={this.props.isFetching} onClick={() => this.props.addWater(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>
         )
@@ -23,7 +23,8 @@ const mapStateToProps = state => {
         water: state.userReducer.water,
         userId: state.userReducer.userId,
         dailyPoints: state.userReducer.dailyPoints,
-        totalPoints: state.userReducer.totalPoints
+        totalPoints: state.userReducer.totalPoints,
+        isFetching: state.userReducer.isFetching
     }
 }
 export default connect(mapStateToProps, {addWater, subtractWater})(WaterCard)

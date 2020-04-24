@@ -9,9 +9,9 @@ class BreaksCard extends React.Component{
                 <h3>Breaks</h3>
                 <p>How many 15+ minute breaks have you taken today?</p>
                 <div className='metric-card-input'>
-                <button onClick={() => this.props.subtractBreaks(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
+                <button disabled={this.props.isFetching} onClick={() => this.props.subtractBreaks(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
                 <h1>{this.props.breaks}</h1>
-                <button onClick={() => this.props.addBreaks(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
+                <button disabled={this.props.isFetching} onClick={() => this.props.addBreaks(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>
         )
@@ -23,7 +23,8 @@ const mapStateToProps = state => {
         breaks: state.userReducer.breaks,
         userId: state.userReducer.userId,
         dailyPoints: state.userReducer.dailyPoints,
-        totalPoints: state.userReducer.totalPoints
+        totalPoints: state.userReducer.totalPoints,
+        isFetching: state.userReducer.isFetching
     }
 }
 

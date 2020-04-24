@@ -3,6 +3,7 @@ import {axiosWithAuth} from '../../../helpers/axiosWithAuth';
 import history from '../../../helpers/history';
 
 export const FETCHING_START = 'FETCHING_START'
+export const FETCHING_END = 'FETCHING_END'
 export const SET_ERROR = 'SET_ERROR'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
@@ -166,6 +167,8 @@ export const subtractWater = (decreaseNum, userId, dailyPoints, totalPoints) => 
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
                                 })
+                } else {
+                    dispatch({ type: FETCHING_END })
                 }
 
             })
@@ -242,6 +245,8 @@ export const subtractSleep = (decreaseNum, userId, dailyPoints, totalPoints) => 
                                     .catch(error => {
                                         dispatch({type: SET_ERROR, payload: error})
                                     })
+                } else {
+                    dispatch({ type: FETCHING_END })
                 }
 
             })
@@ -313,6 +318,8 @@ export const subtractExercise = (decreaseNum, userId, dailyPoints, totalPoints) 
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
                                 })
+                } else {
+                    dispatch({ type: FETCHING_END })
                 }
 
             })
@@ -384,6 +391,8 @@ export const subtractBreaks = (decreaseNum, userId, dailyPoints, totalPoints) =>
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
                                 })
+                } else {
+                    dispatch({ type: FETCHING_END })
                 }
 
             })
