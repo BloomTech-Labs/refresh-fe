@@ -102,7 +102,7 @@ export const logout = () => dispatch => {
 }
 
 //update water metrics, addition 
-export const addWater = (increaseNum, userId) => dispatch => {
+export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the water metric, in order to know what the current water number is to increase it by
@@ -110,12 +110,20 @@ export const addWater = (increaseNum, userId) => dispatch => {
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
 
+                
+                //call helper function to find out how many points to update by
+                const pointsToUpdate = updatePointsWater(response.data.water, 8, 'add');
+
                 //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + increaseNum}) 
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                        {water: response.data.water + increaseNum,
+                         daily_points: dailyPoints + pointsToUpdate, 
+                         total_points: totalPoints + pointsToUpdate}) 
                         .then(response => {
                             dispatch({ type: UPDATE_WATER, payload: increaseNum })
             
+                            dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                         })
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
@@ -129,7 +137,7 @@ export const addWater = (increaseNum, userId) => dispatch => {
 }
 
 //update water metrics, subtraction
-export const subtractWater = (decreaseNum, userId) => dispatch => {
+export const subtractWater = (decreaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     console.log("hit subtractWater")
     dispatch({ type: FETCHING_START })
 
@@ -141,12 +149,19 @@ export const subtractWater = (decreaseNum, userId) => dispatch => {
                 //check to make sure water metric isn't currently at 0, to avoid negative metric input
                 if (response.data.water != 0) {
 
+                      //call helper function to find out how many points to update by
+                      const pointsToUpdate = updatePointsWater(response.data.water, 8, 'subtract');
+
                        //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
-                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + decreaseNum}) 
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                                {water: response.data.water + decreaseNum,
+                                 daily_points: dailyPoints + pointsToUpdate, 
+                                 total_points: totalPoints + pointsToUpdate}) 
                                 .then(response => {
                                     dispatch({ type: UPDATE_WATER, payload: decreaseNum })
                     
+                                    dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                                 })
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
@@ -522,6 +537,42 @@ function updatePointsBreaks (metricNum, goal, operation) {
                 pointsToAdd = -4;
             }
         }
+    }
+
+    return pointsToAdd;
+}
+
+//update points for water helper function
+function updatePointsWater (metricNum, goal, operation) {
+
+    let pointsToAdd = 0;
+
+    //update points only if at or below goal
+    if (metricNum <= goal) {
+
+        //check to see what operation is requested, and update points accordingly
+        if (operation === 'add') {
+            // +1 point for water metrics 0-5
+            if (metricNum <= 5 && metricNum >= 0) {
+                pointsToAdd = 1;
+            }
+            // + 2 points for water metrics 6-7
+            else if (metricNum > 5 && metricNum <= 7) {
+                pointsToAdd = 2;
+            }
+        }
+        else if (operation === 'subtract') {
+
+             // +1 point for water metrics 1-6
+            if (metricNum <= 6 && metricNum >= 1) {
+                pointsToAdd = -1;
+            }
+            // + 2 points for water metrics 7-8
+            else if (metricNum > 6 && metricNum <= 8) {
+                pointsToAdd = -2;
+            }
+        }
+
     }
 
     return pointsToAdd;
