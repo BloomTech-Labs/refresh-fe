@@ -71,6 +71,8 @@ function UserLogin(props) {
                         />
                     </fieldset>  
 
+                    <p>{(props.error === null ? '' : (props.error.response.data.message))}</p>
+
                     <fieldset className="cardfieldset">  
                     <button className="card-button" type="submit">Log in</button>
                     </fieldset>
@@ -87,7 +89,7 @@ function UserLogin(props) {
 
 const mapStateToProps = state => {
     return {
-        
+        error: state.userReducer.error
     }
 }
 
