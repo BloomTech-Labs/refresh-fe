@@ -189,7 +189,7 @@ export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => dispa
 
 
                 //call helper function to find out how many points to update by
-                const pointsToUpdate = updatePointsSleep(response.data.sleep, 6, 'add');
+                const pointsToUpdate = updatePointsSleep(response.data.sleep, 8, 'add');
 
                 console.log("response.data.daily_points: ", dailyPoints);
                 console.log("pointsToUpdate: ", pointsToUpdate);
@@ -229,7 +229,7 @@ export const subtractSleep = (decreaseNum, userId, dailyPoints, totalPoints) => 
 
 
                     //call helper function to find out how many points to update by
-                    const pointsToUpdate = updatePointsSleep(response.data.sleep, 6, 'subtract');
+                    const pointsToUpdate = updatePointsSleep(response.data.sleep, 8, 'subtract');
 
                        //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
@@ -339,7 +339,7 @@ export const addBreaks= (increaseNum, userId, dailyPoints, totalPoints) => dispa
             .then(response => {
 
                 //call helper function to find out how many points to update by
-                const pointsToUpdate = updatePointsBreaks(response.data.breaks, 4, 'add', increaseNum);
+                const pointsToUpdate = updatePointsBreaks(response.data.breaks, 2, 'add', increaseNum);
 
                 //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
@@ -375,7 +375,7 @@ export const subtractBreaks = (decreaseNum, userId, dailyPoints, totalPoints) =>
                 if (response.data.breaks != 0) {
 
                     //call helper function to find out how many points to update by
-                    const pointsToUpdate = updatePointsBreaks(response.data.breaks, 4, 'subtract', decreaseNum);
+                    const pointsToUpdate = updatePointsBreaks(response.data.breaks, 2, 'subtract', decreaseNum);
 
                        //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
@@ -413,33 +413,16 @@ function updatePointsSleep (metricNum, goal, operation) {
 
         //check to see what operation is requested, and update points accordingly
         if (operation === 'add') {
-            // +1 point for sleep metrics 0-2
-            if (metricNum <= 2) {
-                pointsToAdd = 1;
-            }
-            // +2 point for sleep metrics 3-4
-            else if (metricNum >= 3 && metricNum <= 4) {
-                pointsToAdd = 2;
-            }
-            // +3 points for sleep metrics 5
-            else if (metricNum == 5) {
-                pointsToAdd = 3
-            }
+
+          if (metricNum >= 0 && metricNum < 8) {
+              pointsToAdd = 1;
+          }
         }
         else if (operation === 'subtract') {
 
-            // -1 point for sleep metrics 1-3
-            if (metricNum <= 3) {
-                pointsToAdd = -1;
-            }
-            // -2 point for sleep metrics 4-5
-            else if (metricNum >= 4 && metricNum <= 5) {
-                pointsToAdd = -2;
-            }
-            // -3 points for sleep metrics 6
-            else if (metricNum == 6) {
-                pointsToAdd = -3
-            }
+             if (metricNum > 0 && metricNum <= 8) {
+              pointsToAdd = -1;
+          }
         }
 
     }
@@ -458,40 +441,15 @@ function updatePointsExercise (metricNum, goal, operation, changeInMetric) {
 
         //check to see what operation is requested, and update points accordingly
         if (operation === 'add') {
-            // +1 point for exercise metric 0
-            if (currentMetricNum == 0 ) {
-                pointsToAdd = 1;
-            }
-            // +2 point for exercise metrics 1
-            else if (currentMetricNum == 1) {
-                pointsToAdd = 2;
-            }
-            // +3 point for exercise metrics 2
-            else if (currentMetricNum == 2 ) {
-                pointsToAdd = 3;
-            }
-            // +4 points for exercise metrics 3
-            else if (currentMetricNum == 3) {
-                pointsToAdd = 4;
+
+            if (currentMetricNum >= 0 && currentMetricNum < 4) {
+                pointsToAdd = 2
             }
         }
         else if (operation === 'subtract') {
 
-            // -1 point for exercise metric 1
-            if (currentMetricNum == 1 ) {
-                pointsToAdd = -1;
-            }
-            // -2 point for exercise metrics 2
-            else if (currentMetricNum == 2) {
-                pointsToAdd = -2;
-            }
-            // -3 point for exercise metrics 3
-            else if (currentMetricNum == 3 ) {
-                pointsToAdd = -3;
-            }
-            // -4 points for exercise metrics 4
-            else if (currentMetricNum == 4) {
-                pointsToAdd = -4;
+            if (currentMetricNum > 0 && currentMetricNum <= 4) {
+                pointsToAdd = -2
             }
         }
 
@@ -510,39 +468,14 @@ function updatePointsBreaks (metricNum, goal, operation) {
 
         //check to see what operation is requested, and update points accordingly
         if (operation === 'add') {
-            // +1 point for breaks metric 0 
-            if (metricNum == 0 ) {
-                pointsToAdd = 1;
-            }
-            // +2 point for breaks metric 1
-            else if (metricNum == 1) {
-                pointsToAdd = 2;
-            }
-            // +3 point for breaks metrics 2
-            else if (metricNum == 2 ) {
-                pointsToAdd = 3;
-            }
-            // +4 points for breaks metrics 3
-            else if (metricNum == 3) {
-                pointsToAdd = 4;
-            }
+
+          if (metricNum >= 0 && metricNum < 2) {
+              pointsToAdd = 4;
+          }
         }
         else if (operation === 'subtract') {
 
-            // -1 point for breaks metric 1
-            if (metricNum == 1 ) {
-                pointsToAdd = -1;
-            }
-            // -2 point for breaks metric 2
-            else if (metricNum == 2) {
-                pointsToAdd = -2;
-            }
-            // -3 point for breaks metric 3
-            else if (metricNum == 3 ) {
-                pointsToAdd = -3;
-            }
-            // -4 points for breaks metric 4
-            else if (metricNum == 4) {
+            if (metricNum > 0 && metricNum <= 2) {
                 pointsToAdd = -4;
             }
         }
@@ -561,27 +494,17 @@ function updatePointsWater (metricNum, goal, operation) {
 
         //check to see what operation is requested, and update points accordingly
         if (operation === 'add') {
-            // +1 point for water metrics 0-5
-            if (metricNum <= 5 && metricNum >= 0) {
+
+            if (metricNum >= 0 && metricNum < 8) {
                 pointsToAdd = 1;
-            }
-            // + 2 points for water metrics 6-7
-            else if (metricNum > 5 && metricNum <= 7) {
-                pointsToAdd = 2;
             }
         }
         else if (operation === 'subtract') {
 
-             // +1 point for water metrics 1-6
-            if (metricNum <= 6 && metricNum >= 1) {
+            if (metricNum > 0 && metricNum <= 8) {
                 pointsToAdd = -1;
             }
-            // + 2 points for water metrics 7-8
-            else if (metricNum > 6 && metricNum <= 8) {
-                pointsToAdd = -2;
-            }
         }
-
     }
 
     return pointsToAdd;
