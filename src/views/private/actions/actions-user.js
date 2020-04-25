@@ -3,6 +3,7 @@ import {axiosWithAuth} from '../../../helpers/axiosWithAuth';
 import history from '../../../helpers/history';
 
 export const FETCHING_START = 'FETCHING_START'
+export const FETCHING_END = 'FETCHING_END'
 export const SET_ERROR = 'SET_ERROR'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
@@ -10,6 +11,7 @@ export const UPDATE_WATER = 'UPDATE_WATER'
 export const UPDATE_SLEEP = 'UPDATE_SLEEP'
 export const UPDATE_EXERCISE = 'UPDATE_EXERCISE'
 export const UPDATE_BREAKS = 'UPDATE_BREAKS'
+export const UPDATE_POINTS = 'UPDATE_POINTS'
 
 
 //login
@@ -87,6 +89,7 @@ export const register = (user) => dispatch => {
                 history.push('/UserDashboard')
             })
             .catch(error => {
+                console.log("ERROR FROM REGISTER", error)
                 dispatch({type: SET_ERROR, payload: error})
             })
 }
@@ -100,7 +103,7 @@ export const logout = () => dispatch => {
 }
 
 //update water metrics, addition 
-export const addWater = (increaseNum, userId) => dispatch => {
+export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the water metric, in order to know what the current water number is to increase it by
@@ -108,12 +111,20 @@ export const addWater = (increaseNum, userId) => dispatch => {
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
 
+                
+                //call helper function to find out how many points to update by
+                const pointsToUpdate = updatePointsWater(response.data.water, 8, 'add');
+
                 //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + increaseNum}) 
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                        {water: response.data.water + increaseNum,
+                         daily_points: dailyPoints + pointsToUpdate, 
+                         total_points: totalPoints + pointsToUpdate}) 
                         .then(response => {
                             dispatch({ type: UPDATE_WATER, payload: increaseNum })
             
+                            dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                         })
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
@@ -127,7 +138,7 @@ export const addWater = (increaseNum, userId) => dispatch => {
 }
 
 //update water metrics, subtraction
-export const subtractWater = (decreaseNum, userId) => dispatch => {
+export const subtractWater = (decreaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     console.log("hit subtractWater")
     dispatch({ type: FETCHING_START })
 
@@ -139,16 +150,25 @@ export const subtractWater = (decreaseNum, userId) => dispatch => {
                 //check to make sure water metric isn't currently at 0, to avoid negative metric input
                 if (response.data.water != 0) {
 
+                      //call helper function to find out how many points to update by
+                      const pointsToUpdate = updatePointsWater(response.data.water, 8, 'subtract');
+
                        //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
-                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {water: response.data.water + decreaseNum}) 
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                                {water: response.data.water + decreaseNum,
+                                 daily_points: dailyPoints + pointsToUpdate, 
+                                 total_points: totalPoints + pointsToUpdate}) 
                                 .then(response => {
                                     dispatch({ type: UPDATE_WATER, payload: decreaseNum })
                     
+                                    dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                                 })
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
                                 })
+                } else {
+                    dispatch({ type: FETCHING_END })
                 }
 
             })
@@ -159,7 +179,7 @@ export const subtractWater = (decreaseNum, userId) => dispatch => {
 }
 
 //update sleep metrics, addition 
-export const addSleep = (increaseNum, userId) => dispatch => {
+export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the sleep metric, in order to know what the current sleep number is to increase it by
@@ -167,15 +187,27 @@ export const addSleep = (increaseNum, userId) => dispatch => {
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
 
+
+                //call helper function to find out how many points to update by
+                const pointsToUpdate = updatePointsSleep(response.data.sleep, 8, 'add');
+
+                console.log("response.data.daily_points: ", dailyPoints);
+                console.log("pointsToUpdate: ", pointsToUpdate);
+
                 //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + increaseNum}) 
-                        .then(response => {
-                            dispatch({ type: UPDATE_SLEEP, payload: increaseNum })
-                        })
-                        .catch(error => {
-                            dispatch({type: SET_ERROR, payload: error})
-                        })
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                        {sleep: response.data.sleep + increaseNum, 
+                         daily_points: dailyPoints + pointsToUpdate, 
+                         total_points: totalPoints + pointsToUpdate}) 
+                            .then(response => {
+                                dispatch({ type: UPDATE_SLEEP, payload: increaseNum })
+
+                                dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
+                            })
+                            .catch(error => {
+                                dispatch({type: SET_ERROR, payload: error})
+                            })
 
             })
             .catch(error => {
@@ -185,7 +217,7 @@ export const addSleep = (increaseNum, userId) => dispatch => {
 }
 
 //update sleep metrics, subtraction
-export const subtractSleep = (decreaseNum, userId) => dispatch => {
+export const subtractSleep = (decreaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the sleep metric, in order to know what the current sleep number is to decrease it by
@@ -195,15 +227,26 @@ export const subtractSleep = (decreaseNum, userId) => dispatch => {
                 //check to make sure sleep metric isn't currently at 0, to avoid negative metric input
                 if (response.data.sleep != 0) {
 
+
+                    //call helper function to find out how many points to update by
+                    const pointsToUpdate = updatePointsSleep(response.data.sleep, 8, 'subtract');
+
                        //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
-                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {sleep: response.data.sleep + decreaseNum}) 
-                                .then(response => {
-                                    dispatch({ type: UPDATE_SLEEP, payload: decreaseNum })
-                                })
-                                .catch(error => {
-                                    dispatch({type: SET_ERROR, payload: error})
-                                })
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                                {sleep: response.data.sleep + decreaseNum,
+                                 daily_points: dailyPoints + pointsToUpdate, 
+                                 total_points: totalPoints + pointsToUpdate}) 
+                                    .then(response => {
+                                        dispatch({ type: UPDATE_SLEEP, payload: decreaseNum })
+
+                                        dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
+                                    })
+                                    .catch(error => {
+                                        dispatch({type: SET_ERROR, payload: error})
+                                    })
+                } else {
+                    dispatch({ type: FETCHING_END })
                 }
 
             })
@@ -214,19 +257,27 @@ export const subtractSleep = (decreaseNum, userId) => dispatch => {
 }
 
 //update exercise metrics, addition 
-export const addExercise= (increaseNum, userId) => dispatch => {
+export const addExercise= (increaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the exercise metric, in order to know what the current exercise number is to increase it by
     axiosWithAuth()
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
+                
+                //call helper function to find out how many points to update by
+                const pointsToUpdate = updatePointsExercise(response.data.exercise, 4, 'add', increaseNum);
 
                 //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + increaseNum}) 
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                        {exercise: response.data.exercise + increaseNum,
+                         daily_points: dailyPoints + pointsToUpdate, 
+                         total_points: totalPoints + pointsToUpdate}) 
                         .then(response => {
                             dispatch({ type: UPDATE_EXERCISE, payload: increaseNum })
+                            
+                            dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                         })
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
@@ -240,7 +291,7 @@ export const addExercise= (increaseNum, userId) => dispatch => {
 }
 
 //update exercise metrics, subtraction
-export const subtractExercise = (decreaseNum, userId) => dispatch => {
+export const subtractExercise = (decreaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the exercise metric, in order to know what the current exercise number is to decrease it by
@@ -249,16 +300,26 @@ export const subtractExercise = (decreaseNum, userId) => dispatch => {
             .then(response => {
                 //check to make sure exercise metric isn't currently at 0, to avoid negative metric input
                 if (response.data.exercise != 0) {
+                           
+                        //call helper function to find out how many points to update by
+                        const pointsToUpdate = updatePointsExercise(response.data.exercise, 4, 'subtract', decreaseNum);
 
                        //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
-                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {exercise: response.data.exercise + decreaseNum}) 
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                                {exercise: response.data.exercise + decreaseNum,
+                                 daily_points: dailyPoints + pointsToUpdate, 
+                                 total_points: totalPoints + pointsToUpdate}) 
                                 .then(response => {
                                     dispatch({ type: UPDATE_EXERCISE, payload: decreaseNum })
+
+                                    dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                                 })
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
                                 })
+                } else {
+                    dispatch({ type: FETCHING_END })
                 }
 
             })
@@ -269,7 +330,7 @@ export const subtractExercise = (decreaseNum, userId) => dispatch => {
 }
 
 //update breaks metrics, addition 
-export const addBreaks= (increaseNum, userId) => dispatch => {
+export const addBreaks= (increaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the breaks metric, in order to know what the current breaks number is to increase it by
@@ -277,11 +338,19 @@ export const addBreaks= (increaseNum, userId) => dispatch => {
         .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
             .then(response => {
 
+                //call helper function to find out how many points to update by
+                const pointsToUpdate = updatePointsBreaks(response.data.breaks, 2, 'add', increaseNum);
+
                 //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + increaseNum}) 
+                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                    {breaks: response.data.breaks + increaseNum,
+                     daily_points: dailyPoints + pointsToUpdate, 
+                     total_points: totalPoints + pointsToUpdate}) 
                         .then(response => {
                             dispatch({ type: UPDATE_BREAKS, payload: increaseNum })
+
+                            dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                         })
                         .catch(error => {
                             dispatch({type: SET_ERROR, payload: error})
@@ -295,7 +364,7 @@ export const addBreaks= (increaseNum, userId) => dispatch => {
 }
 
 //update breaks metrics, subtraction
-export const subtractBreaks = (decreaseNum, userId) => dispatch => {
+export const subtractBreaks = (decreaseNum, userId, dailyPoints, totalPoints) => dispatch => {
     dispatch({ type: FETCHING_START })
 
     //first GET the breaks metric, in order to know what the current breaks number is to decrease it by
@@ -305,15 +374,25 @@ export const subtractBreaks = (decreaseNum, userId) => dispatch => {
                 //check to make sure breaks metric isn't currently at 0, to avoid negative metric input
                 if (response.data.breaks != 0) {
 
+                    //call helper function to find out how many points to update by
+                    const pointsToUpdate = updatePointsBreaks(response.data.breaks, 2, 'subtract', decreaseNum);
+
                        //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
                         axiosWithAuth()
-                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {breaks: response.data.breaks + decreaseNum}) 
+                            .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                            {breaks: response.data.breaks + decreaseNum,
+                             daily_points: dailyPoints + pointsToUpdate, 
+                             total_points: totalPoints + pointsToUpdate}) 
                                 .then(response => {
                                     dispatch({ type: UPDATE_BREAKS, payload: decreaseNum })
+
+                                    dispatch({ type: UPDATE_POINTS, payload: pointsToUpdate })
                                 })
                                 .catch(error => {
                                     dispatch({type: SET_ERROR, payload: error})
                                 })
+                } else {
+                    dispatch({ type: FETCHING_END })
                 }
 
             })
@@ -321,4 +400,112 @@ export const subtractBreaks = (decreaseNum, userId) => dispatch => {
                 dispatch({type: SET_ERROR, payload: error})
             })
 
+}
+
+
+//update points for sleep helper function
+function updatePointsSleep (metricNum, goal, operation) {
+
+    let pointsToAdd = 0;
+
+    //update points only if at or below goal
+    if (metricNum <= goal) {
+
+        //check to see what operation is requested, and update points accordingly
+        if (operation === 'add') {
+
+          if (metricNum >= 0 && metricNum < 8) {
+              pointsToAdd = 1;
+          }
+        }
+        else if (operation === 'subtract') {
+
+             if (metricNum > 0 && metricNum <= 8) {
+              pointsToAdd = -1;
+          }
+        }
+
+    }
+
+    return pointsToAdd;
+}
+
+//update points for exercise helper function
+function updatePointsExercise (metricNum, goal, operation, changeInMetric) {
+
+    let pointsToAdd = 0;
+    let currentMetricNum = metricNum / Math.abs(changeInMetric); //(divide metricNum by changeInMetric, since exercise is currently measured in intervals of 15)
+
+    //update points only if at or below goal 
+    if (currentMetricNum / Math.abs(changeInMetric) <= goal) {
+
+        //check to see what operation is requested, and update points accordingly
+        if (operation === 'add') {
+
+            if (currentMetricNum >= 0 && currentMetricNum < 4) {
+                pointsToAdd = 2
+            }
+        }
+        else if (operation === 'subtract') {
+
+            if (currentMetricNum > 0 && currentMetricNum <= 4) {
+                pointsToAdd = -2
+            }
+        }
+
+    }
+
+    return pointsToAdd;
+}
+
+//update points for sleep helper function
+function updatePointsBreaks (metricNum, goal, operation) {
+
+    let pointsToAdd = 0;
+
+    //update points only if at or below goal
+    if (metricNum <= goal) {
+
+        //check to see what operation is requested, and update points accordingly
+        if (operation === 'add') {
+
+          if (metricNum >= 0 && metricNum < 2) {
+              pointsToAdd = 4;
+          }
+        }
+        else if (operation === 'subtract') {
+
+            if (metricNum > 0 && metricNum <= 2) {
+                pointsToAdd = -4;
+            }
+        }
+    }
+
+    return pointsToAdd;
+}
+
+//update points for water helper function
+function updatePointsWater (metricNum, goal, operation) {
+
+    let pointsToAdd = 0;
+
+    //update points only if at or below goal
+    if (metricNum <= goal) {
+
+        //check to see what operation is requested, and update points accordingly
+        if (operation === 'add') {
+
+            if (metricNum >= 0 && metricNum < 8) {
+                pointsToAdd = 1;
+            }
+        }
+        else if (operation === 'subtract') {
+
+            if (metricNum > 0 && metricNum <= 8) {
+                pointsToAdd = -1;
+            }
+        }
+    }
+
+    return pointsToAdd;
 }
