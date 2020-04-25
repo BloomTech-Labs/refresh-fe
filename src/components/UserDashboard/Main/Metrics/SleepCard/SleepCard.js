@@ -7,7 +7,7 @@ class SleepCard extends React.Component{
     render(){
         return(
             <div className='water-card metric-card'>
-                <h3>Sleep</h3>
+                <h3 className='metrics-card-title'>Sleep</h3>
                 <p>How many hours did you sleep last night?</p>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractSleep(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>

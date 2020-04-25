@@ -1,20 +1,22 @@
 
 
 .user-dashboard {
-    background-color: whitesmoke;
-
+    background-color: white;
+    width: 80%;
+    max-width: 1800px;
+    margin: 0  auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     border:solid black;
-    border-width: 1.5px;
+    border-width: 2px;
 
     // Main
     .main{
-        width: 70%;
-        border:solid black;
-        border-width: 1.5px;
+        width: 75%;
+        border-right:solid black;
+        border-width: 2px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -22,14 +24,14 @@
         // Header
         .header{
         width: 100%;
-        border:solid black;
-        border-width: 1.5px;
+        border-bottom:solid black;
+        border-width: 2px;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
         justify-content: space-between;
-        padding: 20px;
+        padding: 20px 40px 20px 40px;
 
         // User Profile
         .user-profile{
@@ -39,6 +41,7 @@
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-around;
+        padding: 5px;;
 
         // User Info
         .user-info{
@@ -47,27 +50,41 @@
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: space-around;
+        padding: 0 10px 0 10px;
         }
         }
     }
 
+
+        // Metrics Container
+        .metrics-container{
+            height: 100%;
+            background-color: yellow;
+            padding: 40px;;
+        }
+
+        // Metrics Header
+        .metrics-header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: yellowgreen;
+            margin-bottom: 40px;;
+        }
+
         // Metrics
         .metrics{
-        width: 100%;
-        height: 100%;
-        border:solid black;
-        border-width: 1.5px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
-        padding: 20px;;
+        justify-content: space-between;
         }
 
         // Metrics Cards
         .metric-card{
-            width: 25%;
-            height: 250px;
+            height: 300px;
+            background-color:white;
+            width: 27%;
             border:solid black;
             border-width: 1px;
             display: flex;
@@ -75,7 +92,12 @@
             flex-wrap: nowrap;
             justify-content: space-between;
             align-items: center;
-            margin: 10px;
+            margin-bottom: 30px;
+
+            // Metrics Card Title
+            .metrics-card-title{
+                padding-top: 10px;
+            }
 
             // Metric Card Input
             .metric-card-input{
@@ -85,15 +107,14 @@
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
-                justify-content: space-evenly;
+                justify-content: space-between;
             }
         }
+
     }
 
     .user-sidebar{
-        width: 30%;
-        border: solid black;
-        border-radius: 1.5px;
+        width: 25%;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -103,8 +124,8 @@
         .personal-goals{
             width: 100%;
             height: 50%;
-            border: solid black;
-            border-radius: 1.5px;
+            border-bottom: solid black;
+            border-radius: 2px;
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
@@ -116,8 +137,8 @@
         .leader-board{
             width: 100%;
             height: 50%;
-            border: solid black;
-            border-radius: 1.5px;
+            // border: solid black;
+            // border-radius: 2px;
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
@@ -129,7 +150,7 @@
         .integrations{
             width: 100%;
             border: solid black;
-            border-radius: 1.5px;
+            border-radius: 2px;
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;

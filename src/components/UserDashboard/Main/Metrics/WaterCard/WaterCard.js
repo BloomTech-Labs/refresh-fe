@@ -6,7 +6,7 @@ class WaterCard extends React.Component{
     render(){
         return(
             <div className='water-card metric-card'>
-                <h3>Water</h3>
+                <h3 className='metrics-card-title'>Water</h3>
                 <p>How many 8 OZ glasses of water have you consumed today?</p>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractWater(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>

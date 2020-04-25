@@ -169,32 +169,35 @@ img {
   margin: 0 auto;
 }
 .user-dashboard {
-  background-color: whitesmoke;
+  background-color: white;
+  width: 80%;
+  max-width: 1800px;
+  margin: 0  auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   border: solid black;
-  border-width: 1.5px;
+  border-width: 2px;
 }
 .user-dashboard .main {
-  width: 70%;
-  border: solid black;
-  border-width: 1.5px;
+  width: 75%;
+  border-right: solid black;
+  border-width: 2px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
 }
 .user-dashboard .main .header {
   width: 100%;
-  border: solid black;
-  border-width: 1.5px;
+  border-bottom: solid black;
+  border-width: 2px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 40px 20px 40px;
 }
 .user-dashboard .main .header .user-profile {
   border: solid black;
@@ -203,6 +206,7 @@ img {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
+  padding: 5px;
 }
 .user-dashboard .main .header .user-profile .user-info {
   width: 100%;
@@ -210,21 +214,30 @@ img {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-around;
+  padding: 0 10px 0 10px;
+}
+.user-dashboard .main .metrics-container {
+  height: 100%;
+  background-color: yellow;
+  padding: 40px;
+}
+.user-dashboard .main .metrics-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: yellowgreen;
+  margin-bottom: 40px;
 }
 .user-dashboard .main .metrics {
-  width: 100%;
-  height: 100%;
-  border: solid black;
-  border-width: 1.5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: space-between;
 }
 .user-dashboard .main .metric-card {
-  width: 25%;
-  height: 250px;
+  height: 300px;
+  background-color: white;
+  width: 27%;
   border: solid black;
   border-width: 1px;
   display: flex;
@@ -232,7 +245,10 @@ img {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  margin: 10px;
+  margin-bottom: 30px;
+}
+.user-dashboard .main .metric-card .metrics-card-title {
+  padding-top: 10px;
 }
 .user-dashboard .main .metric-card .metric-card-input {
   width: 100%;
@@ -241,12 +257,10 @@ img {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .user-dashboard .user-sidebar {
-  width: 30%;
-  border: solid black;
-  border-radius: 1.5px;
+  width: 25%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -255,8 +269,8 @@ img {
 .user-dashboard .user-sidebar .personal-goals {
   width: 100%;
   height: 50%;
-  border: solid black;
-  border-radius: 1.5px;
+  border-bottom: solid black;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -266,8 +280,6 @@ img {
 .user-dashboard .user-sidebar .leader-board {
   width: 100%;
   height: 50%;
-  border: solid black;
-  border-radius: 1.5px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -277,7 +289,7 @@ img {
 .user-dashboard .user-sidebar .integrations {
   width: 100%;
   border: solid black;
-  border-radius: 1.5px;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
