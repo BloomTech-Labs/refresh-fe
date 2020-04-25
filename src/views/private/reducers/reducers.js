@@ -45,7 +45,7 @@ function reducer(state = initialState, action) {
         case FETCH_ALL_USERS_LOADING:
             return {
                 ...state,
-                [isFetching]: true,
+            isFetching: true,
             }
         case FETCH_ALL_USERS_SUCCESS:
             return {
