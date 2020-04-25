@@ -1,12 +1,14 @@
 import {
     FETCHING_START,
+    FETCHING_END,
     SET_ERROR,
     LOGIN,
     LOGOUT, 
     UPDATE_WATER,
     UPDATE_SLEEP,
     UPDATE_EXERCISE,
-    UPDATE_BREAKS
+    UPDATE_BREAKS,
+    UPDATE_POINTS
 } from '../actions/actions-user.js';
 
 
@@ -16,7 +18,8 @@ const initialState = {
     fullName: '',
     userId: null,
     avatar: null,
-    points: 0,
+    totalPoints: 0,
+    dailyPoints: 0,
     admin: false,
     water: 0,
     exercise: 0,
@@ -35,6 +38,11 @@ function reducer(state = initialState, action) {
                 isFetching: true,
                 error: null
             }
+        case FETCHING_END: 
+            return {
+                ...state, 
+                isFetching: false
+            }
         case SET_ERROR: 
             return {
                 ...state, 
@@ -48,7 +56,8 @@ function reducer(state = initialState, action) {
                 fullName: action.payload.user.full_name,
                 userId: action.payload.user.id,
                 avatar: action.payload.user.avatar,
-                points: action.payload.user.points,
+                totalPoints: action.payload.user.total_points,
+                dailyPoints: action.payload.user.daily_points,
                 admin: action.payload.user.admin,
                 water: action.payload.user.water,
                 exercise: action.payload.user.exercise,
@@ -74,23 +83,34 @@ function reducer(state = initialState, action) {
         case UPDATE_WATER: 
             return {
                 ...state, 
+                isFetching: false,
                 water: state.water + action.payload
             }
         case UPDATE_SLEEP:
             return {
                 ...state,
+                isFetching: false,
                 sleep: state.sleep + action.payload
             }
         case UPDATE_EXERCISE:
             return {
                 ...state,
+                isFetching: false,
                 exercise: state.exercise + action.payload
             }
         case UPDATE_BREAKS:
             return {
                 ...state,
+                isFetching: false,
                 breaks: state.breaks + action.payload
             }
+        case UPDATE_POINTS: {
+            return {
+                ...state,
+                dailyPoints: state.dailyPoints + action.payload,
+                totalPoints: state.totalPoints + action.payload
+            }
+        }
         default: 
             return state;
     }

@@ -10,9 +10,9 @@ class SleepCard extends React.Component{
                 <h3>Sleep</h3>
                 <p>How many hours did you sleep last night?</p>
                 <div className='metric-card-input'>
-                <button onClick={() => this.props.subtractSleep(-1, this.props.userId)}>-</button>
+                <button disabled={this.props.isFetching} onClick={() => this.props.subtractSleep(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
                 <h1>{this.props.sleep}</h1>
-                <button onClick={() => this.props.addSleep(1, this.props.userId)}>+</button>
+                <button disabled={this.props.isFetching} onClick={() => this.props.addSleep(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>
         )
@@ -22,7 +22,10 @@ class SleepCard extends React.Component{
 const mapStateToProps = state => {
     return {
         sleep: state.userReducer.sleep,
-        userId: state.userReducer.userId
+        userId: state.userReducer.userId,
+        dailyPoints: state.userReducer.dailyPoints,
+        totalPoints: state.userReducer.totalPoints,
+        isFetching: state.userReducer.isFetching
     }
 }
 
