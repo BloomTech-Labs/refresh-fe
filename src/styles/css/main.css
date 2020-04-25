@@ -235,7 +235,6 @@ img {
   justify-content: space-between;
 }
 .user-dashboard .main .metric-card {
-  height: 300px;
   background-color: white;
   width: 27%;
   border: solid black;
@@ -249,6 +248,17 @@ img {
 }
 .user-dashboard .main .metric-card .metrics-card-title {
   padding-top: 10px;
+  padding-bottom: 10px;
+}
+.user-dashboard .main .metric-card .metrics-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 300px;
+}
+.user-dashboard .main .metric-card .metrics-card-content img {
+  width: 70%;
 }
 .user-dashboard .main .metric-card .metric-card-input {
   width: 100%;
