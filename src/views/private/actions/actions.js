@@ -102,7 +102,7 @@ export const createNewTeam = (Team) => dispatch => {
 export const fetchTeams = () => dispatch => {
     dispatch({ type: FETCH_TEAMS_LOADING })
     axios
-        .get(`https://labs-refresh.herokuapp.com/teams/`)
+        .get(`http://localhost:5003/teams`)
         .then(response => {
             dispatch({ type: FETCH_TEAMS_SUCCESS, payload: response.data })
         })

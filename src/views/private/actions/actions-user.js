@@ -108,7 +108,7 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => dispa
 
     //first GET the water metric, in order to know what the current water number is to increase it by
     axiosWithAuth()
-        .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
+        .get(`http://localhost:5003/users/${userId}/metrics`)
             .then(response => {
 
                 
@@ -117,7 +117,7 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => dispa
 
                 //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
                 axiosWithAuth()
-                    .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, 
+                    .put(`http://localhost:5003/users/${userId}/metrics`, 
                         {water: response.data.water + increaseNum,
                          daily_points: dailyPoints + pointsToUpdate, 
                          total_points: totalPoints + pointsToUpdate}) 
