@@ -207,6 +207,7 @@ img {
   flex-wrap: nowrap;
   justify-content: space-around;
   padding: 5px;
+  box-shadow: 10px 10px;
 }
 .user-dashboard .main .header .user-profile img {
   border-radius: 50%;
@@ -245,6 +246,7 @@ img {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  box-shadow: 10px 10px;
 }
 .user-dashboard .main .metric-card .metrics-card-title {
   height: 50px;
