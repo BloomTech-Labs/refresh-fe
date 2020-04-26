@@ -16,6 +16,7 @@ class UserInfo extends React.Component{
 
 const mapStateToProps = state => {
     return {
+        ...state,
         fullName: state.userReducer.fullName,
         teamName: state.userReducer.teamName
     }
