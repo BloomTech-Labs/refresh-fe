@@ -1,24 +1,38 @@
-import React from 'react'
+import React from "react";
+import { fetchTeams } from "../../../../../src/views/private/actions/actions";
+import { connect } from "react-redux";
 
+class LeaderBoard extends React.Component {
+  componentDidMount() {
+    this.props.fetchTeams();
+  }
 
-class LeaderBoard extends React.Component{
-    render(){
-        return(
-            <div className='leader-board'>
+  render() {
+    const sortedTeams = this.props.reducer.teams.sort((a, b) => {
+      return b.points - a.points;
+    });
 
-                <div className ='sidebar-title'>
-                    <h1>Leaderboard</h1>
-                </div>
-                
-                <div className='sidebar-content'>
-                <h2>Cybersecurity <br></br> 5000 Points</h2>
-                <h2>Expericeces <br></br> 4965 Points</h2>
-                <h2>Development <br></br> 4500 Points</h2>
-                <h2>Customer Support <br></br> 4350 Points</h2>
-                </div>
-            </div>
-        )
-    }
+    return (
+      <div className="leader-board">
+        <h1 style={{ fontSize: "25px" }}>Leaderboard</h1>
+        <ul>
+          {sortedTeams.map((team) => {
+            return (
+              <li>
+                <strong>{team.name}</strong> {team.points}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
 }
 
-export default LeaderBoard
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+
+export default connect(mapStateToProps, { fetchTeams })(LeaderBoard);
