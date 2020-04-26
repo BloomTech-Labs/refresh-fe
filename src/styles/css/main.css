@@ -302,7 +302,6 @@ img {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-between;
   align-items: center;
 }
 .user-dashboard .user-sidebar .leader-board {
@@ -311,6 +310,18 @@ img {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px 20px 0px ;
+  width: 100%;
+}
+.user-dashboard .user-sidebar .sidebar-content {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
