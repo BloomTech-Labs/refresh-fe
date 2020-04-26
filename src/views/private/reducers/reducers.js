@@ -26,9 +26,7 @@ import {
     UPDATE_TEAM_NAME_START,
     UPDATE_TEAM_NAME_SUCCESS,
     UPDATE_TEAM_NAME_FAILURE,
-    UPDATE_TEAM_POINTS_START,
-    UPDATE_TEAM_POINTS_SUCCESS,
-    UPDATE_TEAM_POINTS_FAILURE
+  
 } from '../actions/actions';
 
 const initialState = {

@@ -19,7 +19,7 @@ class LeaderBoard extends React.Component {
           {sortedTeams.map((team) => {
             return (
               <li>
-                <strong> {team.name}</strong> {team.points}
+                <strong>{team.name}</strong> {team.points}
               </li>
             );
           })}
@@ -31,7 +31,7 @@ class LeaderBoard extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-      ...state,
+    ...state,
   };
 };
 
