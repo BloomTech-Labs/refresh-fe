@@ -6,13 +6,19 @@ class BreaksCard extends React.Component{
     render(){
         return(
             <div className='water-card metric-card'>
+
                 <h3 className='metrics-card-title'>Breaks</h3>
+
                 <div className= 'metrics-card-content'>
                 <img  src={BreakImage} alt="Woman Medetaing"></img>
                 </div>
+
                 <div className='metric-card-input'>
+
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractBreaks(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
+                
                 <h1>{this.props.breaks}</h1>
+                
                 <button disabled={this.props.isFetching} onClick={() => this.props.addBreaks(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>

@@ -218,14 +218,12 @@ img {
 }
 .user-dashboard .main .metrics-container {
   height: 100%;
-  background-color: yellow;
   padding: 40px;
 }
 .user-dashboard .main .metrics-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: yellowgreen;
   margin-bottom: 40px;
 }
 .user-dashboard .main .metrics {
@@ -235,7 +233,6 @@ img {
   justify-content: space-between;
 }
 .user-dashboard .main .metric-card {
-  background-color: white;
   width: 27%;
   border: solid black;
   border-width: 1px;
@@ -247,8 +244,11 @@ img {
   margin-bottom: 30px;
 }
 .user-dashboard .main .metric-card .metrics-card-title {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .user-dashboard .main .metric-card .metrics-card-content {
   display: flex;
@@ -262,12 +262,28 @@ img {
 }
 .user-dashboard .main .metric-card .metric-card-input {
   width: 100%;
-  border: solid black;
+  height: 50px;
+  border-top: solid #000000;
   border-width: 1px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  font-size: 100px;
+}
+.user-dashboard .main .metric-card .metric-card-input button {
+  width: 75px;
+  background-color: #ffffff;
+  border: none;
+}
+.user-dashboard .main .metric-card .metric-card-input h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-left: solid black;
+  border-right: solid black;
+  border-width: 1px;
 }
 .user-dashboard .user-sidebar {
   width: 25%;

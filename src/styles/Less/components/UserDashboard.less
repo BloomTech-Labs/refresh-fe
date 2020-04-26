@@ -59,8 +59,7 @@
         // Metrics Container
         .metrics-container{
             height: 100%;
-            background-color: yellow;
-            padding: 40px;;
+            padding: 40px;
         }
 
         // Metrics Header
@@ -68,7 +67,6 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            background-color: yellowgreen;
             margin-bottom: 40px;;
         }
 
@@ -82,7 +80,6 @@
 
         // Metrics Cards
         .metric-card{
-            background-color:white;
             width: 27%;
             border:solid black;
             border-width: 1px;
@@ -95,8 +92,11 @@
 
             // Metrics Card Title
             .metrics-card-title{
-                padding-top: 10px;
-                padding-bottom: 10px;
+                height: 50px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             // Metrics Card Content
@@ -115,12 +115,30 @@
             // Metric Card Input
             .metric-card-input{
                 width: 100%;
-                border:solid black;
+                height: 50px;
+                border-top:solid @color-black;
                 border-width: 1px;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
                 justify-content: space-between;
+                font-size: 100px;
+
+                button{
+                    width: 75px;
+                    background-color: @color-white;
+                    border: none;
+                }
+
+                h1{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    border-left: solid black;
+                    border-right: solid black;
+                    border-width: 1px;
+                }
             }
         }
 
