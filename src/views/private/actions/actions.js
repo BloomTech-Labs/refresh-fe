@@ -41,7 +41,7 @@ export const UPDATE_TEAM_NAME_FAILURE = "UPDATE_TEAM_NAME_FAILURE";
 export const fetchAllUsers = () => (dispatch) => {
   dispatch({ type: FETCH_ALL_USERS_LOADING });
   axios
-    .get(`https://labs-refresh.herokuapp.com/users/`)
+    .get(`https://labs23-refresh.herokuapp.com/users/`)
     .then((response) =>
       dispatch({ type: FETCH_ALL_USERS_SUCCESS, payload: response.data })
     )
@@ -54,7 +54,7 @@ export const fetchUserTeamName = (userId) => (dispatch) => {
   console.log("fetch");
   dispatch({ type: FETCH_USER_TEAM_NAME_LOADING });
   axios
-    .get(`https://labs-refresh.herokuapp.com/users/${userId}/team`)
+    .get(`https://labs23-refresh.herokuapp.com/users/${userId}/team`)
     .then((response) =>
       dispatch({ type: FETCH_USER_TEAM_NAME_SUCCESS, payload: response.data })
     )
@@ -66,7 +66,7 @@ export const fetchUserTeamName = (userId) => (dispatch) => {
 export const updateUserTeam = (userId, editedTeamId) => (dispatch) => {
   dispatch({ type: UPDATE_USER_TEAM_START });
   axios
-    .put(`https://labs-refresh.herokuapp.com/users/${userId}`, editedTeamId)
+    .put(`https://labs23-refresh.herokuapp.com/users/${userId}`, editedTeamId)
     .then((response) => {
       console.log("updateUserTeam response: ", response);
       dispatch({ type: UPDATE_USER_TEAM_SUCCESS, payload: response.data });
@@ -79,7 +79,7 @@ export const updateUserTeam = (userId, editedTeamId) => (dispatch) => {
 export const deleteUser = (userId) => (dispatch) => {
   dispatch({ type: DELETE_USER_START });
   axios
-    .delete(`https://labs-refresh.herokuapp.com/users/${userId}`)
+    .delete(`https://labs23-refresh.herokuapp.com/users/${userId}`)
     .then((response) => {
       dispatch({ type: DELETE_USER_SUCCESS, payload: response });
     })
@@ -112,7 +112,7 @@ export const createNewTeam = (Team) => (dispatch) => {
 export const fetchTeams = () => (dispatch) => {
   dispatch({ type: FETCH_TEAMS_LOADING });
   axios
-    .get(`https://lab23-refresh-be.herokuapp.com/teams`)
+    .get(`http://localhost:5003/teams`)
     .then((response) => {
       dispatch({ type: FETCH_TEAMS_SUCCESS, payload: response.data });
     })
