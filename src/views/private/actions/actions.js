@@ -36,6 +36,7 @@ export const DELETE_TEAM_FAILURE = "DELETE_TEAM_FAILURE";
 export const UPDATE_TEAM_NAME_START = "UPDATE_TEAM_NAME_START";
 export const UPDATE_TEAM_NAME_SUCCESS = "UPDATE_TEAM_NAME_SUCCESS";
 export const UPDATE_TEAM_NAME_FAILURE = "UPDATE_TEAM_NAME_FAILURE";
+export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
 
 // Async Action Creators
 export const fetchAllUsers = () => (dispatch) => {
@@ -142,3 +143,15 @@ export const editTeamName = (teamId, editedTeamName) => (dispatch) => {
       dispatch({ type: UPDATE_TEAM_NAME_FAILURE, payload: error })
     );
 };
+
+export const updateTeamPoints = (teamId) => (dispatch) => {
+    dispatch({ type: UPDATE_USER_TEAM_START });
+    axios
+        .put(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+            dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, PAYLOAD: error })
+        });
+}

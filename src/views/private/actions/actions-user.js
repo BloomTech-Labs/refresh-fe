@@ -13,6 +13,9 @@ export const UPDATE_EXERCISE = "UPDATE_EXERCISE";
 export const UPDATE_BREAKS = "UPDATE_BREAKS";
 export const UPDATE_POINTS = "UPDATE_POINTS";
 
+export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
+export const UPDATE_USER_TEAM_FAILURE = "UPDATE_USER_TEAM_FAILURE";
+
 //login
 export const login = (user) => (dispatch) => {
   dispatch({ type: FETCHING_START });
@@ -140,28 +143,39 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
     });
 
   // make a PUT request to update the teams total points
-    
+
   // TODO: Find the user's team ID
 
   axiosWithAuth()
     .get(`http://localhost:5003/users/${userId}`)
     .then((response) => {
-        const teamId = response.data.team_id;
-        // TODO: Find the team table to see what it currently has
-        axiosWithAuth()
-            .get(`http://localhost:5003/teams/${teamId}`)
-            .then((response) => {
-         
-            axiosWithAuth()
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
             // TODO: Update team points
-                .put(`http://localhost:5003/teams/${teamId}`, {
-                    // TODO: find the previous team points + add water update
-                    points: response.data.points + 1
+            .put(`http://localhost:5003/teams/${teamId}`, {
+              // TODO: find the previous team points + add water update
+              points: response.data.points + 1,
             })
+            .then((response) => {
+              dispatch({
+                type: UPDATE_TEAM_POINTS,
+                payload: response.data.result,
+              });
+            })
+            .catch((error) => {
+              dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+            });
         })
-
-      // Do we need ot update anything via dispatch?
-        
+        .catch((error) => {
+          dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+        });
+    })
+    .catch((error) => {
+      dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
     });
 };
 
@@ -210,6 +224,38 @@ export const subtractWater = (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`http://localhost:5003/users/${userId}`)
+    .then((response) => {
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`http://localhost:5003/teams/${teamId}`, {
+              // TODO: find the previous team points then water update
+              points: response.data.points - 1,
+            })
+            .then((response) => {
+              dispatch({
+                type: UPDATE_TEAM_POINTS,
+                payload: response.data.result,
+              });
+            })
+            .catch((error) => {
+              dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+            });
+        })
+        .catch((error) => {
+          dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+        });
+    })
+    .catch((error) => {
+      dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+    });
 };
 
 //update sleep metrics, addition
@@ -247,6 +293,36 @@ export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`http://localhost:5003/users/${userId}`)
+    .then((response) => {
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`http://localhost:5003/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + 1,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update sleep metrics, subtraction
@@ -293,6 +369,35 @@ export const subtractSleep = (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+  axiosWithAuth()
+    .get(`http://localhost:5003/users/${userId}`)
+    .then((response) => {
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`http://localhost:5003/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points - 1,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update exercise metrics, addition
@@ -332,6 +437,36 @@ export const addExercise = (increaseNum, userId, dailyPoints, totalPoints) => (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`http://localhost:5003/users/${userId}`)
+    .then((response) => {
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`http://localhost:5003/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + 2,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update exercise metrics, subtraction
@@ -379,6 +514,36 @@ export const subtractExercise = (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`http://localhost:5003/users/${userId}`)
+    .then((response) => {
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`http://localhost:5003/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points - 2,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update breaks metrics, addition
@@ -418,6 +583,36 @@ export const addBreaks = (increaseNum, userId, dailyPoints, totalPoints) => (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`http://localhost:5003/users/${userId}`)
+    .then((response) => {
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`http://localhost:5003/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + 4,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update breaks metrics, subtraction
@@ -465,6 +660,35 @@ export const subtractBreaks = (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+  axiosWithAuth()
+    .get(`http://localhost:5003/users/${userId}`)
+    .then((response) => {
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`http://localhost:5003/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`http://localhost:5003/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points - 4,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update points for sleep helper function
