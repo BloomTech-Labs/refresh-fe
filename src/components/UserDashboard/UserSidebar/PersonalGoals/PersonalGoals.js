@@ -14,10 +14,13 @@ class PersonalGoals extends React.Component{
                 </div>
                 
                 <div className= 'sidebar-content'>
-                <h2>Drink {goals.water} glasses of water<br></br> {(goals.water - this.props.water) > 0 ? (goals.water - this.props.water) + " more to go!" : "Complete"}</h2>
-                <h2>Get {goals.sleep} hours of sleep <br></br> {(goals.sleep - this.props.sleep) > 0 ? (goals.sleep - this.props.sleep) + " more hours needed!" : "Complete"}</h2>
-                <h2>Exercise for {goals.exercise} minutes<br></br> {(goals.exercise - this.props.exercise) > 0 ? (goals.exercise - this.props.exercise) + " more minutes to go!" : "Complete"}</h2>
-                <h2>Take {goals.breaks} breaks<br></br>{(goals.breaks - this.props.breaks) > 0 ? (goals.breaks - this.props.breaks) + " more to go! " : "Complete"}</h2>
+                
+                
+                <h3>Water</h3>
+                <h4>{(goals.water - this.props.water) > 0 ? (goals.water - this.props.water) + " more glasses!" : "Complete"}</h4>
+                <h4>Get {goals.sleep} hours of sleep <br></br> {(goals.sleep - this.props.sleep) > 0 ? (goals.sleep - this.props.sleep) + " more hours needed!" : "Complete"}</h4>
+                <h4>Exercise for {goals.exercise} minutes<br></br> {(goals.exercise - this.props.exercise) > 0 ? (goals.exercise - this.props.exercise) + " more minutes to go!" : "Complete"}</h4>
+                <h4>Take {goals.breaks} breaks<br></br>{(goals.breaks - this.props.breaks) > 0 ? (goals.breaks - this.props.breaks) + " more to go! " : "Complete"}</h4>
                 </div>
             </div>
         )
