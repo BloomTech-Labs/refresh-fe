@@ -120,7 +120,9 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
     .get(`http://localhost:5003/users/${userId}/metrics`)
     .then((response) => {
       //call helper function to find out how many points to update by
-      const pointsToUpdate = updatePointsWater(response.data.water, 8, "add");
+        const pointsToUpdate = updatePointsWater(response.data.water, 8, "add");
+        console.log('addwater data', response.data);
+        
 
       //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
       axiosWithAuth()
@@ -149,7 +151,10 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
   axiosWithAuth()
     .get(`http://localhost:5003/users/${userId}`)
     .then((response) => {
-      const teamId = response.data.team_id;
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsWater(response.data.water, 8, "add");
+
+        
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
         .get(`http://localhost:5003/teams/${teamId}`)
@@ -158,7 +163,7 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
             // TODO: Update team points
             .put(`http://localhost:5003/teams/${teamId}`, {
               // TODO: find the previous team points + add water update
-              points: response.data.points + 1,
+              points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
               dispatch({
@@ -228,7 +233,13 @@ export const subtractWater = (
   axiosWithAuth()
     .get(`http://localhost:5003/users/${userId}`)
     .then((response) => {
-      const teamId = response.data.team_id;
+        const teamId = response.data.team_id;
+
+        const teamPointsUpdate = updatePointsWater(
+            response.data.water,
+            8,
+            "subtract"
+          );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
         .get(`http://localhost:5003/teams/${teamId}`)
@@ -237,7 +248,7 @@ export const subtractWater = (
             // TODO: Update team points
             .put(`http://localhost:5003/teams/${teamId}`, {
               // TODO: find the previous team points then water update
-              points: response.data.points - 1,
+              points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
               dispatch({
@@ -297,7 +308,9 @@ export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => (
   axiosWithAuth()
     .get(`http://localhost:5003/users/${userId}`)
     .then((response) => {
-      const teamId = response.data.team_id;
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsSleep(response.data.sleep, 8, "add");
+
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
         .get(`http://localhost:5003/teams/${teamId}`)
@@ -306,7 +319,7 @@ export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => (
             // TODO: Update team points
             .put(`http://localhost:5003/teams/${teamId}`, {
               // TODO: find the previous team points + update points
-              points: response.data.points + 1,
+              points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
                 dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
@@ -372,7 +385,12 @@ export const subtractSleep = (
   axiosWithAuth()
     .get(`http://localhost:5003/users/${userId}`)
     .then((response) => {
-      const teamId = response.data.team_id;
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsSleep(
+            response.data.sleep,
+            8,
+            "subtract"
+          );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
         .get(`http://localhost:5003/teams/${teamId}`)
@@ -381,7 +399,7 @@ export const subtractSleep = (
             // TODO: Update team points
             .put(`http://localhost:5003/teams/${teamId}`, {
               // TODO: find the previous team points + update points
-              points: response.data.points - 1,
+              points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
                 dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
@@ -441,7 +459,13 @@ export const addExercise = (increaseNum, userId, dailyPoints, totalPoints) => (
   axiosWithAuth()
     .get(`http://localhost:5003/users/${userId}`)
     .then((response) => {
-      const teamId = response.data.team_id;
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsExercise(
+            response.data.exercise,
+            4,
+            "add",
+            increaseNum
+          );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
         .get(`http://localhost:5003/teams/${teamId}`)
@@ -450,7 +474,7 @@ export const addExercise = (increaseNum, userId, dailyPoints, totalPoints) => (
             // TODO: Update team points
             .put(`http://localhost:5003/teams/${teamId}`, {
               // TODO: find the previous team points + update points
-              points: response.data.points + 2,
+              points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
                 dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
@@ -518,7 +542,13 @@ export const subtractExercise = (
   axiosWithAuth()
     .get(`http://localhost:5003/users/${userId}`)
     .then((response) => {
-      const teamId = response.data.team_id;
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsExercise(
+            response.data.exercise,
+            4,
+            "subtract",
+            decreaseNum
+          );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
         .get(`http://localhost:5003/teams/${teamId}`)
@@ -527,7 +557,7 @@ export const subtractExercise = (
             // TODO: Update team points
             .put(`http://localhost:5003/teams/${teamId}`, {
               // TODO: find the previous team points + update points
-              points: response.data.points - 2,
+              points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
                 dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
@@ -587,7 +617,13 @@ export const addBreaks = (increaseNum, userId, dailyPoints, totalPoints) => (
   axiosWithAuth()
     .get(`http://localhost:5003/users/${userId}`)
     .then((response) => {
-      const teamId = response.data.team_id;
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsBreaks(
+            response.data.breaks,
+            2,
+            "add",
+            increaseNum
+          );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
         .get(`http://localhost:5003/teams/${teamId}`)
@@ -596,7 +632,7 @@ export const addBreaks = (increaseNum, userId, dailyPoints, totalPoints) => (
             // TODO: Update team points
             .put(`http://localhost:5003/teams/${teamId}`, {
               // TODO: find the previous team points + update points
-              points: response.data.points + 4,
+              points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
                 dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
@@ -665,6 +701,12 @@ export const subtractBreaks = (
     .then((response) => {
       const teamId = response.data.team_id;
       // TODO: Find the team table to see what it currently has
+      const teamPointsUpdate = updatePointsBreaks(
+        response.data.breaks,
+        2,
+        "subtract",
+        decreaseNum
+      );
       axiosWithAuth()
         .get(`http://localhost:5003/teams/${teamId}`)
         .then((response) => {
@@ -672,7 +714,7 @@ export const subtractBreaks = (
             // TODO: Update team points
             .put(`http://localhost:5003/teams/${teamId}`, {
               // TODO: find the previous team points + update points
-              points: response.data.points - 4,
+              points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
                 dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
@@ -758,6 +800,7 @@ function updatePointsBreaks(metricNum, goal, operation) {
 //update points for water helper function
 function updatePointsWater(metricNum, goal, operation) {
   let pointsToAdd = 0;
+console.log('metricNum', metricNum);
 
   //update points only if at or below goal
   if (metricNum <= goal) {
