@@ -5,6 +5,7 @@
     background-color: white;
     width: 80%;
     max-width: 1800px;
+    max-height: 100vh;
     margin: 0  auto;
     display: flex;
     flex-direction: row;
@@ -78,6 +79,7 @@
         .metrics-container{
             height: 100%;
             padding: 40px;
+            overflow:scroll;
         }
 
         // Metrics Header
@@ -100,6 +102,7 @@
         // Metrics Cards
         .metric-card{
             width: 27%;
+            height: 100%;
             border:solid black;
             border-width: 1px;
             display: flex;
@@ -112,11 +115,11 @@
 
             // Metrics Card Title
             .metrics-card-title{
-                height: 50px;
                 width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                padding: 10px 0px;
             }
 
             // Metrics Card Content
@@ -128,7 +131,8 @@
                 height: 300px;
 
                 img{
-                    width: 70%;
+                    max-width: 90%;
+                    max-height: 90%;
                     padding: 10px 0px 10px 0px;
                     margin: 5px 0px 5px 0px;
                     overflow: hidden;
@@ -194,6 +198,7 @@
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: center;
+            overflow: scroll;
         }
 
         // Sidebar Titles

@@ -14,13 +14,11 @@ import UserSignUp from './components/UserSignUp.js'
 const App = props => {
   return (
     <div className='app'>
-      <div className='auth'>
         <Switch>
           <PrivateRoute exact path='/UserDashboard' component={UserDashboard}/>
           <Route path="/sign-up" component={UserSignUp} />
           <Route exact path='/' component={UserLogin} />
         </Switch>
-      </div>
 
     </div>
   );
