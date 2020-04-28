@@ -26,74 +26,81 @@ function UserSignUp(props) {
     }
 
     return (
-        <div className="cardwrapper">
-       
-                <header className="cardheader">
-                    <h1 className="cardheading">Welcome to Refresh!</h1>
-                </header>
+        <div className="sign-up auth-contianer">
+            <div className='marketing'>
+                <h1>Feeling Burnt Out?</h1>
+                <br></br>
+                <h1>Lets Refresh</h1>
+            </div>
+            <div className="cardwrapper">
+        
+                    <header className="cardheader">
+                        <h1 className="cardheading">Welcome to Refresh!</h1>
+                    </header>
 
-                <div className="cardbody">
+                    <div className="cardbody">
 
-                    <form onSubmit={handleSubmit(submitForm)}>
+                        <form onSubmit={handleSubmit(submitForm)}>
 
-                        <fieldset className="cardfieldset" >
-                            <label for="fullName">Full Name: </label>
-                                <input className="cardinput"
-                                        id="fullName"
-                                        type="text"
-                                        name="fullName"
-                                        ref={register({required: "Full name is required"})}
-                                    />
+                            <fieldset className="cardfieldset" >
+                                <label for="fullName">Full Name: </label>
+                                    <input className="cardinput"
+                                            id="fullName"
+                                            type="text"
+                                            name="fullName"
+                                            ref={register({required: "Full name is required"})}
+                                        />
 
-                                            {errors.fullName && <p>{errors.fullName.message}</p>}
-                    </fieldset>
-                    <fieldset className="cardfieldset">
-                <label for="email">Email: </label>
-                <input className="cardinput"
-                        id="email"
-                        type="email"
-                        name="email"
-                        ref={register({required: "Email address is required", pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                        message: "invalid email address"}})}
-                    />
-
-                    {errors.email && <p>{errors.email.message}</p>}
-                    </fieldset>
-
-                    <fieldset className="cardfieldset">
-                    <label for="password">Password: </label>
+                                                {errors.fullName && <p>{errors.fullName.message}</p>}
+                        </fieldset>
+                        <fieldset className="cardfieldset">
+                    <label for="email">Email: </label>
                     <input className="cardinput"
-                        id="password"
-                        type="password"
-                        name="password"
-                        ref={register({ required: "Password is required", minLength: {value: 5, message: "Password must be at least 5 letters"} })}
-                    />
+                            id="email"
+                            type="email"
+                            name="email"
+                            ref={register({required: "Email address is required", pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                            message: "invalid email address"}})}
+                        />
 
-                    {errors.password && <p>{errors.password.message}</p>}
-                    </fieldset>
+                        {errors.email && <p>{errors.email.message}</p>}
+                        </fieldset>
 
-                    <fieldset className="cardfieldset">
-                    <label for="verifyPassword">Verify password: </label>
-                    <input className="cardinput"
-                        id="verifyPassword"
-                        type="password"
-                        name="verifyPassword"
-                        ref={register({ required: "Please verify your password", validate: value => value === watch('password') || "Passwords must match"})}
-                    />
-                    {errors.verifyPassword && <p>{errors.verifyPassword.message}</p>}
-                    </fieldset>
+                        <fieldset className="cardfieldset">
+                        <label for="password">Password: </label>
+                        <input className="cardinput"
+                            id="password"
+                            type="password"
+                            name="password"
+                            ref={register({ required: "Password is required", minLength: {value: 5, message: "Password must be at least 5 letters"} })}
+                        />
 
-                    <p>{(props.error == null ? '' : (props.error.response.data.errorMessage))}</p>
+                        {errors.password && <p>{errors.password.message}</p>}
+                        </fieldset>
 
-                    <fieldset className="cardfieldset">
-                        <button className="card-button" type="submit">Sign up</button>
-                    </fieldset>
+                        <fieldset className="cardfieldset">
+                        <label for="verifyPassword">Verify password: </label>
+                        <input className="cardinput"
+                            id="verifyPassword"
+                            type="password"
+                            name="verifyPassword"
+                            ref={register({ required: "Please verify your password", validate: value => value === watch('password') || "Passwords must match"})}
+                        />
+                        {errors.verifyPassword && <p>{errors.verifyPassword.message}</p>}
+                        </fieldset>
 
-                    <fieldset className="cardfieldset">
-                   <a className="cardlink"> <Link to="/">Already have an account? Click here to sign in</Link></a>
-                    </fieldset>
+                        <p>{(props.error == null ? '' : (props.error.response.data.errorMessage))}</p>
 
-                </form>
+                        <fieldset className="cardfieldset">
+                            <button className="card-button" type="submit">Sign up</button>
+                        </fieldset>
+
+                        <fieldset className="cardfieldset">
+                    <a className="cardlink"> <Link to="/">Already have an account? Click here to sign in</Link></a>
+                        </fieldset>
+
+                    </form>
+                </div>
             </div>
         </div>
     );

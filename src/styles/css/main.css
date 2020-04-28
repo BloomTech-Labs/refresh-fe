@@ -196,7 +196,7 @@ p {
   background-color: white;
   width: 100%;
   max-width: 1800px;
-  max-height: 99vh;
+  max-height: 100vh;
   margin: 0  auto;
   display: flex;
   flex-direction: row;
@@ -464,4 +464,17 @@ p {
 }
 .cardlink:hover {
   color: #777;
+}
+.auth-container {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.auth-container .marketing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
 }
