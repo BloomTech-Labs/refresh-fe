@@ -202,7 +202,6 @@ p {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;
   border: solid black;
   border-width: 2px;
 }
@@ -352,14 +351,12 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
 }
 .user-dashboard .user-sidebar .sidebar-title {
   font-size: 100px  !important;
   font-weight: 500  !important;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 20px 0px 20px 0px ;
   width: 100%;
 }
