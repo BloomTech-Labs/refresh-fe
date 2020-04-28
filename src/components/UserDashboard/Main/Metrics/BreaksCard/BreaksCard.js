@@ -1,16 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addBreaks, subtractBreaks} from '../../../../../views/private/actions/actions-user'
-
+import BreakImage from './breaks.svg'
 class BreaksCard extends React.Component{
     render(){
         return(
             <div className='water-card metric-card'>
-                <h3>Breaks</h3>
-                <p>How many 15+ minute breaks have you taken today?</p>
+
+                <h3 className='metrics-card-title'>Breaks</h3>
+
+                <div className= 'metrics-card-content'>
+                <img  src={BreakImage} alt="Woman Medetaing"></img>
+                </div>
+
                 <div className='metric-card-input'>
+
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractBreaks(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
-                <h1>{this.props.breaks}</h1>
+                
+                <h3>{this.props.breaks}/2</h3>
+                
                 <button disabled={this.props.isFetching} onClick={() => this.props.addBreaks(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>
