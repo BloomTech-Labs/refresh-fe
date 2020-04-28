@@ -317,7 +317,8 @@ p {
   width: 75px;
   background-color: #ffffff;
   border: none;
-  font-weight: 24px !important;
+  font-size: 24px;
+  font-weight: 500 !important;
 }
 .user-dashboard .main .metric-card .metric-card-input h3 {
   display: flex;
@@ -465,13 +466,13 @@ p {
 .cardlink:hover {
   color: #777;
 }
-.auth-container {
+.auth-contianer {
   width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.auth-container .marketing {
+.auth-contianer .marketing {
   display: flex;
   flex-direction: column;
   justify-content: center;

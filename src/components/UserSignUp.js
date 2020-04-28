@@ -27,11 +27,13 @@ function UserSignUp(props) {
 
     return (
         <div className="sign-up auth-contianer">
+
             <div className='marketing'>
                 <h1>Feeling Burnt Out?</h1>
                 <br></br>
                 <h1>Lets Refresh</h1>
             </div>
+            
             <div className="cardwrapper">
         
                     <header className="cardheader">
