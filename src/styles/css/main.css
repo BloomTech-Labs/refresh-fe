@@ -357,6 +357,12 @@ img {
 .user-dashboard .user-sidebar .sidebar-content h2 {
   padding: 10px 0px 10px 0px;
 }
+.user-dashboard .user-sidebar .sidebar-content .sidebar-content-categrories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 .user-dashboard .user-sidebar .integrations {
   width: 100%;
   border: solid black;

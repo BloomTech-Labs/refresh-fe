@@ -13,7 +13,7 @@
    height="719.1228"
    viewBox="0 0 487.82031 719.12281"
    version="1.1"
-   sodipodi:docname="undraw_energizer_2224.svg"
+   sodipodi:docname="water.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
      id="metadata113">
@@ -47,7 +47,7 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="0.86825505"
-     inkscape:cx="145.85429"
+     inkscape:cx="-41.302698"
      inkscape:cy="436.54353"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
@@ -55,13 +55,6 @@
      inkscape:current-layer="aaa444b1-ec30-4a51-a2af-6b879f86a07d" />
   <title
      id="title2">energizer</title>
-  <ellipse
-     cx="243.5"
-     cy="681.44366"
-     rx="243.5"
-     ry="37.679138"
-     id="ellipse4"
-     style="fill:#3f3d56" />
   <path
      d="m 237.05338,109.96084 c 0,0 5.94383,27.34161 -14.26519,38.0405 0,0 4.75506,60.627 35.663,61.81581 30.90794,1.18881 30.9079,-32.09667 30.9079,-32.09667 l -4.75506,-17.83149 c 0,0 -22.58654,-13.07642 -8.32136,-38.0405 z"
      id="path6"
@@ -256,11 +249,6 @@
      id="path72"
      inkscape:connector-curvature="0"
      style="fill:#000000" />
-  <path
-     d="m 469.26502,609.66286 a 28.84306,28.84306 0 0 0 -11.20545,-46.239 20.47144,20.47144 0 1 0 -20.50342,0 28.84292,28.84292 0 0 0 -11.20532,46.239 40.01239,40.01239 0 1 0 42.91419,0 z"
-     id="path74"
-     inkscape:connector-curvature="0"
-     style="fill:#3f3d56" />
   <circle
      cx="100.01743"
      cy="345.20773"
