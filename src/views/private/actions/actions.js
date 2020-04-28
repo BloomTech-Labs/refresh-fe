@@ -36,12 +36,13 @@ export const DELETE_TEAM_FAILURE = "DELETE_TEAM_FAILURE";
 export const UPDATE_TEAM_NAME_START = "UPDATE_TEAM_NAME_START";
 export const UPDATE_TEAM_NAME_SUCCESS = "UPDATE_TEAM_NAME_SUCCESS";
 export const UPDATE_TEAM_NAME_FAILURE = "UPDATE_TEAM_NAME_FAILURE";
+export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
 
 // Async Action Creators
 export const fetchAllUsers = () => (dispatch) => {
   dispatch({ type: FETCH_ALL_USERS_LOADING });
   axios
-    .get(`https://labs-refresh.herokuapp.com/users/`)
+    .get(`https://labs23-refresh.herokuapp.com/users/`)
     .then((response) =>
       dispatch({ type: FETCH_ALL_USERS_SUCCESS, payload: response.data })
     )
@@ -54,7 +55,7 @@ export const fetchUserTeamName = (userId) => (dispatch) => {
   console.log("fetch");
   dispatch({ type: FETCH_USER_TEAM_NAME_LOADING });
   axios
-    .get(`https://labs-refresh.herokuapp.com/users/${userId}/team`)
+    .get(`https://labs23-refresh.herokuapp.com/users/${userId}/team`)
     .then((response) =>
       dispatch({ type: FETCH_USER_TEAM_NAME_SUCCESS, payload: response.data })
     )
@@ -66,7 +67,7 @@ export const fetchUserTeamName = (userId) => (dispatch) => {
 export const updateUserTeam = (userId, editedTeamId) => (dispatch) => {
   dispatch({ type: UPDATE_USER_TEAM_START });
   axios
-    .put(`https://labs-refresh.herokuapp.com/users/${userId}`, editedTeamId)
+    .put(`https://labs23-refresh.herokuapp.com/users/${userId}`, editedTeamId)
     .then((response) => {
       console.log("updateUserTeam response: ", response);
       dispatch({ type: UPDATE_USER_TEAM_SUCCESS, payload: response.data });
@@ -79,7 +80,7 @@ export const updateUserTeam = (userId, editedTeamId) => (dispatch) => {
 export const deleteUser = (userId) => (dispatch) => {
   dispatch({ type: DELETE_USER_START });
   axios
-    .delete(`https://labs-refresh.herokuapp.com/users/${userId}`)
+    .delete(`https://labs23-refresh.herokuapp.com/users/${userId}`)
     .then((response) => {
       dispatch({ type: DELETE_USER_SUCCESS, payload: response });
     })
@@ -141,4 +142,16 @@ export const editTeamName = (teamId, editedTeamName) => (dispatch) => {
     .catch((error) =>
       dispatch({ type: UPDATE_TEAM_NAME_FAILURE, payload: error })
     );
+};
+
+export const updateTeamPoints = (teamId) => (dispatch) => {
+  dispatch({ type: UPDATE_USER_TEAM_START });
+  axios
+    .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+    .then((response) => {
+      dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data });
+    })
+    .catch((error) => {
+      dispatch({ type: UPDATE_USER_TEAM_FAILURE, PAYLOAD: error });
+    });
 };

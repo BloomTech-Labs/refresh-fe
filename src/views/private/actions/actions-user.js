@@ -13,6 +13,9 @@ export const UPDATE_EXERCISE = "UPDATE_EXERCISE";
 export const UPDATE_BREAKS = "UPDATE_BREAKS";
 export const UPDATE_POINTS = "UPDATE_POINTS";
 
+export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
+export const UPDATE_USER_TEAM_FAILURE = "UPDATE_USER_TEAM_FAILURE";
+
 //login
 export const login = (user) => (dispatch) => {
   dispatch({ type: FETCHING_START });
@@ -117,7 +120,9 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
     .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //call helper function to find out how many points to update by
-      const pointsToUpdate = updatePointsWater(response.data.water, 8, "add");
+        const pointsToUpdate = updatePointsWater(response.data.water, 8, "add");
+        console.log('addwater data', response.data);
+        
 
       //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
       axiosWithAuth()
@@ -140,28 +145,42 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
     });
 
   // make a PUT request to update the teams total points
-    
+
   // TODO: Find the user's team ID
 
   axiosWithAuth()
     .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
         const teamId = response.data.team_id;
-        // TODO: Find the team table to see what it currently has
-        axiosWithAuth()
-            .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
-            .then((response) => {
-         
-            axiosWithAuth()
-            // TODO: Update team points
-                .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
-                    // TODO: find the previous team points + add water update
-                    points: response.data.points + 1
-            })
-        })
+        const teamPointsUpdate = updatePointsWater(response.data.water, 8, "add");
 
-      // Do we need ot update anything via dispatch?
         
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
+              // TODO: find the previous team points + add water update
+              points: response.data.points + teamPointsUpdate,
+            })
+            .then((response) => {
+              dispatch({
+                type: UPDATE_TEAM_POINTS,
+                payload: response.data.result,
+              });
+            })
+            .catch((error) => {
+              dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+            });
+        })
+        .catch((error) => {
+          dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+        });
+    })
+    .catch((error) => {
+      dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
     });
 };
 
@@ -210,6 +229,44 @@ export const subtractWater = (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
+    .then((response) => {
+        const teamId = response.data.team_id;
+
+        const teamPointsUpdate = updatePointsWater(
+            response.data.water,
+            8,
+            "subtract"
+          );
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
+              // TODO: find the previous team points then water update
+              points: response.data.points + teamPointsUpdate,
+            })
+            .then((response) => {
+              dispatch({
+                type: UPDATE_TEAM_POINTS,
+                payload: response.data.result,
+              });
+            })
+            .catch((error) => {
+              dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+            });
+        })
+        .catch((error) => {
+          dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+        });
+    })
+    .catch((error) => {
+      dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+    });
 };
 
 //update sleep metrics, addition
@@ -247,6 +304,38 @@ export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
+    .then((response) => {
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsSleep(response.data.sleep, 8, "add");
+
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + teamPointsUpdate,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update sleep metrics, subtraction
@@ -293,6 +382,40 @@ export const subtractSleep = (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+  axiosWithAuth()
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
+    .then((response) => {
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsSleep(
+            response.data.sleep,
+            8,
+            "subtract"
+          );
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + teamPointsUpdate,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update exercise metrics, addition
@@ -332,6 +455,42 @@ export const addExercise = (increaseNum, userId, dailyPoints, totalPoints) => (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
+    .then((response) => {
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsExercise(
+            response.data.exercise,
+            4,
+            "add",
+            increaseNum
+          );
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + teamPointsUpdate,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update exercise metrics, subtraction
@@ -379,6 +538,42 @@ export const subtractExercise = (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
+    .then((response) => {
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsExercise(
+            response.data.exercise,
+            4,
+            "subtract",
+            decreaseNum
+          );
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + teamPointsUpdate,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update breaks metrics, addition
@@ -418,6 +613,42 @@ export const addBreaks = (increaseNum, userId, dailyPoints, totalPoints) => (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+
+  axiosWithAuth()
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
+    .then((response) => {
+        const teamId = response.data.team_id;
+        const teamPointsUpdate = updatePointsBreaks(
+            response.data.breaks,
+            2,
+            "add",
+            increaseNum
+          );
+      // TODO: Find the team table to see what it currently has
+      axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + teamPointsUpdate,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update breaks metrics, subtraction
@@ -465,6 +696,41 @@ export const subtractBreaks = (
     .catch((error) => {
       dispatch({ type: SET_ERROR, payload: error });
     });
+  axiosWithAuth()
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
+    .then((response) => {
+      const teamId = response.data.team_id;
+      // TODO: Find the team table to see what it currently has
+      const teamPointsUpdate = updatePointsBreaks(
+        response.data.breaks,
+        2,
+        "subtract",
+        decreaseNum
+      );
+      axiosWithAuth()
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response) => {
+          axiosWithAuth()
+            // TODO: Update team points
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
+              // TODO: find the previous team points + update points
+              points: response.data.points + teamPointsUpdate,
+            })
+            .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data.result});
+            })
+            .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+        })
+        .catch((error) => {
+            dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+          });
+
+})
+.catch((error) => {
+    dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+  });
 };
 
 //update points for sleep helper function
@@ -534,6 +800,7 @@ function updatePointsBreaks(metricNum, goal, operation) {
 //update points for water helper function
 function updatePointsWater(metricNum, goal, operation) {
   let pointsToAdd = 0;
+console.log('metricNum', metricNum);
 
   //update points only if at or below goal
   if (metricNum <= goal) {
