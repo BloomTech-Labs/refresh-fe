@@ -296,7 +296,8 @@ p {
 .user-dashboard .main .metric-card .metrics-card-content img {
   width: 70%;
   padding: 10px 0px 10px 0px;
-  overflow: none;
+  margin: 5px 0px 5px 0px;
+  overflow: hidden;
 }
 .user-dashboard .main .metric-card .metric-card-input {
   width: 100%;
