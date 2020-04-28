@@ -14,7 +14,7 @@ class ExcerciseCard extends React.Component{
                 </div>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractExercise(-15, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
-                <h1>{this.props.exercise}/60</h1>
+                <h3>{this.props.exercise}/60</h3>
                 <button disabled={this.props.isFetching} onClick={() => this.props.addExercise(15, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>

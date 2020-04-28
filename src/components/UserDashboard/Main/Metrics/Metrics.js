@@ -12,8 +12,8 @@ class Metrics extends React.Component{
             <div className= 'metrics-container'>
                 
                 <div className='metrics-header'>
-                <h1>Daily Trackers</h1>
-                <h1>Daily Retro</h1>
+                <h2>Daily Trackers</h2>
+                <h2>Daily Retro</h2>
                 </div>
 
                 <div className='metrics' >

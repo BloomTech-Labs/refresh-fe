@@ -16,7 +16,7 @@ class LeaderBoard extends React.Component {
       <div className="leader-board">
 
         <div className ='sidebar-title'>
-          <h1>Leaderboard</h1>
+          <h2>Leaderboard</h2>
         </div>
         
         <div className= 'sidebar-content'>

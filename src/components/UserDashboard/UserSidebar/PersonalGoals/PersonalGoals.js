@@ -10,7 +10,7 @@ class PersonalGoals extends React.Component{
             <div className='personal-goals'>
 
                 <div className ='sidebar-title'>
-                    <h1>Personal Goals</h1>
+                    <h2>Personal Goals</h2>
                 </div>
                 
                 <div className= 'sidebar-content'>

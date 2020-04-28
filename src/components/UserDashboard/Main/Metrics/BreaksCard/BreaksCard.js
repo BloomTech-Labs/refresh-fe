@@ -17,7 +17,7 @@ class BreaksCard extends React.Component{
 
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractBreaks(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
                 
-                <h1>{this.props.breaks}/2</h1>
+                <h3>{this.props.breaks}/2</h3>
                 
                 <button disabled={this.props.isFetching} onClick={() => this.props.addBreaks(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>

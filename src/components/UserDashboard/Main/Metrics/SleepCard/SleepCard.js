@@ -13,7 +13,7 @@ class SleepCard extends React.Component{
                 </div>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractSleep(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
-                <h1>{this.props.sleep}/8</h1>
+                <h3>{this.props.sleep}/8</h3>
                 <button disabled={this.props.isFetching} onClick={() => this.props.addSleep(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>

@@ -159,25 +159,26 @@ html {
 }
 html,
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "gopher", sans-serif;
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: 'Indie Flower', cursive;
+  font-family: "gopher", sans-serif;
 }
 h1 {
   font-size: 4rem;
 }
 h2 {
-  font-size: 3.2rem;
-  padding-bottom: 10px;
+  font-size: 32px;
+}
+h3 {
+  font-size: 24px;
 }
 h4 {
-  font-size: 2.5rem;
-  padding-bottom: 10px;
+  font-size: 18px;
 }
 p {
   line-height: 1.5;
@@ -224,6 +225,14 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px 20px 40px;
+}
+.user-dashboard .main .header .daily-points h2 {
+  font-size: 44px;
+  font-weight: 500;
+}
+.user-dashboard .main .header .daily-points h3 {
+  font-size: 24px;
+  font-weight: 500;
 }
 .user-dashboard .main .header .user-profile {
   border: solid black;
@@ -290,6 +299,7 @@ img {
 }
 .user-dashboard .main .metric-card .metrics-card-content img {
   width: 70%;
+  padding: 10px 0px 10px 0px;
 }
 .user-dashboard .main .metric-card .metric-card-input {
   width: 100%;
@@ -305,8 +315,9 @@ img {
   width: 75px;
   background-color: #ffffff;
   border: none;
+  font-weight: 24px !important;
 }
-.user-dashboard .main .metric-card .metric-card-input h1 {
+.user-dashboard .main .metric-card .metric-card-input h3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -341,6 +352,8 @@ img {
   align-items: center;
 }
 .user-dashboard .user-sidebar .sidebar-title {
+  font-size: 100px  !important;
+  font-weight: 500  !important;
   display: flex;
   justify-content: center;
   align-items: center;

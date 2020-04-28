@@ -8,11 +8,11 @@ class WaterCard extends React.Component{
             <div className='water-card metric-card'>
                 <h3 className='metrics-card-title'>Water</h3>
                 <div className= 'metrics-card-content'>
-                <img  src={WaterImage} alt="profile-pic"></img>
+                <img  src={WaterImage} alt=""></img>
                 </div>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractWater(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
-                <h1>{this.props.water}/8</h1>
+                <h3>{this.props.water}/8</h3>
                 <button disabled={this.props.isFetching} onClick={() => this.props.addWater(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
                 </div>
             </div>

@@ -8,7 +8,6 @@ class UserInfo extends React.Component{
             <div className='user-info'>
                 <h3>{this.props.fullName}</h3>
                 <h3>{this.props.teamName}</h3>
-                <h3>Total Points</h3>
             </div>
         )
     }
