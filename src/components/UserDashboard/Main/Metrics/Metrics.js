@@ -9,11 +9,19 @@ import BreaksCard from './BreaksCard/BreaksCard'
 class Metrics extends React.Component{
     render(){
         return(
-            <div className='metrics' >
-                <WaterCard />
-                <ExcerciseCard />
-                <SleepCard />
-                <BreaksCard />
+            <div className= 'metrics-container'>
+                
+                <div className='metrics-header'>
+                <h2>Daily Trackers</h2>
+                <h2>Daily Retro</h2>
+                </div>
+
+                <div className='metrics' >
+                    <WaterCard />
+                    <ExcerciseCard />
+                    <SleepCard />
+                    <BreaksCard />
+                </div>
             </div>
         )
     }

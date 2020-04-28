@@ -14,16 +14,22 @@ class LeaderBoard extends React.Component {
 
     return (
       <div className="leader-board">
-        <h1 style={{ fontSize: "25px" }}>Leaderboard</h1>
-        <ul>
-          {sortedTeams.map((team) => {
-            return (
-              <li>
-                <strong>{team.name}</strong> {team.points}
-              </li>
-            );
-          })}
-        </ul>
+
+        <div className ='sidebar-title'>
+          <h2>Leaderboard</h2>
+        </div>
+        
+        <div className= 'sidebar-content'>
+            {sortedTeams.map((team) => {
+              return (
+                <div className= 'sidebar-content-categrories'>
+                <h3>{team.name}</h3>
+                <h4>{team.points}</h4>
+                </div>
+              );
+            })}
+        </div>
+        
       </div>
     );
   }

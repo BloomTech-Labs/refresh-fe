@@ -1,3 +1,28 @@
+@import url("https://p.typekit.net/p.css?s=1&k=ura8omc&ht=tk&f=43703.43705.43706&a=38336531&app=typekit&e=css");
+@font-face {
+  font-family: "gopher";
+  src: url("https://use.typekit.net/af/18dda4/00000000000000003b9b3bb2/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff2"), url("https://use.typekit.net/af/18dda4/00000000000000003b9b3bb2/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff"), url("https://use.typekit.net/af/18dda4/00000000000000003b9b3bb2/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "gopher";
+  src: url("https://use.typekit.net/af/7a7451/00000000000000003b9b3bb4/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/7a7451/00000000000000003b9b3bb4/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/7a7451/00000000000000003b9b3bb4/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "gopher";
+  src: url("https://use.typekit.net/af/ea20f7/00000000000000003b9b3bb5/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"), url("https://use.typekit.net/af/ea20f7/00000000000000003b9b3bb5/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"), url("https://use.typekit.net/af/ea20f7/00000000000000003b9b3bb5/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+  font-display: auto;
+  font-style: italic;
+  font-weight: 400;
+}
+.tk-gopher {
+  font-family: "gopher", sans-serif;
+}
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -134,25 +159,26 @@ html {
 }
 html,
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "gopher", sans-serif;
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: 'Indie Flower', cursive;
+  font-family: "gopher", sans-serif;
 }
 h1 {
   font-size: 4rem;
 }
 h2 {
-  font-size: 3.2rem;
-  padding-bottom: 10px;
+  font-size: 32px;
+}
+h3 {
+  font-size: 24px;
 }
 h4 {
-  font-size: 2.5rem;
-  padding-bottom: 10px;
+  font-size: 18px;
 }
 p {
   line-height: 1.5;
@@ -169,32 +195,44 @@ img {
   margin: 0 auto;
 }
 .user-dashboard {
-  background-color: whitesmoke;
+  font-family: "gopher", sans-serif;
+  background-color: white;
+  width: 80%;
+  max-width: 1800px;
+  margin: 0  auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   border: solid black;
-  border-width: 1.5px;
+  border-width: 2px;
 }
 .user-dashboard .main {
-  width: 70%;
-  border: solid black;
-  border-width: 1.5px;
+  width: 75%;
+  border-right: solid black;
+  border-width: 2px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
 }
 .user-dashboard .main .header {
   width: 100%;
-  border: solid black;
-  border-width: 1.5px;
+  border-bottom: solid black;
+  border-width: 2px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 40px 20px 40px;
+}
+.user-dashboard .main .header .daily-points h2 {
+  font-size: 44px;
+  font-weight: 500;
+}
+.user-dashboard .main .header .daily-points h3 {
+  font-size: 24px;
+  font-weight: 500;
 }
 .user-dashboard .main .header .user-profile {
   border: solid black;
@@ -203,6 +241,11 @@ img {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
+  padding: 5px;
+  box-shadow: 10px 10px;
+}
+.user-dashboard .main .header .user-profile img {
+  border-radius: 50%;
 }
 .user-dashboard .main .header .user-profile .user-info {
   width: 100%;
@@ -210,21 +253,26 @@ img {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-around;
+  padding: 0 10px 0 10px;
+}
+.user-dashboard .main .metrics-container {
+  height: 100%;
+  padding: 40px;
+}
+.user-dashboard .main .metrics-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40px;
 }
 .user-dashboard .main .metrics {
-  width: 100%;
-  height: 100%;
-  border: solid black;
-  border-width: 1.5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: space-between;
 }
 .user-dashboard .main .metric-card {
-  width: 25%;
-  height: 250px;
+  width: 27%;
   border: solid black;
   border-width: 1px;
   display: flex;
@@ -232,21 +280,54 @@ img {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  margin: 10px;
+  margin-bottom: 30px;
+  box-shadow: 10px 10px;
+}
+.user-dashboard .main .metric-card .metrics-card-title {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-dashboard .main .metric-card .metrics-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 300px;
+}
+.user-dashboard .main .metric-card .metrics-card-content img {
+  width: 70%;
+  padding: 10px 0px 10px 0px;
 }
 .user-dashboard .main .metric-card .metric-card-input {
   width: 100%;
-  border: solid black;
+  height: 50px;
+  border-top: solid #000000;
   border-width: 1px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+.user-dashboard .main .metric-card .metric-card-input button {
+  width: 75px;
+  background-color: #ffffff;
+  border: none;
+  font-weight: 24px !important;
+}
+.user-dashboard .main .metric-card .metric-card-input h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-left: solid black;
+  border-right: solid black;
+  border-width: 1px;
 }
 .user-dashboard .user-sidebar {
-  width: 30%;
-  border: solid black;
-  border-radius: 1.5px;
+  width: 25%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -254,31 +335,51 @@ img {
 }
 .user-dashboard .user-sidebar .personal-goals {
   width: 100%;
-  height: 33%;
-  border: solid black;
-  border-radius: 1.5px;
+  height: 50%;
+  border-bottom: solid black;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-between;
   align-items: center;
 }
 .user-dashboard .user-sidebar .leader-board {
   width: 100%;
-  height: 33%;
-  border: solid black;
-  border-radius: 1.5px;
+  height: 50%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-title {
+  font-size: 100px  !important;
+  font-weight: 500  !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px 20px 0px ;
+  width: 100%;
+}
+.user-dashboard .user-sidebar .sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-content h2 {
+  padding: 10px 0px 10px 0px;
+}
+.user-dashboard .user-sidebar .sidebar-content .sidebar-content-categrories {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 .user-dashboard .user-sidebar .integrations {
   width: 100%;
-  height: 33%;
   border: solid black;
-  border-radius: 1.5px;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

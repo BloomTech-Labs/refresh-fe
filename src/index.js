@@ -17,9 +17,6 @@ import logger from 'redux-logger';
 // router
 import { Router } from "react-router-dom";
 
-// themes and styles
-import Reset from "./styles/global/Reset";
-import GlobalStyle from "./styles/global/GlobalStyle";
 
 // components
 import App from './App';
@@ -67,8 +64,6 @@ store.subscribe(() => saveToLocalStorage(store.getState()))
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Reset />
-      <GlobalStyle />
       <App />
     </Router>
   </Provider>,

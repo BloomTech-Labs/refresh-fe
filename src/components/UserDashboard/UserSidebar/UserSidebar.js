@@ -3,7 +3,10 @@ import React from 'react'
 // Import Components
 import PersonalGoals from './PersonalGoals/PersonalGoals.js'
 import LeaderBoard from './LeaderBoard/LeaderBoard.js'
-import Integrations from './Integrations/Integrations.js'
+
+
+// For future release
+// import Integrations from './Integrations/Integrations.js'
 
 
 class UserSidebar extends React.Component{
@@ -12,7 +15,7 @@ class UserSidebar extends React.Component{
             <div className='user-sidebar'>
                 <PersonalGoals />
                 <LeaderBoard />
-                <Integrations />
+                {/* <Integrations /> */}
             </div>
         )
     }
