@@ -194,7 +194,7 @@ p {
 .user-dashboard {
   font-family: "gopher", sans-serif;
   background-color: white;
-  width: 80%;
+  width: 100%;
   max-width: 1800px;
   max-height: 100vh;
   margin: 0  auto;
@@ -256,7 +256,6 @@ p {
 .user-dashboard .main .metrics-container {
   height: 100%;
   padding: 40px;
-  overflow: scroll;
 }
 .user-dashboard .main .metrics-header {
   display: flex;
@@ -295,7 +294,7 @@ p {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  height: 300px;
+  height: 225px;
 }
 .user-dashboard .main .metric-card .metrics-card-content img {
   max-width: 90%;
@@ -353,7 +352,6 @@ p {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  overflow: scroll;
 }
 .user-dashboard .user-sidebar .sidebar-title {
   font-size: 100px  !important;
