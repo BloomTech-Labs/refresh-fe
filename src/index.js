@@ -55,12 +55,12 @@ const rootReducer =  combineReducers({
   userReducer
 });
 
-const persistedState = loadFromLocalStorage()
+//const persistedState = loadFromLocalStorage()
 
-const store = createStore(rootReducer, persistedState, applyMiddleware(thunk, logger))
+const store = createStore(rootReducer, , applyMiddleware(thunk, logger))
 
 //every time the store changes, update local storage
-store.subscribe(() => saveToLocalStorage(store.getState()))
+//store.subscribe(() => saveToLocalStorage(store.getState()))
 
 
 // RENDER
