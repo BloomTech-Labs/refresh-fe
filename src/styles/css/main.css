@@ -185,10 +185,6 @@ p {
   font-size: 1.6rem;
   padding-bottom: 10px;
 }
-img {
-  max-width: 100%;
-  height: auto;
-}
 .container {
   max-width: 800px;
   width: 100%;
@@ -300,6 +296,7 @@ img {
 .user-dashboard .main .metric-card .metrics-card-content img {
   width: 70%;
   padding: 10px 0px 10px 0px;
+  overflow: none;
 }
 .user-dashboard .main .metric-card .metric-card-input {
   width: 100%;
@@ -391,7 +388,6 @@ img {
   padding: 0 0 32px;
   margin: 48px auto 0;
   width: 300px;
-  font-family: Quicksand, arial, sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0px 40px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
@@ -401,7 +397,6 @@ img {
 }
 .cardheading {
   font-size: 24px;
-  font-family: Gopher;
   font-weight: bold;
   text-align: center;
 }
@@ -427,7 +422,6 @@ img {
 .cardinput {
   padding: 7px 0;
   width: 100%;
-  font-family: inherit;
   font-size: 14px;
   border-top: 0;
   border-right: 0;
