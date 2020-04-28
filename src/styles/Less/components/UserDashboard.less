@@ -3,8 +3,9 @@
 .user-dashboard {
     font-family: "gopher",sans-serif;
     background-color: white;
-    width: 80%;
+    width: 100%;
     max-width: 1800px;
+    max-height: 100vh;
     margin: 0  auto;
     display: flex;
     flex-direction: row;
@@ -100,6 +101,7 @@
         // Metrics Cards
         .metric-card{
             width: 27%;
+            height: 100%;
             border:solid black;
             border-width: 1px;
             display: flex;
@@ -112,11 +114,11 @@
 
             // Metrics Card Title
             .metrics-card-title{
-                height: 50px;
                 width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                padding: 10px 0px;
             }
 
             // Metrics Card Content
@@ -125,11 +127,14 @@
                 justify-content: center;
                 align-items: center;
                 margin: 0 auto;
-                height: 300px;
+                height: 225px;
 
                 img{
-                    width: 70%;
+                    max-width: 90%;
+                    max-height: 90%;
                     padding: 10px 0px 10px 0px;
+                    margin: 5px 0px 5px 0px;
+                    overflow: hidden;
                 }
             }
 
@@ -191,7 +196,6 @@
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
-            align-items: center;
         }
 
         // Sidebar Titles
@@ -200,7 +204,6 @@
             font-weight: 500  !important;
             display: flex;
             justify-content: center;
-            align-items: center;
             padding: 20px 0px 20px 0px ;
             width: 100%;
         }

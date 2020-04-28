@@ -13,16 +13,13 @@ import UserSignUp from './components/UserSignUp.js'
 
 const App = props => {
   return (
-    // <ContextRouter 
-    //   privateView={PrivateViewCanvas}
-    //   publicView={PublicViewCanvas}
-    // />
-    <div className='refresh-app'>
-    <Switch>
-    <PrivateRoute exact path='/UserDashboard' component={UserDashboard}/>
-    <Route path="/sign-up" component={UserSignUp} />
-    <Route exact path='/' component={UserLogin} />
-    </Switch>
+    <div className='app'>
+        <Switch>
+          <PrivateRoute exact path='/UserDashboard' component={UserDashboard}/>
+          <Route path="/sign-up" component={UserSignUp} />
+          <Route exact path='/' component={UserLogin} />
+        </Switch>
+
     </div>
   );
 };
