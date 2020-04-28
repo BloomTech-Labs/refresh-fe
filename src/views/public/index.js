@@ -13,7 +13,7 @@ import EmailLogIn from "./onboarding/EmailLogin";
 const PublicViewCanvas = () => {
   return (
     <Switch>
-      <Route path="/signup" component={CreateAccount} />
+      {/* <Route path="/signup" component={CreateAccount} /> */}
       <Route path="/emailsignup" component={EmailSignUp} />
       <Route path="/emaillogin" component={EmailLogIn} />
       <Route path="/login" component={Login} />
