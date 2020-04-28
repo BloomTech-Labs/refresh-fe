@@ -18,8 +18,8 @@ const PublicViewCanvas = () => {
       <Route path="/emaillogin" component={EmailLogIn} />
       <Route path="/login" component={Login} />
       <Route path="/adminlogin" component={AdminLogin} />
-      <Route exact path="/" component={Landing} />
-      <Redirect to="/" />
+      {/* <Route exact path="/" component={Landing} />
+      <Redirect to="/" /> */}
     </Switch>
   );
 };

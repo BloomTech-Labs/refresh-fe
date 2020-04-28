@@ -22,7 +22,7 @@ const PrivateViewCanvas = props => {
         pathname !== "/create-team" && (
           <div>
           <WithNavigation />
-          <Route match path="/" component={AdminDash} />
+          {/* <Route match path="/" component={AdminDash} /> */}
           </div>
           
         )}
