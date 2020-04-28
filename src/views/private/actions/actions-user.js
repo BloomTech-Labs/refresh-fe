@@ -30,7 +30,7 @@ export const login = (user) => (dispatch) => {
 
       if (response.data.UserInfo.team_id !== null) {
         axios
-          .get(`http://localhost:5003/teams/${response.data.UserInfo.team_id}`)
+          .get(`https://lab23-refresh-be.herokuapp.com/teams/${response.data.UserInfo.team_id}`)
           .then((response) => {
             console.log("RESPONSE FROM GET TEAM", response);
             teamName = response.data.name;
@@ -67,14 +67,14 @@ export const login = (user) => (dispatch) => {
 export const register = (user) => (dispatch) => {
   dispatch({ type: FETCHING_START });
   axios
-    .post("http://localhost:5003/users/register", user)
+    .post("https://lab23-refresh-be.herokuapp.com/users/register", user)
     .then((response) => {
       //set up to grab teamName from team_id that is given after login, so we can set team name to state to show on dashboard
       let teamName = "";
 
       if (response.data.UserInfo.team_id !== null) {
         axios
-          .get(`http://localhost:5003/teams/${response.data.UserInfo.team_id}`)
+          .get(`https://lab23-refresh-be.herokuapp.com/teams/${response.data.UserInfo.team_id}`)
           .then((response) => {
             console.log("RESPONSE FROM GET TEAM", response);
             teamName = response.team_name;
@@ -117,7 +117,7 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
   //first GET the water metric, in order to know what the current water number is to increase it by
   axiosWithAuth()
     // Goes to the server to get the entire User's information
-    .get(`http://localhost:5003/users/${userId}/metrics`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //call helper function to find out how many points to update by
         const pointsToUpdate = updatePointsWater(response.data.water, 8, "add");
@@ -126,7 +126,7 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
 
       //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
       axiosWithAuth()
-        .put(`http://localhost:5003/users/${userId}/metrics`, {
+        .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {
           water: response.data.water + increaseNum,
           daily_points: dailyPoints + pointsToUpdate,
           total_points: totalPoints + pointsToUpdate,
@@ -149,7 +149,7 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
   // TODO: Find the user's team ID
 
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
         const teamId = response.data.team_id;
         const teamPointsUpdate = updatePointsWater(response.data.water, 8, "add");
@@ -157,11 +157,11 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
         
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
-        .get(`http://localhost:5003/teams/${teamId}`)
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
         .then((response) => {
           axiosWithAuth()
             // TODO: Update team points
-            .put(`http://localhost:5003/teams/${teamId}`, {
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
               // TODO: find the previous team points + add water update
               points: response.data.points + teamPointsUpdate,
             })
@@ -196,7 +196,7 @@ export const subtractWater = (
 
   //first GET the water metric, in order to know what the current water number is to decrease it by
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}/metrics`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //check to make sure water metric isn't currently at 0, to avoid negative metric input
       if (response.data.water != 0) {
@@ -209,7 +209,7 @@ export const subtractWater = (
 
         //make the PUT request to update water metric on the back end, then dispatch the action to update state on the front end
         axiosWithAuth()
-          .put(`http://localhost:5003/users/${userId}/metrics`, {
+          .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {
             water: response.data.water + decreaseNum,
             daily_points: dailyPoints + pointsToUpdate,
             total_points: totalPoints + pointsToUpdate,
@@ -231,7 +231,7 @@ export const subtractWater = (
     });
 
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
         const teamId = response.data.team_id;
 
@@ -242,11 +242,11 @@ export const subtractWater = (
           );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
-        .get(`http://localhost:5003/teams/${teamId}`)
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
         .then((response) => {
           axiosWithAuth()
             // TODO: Update team points
-            .put(`http://localhost:5003/teams/${teamId}`, {
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
               // TODO: find the previous team points then water update
               points: response.data.points + teamPointsUpdate,
             })
@@ -277,7 +277,7 @@ export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => (
 
   //first GET the sleep metric, in order to know what the current sleep number is to increase it by
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}/metrics`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //call helper function to find out how many points to update by
       const pointsToUpdate = updatePointsSleep(response.data.sleep, 8, "add");
@@ -287,7 +287,7 @@ export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => (
 
       //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
       axiosWithAuth()
-        .put(`http://localhost:5003/users/${userId}/metrics`, {
+        .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {
           sleep: response.data.sleep + increaseNum,
           daily_points: dailyPoints + pointsToUpdate,
           total_points: totalPoints + pointsToUpdate,
@@ -306,18 +306,18 @@ export const addSleep = (increaseNum, userId, dailyPoints, totalPoints) => (
     });
 
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
         const teamId = response.data.team_id;
         const teamPointsUpdate = updatePointsSleep(response.data.sleep, 8, "add");
 
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
-        .get(`http://localhost:5003/teams/${teamId}`)
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
         .then((response) => {
           axiosWithAuth()
             // TODO: Update team points
-            .put(`http://localhost:5003/teams/${teamId}`, {
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
               // TODO: find the previous team points + update points
               points: response.data.points + teamPointsUpdate,
             })
@@ -349,7 +349,7 @@ export const subtractSleep = (
 
   //first GET the sleep metric, in order to know what the current sleep number is to decrease it by
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}/metrics`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //check to make sure sleep metric isn't currently at 0, to avoid negative metric input
       if (response.data.sleep != 0) {
@@ -362,7 +362,7 @@ export const subtractSleep = (
 
         //make the PUT request to update sleep metric on the back end, then dispatch the action to update state on the front end
         axiosWithAuth()
-          .put(`http://localhost:5003/users/${userId}/metrics`, {
+          .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {
             sleep: response.data.sleep + decreaseNum,
             daily_points: dailyPoints + pointsToUpdate,
             total_points: totalPoints + pointsToUpdate,
@@ -383,7 +383,7 @@ export const subtractSleep = (
       dispatch({ type: SET_ERROR, payload: error });
     });
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
         const teamId = response.data.team_id;
         const teamPointsUpdate = updatePointsSleep(
@@ -393,11 +393,11 @@ export const subtractSleep = (
           );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
-        .get(`http://localhost:5003/teams/${teamId}`)
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
         .then((response) => {
           axiosWithAuth()
             // TODO: Update team points
-            .put(`http://localhost:5003/teams/${teamId}`, {
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
               // TODO: find the previous team points + update points
               points: response.data.points + teamPointsUpdate,
             })
@@ -426,7 +426,7 @@ export const addExercise = (increaseNum, userId, dailyPoints, totalPoints) => (
 
   //first GET the exercise metric, in order to know what the current exercise number is to increase it by
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}/metrics`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //call helper function to find out how many points to update by
       const pointsToUpdate = updatePointsExercise(
@@ -438,7 +438,7 @@ export const addExercise = (increaseNum, userId, dailyPoints, totalPoints) => (
 
       //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
       axiosWithAuth()
-        .put(`http://localhost:5003/users/${userId}/metrics`, {
+        .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {
           exercise: response.data.exercise + increaseNum,
           daily_points: dailyPoints + pointsToUpdate,
           total_points: totalPoints + pointsToUpdate,
@@ -457,7 +457,7 @@ export const addExercise = (increaseNum, userId, dailyPoints, totalPoints) => (
     });
 
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
         const teamId = response.data.team_id;
         const teamPointsUpdate = updatePointsExercise(
@@ -468,11 +468,11 @@ export const addExercise = (increaseNum, userId, dailyPoints, totalPoints) => (
           );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
-        .get(`http://localhost:5003/teams/${teamId}`)
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
         .then((response) => {
           axiosWithAuth()
             // TODO: Update team points
-            .put(`http://localhost:5003/teams/${teamId}`, {
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
               // TODO: find the previous team points + update points
               points: response.data.points + teamPointsUpdate,
             })
@@ -504,7 +504,7 @@ export const subtractExercise = (
 
   //first GET the exercise metric, in order to know what the current exercise number is to decrease it by
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}/metrics`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //check to make sure exercise metric isn't currently at 0, to avoid negative metric input
       if (response.data.exercise != 0) {
@@ -518,7 +518,7 @@ export const subtractExercise = (
 
         //make the PUT request to update exercise metric on the back end, then dispatch the action to update state on the front end
         axiosWithAuth()
-          .put(`http://localhost:5003/users/${userId}/metrics`, {
+          .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {
             exercise: response.data.exercise + decreaseNum,
             daily_points: dailyPoints + pointsToUpdate,
             total_points: totalPoints + pointsToUpdate,
@@ -540,7 +540,7 @@ export const subtractExercise = (
     });
 
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
         const teamId = response.data.team_id;
         const teamPointsUpdate = updatePointsExercise(
@@ -551,11 +551,11 @@ export const subtractExercise = (
           );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
-        .get(`http://localhost:5003/teams/${teamId}`)
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
         .then((response) => {
           axiosWithAuth()
             // TODO: Update team points
-            .put(`http://localhost:5003/teams/${teamId}`, {
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
               // TODO: find the previous team points + update points
               points: response.data.points + teamPointsUpdate,
             })
@@ -584,7 +584,7 @@ export const addBreaks = (increaseNum, userId, dailyPoints, totalPoints) => (
 
   //first GET the breaks metric, in order to know what the current breaks number is to increase it by
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}/metrics`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //call helper function to find out how many points to update by
       const pointsToUpdate = updatePointsBreaks(
@@ -596,7 +596,7 @@ export const addBreaks = (increaseNum, userId, dailyPoints, totalPoints) => (
 
       //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
       axiosWithAuth()
-        .put(`http://localhost:5003/users/${userId}/metrics`, {
+        .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {
           breaks: response.data.breaks + increaseNum,
           daily_points: dailyPoints + pointsToUpdate,
           total_points: totalPoints + pointsToUpdate,
@@ -615,7 +615,7 @@ export const addBreaks = (increaseNum, userId, dailyPoints, totalPoints) => (
     });
 
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
         const teamId = response.data.team_id;
         const teamPointsUpdate = updatePointsBreaks(
@@ -626,11 +626,11 @@ export const addBreaks = (increaseNum, userId, dailyPoints, totalPoints) => (
           );
       // TODO: Find the team table to see what it currently has
       axiosWithAuth()
-        .get(`http://localhost:5003/teams/${teamId}`)
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
         .then((response) => {
           axiosWithAuth()
             // TODO: Update team points
-            .put(`http://localhost:5003/teams/${teamId}`, {
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
               // TODO: find the previous team points + update points
               points: response.data.points + teamPointsUpdate,
             })
@@ -662,7 +662,7 @@ export const subtractBreaks = (
 
   //first GET the breaks metric, in order to know what the current breaks number is to decrease it by
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}/metrics`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //check to make sure breaks metric isn't currently at 0, to avoid negative metric input
       if (response.data.breaks != 0) {
@@ -676,7 +676,7 @@ export const subtractBreaks = (
 
         //make the PUT request to update breaks metric on the back end, then dispatch the action to update state on the front end
         axiosWithAuth()
-          .put(`http://localhost:5003/users/${userId}/metrics`, {
+          .put(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`, {
             breaks: response.data.breaks + decreaseNum,
             daily_points: dailyPoints + pointsToUpdate,
             total_points: totalPoints + pointsToUpdate,
@@ -697,7 +697,7 @@ export const subtractBreaks = (
       dispatch({ type: SET_ERROR, payload: error });
     });
   axiosWithAuth()
-    .get(`http://localhost:5003/users/${userId}`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
       const teamId = response.data.team_id;
       // TODO: Find the team table to see what it currently has
@@ -708,11 +708,11 @@ export const subtractBreaks = (
         decreaseNum
       );
       axiosWithAuth()
-        .get(`http://localhost:5003/teams/${teamId}`)
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
         .then((response) => {
           axiosWithAuth()
             // TODO: Update team points
-            .put(`http://localhost:5003/teams/${teamId}`, {
+            .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {
               // TODO: find the previous team points + update points
               points: response.data.points + teamPointsUpdate,
             })

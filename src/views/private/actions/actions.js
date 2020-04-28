@@ -113,7 +113,7 @@ export const createNewTeam = (Team) => (dispatch) => {
 export const fetchTeams = () => (dispatch) => {
   dispatch({ type: FETCH_TEAMS_LOADING });
   axios
-    .get(`http://localhost:5003/teams`)
+    .get(`https://lab23-refresh-be.herokuapp.com/teams`)
     .then((response) => {
       dispatch({ type: FETCH_TEAMS_SUCCESS, payload: response.data });
     })
@@ -145,13 +145,13 @@ export const editTeamName = (teamId, editedTeamName) => (dispatch) => {
 };
 
 export const updateTeamPoints = (teamId) => (dispatch) => {
-    dispatch({ type: UPDATE_USER_TEAM_START });
-    axios
-        .put(`http://localhost:5003/teams/${teamId}`)
-        .then((response) => {
-            dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data });
-        })
-        .catch((error) => {
-            dispatch({ type: UPDATE_USER_TEAM_FAILURE, PAYLOAD: error })
-        });
-}
+  dispatch({ type: UPDATE_USER_TEAM_START });
+  axios
+    .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+    .then((response) => {
+      dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data });
+    })
+    .catch((error) => {
+      dispatch({ type: UPDATE_USER_TEAM_FAILURE, PAYLOAD: error });
+    });
+};
