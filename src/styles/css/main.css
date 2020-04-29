@@ -342,6 +342,16 @@ p {
   flex-wrap: nowrap;
   align-items: center;
 }
+.user-dashboard .user-sidebar .personal-goals .incomplete {
+  font-size: 18px;
+  font-weight: 500;
+  color: salmon;
+}
+.user-dashboard .user-sidebar .personal-goals .complete {
+  font-size: 18px;
+  font-weight: 500;
+  color: cornflowerblue;
+}
 .user-dashboard .user-sidebar .leader-board {
   width: 100%;
   height: 50%;
