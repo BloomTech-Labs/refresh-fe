@@ -50,7 +50,7 @@ function UserSignUp(props) {
                                             ref={register({required: "Full name is required"})}
                                         />
 
-                                                {errors.fullName && <p className='input-errors'>>{errors.fullName.message}</p>}
+                                                {errors.fullName && <p className='input-errors'>{errors.fullName.message}</p>}
                         </fieldset>
                         <fieldset className="cardfieldset">
                     <label for="email"></label>
