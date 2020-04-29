@@ -8,8 +8,8 @@ import PrivateRoute from './helpers/PrivateRoute'
 import UserDashboard from './components/UserDashboard/UserDashboard'
 
 import {Route, Switch} from 'react-router-dom';
-import UserLogin from './components/UserLogin.js'
-import UserSignUp from './components/UserSignUp.js'
+import UserLogin from './components/Auth/UserLogin.js'
+import UserSignUp from './components/Auth/UserSignUp.js'
 
 const App = props => {
   return (
