@@ -259,6 +259,21 @@ p {
   justify-content: space-between;
   margin-bottom: 40px;
 }
+.user-dashboard .main .metrics-header a {
+  font-size: 24px;
+  /* unvisited link */
+  /* mouse over link */
+}
+.user-dashboard .main .metrics-header a :link {
+  color: cornflowerblue;
+}
+.user-dashboard .main .metrics-header a :visited {
+  color: cornflowerblue;
+  font-weight: 200;
+}
+.user-dashboard .main .metrics-header a :hover {
+  color: black;
+}
 .user-dashboard .main .metrics {
   display: flex;
   flex-direction: row;
