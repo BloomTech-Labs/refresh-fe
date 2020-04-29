@@ -44,6 +44,7 @@ function reducer(state = initialState, action) {
         isFetching: false,
       };
     case SET_ERROR:
+      delete action.payload.toJSON
       return {
         ...state,
         error: action.payload,
