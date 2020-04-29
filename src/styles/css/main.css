@@ -186,16 +186,12 @@ p {
   font-size: 1.6rem;
   padding-bottom: 10px;
 }
-.container {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-}
 .user-dashboard {
   font-family: "gopher", sans-serif;
   background-color: white;
   width: 100%;
   max-width: 1800px;
+  height: 100vh;
   max-height: 100vh;
   margin: 0  auto;
   display: flex;
@@ -212,6 +208,10 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 .user-dashboard .main .header {
   width: 100%;
@@ -256,6 +256,7 @@ p {
 .user-dashboard .main .metrics-container {
   height: 100%;
   padding: 40px;
+  overflow: scroll;
 }
 .user-dashboard .main .metrics-header {
   display: flex;
@@ -263,11 +264,38 @@ p {
   justify-content: space-between;
   margin-bottom: 40px;
 }
+.user-dashboard .main .metrics-header a {
+  font-size: 24px;
+  /* unvisited link */
+  /* mouse over link */
+}
+.user-dashboard .main .metrics-header a :link {
+  color: cornflowerblue;
+}
+.user-dashboard .main .metrics-header a :visited {
+  color: cornflowerblue;
+  font-weight: 200;
+}
+.user-dashboard .main .metrics-header a :hover {
+  color: black;
+}
 .user-dashboard .main .metrics {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.user-dashboard .main ::-webkit-scrollbar {
+  width: 10px;
+}
+.user-dashboard .main ::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+.user-dashboard .main ::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+.user-dashboard .main ::-webkit-scrollbar-thumb:hover {
+  background: #000000;
 }
 .user-dashboard .main .metric-card {
   width: 27%;
@@ -294,7 +322,7 @@ p {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  height: 225px;
+  height: 325px;
 }
 .user-dashboard .main .metric-card .metrics-card-content img {
   max-width: 90%;
@@ -317,7 +345,8 @@ p {
   width: 75px;
   background-color: #ffffff;
   border: none;
-  font-weight: 24px !important;
+  font-size: 24px;
+  font-weight: 500 !important;
 }
 .user-dashboard .main .metric-card .metric-card-input h3 {
   display: flex;
@@ -344,6 +373,16 @@ p {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+}
+.user-dashboard .user-sidebar .personal-goals .incomplete {
+  font-size: 18px;
+  font-weight: 500;
+  color: salmon;
+}
+.user-dashboard .user-sidebar .personal-goals .complete {
+  font-size: 18px;
+  font-weight: 500;
+  color: cornflowerblue;
 }
 .user-dashboard .user-sidebar .leader-board {
   width: 100%;
@@ -386,11 +425,77 @@ p {
   justify-content: space-between;
   align-items: center;
 }
+#root {
+  height: 100%;
+  max-height: 100%;
+}
+.app {
+  max-height: 100%;
+  height: 100%;
+}
+.auth-container {
+  width: 90%;
+  display: flex;
+  height: 75vh;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.auth-container .marketing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+}
+.auth-container .marketing h1 {
+  font-size: 72px;
+  font-weight: 500;
+}
+.auth-container .marketing img {
+  width: 350px;
+  padding: 20px;
+}
+.auth-container .marketing .refresh-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.auth-container .marketing .refresh-logo img {
+  width: 80px;
+  padding-left: -15px;
+  margin-left: -15px;
+}
+.log-in-card {
+  padding: 20px 20px 30px 20px;
+  border: solid black;
+  border-width: 2px;
+  box-shadow: 10px 10px;
+}
+.log-in-card h2 {
+  font-weight: 700;
+}
+.input-errors {
+  font-size: 18px;
+  font-weight: 500;
+  color: salmon;
+}
+.sign-up-card {
+  padding: 20px 20px 30px 20px;
+  border: solid black;
+  border-width: 2px;
+  box-shadow: 10px 10px;
+}
+.sign-up-card h2 {
+  font-weight: 700;
+}
 .cardwrapper {
   overflow: hidden;
   padding: 0 0 32px;
   margin: 48px auto 0;
   width: 300px;
+  height: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0px 40px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
@@ -423,17 +528,18 @@ p {
   text-align: center;
 }
 .cardinput {
-  padding: 7px 0;
+  padding: 10px 0;
   width: 100%;
-  font-size: 14px;
+  font-size: 18px;
   border-top: 0;
   border-right: 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid black;
+  background-color: white;
   border-left: 0;
   transition: border-bottom-color 0.25s ease-in;
 }
 .cardinput:focus {
-  border-bottom-color: #e5195f;
+  border-bottom: 4px solid black;
   outline: 0;
 }
 .card-button {
@@ -441,7 +547,31 @@ p {
   width: 100%;
   padding: 12px 0;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  border: 0;
+}
+.card-button:hover {
+  border: solid black;
+  border-width: 4px;
+  background-color: white;
+  color: black;
+}
+.user-type-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  background-color: chocolate;
+}
+.user-button,
+.admin-button {
+  display: flex;
+  width: 49%;
+  padding: 12px 0;
+  font-family: inherit;
+  font-size: 18px;
   font-weight: 700;
   color: white;
   background-color: black;
@@ -450,31 +580,31 @@ p {
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
-.card-button:hover {
+.user-button:hover,
+.admin-button:hover {
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.16);
   transform: translate(0, -5px);
 }
 .cardlink {
   display: inline-block;
-  font-size: 12px;
+  font-size: 18px;
   text-decoration: none;
-  color: #aaa;
+  color: cornflowerblue;
   cursor: pointer;
   transition: color 0.25s ease-in;
+  /* unvisited link */
+  /* mouse over link */
 }
 .cardlink:hover {
-  color: #777;
+  color: black;
 }
-.auth-container {
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.cardlink :link {
+  color: cornflowerblue;
 }
-.auth-container .marketing {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 60%;
+.cardlink :visited {
+  color: cornflowerblue;
+  font-weight: 200;
+}
+.cardlink :hover {
+  color: black;
 }

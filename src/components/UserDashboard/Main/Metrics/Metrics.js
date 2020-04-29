@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 // Import Components
 import WaterCard from './WaterCard/WaterCard.js'
@@ -13,7 +14,7 @@ class Metrics extends React.Component{
                 
                 <div className='metrics-header'>
                 <h2>Daily Trackers</h2>
-                <h2>Daily Retro</h2>
+                <a><Link to="/UserDashboard"> Daily Retro</Link></a>
                 </div>
 
                 <div className='metrics' >

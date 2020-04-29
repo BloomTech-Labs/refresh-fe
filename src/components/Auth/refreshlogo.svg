@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="17.281586mm"
+   height="26.755699mm"
+   viewBox="0 0 17.281586 26.755699"
+   version="1.1"
+   id="svg949"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="refreshlogo.svg">
+  <defs
+     id="defs943">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath913">
+      <rect
+         style="opacity:1;fill:#63b7ff;fill-opacity:1;stroke:#000000;stroke-width:0.12030853;stroke-linecap:butt;stroke-miterlimit:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect915"
+         width="52.085472"
+         height="42.105022"
+         x="386.31451"
+         y="501.50497"
+         ry="0" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="131.03543"
+     inkscape:cy="4.7282812"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata946">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(99.355082,-95.390004)">
+    <polygon
+       transform="matrix(0.76272128,-0.20437055,0.20437055,0.76272128,-527.54837,-213.5259)"
+       style="fill:#63b7ff;fill-opacity:1"
+       points="438.4,559.005 438.4,543.61 453.795,543.61 453.795,537.882 438.4,537.882 438.4,522.487 432.672,522.487 432.672,537.882 417.277,537.882 417.277,543.61 432.672,543.61 432.672,559.005 "
+       id="polygon36-3"
+       clip-path="url(#clipPath913)" />
+  </g>
+</svg>

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
-import {login} from '../views/private/actions/actions-user';
+import {login} from '../../views/private/actions/actions-user';
 import {connect} from 'react-redux';
-
+import Marketing from './Marketing'
 
 function UserLogin(props) {
 
@@ -27,46 +27,59 @@ function UserLogin(props) {
 
     return (
         <div className='log-in auth-container'>
-            <div className='marketing'>
-                <h1>Feeling Burnt Out?</h1>
-                <br></br>
-                <h1>Lets Refresh</h1>
-            </div>
-            <div className="cardwrapper">
+
+            <Marketing />
+
+            <div className='log-in-card'>
 
                 <header className="cardheader">
-                    <h1 className="cardheading">Welcome to Refresh!</h1>
+                    <h2 className="cardheading">Sign In!</h2>
                 </header> 
+{/* 
+                <usertype className='usertype'>
+                    <h4>I am a...</h4>
+                    
+                    <fieldset className="cardfieldset user-type-buttons">  
+                        <button className="user-button" type="submit">User</button>
+                        <button className="admin-button" type="submit">Admin</button>
+                    </fieldset>
+
+                </usertype> */}
+
+
 
                 <div className="cardbody">
 
                     <form onSubmit={handleSubmit(submitForm)}>
 
                         <fieldset className="cardfieldset">
-                            <label for="email">Email: </label>
+                            <label for="email"></label>
                                 <input
                                         className="cardinput"
                                         id="email"
                                         type="email"
                                         name="email"
-                                        ref={register({required: "Email is required to login"})}
+                                        placeholder="Email"
+                                        ref={register({required: "Email is required"})}
                                 />
-                                {errors.email && <p>{errors.email.message}</p>}
+                                {errors.email && <p className='input-errors'>{errors.email.message}</p>}
                         </fieldset>
 
                         <fieldset className="cardfieldset">
-                            <label for="password">Password: </label>
+                            <label for="password"></label>
                             <input
                                 className="cardinput"
                                 id="password"
                                 type="password"
                                 name="password"
-                                ref={register({required: "Password is required to login"})}
+                                placeholder="Password"
+                                ref={register({required: "Password is required"})}
                             />
-                            {errors.password && <p>{errors.password.message}</p>}
+                            {errors.password && <p className='input-errors'>{errors.password.message}</p>}
                         </fieldset>
 
-                        <fieldset className="cardfieldset">
+                        {/* NEEDED FOR FUTURE RELEASE CYCLE */}
+                        {/* <fieldset className="cardfieldset">
                             <label for="admin">Are you an administrator?</label>
                             <input
                                 className="cardinput"
@@ -75,9 +88,9 @@ function UserLogin(props) {
                                 name="admin"
                                 ref={register}
                             />
-                        </fieldset>  
+                        </fieldset>   */}
 
-                        <p>{(props.error === null ? '' : (props.error.response.data.message))}</p>
+                        {/* {(props.error === null ? <p></p> : <p className='input-errors'>{(props.error.response.data.message)}</p>)} */}
 
                         <fieldset className="cardfieldset">  
                         <button className="card-button" type="submit">Log in</button>

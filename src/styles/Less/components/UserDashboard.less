@@ -5,6 +5,7 @@
     background-color: white;
     width: 100%;
     max-width: 1800px;
+    height: 100vh;
     max-height: 100vh;
     margin: 0  auto;
     display: flex;
@@ -79,6 +80,7 @@
         .metrics-container{
             height: 100%;
             padding: 40px;
+            overflow: scroll;
         }
 
         // Metrics Header
@@ -87,7 +89,26 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            margin-bottom: 40px;;
+            margin-bottom: 40px;
+
+            a{
+                font-size: 24px;
+                
+                /* unvisited link */
+                :link {
+                    color: cornflowerblue;
+                }
+            
+                :visited{
+                    color: cornflowerblue;
+                    font-weight: 200;
+                }
+            
+                /* mouse over link */
+                :hover {
+                    color: black;
+                }
+            }
         }
 
         // Metrics
@@ -96,6 +117,26 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #ffffff; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #000000; 
+        }
+        
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000000; 
         }
 
         // Metrics Cards
@@ -127,7 +168,7 @@
                 justify-content: center;
                 align-items: center;
                 margin: 0 auto;
-                height: 225px;
+                height: 325px;
 
                 img{
                     max-width: 90%;
@@ -153,7 +194,8 @@
                     width: 75px;
                     background-color: @color-white;
                     border: none;
-                    font-weight: 24px !important;
+                    font-size: 24px;
+                    font-weight: 500 !important;
                 }
 
                 h3{
@@ -187,6 +229,17 @@
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: center;
+
+            .incomplete{
+                font-size: 18px;
+                font-weight: 500;
+                color: salmon;
+            }
+            .complete{
+                font-size: 18px;
+                font-weight: 500;
+                color: cornflowerblue;
+            }
         }
 
         // LeaderBoard
