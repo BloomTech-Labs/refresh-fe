@@ -93,7 +93,7 @@ function UserSignUp(props) {
 
                         {/* <p>{(props.error == null ? '' : (props.error.response.data.errorMessage))}</p> */}
 
-                        {/* {(props.error == null ? <p> </p> : <p className='input-errors'>{(props.error.response.data.errorMessage)}</p> )} */}
+                        {(props.error == null ? <p> </p> : <p className='input-errors'>{(props.error.response.data.errorMessage)}</p> )}
 
                         <fieldset className="cardfieldset">
                             <button className="card-button" type="submit">Sign up</button>
