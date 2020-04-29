@@ -60,7 +60,7 @@ function UserLogin(props) {
                                         type="email"
                                         name="email"
                                         placeholder="Email"
-                                        ref={register({required: "Email is required to login"})}
+                                        ref={register({required: "Email is required"})}
                                 />
                                 {errors.email && <p className='input-errors'>{errors.email.message}</p>}
                         </fieldset>
@@ -73,7 +73,7 @@ function UserLogin(props) {
                                 type="password"
                                 name="password"
                                 placeholder="Password"
-                                ref={register({required: "Password is required to login"})}
+                                ref={register({required: "Password is required"})}
                             />
                             {errors.password && <p className='input-errors'>{errors.password.message}</p>}
                         </fieldset>
@@ -89,7 +89,7 @@ function UserLogin(props) {
                             />
                         </fieldset>   */}
 
-                        {/* <p>{(props.error === null ? '' : (props.error.response.data.message))}</p> */}
+                    {/* {(props.error === null ? <p>{''}</p> : <p className='input-errors'>{(props.error.response.data.message)}</p>)} */}
 
                         <fieldset className="cardfieldset">  
                         <button className="card-button" type="submit">Log in</button>
