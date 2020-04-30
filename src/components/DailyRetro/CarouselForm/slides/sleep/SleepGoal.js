@@ -20,7 +20,7 @@ function SleepGoal(props) {
                 {setAddedPoints(props)}
             </div>
             <div className="formGoalReasoningText">
-                <p>.</p>
+                <p>Tonight, try to get at least 8 hours of sleep. Sleep boosts your immune system, manages weight loss, and helps you retain memory. </p>
             </div>
         </div>
     );
