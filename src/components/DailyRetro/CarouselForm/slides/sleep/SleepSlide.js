@@ -1,16 +1,25 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import SleepCard from '../../../../UserDashboard/Main/Metrics/SleepCard/SleepCard'
-import SleepQuestion from './SleepQuestion.js'
+import SleepCard from "../../../../UserDashboard/Main/Metrics/SleepCard/SleepCard";
+import SleepQuestion from "./SleepQuestion.js";
 
-class SleepSlide extends React.Component{
+class SleepSlide extends React.Component {
   render() {
     return (
       <div>
         <SleepQuestion />
-        <SleepCard />
+
+        <div>
+          <SleepCard />
+          <a>
+            <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
+              <h4>Why is tracking sleep important?</h4>
+            </Link>
+          </a>
+        </div>
       </div>
-    )
+    );
   }
 }
 
