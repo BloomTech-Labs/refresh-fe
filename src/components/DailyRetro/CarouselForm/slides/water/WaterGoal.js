@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 
 function WaterGoal(props) {
 
-    function setAddedPoints() {
+    function setAddedPoints(props) {
         if (props.water * props.pointsPerMetric.water.points > props.pointsPerMetric.water.max) {
-            return <h2>+ {props.pointsPerMetric.water.max} </h2>
+            return <h2>+ {props.pointsPerMetric.water.max} points </h2>
         }
         else {
-            return <h2> + {props.water * props.pointsPerMetric.water.points} </h2>
+            return <h2> + {props.water * props.pointsPerMetric.water.points} points </h2>
         }
     }
 
@@ -17,8 +17,7 @@ function WaterGoal(props) {
         <div className="metricFormGoal">
             <div className= "formGoalHeader">
                 <h2>{props.water} glasses of water</h2>
-                {setAddedPoints()}
-                {/* {(props.water * props.pointsPerMetric.water.points > props.pointsPerMetric.water.max ? <h2>+{props.pointsPerMetric.water.max}</h2> : props.pointsPerMetric.water.points * props.water)} */}
+                {setAddedPoints(props)}
             </div>
         </div>
     );
@@ -26,8 +25,8 @@ function WaterGoal(props) {
 
 const mapStateToProps = state => {
     return {
-        water: props.userReducer.water,
-        pointsPerMetric: props.userReducer.propsPerMetric
+        water: state.userReducer.water,
+        pointsPerMetric: state.userReducer.pointsPerMetric
     }
 }
 

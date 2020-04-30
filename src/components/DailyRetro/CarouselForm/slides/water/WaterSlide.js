@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import WaterCard from "../../../../UserDashboard/Main/Metrics/WaterCard/WaterCard.js";
 import WaterQuestion from "./WaterQuestion.js";
+import WaterGoal from "./WaterGoal.js";
 
 class WaterSlide extends React.Component {
   render() {
@@ -18,6 +19,9 @@ class WaterSlide extends React.Component {
             </Link>
           </a>
         </div>
+
+        <WaterGoal/>
+        
       </div>
     );
   }
