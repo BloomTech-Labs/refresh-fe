@@ -29,4 +29,4 @@ const mapStateToProps = state => {
         isFetching: state.userReducer.isFetching
     }
 }
-export default connect(mapStateToProps, {addWater, subtractWater})(WaterCard)
+export default connect(mapStateToProps, { addWater, subtractWater })(WaterCard);
