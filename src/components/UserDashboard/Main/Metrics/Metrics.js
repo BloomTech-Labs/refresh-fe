@@ -7,8 +7,6 @@ import ExcerciseCard from './ExcerciseCard/ExcerciseCard.js'
 import SleepCard from './SleepCard/SleepCard.js'
 import BreaksCard from './BreaksCard/BreaksCard'
 
-import Form from '../../../../components/DailyRetro/Form/Form'
-
 class Metrics extends React.Component{
     render(){
         return(
@@ -16,7 +14,7 @@ class Metrics extends React.Component{
                 
                 <div className='metrics-header'>
                 <h2>Daily Trackers</h2>
-                <a><Link to="/Form"> Daily Retro</Link></a>
+                <a><Link to="/form"> Daily Retro</Link></a>
                 </div>
 
                 <div className='metrics' >
