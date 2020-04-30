@@ -15,9 +15,12 @@ function WaterGoal(props) {
 
     return(
         <div className="metricFormGoal">
-            <div className= "formGoalHeader">
+            <div className="formGoalHeader">
                 <h2>{props.water} glasses of water</h2>
                 {setAddedPoints(props)}
+            </div>
+            <div className="formGoalReasoningText">
+                <p>Try to drink at least 8 glasses of water/day. Getting enough water promotes cardiovascular health, keeps muscles and joints working, and helps cleanse toxins from your body.</p>
             </div>
         </div>
     );
