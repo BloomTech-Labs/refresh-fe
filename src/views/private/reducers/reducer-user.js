@@ -26,6 +26,7 @@ const initialState = {
   sleep: 0,
   team_id: 0,
   teamName: "",
+  pointsPerMetric: {water: 1, sleep: 1, exercise: 2, breaks: 4}
 };
 
 function reducer(state = initialState, action) {
