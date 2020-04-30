@@ -2,7 +2,7 @@ import React from 'react'
 import WaterSlide from '../CarouselForm/slides/Water/WaterSlide.js'
 import ExerciseSlide from '../CarouselForm/slides/Exercise/ExerciseSlide.js'
 import SleepSlide from '../CarouselForm/slides/Sleep/SleepSlide.js'
-// import BreaksSlide from '../CarouselForm/slides/Breaks.js'
+import BreaksSlide from '../CarouselForm/slides/Breaks/BreaksSlide.js'
 
 class Form extends React.Component{
   render() {
@@ -14,7 +14,7 @@ class Form extends React.Component{
         <WaterSlide />
         <ExerciseSlide />
         <SleepSlide />
-        {/* <BreaksSlide /> */}
+        <BreaksSlide />
       </div>
     )
   }
