@@ -13,7 +13,7 @@ class WaterSlide extends React.Component {
         <div>
           <WaterCard />
           <a>
-            <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
+            <Link to="" target="_blank">
               <h4>Why is tracking sleep important?</h4>
             </Link>
           </a>
