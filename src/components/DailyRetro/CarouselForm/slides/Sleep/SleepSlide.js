@@ -5,6 +5,7 @@ import SleepCard from "../../../../UserDashboard/Main/Metrics/SleepCard/SleepCar
 import SleepQuestion from "./SleepQuestion.js";
 import SleepGoal from "./SleepGoal.js";
 
+
 class SleepSlide extends React.Component {
   render() {
     return (
@@ -21,7 +22,7 @@ class SleepSlide extends React.Component {
         </div>
 
         <SleepGoal/>
-        
+       
       </div>
     );
   }
