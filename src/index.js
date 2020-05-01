@@ -24,6 +24,9 @@ import * as serviceWorker from './serviceworker'
 
 
 function saveToLocalStorage(state) {
+
+console.log(state)
+
   try {
     const serializedState = JSON.stringify(state)
     localStorage.setItem('state', serializedState)
