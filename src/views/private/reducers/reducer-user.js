@@ -26,6 +26,7 @@ const initialState = {
   sleep: 0,
   team_id: 0,
   teamName: "",
+  pointsPerMetric: {water: {points: 1, max: 8}, sleep: {points: 1, max: 8}, exercise: {points: 2, max: 8}, breaks: {points: 4, max: 8}}
 };
 
 function reducer(state = initialState, action) {

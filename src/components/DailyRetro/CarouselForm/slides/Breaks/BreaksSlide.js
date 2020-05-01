@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import BreaksCard from "../../../../UserDashboard/Main/Metrics/BreaksCard/BreaksCard.js";
 import BreaksQuestion from "./BreaksQuestion";
+import BreaksGoal from "./BreaksGoal";
 
 class BreaksSlide extends React.Component {
   render() {
@@ -18,6 +19,9 @@ class BreaksSlide extends React.Component {
             </Link>
           </a>
         </div>
+
+        <BreaksGoal/>
+        
       </div>
     );
   }

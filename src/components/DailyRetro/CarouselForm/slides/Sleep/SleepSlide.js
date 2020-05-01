@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import SleepCard from "../../../../UserDashboard/Main/Metrics/SleepCard/SleepCard";
 import SleepQuestion from "./SleepQuestion.js";
+import SleepGoal from "./SleepGoal.js";
+
 
 class SleepSlide extends React.Component {
   render() {
@@ -18,6 +20,9 @@ class SleepSlide extends React.Component {
             </Link>
           </a>
         </div>
+
+        <SleepGoal/>
+       
       </div>
     );
   }
