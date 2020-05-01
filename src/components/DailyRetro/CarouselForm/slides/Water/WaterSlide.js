@@ -5,6 +5,7 @@ import WaterCard from "../../../../UserDashboard/Main/Metrics/WaterCard/WaterCar
 import WaterQuestion from "./WaterQuestion.js";
 import WaterGoal from "./WaterGoal.js";
 
+
 class WaterSlide extends React.Component {
   render() {
     return (
@@ -15,6 +16,7 @@ class WaterSlide extends React.Component {
           <WaterCard />
           <a>
             <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
+
               <h4>Why is tracking sleep important?</h4>
             </Link>
           </a>
