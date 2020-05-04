@@ -31,7 +31,7 @@ function Form(props) {
   const [animating, setAnimating] = useState(false);
 
   useEffect(() => {
-    const temp = localStorage.getItem("currentIndex");
+    const temp = localStorage.getItem("currentIndex") || 0;
     setActiveIndex(JSON.parse(temp));
   }, []);
 
@@ -75,6 +75,7 @@ function Form(props) {
         next={next}
         previous={previous}
         interval={null}
+        slide={false}
       >
         {slides}
         <CarouselControl
