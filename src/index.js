@@ -5,6 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './styles/css/main.css';
 import history from '../src/helpers/history';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // redux
 import { applyMiddleware, createStore, combineReducers } from 'redux';
