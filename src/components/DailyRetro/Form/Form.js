@@ -70,6 +70,7 @@ function Form(props) {
         activeIndex={activeIndex}
         next={next}
         previous={previous}
+        interval={null}
       >
         {slides}
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
