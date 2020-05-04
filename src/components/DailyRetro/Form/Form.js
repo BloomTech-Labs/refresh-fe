@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import WaterSlide from "../CarouselForm/slides/Water/WaterSlide.js";
 import ExerciseSlide from "../CarouselForm/slides/Exercise/ExerciseSlide.js";
 import SleepSlide from "../CarouselForm/slides/Sleep/SleepSlide.js";
@@ -7,57 +7,61 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators
-} from 'reactstrap';
+  CarouselIndicators,
+} from "reactstrap";
 
-
-  //in documentation, items are in an object form? may need to change if we have any trouble
-  const items = [
-    {
-      src: <WaterSlide />
-    },
-    {
-      src: <ExerciseSlide />
-    },
-    {
-      src: <SleepSlide />
-    },
-    {
-      src: <BreaksSlide /> 
-    },
-    
-  ];
-
+//in documentation, items are in an object form? may need to change if we have any trouble
+const items = [
+  {
+    src: <WaterSlide />,
+  },
+  {
+    src: <ExerciseSlide />,
+  },
+  {
+    src: <SleepSlide />,
+  },
+  {
+    src: <BreaksSlide />,
+  },
+];
 
 function Form(props) {
-
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+
+  useEffect(() => {
+    const temp = localStorage.getItem("currentIndex");
+    setActiveIndex(JSON.parse(temp));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("currentIndex", activeIndex);
+  });
 
   const next = () => {
     if (animating) return;
     const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
-  }
+  };
 
   const previous = () => {
     if (animating) return;
     const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
-  }
+  };
 
   const goToIndex = (newIndex) => {
     if (animating) return;
     setActiveIndex(newIndex);
-  }
+  };
 
-
-  const slides = items.map((item) => {
+  const slides = items.map((item, index) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={`${item.src}- ${index}`}
       >
         {item.src}
       </CarouselItem>
@@ -73,13 +77,21 @@ function Form(props) {
         interval={null}
       >
         {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={previous}
+          key="prev"
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={next}
+          key="next"
+        />
       </Carousel>
-
     </div>
   );
-
 }
 
 export default Form;
