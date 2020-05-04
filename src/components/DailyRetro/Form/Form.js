@@ -75,7 +75,7 @@ function Form(props) {
         next={next}
         previous={previous}
         interval={null}
-        slide={false}
+        // slide={false}
       >
         {slides}
         <CarouselControl
