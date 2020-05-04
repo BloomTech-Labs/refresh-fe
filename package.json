@@ -5,6 +5,7 @@
   "dependencies": {
     "@sandstreamdev/react-swipeable-list": "^0.4.1",
     "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "enzyme": "^3.11.0",
     "formidable": "^1.2.1",
@@ -30,6 +31,7 @@
     "react-swipeable-views": "^0.13.9",
     "react-switch-case": "^1.5.0",
     "react-timer-hook": "^2.0.0",
+    "reactstrap": "^8.4.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.4",
