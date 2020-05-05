@@ -73,14 +73,18 @@ function reducer(state = initialState, action) {
         isFetching: false,
         error: null,
         fullName: "",
+        userId: null,
         avatar: null,
-        points: 0,
+        totalPoints: 0,
+        dailyPoints: 0,
         admin: false,
         water: 0,
         exercise: 0,
         breaks: 0,
         sleep: 0,
         team_id: 0,
+        teamName: "",
+        pointsPerMetric: {water: {points: 1, max: 8}, sleep: {points: 1, max: 8}, exercise: {points: 2, max: 8}, breaks: {points: 4, max: 8}}
       };
     case UPDATE_WATER:
       return {
