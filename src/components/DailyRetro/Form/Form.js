@@ -5,26 +5,9 @@ import SleepSlide from "../CarouselForm/slides/Sleep/SleepSlide.js";
 import BreaksSlide from "../CarouselForm/slides/Breaks/BreaksSlide.js";
 import {
   Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
+  CarouselItem
 } from "reactstrap";
 
-//in documentation, items are in an object form? may need to change if we have any trouble
-const items = [
-  {
-    src: <WaterSlide />,
-  },
-  {
-    src: <ExerciseSlide />,
-  },
-  {
-    src: <SleepSlide />,
-  },
-  {
-    src: <BreaksSlide />,
-  },
-];
 
 function Form(props) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -56,6 +39,22 @@ function Form(props) {
     setActiveIndex(newIndex);
   };
 
+  //in documentation, items are in an object form? may need to change if we have any trouble
+  const items = [
+  {
+    src: <WaterSlide next={next} previous={previous}/>,
+  },
+  {
+    src: <ExerciseSlide next={next} previous={previous}/>,
+  },
+  {
+    src: <SleepSlide next={next} previous={previous}/>,
+  },
+  {
+    src: <BreaksSlide next={next} previous={previous}/>,
+  },
+];
+
   const slides = items.map((item, index) => {
     return (
       <CarouselItem
@@ -78,18 +77,7 @@ function Form(props) {
         // slide={false}
       >
         {slides}
-        <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={previous}
-          key="prev"
-        />
-        <CarouselControl
-          direction="next"
-          directionText="Next"
-          onClickHandler={next}
-          key="next"
-        />
+    
       </Carousel>
     </div>
   );

@@ -9,7 +9,7 @@ class ExerciseSlide extends React.Component {
   render() {
     return (
       <div>
-        <ExerciseQuestion />
+        <ExerciseQuestion next={this.props.next} previous={this.props.previous} />
 
         <div>
           <ExerciseCard />

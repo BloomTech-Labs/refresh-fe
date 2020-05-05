@@ -9,7 +9,7 @@ class BreaksSlide extends React.Component {
   render() {
     return (
       <div>
-        <BreaksQuestion />
+        <BreaksQuestion next={this.props.next} previous={this.props.previous} />
 
         <div>
           <BreaksCard />

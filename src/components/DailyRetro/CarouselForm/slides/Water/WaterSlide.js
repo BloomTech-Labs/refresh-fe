@@ -10,7 +10,7 @@ class WaterSlide extends React.Component {
   render() {
     return (
       <div>
-        <WaterQuestion />
+        <WaterQuestion next={this.props.next} previous={this.props.previous} />
 
         <div>
           <WaterCard />
