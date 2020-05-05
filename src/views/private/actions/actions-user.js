@@ -199,7 +199,7 @@ export const subtractWater = (
     .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //check to make sure water metric isn't currently at 0, to avoid negative metric input
-      if (response.data.water != 0) {
+      if (response.data.water !== 0) {
         //call helper function to find out how many points to update by
         const pointsToUpdate = updatePointsWater(
           response.data.water,
@@ -352,7 +352,7 @@ export const subtractSleep = (
     .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //check to make sure sleep metric isn't currently at 0, to avoid negative metric input
-      if (response.data.sleep != 0) {
+      if (response.data.sleep !== 0) {
         //call helper function to find out how many points to update by
         const pointsToUpdate = updatePointsSleep(
           response.data.sleep,
@@ -507,7 +507,7 @@ export const subtractExercise = (
     .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //check to make sure exercise metric isn't currently at 0, to avoid negative metric input
-      if (response.data.exercise != 0) {
+      if (response.data.exercise !== 0) {
         //call helper function to find out how many points to update by
         const pointsToUpdate = updatePointsExercise(
           response.data.exercise,
@@ -665,7 +665,7 @@ export const subtractBreaks = (
     .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}/metrics`)
     .then((response) => {
       //check to make sure breaks metric isn't currently at 0, to avoid negative metric input
-      if (response.data.breaks != 0) {
+      if (response.data.breaks !== 0) {
         //call helper function to find out how many points to update by
         const pointsToUpdate = updatePointsBreaks(
           response.data.breaks,

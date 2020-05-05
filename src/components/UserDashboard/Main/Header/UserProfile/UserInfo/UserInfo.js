@@ -6,7 +6,7 @@ import Dropdown from './Dropdown';
 class UserInfo extends React.Component{
     render(){
         return (
-            <>
+            
             <div className='user-info'>
                 <div className='user-dropdown'><h3>{this.props.fullName}</h3><Dropdown /></div>
                 <h3>{this.props.teamName}</h3>
@@ -15,7 +15,7 @@ class UserInfo extends React.Component{
 
 
 
-                </>
+           
         )
     }
 }

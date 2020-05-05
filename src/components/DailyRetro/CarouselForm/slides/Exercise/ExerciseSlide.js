@@ -13,11 +13,11 @@ class ExerciseSlide extends React.Component {
 
         <div>
           <ExerciseCard />
-          <a>
+          
             <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
               <h4>The importance of Fitness</h4>
             </Link>
-          </a>
+          
         </div>
 
         <ExerciseGoal/>
