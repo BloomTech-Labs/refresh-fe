@@ -9,7 +9,7 @@ import SleepGoal from "./SleepGoal.js";
 class SleepSlide extends React.Component {
   render() {
     return (
-      <div>
+      <div className='slides'>
         <SleepQuestion />
 
         <div>

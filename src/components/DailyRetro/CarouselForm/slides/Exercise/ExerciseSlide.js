@@ -8,7 +8,7 @@ import ExerciseGoal from "./ExerciseGoal";
 class ExerciseSlide extends React.Component {
   render() {
     return (
-      <div>
+      <div className='slides'>
         <ExerciseQuestion />
 
         <div>
