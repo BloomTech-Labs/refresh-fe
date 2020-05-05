@@ -8,7 +8,14 @@ class WaterCard extends React.Component{
             <div className='water-card metric-card'>
                 <h3 className='metrics-card-title'>Water</h3>
                 <div className= 'metrics-card-content'>
-                <img  src={WaterImage} alt=""></img>
+                {/* <img  src={WaterImage} alt=""></img> */}
+                <div
+                    data-preset="bubble"
+                    data-path="M10 10L90 10L90 90L10 90Z"
+                    class="ldBar"
+                    data-value={this.props.water / 8 * 100}
+                    
+                />
                 </div>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractWater(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>

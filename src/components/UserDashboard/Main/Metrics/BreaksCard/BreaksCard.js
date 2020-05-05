@@ -10,8 +10,16 @@ class BreaksCard extends React.Component{
                 <h3 className='metrics-card-title'>Breaks</h3>
 
                 <div className= 'metrics-card-content'>
-                <img  src={BreakImage} alt="Woman Medetaing"></img>
+                {/* <img  src={BreakImage} alt="Woman Medetaing"></img> */}
+                <div
+                    className="ldBar label-center"
+                    data-value={this.props.breaks / 2 * 100}
+                    data-preset="circle"
+                   
+                
+                    ></div>
                 </div>
+                
 
                 <div className='metric-card-input'>
 
