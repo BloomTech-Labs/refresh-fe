@@ -9,8 +9,13 @@ import WaterGoal from "./WaterGoal.js";
 class WaterSlide extends React.Component {
   render() {
     return (
+<<<<<<< HEAD
       <div className='slides'>
         <WaterQuestion />
+=======
+      <div>
+        <WaterQuestion next={this.props.next} previous={this.props.previous} />
+>>>>>>> 9cb0c326a696db61b344db7fc6baf6ac15d2a2d6
 
         <div>
           <WaterCard />
