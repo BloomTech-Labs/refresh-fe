@@ -1,56 +1,53 @@
-
-
 .user-dashboard {
-    font-family: "gopher",sans-serif;
-    background-color: white;
-    width: 100%;
-    max-width: 1800px;
-    height: 100vh;
-    max-height: 100vh;
-    margin: 0  auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    border:solid black;
+  font-family: "gopher", sans-serif;
+  background-color: white;
+  width: 100%;
+  max-width: 1800px;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  border: solid black;
+  border-width: 2px;
+
+  // Main
+  .main {
+    width: 75%;
+    border-right: solid black;
     border-width: 2px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 
-    // Main
-    .main{
-        width: 75%;
-        border-right:solid black;
-        border-width: 2px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        
-        // Header
-        .header{
-        width: 100%;
-        border-bottom:solid black;
-        border-width: 2px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 40px 20px 40px;
+    // Header
+    .header {
+      width: 100%;
+      border-bottom: solid black;
+      border-width: 2px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px 20px 40px;
 
-        .daily-points{
-            
-            h2{
-                font-size: 44px;
-                font-weight: 500;
-            }
-
-            h3{
-                font-size: 24px;
-                font-weight: 500;
-            }
+      .daily-points {
+        h2 {
+          font-size: 44px;
+          font-weight: 500;
         }
-        // User Profile
-        .user-profile{
-        border:solid black;
+
+        h3 {
+          font-size: 24px;
+          font-weight: 500;
+        }
+      }
+      // User Profile
+      .user-profile {
+        border: solid black;
         border-width: 1px;
         display: flex;
         flex-direction: row;
@@ -59,245 +56,246 @@
         padding: 5px;
         box-shadow: 10px 10px;
 
-        img{
-            border-radius: 50%;
+        img {
+          border-radius: 50%;
         }
 
         // User Info
-        .user-info{
+        .user-info {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: space-around;
+          padding: 0 10px 0 10px;
+        }
+        .user-dropdown {
+            h3 {
+                float: left;
+            }
+            .btn-group {
+                float:right;
+            }
+        }
+      }
+    }
+
+
+
+    // Metrics Container
+    .metrics-container {
+      height: 100%;
+      padding: 40px;
+      overflow: scroll;
+    }
+
+    // Metrics Header
+    .metrics-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 40px;
+
+      a {
+        font-size: 24px;
+
+        /* unvisited link */
+        :link {
+          color: cornflowerblue;
+        }
+
+        :visited {
+          color: cornflowerblue;
+          font-weight: 200;
+        }
+
+        /* mouse over link */
+        :hover {
+          color: black;
+        }
+      }
+    }
+
+    // Metrics
+    .metrics {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #ffffff;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #000000;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #000000;
+    }
+
+    // Metrics Cards
+    .metric-card {
+      width: 27%;
+      height: 100%;
+      border: solid black;
+      border-width: 1px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      box-shadow: 10px 10px;
+
+      // Metrics Card Title
+      .metrics-card-title {
         width: 100%;
         display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        padding: 0 10px 0 10px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0px;
+      }
+
+      // Metrics Card Content
+      .metrics-card-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        height: 325px;
+
+        img {
+          max-width: 90%;
+          max-height: 90%;
+          padding: 10px 0px 10px 0px;
+          margin: 5px 0px 5px 0px;
+          overflow: hidden;
         }
-        }
-    }
+      }
 
-
-        // Metrics Container
-        .metrics-container{
-            height: 100%;
-            padding: 40px;
-            overflow: scroll;
-        }
-
-        // Metrics Header
-        .metrics-header{
-
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-bottom: 40px;
-
-            a{
-                font-size: 24px;
-                
-                /* unvisited link */
-                :link {
-                    color: cornflowerblue;
-                }
-            
-                :visited{
-                    color: cornflowerblue;
-                    font-weight: 200;
-                }
-            
-                /* mouse over link */
-                :hover {
-                    color: black;
-                }
-            }
-        }
-
-        // Metrics
-        .metrics{
+      // Metric Card Input
+      .metric-card-input {
+        width: 100%;
+        height: 50px;
+        border-top: solid @color-black;
+        border-width: 1px;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-between;
+
+        button {
+          width: 75px;
+          background-color: @color-white;
+          border: none;
+          font-size: 24px;
+          font-weight: 500 !important;
         }
 
-        /* width */
-        ::-webkit-scrollbar {
-            width: 10px;
+        h3 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          border-left: solid black;
+          border-right: solid black;
+          border-width: 1px;
         }
-        
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: #ffffff; 
-        }
-        
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #000000; 
-        }
-        
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #000000; 
-        }
+      }
+    }
+  }
 
-        // Metrics Cards
-        .metric-card{
-            width: 27%;
-            height: 100%;
-            border:solid black;
-            border-width: 1px;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            box-shadow: 10px 10px;
+  .user-sidebar {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
 
-            // Metrics Card Title
-            .metrics-card-title{
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 10px 0px;
-            }
+    // Personal Goals
+    .personal-goals {
+      width: 100%;
+      height: 50%;
+      border-bottom: solid black;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
 
-            // Metrics Card Content
-            .metrics-card-content{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0 auto;
-                height: 325px;
-
-                img{
-                    max-width: 90%;
-                    max-height: 90%;
-                    padding: 10px 0px 10px 0px;
-                    margin: 5px 0px 5px 0px;
-                    overflow: hidden;
-                }
-            }
-
-            // Metric Card Input
-            .metric-card-input{
-                width: 100%;
-                height: 50px;
-                border-top:solid @color-black;
-                border-width: 1px;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: space-between;
-
-                button{
-                    width: 75px;
-                    background-color: @color-white;
-                    border: none;
-                    font-size: 24px;
-                    font-weight: 500 !important;
-                }
-
-                h3{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 100%;
-                    border-left: solid black;
-                    border-right: solid black;
-                    border-width: 1px;
-                }
-            }
-        }
-
+      .incomplete {
+        font-size: 18px;
+        font-weight: 500;
+        color: salmon;
+      }
+      .complete {
+        font-size: 18px;
+        font-weight: 500;
+        color: cornflowerblue;
+      }
     }
 
-    .user-sidebar{
-        width: 25%;
+    // LeaderBoard
+    .leader-board {
+      width: 100%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    // Sidebar Titles
+    .sidebar-title {
+      font-size: 100px !important;
+      font-weight: 500 !important;
+      display: flex;
+      justify-content: center;
+      padding: 20px 0px 20px 0px;
+      width: 100%;
+    }
+
+    // Sidebar Content
+    .sidebar-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      h2 {
+        padding: 10px 0px 10px 0px;
+      }
+
+      .sidebar-content-categrories {
         display: flex;
         flex-direction: column;
-        flex-wrap: nowrap;
+        justify-content: space-between;
         align-items: center;
-
-        // Personal Goals
-        .personal-goals{
-            width: 100%;
-            height: 50%;
-            border-bottom: solid black;
-            border-radius: 2px;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            align-items: center;
-
-            .incomplete{
-                font-size: 18px;
-                font-weight: 500;
-                color: salmon;
-            }
-            .complete{
-                font-size: 18px;
-                font-weight: 500;
-                color: cornflowerblue;
-            }
-        }
-
-        // LeaderBoard
-        .leader-board{
-            width: 100%;
-            height: 50%;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-
-        }
-
-       
-
-        // Sidebar Titles
-        .sidebar-title{
-            font-size: 100px  !important;
-            font-weight: 500  !important;
-            display: flex;
-            justify-content: center;
-            padding: 20px 0px 20px 0px ;
-            width: 100%;
-        }
-
-        // Sidebar Content
-        .sidebar-content{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-
-            h2{
-                padding: 10px 0px 10px 0px;
-            }
-
-            .sidebar-content-categrories{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-        }
-        // Integrations
-        .integrations{
-            width: 100%;
-            border: solid black;
-            border-radius: 2px;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            align-items: center;
-        }
+      }
     }
-
-
+    // Integrations
+    .integrations {
+      width: 100%;
+      border: solid black;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
 
 // Media Queries
@@ -305,109 +303,100 @@
 // 1300
 
 @media only screen and (max-width: 1300px) {
-    
-    .user-dashboard {
-        border: none;
+  .user-dashboard {
+    border: none;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    .main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      border-top: solid black 2px;
+      border-bottom: solid black 2px;
+      border-right: none;
+
+      .metrics-container {
+        height: 100%;
+        padding: 50px;
+        overflow: none;
+      }
+
+      .metric-card {
+        width: 40%;
+        height: 100%;
+        border: solid black;
+        margin-bottom: 50px;
+      }
+
+      .header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 40px 20px 40px;
+      }
+    }
+
+    .user-sidebar {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      border-bottom: black solid 2px;
+
+      .personal-goals {
         width: 100%;
         height: 100%;
-        max-height: 100vh;
-        margin: 0  auto;
+        border-bottom: none;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        justify-content: center;
+        align-items: center;
+        border-right: solid black 2px;
+      }
 
-        .main{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            border-top: solid black 2px;
-            border-bottom: solid black 2px;
-            border-right: none;
-
-            .metrics-container{
-                height: 100%;
-                padding: 50px;
-                overflow: none;
-            }
-
-            .metric-card{
-                width: 40%;
-                height: 100%;
-                border:solid black;
-                margin-bottom: 50px;
-            }
-
-            .header{
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                align-items: center;
-                justify-content: space-between;
-                padding: 20px 40px 20px 40px;
-            }
-        }
-
-        .user-sidebar{
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: center;
-            border-bottom: black solid 2px;
-
-            .personal-goals{
-                width: 100%;
-                height: 100%;
-                border-bottom: none;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-                align-items: center;
-                border-right: solid black 2px;
-            }
-
-            .leader-board{
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-
-            }
-        }
+      .leader-board {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
     }
-
+  }
 }
-
 
 // 900
 
 @media only screen and (max-width: 900px) {
-    
-    .user-dashboard {
-        .main{
-            .metric-card{
-                width: 45%;
-            }
-        }
-
-        .user-sidebar{
-
-            .personal-goals{
-                padding-bottom: 30px;
-            }
-
-            .leader-board{
-                border-top: solid black 2px;
-            }
-
-        }
-
+  .user-dashboard {
+    .main {
+      .metric-card {
+        width: 45%;
+      }
     }
 
+    .user-sidebar {
+      .personal-goals {
+        padding-bottom: 30px;
+      }
+
+      .leader-board {
+        border-top: solid black 2px;
+      }
+    }
+  }
 }
 
 // Media Queries
@@ -415,100 +404,92 @@
 // 700
 
 @media only screen and (max-width: 700px) {
-    
-    .user-dashboard {
-        border: none;
+  .user-dashboard {
+    border: none;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    .main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      border-top: solid black 2px;
+      border-bottom: solid black 2px;
+      border-right: none;
+
+      .header {
         width: 100%;
-        height: 100%;
-        max-height: 100vh;
-        margin: 0  auto;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 40px 20px 40px;
 
-        .main{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            border-top: solid black 2px;
-            border-bottom: solid black 2px;
-            border-right: none;
-
-            .header{
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-                align-items: center;
-                justify-content: space-between;
-                padding: 20px 40px 20px 40px;
-
-                .user-profile{
-                margin-bottom: 50px;
-                }
-            }
-
-
-            .metrics-container{
-                flex-direction: column;
-                flex-wrap: wrap;
-                height: 100%;
-                padding: 50px;
-                overflow: none;
-                align-items: center;
-                justify-content: space-evenly;
-
-                .metrics{
-                    display: flex;
-                    flex-direction: column;
-                    flex-wrap: nowrap;
-                    align-items: center;
-                    justify-content: space-between;
-
-                    .metric-card{
-                        width: 85%;
-                        height: 100%;
-                        border:solid black;
-                        margin-bottom: 50px;
-                    }
-
-                }
-            }
+        .user-profile {
+          margin-bottom: 50px;
         }
+      }
 
-        .user-sidebar{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            align-items: center;
-            border-bottom: black solid 2px;
+      .metrics-container {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 100%;
+        padding: 50px;
+        overflow: none;
+        align-items: center;
+        justify-content: space-evenly;
 
-            .personal-goals{
-                width: 100%;
-                height: 100%;
-                border-bottom: none;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-                align-items: center;
-                border-bottom: solid black 2px;
-            }
+        .metrics {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: space-between;
 
-            .leader-board{
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: nowrap;
-
-            }
+          .metric-card {
+            width: 85%;
+            height: 100%;
+            border: solid black;
+            margin-bottom: 50px;
+          }
         }
-
-    
+      }
     }
-}
 
-            
+    .user-sidebar {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      border-bottom: black solid 2px;
+
+      .personal-goals {
+        width: 100%;
+        height: 100%;
+        border-bottom: none;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        border-bottom: solid black 2px;
+      }
+
+      .leader-board {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+    }
+  }
+}

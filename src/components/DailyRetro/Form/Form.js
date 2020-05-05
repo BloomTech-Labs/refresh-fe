@@ -34,12 +34,8 @@ function Form(props) {
     setActiveIndex(nextIndex);
   };
 
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
+ 
 
-  //in documentation, items are in an object form? may need to change if we have any trouble
   const items = [
   {
     src: <WaterSlide next={next} previous={previous}/>,

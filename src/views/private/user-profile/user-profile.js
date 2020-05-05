@@ -56,6 +56,8 @@ const UserProfile = props => {
                         </h2>
                         </Blue>
                     </div>
+
+
                     
                     <form>
                         <Dropdown onChange={handleSubmit}>
@@ -69,6 +71,9 @@ const UserProfile = props => {
                         })}
                         </Dropdown>
                     </form>
+
+ 
+ 
                 </ProfileCard2>
             </UserPage>
         )
