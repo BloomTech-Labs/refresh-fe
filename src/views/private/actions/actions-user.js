@@ -106,7 +106,7 @@ export const register = (user) => (dispatch) => {
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
   window.localStorage.clear();
-  //history.push('/');
+  history.push('/');
 };
 
 //update water metrics, addition
