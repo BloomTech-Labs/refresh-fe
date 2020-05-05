@@ -9,26 +9,23 @@ import WaterGoal from "./WaterGoal.js";
 class WaterSlide extends React.Component {
   render() {
     return (
-<<<<<<< HEAD
-      <div className='slides'>
-        <WaterQuestion />
-=======
-      <div>
+      <div className='metric-slide'>
         <WaterQuestion next={this.props.next} previous={this.props.previous} />
->>>>>>> 9cb0c326a696db61b344db7fc6baf6ac15d2a2d6
 
-        <div>
-          <WaterCard />
-          <a>
-            <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
+        <div className='slide-content'>
+          <div className='slide-card'>
+            <WaterCard />
+            <a>
+              <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
 
-              <h4>Why is tracking sleep important?</h4>
-            </Link>
-          </a>
-        </div>
+                <h4>Why is tracking sleep important?</h4>
+              </Link>
+            </a>
+          </div>
 
-        <WaterGoal/>
+          <WaterGoal/>
         
+        </div>
       </div>
     );
   }

@@ -9,13 +9,8 @@ import SleepGoal from "./SleepGoal.js";
 class SleepSlide extends React.Component {
   render() {
     return (
-<<<<<<< HEAD
-      <div className='slides'>
-        <SleepQuestion />
-=======
       <div>
         <SleepQuestion next={this.props.next} previous={this.props.previous}/>
->>>>>>> 9cb0c326a696db61b344db7fc6baf6ac15d2a2d6
 
         <div>
           <SleepCard />
