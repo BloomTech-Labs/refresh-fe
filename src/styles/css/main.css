@@ -922,6 +922,8 @@ p {
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card a:hover {
   color: black;
+  font-weight: 700;
+  text-decoration: none;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card {
   width: 50%;
