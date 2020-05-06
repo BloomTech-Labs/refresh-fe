@@ -851,7 +851,7 @@ p {
   width: 100%;
 }
 .daily-retro .DailyRetro .metric-slide .slide-nav {
-  height: 10vh;
+  height: 100px;
   border-bottom: black solid 2px;
   display: flex;
   flex-direction: row;
@@ -861,7 +861,7 @@ p {
 }
 .daily-retro .DailyRetro .metric-slide .slide-nav h2 {
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .daily-retro .DailyRetro .metric-slide .slide-nav button {
   border: none;
@@ -880,13 +880,21 @@ p {
   flex-wrap: nowrap;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card {
-  width: 70%;
+  width: 75%;
   height: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-card a {
+  font-size: 24px;
+  font-weight: 500;
+  color: cornflowerblue;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-card a:hover {
+  color: black;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card {
   width: 50%;
@@ -900,6 +908,9 @@ p {
   align-items: center;
   margin-bottom: 30px;
   box-shadow: 10px 10px;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card h3 {
+  font-size: 32px;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metrics-card-title {
   width: 100%;
@@ -924,7 +935,7 @@ p {
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metric-card-input {
   width: 100%;
-  height: 50px;
+  height: 75px;
   border-top: solid #000000;
   border-width: 1px;
   display: flex;
@@ -936,11 +947,12 @@ p {
   width: 75px;
   background-color: #ffffff;
   border: none;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 500 !important;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metric-card-input h3 {
   display: flex;
+  height: 75px;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -949,6 +961,18 @@ p {
   border-width: 1px;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-goal {
-  width: 30%;
+  width: 25%;
   border-left: solid black 2px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-goal h2 {
+  font-size: 64px;
+  font-weight: 500;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-goal p {
+  font-size: 20px;
+  font-weight: 400;
 }

@@ -74,7 +74,7 @@
             
 
             .slide-nav{
-                height: 10vh;
+                height: 100px;
                 border-bottom: black solid 2px;
                 display: flex;
                 flex-direction: row;
@@ -83,7 +83,7 @@
 
                 h2{
                     font-size: 32px;
-                    font-weight: 500;
+                    font-weight: 700;
                 }
 
                 button{
@@ -108,13 +108,25 @@
                 flex-wrap: nowrap;
 
                 .slide-card{
-                    width: 70%;
+                    width: 75%;
                     height: 100%;
                     display: flex;
                     flex-direction: column;
                     flex-wrap: nowrap;
                     justify-content: space-evenly;
                     align-items: center;
+
+                    a{
+                        font-size: 24px;
+                        font-weight: 500;
+                        color: cornflowerblue;
+                    }
+
+                    a:hover{
+                        
+                        color: black; 
+                        
+                    }
 
                             // Metrics Cards
                             .metric-card{
@@ -129,6 +141,10 @@
                                 align-items: center;
                                 margin-bottom: 30px;
                                 box-shadow: 10px 10px;
+
+                                h3{
+                                    font-size: 32px;
+                                }
 
                                 // Metrics Card Title
                                 .metrics-card-title{
@@ -159,7 +175,7 @@
                                 // Metric Card Input
                                 .metric-card-input{
                                     width: 100%;
-                                    height: 50px;
+                                    height: 75px;
                                     border-top:solid @color-black;
                                     border-width: 1px;
                                     display: flex;
@@ -171,12 +187,13 @@
                                         width: 75px;
                                         background-color: @color-white;
                                         border: none;
-                                        font-size: 24px;
+                                        font-size: 32px;
                                         font-weight: 500 !important;
                                     }
 
                                     h3{
                                         display: flex;
+                                        height: 75px;
                                         justify-content: center;
                                         align-items: center;
                                         width: 100%;
@@ -189,8 +206,23 @@
                 }
 
                 .slide-goal{
-                    width: 30%;
+                    width: 25%;
                     border-left: solid black 2px;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    h2{
+                        font-size: 64px;
+                        font-weight: 500;
+                    }
+
+                    p{
+                        font-size: 20px;
+                        font-weight: 400;
+                    }
+
                 }
             }
         }
