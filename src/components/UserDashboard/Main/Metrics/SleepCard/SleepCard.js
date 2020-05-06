@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addSleep, subtractSleep} from '../../../../../views/private/actions/actions-user'
-import SleepImage from './sleep.svg'
+
 
 class SleepCard extends React.Component{
     render(){
@@ -9,7 +9,13 @@ class SleepCard extends React.Component{
             <div className='water-card metric-card'>
                 <h3 className='metrics-card-title'>Sleep</h3>
                 <div className= 'metrics-card-content'>
-                <img  src={SleepImage} alt="profile-pic"></img>
+                <div
+                    data-value={this.props.sleep / 8 * 100}
+                    class="ldBar"
+                    data-preset="energy"
+                    style={{width: '200px', height: '200px'}}
+                    data-precision='1' 
+                    ></div>
                 </div>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractSleep(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>

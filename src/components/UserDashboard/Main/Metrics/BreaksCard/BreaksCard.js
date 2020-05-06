@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addBreaks, subtractBreaks} from '../../../../../views/private/actions/actions-user'
-import BreakImage from './breaks.svg'
+
 class BreaksCard extends React.Component{
     render(){
         return(
@@ -10,8 +10,15 @@ class BreaksCard extends React.Component{
                 <h3 className='metrics-card-title'>Breaks</h3>
 
                 <div className= 'metrics-card-content'>
-                <img  src={BreakImage} alt="Woman Medetaing"></img>
-                </div>
+                <div
+                     class="ldBar"
+                     data-preset="bubble"
+                     data-pattern-size="64"
+                     data-fill=""
+                     style={{width: '200px', height: '200px'}}
+                     data-value={this.props.breaks / 2 * 100}/>
+              
+               </div>
 
                 <div className='metric-card-input'>
 
