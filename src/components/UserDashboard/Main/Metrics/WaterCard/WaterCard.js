@@ -20,7 +20,7 @@ class WaterCard extends React.Component{
                     >
                         {value=>{
                             const roundedValue=Math.round(value)
-                            if(this.props.water===8){
+                            if(this.props.water >= 8){
                                 return (
                                     <CircularProgressbarWithChildren  styles={buildStyles({ pathTransition: "none" })} value={value}>
                                     <img style={{ width: 125, marginTop: 10 }} src={WaterImage} alt="Water" />

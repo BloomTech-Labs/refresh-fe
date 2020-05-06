@@ -24,7 +24,7 @@ class BreaksCard extends React.Component{
                     >
                         {value=>{
                             const roundedValue=Math.round(value)
-                            if(this.props.breaks===2){
+                            if(this.props.breaks>=2){
                                 return(
                                     <CircularProgressbarWithChildren  
                                     

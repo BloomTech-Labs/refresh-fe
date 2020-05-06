@@ -21,7 +21,7 @@ class ExcerciseCard extends React.Component{
                     >
                     {value=>{
                         const roundedValue=Math.round(value)
-                        if(this.props.exercise===60){
+                        if(this.props.exercise>=60){
                             return(
                                 <CircularProgressbarWithChildren styles={buildStyles({ pathTransition: "none" })}  value={value}>
                                 <img style={{ width: 135 }} src={ExcerciseImage} alt="Exercise" />

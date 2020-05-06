@@ -20,7 +20,7 @@ class SleepCard extends React.Component{
                     >
                         {value=>{
                             const roundedValue=Math.round(value)
-                            if(this.props.sleep===8){
+                            if(this.props.sleep >= 8){
                                 return(
                                     <CircularProgressbarWithChildren styles={buildStyles({ pathTransition: "none" })} value={value}>
                                     <img style={{ width: 175}} src={SleepImage} alt="Sleep" />
