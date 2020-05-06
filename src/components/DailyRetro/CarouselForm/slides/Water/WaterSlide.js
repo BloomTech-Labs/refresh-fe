@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import WaterCard from "../../../../UserDashboard/Main/Metrics/WaterCard/WaterCard.js";
 import WaterQuestion from "./WaterQuestion.js";
@@ -15,10 +14,10 @@ class WaterSlide extends React.Component {
         <div>
           <WaterCard />
           
-            <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
+            <a href="https://brainmd.com/blog/6-amazing-health-benefits-of-drinking-water/" target="_blank">
 
-              <h4>Why is tracking sleep important?</h4>
-            </Link>
+              <h4>The Benefits of Drinking Water</h4>
+            </a>
           
         </div>
 

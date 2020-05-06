@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import ExerciseCard from "../../../../UserDashboard/Main/Metrics/ExcerciseCard/ExcerciseCard.js";
 import ExerciseQuestion from "./ExerciseQuestion";
@@ -14,9 +13,9 @@ class ExerciseSlide extends React.Component {
         <div>
           <ExerciseCard />
           
-            <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
-              <h4>The importance of Fitness</h4>
-            </Link>
+          <a href="https://www.healthline.com/nutrition/10-benefits-of-exercise" target="_blank">
+              <h4>The Benefits of Regular Exercise</h4>
+            </a>
           
         </div>
 
