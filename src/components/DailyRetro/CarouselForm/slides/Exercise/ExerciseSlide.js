@@ -9,15 +9,15 @@ class ExerciseSlide extends React.Component {
   render() {
     return (
       <div>
-        <ExerciseQuestion />
+        <ExerciseQuestion next={this.props.next} previous={this.props.previous} />
 
         <div>
           <ExerciseCard />
-          <a>
+          
             <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
               <h4>The importance of Fitness</h4>
             </Link>
-          </a>
+          
         </div>
 
         <ExerciseGoal/>

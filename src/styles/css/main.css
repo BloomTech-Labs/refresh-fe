@@ -193,7 +193,7 @@ p {
   max-width: 1800px;
   height: 100vh;
   max-height: 100vh;
-  margin: 0  auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -252,6 +252,12 @@ p {
   flex-wrap: nowrap;
   justify-content: space-around;
   padding: 0 10px 0 10px;
+}
+.user-dashboard .main .header .user-profile .user-dropdown h3 {
+  float: left;
+}
+.user-dashboard .main .header .user-profile .user-dropdown .btn-group {
+  float: right;
 }
 .user-dashboard .main .metrics-container {
   height: 100%;
@@ -392,11 +398,11 @@ p {
   flex-wrap: nowrap;
 }
 .user-dashboard .user-sidebar .sidebar-title {
-  font-size: 100px  !important;
-  font-weight: 500  !important;
+  font-size: 100px !important;
+  font-weight: 500 !important;
   display: flex;
   justify-content: center;
-  padding: 20px 0px 20px 0px ;
+  padding: 20px 0px 20px 0px;
   width: 100%;
 }
 .user-dashboard .user-sidebar .sidebar-content {
@@ -431,7 +437,7 @@ p {
     width: 100%;
     height: 100%;
     max-height: 100vh;
-    margin: 0  auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -509,7 +515,7 @@ p {
     width: 100%;
     height: 100%;
     max-height: 100vh;
-    margin: 0  auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

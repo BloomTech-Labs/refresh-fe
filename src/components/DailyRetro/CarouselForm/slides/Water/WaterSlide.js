@@ -10,16 +10,16 @@ class WaterSlide extends React.Component {
   render() {
     return (
       <div>
-        <WaterQuestion />
+        <WaterQuestion next={this.props.next} previous={this.props.previous} />
 
         <div>
           <WaterCard />
-          <a>
+          
             <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
 
               <h4>Why is tracking sleep important?</h4>
             </Link>
-          </a>
+          
         </div>
 
         <WaterGoal/>

@@ -9,15 +9,15 @@ class BreaksSlide extends React.Component {
   render() {
     return (
       <div>
-        <BreaksQuestion />
+        <BreaksQuestion previous={this.props.previous} />
 
         <div>
           <BreaksCard />
-          <a>
+          
             <Link to="https://www.mindful.org/how-to-meditate/" target="_blank">
               <h4>The importance of Taking Breaks</h4>
             </Link>
-          </a>
+          
         </div>
 
         <BreaksGoal/>
