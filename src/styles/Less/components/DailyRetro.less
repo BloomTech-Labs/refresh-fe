@@ -8,10 +8,9 @@
     flex-direction: column;
 
     // Header
-    .header{
+    .header {
         width: 100%;
-        height: 15vh;
-        border-bottom:solid black;
+        border-bottom: solid black;
         border-width: 2px;
         display: flex;
         flex-direction: row;
@@ -19,46 +18,52 @@
         align-items: center;
         justify-content: space-between;
         padding: 20px 40px 20px 40px;
-
-        .daily-points{
-            
-            h2{
-                font-size: 44px;
-                font-weight: 500;
-            }
-
-            h3{
-                font-size: 24px;
-                font-weight: 500;
-            }
+  
+        .daily-points {
+          h2 {
+            font-size: 44px;
+            font-weight: 500;
+          }
+  
+          h3 {
+            font-size: 24px;
+            font-weight: 500;
+          }
         }
         // User Profile
-        .user-profile{
-        border:solid black;
-        border-width: 1px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        padding: 5px;
-        box-shadow: 10px 10px;
-
-        img{
+        .user-profile {
+          border: solid black;
+          border-width: 1px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-around;
+          padding: 5px;
+          box-shadow: 10px 10px;
+  
+          img {
             border-radius: 50%;
+          }
+  
+          // User Info
+          .user-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+            padding: 0 10px 0 10px;
+          }
+          .user-dropdown {
+              h3 {
+                  float: left;
+              }
+              .btn-group {
+                  float:right;
+              }
+          }
         }
-
-        // User Info
-        .user-info{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        padding: 0 10px 0 10px;
-        }
-    }
-
-}
+      }
 
     // Forum
     .DailyRetro{
@@ -75,6 +80,25 @@
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
+
+                h2{
+                    font-size: 32px;
+                    font-weight: 500;
+                }
+
+                button{
+                    border: none;
+                    font-size: 24px;
+                    font-weight: 400;
+                    background-color: white;
+                    color: cornflowerblue;
+            
+                }
+                
+                /* mouse over link */
+                button:hover{
+                    color: black; 
+                }
             }
 
             .slide-content{

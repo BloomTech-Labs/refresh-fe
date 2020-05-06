@@ -802,7 +802,6 @@ p {
 }
 .daily-retro .header {
   width: 100%;
-  height: 15vh;
   border-bottom: solid black;
   border-width: 2px;
   display: flex;
@@ -841,6 +840,12 @@ p {
   justify-content: space-around;
   padding: 0 10px 0 10px;
 }
+.daily-retro .header .user-profile .user-dropdown h3 {
+  float: left;
+}
+.daily-retro .header .user-profile .user-dropdown .btn-group {
+  float: right;
+}
 .daily-retro .DailyRetro {
   height: 100vh;
   width: 100%;
@@ -852,6 +857,21 @@ p {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  /* mouse over link */
+}
+.daily-retro .DailyRetro .metric-slide .slide-nav h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
+.daily-retro .DailyRetro .metric-slide .slide-nav button {
+  border: none;
+  font-size: 24px;
+  font-weight: 400;
+  background-color: white;
+  color: cornflowerblue;
+}
+.daily-retro .DailyRetro .metric-slide .slide-nav button:hover {
+  color: black;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content {
   height: 75vh;
