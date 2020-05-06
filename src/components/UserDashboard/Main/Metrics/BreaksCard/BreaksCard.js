@@ -1,22 +1,62 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addBreaks, subtractBreaks} from '../../../../../views/private/actions/actions-user'
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+import '../styles.css';
+import BreakImage from './breaks.svg'
+import { easeQuadInOut } from 'd3-ease';
+import AnimatedProgressProvider from "../AnimatedProgressProvider"
 
 class BreaksCard extends React.Component{
-    render(){
+   render(){
         return(
             <div className='water-card metric-card'>
 
                 <h3 className='metrics-card-title'>Breaks</h3>
 
                 <div className= 'metrics-card-content'>
-                <div
-                     class="ldBar"
-                     data-preset="bubble"
-                     data-pattern-size="64"
-                     data-fill=""
-                     style={{width: '200px', height: '200px'}}
-                     data-value={this.props.breaks / 2 * 100}/>
+             
+                <AnimatedProgressProvider
+                    valueStart={0}
+                    valueEnd={this.props.breaks / 2 * 100}
+                    duration={.75}
+                    easingFunction={easeQuadInOut}
+                    >
+                        {value=>{
+                            const roundedValue=Math.round(value)
+                            if(this.props.breaks>=2){
+                                return(
+                                    <CircularProgressbarWithChildren  
+                                    
+                                        styles={buildStyles({
+                                        pathColor: ``,
+                                        pathTransition: "none" 
+                                })}
+                                    value={value} >
+                                <img style={{ width: 150, marginTop: 10 }} src={BreakImage} alt="Breaks" />
+                                <div style={{ fontSize: 15, marginTop: 25 }}> <header>{`${roundedValue}%`}</header></div>
+                                </CircularProgressbarWithChildren>
+                                )
+                            } else {
+                                return(
+                                    <CircularProgressbarWithChildren  
+                                    
+                                        styles={buildStyles({
+                                        pathColor: `salmon`,
+                                        pathTransition: "none" 
+                                })}
+                                    value={value} >
+                                <img style={{ width: 150, marginTop: 10 }} src={BreakImage} alt="Breaks" />
+                                <div style={{ fontSize: 15, marginTop: 25 }}> <header>{`${roundedValue}%`}</header></div>
+                                </CircularProgressbarWithChildren>
+                                )
+                            }
+                            
+                        }}
+                   
+                    </AnimatedProgressProvider>
+                  
+
               
                </div>
 
@@ -27,6 +67,7 @@ class BreaksCard extends React.Component{
                 <h3>{this.props.breaks}/2</h3>
                 
                 <button disabled={this.props.isFetching} onClick={() => this.props.addBreaks(1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>+</button>
+          
                 </div>
             </div>
         )
