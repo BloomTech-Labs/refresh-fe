@@ -7,20 +7,21 @@ import ExerciseGoal from "./ExerciseGoal";
 class ExerciseSlide extends React.Component {
   render() {
     return (
-      <div>
-        <ExerciseQuestion next={this.props.next} previous={this.props.previous} />
+        <div className='metric-slide'>
+          <ExerciseQuestion next={this.props.next} previous={this.props.previous} />
 
-        <div>
-          <ExerciseCard />
-          
-          <a href="https://www.healthline.com/nutrition/10-benefits-of-exercise" target="_blank">
-              <h4>The Benefits of Regular Exercise</h4>
-            </a>
-          
-        </div>
+          <div className='slide-content'>
+            <div className='slide-card'>
+              <ExerciseCard />
+              
+              <a href="https://www.healthline.com/nutrition/10-benefits-of-exercise" target="_blank">
+              Why Exercise
+              </a>
+            </div>
 
-        <ExerciseGoal/>
+          <ExerciseGoal/>
         
+        </div>
       </div>
     );
   }
