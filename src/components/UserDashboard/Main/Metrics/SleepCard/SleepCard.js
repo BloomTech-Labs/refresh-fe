@@ -1,21 +1,45 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addSleep, subtractSleep} from '../../../../../views/private/actions/actions-user'
-
-
+import '../styles.css';
+import SleepImage from './sleep.svg'
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+import { easeQuadInOut } from 'd3-ease';
+import AnimatedProgressProvider from "../AnimatedProgressProvider"
 class SleepCard extends React.Component{
     render(){
         return(
             <div className='water-card metric-card'>
                 <h3 className='metrics-card-title'>Sleep</h3>
                 <div className= 'metrics-card-content'>
-                <div
-                    data-value={this.props.sleep / 8 * 100}
-                    class="ldBar"
-                    data-preset="energy"
-                    style={{width: '200px', height: '200px'}}
-                    data-precision='1' 
-                    ></div>
+                <AnimatedProgressProvider
+                    valueStart={0}
+                    valueEnd={this.props.sleep / 8 * 100}
+                    duration={.75}
+                    easingFunction={easeQuadInOut}
+                    >
+                        {value=>{
+                            const roundedValue=Math.round(value)
+                            if(this.props.sleep===8){
+                                return(
+                                    <CircularProgressbarWithChildren styles={buildStyles({ pathTransition: "none" })} value={value}>
+                                    <img style={{ width: 175}} src={SleepImage} alt="Sleep" />
+                                    <div style={{ fontSize: 15, marginTop: 35 }}> <header>{`${roundedValue}%`}</header></div>
+                                    </CircularProgressbarWithChildren>
+                                )
+                            } else{
+                                return(
+                                    <CircularProgressbarWithChildren styles={buildStyles({ 
+                                        pathColor: `salmon`, pathTransition: "none" })} value={value}>
+                                    <img style={{ width: 175}} src={SleepImage} alt="Sleep" />
+                                    <div style={{ fontSize: 15, marginTop: 35 }}> <header>{`${roundedValue}%`}</header></div>
+                                    </CircularProgressbarWithChildren>
+                                )
+                            }
+                            
+                        }}
+               
+                </AnimatedProgressProvider>
                 </div>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractSleep(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>
