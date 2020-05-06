@@ -242,8 +242,27 @@ p {
   padding: 5px;
   box-shadow: 10px 10px;
 }
-.user-dashboard .main .header .user-profile img {
+.user-dashboard .main .header .user-profile .profile-pic {
   border-radius: 50%;
+}
+.user-dashboard .main .header .user-profile .dropdown-toggle {
+  margin-top: 40px;
+  background-color: white !important;
+  color: black;
+  font-size: 32px;
+  border: none;
+  height: 50px;
+}
+.user-dashboard .main .header .user-profile .dropdown-item {
+  color: black;
+  font-family: inherit;
+  font-size: 24px;
+  margin: 10px;
+  width: 200px;
+}
+.user-dashboard .main .header .user-profile .dropdown-item img {
+  width: 30px;
+  margin-right: 40px;
 }
 .user-dashboard .main .header .user-profile .user-info {
   width: 100%;
@@ -252,12 +271,6 @@ p {
   flex-wrap: nowrap;
   justify-content: space-around;
   padding: 0 10px 0 10px;
-}
-.user-dashboard .main .header .user-profile .user-dropdown h3 {
-  float: left;
-}
-.user-dashboard .main .header .user-profile .user-dropdown .btn-group {
-  float: right;
 }
 .user-dashboard .main .metrics-container {
   height: 100%;
@@ -829,8 +842,27 @@ p {
   padding: 5px;
   box-shadow: 10px 10px;
 }
-.daily-retro .header .user-profile img {
+.daily-retro .header .user-profile .profile-pic {
   border-radius: 50%;
+}
+.daily-retro .header .user-profile .dropdown-toggle {
+  margin-top: 40px;
+  background-color: white !important;
+  color: black;
+  font-size: 32px;
+  border: none;
+  height: 50px;
+}
+.daily-retro .header .user-profile .dropdown-item {
+  color: black;
+  font-family: inherit;
+  font-size: 24px;
+  margin: 10px;
+  width: 200px;
+}
+.daily-retro .header .user-profile .dropdown-item img {
+  width: 30px;
+  margin-right: 40px;
 }
 .daily-retro .header .user-profile .user-info {
   width: 100%;
@@ -839,12 +871,6 @@ p {
   flex-wrap: nowrap;
   justify-content: space-around;
   padding: 0 10px 0 10px;
-}
-.daily-retro .header .user-profile .user-dropdown h3 {
-  float: left;
-}
-.daily-retro .header .user-profile .user-dropdown .btn-group {
-  float: right;
 }
 .daily-retro .DailyRetro {
   height: 100vh;

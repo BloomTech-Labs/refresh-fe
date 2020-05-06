@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import Dropdown from './Dropdown';
+
 
 
 class UserInfo extends React.Component{
@@ -8,7 +8,7 @@ class UserInfo extends React.Component{
         return (
             
             <div className='user-info'>
-                <div className='user-dropdown'><h3>{this.props.fullName}</h3><Dropdown /></div>
+                <h3>{this.props.fullName}</h3>
                 <h3>{this.props.teamName}</h3>
                 </div>
             
