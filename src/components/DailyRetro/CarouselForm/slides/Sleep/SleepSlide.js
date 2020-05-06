@@ -8,19 +8,21 @@ import SleepGoal from "./SleepGoal.js";
 class SleepSlide extends React.Component {
   render() {
     return (
-      <div>
+      <div className='metric-slide'>
         <SleepQuestion next={this.props.next} previous={this.props.previous}/>
 
-        <div>
+        <div className='slide-content'>
+          <div className='slide-card'>
           <SleepCard />
           
           <a href="https://www.healthline.com/nutrition/10-reasons-why-good-sleep-is-important" target="_blank">
-              <h4>The Benefits of Sleeping Well</h4>
-            </a>
+            Why Sleep?
+          </a>
           
         </div>
 
         <SleepGoal/>
+        </div>
        
       </div>
     );
