@@ -15,7 +15,7 @@ class ExerciseSlide extends React.Component {
               <ExerciseCard />
               
               <a href="https://www.healthline.com/nutrition/10-benefits-of-exercise" target="_blank">
-              Why Exercise
+              Why Exercise?
               </a>
             </div>
 
