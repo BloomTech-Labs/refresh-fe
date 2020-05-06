@@ -15,7 +15,7 @@ class BreaksSlide extends React.Component {
           <BreaksCard />
           
           <a href="https://www.psychologytoday.com/us/blog/changepower/201704/how-do-work-breaks-help-your-brain-5-surprising-answers" target="_blank">
-              <h4>The importance of Taking Breaks</h4>
+              <h4>The Importance of Taking Breaks</h4>
             </a>
           
         </div>
