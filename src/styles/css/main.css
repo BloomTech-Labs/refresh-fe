@@ -805,8 +805,11 @@ p {
   }
 }
 .daily-retro {
-  width: 90vw;
+  width: 100%;
+  max-width: 1800px;
   height: 100vh;
+  max-height: 100vh;
+  margin: 0 auto;
   border: solid black;
   border-width: 2px;
   margin: 0  auto;
