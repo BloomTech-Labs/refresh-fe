@@ -898,6 +898,7 @@ p {
 }
 .daily-retro .DailyRetro .metric-slide .slide-nav button:hover {
   color: black;
+  font-weight: 700;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content {
   height: 75vh;
