@@ -12,12 +12,15 @@ class BreaksCard extends React.Component{
                 <div className= 'metrics-card-content'>
                 {/* <img  src={BreakImage} alt="Woman Medetaing"></img> */}
                 <div
-                    className="ldBar label-center"
-                    data-value={this.props.breaks / 2 * 100}
-                    data-preset="circle"
+                     class="ldBar"
                    
-                
-                    ></div>
+                     data-preset="bubble"
+                     data-pattern-size="64"
+                     data-fill=""
+                     style={{width: '200px', height: '200px'}}
+                    data-value={this.props.breaks / 2 * 100}
+                    
+                    />
                 </div>
                 
 

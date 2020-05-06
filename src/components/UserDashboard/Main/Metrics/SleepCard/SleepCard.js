@@ -9,7 +9,15 @@ class SleepCard extends React.Component{
             <div className='water-card metric-card'>
                 <h3 className='metrics-card-title'>Sleep</h3>
                 <div className= 'metrics-card-content'>
-                <img  src={SleepImage} alt="profile-pic"></img>
+                {/* <img  src={SleepImage} alt="profile-pic"></img> */}
+                <div
+                    class="ldBar"
+                    
+                    data-preset="energy"
+                    style={{width: '200px', height: '200px'}}
+                    data-value={this.props.sleep / 8 * 100}
+                    data-precision='1' 
+                    ></div>
                 </div>
                 <div className='metric-card-input'>
                 <button disabled={this.props.isFetching} onClick={() => this.props.subtractSleep(-1, this.props.userId, this.props.dailyPoints, this.props.totalPoints)}>-</button>

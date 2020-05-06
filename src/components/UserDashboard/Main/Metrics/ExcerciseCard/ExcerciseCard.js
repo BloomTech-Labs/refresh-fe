@@ -20,11 +20,10 @@ class ExcerciseCard extends React.Component{
                     0.5,23.2c0,22.2,36.5,45.3,45,55.9
                     C53.5,67.3,90.5,46.3,90.5,23.2z"
                     data-fill="red"
-                    
-                    data-fill-width="20">
-                        <style></style>
-
-                </div>
+                    data-fill-width="20"
+                    style={{width: '200px', height: '200px'}}
+                    />
+                   
              
                 </div>
                 <div className='metric-card-input'>

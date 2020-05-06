@@ -13,8 +13,9 @@ class WaterCard extends React.Component{
                     data-preset="bubble"
                     data-path="M10 10L90 10L90 90L10 90Z"
                     class="ldBar"
+                    data-pattern-size='75'
                     data-value={this.props.water / 8 * 100}
-                    
+                    style={{width: '200px', height: '200px'}}
                 />
                 </div>
                 <div className='metric-card-input'>
