@@ -14,7 +14,7 @@ function BreaksGoal(props) {
 
 
     return(
-        <div className="metricFormGoal">
+        <div className="slide-goal">
             <div className="formGoalHeader">
                 <h2>{props.breaks} 15+ minute breaks taken</h2>
                 {setAddedPoints(props)}
