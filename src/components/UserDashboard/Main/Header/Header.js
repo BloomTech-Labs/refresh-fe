@@ -4,7 +4,6 @@ import React from 'react'
 import UserProfile from './UserProfile/UserProfile.js'
 import DailyPoints from './DailyPoints/DailyPoints.js'
 
-
 class Header extends React.Component{
     render(){
         return(

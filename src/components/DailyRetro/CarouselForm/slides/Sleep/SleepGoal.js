@@ -14,7 +14,7 @@ function SleepGoal(props) {
 
 
     return(
-        <div className="metricFormGoal">
+        <div className="slide-goal">
             <div className="formGoalHeader">
                 <h2>{props.sleep} hours of sleep</h2>
                 {setAddedPoints(props)}

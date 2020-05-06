@@ -19,7 +19,7 @@ function ExerciseGoal(props) {
 
 
     return(
-        <div className="metricFormGoal">
+        <div className="slide-goal">
             <div className="formGoalHeader">
                 <h2>{props.exercise} minutes of exercise</h2>
                 {setAddedPoints(props)}

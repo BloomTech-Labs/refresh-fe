@@ -9,6 +9,7 @@ class UserDashboard extends React.Component{
     render(){
         return(
             <div className='user-dashboard'>
+                {/* Header */}
                 <Main />
                 <UserSidebar />
             </div>

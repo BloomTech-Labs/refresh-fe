@@ -1,13 +1,15 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 
 class WaterQuestion extends React.Component{
   render() {
     return (
-      <div>
-        <button onClick={this.props.previous}>{"<---------"}</button>
-        <h3>How much water did you drink?</h3>
-        <button onClick={this.props.next}>{"--------->"}</button>
+      <div className='slide-nav'>
+        <Link to="/UserDashboard">
+        <button onClick={this.props.previous}>{"<----DASHBOARD"}</button>
+        </Link>
+        <h2>How much water did you drink?</h2>
+        <button onClick={this.props.next}>{"NEXT---->"}</button>
       </div>
     )
   }

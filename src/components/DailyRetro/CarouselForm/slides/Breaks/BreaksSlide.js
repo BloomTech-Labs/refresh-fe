@@ -8,20 +8,22 @@ import BreaksGoal from "./BreaksGoal";
 class BreaksSlide extends React.Component {
   render() {
     return (
-      <div>
+      <div className='metric-slide'>
+        
         <BreaksQuestion previous={this.props.previous} />
 
-        <div>
-          <BreaksCard />
-          
-          <a href="https://www.psychologytoday.com/us/blog/changepower/201704/how-do-work-breaks-help-your-brain-5-surprising-answers" target="_blank">
-              <h4>The Importance of Taking Breaks</h4>
+        <div className='slide-content'>
+          <div className='slide-card'>
+            <BreaksCard />
+            
+            <a href="https://www.psychologytoday.com/us/blog/changepower/201704/how-do-work-breaks-help-your-brain-5-surprising-answers" target="_blank">
+              Why take Breaks?
             </a>
           
-        </div>
+          </div>
 
-        <BreaksGoal/>
-        
+          <BreaksGoal/>
+        </div>
       </div>
     );
   }

@@ -64,7 +64,8 @@ function Form(props) {
   });
 
   return (
-    <div>
+    <div className='DailyRetro'>
+      
       <Carousel
         activeIndex={activeIndex}
         next={next}

@@ -6,7 +6,7 @@ import React from "react";
 // import ContextRouter from "./contexts/ContextRouter";
 import PrivateRoute from './helpers/PrivateRoute'
 import UserDashboard from './components/UserDashboard/UserDashboard'
-import Form from './components/DailyRetro/Form/Form'
+import DailyRetro from './components/DailyRetro/DailyRetro'
 
 import {Route, Switch} from 'react-router-dom';
 import UserLogin from './components/Auth/UserLogin.js'
@@ -17,7 +17,7 @@ const App = props => {
     <div className='app'>
         <Switch>
         <PrivateRoute exact path='/UserDashboard' component={UserDashboard} />
-        <PrivateRoute exact path='/Form' component={Form} />
+        <PrivateRoute exact path='/DailyRetro' component={DailyRetro} />
           <Route path="/sign-up" component={UserSignUp} />
           <Route exact path='/' component={UserLogin} />
         </Switch>

@@ -8,21 +8,20 @@ import WaterGoal from "./WaterGoal.js";
 class WaterSlide extends React.Component {
   render() {
     return (
-      <div>
+      <div className='metric-slide'>
         <WaterQuestion next={this.props.next} previous={this.props.previous} />
 
-        <div>
-          <WaterCard />
-          
+        <div className='slide-content'>
+          <div className='slide-card'>
+            <WaterCard />
             <a href="https://brainmd.com/blog/6-amazing-health-benefits-of-drinking-water/" target="_blank">
-
-              <h4>The Benefits of Drinking Water</h4>
+            Why Drink Water?
             </a>
-          
-        </div>
+          </div>
 
-        <WaterGoal/>
+          <WaterGoal/>
         
+        </div>
       </div>
     );
   }

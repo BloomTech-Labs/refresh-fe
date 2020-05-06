@@ -14,7 +14,7 @@ function WaterGoal(props) {
 
 
     return(
-        <div className="metricFormGoal">
+        <div className="slide-goal">
             <div className="formGoalHeader">
                 <h2>{props.water} glasses of water</h2>
                 {setAddedPoints(props)}

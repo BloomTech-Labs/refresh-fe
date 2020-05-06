@@ -4,10 +4,10 @@ import React from 'react';
 class ExerciseQuestion extends React.Component{
   render() {
     return (
-      <div>
-        <button onClick={this.props.previous}>{"<---------"}</button>
-        <h3>How much exercise did you get today?</h3>
-        <button onClick={this.props.next}>{"--------->"}</button>
+      <div className='slide-nav'>
+        <button onClick={this.props.previous}>{"<----PREVIOUS"}</button>
+        <h2>How much exercise did you get today?</h2>
+        <button onClick={this.props.next}>{"NEXT---->"}</button>
       </div>
     )
   }
