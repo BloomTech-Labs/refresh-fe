@@ -297,10 +297,10 @@ p {
   /* mouse over link */
 }
 .user-dashboard .main .metrics-header a :link {
-  color: steelblue;
+  color: #3E98C7;
 }
 .user-dashboard .main .metrics-header a :visited {
-  color: steelblue;
+  color: #3E98C7;
   font-weight: 200;
 }
 .user-dashboard .main .metrics-header a :hover {
@@ -435,7 +435,7 @@ p {
 }
 .user-dashboard .user-sidebar .personal-goals .complete {
   font-size: 24px;
-  color: steelblue;
+  color: #3E98C7;
 }
 .user-dashboard .user-sidebar .leader-board {
   width: 100%;
@@ -976,7 +976,7 @@ p {
   font-size: 24px;
   font-weight: 400;
   background-color: white;
-  color: steelblue;
+  color: #3E98C7;
 }
 .daily-retro .DailyRetro .metric-slide .slide-nav button:hover {
   color: black;
@@ -1000,7 +1000,7 @@ p {
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card a {
   font-size: 24px;
   font-weight: 500;
-  color: steelblue;
+  color: #3E98C7;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card a:hover {
   color: black;
