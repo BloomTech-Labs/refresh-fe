@@ -283,6 +283,10 @@ p {
   justify-content: space-between;
   margin-bottom: 40px;
 }
+.user-dashboard .main .metrics-header h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
 .user-dashboard .main .metrics-header a {
   font-size: 24px;
   /* unvisited link */
@@ -329,6 +333,10 @@ p {
   margin-bottom: 30px;
   box-shadow: 10px 10px;
 }
+.user-dashboard .main .metric-card h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
 .user-dashboard .main .metric-card .metrics-card-title {
   width: 100%;
   display: flex;
@@ -368,6 +376,7 @@ p {
   font-weight: 500 !important;
 }
 .user-dashboard .main .metric-card .metric-card-input h3 {
+  font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;

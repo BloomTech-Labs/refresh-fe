@@ -14,7 +14,7 @@ class Metrics extends React.Component{
                 
                 <div className='metrics-header'>
                 <h2>Daily Trackers</h2>
-                <a><Link to="/DailyRetro"> Daily Retro</Link></a>
+                <a><Link to="/DailyRetro"> Daily Retro----></Link></a>
                 </div>
 
                 <div className='metrics' >
