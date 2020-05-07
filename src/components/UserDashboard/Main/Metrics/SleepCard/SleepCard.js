@@ -24,7 +24,7 @@ class SleepCard extends React.Component{
                                 return(
                                     <CircularProgressbarWithChildren styles={buildStyles({ pathTransition: "none" })} value={value}>
                                     <img style={{ width: 175}} src={SleepImage} alt="Sleep" />
-                                    <div style={{ fontSize: 24,fontWeight: 500, marginTop: 15,marginBottom: 15}}> <header>{`${roundedValue}%`}</header></div>
+                                    <div className='progress-bar-text-complete'> <header>{`${roundedValue}%`}</header></div>
                                     </CircularProgressbarWithChildren>
                                 )
                             } else{
@@ -32,7 +32,7 @@ class SleepCard extends React.Component{
                                     <CircularProgressbarWithChildren styles={buildStyles({ 
                                         pathColor: `salmon`, pathTransition: "none" })} value={value}>
                                     <img style={{ width: 175}} src={SleepImage} alt="Sleep" />
-                                    <div style={{ fontSize: 24,fontWeight: 500, marginTop: 15,marginBottom: 15}}> <header>{`${roundedValue}%`}</header></div>
+                                    <div className='progress-bar-text-incomplete'> <header>{`${roundedValue}%`}</header></div>
                                     </CircularProgressbarWithChildren>
                                 )
                             }

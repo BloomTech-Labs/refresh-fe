@@ -351,6 +351,18 @@ p {
   margin: 0 auto;
   height: 325px;
 }
+.user-dashboard .main .metric-card .metrics-card-content .progress-bar-text-complete {
+  font-size: 24px;
+  font-weight: 500;
+  margin-Top: 15;
+  margin-Bottom: 15;
+}
+.user-dashboard .main .metric-card .metrics-card-content .progress-bar-text-incomplete {
+  font-size: 24px;
+  font-weight: 500;
+  margin-Top: 15;
+  margin-Bottom: 15;
+}
 .user-dashboard .main .metric-card .metrics-card-content img {
   max-width: 90%;
   max-height: 90%;
@@ -972,6 +984,18 @@ p {
   align-items: center;
   margin: 0 auto;
   height: 225px;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metrics-card-content .progress-bar-text-complete {
+  font-size: 32px;
+  font-weight: 500;
+  margin-Top: 15;
+  margin-Bottom: 20px;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metrics-card-content .progress-bar-text-incomplete {
+  font-size: 32px;
+  font-weight: 500;
+  margin-Top: 15;
+  margin-Bottom: 20px;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metrics-card-content img {
   max-width: 90%;
