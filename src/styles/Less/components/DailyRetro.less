@@ -85,14 +85,35 @@
 
     // Forum
     .DailyRetro{
-        height: 100vh;
+        height: 100%;
         width: 100%;
 
+        .slide{
+            height: 100%;
+
+            .carousel-inner{
+                height: 100%;
+
+                .carousel-item{
+                    height: 100%;
+                }
+
+                .carousel-item.active{
+                    height: 100%;
+                }
+            }
+        }
+
+        // .carousel-item, .carousel-item.active {
+        //     // align-items:center;
+
+        // }
         .metric-slide{
             
+            height: 100%;
 
             .slide-nav{
-                height: 100px;
+                height: 70px;
                 border-bottom: black solid 2px;
                 display: flex;
                 flex-direction: row;
@@ -121,7 +142,7 @@
             }
 
             .slide-content{
-                height: 75vh;
+                height: 100%;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
@@ -132,7 +153,7 @@
                     display: flex;
                     flex-direction: column;
                     flex-wrap: nowrap;
-                    justify-content: space-evenly;
+                    justify-content: center;
                     align-items: center;
 
                     a{
@@ -160,8 +181,8 @@
                                 flex-wrap: nowrap;
                                 justify-content: space-between;
                                 align-items: center;
-                                margin-bottom: 30px;
                                 box-shadow: 10px 10px;
+                                margin-bottom: 40px;
 
                                 h3{
                                     font-size: 32px;
@@ -182,7 +203,7 @@
                                     justify-content: center;
                                     align-items: center;
                                     margin: 0 auto;
-                                    height: 325px;
+                                    height: 225px;
 
                                     img{
                                         max-width: 90%;
