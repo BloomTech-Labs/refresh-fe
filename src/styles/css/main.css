@@ -224,6 +224,10 @@ p {
   justify-content: space-between;
   padding: 20px 40px 20px 40px;
 }
+.user-dashboard .main .header h3 {
+  font-size: 24px;
+  padding-left: 20px;
+}
 .user-dashboard .main .header .daily-points h2 {
   font-size: 44px;
   font-weight: 500;
@@ -283,16 +287,20 @@ p {
   justify-content: space-between;
   margin-bottom: 40px;
 }
+.user-dashboard .main .metrics-header h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
 .user-dashboard .main .metrics-header a {
   font-size: 24px;
   /* unvisited link */
   /* mouse over link */
 }
 .user-dashboard .main .metrics-header a :link {
-  color: cornflowerblue;
+  color: #3E98C7;
 }
 .user-dashboard .main .metrics-header a :visited {
-  color: cornflowerblue;
+  color: #3E98C7;
   font-weight: 200;
 }
 .user-dashboard .main .metrics-header a :hover {
@@ -329,6 +337,10 @@ p {
   margin-bottom: 30px;
   box-shadow: 10px 10px;
 }
+.user-dashboard .main .metric-card h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
 .user-dashboard .main .metric-card .metrics-card-title {
   width: 100%;
   display: flex;
@@ -342,6 +354,18 @@ p {
   align-items: center;
   margin: 0 auto;
   height: 325px;
+}
+.user-dashboard .main .metric-card .metrics-card-content .progress-bar-text-complete {
+  font-size: 24px;
+  font-weight: 500;
+  margin-Top: 15;
+  margin-Bottom: 15;
+}
+.user-dashboard .main .metric-card .metrics-card-content .progress-bar-text-incomplete {
+  font-size: 24px;
+  font-weight: 500;
+  margin-Top: 15;
+  margin-Bottom: 15;
 }
 .user-dashboard .main .metric-card .metrics-card-content img {
   max-width: 90%;
@@ -368,6 +392,7 @@ p {
   font-weight: 500 !important;
 }
 .user-dashboard .main .metric-card .metric-card-input h3 {
+  font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,6 +407,10 @@ p {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 .user-dashboard .user-sidebar .personal-goals {
   width: 100%;
@@ -393,15 +422,20 @@ p {
   flex-wrap: nowrap;
   align-items: center;
 }
-.user-dashboard .user-sidebar .personal-goals .incomplete {
-  font-size: 18px;
+.user-dashboard .user-sidebar .personal-goals h2 {
+  font-size: 32px;
+}
+.user-dashboard .user-sidebar .personal-goals h3 {
+  font-size: 24px;
   font-weight: 500;
+}
+.user-dashboard .user-sidebar .personal-goals .incomplete {
+  font-size: 24px;
   color: salmon;
 }
 .user-dashboard .user-sidebar .personal-goals .complete {
-  font-size: 18px;
-  font-weight: 500;
-  color: cornflowerblue;
+  font-size: 24px;
+  color: #3E98C7;
 }
 .user-dashboard .user-sidebar .leader-board {
   width: 100%;
@@ -409,6 +443,29 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  overflow: scroll;
+}
+.user-dashboard .user-sidebar .leader-board h2 {
+  font-size: 32px;
+}
+.user-dashboard .user-sidebar .leader-board h3 {
+  font-size: 24px;
+}
+.user-dashboard .user-sidebar .leader-board h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar {
+  width: 10px;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .user-dashboard .user-sidebar .sidebar-title {
   font-size: 100px !important;
@@ -429,6 +486,22 @@ p {
   padding: 10px 0px 10px 0px;
 }
 .user-dashboard .user-sidebar .sidebar-content .sidebar-content-categrories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard h2 {
+  padding: 10px 0px 10px 0px;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard .sidebar-content-categrories {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -602,14 +675,6 @@ p {
     flex-wrap: nowrap;
   }
 }
-#root {
-  height: 100%;
-  max-height: 100%;
-}
-.app {
-  max-height: 100%;
-  height: 100%;
-}
 .auth-container {
   width: 90%;
   display: flex;
@@ -766,7 +831,7 @@ p {
   display: inline-block;
   font-size: 18px;
   text-decoration: none;
-  color: cornflowerblue;
+  color: steelblue;
   cursor: pointer;
   transition: color 0.25s ease-in;
   /* unvisited link */
@@ -776,10 +841,10 @@ p {
   color: black;
 }
 .cardlink :link {
-  color: cornflowerblue;
+  color: steelblue;
 }
 .cardlink :visited {
-  color: cornflowerblue;
+  color: steelblue;
   font-weight: 200;
 }
 .cardlink :hover {
@@ -875,11 +940,26 @@ p {
   padding: 0 10px 0 10px;
 }
 .daily-retro .DailyRetro {
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
+.daily-retro .DailyRetro .slide {
+  height: 100%;
+}
+.daily-retro .DailyRetro .slide .carousel-inner {
+  height: 100%;
+}
+.daily-retro .DailyRetro .slide .carousel-inner .carousel-item {
+  height: 100%;
+}
+.daily-retro .DailyRetro .slide .carousel-inner .carousel-item.active {
+  height: 100%;
+}
+.daily-retro .DailyRetro .metric-slide {
+  height: 100%;
+}
 .daily-retro .DailyRetro .metric-slide .slide-nav {
-  height: 100px;
+  height: 70px;
   border-bottom: black solid 2px;
   display: flex;
   flex-direction: row;
@@ -896,14 +976,14 @@ p {
   font-size: 24px;
   font-weight: 400;
   background-color: white;
-  color: cornflowerblue;
+  color: #3E98C7;
 }
 .daily-retro .DailyRetro .metric-slide .slide-nav button:hover {
   color: black;
   font-weight: 700;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content {
-  height: 75vh;
+  height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -914,13 +994,13 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card a {
   font-size: 24px;
   font-weight: 500;
-  color: cornflowerblue;
+  color: #3E98C7;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card a:hover {
   color: black;
@@ -937,8 +1017,8 @@ p {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
   box-shadow: 10px 10px;
+  margin-bottom: 40px;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card h3 {
   font-size: 32px;
@@ -955,7 +1035,19 @@ p {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  height: 325px;
+  height: 225px;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metrics-card-content .progress-bar-text-complete {
+  font-size: 32px;
+  font-weight: 500;
+  margin-Top: 15;
+  margin-Bottom: 20px;
+}
+.daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metrics-card-content .progress-bar-text-incomplete {
+  font-size: 32px;
+  font-weight: 500;
+  margin-Top: 15;
+  margin-Bottom: 20px;
 }
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-card .metric-card .metrics-card-content img {
   max-width: 90%;

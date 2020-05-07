@@ -34,6 +34,11 @@
       justify-content: space-between;
       padding: 20px 40px 20px 40px;
 
+      h3{
+        font-size: 24px;
+        padding-left: 20px;
+      }
+
       .daily-points {
         h2 {
           font-size: 44px;
@@ -110,16 +115,21 @@
       justify-content: space-between;
       margin-bottom: 40px;
 
+      h2{
+        font-size: 32px;
+        font-weight: 500;
+      }
+
       a {
         font-size: 24px;
 
         /* unvisited link */
         :link {
-          color: cornflowerblue;
+          color: #3E98C7;
         }
 
         :visited {
-          color: cornflowerblue;
+          color: #3E98C7;
           font-weight: 200;
         }
 
@@ -172,6 +182,11 @@
       margin-bottom: 30px;
       box-shadow: 10px 10px;
 
+      h3{
+          font-size: 24px;
+          font-weight: 500;
+      }
+
       // Metrics Card Title
       .metrics-card-title {
         width: 100%;
@@ -188,6 +203,20 @@
         align-items: center;
         margin: 0 auto;
         height: 325px;
+
+        .progress-bar-text-complete{
+          font-size: 24px;
+          font-weight: 500;
+          margin-Top: 15;
+          margin-Bottom: 15;
+        }
+
+        .progress-bar-text-incomplete{
+          font-size: 24px;
+          font-weight: 500;
+          margin-Top: 15;
+          margin-Bottom: 15;
+        }
 
         img {
           max-width: 90%;
@@ -218,6 +247,7 @@
         }
 
         h3 {
+          font-size: 24px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -248,16 +278,24 @@
       flex-wrap: nowrap;
       align-items: center;
 
-      .incomplete {
-        font-size: 18px;
+      h2{
+        font-size: 32px;
+      }
+
+      h3{
+        font-size: 24px;
         font-weight: 500;
+      }
+
+      .incomplete {
+        font-size: 24px;
         color: salmon;
       }
       .complete {
-        font-size: 18px;
-        font-weight: 500;
-        color: cornflowerblue;
+        font-size: 24px;
+        color: #3E98C7;
       }
+
     }
 
     // LeaderBoard
@@ -267,6 +305,41 @@
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
+      overflow: scroll;
+
+      
+      h2{
+        font-size: 32px;
+      }
+
+      h3{
+        font-size: 24px;
+      }
+
+      h4{
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+
+    /* width */
+    .leader-board::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    .leader-board::-webkit-scrollbar-track {
+      background: #ffffff; 
+    }
+    
+    /* Handle */
+    .leader-board::-webkit-scrollbar-thumb {
+      background: #000000; 
+    }
+
+    /* Handle on hover */
+    .leader-board::-webkit-scrollbar-thumb:hover {
+      background: #555; 
     }
 
     // Sidebar Titles
@@ -297,7 +370,29 @@
         justify-content: space-between;
         align-items: center;
       }
+
     }
+
+    .sidebar-content-leaderboard{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      h2 {
+        padding: 10px 0px 10px 0px;
+      }
+
+      .sidebar-content-categrories {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+
     // Integrations
     .integrations {
       width: 100%;
@@ -311,6 +406,7 @@
     }
   }
 }
+
 
 // Media Queries
 

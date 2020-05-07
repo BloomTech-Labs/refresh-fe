@@ -18,7 +18,7 @@ class LeaderBoard extends React.Component {
           <h2>Leaderboard</h2>
         </div>
 
-        <div className="sidebar-content">
+        <div className="sidebar-content-leaderboard">
           {sortedTeams.map((team) => {
             return (
               <div className="sidebar-content-categrories">
