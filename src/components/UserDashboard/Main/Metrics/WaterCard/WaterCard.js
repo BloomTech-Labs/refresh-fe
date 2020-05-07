@@ -24,7 +24,7 @@ class WaterCard extends React.Component{
                                 return (
                                     <CircularProgressbarWithChildren  styles={buildStyles({ pathTransition: "none" })} value={value}>
                                     <img style={{ width: 125, marginTop: 10 }} src={WaterImage} alt="Water" />
-                                    <div style={{ fontSize: 15, marginTop: 15 }}> <header>{`${roundedValue}%`}</header></div>
+                                    <div style={{ fontSize: 24,fontWeight: 500, marginTop: 15,marginBottom: 15}}> <header>{`${roundedValue}%`}</header></div>
                                     </CircularProgressbarWithChildren>
                                 )
                             } else {
@@ -33,7 +33,7 @@ class WaterCard extends React.Component{
                                         pathColor: `salmon`,
                                         pathTransition: "none" })} value={value}>
                                     <img style={{ width: 125, marginTop: 10 }} src={WaterImage} alt="Water" />
-                                    <div style={{ fontSize: 15, marginTop: 15 }}> <header>{`${roundedValue}%`}</header></div>
+                                    <div style={{ fontSize: 24,fontWeight: 500, marginTop: 15,marginBottom: 15}}> <header>{`${roundedValue}%`}</header></div>
                                     </CircularProgressbarWithChildren>
                                 )
                             }

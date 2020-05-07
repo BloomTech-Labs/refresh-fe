@@ -25,7 +25,7 @@ class ExcerciseCard extends React.Component{
                             return(
                                 <CircularProgressbarWithChildren styles={buildStyles({ pathTransition: "none" })}  value={value}>
                                 <img style={{ width: 135 }} src={ExcerciseImage} alt="Exercise" />
-                                <div style={{ fontSize: 15, marginTop: 12 }}> <header>{`${roundedValue}%`}</header></div>
+                                <div style={{ fontSize: 24,fontWeight: 500, marginTop: 15,marginBottom: 15}}> <header>{`${roundedValue}%`}</header></div>
                                 </CircularProgressbarWithChildren>
                                     )
                         } else {
@@ -33,7 +33,7 @@ class ExcerciseCard extends React.Component{
                                 <CircularProgressbarWithChildren styles={buildStyles({ 
                                     pathColor: `salmon`, pathTransition: "none" })}  value={value}>
                                 <img style={{ width: 135 }} src={ExcerciseImage} alt="Exercise" />
-                                <div style={{ fontSize: 15, marginTop: 12 }}> <header>{`${roundedValue}%`}</header></div>
+                                <div style={{ fontSize: 24,fontWeight: 500, marginTop: 15,marginBottom: 15}}> <header>{`${roundedValue}%`}</header></div>
                                 </CircularProgressbarWithChildren>
                                     )
                         }

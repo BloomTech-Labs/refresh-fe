@@ -34,7 +34,7 @@ class BreaksCard extends React.Component{
                                 })}
                                     value={value} >
                                 <img style={{ width: 150, marginTop: 10 }} src={BreakImage} alt="Breaks" />
-                                <div style={{ fontSize: 15, marginTop: 25 }}> <header>{`${roundedValue}%`}</header></div>
+                                <div style={{ fontSize: 24,fontWeight: 500, marginTop: 15,marginBottom: 15}}> <header>{`${roundedValue}%`}</header></div>
                                 </CircularProgressbarWithChildren>
                                 )
                             } else {
@@ -47,7 +47,7 @@ class BreaksCard extends React.Component{
                                 })}
                                     value={value} >
                                 <img style={{ width: 150, marginTop: 10 }} src={BreakImage} alt="Breaks" />
-                                <div style={{ fontSize: 15, marginTop: 25 }}> <header>{`${roundedValue}%`}</header></div>
+                                <div style={{ fontSize: 24,fontWeight: 500, marginTop: 15,marginBottom: 15}}> <header>{`${roundedValue}%`}</header></div>
                                 </CircularProgressbarWithChildren>
                                 )
                             }
