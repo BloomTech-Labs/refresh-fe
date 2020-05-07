@@ -224,6 +224,10 @@ p {
   justify-content: space-between;
   padding: 20px 40px 20px 40px;
 }
+.user-dashboard .main .header h3 {
+  font-size: 24px;
+  padding-left: 20px;
+}
 .user-dashboard .main .header .daily-points h2 {
   font-size: 44px;
   font-weight: 500;
@@ -403,6 +407,10 @@ p {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 .user-dashboard .user-sidebar .personal-goals {
   width: 100%;
@@ -414,14 +422,19 @@ p {
   flex-wrap: nowrap;
   align-items: center;
 }
-.user-dashboard .user-sidebar .personal-goals .incomplete {
-  font-size: 18px;
+.user-dashboard .user-sidebar .personal-goals h2 {
+  font-size: 32px;
+}
+.user-dashboard .user-sidebar .personal-goals h3 {
+  font-size: 24px;
   font-weight: 500;
+}
+.user-dashboard .user-sidebar .personal-goals .incomplete {
+  font-size: 24px;
   color: salmon;
 }
 .user-dashboard .user-sidebar .personal-goals .complete {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 24px;
   color: steelblue;
 }
 .user-dashboard .user-sidebar .leader-board {
@@ -430,6 +443,29 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  overflow: scroll;
+}
+.user-dashboard .user-sidebar .leader-board h2 {
+  font-size: 32px;
+}
+.user-dashboard .user-sidebar .leader-board h3 {
+  font-size: 24px;
+}
+.user-dashboard .user-sidebar .leader-board h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar {
+  width: 10px;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .user-dashboard .user-sidebar .sidebar-title {
   font-size: 100px !important;
@@ -450,6 +486,22 @@ p {
   padding: 10px 0px 10px 0px;
 }
 .user-dashboard .user-sidebar .sidebar-content .sidebar-content-categrories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard h2 {
+  padding: 10px 0px 10px 0px;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard .sidebar-content-categrories {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
