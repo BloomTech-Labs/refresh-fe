@@ -155,3 +155,22 @@ export const updateTeamPoints = (teamId) => (dispatch) => {
       dispatch({ type: UPDATE_USER_TEAM_FAILURE, PAYLOAD: error });
     });
 };
+
+export const adminLogin = (credentials) => (dispatch) => {
+  dispatch({ FETCH_USER_LOADING });
+  axiosWithAuth()
+    .post("/admin/login", {credentials})
+    .then(res => {
+      console.log(res.data.token);
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        props.history.push("/leaderboard");
+      } else {
+        console.log(err.message)
+      }
+    })
+  .catch(err => {
+    console.log(err)
+    dispatch({FETCH_USER_FAILURE, payload: err})
+  });
+}
