@@ -1,4 +1,6 @@
 import axios from "axios";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+import history from "../../../helpers/history";
 
 // Action Types
 export const FETCH_ALL_USERS_LOADING = "FETCH_ALL_USERS_LOADING";
@@ -157,20 +159,20 @@ export const updateTeamPoints = (teamId) => (dispatch) => {
 };
 
 export const adminLogin = (credentials) => (dispatch) => {
-  dispatch({ FETCH_USER_LOADING });
+  dispatch({ type: FETCH_USER_LOADING });
   axiosWithAuth()
-    .post("/admin/login", {credentials})
+    .post("/admin/login", credentials)
     .then(res => {
       console.log(res.data.token);
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
-        props.history.push("/leaderboard");
+        history.push("/leaderboard");
       } else {
-        console.log(err.message)
+        console.log(res)
       }
     })
   .catch(err => {
     console.log(err)
-    dispatch({FETCH_USER_FAILURE, payload: err})
+    dispatch({type: FETCH_USER_FAILURE, payload: err})
   });
 }
