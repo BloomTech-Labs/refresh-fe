@@ -12,6 +12,8 @@ import {Route, Switch} from 'react-router-dom';
 import UserLogin from './components/Auth/UserLogin.js'
 import UserSignUp from './components/Auth/UserSignUp.js'
 
+import Leaderboard from '../src/views/private/admin-leaderboard/leaderboard.js'
+
 const App = props => {
   return (
     <div className='app'>
@@ -20,6 +22,8 @@ const App = props => {
         <PrivateRoute exact path='/DailyRetro' component={DailyRetro} />
           <Route path="/sign-up" component={UserSignUp} />
           <Route exact path='/' component={UserLogin} />
+
+        <Route exact path="/leaderboard" component={Leaderboard} />
         </Switch>
 
     </div>
