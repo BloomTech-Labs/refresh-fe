@@ -166,6 +166,7 @@ export const adminLogin = (credentials) => (dispatch) => {
       console.log(res.data.token);
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("admin", true);
         history.push("/leaderboard");
       } else {
         console.log(res)

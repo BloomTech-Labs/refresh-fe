@@ -54,6 +54,7 @@ export const login = (user, admin) => (dispatch) => {
 
       //set token to local storage
       window.localStorage.setItem("token", response.data.token);
+      window.localStorage.setItem("admin", false);
 
       history.push("/UserDashboard");
     })

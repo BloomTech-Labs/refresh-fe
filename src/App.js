@@ -5,6 +5,7 @@ import React from "react";
 // import AdminViewCanvas from "./views/private"
 // import ContextRouter from "./contexts/ContextRouter";
 import PrivateRoute from './helpers/PrivateRoute'
+import PrivateRouteAdmin from './helpers/PrivateRouteAdmin'
 import UserDashboard from './components/UserDashboard/UserDashboard'
 import DailyRetro from './components/DailyRetro/DailyRetro'
 
@@ -23,7 +24,7 @@ const App = props => {
           <Route path="/sign-up" component={UserSignUp} />
           <Route exact path='/' component={UserLogin} />
 
-        <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
+        <PrivateRouteAdmin exact path="/leaderboard" component={Leaderboard} />
         </Switch>
 
     </div>
