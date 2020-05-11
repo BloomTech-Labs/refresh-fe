@@ -23,7 +23,7 @@ const App = props => {
           <Route path="/sign-up" component={UserSignUp} />
           <Route exact path='/' component={UserLogin} />
 
-        <Route exact path="/leaderboard" component={Leaderboard} />
+        <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
         </Switch>
 
     </div>
