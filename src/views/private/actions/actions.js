@@ -1,4 +1,6 @@
 import axios from "axios";
+import { axiosWithAuth } from "../../../helpers/axiosWithAuth";
+import history from "../../../helpers/history";
 
 // Action Types
 export const FETCH_ALL_USERS_LOADING = "FETCH_ALL_USERS_LOADING";
@@ -155,3 +157,23 @@ export const updateTeamPoints = (teamId) => (dispatch) => {
       dispatch({ type: UPDATE_USER_TEAM_FAILURE, PAYLOAD: error });
     });
 };
+
+export const adminLogin = (credentials) => (dispatch) => {
+  dispatch({ type: FETCH_USER_LOADING });
+  axiosWithAuth()
+    .post("/admin/login", credentials)
+    .then(res => {
+      console.log(res.data.token);
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("admin", true);
+        history.push("/leaderboard");
+      } else {
+        console.log(res)
+      }
+    })
+  .catch(err => {
+    console.log(err)
+    dispatch({type: FETCH_USER_FAILURE, payload: err})
+  });
+}

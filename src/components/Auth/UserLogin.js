@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import {login} from '../../views/private/actions/actions-user';
+import {adminLogin} from '../../views/private/actions/actions';
 import {connect} from 'react-redux';
 import Marketing from './Marketing'
 
@@ -20,9 +21,17 @@ function UserLogin(props) {
             password: data.password
         }
 
-        props.login(user); 
+        //check if user logging in checked if they were an administrator or not, then direct to proper login
+        if (data.admin) {
+            props.adminLogin(user);
+            console.log("hit admin login")
+        }
+        else {
+            props.login(user); 
+            console.log("hit user login")
+        }
 
-       
+
     }
 
     return (
@@ -78,8 +87,7 @@ function UserLogin(props) {
                             {errors.password && <p className='input-errors'>{errors.password.message}</p>}
                         </fieldset>
 
-                        {/* NEEDED FOR FUTURE RELEASE CYCLE */}
-                        {/* <fieldset className="cardfieldset">
+                        <fieldset className="cardfieldset">
                             <label for="admin">Are you an administrator?</label>
                             <input
                                 className="cardinput"
@@ -88,7 +96,7 @@ function UserLogin(props) {
                                 name="admin"
                                 ref={register}
                             />
-                        </fieldset>   */}
+                        </fieldset>  
 
                         {(props.error === null ? <p></p> : <p className='input-errors'>{(props.error.response.data.message)}</p>)}
 
@@ -113,4 +121,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {login})(UserLogin)
+export default connect(mapStateToProps, {login, adminLogin})(UserLogin)

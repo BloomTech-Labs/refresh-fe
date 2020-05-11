@@ -54,11 +54,11 @@ const Leaderboard = (props) => {
 export default connect(
     state => {
         return {
-            teams: state.teams,
-            allUsers: state.allUsers,
-            singleUser: state.singleUser,
-            isFetching: state.isFetching,
-            error: state.error
+            teams: state.reducer.teams,
+            allUsers: state.reducer.allUsers,
+            singleUser: state.reducer.singleUser,
+            isFetching: state.reducer.isFetching,
+            error: state.reducer.error
         }
     },
     { fetchTeams, editTeamName }

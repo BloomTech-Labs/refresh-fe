@@ -17,7 +17,7 @@ export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
 export const UPDATE_USER_TEAM_FAILURE = "UPDATE_USER_TEAM_FAILURE";
 
 //login
-export const login = (user) => (dispatch) => {
+export const login = (user, admin) => (dispatch) => {
   dispatch({ type: FETCHING_START });
   axiosWithAuth()
     .post("/users/login", user)
@@ -54,6 +54,7 @@ export const login = (user) => (dispatch) => {
 
       //set token to local storage
       window.localStorage.setItem("token", response.data.token);
+      window.localStorage.setItem("admin", false);
 
       history.push("/UserDashboard");
     })

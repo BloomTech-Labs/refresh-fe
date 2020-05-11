@@ -5,12 +5,15 @@ import React from "react";
 // import AdminViewCanvas from "./views/private"
 // import ContextRouter from "./contexts/ContextRouter";
 import PrivateRoute from './helpers/PrivateRoute'
+import PrivateRouteAdmin from './helpers/PrivateRouteAdmin'
 import UserDashboard from './components/UserDashboard/UserDashboard'
 import DailyRetro from './components/DailyRetro/DailyRetro'
 
 import {Route, Switch} from 'react-router-dom';
 import UserLogin from './components/Auth/UserLogin.js'
 import UserSignUp from './components/Auth/UserSignUp.js'
+
+import Leaderboard from '../src/views/private/admin-leaderboard/leaderboard.js'
 
 const App = props => {
   return (
@@ -20,6 +23,8 @@ const App = props => {
         <PrivateRoute exact path='/DailyRetro' component={DailyRetro} />
           <Route path="/sign-up" component={UserSignUp} />
           <Route exact path='/' component={UserLogin} />
+
+        <PrivateRouteAdmin exact path="/leaderboard" component={Leaderboard} />
         </Switch>
 
     </div>
