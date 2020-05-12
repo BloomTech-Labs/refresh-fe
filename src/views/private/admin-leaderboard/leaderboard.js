@@ -14,10 +14,8 @@ import {
 const Leaderboard = (props) => {
   const [render, setRender] = useState(false);
 
-  //states for accordion function
-  const [isOpen, setIsOpen] = useState(false);
+  //state for accordion function
   const [teamIndex, setTeamIndex] = useState(null);
- 
 
   useEffect(() => {
     props.fetchTeams();
@@ -29,13 +27,13 @@ const Leaderboard = (props) => {
   };
 
   //accordion function - the index opens onClick, and closes onClick
-    const clickIndex = (num) => {
-        if (teamIndex === num) {
-          setTeamIndex(null)
-        } else {
-            setTeamIndex(num); 
-        }
-    };
+  const clickIndex = (num) => {
+    if (teamIndex === num) {
+      setTeamIndex(null);
+    } else {
+      setTeamIndex(num);
+    }
+  };
 
   return (
     <Container>
@@ -71,6 +69,8 @@ const Leaderboard = (props) => {
                   />
                 </div>
               </Button>
+
+              {/* accordion closes index when a new index is clicked on */}
               <Collapse isOpen={index === teamIndex}>
                 <Card>
                   <CardBody>
@@ -78,8 +78,10 @@ const Leaderboard = (props) => {
                       if (user.team_id === team.id) {
                         return (
                           <>
-                            <p>{user.full_name}</p>
-                            <p>{user.total_points}</p>
+                            <p>
+                              {user.full_name}
+                              {user.total_points}
+                            </p>
                           </>
                         );
                       }
