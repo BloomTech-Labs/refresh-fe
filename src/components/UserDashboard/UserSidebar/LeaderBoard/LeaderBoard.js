@@ -2,6 +2,8 @@ import React from "react";
 import { fetchTeams } from "../../../../../src/views/private/actions/actions";
 import { connect } from "react-redux";
 
+import '../../../../styles/Less/components/AdminLeaderboard.css'
+
 class LeaderBoard extends React.Component {
   componentDidMount() {
     this.props.fetchTeams();

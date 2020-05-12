@@ -37,7 +37,7 @@ const Leaderboard = (props) => {
   };
 
   return (
-    <Container>
+    <Container className='leaderboard'>
       <Title>Leaderboard</Title>
       <AddTeam>
         <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
