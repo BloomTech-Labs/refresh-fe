@@ -53,7 +53,7 @@ const Leaderboard = (props) => {
         })
         .map((team, index) => {
           return (
-            <div>
+            <div key={team.id}>
               <Button
                 color="primary"
                 onClick={() => {
