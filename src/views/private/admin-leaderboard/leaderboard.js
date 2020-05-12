@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
 import { connect } from "react-redux";
-import { fetchTeams, editTeamName } from "../actions/actions";
+import { fetchTeams, editTeamName, fetchAllUsers } from "../actions/actions";
 import TeamCard from "./teamCard";
 import AddTeamButton from "./addTeam";
 import {
@@ -18,7 +18,8 @@ const Leaderboard = (props) => {
   const [teamIndex, setTeamIndex] = useState(null);
 
   useEffect(() => {
-    props.fetchTeams();
+      props.fetchTeams();
+      props.fetchAllUsers();
   }, [render]);
 
   const makeRender = (change) => {
@@ -51,7 +52,8 @@ const Leaderboard = (props) => {
         .sort((a, b) => {
           return b.points - a.points;
         })
-        .map((team, index) => {
+              .map((team, index) => {
+            
           return (
             <div key={team.id}>
               <Button
@@ -74,7 +76,8 @@ const Leaderboard = (props) => {
               <Collapse isOpen={index === teamIndex}>
                 <Card>
                   <CardBody>
-                    {props.allUsers.map((user) => {
+                              {props.allUsers.map((user) => {
+
                       if (user.team_id === team.id) {
                         return (
                           <>
@@ -106,5 +109,5 @@ export default connect(
       error: state.reducer.error,
     };
   },
-  { fetchTeams, editTeamName }
+  { fetchTeams, editTeamName, fetchAllUsers }
 )(Leaderboard);
