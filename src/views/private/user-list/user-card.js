@@ -33,12 +33,12 @@ const UserCard = props => {
                     <i class="fas fa-times fa-2x" onClick={deleteUser}></i>
                 </ButtonX>
                 <Name>
-                <h2 onClick={passId}>{`${props.info.first_name} ${props.info.last_name}`}</h2>
+                <h2 onClick={passId}>{`${props.info.full_name}`}</h2>
                 </Name>
                 <h3>{props.info.email}</h3>
                 <Blue>
                 <h2>
-                    {`${props.info.points === null ? props.info.points = 0 : props.info.points} POINTS`}
+                    {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} POINTS`}
                 </h2>
                 </Blue>
                 <Dropdown onChange={handleSubmit}>
@@ -59,12 +59,12 @@ const UserCard = props => {
 export default connect(
     state => {
         return {
-            teamName: state.teamName,
-            teams: state.teams,
-            allUsers: state.allUsers,
-            singleUser: state.singleUser,
-            isFetching: state.isFetching,
-            error: state.error
+            teamName: state.reducer.teamName,
+            teams: state.reducer.teams,
+            allUsers: state.reducer.allUsers,
+            singleUser: state.reducer.singleUser,
+            isFetching: state.reducer.isFetching,
+            error: state.reducer.error
         }
     },
     { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName}
