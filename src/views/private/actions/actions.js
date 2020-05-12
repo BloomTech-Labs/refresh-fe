@@ -44,7 +44,7 @@ export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
 export const fetchAllUsers = () => (dispatch) => {
   dispatch({ type: FETCH_ALL_USERS_LOADING });
   axios
-    .get(`https://labs23-refresh.herokuapp.com/users/`)
+    .get(`https://lab23-refresh-be.herokuapp.com/users/`)
     .then((response) =>
       dispatch({ type: FETCH_ALL_USERS_SUCCESS, payload: response.data })
     )
@@ -57,7 +57,7 @@ export const fetchUserTeamName = (userId) => (dispatch) => {
   console.log("fetch");
   dispatch({ type: FETCH_USER_TEAM_NAME_LOADING });
   axios
-    .get(`https://labs23-refresh.herokuapp.com/users/${userId}/team`)
+    .get(`https://labs23-refresh-be.herokuapp.com/users/${userId}/team`)
     .then((response) =>
       dispatch({ type: FETCH_USER_TEAM_NAME_SUCCESS, payload: response.data })
     )
@@ -69,7 +69,7 @@ export const fetchUserTeamName = (userId) => (dispatch) => {
 export const updateUserTeam = (userId, editedTeamId) => (dispatch) => {
   dispatch({ type: UPDATE_USER_TEAM_START });
   axios
-    .put(`https://labs23-refresh.herokuapp.com/users/${userId}`, editedTeamId)
+    .put(`https://labs23-refresh-be.herokuapp.com/users/${userId}`, editedTeamId)
     .then((response) => {
       console.log("updateUserTeam response: ", response);
       dispatch({ type: UPDATE_USER_TEAM_SUCCESS, payload: response.data });
@@ -82,7 +82,7 @@ export const updateUserTeam = (userId, editedTeamId) => (dispatch) => {
 export const deleteUser = (userId) => (dispatch) => {
   dispatch({ type: DELETE_USER_START });
   axios
-    .delete(`https://labs23-refresh.herokuapp.com/users/${userId}`)
+    .delete(`https://labs23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
       dispatch({ type: DELETE_USER_SUCCESS, payload: response });
     })
@@ -92,7 +92,7 @@ export const deleteUser = (userId) => (dispatch) => {
 export const fetchUser = (userId) => (dispatch) => {
   dispatch({ type: FETCH_USER_LOADING });
   axios
-    .get(`https://labs-refresh.herokuapp.com/users/${userId}`)
+    .get(`https://labs-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
       dispatch({ type: FETCH_USER_SUCCESS, payload: response.data });
     })
@@ -102,7 +102,7 @@ export const fetchUser = (userId) => (dispatch) => {
 export const createNewTeam = (Team) => (dispatch) => {
   dispatch({ type: CREATE_NEW_TEAM_START });
   axios
-    .post(`https://labs-refresh.herokuapp.com/teams/`, Team)
+    .post(`https://labs-refresh-be.herokuapp.com/teams/`, Team)
     .then((response) => {
       console.log("createNewTeam response: ", response);
       dispatch({ type: CREATE_NEW_TEAM_SUCCESS, payload: response.data });
@@ -125,7 +125,7 @@ export const fetchTeams = () => (dispatch) => {
 export const deleteTeam = (teamId) => (dispatch) => {
   dispatch({ type: DELETE_USER_START });
   axios
-    .delete(`https://labs-refresh.herokuapp.com/teams/${teamId}`)
+    .delete(`https://labs-refresh-be.herokuapp.com/teams/${teamId}`)
     .then((response) => {
       console.log("deleteTeam response: ", response);
       dispatch({ type: DELETE_TEAM_SUCCESS, payload: response });
@@ -136,7 +136,7 @@ export const deleteTeam = (teamId) => (dispatch) => {
 export const editTeamName = (teamId, editedTeamName) => (dispatch) => {
   dispatch({ type: UPDATE_TEAM_NAME_START });
   axios
-    .put(`https://labs-refresh.herokuapp.com/teams/${teamId}`, editedTeamName)
+    .put(`https://labs-refresh-be.herokuapp.com/teams/${teamId}`, editedTeamName)
     .then((response) => {
       console.log("editTeamName response: ", response);
       dispatch({ type: UPDATE_TEAM_NAME_SUCCESS, payload: response.data });
