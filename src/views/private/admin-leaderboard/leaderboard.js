@@ -13,8 +13,11 @@ import {
 
 const Leaderboard = (props) => {
   const [render, setRender] = useState(false);
+
+  //states for accordion function
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [teamIndex, setTeamIndex] = useState(null);
+ 
 
   useEffect(() => {
     props.fetchTeams();
@@ -24,6 +27,15 @@ const Leaderboard = (props) => {
     console.log("makeRender", change);
     setRender(change);
   };
+
+  //accordion function - the index opens onClick, and closes onClick
+    const clickIndex = (num) => {
+        if (teamIndex === num) {
+          setTeamIndex(null)
+        } else {
+            setTeamIndex(num); 
+        }
+    };
 
   return (
     <Container>
@@ -41,12 +53,14 @@ const Leaderboard = (props) => {
         .sort((a, b) => {
           return b.points - a.points;
         })
-        .map((team) => {
+        .map((team, index) => {
           return (
             <div>
               <Button
                 color="primary"
-                onClick={toggle}
+                onClick={() => {
+                  clickIndex(index);
+                }}
                 style={{ marginBottom: "1rem" }}
               >
                 <div className="teamCardFlex">
@@ -57,10 +71,9 @@ const Leaderboard = (props) => {
                   />
                 </div>
               </Button>
-              <Collapse isOpen={isOpen}>
+              <Collapse isOpen={index === teamIndex}>
                 <Card>
                   <CardBody>
-                    {console.log("cardbody", props)};
                     {props.allUsers.map((user) => {
                       if (user.team_id === team.id) {
                         return (
