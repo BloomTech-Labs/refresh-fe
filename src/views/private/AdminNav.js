@@ -75,7 +75,7 @@ function WithNavigation(props) {
 	}
 	return (
 		<div>
-			<NavBar>
+			<NavBar classname= 'nav-bar'>
 				<Space>
 					<div classname="starsDiv">
 						<Stars className="img" />

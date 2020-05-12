@@ -769,6 +769,19 @@ p {
 .cardfieldset:last-of-type {
   text-align: center;
 }
+.checkbox-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.checkbox-section .checkbox-text {
+  width: 100%;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+}
 .cardinput {
   padding: 10px 0;
   width: 100%;
