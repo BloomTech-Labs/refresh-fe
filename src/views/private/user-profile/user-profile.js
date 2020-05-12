@@ -45,14 +45,14 @@ const UserProfile = props => {
                     
                     <div className='profile'>
                     <Name>
-                        <h2>{`${props.singleUser.first_name} ${props.singleUser.last_name}`}</h2>
+                        <h2>{`${props.singleUser.full_name}`}</h2>
                         
                         </Name>
                         <h3>{props.singleUser.email}</h3>
                         <Blue>
                         
                         <h2>
-                            {`${props.singleUser.points === null ? props.singleUser.points = 0 : props.singleUser.points} POINTS`}
+                            {`${props.singleUser.total_points === null ? props.singleUser.total_points = 0 : props.singleUser.total_points} POINTS`}
                         </h2>
                         </Blue>
                     </div>
