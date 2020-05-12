@@ -2,6 +2,8 @@
 
 import React from "react";
 import {Redirect,Route} from 'react-router-dom'
+import AdminNav from '../views/private/AdminNav'
+
 const PrivateRoute = ({ component: Component, ...rest }) => {
   // const Component = props.component
   return (
@@ -10,7 +12,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       render={(props) => {
         if (localStorage.getItem("token") && JSON.parse(localStorage.getItem("admin")) === true) {
           // if token is in localstorage, render the given component
-          return <Component {...props} />;
+          return (
+            <>
+              <AdminNav/>
+              <Component {...props} />
+            </>
+          );
         } else {
           localStorage.clear();
           return <Redirect to="/" />;
