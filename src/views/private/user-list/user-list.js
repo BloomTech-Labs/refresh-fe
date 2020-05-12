@@ -44,7 +44,7 @@ const UserList = props => {
             return employees
         } else if(showNulls === true) {
             return employees.team_id === null
-        } else if(employees.first_name.toLowerCase().includes(searchTerm.toLowerCase()) || employees.last_name.toLowerCase().includes(searchTerm.toLowerCase())) {
+        } else if(employees.full_name.toLowerCase().includes(searchTerm.toLowerCase())) {
             return employees
         }
     }).map(employees => {

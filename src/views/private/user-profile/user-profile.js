@@ -45,14 +45,14 @@ const UserProfile = props => {
                     
                     <div className='profile'>
                     <Name>
-                        <h2>{`${props.singleUser.first_name} ${props.singleUser.last_name}`}</h2>
+                        <h2>{`${props.singleUser.full_name}`}</h2>
                         
                         </Name>
                         <h3>{props.singleUser.email}</h3>
                         <Blue>
                         
                         <h2>
-                            {`${props.singleUser.points === null ? props.singleUser.points = 0 : props.singleUser.points} POINTS`}
+                            {`${props.singleUser.total_points === null ? props.singleUser.total_points = 0 : props.singleUser.total_points} POINTS`}
                         </h2>
                         </Blue>
                     </div>
@@ -84,11 +84,11 @@ export default connect(
     state => {
         return {
             teamName: {},
-            teams: state.teams,
-            allUsers: state.allUsers,
-            singleUser: state.singleUser,
-            isFetching: state.isFetching,
-            error: state.error
+            teams: state.reducer.teams,
+            allUsers: state.reducer.allUsers,
+            singleUser: state.reducer.singleUser,
+            isFetching: state.reducer.isFetching,
+            error: state.reducer.error
         }
     },
     { updateUserTeam, deleteUser, fetchUser, fetchTeams, fetchUserTeamName }
