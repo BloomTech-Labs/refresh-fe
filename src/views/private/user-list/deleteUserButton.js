@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { deleteTeam } from '../actions/actions';
+import { deleteUser } from '../actions/actions';
 import { ButtonContainer, CenterContainer, Words, ButtonStyle1, ButtonStyle2 } from '../styled-components/delete-button-styles';
 
 Modal.setAppElement('#root')
 
-const DeleteButton = props => {
+const DeleteUserButton = props => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -41,7 +41,7 @@ const DeleteButton = props => {
 
     const handleDelete = id => {
         setModalIsOpen(false);
-        props.deleteTeam(props.id)
+        props.deleteUser(props.id)
         setTimeout(() => {props.makeRender(!props.render)} , 100)
     }
     
@@ -52,7 +52,7 @@ const DeleteButton = props => {
                 style={modalStyle}
                 >
                 <CenterContainer>
-                <Words>Are you sure you want to<br /> delete this team?</Words>
+                <Words>Are you sure you want to<br /> delete this user?</Words>
                 <ButtonContainer>
                 <ButtonStyle1 onClick={handleDelete}>
                 <p>Yes</p>
@@ -76,5 +76,5 @@ const mapStatetoProps = state => {
 
 export default connect(
 mapStatetoProps,
-{deleteTeam}
-)(DeleteButton);
+{deleteUser}
+)(DeleteUserButton);
