@@ -136,7 +136,10 @@ export const deleteTeam = (teamId) => (dispatch) => {
 export const editTeamName = (teamId, editedTeamName) => (dispatch) => {
   dispatch({ type: UPDATE_TEAM_NAME_START });
   axios
-    .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, editedTeamName)
+    .put(
+      `https://lab23-refresh-be.herokuapp.com/teams/${teamId}`,
+      editedTeamName
+    )
     .then((response) => {
       console.log("editTeamName response: ", response);
       dispatch({ type: UPDATE_TEAM_NAME_SUCCESS, payload: response.data });
@@ -146,34 +149,77 @@ export const editTeamName = (teamId, editedTeamName) => (dispatch) => {
     );
 };
 
-export const updateTeamPoints = (teamId) => (dispatch) => {
-  dispatch({ type: UPDATE_USER_TEAM_START });
+
+
+export const updateTeamPoints = () => (dispatch) => {
+  //find all teams
+  dispatch({ type: FETCH_TEAMS_LOADING });
   axios
-    .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
-    .then((response) => {
-      dispatch({ type: UPDATE_TEAM_POINTS, payload: response.data });
+    .get(`https://lab23-refresh-be.herokuapp.com/teams`)
+    .then((teamResponse) => {
+      //find all users
+      axios
+        .get(`https://lab23-refresh-be.herokuapp.com/users/`)
+        .then((userResponse) => {
+          dispatch({
+            type: FETCH_ALL_USERS_SUCCESS,
+            payload: userResponse.data,
+          });
+
+          teamResponse.data.map((team) => {
+            //resets each team points to 0
+            let teamTotalPoints = 0;
+
+            userResponse.data.map((user) => {
+              //finds all users per team_id
+              if (user.team_id === team.id) {
+                console.log("USER MATCHES TEAM:", user, team);
+                //finds sum of user's total_points per team then adds to team.points
+                teamTotalPoints += user.total_points;
+              }
+            });
+
+            // Send teamTotalPoints to server
+            axiosWithAuth()
+              .put(`https://lab23-refresh-be.herokuapp.com/teams/${team.id}`, {
+                points: teamTotalPoints,
+              })
+              .then((response) => {
+                dispatch({
+                  type: UPDATE_TEAM_POINTS,
+                  payload: response.data.result,
+                });
+              })
+              .catch((error) => {
+                dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
+              });
+          });
+        })
+        .catch((error) =>
+          dispatch({ type: FETCH_ALL_USERS_FAILURE, payload: error })
+        );
     })
-    .catch((error) => {
-      dispatch({ type: UPDATE_USER_TEAM_FAILURE, PAYLOAD: error });
-    });
+    .catch((error) => dispatch({ type: FETCH_TEAMS_FAILURE, payload: error }));
+
+ 
 };
 
 export const adminLogin = (credentials) => (dispatch) => {
   dispatch({ type: FETCH_USER_LOADING });
   axiosWithAuth()
     .post("/admin/login", credentials)
-    .then(res => {
+    .then((res) => {
       console.log(res.data.token);
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
         window.localStorage.setItem("admin", true);
         history.push("/leaderboard");
       } else {
-        console.log(res)
+        console.log(res);
       }
     })
-  .catch(err => {
-    console.log(err)
-    dispatch({type: FETCH_USER_FAILURE, payload: err})
-  });
-}
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: FETCH_USER_FAILURE, payload: err });
+    });
+};

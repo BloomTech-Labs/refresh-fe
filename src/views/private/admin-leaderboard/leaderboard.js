@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
 import { connect } from "react-redux";
-import { fetchTeams, editTeamName, fetchAllUsers } from "../actions/actions";
+import {
+  fetchTeams,
+  editTeamName,
+  fetchAllUsers,
+  updateTeamPoints,
+} from "../actions/actions";
 import TeamCard from "./teamCard";
 import AddTeamButton from "./addTeam";
 import {
@@ -18,8 +23,9 @@ const Leaderboard = (props) => {
   const [teamIndex, setTeamIndex] = useState(null);
 
   useEffect(() => {
-      props.fetchTeams();
-      props.fetchAllUsers();
+    props.fetchTeams();
+    props.fetchAllUsers();
+    props.updateTeamPoints();
   }, [render]);
 
   const makeRender = (change) => {
@@ -37,7 +43,7 @@ const Leaderboard = (props) => {
   };
 
   return (
-    <Container className='leaderboard'>
+    <Container className="leaderboard">
       <Title>Leaderboard</Title>
       <AddTeam>
         <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
@@ -52,8 +58,7 @@ const Leaderboard = (props) => {
         .sort((a, b) => {
           return b.points - a.points;
         })
-              .map((team, index) => {
-            
+        .map((team, index) => {
           return (
             <div key={team.id}>
               <Button
@@ -76,8 +81,7 @@ const Leaderboard = (props) => {
               <Collapse isOpen={index === teamIndex}>
                 <Card>
                   <CardBody>
-                              {props.allUsers.map((user) => {
-
+                    {props.allUsers.map((user) => {
                       if (user.team_id === team.id) {
                         return (
                           <>
@@ -109,5 +113,5 @@ export default connect(
       error: state.reducer.error,
     };
   },
-  { fetchTeams, editTeamName, fetchAllUsers }
+  { fetchTeams, editTeamName, fetchAllUsers, updateTeamPoints }
 )(Leaderboard);
