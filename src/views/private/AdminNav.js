@@ -6,9 +6,9 @@ import { NavLink } from "react-router-dom";
 import StarsImage from "./AdminNavImages/logo.png";
 import leaderboard from "./AdminNavImages/leaderboard.png";
 import user from "./AdminNavImages/user.png";
-import settings from "./AdminNavImages/settings.png";
-import logout from "./AdminNavImages/signout 1.png";
 
+import logout from "./AdminNavImages/signout 1.png";
+import LeaderBoardImage from './AdminNavImages/list-ol-solid.png'
 export const NavBar = styled.div`
 	position: fixed;
 	background-color: rgb(61, 162, 237);
@@ -58,11 +58,12 @@ export const Content = styled.div`
 	background-color: white;
 `;
 
-export const Leaderboard = styled.img``;
+export const Leaderboard = styled.img`
+filter: invert(1);
+`;
 
 export const Users = styled.img``;
 
-export const Settings = styled.img``;
 
 export const Logout = styled.img`
 	margin-bottom: 2vh;
@@ -96,13 +97,10 @@ function WithNavigation(props) {
 				</Space>
 				<Space></Space>
 				<StyledNavLink to="/leaderboard">
-					<Leaderboard className="img" src={leaderboard} alt="leaderboard" />
+					<Leaderboard className="img" src={LeaderBoardImage} alt="leaderboard"/>
 				</StyledNavLink>
 				<StyledNavLink to="/users">
 					<Users className="img" src={user} alt="user" />
-				</StyledNavLink>
-				<StyledNavLink to="/settings">
-					<Settings className="img" src={settings} alt="settings" />
 				</StyledNavLink>
 				<Space>
                     <div>
