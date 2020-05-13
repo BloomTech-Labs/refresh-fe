@@ -174,10 +174,8 @@ function reducer(state = initialState, action) {
         isFetching: false,
         teams: [
           ...state.teams,
-        //   TODO: Update the team points
-
           state.teams.map((team) => {
-            if (team.id === action.payload.id) {
+            if (team.id === action.payload.teamId) {
               team.points = action.payload.points;
             }
           }),
