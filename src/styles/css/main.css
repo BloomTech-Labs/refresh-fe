@@ -1122,13 +1122,11 @@ p {
   justify-content: center;
 }
 .user-list .user-list-title {
-  background-color: brown;
-  font-family: Roboto;
   font-size: 50px;
-  color: #3B444B;
+  color: black;
   padding-top: 2%;
   padding-bottom: 2%;
-  margin-left: 10vw;
+  margin-left: 5vw;
 }
 .user-list .user-list-title h1 {
   font-size: 35px;
