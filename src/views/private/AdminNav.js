@@ -3,12 +3,10 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 //images
-import StarsImage from "./AdminNavImages/logo.png";
-import leaderboard from "./AdminNavImages/leaderboard.png";
 import user from "./AdminNavImages/user.png";
-
 import logout from "./AdminNavImages/signout 1.png";
 import LeaderBoardImage from './AdminNavImages/list-ol-solid.png'
+
 export const NavBar = styled.div`
 	position: fixed;
 	background-color: rgb(61, 162, 237);
@@ -47,12 +45,7 @@ export const NavBar = styled.div`
 	}
 `;
 
-export const Stars = styled.img`
-	width: auto;
-	height: auto;
-	margin-top: 2vh;
-	margin-bottom: 15vh;
-`;
+
 
 export const Content = styled.div`
 	background-color: white;
@@ -91,9 +84,7 @@ function WithNavigation(props) {
 		<div>
 			<NavBar>
 				<Space>
-					<div classname="starsDiv">
-						<Stars className="img" src={StarsImage} />
-					</div>
+				
 				</Space>
 				<Space></Space>
 				<StyledNavLink to="/leaderboard">
