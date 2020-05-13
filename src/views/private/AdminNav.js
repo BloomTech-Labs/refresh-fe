@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 //images
-import logo from "./AdminNavImages/logo.png";
+import StarsImage from "./AdminNavImages/logo.png";
 import leaderboard from "./AdminNavImages/leaderboard.png";
 import user from "./AdminNavImages/user.png";
 import settings from "./AdminNavImages/settings.png";
@@ -27,10 +27,23 @@ export const NavBar = styled.div`
 		max-width: 30px;
 		max-height: 30px;
 		margin-left: 7.5px;
+		margin-right:15px;
+		
 	}
 	.starsDiv {
 		width: auto;
 		height: auto;
+	}
+	&:hover{
+		background-color:black;
+		width: 150px;
+		align-items:flex-end;
+		transition: 0.5s ease-in-out;
+		
+	}
+	&:not(:hover){
+		transition: 0.5s;
+		align-items:flex-end;
 	}
 `;
 
@@ -77,8 +90,8 @@ function WithNavigation(props) {
 		<div>
 			<NavBar>
 				<Space>
-					<div className="starsDiv">
-						<Stars className="img" />
+					<div classname="starsDiv">
+						<Stars className="img" src={StarsImage} />
 					</div>
 				</Space>
 				<Space></Space>
