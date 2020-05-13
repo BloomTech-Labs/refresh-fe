@@ -59,7 +59,7 @@ function EditTeam(props) {
 
     return (
         <div>
-            <i class="fas fa-pencil-alt fa-2x" onClick={() => setModalIsOpen(true)}> </i>
+            <i className="fas fa-pencil-alt fa-2x" onClick={() => setModalIsOpen(true)}> </i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
             >

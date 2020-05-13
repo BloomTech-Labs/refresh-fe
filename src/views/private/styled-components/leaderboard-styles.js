@@ -7,7 +7,7 @@ background-color: white;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    margin-left: 120px;
+    margin-left: 150px;
     margin-right: 20px;
     @media (max-width: 768px) {
         margin-left: 101px;

@@ -3,11 +3,9 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 //images
-import logo from "./AdminNavImages/logo.png";
-import leaderboard from "./AdminNavImages/leaderboard.png";
 import user from "./AdminNavImages/user.png";
-import settings from "./AdminNavImages/settings.png";
 import logout from "./AdminNavImages/signout 1.png";
+import LeaderBoardImage from './AdminNavImages/list-ol-solid.png'
 
 export const NavBar = styled.div`
 	position: fixed;
@@ -27,29 +25,38 @@ export const NavBar = styled.div`
 		max-width: 30px;
 		max-height: 30px;
 		margin-left: 7.5px;
+		margin-right:15px;
+		
 	}
 	.starsDiv {
 		width: auto;
 		height: auto;
 	}
+	&:hover{
+		background-color:black;
+		width: 150px;
+		align-items:flex-end;
+		transition: 0.5s ease-in-out;
+		
+	}
+	&:not(:hover){
+		transition: 0.5s;
+		align-items:flex-end;
+	}
 `;
 
-export const Stars = styled.img`
-	width: auto;
-	height: auto;
-	margin-top: 2vh;
-	margin-bottom: 15vh;
-`;
+
 
 export const Content = styled.div`
 	background-color: white;
 `;
 
-export const Leaderboard = styled.img``;
+export const Leaderboard = styled.img`
+filter: invert(1);
+`;
 
 export const Users = styled.img``;
 
-export const Settings = styled.img``;
 
 export const Logout = styled.img`
 	margin-bottom: 2vh;
@@ -77,19 +84,14 @@ function WithNavigation(props) {
 		<div>
 			<NavBar classname= 'nav-bar'>
 				<Space>
-					<div classname="starsDiv">
-						<Stars className="img" />
-					</div>
+				
 				</Space>
 				<Space></Space>
 				<StyledNavLink to="/leaderboard">
-					<Leaderboard className="img" src={leaderboard} alt="leaderboard" />
+					<Leaderboard className="img" src={LeaderBoardImage} alt="leaderboard"/>
 				</StyledNavLink>
 				<StyledNavLink to="/users">
 					<Users className="img" src={user} alt="user" />
-				</StyledNavLink>
-				<StyledNavLink to="/settings">
-					<Settings className="img" src={settings} alt="settings" />
 				</StyledNavLink>
 				<Space>
                     <div>
