@@ -85,11 +85,12 @@ const UserList = props => {
                     />
                 </div>
             <form className='toggleButton'>
-                <div className='user-list-team-dropdown' onChange={toggleUsers}>
+            <select className='user-list-team-dropdown' onChange={toggleUsers}>
                     <option>All Users</option>
                     <option>No Team</option>
-                </div>
+                </select>
             </form>
+
             </div>
 
 
