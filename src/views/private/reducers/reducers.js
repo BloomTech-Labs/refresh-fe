@@ -168,21 +168,21 @@ function reducer(state = initialState, action) {
         error: action.payload,
       };
 
-    case UPDATE_TEAM_POINTS:
-      return {
-        ...state,
-        isFetching: false,
-        teams: [
-          ...state.teams,
-        //   TODO: Update the team points
+    // case UPDATE_TEAM_POINTS:
+    //   return {
+    //     ...state,
+    //     isFetching: false,
+    //     teams: [
+    //       ...state.teams,
+    //     //   TODO: Update the team points
 
-          state.teams.map((team) => {
-            if (team.id === action.payload.id) {
-              team.points = action.payload.points;
-            }
-          }),
-        ],
-      };
+    //       state.teams.map((team) => {
+    //         if (team.id === action.payload.id) {
+    //           team.points = action.payload.points;
+    //         }
+    //       }),
+    //     ],
+    //   };
 
     default:
       return state;

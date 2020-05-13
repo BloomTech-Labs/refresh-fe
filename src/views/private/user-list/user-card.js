@@ -10,11 +10,12 @@ const UserCard = props => {
         props.routeToUserProfile(props.info.id)
     }
 
-    const handleSubmit = event => {
+    const handleSubmit = (oldTeamID, totalPoints) => event => {
+        
         let editedTeam = { team_id: event.target.value }
         event.preventDefault();
         if(editedTeam) {
-            props.updateUserTeam(props.info.id, editedTeam)
+            props.updateUserTeam(props.info.id, editedTeam, oldTeamID, totalPoints)
             setTimeout(() => {props.rerender(!props.update)}, 100)
         } 
     }
@@ -41,7 +42,7 @@ const UserCard = props => {
                     {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} POINTS`}
                 </h2>
                 </Blue>
-                <Dropdown onChange={handleSubmit}>
+                <Dropdown onChange={handleSubmit(props.info.team_id, props.info.total_points)}>
                     <option>
                         {`${props.info.name === null ? props.info.name = 'None' : props.info.name}`}
                     </option>
