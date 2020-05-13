@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import EditTeamButton from "./editTeam";
-import DeleteTeamButton from "./deleteButton";
+import DeleteTeamButton from "./deleteTeamButton";
 
 const Card = styled.div`
   display: flex;
