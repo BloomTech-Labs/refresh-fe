@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName } from '../actions/actions';
+import { updateUserTeam, fetchTeams, fetchUserTeamName } from '../actions/actions';
 import { Blue, Name, ButtonX, Dropdown, ProfileCard } from '../styled-components/user-card-styles.js';
+import DeleteUserButton from './deleteUserButton';
 
 
 const UserCard = props => {
@@ -19,19 +20,10 @@ const UserCard = props => {
         } 
     }
 
-    const deleteUser = event => {
-        event.preventDefault();
-        props.deleteUser(props.info.id)
-        setTimeout(() => {props.rerender(!props.update)}, 100)
-    }
-
-
     return (
         <div>
             <ProfileCard>
-                <ButtonX>
-                    <i className="fas fa-times fa-2x" onClick={deleteUser}></i>
-                </ButtonX>
+                <DeleteUserButton/>
                 <Name>
                 <h2 onClick={passId}>{`${props.info.full_name}`}</h2>
                 </Name>
@@ -67,5 +59,5 @@ export default connect(
             error: state.reducer.error
         }
     },
-    { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName}
+    { updateUserTeam, fetchTeams, fetchUserTeamName}
 )(UserCard);
