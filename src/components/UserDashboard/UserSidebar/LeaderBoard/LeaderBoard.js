@@ -2,6 +2,8 @@ import React from "react";
 import { fetchTeams } from "../../../../../src/views/private/actions/actions";
 import { connect } from "react-redux";
 
+import '../../../../styles/Less/components/AdminLeaderboard.css'
+
 class LeaderBoard extends React.Component {
   componentDidMount() {
     this.props.fetchTeams();
@@ -21,7 +23,7 @@ class LeaderBoard extends React.Component {
         <div className="sidebar-content-leaderboard">
           {sortedTeams.map((team) => {
             return (
-              <div className="sidebar-content-categrories">
+              <div className="sidebar-content-categrories" key={team.id}>
                 <h3>{team.name}</h3>
                 <h4>{team.points}</h4>
               </div>

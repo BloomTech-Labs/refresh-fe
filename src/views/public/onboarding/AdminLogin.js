@@ -71,7 +71,7 @@ const AdminLogin = props => {
     <OnBoardContainer>
       <Popup className="mm-popup"/>
       <ButtonNoColor>
-      <i class="fas fa-arrow-left fa-1x" onClick={routeToLanding}></i></ButtonNoColor>
+      <i className="fas fa-arrow-left fa-1x" onClick={routeToLanding}></i></ButtonNoColor>
       {/* <ButtonNoColor onClick={routeToLanding}>&lt;</ButtonNoColor> */}
       <Logo src={welcome} />
       <Form onSubmit={handleSubmit}>

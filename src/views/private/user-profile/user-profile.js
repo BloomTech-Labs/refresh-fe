@@ -40,7 +40,7 @@ const UserProfile = props => {
                 </Title>
                 <ProfileCard2>
                     <ButtonX>
-                    <i class="fas fa-times fa-2x" onClick={deleteUser}></i>
+                    <i className="fas fa-times fa-2x" onClick={deleteUser}></i>
                     </ButtonX>
                     
                     <div className='profile'>

@@ -47,7 +47,7 @@ const DeleteButton = props => {
     
     return (
         <div>
-            <i class="fas fa-times fa-2x" onClick={() => setModalIsOpen(true)}></i>
+            <i className="fas fa-times fa-2x" onClick={() => setModalIsOpen(true)}></i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
                 style={modalStyle}
                 >
