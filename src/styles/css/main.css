@@ -1237,3 +1237,72 @@ p {
   padding: 10px;
   margin: 10px;
 }
+.iconcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  width: 250px;
+}
+.users {
+  width: 50x;
+  height: 50px;
+  margin-left: 160px;
+}
+.leaderboardimg {
+  filter: invert(1);
+  width: 50x;
+  height: 50px;
+  margin-left: 160px;
+}
+.user {
+  margin-left: 155px;
+}
+.leaderboard {
+  margin-left: 125px;
+}
+.navBar {
+  position: fixed;
+  background-color: black;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 75px;
+  height: 100vh;
+  justify-content: space-between;
+  border-radius: 0 25px 0 25px;
+}
+.navBar .header {
+  font-size: 1.6rem;
+  font-family: "gopher", sans-serif;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 1s linear;
+}
+.navBar:hover .header {
+  visibility: visible;
+  opacity: 1;
+}
+.navBar:hover {
+  background-color: black;
+  width: 200px;
+  align-items: flex-end;
+  transition: 0.5s ease-in-out;
+}
+.navBar:not(:hover) {
+  transition: 0.5s;
+  align-items: flex-end;
+}
+.navBar .img {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  opacity: 100%;
+  max-width: 30px;
+  max-height: 30px;
+  margin-left: 7.5px;
+  margin-right: 15px;
+  margin-bottom: 2vh;
+}
