@@ -6,8 +6,7 @@ import { NavLink } from "react-router-dom";
 import user from "./AdminNavImages/user.png";
 import logout from "./AdminNavImages/signout 1.png";
 import LeaderBoardImage from './AdminNavImages/list-ol-solid.png'
-
-
+import LogoutImage from './AdminNavImages/sign-out-alt-solid.png'
 
 
 export const Content = styled.div`
@@ -38,29 +37,31 @@ function WithNavigation(props) {
 				
 				<div>
 				<div className="iconcontainer">
-				
+				<header className="header leaderboard">Leaderboard</header>
 				<StyledNavLink to="/leaderboard">
 					<img className="leaderboardimg"  src={LeaderBoardImage} alt="leaderboard"/>
 				</StyledNavLink>
-				<header className="header leaderboard">Leaderboard</header>
+				
 				</div>
 				<div className="iconcontainer">
-				
+				<header className="header user">Users</header>
 				<StyledNavLink to="/users">
 					<img className="users" src={user} alt="user" />
 				</StyledNavLink>
-				<header className="header user">Users</header>
+				
 				</div>
 				</div>
-			
+				<div className="logoutcontainer">
+				<header className=" header logoutheader">Logout</header>
 				<StyledNavLink to="/">
 					<img
-						className="img"
-						src={logout}
+						className="logoutimage"
+						src={LogoutImage}
 						alt="logout"
 						onClick={logoutClick}
 					/>
 				</StyledNavLink>
+				</div>
 			</div>
 			<Content>{props.children}</Content>
 		</div>

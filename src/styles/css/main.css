@@ -1239,7 +1239,7 @@ p {
 }
 .iconcontainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin-top: 15px;
   width: 250px;
@@ -1247,19 +1247,39 @@ p {
 .users {
   width: 50x;
   height: 50px;
-  margin-left: 160px;
 }
 .leaderboardimg {
   filter: invert(1);
   width: 50x;
   height: 50px;
-  margin-left: 160px;
+}
+.logoutimage {
+  filter: invert(1);
+  width: 50x;
+  height: 50px;
+}
+.logoutheader {
+  margin-right: 25px;
+  font-size: 1.6rem;
+  font-family: "gopher", sans-serif;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 1s linear;
+}
+.logoutcontainer {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .user {
-  margin-left: 155px;
+  margin-left: 125px;
+  margin-right: 25px;
 }
 .leaderboard {
-  margin-left: 125px;
+  margin-left: 65px;
+  margin-right: 25px;
 }
 .navBar {
   position: fixed;
@@ -1271,7 +1291,6 @@ p {
   width: 75px;
   height: 100vh;
   justify-content: space-between;
-  border-radius: 0 25px 0 25px;
 }
 .navBar .header {
   font-size: 1.6rem;
