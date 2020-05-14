@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName } from '../actions/actions';
+import { updateUserTeam, fetchTeams, fetchUserTeamName } from '../actions/actions';
 import { Blue, Name, ButtonX, Dropdown, ProfileCard } from '../styled-components/user-card-styles.js';
 import UserAvatar from './useravatar.svg'
+import DeleteUserButton from './deleteUserButton';
+
 
 const UserCard = props => {
 
@@ -10,31 +12,24 @@ const UserCard = props => {
         props.routeToUserProfile(props.info.id)
     }
 
-    const handleSubmit = event => {
+    const handleSubmit = (oldTeamID, totalPoints) => event => {
+        
         let editedTeam = { team_id: event.target.value }
         event.preventDefault();
         if(editedTeam) {
-            props.updateUserTeam(props.info.id, editedTeam)
+            props.updateUserTeam(props.info.id, editedTeam, oldTeamID, totalPoints)
             setTimeout(() => {props.rerender(!props.update)}, 100)
         } 
     }
-
-    const deleteUser = event => {
-        event.preventDefault();
-        props.deleteUser(props.info.id)
-        setTimeout(() => {props.rerender(!props.update)}, 100)
-    }
-
- 
-
 
     return (
         <div className='profile-card'>
 
             {/* Delete Button */}
-            <div className='delete-button'>
-                <i className="fas fa-times fa-2x" onClick={deleteUser}></i>
+            <div className=' delete-button'>
+            <DeleteUserButton/>
             </div>
+            
 
             {/* User Avatar */}
             <div className='user-avatar'>
@@ -53,7 +48,7 @@ const UserCard = props => {
             </h2>
 
             {/* User Team Dropdown */}
-            <select className='user-team-dropdown' onChange={handleSubmit}>
+            <select className='user-team-dropdown'  onChange={handleSubmit(props.info.team_id, props.info.total_points)}>
                 <option>
                     {`${props.info.name === null ? props.info.name = 'None' : props.info.name}`}
                 </option>
@@ -63,9 +58,35 @@ const UserCard = props => {
                     )
                 })}
             </select>
+
         </div>
-    )
-}
+    // return (
+    //     <div>
+    //         <ProfileCard>
+    //             <DeleteUserButton/>
+    //             <Name>
+    //             <h2 onClick={passId}>{`${props.info.full_name}`}</h2>
+    //             </Name>
+    //             <h3>{props.info.email}</h3>
+    //             <Blue>
+    //             <h2>
+    //                 {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} POINTS`}
+    //             </h2>
+    //             </Blue>
+    //             <Dropdown onChange={handleSubmit(props.info.team_id, props.info.total_points)}>
+    //                 <option>
+    //                     {`${props.info.name === null ? props.info.name = 'None' : props.info.name}`}
+    //                 </option>
+    //                 {props.teams.map((name, index) => {
+    //                     return (
+    //                         <option key={index} value={name.id}>{name.name}</option>
+    //                     )
+    //                 })}
+    //             </Dropdown>
+    //         </ProfileCard>
+    //     </div>
+    )}
+    
 
 export default connect(
     state => {
@@ -78,5 +99,5 @@ export default connect(
             error: state.reducer.error
         }
     },
-    { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName}
+    { updateUserTeam, fetchTeams, fetchUserTeamName}
 )(UserCard);
