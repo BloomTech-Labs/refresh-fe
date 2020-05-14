@@ -1,51 +1,4 @@
-.iconcontainer{
-    display:flex;
-    flex-direction: row;
-    align-items:center;
-    margin-top:15px;
-    width:250px;
-}
-.users{
-    width: 50x;
-    height: 50px;
-
-}
-.leaderboardimg{
-    filter: invert(1);
-    width: 50x;
-    height: 50px;
-    
-}
-.logoutimage{
-    filter:invert(1);
-    width: 50x;
-    height: 50px;
-   
-}
-.logoutheader{
-        margin-right:25px;
-        font-size:1.6rem;
-        font-family: "gopher", sans-serif;
-        text-align: center;
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 1s, opacity 1s linear;
-}
-.logoutcontainer{
-    margin-bottom:25px;
-
-    display:flex;
-    justify-content: center;
-    align-items:center;
-}
-.user{
-    margin-left:125px;
-    margin-right:25px;
-}
-.leaderboard{
-    margin-left:65px;
-    margin-right:25px;
-}
+// Main Navagation Animation
 .navBar{
     position: fixed;
 	background-color:black;
@@ -56,7 +9,6 @@
 	width: 75px;
 	height: 100vh;
     justify-content: space-between;
-    
     .header{
         font-size:1.6rem;
         font-family: "gopher", sans-serif;
@@ -66,28 +18,81 @@
         transition: visibility 1s, opacity 1s linear;
     }
 }
-.navBar:hover .header{
-visibility: visible;
-opacity: 1;
-}
 .navBar:hover{
-    background-color:black;
-    width: 200px;
-    align-items:flex-end;
-    transition: 0.5s ease-in-out; 
-}
+        background-color:black;
+        width: 200px;
+        align-items:flex-end;
+        transition: 0.5s ease-in-out; 
+    }
 .navBar:not(:hover){
-    transition: 0.5s;
-    align-items:flex-end;
-}
+        transition: 0.5s;
+        align-items:flex-end;
+    }
 .navBar .img{
-        display: flex;
-		text-align: center;
-		justify-content: space-between;
-		opacity: 100%;
-		max-width: 30px;
-		max-height: 30px;
-		margin-left: 7.5px;
-        margin-right:15px;
-        margin-bottom: 2vh;
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            opacity: 100%;
+            max-width: 30px;
+            max-height: 30px;
+            margin-left: 7.5px;
+            margin-right:15px;
+            margin-bottom: 2vh;
+    }
+.navBar:hover .header{
+        visibility: visible;
+        opacity: 1;
+        }
+        
+// Containers
+.iconcontainer{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    margin-top:15px;
+    width:250px;
+    margin-right:10px;
 }
+.logoutcontainer{
+    margin-bottom:25px;
+    margin-right:10px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+//Images
+.usersimg{
+    width: 50x;
+    height: 50px;
+}
+.leaderboardimg{
+    filter: invert(1);
+    width: 50x;
+    height: 50px;
+}
+.logoutimage{
+    filter:invert(1);
+    width: 50x;
+    height: 50px;
+}
+// Header Text
+.logoutheader{
+        margin-right:25px;
+        font-size:1.6rem;
+        font-family: "gopher", sans-serif;
+        text-align: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 1s, opacity 1s linear;
+}
+.user{
+    margin-left:125px;
+    margin-right:25px;
+}
+.leaderboard{
+    margin-left:65px;
+    margin-right:25px;
+}
+
+
+

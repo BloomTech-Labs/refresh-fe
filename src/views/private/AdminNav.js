@@ -46,7 +46,7 @@ function WithNavigation(props) {
 				<div className="iconcontainer">
 				<header className="header user">Users</header>
 				<StyledNavLink to="/users">
-					<img className="users" src={user} alt="user" />
+					<img className="usersimg" src={user} alt="user" />
 				</StyledNavLink>
 				
 				</div>
