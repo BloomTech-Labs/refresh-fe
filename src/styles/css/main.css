@@ -1237,6 +1237,56 @@ p {
   padding: 10px;
   margin: 10px;
 }
-.leaderboard .teamCardFlex {
-  background-color: brown;
+.leader-board-section {
+  background-color: burlywood;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 7vw;
+  margin-right: 5vw;
+}
+.leader-board-section .teamCardFlex {
+  color: black;
+  display: flex;
+  border-bottom: 1px solid gray;
+}
+@media (max-width: 768px) {
+  .leader-board-section .teamCardFlex {
+    display: initial;
+    justify-content: flex-start;
+  }
+}
+.leader-board-section .plusButton {
+  width: 90vw;
+}
+.leader-board-section .blank {
+  width: 10vw;
+}
+.leader-board-section .leaderboard-title {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-family: "gopher", sans-serif;
+  font-size: 45px;
+  font-weight: 500;
+}
+.leader-board-section .add-team-section {
+  background-color: cadetblue;
+}
+.cardClass {
+  background-color: black;
+}
+.card-body {
+  font-family: "gopher", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.card-body .accordian-user-card {
+  border: black 2px solid;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
 }

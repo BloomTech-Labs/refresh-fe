@@ -1,55 +1,55 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-background-color: white;
-    font-family: Roboto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    margin-left: 150px;
-    margin-right: 20px;
-    @media (max-width: 768px) {
-        margin-left: 101px;
-        margin-right: 101px;
-        .cardClass {
-            justify-content: flex-start;
-        }
-        i {
-            width: 5vw;
-            margin: 0;
-            padding: 0;
-        }
-        .points {
-        }
-    }
-.teamCardFlex {
-    display: flex;
-    width: 100%;
-    border-bottom: 1px solid gray;
-    @media (max-width: 768px) {
-        display: initial;
-        justify-content: flex-start;
-    }
-}
-.addTeam {
-    align-content: right;
-    float: right;
-    padding: 2%;
-    padding-top: 0%;
-    padding-left: 1%;
-    font-family: Roboto;
-    @media (max-width: 768px) {
-        text-align: center;
-    }
-}
-.plusButton {
-    width: 90vw;
-}
-.blank {
-    width: 10vw;
-}
-`
+// export const Container = styled.div`
+// background-color: white;
+//     font-family: Roboto;
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//     width: 100%;
+//     margin-left: 150px;
+//     margin-right: 20px;
+//     @media (max-width: 768px) {
+//         margin-left: 101px;
+//         margin-right: 101px;
+//         .cardClass {
+//             justify-content: flex-start;
+//         }
+//         i {
+//             width: 5vw;
+//             margin: 0;
+//             padding: 0;
+//         }
+//         .points {
+//         }
+//     }
+// .teamCardFlex {
+//     display: flex;
+//     width: 100%;
+//     border-bottom: 1px solid gray;
+//     @media (max-width: 768px) {
+//         display: initial;
+//         justify-content: flex-start;
+//     }
+// }
+// .addTeam {
+//     align-content: right;
+//     float: right;
+//     padding: 2%;
+//     padding-top: 0%;
+//     padding-left: 1%;
+//     font-family: Roboto;
+//     @media (max-width: 768px) {
+//         text-align: center;
+//     }
+// }
+// .plusButton {
+//     width: 90vw;
+// }
+// .blank {
+//     width: 10vw;
+// }
+// `
 export const Title = styled.h1 ` 
 font-family: Roboto;
 font-size: 35px;

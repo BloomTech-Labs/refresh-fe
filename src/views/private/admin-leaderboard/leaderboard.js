@@ -37,11 +37,15 @@ const Leaderboard = (props) => {
   };
 
   return (
-    <Container className='leaderboard'>
-      <Title>Leaderboard</Title>
-      <AddTeam>
+    <div className='leader-board-section'>
+
+      <div className='leaderboard-title'>Teams</div>
+
+      <div className='add-team-section'>
         <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
-      </AddTeam>
+        <button type="button">+ Add Team</button>
+      </div>
+
       <BlueFlex>
         <h2>Teams</h2>
         <h2>Points</h2>
@@ -80,12 +84,11 @@ const Leaderboard = (props) => {
 
                       if (user.team_id === team.id) {
                         return (
-                          <>
-                            <p>
-                              {user.full_name}
-                              {user.total_points}
-                            </p>
-                          </>
+                          <div className='accordian-user-card'>
+                            <h3>{user.full_name}</h3>
+                            <h3>{user.total_points}</h3>
+                            <div> </div>
+                          </div>
                         );
                       }
                     })}
@@ -95,7 +98,7 @@ const Leaderboard = (props) => {
             </div>
           );
         })}
-    </Container>
+    </div>
   );
 };
 
