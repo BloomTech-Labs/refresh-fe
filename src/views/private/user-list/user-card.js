@@ -49,7 +49,7 @@ const UserCard = props => {
 
             {/* User Points */}
             <h2 className='user-points'>
-                {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} POINTS`}
+                {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} Points`}
             </h2>
 
             {/* User Team Dropdown */}
