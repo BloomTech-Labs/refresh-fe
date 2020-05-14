@@ -1,0 +1,142 @@
+.user-list{
+    background-color: white;
+    width: 100%;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .user-avatar{
+        text-align: center;
+        padding: 0 0 10px 0;
+        img{
+            width: 35%;
+        }
+    }
+    .user-list-title{
+        display: flex;
+        justify-content: center;
+        color: black;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        margin-left: 5vw;
+        h1 {
+        font-size: 45px;
+        font-weight: 500;
+        }
+    }
+
+    .user-search-menu{
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+        margin-bottom: 70px;
+        margin-right:  6vw;
+        margin-left: 5vw;
+        font-family: "gopher",sans-serif;
+
+        .user-list-search-bar{
+            display: flex;
+            border: 3px solid black;
+            width: 300px;
+            box-shadow: 10px 10px;
+            input {
+            width: 100%;
+            border: none;
+            font-size: 18px;
+            font-family: "gopher",sans-serif;
+            text-align: center;
+            }
+            img{
+                width: 25px;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+        }
+
+        .user-list-team-dropdown{
+            height: 100%;
+            font-family: "gopher",sans-serif;
+            font-size: 18px;
+            padding: 10px 0;
+            width: 300px;
+            border: 3px solid black;
+            box-sizing: border-box;
+            text-align-last:center;
+            margin-left: 50px;
+            box-shadow: 10px 10px;
+
+            .user-list-drop-down-option{
+                font-family: "gopher",sans-serif;
+                font-size: 18px;
+                padding: 10px 0;
+                text-align: center;
+            }
+        }
+    }
+
+    .user-list-list{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-right: 5vw;
+        margin-left: 5vw;
+    }
+}
+
+
+
+
+.profile-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    width: 300px;
+    margin-right: 20px;
+    margin-bottom: 60px;
+    box-sizing: border-box;
+    box-shadow: 10px 10px;
+    font-family: "gopher",sans-serif;
+
+
+    .delete-button{
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px 10px 0 0;
+    }
+
+    .user-name{
+        font-size: 24px;
+        font-weight: 500;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .user-email{
+        padding: 5px;
+        text-align: center;
+    }
+
+    .user-points{
+        font-size: 24px;
+        font-weight: 500;
+        padding: 5px;
+        text-align: center;
+    }
+
+    
+    .user-team-dropdown{
+        padding: 10px;
+        margin: 10px 20px 20px 20px;
+        font-size: 18px;
+        border: solid 2px black;
+        text-align-last:center;
+        
+        option{
+            padding: 10px;
+            margin: 10px;
+        }
+    }
+}

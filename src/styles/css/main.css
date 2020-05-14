@@ -769,6 +769,19 @@ p {
 .cardfieldset:last-of-type {
   text-align: center;
 }
+.checkbox-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.checkbox-section .checkbox-text {
+  width: 100%;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+}
 .cardinput {
   padding: 10px 0;
   width: 100%;
@@ -1099,4 +1112,128 @@ p {
 .daily-retro .DailyRetro .metric-slide .slide-content .slide-goal p {
   font-size: 20px;
   font-weight: 400;
+}
+.user-list {
+  background-color: white;
+  width: 100%;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-list .user-avatar {
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+.user-list .user-avatar img {
+  width: 35%;
+}
+.user-list .user-list-title {
+  display: flex;
+  justify-content: center;
+  color: black;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-left: 5vw;
+}
+.user-list .user-list-title h1 {
+  font-size: 45px;
+  font-weight: 500;
+}
+.user-list .user-search-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  margin-bottom: 70px;
+  margin-right: 6vw;
+  margin-left: 5vw;
+  font-family: "gopher", sans-serif;
+}
+.user-list .user-search-menu .user-list-search-bar {
+  display: flex;
+  border: 3px solid black;
+  width: 300px;
+  box-shadow: 10px 10px;
+}
+.user-list .user-search-menu .user-list-search-bar input {
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  font-family: "gopher", sans-serif;
+  text-align: center;
+}
+.user-list .user-search-menu .user-list-search-bar img {
+  width: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.user-list .user-search-menu .user-list-team-dropdown {
+  height: 100%;
+  font-family: "gopher", sans-serif;
+  font-size: 18px;
+  padding: 10px 0;
+  width: 300px;
+  border: 3px solid black;
+  box-sizing: border-box;
+  text-align-last: center;
+  margin-left: 50px;
+  box-shadow: 10px 10px;
+}
+.user-list .user-search-menu .user-list-team-dropdown .user-list-drop-down-option {
+  font-family: "gopher", sans-serif;
+  font-size: 18px;
+  padding: 10px 0;
+  text-align: center;
+}
+.user-list .user-list-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 5vw;
+  margin-left: 5vw;
+}
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 2px solid black;
+  width: 300px;
+  margin-right: 20px;
+  margin-bottom: 60px;
+  box-sizing: border-box;
+  box-shadow: 10px 10px;
+  font-family: "gopher", sans-serif;
+}
+.profile-card .delete-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px 0 0;
+}
+.profile-card .user-name {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 5px;
+  text-align: center;
+}
+.profile-card .user-email {
+  padding: 5px;
+  text-align: center;
+}
+.profile-card .user-points {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 5px;
+  text-align: center;
+}
+.profile-card .user-team-dropdown {
+  padding: 10px;
+  margin: 10px 20px 20px 20px;
+  font-size: 18px;
+  border: solid 2px black;
+  text-align-last: center;
+}
+.profile-card .user-team-dropdown option {
+  padding: 10px;
+  margin: 10px;
 }

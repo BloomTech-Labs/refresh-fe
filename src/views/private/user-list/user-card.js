@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateUserTeam, fetchTeams, fetchUserTeamName } from '../actions/actions';
 import { Blue, Name, ButtonX, Dropdown, ProfileCard } from '../styled-components/user-card-styles.js';
+import UserAvatar from './useravatar.svg'
 import DeleteUserButton from './deleteUserButton';
 
 
@@ -22,32 +23,70 @@ const UserCard = props => {
     }
 
     return (
-        <div>
-            <ProfileCard>
-                <DeleteUserButton/>
-                <Name>
-                <h2 onClick={passId}>{`${props.info.full_name}`}</h2>
-                </Name>
-                <h3>{props.info.email}</h3>
-                <Blue>
-                <h2>
-                    {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} POINTS`}
-                </h2>
-                </Blue>
-                <Dropdown onChange={handleSubmit(props.info.team_id, props.info.total_points)}>
-                    <option>
-                        {`${props.info.name === null ? props.info.name = 'None' : props.info.name}`}
-                    </option>
-                    {props.teams.map((name, index) => {
-                        return (
-                            <option key={index} value={name.id}>{name.name}</option>
-                        )
-                    })}
-                </Dropdown>
-            </ProfileCard>
+        <div className='profile-card'>
+
+            {/* Delete Button */}
+            <div className=' delete-button'>
+            <DeleteUserButton/>
+            </div>
+            
+
+            {/* User Avatar */}
+            <div className='user-avatar'>
+            {(props.info.avatar ? <img src={props.info.avatar}></img> : <img src={UserAvatar}></img>)}
+            </div>
+
+            {/* User Name */}
+            <h2 className='user-name' onClick={passId}>{`${props.info.full_name}`}</h2>
+
+            {/* User Email */}
+            <h3 className='user-email'>{props.info.email}</h3>
+
+            {/* User Points */}
+            <h2 className='user-points'>
+                {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} Points`}
+            </h2>
+
+            {/* User Team Dropdown */}
+            <select className='user-team-dropdown'  onChange={handleSubmit(props.info.team_id, props.info.total_points)}>
+                <option>
+                    {`${props.info.name === null ? props.info.name = 'None' : props.info.name}`}
+                </option>
+                {props.teams.map((name, index) => {
+                    return (
+                        <option key={index} value={name.id}>{name.name}</option>
+                    )
+                })}
+            </select>
+
         </div>
-    )
-}
+    // return (
+    //     <div>
+    //         <ProfileCard>
+    //             <DeleteUserButton/>
+    //             <Name>
+    //             <h2 onClick={passId}>{`${props.info.full_name}`}</h2>
+    //             </Name>
+    //             <h3>{props.info.email}</h3>
+    //             <Blue>
+    //             <h2>
+    //                 {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} POINTS`}
+    //             </h2>
+    //             </Blue>
+    //             <Dropdown onChange={handleSubmit(props.info.team_id, props.info.total_points)}>
+    //                 <option>
+    //                     {`${props.info.name === null ? props.info.name = 'None' : props.info.name}`}
+    //                 </option>
+    //                 {props.teams.map((name, index) => {
+    //                     return (
+    //                         <option key={index} value={name.id}>{name.name}</option>
+    //                     )
+    //                 })}
+    //             </Dropdown>
+    //         </ProfileCard>
+    //     </div>
+    )}
+    
 
 export default connect(
     state => {

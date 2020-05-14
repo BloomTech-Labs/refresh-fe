@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
-import { Body, Title, SearchFlex, SearchFlex2, List, Dropdown, Input, Photo } from '../styled-components/user-list-styles'
+// import { Body, Title, SearchFlex, SearchFlex2, List, Dropdown, Input, Photo } from '../styled-components/user-list-styles'
 import UserCard from './user-card';
+import Search from './search.svg'
 
 const UserList = props => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -49,7 +50,7 @@ const UserList = props => {
         }
     }).map(employees => {
         return (
-            <div key={employees.id}>
+            <div  className='user-cards-list' key={employees.id}>
                 <div>
                     <UserCard 
                     info={employees}
@@ -64,12 +65,17 @@ const UserList = props => {
     })
 
     return (
-            <Body>
-            <Title>
-            <h1>Profiles</h1>
-            </Title>
-            <SearchFlex2>
-                <Input>
+            // UserList Body
+            <div className='user-list'>
+
+            {/* Page Title  */}
+            <div className='user-list-title'> 
+            <h1>Users</h1>
+            </div>
+
+            {/* Search Bar and Team Dropdown*/}
+            <div className='user-search-menu'>
+                <div className='user-list-search-bar'>
                     <input
                     id="search"
                     type="text"
@@ -78,18 +84,22 @@ const UserList = props => {
                     onChange={changeHandler}
                     value={searchTerm}
                     />
-                </Input>
+                    <img className='search-img' src={Search}></img>
+                </div>
             <form className='toggleButton'>
-                <Dropdown onChange={toggleUsers}>
+            <select className='user-list-team-dropdown' onChange={toggleUsers}>
                     <option>All Users</option>
                     <option>No Team</option>
-                </Dropdown>
+                </select>
             </form>
-            </SearchFlex2>
-            <List>
+
+            </div>
+
+            {/* User Cards */}
+            <div className='user-list-list'>
                 {filteredUsers}
-            </List>
-            </Body>
+            </div>
+            </div>
     )
 }
 

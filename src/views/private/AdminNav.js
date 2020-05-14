@@ -82,7 +82,7 @@ function WithNavigation(props) {
 	}
 	return (
 		<div>
-			<NavBar>
+			<NavBar classname= 'nav-bar'>
 				<Space>
 				
 				</Space>

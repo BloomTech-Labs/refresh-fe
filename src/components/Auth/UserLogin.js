@@ -87,16 +87,18 @@ function UserLogin(props) {
                             {errors.password && <p className='input-errors'>{errors.password.message}</p>}
                         </fieldset>
 
-                        <fieldset className="cardfieldset">
-                            <label for="admin">Are you an administrator?</label>
-                            <input
-                                className="cardinput"
-                                id="admin"
+                        <fieldset className="cardfieldset checkbox-section container">
+                            <label className="checkbox-text" for="admin">Are you an administrator?</label>
+                            <input 
+                                id="checkbox"
+                                className= "checkbox-input container"
                                 type="checkbox"
                                 name="admin"
                                 ref={register}
                             />
+                            <span class="checkmark"></span>
                         </fieldset>  
+
 
                         {(props.error === null ? <p></p> : <p className='input-errors'>{(props.error.response.data.message)}</p>)}
 
