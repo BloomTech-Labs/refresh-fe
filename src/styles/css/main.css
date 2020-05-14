@@ -1123,9 +1123,10 @@ p {
 }
 .user-list .user-avatar {
   text-align: center;
+  padding: 0 0 10px 0;
 }
 .user-list .user-avatar img {
-  width: 45%;
+  width: 35%;
 }
 .user-list .user-list-title {
   display: flex;
@@ -1143,7 +1144,7 @@ p {
   display: flex;
   justify-content: flex-end;
   align-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   margin-right: 6vw;
   margin-left: 5vw;
   font-family: "gopher", sans-serif;
@@ -1151,7 +1152,7 @@ p {
 .user-list .user-search-menu .user-list-search-bar {
   display: flex;
   border: 3px solid black;
-  width: 280px;
+  width: 300px;
   box-shadow: 10px 10px;
 }
 .user-list .user-search-menu .user-list-search-bar input {
@@ -1166,11 +1167,11 @@ p {
   font-family: "gopher", sans-serif;
   font-size: 18px;
   padding: 10px 0;
-  width: 280px;
+  width: 300px;
   border: 3px solid black;
   box-sizing: border-box;
   text-align-last: center;
-  margin-left: 80px;
+  margin-left: 50px;
   box-shadow: 10px 10px;
 }
 .user-list .user-search-menu .user-list-team-dropdown .user-list-drop-down-option {
@@ -1192,7 +1193,7 @@ p {
   flex-direction: column;
   justify-content: space-evenly;
   border: 2px solid black;
-  width: 280px;
+  width: 300px;
   margin-right: 20px;
   margin-bottom: 60px;
   box-sizing: border-box;
@@ -1202,7 +1203,7 @@ p {
 .profile-card .delete-button {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
+  padding: 10px 10px 0 0;
 }
 .profile-card .user-name {
   font-size: 24px;
