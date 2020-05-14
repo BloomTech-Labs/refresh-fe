@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateUserTeam, deleteUser, fetchTeams, fetchUserTeamName } from '../actions/actions';
 import { Blue, Name, ButtonX, Dropdown, ProfileCard } from '../styled-components/user-card-styles.js';
-
+import UserAvatar from './useravatar.svg'
 
 const UserCard = props => {
 
@@ -25,6 +25,8 @@ const UserCard = props => {
         setTimeout(() => {props.rerender(!props.update)}, 100)
     }
 
+ 
+
 
     return (
         <div className='profile-card'>
@@ -34,7 +36,11 @@ const UserCard = props => {
                 <i className="fas fa-times fa-2x" onClick={deleteUser}></i>
             </div>
 
-            
+            {/* User Avatar */}
+            <div className='user-avatar'>
+            {(props.info.avatar ? <img src={props.info.avatar}></img> : <img src={UserAvatar}></img>)}
+            </div>
+
             {/* User Name */}
             <h2 className='user-name' onClick={passId}>{`${props.info.full_name}`}</h2>
 
