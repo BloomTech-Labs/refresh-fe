@@ -76,41 +76,42 @@ export const updateUserTeam = (userId, editedTeamId, oldTeamId, usersPoints) => 
       //if update succeeds, then update old and new team's points on backend and front end
 
       //first GET existing total points of old team, in order to use when adjusting the team's total points due to user changing teams
+      //check to make sure oldTeamId isn't null (as it would be if it were a fresh user not yet assigned to a team)
+      if (oldTeamId !== null) {
+        axios
+          .get(`https://lab23-refresh-be.herokuapp.com/teams/${oldTeamId}`)
+          .then(response => {
+            const oldTeamTotalPoints = response.data.points
+
+            //update old team's points
+            axios
+              .put(`https://lab23-refresh-be.herokuapp.com/teams/${oldTeamId}`, {points: (oldTeamTotalPoints - usersPoints)})
+              .then((response) => {
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: {teamId: oldTeamId, points: (oldTeamTotalPoints - usersPoints)} });
+              })
+              .catch((error) => {
+                console.log("Error when updating team's points", error)
+              });
+          })
+      }
+
+      //then update new team's points, backend and front end
+      //first GET existing total points of new team, in order to use when adjusting the teams total points due to user changing teams
       axios
-        .get(`https://lab23-refresh-be.herokuapp.com/teams/${oldTeamId}`)
-        .then(response => {
-          const oldTeamTotalPoints = response.data.points
+      .get(`https://lab23-refresh-be.herokuapp.com/teams/${editedTeamId.team_id}`)
+      .then((response => {
+        const newTeamTotalPoints = response.data.points
 
-          //update old team's points
-          axios
-            .put(`https://lab23-refresh-be.herokuapp.com/teams/${oldTeamId}`, {points: (oldTeamTotalPoints - usersPoints)})
-            .then((response) => {
-              dispatch({ type: UPDATE_TEAM_POINTS, payload: {teamId: oldTeamId, points: (oldTeamTotalPoints - usersPoints)} });
-        
-              //then update new team's points, backend and front end
-              //first GET existing total points of new team, in order to use when adjusting the teams total points due to user changing teams
-              axios
-              .get(`https://lab23-refresh-be.herokuapp.com/teams/${editedTeamId.team_id}`)
-              .then((response => {
-                const newTeamTotalPoints = response.data.points
-
-                //update new team's points
-                axios
-                .put(`https://lab23-refresh-be.herokuapp.com/teams/${editedTeamId.team_id}`, {points: (newTeamTotalPoints + usersPoints)})
-                .then((response) => {
-                  dispatch({ type: UPDATE_TEAM_POINTS, payload: {teamId: parseInt(editedTeamId.team_id), points: (newTeamTotalPoints + usersPoints)} });
-                })
-                .catch((error) => {
-                  console.log("Error when updating new team's points", error)
-                });
-              }))
-            
-            })
-            .catch((error) => {
-              console.log("Error when updating team's points", error)
-            });
-
+        //update new team's points
+        axios
+        .put(`https://lab23-refresh-be.herokuapp.com/teams/${editedTeamId.team_id}`, {points: (newTeamTotalPoints + usersPoints)})
+        .then((response) => {
+          dispatch({ type: UPDATE_TEAM_POINTS, payload: {teamId: parseInt(editedTeamId.team_id), points: (newTeamTotalPoints + usersPoints)} });
         })
+        .catch((error) => {
+          console.log("Error when updating new team's points", error)
+        });
+      }))
 
     })
     .catch((error) =>
