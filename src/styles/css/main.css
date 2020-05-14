@@ -1269,8 +1269,13 @@ p {
   font-size: 45px;
   font-weight: 500;
 }
-.leader-board-section .add-team-section {
-  background-color: cadetblue;
+.teamCardFlex {
+  color: black;
+}
+.btn {
+  background-color: white;
+  border: 3px black solid;
+  box-shadow: 5px 5px 0 black;
 }
 .card-body {
   font-family: "gopher", sans-serif;
