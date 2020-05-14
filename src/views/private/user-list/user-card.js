@@ -34,6 +34,7 @@ const UserCard = props => {
                 <i className="fas fa-times fa-2x" onClick={deleteUser}></i>
             </div>
 
+            
             {/* User Name */}
             <h2 className='user-name' onClick={passId}>{`${props.info.full_name}`}</h2>
 

@@ -69,7 +69,7 @@ const UserList = props => {
 
             {/* Page Title  */}
             <div className='user-list-title'> 
-            <h1>Profiles</h1>
+            <h1>Users</h1>
             </div>
 
             {/* Search Bar and Team Dropdown*/}
@@ -93,7 +93,7 @@ const UserList = props => {
 
             </div>
 
-
+            {/* User Cards */}
             <div className='user-list-list'>
                 {filteredUsers}
             </div>
