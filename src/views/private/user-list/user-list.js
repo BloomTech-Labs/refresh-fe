@@ -49,7 +49,7 @@ const UserList = props => {
         }
     }).map(employees => {
         return (
-            <div key={employees.id}>
+            <div  className='user-cards-list' key={employees.id}>
                 <div>
                     <UserCard 
                     info={employees}
