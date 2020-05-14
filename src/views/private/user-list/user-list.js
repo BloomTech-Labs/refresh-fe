@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
 // import { Body, Title, SearchFlex, SearchFlex2, List, Dropdown, Input, Photo } from '../styled-components/user-list-styles'
 import UserCard from './user-card';
+import Search from './search.svg'
 
 const UserList = props => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -83,6 +84,7 @@ const UserList = props => {
                     onChange={changeHandler}
                     value={searchTerm}
                     />
+                    <img className='search-img' src={Search}></img>
                 </div>
             <form className='toggleButton'>
             <select className='user-list-team-dropdown' onChange={toggleUsers}>

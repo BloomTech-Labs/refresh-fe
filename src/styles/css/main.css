@@ -1162,6 +1162,10 @@ p {
   font-family: "gopher", sans-serif;
   text-align: center;
 }
+.user-list .user-search-menu .user-list-search-bar img {
+  width: 25px;
+  margin-right: 10px;
+}
 .user-list .user-search-menu .user-list-team-dropdown {
   height: 100%;
   font-family: "gopher", sans-serif;
