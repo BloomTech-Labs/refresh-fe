@@ -33,7 +33,8 @@ const DeleteTeamButton = props => {
             webkitBoxShadow: '10px 10px',
             outline: 'none',
             padding: '20px',
-            borderRadius:'0px'
+            borderRadius:'0px',
+            border:'2px solid black'
         },
         body: {
             font: '20px'

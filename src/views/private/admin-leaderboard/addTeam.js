@@ -123,7 +123,9 @@ function AddTeam(props) {
             WebkitOverflowScrolling: 'touch',
             outline: 'none',
             padding: '20px',
-            borderRadius:'0px'
+            borderRadius:'0px',
+            webkitBoxShadow: '10px 10px',
+            border:'2px solid black'
         },
         body: {
             font: '20px'

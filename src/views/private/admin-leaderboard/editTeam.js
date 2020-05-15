@@ -29,7 +29,8 @@ function EditTeam(props) {
             outline: 'none',
             padding: '20px',
             webkitBoxShadow: '10px 10px',
-            borderRadius: '0px'
+            borderRadius: '0px',
+            border:'2px solid black'
         },
         body: {
             font: '20px'
