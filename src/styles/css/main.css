@@ -1383,8 +1383,14 @@ div.card-body .accordian-user-card .team-card-points {
 }
 div.card-body .accordian-user-card div {
   flex: 1 1 100%;
+  display: flex;
   margin: unset;
   padding: 10px;
+  justify-content: flex-end;
+}
+div.card-body .accordian-user-card div img {
+  height: 37px;
+  margin-right: 10px;
 }
 .navBar {
   position: fixed;

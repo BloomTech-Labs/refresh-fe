@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchTeams, editTeamName, fetchAllUsers } from "../actions/actions";
 import TeamCard from "./teamCard";
 import AddTeamButton from "./addTeam";
+import UserAvatar from '../user-list/useravatar.svg'
 import {
   Container,
   Title,
@@ -82,9 +83,12 @@ const Leaderboard = (props) => {
                       if (user.team_id === team.id) {
                         return (
                           <div className='accordian-user-card'>
+                            { console.log(user)}
                             <p className='team-card-team-name'>{user.full_name}</p>
                             <p className='team-card-points'>{user.total_points}</p>
-                            <div> </div>
+                            <div className='user-avatar'>
+                              {(user.avatar ? <img src={user.avatar}></img> : <img src={UserAvatar}></img>)}
+                            </div>
                           </div>
                         );
                       }
