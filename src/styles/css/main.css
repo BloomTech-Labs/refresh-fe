@@ -1285,14 +1285,15 @@ p {
 }
 .leader-board-section .cardClass {
   margin: unset;
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  padding: 20px;
 }
 .leader-board-section .cardClass .name {
+  text-align: start;
   padding: unset;
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   margin: unset;
   width: unset;
   font-size: 24px;
@@ -1303,7 +1304,7 @@ p {
   padding: unset;
   margin: unset;
   text-align: center;
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   font-size: 24px;
   font-family: "gopher", sans-serif;
   font-weight: 500;
@@ -1312,7 +1313,7 @@ p {
   margin: unset;
   width: unset;
   padding: unset;
-  flex: 2.25 1 auto;
+  flex: 1 1 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -1351,9 +1352,6 @@ p {
   display: flex;
   justify-content: flex-end;
 }
-.cardClass {
-  background-color: black;
-}
 div.card {
   border: none;
 }
@@ -1387,7 +1385,6 @@ div.card-body .accordian-user-card .team-card-points {
 div.card-body .accordian-user-card div {
   flex: 1 1 100%;
   margin: unset;
-  font-size: 24px;
   padding: 10px;
 }
 .navBar {

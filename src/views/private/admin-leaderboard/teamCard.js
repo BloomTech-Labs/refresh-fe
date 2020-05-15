@@ -3,39 +3,6 @@ import styled from "styled-components";
 import EditTeamButton from "./editTeam";
 import DeleteTeamButton from "./deleteTeamButton";
 
-const Card = styled.div`
-  display: flex;
-  background: white;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: -5%;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 100%;
-
-  h1 {
-    flex-basis: 0;
-  }
-
-  .name {
-    min-width: 15vw;
-    text-align: left;
-  }
-  .points {
-    // flex-grow: 2;
-    // margin-right: 15vw;
-    width: 30vw;
-    
-  }
-  // .blank {
-  //   width: 17.5vw;
-  //   text-align: right;
-  // }
-  .editTeamButton {
-      width: 100vw;
-  }
-`;
 
 const Pencil = styled.i `
 margin-right: 2%;
@@ -60,7 +27,7 @@ const TeamCard = props => {
   }
 
   return (
-    <Card className='cardClass'>
+    <div className='cardClass'>
       <p className="name">{props.team.name}</p>
       <p className="points">{`${
         props.team.points === null ? (props.team.points = 0) : props.team.points
@@ -85,7 +52,7 @@ const TeamCard = props => {
           </Xbutton>
         </div>
         
-    </Card>
+    </div>
   );
 };
 
