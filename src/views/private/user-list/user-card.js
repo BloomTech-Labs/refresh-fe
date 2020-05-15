@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateUserTeam, fetchTeams, fetchUserTeamName } from '../actions/actions';
-import { Blue, Name, ButtonX, Dropdown, ProfileCard } from '../styled-components/user-card-styles.js';
+// import { Blue, Name, ButtonX, Dropdown, ProfileCard } from '../styled-components/user-card-styles.js';
 import UserAvatar from './useravatar.svg'
 import DeleteUserButton from './deleteUserButton';
 
@@ -60,31 +60,6 @@ const UserCard = props => {
             </select>
 
         </div>
-    // return (
-    //     <div>
-    //         <ProfileCard>
-    //             <DeleteUserButton/>
-    //             <Name>
-    //             <h2 onClick={passId}>{`${props.info.full_name}`}</h2>
-    //             </Name>
-    //             <h3>{props.info.email}</h3>
-    //             <Blue>
-    //             <h2>
-    //                 {`${props.info.total_points === null ? props.info.total_points = 0 : props.info.total_points} POINTS`}
-    //             </h2>
-    //             </Blue>
-    //             <Dropdown onChange={handleSubmit(props.info.team_id, props.info.total_points)}>
-    //                 <option>
-    //                     {`${props.info.name === null ? props.info.name = 'None' : props.info.name}`}
-    //                 </option>
-    //                 {props.teams.map((name, index) => {
-    //                     return (
-    //                         <option key={index} value={name.id}>{name.name}</option>
-    //                     )
-    //                 })}
-    //             </Dropdown>
-    //         </ProfileCard>
-    //     </div>
     )}
     
 

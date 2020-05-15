@@ -1,3 +1,179 @@
-.leaderboard .teamCardFlex {
-  color:black;
+.leader-board-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 8vw;
+  margin-right: 5vw;
+  > div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    // > * {
+    //   flex: 1 1 auto;
+    // }
+  }
+
+
+  // Team Card Labels
+  .team-card-labels{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0px 20px 0px 20px;
+    margin-bottom: 0;
+
+    .team-card-labels-teams{
+      flex: 1 1 100%;
+      font-family: "gopher", sans-serif;
+      font-size: 35px;
+      font-weight: 500;
+      margin: unset;
+      width: unset;
+    }
+    .team-card-labels-points{
+      flex: 1 1 100%;
+      font-family: "gopher", sans-serif;
+      font-size: 35px;
+      font-weight: 500;
+      margin: unset;
+      width: unset;
+      text-align: center;
+    }
+    div{
+      flex: 1 1 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+
+  }
+
+
+  button.btn-primary {
+    background-color: white;
+    border: 2px black solid;
+    padding: unset;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+  }
+  .cardClass {
+    margin: unset;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  
+    .name {
+      text-align: start;
+      padding: unset;
+      margin: unset;
+      flex: 1 1 100%;
+      margin: unset;
+      width: unset;
+      font-size: 24px;
+      font-family: "gopher", sans-serif;
+      font-weight: 500;
+    }
+    .points {
+      padding: unset;
+      margin: unset;
+      text-align: center;
+      flex: 1 1 100%;
+      font-size: 24px;
+      font-family: "gopher", sans-serif;
+      font-weight: 500;
+    }
+    .team-card-buttons{
+      margin: unset;
+      width: unset;
+      padding: unset;
+      flex: 1 1 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  .teamCardFlex {
+    color: black;
+    display: flex;
+  }
+
+
+
+  .add-team-button:hover {
+      cursor: pointer;
+      font-weight: 700;
+  }
+
+  .add-team-button {
+    font-size: 35px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin: 0;
+    padding: 0;
+    color: #3E98C7;
+  }
+
+  .leaderboard-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
+    font-family: "gopher", sans-serif;
+    font-size: 45px;
+    font-weight: 500;
+    flex: 1;
+  }
+  .add-team-section {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
+
+
+div.card{
+  border: none;
+}
+div.card-body {
+  font-family: "gopher", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1.25rem;
+  border: white;
+  .accordian-user-card {
+    border: black 2px solid;
+    margin-top: 5px;
+    padding: 10px;
+    display: flex;
+    font-size: 24px;
+    
+    .team-card-team-name{
+      flex: 1 1 100%;
+      margin: unset;
+      font-size: 24px;
+      padding: 10px;
+    }
+    .team-card-points{
+      flex: 1 1 100%;
+      margin: unset;
+      font-size: 24px;
+      padding: 10px;
+      text-align: center;
+    }
+    div {
+      flex: 1 1 100%;
+      display: flex;
+      margin: unset;
+      padding: 10px;
+      justify-content: flex-end;
+
+      img{
+        height: 37px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+

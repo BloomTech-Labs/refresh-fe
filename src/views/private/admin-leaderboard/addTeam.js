@@ -143,8 +143,8 @@ function AddTeam(props) {
 
 
     return (
-        <div>
-            <i className="fas fa-plus fa-lg plusButton" onClick={() => setModalIsOpen(true)}><p className='addTeam'>Add Team </p></i>
+        <div className='add-team'>
+            <i className='add-team-button' onClick={() => setModalIsOpen(true)}>+ Add Team</i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
             >

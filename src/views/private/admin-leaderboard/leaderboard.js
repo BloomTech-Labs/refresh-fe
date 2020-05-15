@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchTeams, editTeamName, fetchAllUsers } from "../actions/actions";
 import TeamCard from "./teamCard";
 import AddTeamButton from "./addTeam";
+import UserAvatar from '../user-list/useravatar.svg'
 import {
   Container,
   Title,
@@ -37,16 +38,17 @@ const Leaderboard = (props) => {
   };
 
   return (
-    <Container className='leaderboard'>
-      <Title>Leaderboard</Title>
-      <AddTeam>
+    <div className='leader-board-section'>
+
+      <div className='leaderboard-title'>Leaderboard</div>
+
+      <div className='team-card-labels'>
+        <p className='team-card-labels-teams'>Teams</p>
+        <p className='team-card-labels-points'>Points</p>
+        <div className='team-card-labels-empty-div'>
         <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
-      </AddTeam>
-      <BlueFlex>
-        <h2>Teams</h2>
-        <h2>Points</h2>
-        <div className="blank"> </div>
-      </BlueFlex>
+        </div>
+      </div>
 
       {props.teams
         .sort((a, b) => {
@@ -80,12 +82,14 @@ const Leaderboard = (props) => {
 
                       if (user.team_id === team.id) {
                         return (
-                          <>
-                            <p>
-                              {user.full_name}
-                              {user.total_points}
-                            </p>
-                          </>
+                          <div className='accordian-user-card'>
+                            { console.log(user)}
+                            <p className='team-card-team-name'>{user.full_name}</p>
+                            <p className='team-card-points'>{user.total_points}</p>
+                            <div className='user-avatar'>
+                              {(user.avatar ? <img src={user.avatar}></img> : <img src={UserAvatar}></img>)}
+                            </div>
+                          </div>
                         );
                       }
                     })}
@@ -95,7 +99,7 @@ const Leaderboard = (props) => {
             </div>
           );
         })}
-    </Container>
+    </div>
   );
 };
 
