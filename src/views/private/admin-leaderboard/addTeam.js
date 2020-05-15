@@ -123,9 +123,7 @@ function AddTeam(props) {
             WebkitOverflowScrolling: 'touch',
             outline: 'none',
             padding: '20px',
-             
-        
-
+            borderRadius:'0px'
         },
         body: {
             font: '20px'
@@ -150,7 +148,7 @@ function AddTeam(props) {
 
     return (
         <div>
-            <i className="fas fa-plus fa-lg plusButton" onClick={() => setModalIsOpen(true)}><p className='addTeam'>Add Team </p></i>
+            <i className="add-team-button" onClick={() => setModalIsOpen(true)}>+ Add Team</i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
             >

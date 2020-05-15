@@ -1483,3 +1483,6 @@ div.card-body .accordian-user-card div img {
   margin-left: 65px;
   margin-right: 25px;
 }
+.Modal {
+  border-radius: 0px !important;
+}
