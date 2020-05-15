@@ -23,15 +23,15 @@ const Card = styled.div`
     text-align: left;
   }
   .points {
-    flex-grow: 2;
-    margin-right: 15vw;
+    // flex-grow: 2;
+    // margin-right: 15vw;
     width: 30vw;
     
   }
-  .blank {
-    width: 17.5vw;
-    text-align: right;
-  }
+  // .blank {
+  //   width: 17.5vw;
+  //   text-align: right;
+  // }
   .editTeamButton {
       width: 100vw;
   }
@@ -45,7 +45,8 @@ margin-right: 2%;
 `
 
 const Xbutton = styled.i `
-color: gray;
+color: black;
+margin-left: 20px;
 :hover {
     cursor: pointer;
     }   
@@ -64,21 +65,26 @@ const TeamCard = props => {
       <h1 className="points">{`${
         props.team.points === null ? (props.team.points = 0) : props.team.points
       }`}</h1>
+
+        <div className='team-card-buttons'>
           <Pencil>
-        <EditTeamButton 
-          id={props.team.id}
-          editTeamName={props.editTeamName}
-          makeRender={props.makeRender}
-          render={props.render}
-        />
-        </Pencil>
-        <Xbutton>
-        <DeleteTeamButton
-          makeRender={props.makeRender}
-          render={props.render}
-          id={props.team.id}
-        />
-        </Xbutton>
+          <EditTeamButton 
+            id={props.team.id}
+            editTeamName={props.editTeamName}
+            makeRender={props.makeRender}
+            render={props.render}
+          />
+          </Pencil>
+
+          <Xbutton>
+          <DeleteTeamButton
+            makeRender={props.makeRender}
+            render={props.render}
+            id={props.team.id}
+          />
+          </Xbutton>
+        </div>
+        
     </Card>
   );
 };

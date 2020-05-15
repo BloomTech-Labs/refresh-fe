@@ -41,16 +41,13 @@ const Leaderboard = (props) => {
 
       <div className='leaderboard-title'>Teams</div>
 
-      <div className='add-team-section'>
+      <div className='team-card-labels'>
+        <h2 className='team-card-labels-teams'>Teams</h2>
+        <h2 className='team-card-labels-points'>Points</h2>
+        <div className='team-card-labels-empty-div'>
         <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
-        <button type="button">+ Add Team</button>
+        </div>
       </div>
-
-      <BlueFlex>
-        <h2>Teams</h2>
-        <h2>Points</h2>
-        <div className="blank"> </div>
-      </BlueFlex>
 
       {props.teams
         .sort((a, b) => {
