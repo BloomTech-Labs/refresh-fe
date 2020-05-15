@@ -39,7 +39,7 @@ const Leaderboard = (props) => {
   return (
     <div className='leader-board-section'>
 
-      <div className='leaderboard-title'>Teams</div>
+      <div className='leaderboard-title'>Leaderboard</div>
 
       <div className='team-card-labels'>
         <p className='team-card-labels-teams'>Teams</p>
