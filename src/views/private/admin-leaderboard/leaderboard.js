@@ -42,8 +42,8 @@ const Leaderboard = (props) => {
       <div className='leaderboard-title'>Teams</div>
 
       <div className='team-card-labels'>
-        <h2 className='team-card-labels-teams'>Teams</h2>
-        <h2 className='team-card-labels-points'>Points</h2>
+        <p className='team-card-labels-teams'>Teams</p>
+        <p className='team-card-labels-points'>Points</p>
         <div className='team-card-labels-empty-div'>
         <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
         </div>
@@ -82,8 +82,8 @@ const Leaderboard = (props) => {
                       if (user.team_id === team.id) {
                         return (
                           <div className='accordian-user-card'>
-                            <h3>{user.full_name}</h3>
-                            <h3>{user.total_points}</h3>
+                            <p className='team-card-team-name'>{user.full_name}</p>
+                            <p className='team-card-points'>{user.total_points}</p>
                             <div> </div>
                           </div>
                         );

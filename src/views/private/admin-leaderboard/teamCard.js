@@ -61,10 +61,10 @@ const TeamCard = props => {
 
   return (
     <Card className='cardClass'>
-      <h1 className="name">{props.team.name}</h1>
-      <h1 className="points">{`${
+      <p className="name">{props.team.name}</p>
+      <p className="points">{`${
         props.team.points === null ? (props.team.points = 0) : props.team.points
-      }`}</h1>
+      }`}</p>
 
         <div className='team-card-buttons'>
           <Pencil>
