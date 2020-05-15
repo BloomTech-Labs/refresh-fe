@@ -1253,7 +1253,8 @@ p {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 20px;
+  padding: 0px 20px 0px 20px;
+  margin-bottom: 0;
 }
 .leader-board-section .team-card-labels .team-card-labels-teams {
   flex: 1 1 100%;
@@ -1281,7 +1282,7 @@ p {
   background-color: white;
   border: 2px black solid;
   padding: unset;
-  box-shadow: 5px 5px 0 #000000;
+  box-shadow: 10px 10px 0 #000000;
 }
 .leader-board-section .cardClass {
   margin: unset;
