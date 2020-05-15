@@ -1256,7 +1256,7 @@ p {
   padding: 20px;
 }
 .leader-board-section .team-card-labels .team-card-labels-teams {
-  flex: 1.25 1 auto;
+  flex: 1 1 100%;
   font-family: "gopher", sans-serif;
   font-size: 35px;
   font-weight: 500;
@@ -1264,7 +1264,7 @@ p {
   width: unset;
 }
 .leader-board-section .team-card-labels .team-card-labels-points {
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   font-family: "gopher", sans-serif;
   font-size: 35px;
   font-weight: 500;
@@ -1273,7 +1273,7 @@ p {
   text-align: center;
 }
 .leader-board-section .team-card-labels div {
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   display: flex;
   justify-content: flex-end;
 }
