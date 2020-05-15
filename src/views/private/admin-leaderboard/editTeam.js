@@ -7,9 +7,6 @@ import { SearchBox, ButtonStyle1, ButtonStyle2, Words, CenterContainer, ButtonCo
 Modal.setAppElement('#root')
 
 function EditTeam(props) {
-    
-
-
     const modalStyle = {
         overlay: {
             position: 'fixed',
@@ -29,10 +26,11 @@ function EditTeam(props) {
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
-            borderRadius: '10px',
             outline: 'none',
-            padding: '20px'
-
+            padding: '20px',
+            webkitBoxShadow: '10px 10px',
+            borderRadius: '0px',
+            border:'2px solid black'
         },
         body: {
             font: '20px'

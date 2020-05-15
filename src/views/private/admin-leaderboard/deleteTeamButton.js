@@ -30,9 +30,11 @@ const DeleteTeamButton = props => {
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
-            borderRadius: '10px',
+            webkitBoxShadow: '10px 10px',
             outline: 'none',
-            padding: '20px'
+            padding: '20px',
+            borderRadius:'0px',
+            border:'2px solid black'
         },
         body: {
             font: '20px'
@@ -48,7 +50,7 @@ const DeleteTeamButton = props => {
     return (
         <div>
             <i className="fas fa-times fa-2x" onClick={() => setModalIsOpen(true)}></i>
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
+            <Modal className='Modal' isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
                 style={modalStyle}
                 >
                 <CenterContainer>

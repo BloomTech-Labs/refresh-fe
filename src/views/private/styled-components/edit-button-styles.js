@@ -14,7 +14,7 @@ text-align: center;
 font-size: 18px;
 `
 export const Words = styled.div`
-font-family: Roboto;
+font-family: "gopher",sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 40px;
@@ -27,8 +27,8 @@ height: 3.5vh;
 display: flex;
 text-align: center;
 color: white;
-background: #F0372B;
-border-radius: 4px;
+background: black;
+
 font-size: 2rem;
 margin-right: 5%;
 :hover {
@@ -38,7 +38,7 @@ margin-right: 5%;
 p {
     text-align: center;
     margin: auto;
-    font-family: Roboto;
+    font-family: "gopher",sans-serif;
 }
 `
 export const ButtonStyle2 = styled.div`
@@ -48,7 +48,7 @@ display: flex;
 text-align: center;
 color: white;
 background: #515257;
-border-radius: 4px;
+
 font-size: 2rem;
 :hover {
     cursor: pointer;
@@ -57,11 +57,11 @@ font-size: 2rem;
 p {
     text-align: center;
     margin: auto;
-    font-family: Roboto;
+     font-family: "gopher",sans-serif;
 }
 `
 export const SearchBox = styled.div`
-font-family: Roboto;
+ font-family: "gopher",sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 40px;
@@ -70,7 +70,7 @@ color: #3B444B;
 `
 export const StyledInput = styled.input`
     text-align: center;
-    font-family: Roboto;
+     font-family: "gopher",sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;

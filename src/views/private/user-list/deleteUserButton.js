@@ -30,9 +30,11 @@ const DeleteUserButton = props => {
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
-            borderRadius: '10px',
+            webkitBoxShadow: '10px 10px',
+            borderRadius: '0px',
             outline: 'none',
-            padding: '20px'
+            padding: '20px',
+            border:'2px solid black'
         },
         body: {
             font: '20px'
