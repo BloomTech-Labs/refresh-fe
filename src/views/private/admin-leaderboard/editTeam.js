@@ -29,9 +29,10 @@ function EditTeam(props) {
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
-            borderRadius: '10px',
+         
             outline: 'none',
-            padding: '20px'
+            padding: '20px',
+            webkitBoxShadow: '10px 10px',
 
         },
         body: {

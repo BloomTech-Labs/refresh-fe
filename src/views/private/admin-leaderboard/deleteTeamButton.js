@@ -30,7 +30,7 @@ const DeleteTeamButton = props => {
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
-            borderRadius: '10px',
+            webkitBoxShadow: '10px 10px',
             outline: 'none',
             padding: '20px'
         },

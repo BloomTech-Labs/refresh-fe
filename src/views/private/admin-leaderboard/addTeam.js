@@ -18,6 +18,7 @@ top: 25%;
 width: 100%;
 text-align: center;
 font-size: 18px;
+
 `
 const Words = styled.div`
 font-family: Roboto;
@@ -26,16 +27,17 @@ font-weight: normal;
 font-size: 40px;
 line-height: 47px;
 color: #3B444B;
+font-family: "gopher",sans-serif;
 `
 const ButtonStyle1 = styled.div`
 width: 4vw;
 height: 3.5vh;
 display: flex;
 text-align: center;
-color: white;
-background: #F0372B;
-border-radius: 4px;
+color:white;
+background: black;
 font-size: 2rem;
+font-family: "gopher",sans-serif;
 margin-right: 5%;
 :hover {
     cursor: pointer;
@@ -56,6 +58,7 @@ color: white;
 background: #515257;
 border-radius: 4px;
 font-size: 2rem;
+font-family: "gopher",sans-serif;
 :hover {
     cursor: pointer;
     opacity: 50%; 
@@ -67,22 +70,23 @@ p {
 }
 `
 const SearchBox = styled.div`
-font-family: Roboto;
+
 font-style: normal;
 font-weight: normal;
 font-size: 40px;
 line-height: 47px;
 color: #3B444B;
 margin-bottom: 2.5vh;
+font-family: "gopher",sans-serif;
 `
 
 const StyledInput = styled.input`
     text-align: center;
-    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     margin-top: 2%;
+    font-family: "gopher",sans-serif;
 `
 
 
@@ -98,6 +102,7 @@ function AddTeam(props) {
 
 
     const modalStyle = {
+        
         overlay: {
             position: 'fixed',
             top: 0,
@@ -116,9 +121,10 @@ function AddTeam(props) {
             background: '#fff',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
-            borderRadius: '10px',
             outline: 'none',
-            padding: '20px'
+            padding: '20px',
+             
+        
 
         },
         body: {
@@ -143,8 +149,8 @@ function AddTeam(props) {
 
 
     return (
-        <div className='add-team'>
-            <i className='add-team-button' onClick={() => setModalIsOpen(true)}>+ Add Team</i>
+        <div>
+            <i className="fas fa-plus fa-lg plusButton" onClick={() => setModalIsOpen(true)}><p className='addTeam'>Add Team </p></i>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
             >
