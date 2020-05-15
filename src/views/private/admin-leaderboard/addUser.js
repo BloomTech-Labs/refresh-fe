@@ -189,7 +189,7 @@ const InputDiv = styled.div`
   margin: 3% 0;
   padding: 5%;
   width: 100%;
-  border-radius: 3px;
+  
   box-shadow: 1px 1px 1px 1px #35347f;
   background: #3d3b91;
   color: #ffffff;
@@ -215,7 +215,7 @@ const Input = styled.input`
 const Button = styled.a`
   display: flex;
   justify-content: space-evenly;
-  border-radius: 0.5rem;
+  
   padding: 1.5rem 0.8rem;
   width:75%;
   text-align:center;

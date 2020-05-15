@@ -56,7 +56,7 @@ display: flex;
 text-align: center;
 color: white;
 background: #515257;
-border-radius: 4px;
+
 font-size: 2rem;
 font-family: "gopher",sans-serif;
 :hover {
