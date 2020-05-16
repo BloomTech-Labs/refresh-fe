@@ -1242,6 +1242,8 @@ p {
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  overflow: auto;
+  height: 100vh;
 }
 .leader-board-section > div {
   display: flex;
