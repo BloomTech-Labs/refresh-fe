@@ -1114,9 +1114,7 @@ p {
   font-weight: 400;
 }
 .user-list {
-  background-color: white;
   width: 100%;
-  margin-left: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1241,8 +1239,7 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: 8vw;
-  margin-right: 5vw;
+  width: 100%;
 }
 .leader-board-section > div {
   display: flex;
@@ -1255,6 +1252,8 @@ p {
   flex-direction: row;
   padding: 0px 20px 0px 20px;
   margin-bottom: 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 .leader-board-section .team-card-labels .team-card-labels-teams {
   flex: 1 1 100%;
@@ -1283,6 +1282,8 @@ p {
   border: 2px black solid;
   padding: unset;
   box-shadow: 10px 10px 0 #000000;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 .leader-board-section .cardClass {
   margin: unset;
@@ -1346,6 +1347,8 @@ p {
   font-family: "gopher", sans-serif;
   font-size: 45px;
   font-weight: 500;
+  margin-left: 5vw;
+  margin-right: 5vw;
   flex: 1;
 }
 .leader-board-section .add-team-section {
@@ -1354,6 +1357,8 @@ p {
 }
 div.card {
   border: none;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 div.card-body {
   font-family: "gopher", sans-serif;
@@ -1394,7 +1399,6 @@ div.card-body .accordian-user-card div img {
   margin-right: 10px;
 }
 .navBar {
-  position: fixed;
   background-color: black;
   color: white;
   text-align: center;
@@ -1485,4 +1489,8 @@ div.card-body .accordian-user-card div img {
 }
 .Modal {
   border-radius: 0px !important;
+}
+.admin-app {
+  display: flex;
+  flex-direction: row;
 }
