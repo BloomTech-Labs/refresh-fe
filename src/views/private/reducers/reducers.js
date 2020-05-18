@@ -27,7 +27,7 @@ import {
   UPDATE_TEAM_NAME_SUCCESS,
   UPDATE_TEAM_NAME_FAILURE,
   UPDATE_TEAM_POINTS,
-  CLEAR_ERROR
+  CLEAR_ERROR,
 } from "../actions/actions";
 
 const initialState = {
@@ -95,7 +95,7 @@ function reducer(state = initialState, action) {
         singleUser: action.payload,
       };
     case FETCH_USER_FAILURE:
-      delete action.payload.toJSON
+      delete action.payload.toJSON;
       return {
         ...state,
         error: action.payload,
@@ -171,23 +171,40 @@ function reducer(state = initialState, action) {
       };
 
     case UPDATE_TEAM_POINTS:
+      //TODO: find the team to update points to, update the points, create array of new teams
+
+      // const newTeam = state.teams.filter(
+      //   (team) => team.id === action.payload.id
+      // );
+
+      // newTeam.points = action.payload.points;
+
+      // console.log("newTeam", newTeam);
+
+      // TODO: Get other teams except the one I'm messing with
+      // const otherTeams = state.teams.filter(
+      //   (team) => team.id !== action.payload.id
+      // );
+
+      // otherTeams.push(...newTeam);
+      console.log("otherTeams", action.payload);
+
       return {
         ...state,
         isFetching: false,
-        teams: [
-          ...state.teams,
-          state.teams.map((team) => {
-            if (team.id === action.payload.teamId) {
-              team.points = action.payload.points;
-            }
-          }),
-        ],
+        teams: state.teams.map((team) => {
+          if (team.id === action.payload.id) {
+            team.points = action.payload.points;
+          }
+
+          return team;
+        }),
       };
-    
-    case CLEAR_ERROR: 
+
+    case CLEAR_ERROR:
       return {
-        ...state, 
-        error: null
+        ...state,
+        error: null,
       };
 
     default:

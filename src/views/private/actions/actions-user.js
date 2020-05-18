@@ -168,6 +168,8 @@ export const addWater = (increaseNum, userId, dailyPoints, totalPoints) => (
               points: response.data.points + teamPointsUpdate,
             })
             .then((response) => {
+              console.log(response.data.result);
+              
               dispatch({
                 type: UPDATE_TEAM_POINTS,
                 payload: response.data.result,
