@@ -21,16 +21,16 @@ height: 100%
 `
 const Words = styled.div`
 font-size: 45px;
-font-weight: 500;
+font-weight: 700;
 color: black;
 font-family: "gopher",sans-serif;
 `
 const ButtonStyle1 = styled.div`
 text-align: center;
-color: white;
-background: black;
+color: black;
+background: white;
 padding: 5px 20px;
-border: solid black 2px;
+border: solid black 5px;
 
 :hover {
     cursor: pointer;
@@ -47,8 +47,8 @@ p {
 `
 const ButtonStyle2 = styled.div`
 text-align: center;
-color: black;
-background: white;
+color: white;
+background: black;
 padding: 5px 20px;
 border: solid black 5px;
 
