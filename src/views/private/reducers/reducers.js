@@ -171,23 +171,6 @@ function reducer(state = initialState, action) {
       };
 
     case UPDATE_TEAM_POINTS:
-      //TODO: find the team to update points to, update the points, create array of new teams
-
-      // const newTeam = state.teams.filter(
-      //   (team) => team.id === action.payload.id
-      // );
-
-      // newTeam.points = action.payload.points;
-
-      // console.log("newTeam", newTeam);
-
-      // TODO: Get other teams except the one I'm messing with
-      // const otherTeams = state.teams.filter(
-      //   (team) => team.id !== action.payload.id
-      // );
-
-      // otherTeams.push(...newTeam);
-      console.log("otherTeams", action.payload);
 
       return {
         ...state,
