@@ -41,16 +41,16 @@ p {
     margin: auto;
     font-size: 25px ;
     font-family: "gopher",sans-serif;
-    font-weight: 500;
-    letter-spacing: 1.5px;
+    font-weight: 700;
+    letter-spacing: 3px;
 }
 `
 const ButtonStyle2 = styled.div`
 text-align: center;
-color: white;
-background: salmon;
+color: black;
+background: white;
 padding: 5px 20px;
-border: solid black 3px;
+border: solid black 5px;
 
 :hover {
     cursor: pointer;
@@ -61,8 +61,8 @@ p {
     margin: auto;
     font-size: 25px ;
     font-family: "gopher",sans-serif;
-    font-weight: 500;
-    letter-spacing: 1.5px;
+    font-weight: 700;
+    letter-spacing: 3px;
 }
 `
 const SearchBox = styled.div`
