@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-content: flex-start;
   width: 100%;
   overflow: auto;
   height: 100vh;
@@ -48,6 +49,30 @@
       flex: 1 1 100%;
       display: flex;
       justify-content: flex-end;
+
+    .add-team-section {
+      display: flex;
+      justify-content: flex-end;
+      }
+
+    .add-team-button:hover {
+      cursor: pointer;
+      color: black;
+    }
+  
+    .add-team-button {
+      font-size: 35px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      align-items: baseline;
+      margin: 0;
+      padding: 0;
+      color: #3E98C7;
+    }
+  
     }
 
 
@@ -107,41 +132,21 @@
 
 
 
-  .add-team-button:hover {
-      cursor: pointer;
-      color: black;
-  }
-
-  .add-team-button {
-    font-size: 35px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: baseline;
-    margin: 0;
-    padding: 0;
-    color: #3E98C7;
-  }
-
+  
   .leaderboard-title {
+    background-color: limegreen;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 3%;
+    padding-top: 30px;
     font-family: "gopher", sans-serif;
     font-size: 55px;
     font-weight: 700;
     margin-left: 5vw;
     margin-right: 5vw;
     letter-spacing: 3px;
-    flex: 1;
   }
-  .add-team-section {
-    display: flex;
-    justify-content: flex-end;
-  }
+ 
 }
 
 
