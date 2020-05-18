@@ -26,7 +26,8 @@ import {
   UPDATE_TEAM_NAME_START,
   UPDATE_TEAM_NAME_SUCCESS,
   UPDATE_TEAM_NAME_FAILURE,
-  UPDATE_TEAM_POINTS
+  UPDATE_TEAM_POINTS,
+  CLEAR_ERROR
 } from "../actions/actions";
 
 const initialState = {
@@ -94,6 +95,7 @@ function reducer(state = initialState, action) {
         singleUser: action.payload,
       };
     case FETCH_USER_FAILURE:
+      delete action.payload.toJSON
       return {
         ...state,
         error: action.payload,
@@ -180,6 +182,12 @@ function reducer(state = initialState, action) {
             }
           }),
         ],
+      };
+    
+    case CLEAR_ERROR: 
+      return {
+        ...state, 
+        error: null
       };
 
     default:
