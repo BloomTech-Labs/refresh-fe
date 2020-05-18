@@ -6,39 +6,32 @@ import { createNewTeam } from '../actions/actions';
 import styled from 'styled-components';
 
 const ButtonContainer = styled.div`
-margin: 2%;
 display: flex;
-justify-content: center;
-
+width: 75%;
+justify-content: space-evenly;
+margin-bottom: 20px;
 `
 const CenterContainer = styled.div`
-position: absolute;
-left: 0;
-top: 25%;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
 width: 100%;
-text-align: center;
-font-size: 18px;
-
+height: 100%
 `
 const Words = styled.div`
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 40px;
-line-height: 47px;
-color: #3B444B;
+font-size: 45px;
+font-weight: 500;
+color: black;
 font-family: "gopher",sans-serif;
 `
 const ButtonStyle1 = styled.div`
-width: 4vw;
-height: 3.5vh;
-display: flex;
 text-align: center;
-color:white;
+color: white;
 background: black;
-font-size: 2rem;
-font-family: "gopher",sans-serif;
-margin-right: 5%;
+padding: 5px 20px;
+border: solid black 2px;
+
 :hover {
     cursor: pointer;
     opacity: 50%;
@@ -46,19 +39,19 @@ margin-right: 5%;
 p {
     text-align: center;
     margin: auto;
-    font-family: Roboto;
+    font-size: 25px ;
+    font-family: "gopher",sans-serif;
+    font-weight: 500;
+    letter-spacing: 1.5px;
 }
 `
 const ButtonStyle2 = styled.div`
-width: 4vw;
-height: 3.5vh;
-display: flex;
 text-align: center;
 color: white;
-background: #515257;
+background: salmon;
+padding: 5px 20px;
+border: solid black 3px;
 
-font-size: 2rem;
-font-family: "gopher",sans-serif;
 :hover {
     cursor: pointer;
     opacity: 50%; 
@@ -66,18 +59,22 @@ font-family: "gopher",sans-serif;
 p {
     text-align: center;
     margin: auto;
-    font-family: Roboto;
+    font-size: 25px ;
+    font-family: "gopher",sans-serif;
+    font-weight: 500;
+    letter-spacing: 1.5px;
 }
 `
 const SearchBox = styled.div`
 
 font-style: normal;
 font-weight: normal;
+width: 75%;
 font-size: 40px;
 line-height: 47px;
 color: #3B444B;
-margin-bottom: 2.5vh;
 font-family: "gopher",sans-serif;
+margin-bottom: 20px;
 `
 
 const StyledInput = styled.input`
@@ -87,6 +84,9 @@ const StyledInput = styled.input`
     font-size: 20px;
     margin-top: 2%;
     font-family: "gopher",sans-serif;
+    border: solid black 3px;
+    padding: 5px 20px;
+    width: 100%;
 `
 
 
@@ -151,28 +151,28 @@ function AddTeam(props) {
     return (
         <div>
             <i className="add-team-button" onClick={() => setModalIsOpen(true)}>+ Add Team</i>
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
+            <Modal  isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}
             >
-                <CenterContainer>
-                    <Words>Enter a team name</Words>
-                    <SearchBox>
+                <CenterContainer className="add-team-modal">
+                    <Words className='add-team-title'>Add Team</Words>
+                    <SearchBox className='add-team-input'>
                         <form onSubmit={handleSubmit}>
                             <StyledInput
                                 id="team"
                                 type="text"
                                 name="name"
-                                placeholder="Team Name"
+                                placeholder="Enter Team Name"
                                 value={teamName.name}
                                 onChange={handleChange}
                             />
                         </form>
                     </SearchBox>
-                    <ButtonContainer>
-                        <ButtonStyle1 onClick={handleSubmit}  ><p>Confirm</p></ButtonStyle1>
+                    <ButtonContainer className='add-team-button-section'>
+                        <ButtonStyle1 className='add-team-submit' onClick={handleSubmit}  ><p>Confirm</p></ButtonStyle1>
                         {/* <button onSubmit={handleSubmit}>Confirm</button> */}
 
-                        <ButtonStyle2 onClick={() => setModalIsOpen(false)}><p>Cancel</p></ButtonStyle2>
+                        <ButtonStyle2 className='add-team-cancel' onClick={() => setModalIsOpen(false)}><p>Cancel</p></ButtonStyle2>
                     </ButtonContainer>
                 </CenterContainer>
             </Modal>
