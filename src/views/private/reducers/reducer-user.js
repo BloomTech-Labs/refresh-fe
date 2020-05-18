@@ -9,6 +9,7 @@ import {
   UPDATE_EXERCISE,
   UPDATE_BREAKS,
   UPDATE_POINTS,
+  CLEAR_ERROR
 } from "../actions/actions-user.js";
 
 const initialState = {
@@ -118,6 +119,12 @@ function reducer(state = initialState, action) {
         totalPoints: state.totalPoints + action.payload,
       };
     }
+    case CLEAR_ERROR: 
+    return {
+      ...state, 
+      error: null
+    };
+
     default:
       return state;
   }

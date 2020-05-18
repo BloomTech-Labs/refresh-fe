@@ -40,6 +40,8 @@ export const UPDATE_TEAM_NAME_SUCCESS = "UPDATE_TEAM_NAME_SUCCESS";
 export const UPDATE_TEAM_NAME_FAILURE = "UPDATE_TEAM_NAME_FAILURE";
 export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
 
+export const CLEAR_ERROR = "CLEAR_ERROR"
+
 // Async Action Creators
 export const fetchAllUsers = () => (dispatch) => {
   dispatch({ type: FETCH_ALL_USERS_LOADING });
@@ -204,4 +206,8 @@ export const adminLogin = (credentials) => (dispatch) => {
     console.log(err)
     dispatch({type: FETCH_USER_FAILURE, payload: err})
   });
+}
+
+export const clearErrorAdmin = () => (dispatch) => {
+  dispatch({ type: CLEAR_ERROR });
 }
