@@ -1239,7 +1239,6 @@ p {
 }
 .leader-board-section {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-content: flex-start;
   width: 100%;
@@ -1353,7 +1352,6 @@ p {
   display: flex;
 }
 .leader-board-section .leaderboard-title {
-  background-color: limegreen;
   display: flex;
   justify-content: center;
   align-items: center;
