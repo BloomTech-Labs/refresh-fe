@@ -1,11 +1,13 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
-import {login} from '../../views/private/actions/actions-user';
-import {adminLogin} from '../../views/private/actions/actions';
+import {login, clearErrorUser} from '../../views/private/actions/actions-user';
+import {adminLogin, clearErrorAdmin} from '../../views/private/actions/actions';
 import {connect} from 'react-redux';
 import Marketing from './Marketing'
 
+
+//login component for BOTH user types - users and admins
 function UserLogin(props) {
 
     //adjusted the 'mode' argument from the default value of 'onSubmit' for the useForm hook, in order to allow live error changes as user types
@@ -14,6 +16,12 @@ function UserLogin(props) {
     //handle form submit
     const submitForm = (data, event) => {
         //event.preventDefault();
+
+        //first clear any error data that could have previously existed (such as from a previous invalid login try)
+        //this way, if users try logging in as a user but meant to as admin, but still fail on the 2nd attempt at logging in as an admin,
+        //users only sees the error associated with the last attempt
+        props.clearErrorUser();
+        props.clearErrorAdmin();
 
         //send data of user object with email/password through to login action
         const user = {
@@ -24,14 +32,10 @@ function UserLogin(props) {
         //check if user logging in checked if they were an administrator or not, then direct to proper login
         if (data.admin) {
             props.adminLogin(user);
-            console.log("hit admin login")
         }
         else {
             props.login(user); 
-            console.log("hit user login")
         }
-
-
     }
 
     return (
@@ -102,6 +106,8 @@ function UserLogin(props) {
 
                         {(props.error === null ? <p></p> : <p className='input-errors'>{(props.error.response.data.message)}</p>)}
 
+                        {(props.adminError === null ? <p></p> : <p className='input-errors'>{(props.adminError.response.data.message)}</p>)}
+
                         <fieldset className="cardfieldset">  
                         <button className="card-button" type="submit">Log in</button>
                         </fieldset>
@@ -119,8 +125,9 @@ function UserLogin(props) {
 
 const mapStateToProps = state => {
     return {
-        error: state.userReducer.error
+        error: state.userReducer.error,
+        adminError: state.reducer.error
     }
 }
 
-export default connect(mapStateToProps, {login, adminLogin})(UserLogin)
+export default connect(mapStateToProps, {login, adminLogin, clearErrorAdmin, clearErrorUser})(UserLogin)

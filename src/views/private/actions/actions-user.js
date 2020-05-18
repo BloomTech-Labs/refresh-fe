@@ -12,6 +12,7 @@ export const UPDATE_SLEEP = "UPDATE_SLEEP";
 export const UPDATE_EXERCISE = "UPDATE_EXERCISE";
 export const UPDATE_BREAKS = "UPDATE_BREAKS";
 export const UPDATE_POINTS = "UPDATE_POINTS";
+export const CLEAR_ERROR = "CLEAR_ERROR";
 
 export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
 export const UPDATE_USER_TEAM_FAILURE = "UPDATE_USER_TEAM_FAILURE";
@@ -733,6 +734,13 @@ export const subtractBreaks = (
     dispatch({ type: UPDATE_USER_TEAM_FAILURE, payload: error });
   });
 };
+
+export const clearErrorUser = () => (dispatch) => {
+  dispatch({ type: CLEAR_ERROR });
+}
+
+
+
 
 //update points for sleep helper function
 function updatePointsSleep(metricNum, goal, operation) {
