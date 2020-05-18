@@ -65,7 +65,7 @@ function EditTeam(props) {
   };
 
   return (
-    <div>
+    <div  onClick={(e) => {e.stopPropagation()}}>
       <i
         className="fas fa-pencil-alt fa-2x"
         onClick={(e) => {
@@ -83,7 +83,7 @@ function EditTeam(props) {
         }}
         style={modalStyle}
       >
-        <CenterContainer>
+        <CenterContainer >
           <Words>Edit the team name</Words>
           <SearchBox>
             <form onSubmit={handleSubmit}>
