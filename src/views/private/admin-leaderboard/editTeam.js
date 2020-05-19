@@ -74,7 +74,7 @@ function EditTeam(props) {
         onClick={() => {
           setModalIsOpen(true);
         }}
-        style={{ padding: "24px" }}
+        style={{ padding: "12px" }}
       >
         <box-icon
           name="pencil"

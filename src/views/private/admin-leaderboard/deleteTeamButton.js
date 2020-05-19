@@ -61,13 +61,14 @@ const DeleteTeamButton = (props) => {
         e.stopPropagation();
       }}
     >
-      <box-icon
-        name="x"
-        color="#000000"
+      <div
         onClick={() => {
           setModalIsOpen(true);
         }}
-      ></box-icon>
+        style={{ padding: "12px" }}
+      >
+        <box-icon name="x" color="#000000" size="lg"></box-icon>
+      </div>
 
       <Modal
         className="Modal"
