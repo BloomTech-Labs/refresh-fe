@@ -9,7 +9,7 @@ import {
   UPDATE_EXERCISE,
   UPDATE_BREAKS,
   UPDATE_POINTS,
-  CLEAR_ERROR
+  CLEAR_ERROR,
 } from "../actions/actions-user.js";
 
 const initialState = {
@@ -27,7 +27,12 @@ const initialState = {
   sleep: 0,
   team_id: 0,
   teamName: "",
-  pointsPerMetric: {water: {points: 1, max: 8}, sleep: {points: 1, max: 8}, exercise: {points: 2, max: 8}, breaks: {points: 4, max: 8}}
+  pointsPerMetric: {
+    water: { points: 1, max: 8 },
+    sleep: { points: 1, max: 8 },
+    exercise: { points: 2, max: 8 },
+    breaks: { points: 4, max: 8 },
+  },
 };
 
 function reducer(state = initialState, action) {
@@ -46,7 +51,7 @@ function reducer(state = initialState, action) {
         isFetching: false,
       };
     case SET_ERROR:
-      delete action.payload.toJSON
+      delete action.payload.toJSON;
       return {
         ...state,
         error: action.payload,
@@ -85,7 +90,12 @@ function reducer(state = initialState, action) {
         sleep: 0,
         team_id: 0,
         teamName: "",
-        pointsPerMetric: {water: {points: 1, max: 8}, sleep: {points: 1, max: 8}, exercise: {points: 2, max: 8}, breaks: {points: 4, max: 8}}
+        pointsPerMetric: {
+          water: { points: 1, max: 8 },
+          sleep: { points: 1, max: 8 },
+          exercise: { points: 2, max: 8 },
+          breaks: { points: 4, max: 8 },
+        },
       };
     case UPDATE_WATER:
       return {
@@ -112,18 +122,17 @@ function reducer(state = initialState, action) {
         breaks: state.breaks + action.payload,
       };
     case UPDATE_POINTS: {
-
       return {
         ...state,
         dailyPoints: state.dailyPoints + action.payload,
         totalPoints: state.totalPoints + action.payload,
       };
     }
-    case CLEAR_ERROR: 
-    return {
-      ...state, 
-      error: null
-    };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        error: null,
+      };
 
     default:
       return state;
