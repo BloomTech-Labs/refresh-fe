@@ -69,7 +69,7 @@ const DeleteTeamButton = (props) => {
       ></i> */}
       <box-icon
         name="x"
-        color="#e8e6e3"
+        color="#000000"
         onClick={() => {
           setModalIsOpen(true);
         }}

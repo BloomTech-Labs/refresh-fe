@@ -81,7 +81,7 @@ function EditTeam(props) {
 
       <box-icon
         name="pencil"
-        color="#e8e6e3"
+        color="#000000"
         onClick={() => {
           setModalIsOpen(true);
         }}

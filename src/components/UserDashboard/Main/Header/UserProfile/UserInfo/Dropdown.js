@@ -3,7 +3,8 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reac
 
 import {connect} from 'react-redux'
 import {logout} from '../../../../../../views/private/actions/actions-user'
-import Logoutimg from './Logout.svg'
+import Logoutimg from './logoutuser.png'
+
 
 
 const Dropdown = (props) => {
@@ -21,8 +22,8 @@ const Dropdown = (props) => {
         {/* <DropdownItem>Edit Profile</DropdownItem>
         <DropdownItem divider /> */}
         <DropdownItem onClick={() => props.logout()}>
-        <i class='bx bx-exit' styles='color:#ff4c00' ></i>
-          {/* <img src={Logoutimg} alt="logout button" ></img> */}
+        {/* <i class='bx bx-exit' styles='color:#ff4c00' ></i> */}
+          <img src={Logoutimg} alt="logout button" ></img>
         Logout</DropdownItem>
       </DropdownMenu>
     </ButtonDropdown>
