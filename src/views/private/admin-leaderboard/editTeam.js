@@ -70,14 +70,19 @@ function EditTeam(props) {
         e.stopPropagation();
       }}
     >
-      <i
+      {/* <i
         className="fas fa-pencil-alt fa-2x"
         onClick={() => {
           setModalIsOpen(true);
         }}
       >
         {" "}
-      </i>
+      </i> */}
+
+<box-icon name='pencil' color='#e8e6e3' onClick={() => {
+          setModalIsOpen(true);
+      }}></box-icon>
+      
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => {
