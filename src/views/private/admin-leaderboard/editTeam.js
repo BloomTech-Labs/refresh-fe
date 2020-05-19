@@ -70,15 +70,6 @@ function EditTeam(props) {
         e.stopPropagation();
       }}
     >
-      {/* <i
-        className="fas fa-pencil-alt fa-2x"
-        onClick={() => {
-          setModalIsOpen(true);
-        }}
-      >
-        {" "}
-      </i> */}
-
       <box-icon
         name="pencil"
         color="#000000"

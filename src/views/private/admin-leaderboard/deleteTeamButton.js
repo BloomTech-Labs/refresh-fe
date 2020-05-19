@@ -61,12 +61,6 @@ const DeleteTeamButton = (props) => {
         e.stopPropagation();
       }}
     >
-      {/* <i
-        className="fas fa-times fa-2x"
-        onClick={() => {
-          setModalIsOpen(true);
-        }}
-      ></i> */}
       <box-icon
         name="x"
         color="#000000"

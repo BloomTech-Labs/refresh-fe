@@ -22,7 +22,6 @@ const Dropdown = (props) => {
         {/* <DropdownItem>Edit Profile</DropdownItem>
         <DropdownItem divider /> */}
         <DropdownItem onClick={() => props.logout()}>
-        {/* <i class='bx bx-exit' styles='color:#ff4c00' ></i> */}
           <img src={Logoutimg} alt="logout button" ></img>
         Logout</DropdownItem>
       </DropdownMenu>
