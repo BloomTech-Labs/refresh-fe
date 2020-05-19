@@ -89,7 +89,7 @@ export const updateUserTeam = (userId, editedTeamId, oldTeamId, usersPoints) => 
             axios
               .put(`https://lab23-refresh-be.herokuapp.com/teams/${oldTeamId}`, {points: (oldTeamTotalPoints - usersPoints)})
               .then((response) => {
-                dispatch({ type: UPDATE_TEAM_POINTS, payload: {id: oldTeamId, points: (oldTeamTotalPoints - usersPoints)} });
+                dispatch({ type: UPDATE_TEAM_POINTS, payload: {teamId: oldTeamId, points: (oldTeamTotalPoints - usersPoints)} });
               })
               .catch((error) => {
                 console.log("Error when updating team's points", error)
@@ -108,7 +108,7 @@ export const updateUserTeam = (userId, editedTeamId, oldTeamId, usersPoints) => 
         axios
         .put(`https://lab23-refresh-be.herokuapp.com/teams/${editedTeamId.team_id}`, {points: (newTeamTotalPoints + usersPoints)})
         .then((response) => {
-          dispatch({ type: UPDATE_TEAM_POINTS, payload: {id: parseInt(editedTeamId.team_id), points: (newTeamTotalPoints + usersPoints)} });
+          dispatch({ type: UPDATE_TEAM_POINTS, payload: {teamId: parseInt(editedTeamId.team_id), points: (newTeamTotalPoints + usersPoints)} });
         })
         .catch((error) => {
           console.log("Error when updating new team's points", error)
