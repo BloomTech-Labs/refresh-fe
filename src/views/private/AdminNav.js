@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 
 //images
 import user from "./AdminNavImages/user.png";
-import logout from "./AdminNavImages/signout 1.png";
-import LeaderBoardImage from './AdminNavImages/list-ol-solid.png'
+// import logout from "./AdminNavImages/signout 1.png";
+import LeaderBoardImage from './AdminNavImages/list-ul-regular-36.png'
 import LogoutImage from './AdminNavImages/sign-out-alt-solid.png'
 
 
@@ -39,7 +39,7 @@ function WithNavigation(props) {
 				<div className="iconcontainer">
 				<header className="header leaderboard">Leaderboard</header>
 				<StyledNavLink to="/leaderboard">
-					<img className="leaderboardimg"  src={LeaderBoardImage} alt="leaderboard"/>
+							<img className="leaderboardimg"  src={LeaderBoardImage} alt="leaderboard"/>
 				</StyledNavLink>
 				
 				</div>

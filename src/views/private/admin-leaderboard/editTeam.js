@@ -79,10 +79,14 @@ function EditTeam(props) {
         {" "}
       </i> */}
 
-<box-icon name='pencil' color='#e8e6e3' onClick={() => {
+      <box-icon
+        name="pencil"
+        color="#e8e6e3"
+        onClick={() => {
           setModalIsOpen(true);
-      }}></box-icon>
-      
+        }}
+      ></box-icon>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => {
