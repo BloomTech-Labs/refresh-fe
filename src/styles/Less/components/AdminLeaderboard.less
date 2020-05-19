@@ -14,9 +14,8 @@
     // }
   }
 
-
   // Team Card Labels
-  .team-card-labels{
+  .team-card-labels {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -25,7 +24,7 @@
     margin-left: 5vw ;
     margin-right: 5vw;
 
-    .team-card-labels-teams{
+    .team-card-labels-teams {
       flex: 1 1 100%;
       font-family: "gopher", sans-serif;
       font-size: 35px;
@@ -33,7 +32,7 @@
       letter-spacing: 3px;
       color: black;
     }
-    .team-card-labels-points{
+    .team-card-labels-points {
       flex: 1 1 100%;
       font-family: "gopher", sans-serif;
       font-size: 35px;
@@ -54,7 +53,6 @@
     }
   }
 
-
   button.btn-primary {
     background-color: white;
     border: 2px black solid;
@@ -68,8 +66,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 20px;
-  
+    padding: 10px 20px;
+
     .name {
       text-align: start;
       padding: unset;
@@ -90,7 +88,7 @@
       font-family: "gopher", sans-serif;
       font-weight: 500;
     }
-    .team-card-buttons{
+    .team-card-buttons {
       margin: unset;
       width: unset;
       padding: unset;
@@ -107,30 +105,26 @@
   }
 
 
-
-  
-  .leaderboard-title-section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    padding:60px 0px;
-    
-
-    .leaderboard-title{
+    .leaderboard-title {
       display: flex;
-      justify-content: center;
+      flex-direction: row;
+      margin-right: 5vw;
+      margin-left: 5vw;
+      justify-content: space-between;
+      padding: 60px 20px;
+      align-content: baseline;
+
+      h1{
       font-family: "gopher", sans-serif;
       font-size: 55px;
       font-weight: 500;
       letter-spacing: 5px;
-      margin-left: 20px;
+      }
     }
-
-
+    .add-team-section {
+      display: flex;
+      justify-content: flex-end;
+    }
     .add-team-button:hover {
       cursor: pointer;
       color: black;
@@ -143,16 +137,12 @@
       display: flex;
       flex-wrap: nowrap;
       justify-content: flex-end;
-      align-items: baseline;
-      margin-right: 20px;
       color: #3E98C7;
     }
   }
- 
-}
 
 
-div.card{
+div.card {
   border: none;
   margin-left: 5vw;
   margin-right: 5vw;
@@ -170,14 +160,14 @@ div.card-body {
     padding: 10px;
     display: flex;
     font-size: 24px;
-    
-    .team-card-team-name{
+
+    .team-card-team-name {
       flex: 1 1 100%;
       margin: unset;
       font-size: 24px;
       padding: 10px;
     }
-    .team-card-points{
+    .team-card-points {
       flex: 1 1 100%;
       margin: unset;
       font-size: 24px;
@@ -191,11 +181,10 @@ div.card-body {
       padding: 10px;
       justify-content: flex-end;
 
-      img{
+      img {
         height: 37px;
         margin-right: 10px;
       }
     }
   }
 }
-

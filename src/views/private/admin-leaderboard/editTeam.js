@@ -148,14 +148,20 @@ function EditTeam(props) {
         e.stopPropagation();
       }}
     >
-      <i
-        className="fas fa-pencil-alt fa-2x"
+      <div
         onClick={() => {
           setModalIsOpen(true);
         }}
+        style={{ padding: "12px" }}
       >
-        {" "}
-      </i>
+        <box-icon
+          name="pencil"
+          type="solid"
+          color="#000000"
+          size="lg"
+        ></box-icon>
+      </div>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => {

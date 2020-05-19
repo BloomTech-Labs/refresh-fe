@@ -1237,181 +1237,6 @@ p {
   padding: 10px;
   margin: 10px;
 }
-.leader-board-section {
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
-  width: 100%;
-  overflow: auto;
-  height: 100vh;
-}
-.leader-board-section > div {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-.leader-board-section .team-card-labels {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  padding: 0px 20px 0px 20px;
-  margin-bottom: 0;
-  margin-left: 5vw ;
-  margin-right: 5vw;
-}
-.leader-board-section .team-card-labels .team-card-labels-teams {
-  flex: 1 1 100%;
-  font-family: "gopher", sans-serif;
-  font-size: 35px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  color: black;
-}
-.leader-board-section .team-card-labels .team-card-labels-points {
-  flex: 1 1 100%;
-  font-family: "gopher", sans-serif;
-  font-size: 35px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  color: black;
-  text-align: center;
-}
-.leader-board-section .team-card-labels .team-card-labels-edit {
-  flex: 1 1 100%;
-  display: flex;
-  justify-content: flex-end;
-  font-family: "gopher", sans-serif;
-  font-size: 35px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  color: black;
-}
-.leader-board-section button.btn-primary {
-  background-color: white;
-  border: 2px black solid;
-  padding: unset;
-  box-shadow: 10px 10px 0 #000000;
-  margin-left: 5vw;
-  margin-right: 5vw;
-}
-.leader-board-section .cardClass {
-  margin: unset;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 20px;
-}
-.leader-board-section .cardClass .name {
-  text-align: start;
-  padding: unset;
-  flex: 1 1 100%;
-  margin: unset;
-  width: unset;
-  font-size: 24px;
-  font-family: "gopher", sans-serif;
-  font-weight: 500;
-}
-.leader-board-section .cardClass .points {
-  padding: unset;
-  margin: unset;
-  text-align: center;
-  flex: 1 1 100%;
-  font-size: 24px;
-  font-family: "gopher", sans-serif;
-  font-weight: 500;
-}
-.leader-board-section .cardClass .team-card-buttons {
-  margin: unset;
-  width: unset;
-  padding: unset;
-  flex: 1 1 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
-.leader-board-section .teamCardFlex {
-  color: black;
-  display: flex;
-}
-.leader-board-section .leaderboard-title-section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  padding: 60px 0px;
-}
-.leader-board-section .leaderboard-title-section .leaderboard-title {
-  display: flex;
-  justify-content: center;
-  font-family: "gopher", sans-serif;
-  font-size: 55px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  margin-left: 20px;
-}
-.leader-board-section .leaderboard-title-section .add-team-button:hover {
-  cursor: pointer;
-  color: black;
-  text-decoration: underline;
-}
-.leader-board-section .leaderboard-title-section .add-team-button {
-  font-size: 35px;
-  font-weight: 500;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: baseline;
-  margin-right: 20px;
-  color: #3E98C7;
-}
-div.card {
-  border: none;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  z-index: -1;
-}
-div.card-body {
-  font-family: "gopher", sans-serif;
-  display: flex;
-  flex-direction: column;
-  padding: 0 0 1.25rem;
-  border: white;
-}
-div.card-body .accordian-user-card {
-  border: black 2px solid;
-  margin-top: 5px;
-  padding: 10px;
-  display: flex;
-  font-size: 24px;
-}
-div.card-body .accordian-user-card .team-card-team-name {
-  flex: 1 1 100%;
-  margin: unset;
-  font-size: 24px;
-  padding: 10px;
-}
-div.card-body .accordian-user-card .team-card-points {
-  flex: 1 1 100%;
-  margin: unset;
-  font-size: 24px;
-  padding: 10px;
-  text-align: center;
-}
-div.card-body .accordian-user-card div {
-  flex: 1 1 100%;
-  display: flex;
-  margin: unset;
-  padding: 10px;
-  justify-content: flex-end;
-}
-div.card-body .accordian-user-card div img {
-  height: 37px;
-  margin-right: 10px;
-}
 .navBar {
   position: fixed;
   background-color: black;
@@ -1476,12 +1301,10 @@ div.card-body .accordian-user-card div img {
   height: 50px;
 }
 .leaderboardimg {
-  filter: invert(1);
   width: 50x;
   height: 50px;
 }
 .logoutimage {
-  filter: invert(1);
   width: 50x;
   height: 50px;
 }
@@ -1512,4 +1335,177 @@ div.card-body .accordian-user-card div img {
 .admin-app {
   display: flex;
   flex-direction: row;
+}
+.leader-board-section {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 100%;
+  overflow: auto;
+  height: 100vh;
+}
+.leader-board-section > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.leader-board-section .team-card-labels {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0px 20px 0px 20px;
+  margin-bottom: 0;
+  margin-left: 5vw ;
+  margin-right: 5vw;
+}
+.leader-board-section .team-card-labels .team-card-labels-teams {
+  flex: 1 1 100%;
+  font-family: "gopher", sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: black;
+}
+.leader-board-section .team-card-labels .team-card-labels-points {
+  flex: 1 1 100%;
+  font-family: "gopher", sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: black;
+  text-align: center;
+}
+.leader-board-section .team-card-labels .team-card-labels-edit {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-family: "gopher", sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: black;
+}
+.leader-board-section button.btn-primary {
+  background-color: white;
+  border: 2px black solid;
+  padding: unset;
+  box-shadow: 10px 10px 0 #000000;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+.leader-board-section .cardClass {
+  margin: unset;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+.leader-board-section .cardClass .name {
+  text-align: start;
+  padding: unset;
+  flex: 1 1 100%;
+  margin: unset;
+  width: unset;
+  font-size: 24px;
+  font-family: "gopher", sans-serif;
+  font-weight: 500;
+}
+.leader-board-section .cardClass .points {
+  padding: unset;
+  margin: unset;
+  text-align: center;
+  flex: 1 1 100%;
+  font-size: 24px;
+  font-family: "gopher", sans-serif;
+  font-weight: 500;
+}
+.leader-board-section .cardClass .team-card-buttons {
+  margin: unset;
+  width: unset;
+  padding: unset;
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.leader-board-section .teamCardFlex {
+  color: black;
+  display: flex;
+}
+.leader-board-section .leaderboard-title {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  justify-content: space-between;
+  padding: 60px 20px;
+  align-content: baseline;
+}
+.leader-board-section .leaderboard-title h1 {
+  font-family: "gopher", sans-serif;
+  font-size: 55px;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+.leader-board-section .add-team-section {
+  display: flex;
+  justify-content: flex-end;
+}
+.leader-board-section .add-team-button:hover {
+  cursor: pointer;
+  color: black;
+  text-decoration: underline;
+}
+.leader-board-section .add-team-button {
+  font-size: 35px;
+  font-weight: 500;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  color: #3E98C7;
+}
+div.card {
+  border: none;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  z-index: -1;
+}
+div.card-body {
+  font-family: "gopher", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1.25rem;
+  border: white;
+}
+div.card-body .accordian-user-card {
+  border: black 2px solid;
+  margin-top: 5px;
+  padding: 10px;
+  display: flex;
+  font-size: 24px;
+}
+div.card-body .accordian-user-card .team-card-team-name {
+  flex: 1 1 100%;
+  margin: unset;
+  font-size: 24px;
+  padding: 10px;
+}
+div.card-body .accordian-user-card .team-card-points {
+  flex: 1 1 100%;
+  margin: unset;
+  font-size: 24px;
+  padding: 10px;
+  text-align: center;
+}
+div.card-body .accordian-user-card div {
+  flex: 1 1 100%;
+  display: flex;
+  margin: unset;
+  padding: 10px;
+  justify-content: flex-end;
+}
+div.card-body .accordian-user-card div img {
+  height: 37px;
+  margin-right: 10px;
 }
