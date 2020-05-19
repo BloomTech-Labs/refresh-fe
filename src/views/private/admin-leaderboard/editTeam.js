@@ -70,13 +70,19 @@ function EditTeam(props) {
         e.stopPropagation();
       }}
     >
-      <box-icon
-        name="pencil"
-        color="#000000"
+      <div
         onClick={() => {
           setModalIsOpen(true);
         }}
-      ></box-icon>
+        style={{ padding: "24px" }}
+      >
+        <box-icon
+          name="pencil"
+          type="solid"
+          color="#000000"
+          size="lg"
+        ></box-icon>
+      </div>
 
       <Modal
         isOpen={modalIsOpen}

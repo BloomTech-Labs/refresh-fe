@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchTeams, editTeamName, fetchAllUsers } from "../actions/actions";
 import TeamCard from "./teamCard";
 import AddTeamButton from "./addTeam";
-import UserAvatar from '../user-list/useravatar.svg'
+import UserAvatar from "../user-list/useravatar.svg";
 import {
   Container,
   Title,
@@ -19,8 +19,8 @@ const Leaderboard = (props) => {
   const [teamIndex, setTeamIndex] = useState(null);
 
   useEffect(() => {
-      props.fetchTeams();
-      props.fetchAllUsers();
+    props.fetchTeams();
+    props.fetchAllUsers();
   }, [render]);
 
   const makeRender = (change) => {
@@ -38,15 +38,17 @@ const Leaderboard = (props) => {
   };
 
   return (
-    <div className='leader-board-section'>
+    <div className="leader-board-section">
+      <div className="leaderboard-title">Leaderboard</div>
 
-      <div className='leaderboard-title'>Leaderboard</div>
-
-      <div className='team-card-labels'>
-        <p className='team-card-labels-teams'>Teams</p>
-        <p className='team-card-labels-points'>Points</p>
-        <div className='team-card-labels-empty-div'>
-        <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
+      <div className="team-card-labels">
+        <p className="team-card-labels-teams">Teams</p>
+        <p className="team-card-labels-points">Points</p>
+        <div className="team-card-labels-empty-div">
+          <AddTeamButton
+            makeRender={makeRender}
+            render={render}
+          ></AddTeamButton>
         </div>
       </div>
 
@@ -54,8 +56,7 @@ const Leaderboard = (props) => {
         .sort((a, b) => {
           return b.points - a.points;
         })
-              .map((team, index) => {
-            
+        .map((team, index) => {
           return (
             <div key={team.id}>
               <Button
@@ -79,16 +80,22 @@ const Leaderboard = (props) => {
               <Collapse isOpen={index === teamIndex}>
                 <Card>
                   <CardBody>
-                              {props.allUsers.map((user) => {
-
+                    {props.allUsers.map((user) => {
                       if (user.team_id === team.id) {
                         return (
-                          <div className='accordian-user-card'>
-                            { console.log(user)}
-                            <p className='team-card-team-name'>{user.full_name}</p>
-                            <p className='team-card-points'>{user.total_points}</p>
-                            <div className='user-avatar'>
-                              {(user.avatar ? <img src={user.avatar}></img> : <img src={UserAvatar}></img>)}
+                          <div className="accordian-user-card">
+                            <p className="team-card-team-name">
+                              {user.full_name}
+                            </p>
+                            <p className="team-card-points">
+                              {user.total_points}
+                            </p>
+                            <div className="user-avatar">
+                              {user.avatar ? (
+                                <img src={user.avatar}></img>
+                              ) : (
+                                <img src={UserAvatar}></img>
+                              )}
                             </div>
                           </div>
                         );
