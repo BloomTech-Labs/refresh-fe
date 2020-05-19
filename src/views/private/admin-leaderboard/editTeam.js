@@ -65,7 +65,11 @@ function EditTeam(props) {
   };
 
   return (
-    <div  onClick={(e) => {e.stopPropagation()}}>
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <i
         className="fas fa-pencil-alt fa-2x"
         onClick={() => {
@@ -77,12 +81,11 @@ function EditTeam(props) {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => {
-       
-          setModalIsOpen(false)
+          setModalIsOpen(false);
         }}
         style={modalStyle}
       >
-        <CenterContainer >
+        <CenterContainer>
           <Words>Edit the team name</Words>
           <SearchBox>
             <form onSubmit={handleSubmit}>
@@ -93,16 +96,11 @@ function EditTeam(props) {
                 placeholder="Team Name"
                 value={updateTeam.name}
                 onChange={handleChange}
-               
               />
             </form>
           </SearchBox>
           <ButtonContainer>
-            <ButtonStyle1
-              onClick={
-                handleSubmit
-              }
-            >
+            <ButtonStyle1 onClick={handleSubmit}>
               <p>Confirm</p>
             </ButtonStyle1>
 
