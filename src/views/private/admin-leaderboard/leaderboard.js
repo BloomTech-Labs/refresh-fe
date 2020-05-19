@@ -50,8 +50,8 @@ const Leaderboard = (props) => {
       <div className='team-card-labels'>
         <p className='team-card-labels-teams'>Teams</p>
         <p className='team-card-labels-points'>Points</p>
-        <div className='team-card-labels-empty-div'>
-        </div>
+        <p className='team-card-labels-edit'>Edit</p>
+        {/* <div className='team-card-labels-empty-div'></div> */}
       </div>
 
       {props.teams
