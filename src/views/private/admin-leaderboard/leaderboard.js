@@ -60,7 +60,8 @@ const Leaderboard = (props) => {
             <div key={team.id}>
               <Button
                 color="primary"
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   clickIndex(index);
                 }}
                 style={{ marginBottom: "1rem" }}

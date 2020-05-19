@@ -54,11 +54,14 @@ const DeleteTeamButton = (props) => {
   };
 
   return (
-    <div>
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <i
         className="fas fa-times fa-2x"
-        onClick={(e) => {
-          e.stopPropagation();
+        onClick={() => {
           setModalIsOpen(true);
         }}
       ></i>
@@ -74,17 +77,11 @@ const DeleteTeamButton = (props) => {
             <br /> delete this team?
           </Words>
           <ButtonContainer>
-            <ButtonStyle1
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDelete();
-              }}
-            >
+            <ButtonStyle1 onClick={handleDelete}>
               <p>Yes</p>
             </ButtonStyle1>
             <ButtonStyle2
-              onClick={(e) => {
-                e.stopPropagation();
+              onClick={() => {
                 setModalIsOpen(false);
               }}
             >
