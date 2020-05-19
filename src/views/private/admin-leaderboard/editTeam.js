@@ -68,8 +68,7 @@ function EditTeam(props) {
     <div  onClick={(e) => {e.stopPropagation()}}>
       <i
         className="fas fa-pencil-alt fa-2x"
-        onClick={(e) => {
-          e.stopPropagation();
+        onClick={() => {
           setModalIsOpen(true);
         }}
       >
@@ -77,9 +76,9 @@ function EditTeam(props) {
       </i>
       <Modal
         isOpen={modalIsOpen}
-        onRequestClose={(e) => {
-          e.stopPropagation();
-          setModalIsOpen(false);
+        onRequestClose={() => {
+       
+          setModalIsOpen(false)
         }}
         style={modalStyle}
       >
@@ -94,24 +93,21 @@ function EditTeam(props) {
                 placeholder="Team Name"
                 value={updateTeam.name}
                 onChange={handleChange}
-                onClick={(e) => e.stopPropagation()}
+               
               />
             </form>
           </SearchBox>
           <ButtonContainer>
             <ButtonStyle1
-              onClick={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-                handleSubmit();
-              }}
+              onClick={
+                handleSubmit
+              }
             >
               <p>Confirm</p>
             </ButtonStyle1>
 
             <ButtonStyle2
-              onClick={(e) => {
-                e.stopPropagation();
+              onClick={() => {
                 setModalIsOpen(false);
               }}
             >
