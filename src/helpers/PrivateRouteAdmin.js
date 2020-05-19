@@ -15,6 +15,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           return (
             <div className='admin-app'>
               <AdminNav/>
+              <div className='nav-base'></div>
               <Component {...props} />
             </div>
           );
