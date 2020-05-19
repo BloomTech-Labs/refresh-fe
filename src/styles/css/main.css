@@ -1265,8 +1265,6 @@ p {
   font-size: 35px;
   font-weight: 700;
   letter-spacing: 2px;
-  margin: unset;
-  width: unset;
 }
 .leader-board-section .team-card-labels .team-card-labels-points {
   flex: 1 1 100%;
@@ -1348,7 +1346,7 @@ p {
   font-size: 55px;
   font-weight: 700;
   letter-spacing: 3px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 .leader-board-section .leaderboard-title-section .add-team-button:hover {
   cursor: pointer;
@@ -1363,7 +1361,7 @@ p {
   flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: baseline;
-  margin-right: 30px;
+  margin-right: 20px;
   color: #3E98C7;
 }
 div.card {
