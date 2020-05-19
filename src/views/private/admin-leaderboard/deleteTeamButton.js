@@ -10,6 +10,8 @@ import {
   ButtonStyle2,
 } from "../styled-components/delete-button-styles";
 
+import 'boxicons'
+
 Modal.setAppElement("#root");
 
 const DeleteTeamButton = (props) => {
@@ -59,12 +61,16 @@ const DeleteTeamButton = (props) => {
         e.stopPropagation();
       }}
     >
-      <i
+      {/* <i
         className="fas fa-times fa-2x"
         onClick={() => {
           setModalIsOpen(true);
         }}
-      ></i>
+      ></i> */}
+<box-icon name='x' color= '#e8e6e3' onClick={() => {
+          setModalIsOpen(true);
+        }}></box-icon>
+
       <Modal
         className="Modal"
         isOpen={modalIsOpen}
