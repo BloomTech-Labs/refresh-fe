@@ -49,7 +49,7 @@ const DeleteUserButton = props => {
     
     return (
         <div>
-           <box-icon name="x" color="#000000" size="lg"></box-icon>
+           <box-icon name="x" color="#000000" size="lg"  onClick={() => setModalIsOpen(true)}>></box-icon>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} 
                 style={modalStyle}
                 >
