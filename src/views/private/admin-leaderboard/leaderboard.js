@@ -40,13 +40,17 @@ const Leaderboard = (props) => {
   return (
     <div className='leader-board-section'>
 
-      <div className='leaderboard-title'>Leaderboard</div>
+      <div className='leaderboard-title-section'>
+        <div className='leaderboard-title'>Leaderboard</div>
+        <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
+      </div>
+
+
 
       <div className='team-card-labels'>
         <p className='team-card-labels-teams'>Teams</p>
         <p className='team-card-labels-points'>Points</p>
         <div className='team-card-labels-empty-div'>
-        <AddTeamButton makeRender={makeRender} render={render}></AddTeamButton>
         </div>
       </div>
 

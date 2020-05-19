@@ -1131,8 +1131,7 @@ p {
   display: flex;
   justify-content: flex-start;
   color: black;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding: 60px 0px;
   margin-left: 5vw;
   margin-right: 5vw;
 }
@@ -1285,26 +1284,6 @@ p {
   display: flex;
   justify-content: flex-end;
 }
-.leader-board-section .team-card-labels div .add-team-section {
-  display: flex;
-  justify-content: flex-end;
-}
-.leader-board-section .team-card-labels div .add-team-button:hover {
-  cursor: pointer;
-  color: black;
-}
-.leader-board-section .team-card-labels div .add-team-button {
-  font-size: 35px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: baseline;
-  margin: 0;
-  padding: 0;
-  color: #3E98C7;
-}
 .leader-board-section button.btn-primary {
   background-color: white;
   border: 2px black solid;
@@ -1353,17 +1332,40 @@ p {
   color: black;
   display: flex;
 }
-.leader-board-section .leaderboard-title {
+.leader-board-section .leaderboard-title-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding: 60px 0px;
+}
+.leader-board-section .leaderboard-title-section .leaderboard-title {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 30px;
   font-family: "gopher", sans-serif;
   font-size: 55px;
   font-weight: 700;
-  margin-left: 5vw;
-  margin-right: 5vw;
   letter-spacing: 3px;
+  margin-left: 30px;
+}
+.leader-board-section .leaderboard-title-section .add-team-button:hover {
+  cursor: pointer;
+  color: black;
+  text-decoration: underline;
+}
+.leader-board-section .leaderboard-title-section .add-team-button {
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: baseline;
+  margin-right: 30px;
+  color: #3E98C7;
 }
 div.card {
   border: none;
