@@ -1127,28 +1127,27 @@ p {
 .user-list .user-avatar img {
   width: 35%;
 }
-.user-list .user-list-title {
+.user-list .user-search-menu {
   display: flex;
-  justify-content: flex-start;
-  color: black;
-  padding: 60px 0px;
-  margin-left: 5vw;
+  justify-content: space-between;
+  align-items: flex-end;
   margin-right: 5vw;
+  margin-left: 5vw;
+  padding: 60px 0px;
 }
-.user-list .user-list-title h1 {
+.user-list .user-search-menu .user-list-title {
+  color: black;
+}
+.user-list .user-search-menu .user-list-title div h1 {
   font-size: 55px;
   font-weight: 700;
   letter-spacing: 3px;
   margin-left: 30px;
 }
-.user-list .user-search-menu {
+.user-list .user-search-menu .user-search-menu-end {
   display: flex;
-  justify-content: flex-end;
-  align-content: center;
-  margin-bottom: 50px;
-  margin-right: 5vw;
-  margin-left: 5vw;
-  font-family: "gopher", sans-serif;
+  flex-direction: row;
+  height: 50px;
 }
 .user-list .user-search-menu .user-list-search-bar {
   display: flex;
@@ -1371,7 +1370,7 @@ div.card {
   border: none;
   margin-left: 5vw;
   margin-right: 5vw;
-  z-index: 0;
+  z-index: -1;
 }
 div.card-body {
   font-family: "gopher", sans-serif;
