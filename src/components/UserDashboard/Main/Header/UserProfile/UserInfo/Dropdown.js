@@ -3,7 +3,7 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reac
 
 import {connect} from 'react-redux'
 import {logout} from '../../../../../../views/private/actions/actions-user'
-import Logoutimg from './logoutuser.png'
+import Logoutimg from './bx-exit.svg'
 
 
 
