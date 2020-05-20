@@ -21,16 +21,17 @@ height: 100%
 `
 const Words = styled.div`
 font-size: 45px;
-font-weight: 700;
+font-weight: 500;
 color: black;
 font-family: "gopher",sans-serif;
+line-spacing: 3px;
+margin-bottom: 20px;
 `
 const ButtonStyle1 = styled.div`
 text-align: center;
-color: black;
-background: white;
-padding: 5px 20px;
-border: solid black 5px;
+color: white;
+background: #515257;
+padding: 10px 20px;
 
 :hover {
     cursor: pointer;
@@ -42,15 +43,14 @@ p {
     font-size: 25px ;
     font-family: "gopher",sans-serif;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 }
 `
 const ButtonStyle2 = styled.div`
 text-align: center;
 color: white;
 background: black;
-padding: 5px 20px;
-border: solid black 5px;
+padding: 10px 20px;
 
 :hover {
     cursor: pointer;
@@ -62,7 +62,7 @@ p {
     font-size: 25px ;
     font-family: "gopher",sans-serif;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 }
 `
 const SearchBox = styled.div`
@@ -74,7 +74,7 @@ font-size: 40px;
 line-height: 47px;
 color: #3B444B;
 font-family: "gopher",sans-serif;
-margin-bottom: 20px;
+margin-bottom: 40px;
 `
 
 const StyledInput = styled.input`
