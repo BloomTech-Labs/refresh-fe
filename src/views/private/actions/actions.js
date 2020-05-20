@@ -51,10 +51,12 @@ export const UPLOAD_AVATAR_FAILURE= "UPLOAD_AVATAR_FAILURE";
 
 export const uploadAvatar =(userId, userAvatar)=>(dispatch)=>{
   dispatch({type: UPLOAD_AVATAR_START});
-  
+
+  console.log("DATA SENT THROUGH TO ACTION uploadAvatar: ", userAvatar)
+
   axiosWithAuthMulti()
   .put(`https://lab23-refresh-be.herokuapp.com/users/avatar/${userId}`,
-  {avatar:userAvatar})
+  userAvatar)
  
   .then((response)=>{
     console.log('AVATAR:', response)
