@@ -1458,6 +1458,7 @@ p {
   text-decoration: underline;
 }
 .leader-board-section .add-team-button {
+  font-family: "gopher", sans-serif;
   font-size: 35px;
   font-weight: 500;
   display: flex;
