@@ -2,15 +2,97 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
 import { editTeamName } from "../actions/actions";
-import {
-  SearchBox,
-  ButtonStyle1,
-  ButtonStyle2,
-  Words,
-  CenterContainer,
-  ButtonContainer,
-  StyledInput,
-} from "../styled-components/edit-button-styles";
+import styled from 'styled-components';
+// import {
+//   SearchBox,
+//   ButtonStyle1,
+//   ButtonStyle2,
+//   Words,
+//   CenterContainer,
+//   ButtonContainer,
+//   StyledInput,
+// } from "../styled-components/edit-button-styles";
+
+const ButtonContainer = styled.div`
+display: flex;
+width: 75%;
+justify-content: space-evenly;
+`
+const CenterContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+width: 100%;
+height: 100%
+`
+const Words = styled.div`
+font-size: 45px;
+font-weight: 500;
+color: black;
+font-family: "gopher",sans-serif;
+line-spacing: 3px;
+`
+const ButtonStyle1 = styled.div`
+text-align: center;
+color: white;
+background: #515257;
+padding: 10px 20px;
+
+:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+p {
+    text-align: center;
+    margin: auto;
+    font-size: 25px ;
+    font-family: "gopher",sans-serif;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+`
+const ButtonStyle2 = styled.div`
+text-align: center;
+color: white;
+background: black;
+padding: 10px 20px;
+
+:hover {
+    cursor: pointer;
+    opacity: 50%; 
+}
+p {
+    text-align: center;
+    margin: auto;
+    font-size: 25px ;
+    font-family: "gopher",sans-serif;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+`
+const SearchBox = styled.div`
+margin-bottom: 20px;
+font-style: normal;
+font-weight: normal;
+width: 75%;
+font-size: 40px;
+line-height: 47px;
+color: #3B444B;
+font-family: "gopher",sans-serif;
+`
+
+const StyledInput = styled.input`
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 2%;
+    font-family: "gopher",sans-serif;
+    border: solid black 3px;
+    padding: 5px 20px;
+    width: 100%;
+`
 
 Modal.setAppElement("#root");
 
@@ -70,14 +152,20 @@ function EditTeam(props) {
         e.stopPropagation();
       }}
     >
-      <i
-        className="fas fa-pencil-alt fa-2x"
+      <div
         onClick={() => {
           setModalIsOpen(true);
         }}
+        style={{ padding: "12px" }}
       >
-        {" "}
-      </i>
+        <box-icon
+          name="pencil"
+          type="solid"
+          color="#000000"
+          size="lg"
+        ></box-icon>
+      </div>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => {
@@ -86,14 +174,14 @@ function EditTeam(props) {
         style={modalStyle}
       >
         <CenterContainer>
-          <Words>Edit the team name</Words>
+          <Words>Change Team Name</Words>
           <SearchBox>
             <form onSubmit={handleSubmit}>
               <StyledInput
                 id="team"
                 type="text"
                 name="name"
-                placeholder="Team Name"
+                placeholder="Enter New Name"
                 value={updateTeam.name}
                 onChange={handleChange}
               />

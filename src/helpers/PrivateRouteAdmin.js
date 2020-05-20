@@ -13,10 +13,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         if (localStorage.getItem("token") && JSON.parse(localStorage.getItem("admin")) === true) {
           // if token is in localstorage, render the given component
           return (
-            <>
+            <div className='admin-app'>
               <AdminNav/>
+              <div className='nav-base'></div>
               <Component {...props} />
-            </>
+            </div>
           );
         } else {
           localStorage.clear();
