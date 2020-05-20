@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 //images
-import user from "./AdminNavImages/users.png";
+import userimage from "./AdminNavImages/bxs-group.svg";
+import user from "./AdminNavImages/bxs-group.svg";
 // import logout from "./AdminNavImages/signout 1.png";
-import LeaderBoardImage from './AdminNavImages/list-ul-regular-36.png'
-import LogoutImage from './AdminNavImages/logout.png'
+import LeaderBoardImage from './AdminNavImages/bx-list-ul.svg'
+import LogoutImage from './AdminNavImages/bx-exit.svg'
 
 
 export const Content = styled.div`
@@ -34,10 +35,9 @@ function WithNavigation(props) {
 		<div>
 			<div className="navBar">
 				<br/>
-				
+
 				<div>
 				<div className="iconcontainer">
-				{/* <header className="header leaderboard">Leaderboard</header> */}
 				<StyledNavLink to="/leaderboard">
 					<img className="leaderboardimg"  src={LeaderBoardImage} alt="leaderboard"/>
 				</StyledNavLink>
@@ -47,7 +47,6 @@ function WithNavigation(props) {
 				</div>
 
 				<div className="iconcontainer">
-				{/* <header className="header user">Users</header> */}
 				<StyledNavLink to="/users">
 					<img className="usersimg" src={user} alt="user" />
 				</StyledNavLink>
@@ -58,7 +57,6 @@ function WithNavigation(props) {
 				</div>
 
 				<div className="logoutcontainer">
-				{/* <header className=" header logoutheader">Logout</header> */}
 				<StyledNavLink to="/">
 					<img
 						className="logoutimage"
