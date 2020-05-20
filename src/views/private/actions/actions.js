@@ -46,13 +46,12 @@ export const CLEAR_ERROR = "CLEAR_ERROR";
 export const UPLOAD_AVATAR_START = "UPLOAD_AVATAR_START";
 export const UPLOAD_AVATAR_SUCCESS = "UPLOAD_AVATAR_SUCCESS";
 export const UPLOAD_AVATAR_FAILURE= "UPLOAD_AVATAR_FAILURE";
+export const FETCHING_START = "FETCHING_START";
+export const SET_ERROR = "SET_ERROR";
 
-
-
+//this specific action maps to reducer-user.js, not reducer.js
 export const uploadAvatar =(userId, userAvatar)=>(dispatch)=>{
-  dispatch({type: UPLOAD_AVATAR_START});
-
-  console.log("DATA SENT THROUGH TO ACTION uploadAvatar: ", userAvatar)
+  dispatch({type: FETCHING_START});
 
   axiosWithAuthMulti()
   .put(`https://lab23-refresh-be.herokuapp.com/users/avatar/${userId}`,
@@ -60,9 +59,9 @@ export const uploadAvatar =(userId, userAvatar)=>(dispatch)=>{
  
   .then((response)=>{
     console.log('AVATAR:', response)
-    dispatch({type: UPLOAD_AVATAR_SUCCESS, payload: response.data});
+    dispatch({type: UPLOAD_AVATAR_SUCCESS, payload: response.data.count.avatar});
   })
-  .catch((error)=>dispatch({type: UPLOAD_AVATAR_FAILURE, payload: error}))
+  .catch((error)=>dispatch({type: SET_ERROR, payload: error}))
 };
 // Async Action Creators
 

@@ -1,5 +1,7 @@
 import React from 'react'
 import profilepic from './ProfilePic.svg'
+import {connect} from 'react-redux';
+
 
 // Import Components
 import Dropdown from './UserInfo/Dropdown'
@@ -10,7 +12,7 @@ class UserProfile extends React.Component{
     render(){
         return(
             <div className='user-profile'>
-                <img className='profile-pic' src={profilepic} alt="profile-pic" width="70px"></img>
+                <img className='profile-pic' src={`https://lab23-refresh-be.herokuapp.com/${this.props.avatar}`} alt="profile-pic" width="70px"></img>
                 <UserInfo />
                 <Dropdown />
 
@@ -19,4 +21,11 @@ class UserProfile extends React.Component{
     }
 }
 
-export default UserProfile
+const mapStateToProps = state => {
+    return {
+        avatar: state.userReducer.avatar
+    }
+  }
+
+
+  export default connect (mapStateToProps, {})(UserProfile);

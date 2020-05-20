@@ -135,25 +135,22 @@ const Dropdown = (props) => {
 }
 const handleSubmit = e => {
   e.preventDefault();
+
   const fd = new FormData();
   fd.append('avatar', avatar.avatar)
-  console.log("FORM DATA:", fd)
+
   props.uploadAvatar(props.userId, fd)
-  console.log("AVATAR FROM DROPDOWN:", avatar.avatar)
+
   setModalIsOpen(false);
 
 }
 const handleChanges = e =>{
-  console.log('event', e.target.files[0])
- // console.log("EVENT TARGET", e.target)
-
   setAvatar({
     ...avatar,
     [e.target.name]: e.target.files[0]
   })
   
 }
-console.log("AVATAR STATE AFTER:", avatar)
 
   return (
     
