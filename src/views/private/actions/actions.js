@@ -40,9 +40,24 @@ export const UPDATE_TEAM_NAME_SUCCESS = "UPDATE_TEAM_NAME_SUCCESS";
 export const UPDATE_TEAM_NAME_FAILURE = "UPDATE_TEAM_NAME_FAILURE";
 export const UPDATE_TEAM_POINTS = "UPDATE_TEAM_POINTS";
 
-export const CLEAR_ERROR = "CLEAR_ERROR"
+export const CLEAR_ERROR = "CLEAR_ERROR";
 
+export const UPLOAD_AVATAR_START = "UPLOAD_AVATAR_START";
+export const UPLOAD_AVATAR_SUCCESS = "UPLOAD_AVATAR_SUCCESS";
+export const UPLOAD_AVATAR_FAILURE= "UPLOAD_AVATAR_FAILURE";
+
+
+
+export const uploadAvatar =(userId)=>(dispatch)=>{
+  dispatch({type: UPLOAD_AVATAR_START});
+  axios.put(`https://lab23-refresh-be.herokuapp.com/users/avatar/${userId}`)
+  .then((response)=>{
+    dispatch({type: UPLOAD_AVATAR_SUCCESS, payload: response.data});
+  })
+  .catch((error)=>dispatch({type: UPLOAD_AVATAR_FAILURE, payload: error}))
+};
 // Async Action Creators
+
 export const fetchAllUsers = () => (dispatch) => {
   dispatch({ type: FETCH_ALL_USERS_LOADING });
   axios
@@ -153,6 +168,7 @@ export const createNewTeam = (Team) => (dispatch) => {
       dispatch({ type: CREATE_NEW_TEAM_FAILURE, payload: error })
     );
 };
+
 
 export const fetchTeams = () => (dispatch) => {
   dispatch({ type: FETCH_TEAMS_LOADING });

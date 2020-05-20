@@ -1,9 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-
-
 class UserInfo extends React.Component{
+
     render(){
         return (
             
@@ -11,11 +10,6 @@ class UserInfo extends React.Component{
                 <h3>{this.props.fullName}</h3>
                 <h3>{this.props.teamName}</h3>
                 </div>
-            
-
-
-
-           
         )
     }
 }
