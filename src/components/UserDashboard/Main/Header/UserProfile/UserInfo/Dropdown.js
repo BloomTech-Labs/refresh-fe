@@ -70,7 +70,7 @@ font-size: 45px;
 color: black;
 font-family: "gopher",sans-serif;
 `
-const SearchBox = styled.div`
+const FileBox = styled.div`
 
 font-style: normal;
 font-weight: normal;
@@ -95,7 +95,9 @@ const StyledInput = styled.input`
 `
 const Dropdown = (props) => {
   const [dropdownOpen, setOpen] = useState(false);
-
+  const [avatar, setAvatar] = useState({
+    avatarImage: null
+  })
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const toggle = () => setOpen(!dropdownOpen);
@@ -133,10 +135,25 @@ const Dropdown = (props) => {
 }
 const handleSubmit = e => {
   e.preventDefault();
+  const fd = new FormData();
+ fd.append('image', avatar.avatarImage)
+ console.log("FORM DATA:", fd)
+  props.uploadAvatar(props.userId, avatar.avatarImage)
+  console.log("AVATAR FROM DROPDOWN:", avatar.avatarImage)
   setModalIsOpen(false);
 
 }
+const handleChanges = e =>{
+  console.log('event', e.target.files[0])
+  console.log("EVENT TARGET", e.target)
 
+  setAvatar({
+    ...avatar,
+    [e.target.name]: e.target.files[0]
+  })
+  
+}
+console.log("AVATAR STATE AFTER:", avatar)
 
   return (
     
@@ -146,32 +163,52 @@ const handleSubmit = e => {
       
 
       <DropdownMenu>
-        {/* <DropdownItem>Edit Profile</DropdownItem>
-        <DropdownItem divider /> */}
+        
         <DropdownItem onClick={() => props.logout()}>
           <img src={Logoutimg} alt="logout button" ></img>
         Logout</DropdownItem>
-        <DropdownItem> <i className="add-team-button" onClick={() => setModalIsOpen(true)}>Change Avatar</i></DropdownItem>
+
+        <DropdownItem> 
+          <i className="add-team-button" onClick={() => setModalIsOpen(true)}    >Change Avatar</i>
+        </DropdownItem>
         <Modal  isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}>
-              <CenterContainer>
-              <Words className='add-team-title'>Change Your Avatar</Words>
-              <SearchBox className='add-team-input'>
-                        <form onSubmit={handleSubmit}>
-                            <StyledInput
-                                id="team"
-                                type="file"
-                                name="name"
-                                placeholder="Enter Team Name"
-                                />
-                        </form>
-                    </SearchBox>
-                    <ButtonContainer>
-              <ButtonStyle1 className='add-team-submit' onClick={handleSubmit}  ><p>Upload</p></ButtonStyle1>
-              <ButtonStyle2 className='add-team-cancel' onClick={() => setModalIsOpen(false)}><p>Cancel</p></ButtonStyle2>
+            <CenterContainer>
+                <Words className='add-team-title'>Change Your Avatar</Words>
+                <FileBox className='add-team-input'>
+                    <form 
+                
+                    onSubmit={handleSubmit}>
+                      <input
+                        id="file"
+                        type="file"
+                        name="avatar"
+                        value={avatar.avatarImage}
+                        onChange={handleChanges}
+                      />
+                <button
+                      className='add-team-submit' 
+                      ><p>Upload</p>
+                </button>
+                    </form>
+                  
+                </FileBox>
+              <ButtonContainer>
+
+               
+
+                <ButtonStyle2 
+                className='add-team-cancel' 
+                onClick={() => setModalIsOpen(false)}>
+                  <p>Cancel</p>
+                  </ButtonStyle2>
+
               </ButtonContainer>
-            </CenterContainer>
-            </Modal>
+
+          </CenterContainer>
+
+      </Modal>
+
       </DropdownMenu>
     </ButtonDropdown>
   );
@@ -179,8 +216,10 @@ const handleSubmit = e => {
 
 const mapStateToProps = state => {
   return {
-      ...state
+      ...state,
+      avatar: state.userReducer.avatar,
+      userId: state.userReducer.userId,
   }
 }
 
-export default connect (mapStateToProps, {logout})(Dropdown);
+export default connect (mapStateToProps, {uploadAvatar, logout})(Dropdown);

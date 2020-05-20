@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-export const axiosWithAuth = () => {
+export const axiosWithAuthMulti = () => {
     const token = localStorage.getItem('token');
 
     return axios.create({
         baseURL: `https://labs-refresh.herokuapp.com/`,
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'multipart/form-data',
             'Authorization': `${token}`
         }
     });
