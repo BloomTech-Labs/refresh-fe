@@ -18,9 +18,8 @@ const Dropdown = (props) => {
       <DropdownToggle caret size='lg'></DropdownToggle>
       
 
-      <DropdownMenu>
-        {/* <DropdownItem>Edit Profile</DropdownItem>
-        <DropdownItem divider /> */}
+      <DropdownMenu right>
+      
         <DropdownItem onClick={() => props.logout()}>
           <img src={Logoutimg} alt="logout button" ></img>
         Logout</DropdownItem>
