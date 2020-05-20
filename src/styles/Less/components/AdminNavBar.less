@@ -6,27 +6,29 @@
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	width: 75px;
+	width: 85px;
 	height: 100vh;
     justify-content: space-between;
     .header{
-        font-size:1.6rem;
+        font-size: 25px;
+        letter-spacing: 3px;
         font-family: "gopher", sans-serif;
         text-align: center;
         visibility: hidden;
+        color: white;
         opacity: 0;
-        transition: visibility 1s, opacity 1s linear;
+        transition: visibility .5s, opacity .5s linear;
     }
 }
 .navBar:hover{
         background-color:black;
-        width: 200px;
-        align-items:flex-end;
+        width: 300px;
+        align-items:flex-start;
         transition: 0.5s ease-in-out; 
     }
 .navBar:not(:hover){
         transition: 0.5s;
-        align-items:flex-end;
+        align-items:flex-star;  
     }
 .navBar .img{
             display: flex;
@@ -50,48 +52,42 @@
     flex-direction: row;
     align-items:center;
     margin-top:15px;
-    width:250px;
     margin-right:10px;
 }
 .logoutcontainer{
     margin-bottom:25px;
-    margin-right:10px;
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items:center;
 }
 //Images
 .usersimg{
-    width: 50x;
-    height: 50px;
+    height: 55px;
+    margin: 0px 16px;
+    color: white;
 }
 .leaderboardimg{
-    // filter: invert(1);
-    width: 50x;
-    height: 50px;
+    height: 55px;
+    margin: 0px 16px;
+    color: white;
 }
 .logoutimage{
-    // filter:invert(1);
-    width: 50x;
-    height: 50px;
+    height: 55px;
+    margin: 0px 16px;
+    color: white;
 }
 // Header Text
 .logoutheader{
-        margin-right:25px;
-        font-size:1.6rem;
-        font-family: "gopher", sans-serif;
-        text-align: center;
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 1s, opacity 1s linear;
+    font-size: 25px;
+    letter-spacing: 3px;
+    font-family: "gopher", sans-serif;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .5s, opacity .5s linear;
 }
-.user{
-    margin-left:125px;
-    margin-right:25px;
-}
-.leaderboard{
-    margin-left:65px;
-    margin-right:25px;
+
+a{
+    color:white !important;
 }
 
 .Modal{

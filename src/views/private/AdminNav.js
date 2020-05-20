@@ -37,22 +37,28 @@ function WithNavigation(props) {
 				
 				<div>
 				<div className="iconcontainer">
-				<header className="header leaderboard">Leaderboard</header>
+				{/* <header className="header leaderboard">Leaderboard</header> */}
 				<StyledNavLink to="/leaderboard">
-							<img className="leaderboardimg"  src={LeaderBoardImage} alt="leaderboard"/>
+					<img className="leaderboardimg"  src={LeaderBoardImage} alt="leaderboard"/>
 				</StyledNavLink>
-				
+				<StyledNavLink className='text-link' to="/leaderboard">
+					<header className="header leaderboard">Leaderboard</header>
+				</StyledNavLink>
 				</div>
+
 				<div className="iconcontainer">
-				<header className="header user">Users</header>
+				{/* <header className="header user">Users</header> */}
 				<StyledNavLink to="/users">
 					<img className="usersimg" src={user} alt="user" />
 				</StyledNavLink>
-				
+				<StyledNavLink to="/users">
+					<header className="header user">Users</header>
+				</StyledNavLink>
 				</div>
 				</div>
+
 				<div className="logoutcontainer">
-				<header className=" header logoutheader">Logout</header>
+				{/* <header className=" header logoutheader">Logout</header> */}
 				<StyledNavLink to="/">
 					<img
 						className="logoutimage"
@@ -60,6 +66,9 @@ function WithNavigation(props) {
 						alt="logout"
 						onClick={logoutClick}
 					/>
+				</StyledNavLink>
+				<StyledNavLink to="/">
+					<header className=" header logoutheader">Logout</header>
 				</StyledNavLink>
 				</div>
 			</div>
