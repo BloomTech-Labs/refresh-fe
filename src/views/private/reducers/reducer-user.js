@@ -12,6 +12,10 @@ import {
   CLEAR_ERROR,
 } from "../actions/actions-user.js";
 
+import {
+  UPLOAD_AVATAR_SUCCESS
+} from "../actions/actions.js";
+
 const initialState = {
   isFetching: false,
   error: null,
@@ -133,6 +137,12 @@ function reducer(state = initialState, action) {
         ...state,
         error: null,
       };
+
+    case UPLOAD_AVATAR_SUCCESS: 
+      return {
+        ...state, 
+        avatar: action.payload
+      }
 
     default:
       return state;
