@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {logout} from '../../../../../../views/private/actions/actions-user';
 import Logoutimg from './logoutuser.png';
-
 import {uploadAvatar} from '../../../../../../views/private/actions/actions';
 
 import Modal from 'react-modal';

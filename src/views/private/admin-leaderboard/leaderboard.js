@@ -82,27 +82,31 @@ const Leaderboard = (props) => {
               <Collapse isOpen={index === teamIndex}>
                 <Card>
                   <CardBody>
-                    {props.allUsers.map((user) => {
-                      if (user.team_id === team.id) {
-                        return (
-                          <div className="accordian-user-card">
-                            <p className="team-card-team-name">
-                              {user.full_name}
-                            </p>
-                            <p className="team-card-points">
-                              {user.total_points}
-                            </p>
-                            <div className="user-avatar">
-                              {user.avatar ? (
-                                <img src={user.avatar}></img>
-                              ) : (
-                                <img src={UserAvatar}></img>
-                              )}
+                    {props.allUsers
+                      .sort((a, b) => {
+                        return b.total_points - a.total_points;
+                      })
+                      .map((user) => {
+                        if (user.team_id === team.id) {
+                          return (
+                            <div className="accordian-user-card">
+                              <p className="team-card-team-name">
+                                {user.full_name}
+                              </p>
+                              <p className="team-card-points">
+                                {user.total_points}
+                              </p>
+                              <div className="user-avatar">
+                                {user.avatar ? (
+                                  <img src={user.avatar}></img>
+                                ) : (
+                                  <img src={UserAvatar}></img>
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        );
-                      }
-                    })}
+                          );
+                        }
+                      })}
                   </CardBody>
                 </Card>
               </Collapse>

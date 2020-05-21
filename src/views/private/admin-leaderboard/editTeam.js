@@ -13,37 +13,32 @@ import styled from 'styled-components';
 //   StyledInput,
 // } from "../styled-components/edit-button-styles";
 
-export const ButtonContainer = styled.div`
-margin: 5%;
+const ButtonContainer = styled.div`
 display: flex;
-justify-content: center;
+width: 75%;
+justify-content: space-evenly;
 `
-export const CenterContainer = styled.div`
-position: absolute;
-left: 0;
-top: 25%;
+const CenterContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
 width: 100%;
-text-align: center;
-font-size: 18px;
+height: 100%
 `
-export const Words = styled.div`
+const Words = styled.div`
+font-size: 45px;
+font-weight: 500;
+color: black;
 font-family: "gopher",sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 40px;
-line-height: 47px;
-color: #3B444B;
+line-spacing: 3px;
 `
-export const ButtonStyle1 = styled.div`
-width: 4vw;
-height: 3.5vh;
-display: flex;
+const ButtonStyle1 = styled.div`
 text-align: center;
 color: white;
-background: black;
+background: #515257;
+padding: 10px 20px;
 
-font-size: 2rem;
-margin-right: 5%;
 :hover {
     cursor: pointer;
     opacity: 50%;
@@ -51,18 +46,18 @@ margin-right: 5%;
 p {
     text-align: center;
     margin: auto;
+    font-size: 25px ;
     font-family: "gopher",sans-serif;
+    font-weight: 700;
+    letter-spacing: 5px;
 }
 `
-export const ButtonStyle2 = styled.div`
-width: 4vw;
-height: 3.5vh;
-display: flex;
+const ButtonStyle2 = styled.div`
 text-align: center;
 color: white;
-background: #515257;
+background: black;
+padding: 10px 20px;
 
-font-size: 2rem;
 :hover {
     cursor: pointer;
     opacity: 50%; 
@@ -70,24 +65,33 @@ font-size: 2rem;
 p {
     text-align: center;
     margin: auto;
-     font-family: "gopher",sans-serif;
+    font-size: 25px ;
+    font-family: "gopher",sans-serif;
+    font-weight: 700;
+    letter-spacing: 5px;
 }
 `
-export const SearchBox = styled.div`
- font-family: "gopher",sans-serif;
+const SearchBox = styled.div`
+margin-bottom: 20px;
 font-style: normal;
 font-weight: normal;
+width: 75%;
 font-size: 40px;
 line-height: 47px;
 color: #3B444B;
+font-family: "gopher",sans-serif;
 `
-export const StyledInput = styled.input`
+
+const StyledInput = styled.input`
     text-align: center;
-     font-family: "gopher",sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     margin-top: 2%;
+    font-family: "gopher",sans-serif;
+    border: solid black 3px;
+    padding: 5px 20px;
+    width: 100%;
 `
 
 Modal.setAppElement("#root");
