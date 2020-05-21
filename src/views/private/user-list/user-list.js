@@ -68,13 +68,14 @@ const UserList = props => {
             // UserList Body
             <div className='user-list'>
 
-            {/* Page Title  */}
-            <div className='user-list-title'> 
-            <h1>Users</h1>
-            </div>
-
             {/* Search Bar and Team Dropdown*/}
             <div className='user-search-menu'>
+
+                <div className='user-list-title'> 
+                <div><h1>Users</h1></div>
+                </div>
+
+                <div className='user-search-menu-end'>
                 <div className='user-list-search-bar'>
                     <input
                     id="search"
@@ -92,6 +93,7 @@ const UserList = props => {
                     <option>No Team</option>
                 </select>
             </form>
+            </div>
 
             </div>
 

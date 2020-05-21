@@ -1113,12 +1113,11 @@ p {
   font-weight: 400;
 }
 .user-list {
-  background-color: white;
   width: 100%;
-  margin-left: 50px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  overflow: auto;
 }
 .user-list .user-avatar {
   text-align: center;
@@ -1127,32 +1126,34 @@ p {
 .user-list .user-avatar img {
   width: 35%;
 }
-.user-list .user-list-title {
-  display: flex;
-  justify-content: center;
-  color: black;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  margin-left: 5vw;
-}
-.user-list .user-list-title h1 {
-  font-size: 45px;
-  font-weight: 500;
-}
 .user-list .user-search-menu {
   display: flex;
-  justify-content: flex-end;
-  align-content: center;
-  margin-bottom: 70px;
-  margin-right: 6vw;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-right: 5vw;
   margin-left: 5vw;
-  font-family: "gopher", sans-serif;
+  padding: 60px 0px;
+}
+.user-list .user-search-menu .user-list-title {
+  color: black;
+}
+.user-list .user-search-menu .user-list-title div h1 {
+  font-size: 55px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  margin-left: 30px;
+}
+.user-list .user-search-menu .user-search-menu-end {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
 }
 .user-list .user-search-menu .user-list-search-bar {
   display: flex;
   border: 3px solid black;
   width: 300px;
   box-shadow: 10px 10px;
+  margin-right: 120px;
 }
 .user-list .user-search-menu .user-list-search-bar input {
   width: 100%;
@@ -1175,8 +1176,8 @@ p {
   border: 3px solid black;
   box-sizing: border-box;
   text-align-last: center;
-  margin-left: 50px;
   box-shadow: 10px 10px;
+  margin-right: 30px;
 }
 .user-list .user-search-menu .user-list-team-dropdown .user-list-drop-down-option {
   font-family: "gopher", sans-serif;
@@ -1198,8 +1199,7 @@ p {
   justify-content: space-evenly;
   border: 2px solid black;
   width: 300px;
-  margin-right: 20px;
-  margin-bottom: 60px;
+  margin: 30px 30px;
   box-sizing: border-box;
   box-shadow: 10px 10px;
   font-family: "gopher", sans-serif;
@@ -1236,12 +1236,109 @@ p {
   padding: 10px;
   margin: 10px;
 }
+.navBar {
+  position: fixed;
+  background-color: black;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 85px;
+  height: 100vh;
+  justify-content: space-between;
+}
+.navBar .header {
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-family: "gopher", sans-serif;
+  text-align: center;
+  visibility: hidden;
+  color: white;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+}
+.navBar a {
+  color: white !important;
+}
+.navBar:hover {
+  background-color: black;
+  width: 300px;
+  align-items: flex-start;
+  transition: 0.5s ease-in-out;
+}
+.navBar:not(:hover) {
+  transition: 0.5s;
+  align-items: flex-star;
+}
+.navBar .img {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  opacity: 100%;
+  max-width: 30px;
+  max-height: 30px;
+  margin-left: 7.5px;
+  margin-right: 15px;
+  margin-bottom: 2vh;
+}
+.navBar:hover .header {
+  visibility: visible;
+  opacity: 1;
+}
+.iconcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+.logoutcontainer {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.usersimg {
+  height: 55px;
+  margin: 0px 16px;
+  color: white;
+}
+.leaderboardimg {
+  height: 55px;
+  margin: 0px 16px;
+  color: white;
+}
+.logoutimage {
+  height: 55px;
+  margin: 0px 16px;
+  color: white;
+}
+.logoutheader {
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-family: "gopher", sans-serif;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+}
+.Modal {
+  border-radius: 0px !important;
+}
+.nav-base {
+  width: 75px;
+  height: 100vh;
+}
+.admin-app {
+  display: flex;
+  flex-direction: row;
+}
 .leader-board-section {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  margin-left: 8vw;
-  margin-right: 5vw;
+  align-content: flex-start;
+  width: 100%;
+  overflow: auto;
+  height: 100vh;
 }
 .leader-board-section > div {
   display: flex;
@@ -1254,41 +1351,50 @@ p {
   flex-direction: row;
   padding: 0px 20px 0px 20px;
   margin-bottom: 0;
+  margin-left: 5vw ;
+  margin-right: 5vw;
 }
 .leader-board-section .team-card-labels .team-card-labels-teams {
   flex: 1 1 100%;
   font-family: "gopher", sans-serif;
   font-size: 35px;
   font-weight: 500;
-  margin: unset;
-  width: unset;
+  letter-spacing: 3px;
+  color: black;
 }
 .leader-board-section .team-card-labels .team-card-labels-points {
   flex: 1 1 100%;
   font-family: "gopher", sans-serif;
   font-size: 35px;
   font-weight: 500;
-  margin: unset;
-  width: unset;
+  letter-spacing: 3px;
+  color: black;
   text-align: center;
 }
-.leader-board-section .team-card-labels div {
+.leader-board-section .team-card-labels .team-card-labels-edit {
   flex: 1 1 100%;
   display: flex;
   justify-content: flex-end;
+  font-family: "gopher", sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: black;
 }
 .leader-board-section button.btn-primary {
   background-color: white;
   border: 2px black solid;
   padding: unset;
   box-shadow: 10px 10px 0 #000000;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 .leader-board-section .cardClass {
   margin: unset;
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px 20px;
 }
 .leader-board-section .cardClass .name {
   text-align: start;
@@ -1323,36 +1429,44 @@ p {
   color: black;
   display: flex;
 }
-.leader-board-section .add-team-button:hover {
-  cursor: pointer;
-  font-weight: 700;
-}
-.leader-board-section .add-team-button {
-  font-size: 35px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: baseline;
-  margin: 0;
-  padding: 0;
-  color: #3E98C7;
-}
 .leader-board-section .leaderboard-title {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 3%;
+  flex-direction: row;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  justify-content: space-between;
+  padding: 60px 20px;
+  align-content: baseline;
+}
+.leader-board-section .leaderboard-title h1 {
   font-family: "gopher", sans-serif;
-  font-size: 45px;
+  font-size: 55px;
   font-weight: 500;
-  flex: 1;
+  letter-spacing: 5px;
 }
 .leader-board-section .add-team-section {
   display: flex;
   justify-content: flex-end;
 }
+.leader-board-section .add-team-button:hover {
+  cursor: pointer;
+  color: black;
+  text-decoration: underline;
+}
+.leader-board-section .add-team-button {
+  font-family: "gopher", sans-serif;
+  font-size: 35px;
+  font-weight: 500;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  color: #3E98C7;
+}
 div.card {
   border: none;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  z-index: -1;
 }
 div.card-body {
   font-family: "gopher", sans-serif;
@@ -1391,97 +1505,4 @@ div.card-body .accordian-user-card div {
 div.card-body .accordian-user-card div img {
   height: 37px;
   margin-right: 10px;
-}
-.navBar {
-  position: fixed;
-  background-color: black;
-  color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: 75px;
-  height: 100vh;
-  justify-content: space-between;
-}
-.navBar .header {
-  font-size: 1.6rem;
-  font-family: "gopher", sans-serif;
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 1s, opacity 1s linear;
-}
-.navBar:hover {
-  background-color: black;
-  width: 200px;
-  align-items: flex-end;
-  transition: 0.5s ease-in-out;
-}
-.navBar:not(:hover) {
-  transition: 0.5s;
-  align-items: flex-end;
-}
-.navBar .img {
-  display: flex;
-  text-align: center;
-  justify-content: space-between;
-  opacity: 100%;
-  max-width: 30px;
-  max-height: 30px;
-  margin-left: 7.5px;
-  margin-right: 15px;
-  margin-bottom: 2vh;
-}
-.navBar:hover .header {
-  visibility: visible;
-  opacity: 1;
-}
-.iconcontainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 15px;
-  width: 250px;
-  margin-right: 10px;
-}
-.logoutcontainer {
-  margin-bottom: 25px;
-  margin-right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.usersimg {
-  width: 50x;
-  height: 50px;
-}
-.leaderboardimg {
-  filter: invert(1);
-  width: 50x;
-  height: 50px;
-}
-.logoutimage {
-  filter: invert(1);
-  width: 50x;
-  height: 50px;
-}
-.logoutheader {
-  margin-right: 25px;
-  font-size: 1.6rem;
-  font-family: "gopher", sans-serif;
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 1s, opacity 1s linear;
-}
-.user {
-  margin-left: 125px;
-  margin-right: 25px;
-}
-.leaderboard {
-  margin-left: 65px;
-  margin-right: 25px;
-}
-.Modal {
-  border-radius: 0px !important;
 }
