@@ -33,7 +33,7 @@ const UserCard = props => {
 
             {/* User Avatar */}
             <div className='user-avatar'>
-            {(props.info.avatar ? <img src={props.info.avatar}></img> : <img src={UserAvatar}></img>)}
+            {(props.info.avatar ? <img src={`https://lab23-refresh-be.herokuapp.com/${props.info.avatar}`}></img> : <img src={UserAvatar}></img>)}
             </div>
 
             {/* User Name */}
