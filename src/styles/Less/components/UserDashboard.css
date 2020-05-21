@@ -1,0 +1,491 @@
+.user-dashboard {
+  font-family: "gopher", sans-serif;
+  background-color: white;
+  width: 100%;
+  max-width: 1800px;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  border: solid black;
+  border-width: 2px;
+}
+.user-dashboard .main {
+  width: 75%;
+  border-right: solid black;
+  border-width: 2px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.user-dashboard .main .header {
+  width: 100%;
+  border-bottom: solid black;
+  border-width: 2px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px 20px 40px;
+}
+.user-dashboard .main .header h3 {
+  font-size: 24px;
+  padding-left: 20px;
+}
+.user-dashboard .main .header .daily-points h2 {
+  font-size: 44px;
+  font-weight: 500;
+}
+.user-dashboard .main .header .daily-points h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.user-dashboard .main .header .user-profile {
+  border: solid black;
+  border-width: 1px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  padding: 5px;
+  box-shadow: 10px 10px;
+}
+.user-dashboard .main .header .user-profile .profile-pic {
+  border-radius: 50%;
+}
+.user-dashboard .main .header .user-profile .dropdown-toggle {
+  margin-top: 40px;
+  background-color: white !important;
+  color: black;
+  font-size: 32px;
+  border: none;
+  height: 50px;
+}
+.user-dashboard .main .header .user-profile .dropdown-menu {
+  width: 376px;
+  box-shadow: 5px 5px;
+  border: 1px solid black;
+}
+.user-dashboard .main .header .user-profile .dropdown-item {
+  color: black;
+  font-family: inherit;
+  font-size: 24px;
+}
+.user-dashboard .main .header .user-profile .dropdown-item img {
+  width: 30px;
+  margin-right: 40px;
+}
+.user-dashboard .main .header .user-profile .user-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  padding: 0 10px 0 10px;
+}
+.user-dashboard .main .metrics-container {
+  height: 100%;
+  padding: 40px;
+  overflow: scroll;
+}
+.user-dashboard .main .metrics-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.user-dashboard .main .metrics-header h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
+.user-dashboard .main .metrics-header a {
+  font-size: 24px;
+  /* unvisited link */
+  /* mouse over link */
+}
+.user-dashboard .main .metrics-header a :link {
+  color: #3e98c7;
+}
+.user-dashboard .main .metrics-header a :visited {
+  color: #3e98c7;
+  font-weight: 200;
+}
+.user-dashboard .main .metrics-header a :hover {
+  color: black;
+}
+.user-dashboard .main .metrics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.user-dashboard .main ::-webkit-scrollbar {
+  width: 10px;
+}
+.user-dashboard .main ::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+.user-dashboard .main ::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+.user-dashboard .main ::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+.user-dashboard .main .metric-card {
+  width: 27%;
+  height: 100%;
+  border: solid black;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  box-shadow: 10px 10px;
+}
+.user-dashboard .main .metric-card h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.user-dashboard .main .metric-card .metrics-card-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+}
+.user-dashboard .main .metric-card .metrics-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 325px;
+}
+.user-dashboard .main .metric-card .metrics-card-content .progress-bar-text-complete {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 15;
+  margin-bottom: 15;
+}
+.user-dashboard .main .metric-card .metrics-card-content .progress-bar-text-incomplete {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 15;
+  margin-bottom: 15;
+}
+.user-dashboard .main .metric-card .metrics-card-content img {
+  max-width: 90%;
+  max-height: 90%;
+  padding: 10px 0px 10px 0px;
+  margin: 5px 0px 5px 0px;
+  overflow: hidden;
+}
+.user-dashboard .main .metric-card .metric-card-input {
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.user-dashboard .main .metric-card .metric-card-input button {
+  width: 75px;
+  background-color: white;
+  border: none;
+  font-size: 24px;
+  font-weight: 500 !important;
+}
+.user-dashboard .main .metric-card .metric-card-input h3 {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-left: solid black;
+  border-right: solid black;
+  border-width: 1px;
+}
+.user-dashboard .user-sidebar {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.user-dashboard .user-sidebar .personal-goals {
+  width: 100%;
+  height: 50%;
+  border-bottom: solid black;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .personal-goals h2 {
+  font-size: 32px;
+}
+.user-dashboard .user-sidebar .personal-goals h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.user-dashboard .user-sidebar .personal-goals .incomplete {
+  font-size: 24px;
+  color: salmon;
+}
+.user-dashboard .user-sidebar .personal-goals .complete {
+  font-size: 24px;
+  color: #3e98c7;
+}
+.user-dashboard .user-sidebar .leader-board {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}
+.user-dashboard .user-sidebar .leader-board h2 {
+  font-size: 32px;
+}
+.user-dashboard .user-sidebar .leader-board h3 {
+  font-size: 24px;
+}
+.user-dashboard .user-sidebar .leader-board h4 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar {
+  width: 10px;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+.user-dashboard .user-sidebar .leader-board::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.user-dashboard .user-sidebar .sidebar-title {
+  font-size: 100px !important;
+  font-weight: 500 !important;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px 20px 0px;
+  width: 100%;
+}
+.user-dashboard .user-sidebar .sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-content h2 {
+  padding: 10px 0px 10px 0px;
+}
+.user-dashboard .user-sidebar .sidebar-content .sidebar-content-categrories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard h2 {
+  padding: 10px 0px 10px 0px;
+}
+.user-dashboard .user-sidebar .sidebar-content-leaderboard .sidebar-content-categrories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-dashboard .user-sidebar .integrations {
+  width: 100%;
+  border: solid black;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+@media only screen and (max-width: 1300px) {
+  .user-dashboard {
+    border: none;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .user-dashboard .main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    border-right: none;
+  }
+  .user-dashboard .main .metrics-container {
+    height: 100%;
+    padding: 50px;
+    overflow: none;
+  }
+  .user-dashboard .main .metric-card {
+    width: 40%;
+    height: 100%;
+    border: solid black;
+    margin-bottom: 50px;
+  }
+  .user-dashboard .main .header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px 20px 40px;
+  }
+  .user-dashboard .user-sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-bottom: black solid 2px;
+  }
+  .user-dashboard .user-sidebar .personal-goals {
+    width: 100%;
+    height: 100%;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-right: solid black 2px;
+  }
+  .user-dashboard .user-sidebar .leader-board {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .user-dashboard .main .metric-card {
+    width: 45%;
+  }
+  .user-dashboard .user-sidebar .personal-goals {
+    padding-bottom: 30px;
+  }
+  .user-dashboard .user-sidebar .leader-board {
+    border-top: solid black 2px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .user-dashboard {
+    border: none;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .user-dashboard .main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    border-right: none;
+  }
+  .user-dashboard .main .header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px 20px 40px;
+  }
+  .user-dashboard .main .header .user-profile {
+    margin-bottom: 50px;
+  }
+  .user-dashboard .main .metrics-container {
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: 50px;
+    overflow: none;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .user-dashboard .main .metrics-container .metrics {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .user-dashboard .main .metrics-container .metrics .metric-card {
+    width: 85%;
+    height: 100%;
+    border: solid black;
+    margin-bottom: 50px;
+  }
+  .user-dashboard .user-sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-bottom: black solid 2px;
+  }
+  .user-dashboard .user-sidebar .personal-goals {
+    width: 100%;
+    height: 100%;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-bottom: solid black 2px;
+  }
+  .user-dashboard .user-sidebar .leader-board {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
