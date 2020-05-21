@@ -257,6 +257,12 @@ p {
   border: none;
   height: 50px;
 }
+.user-dashboard .main .header .user-profile .dropdown-menu {
+  width: 376px;
+  box-shadow: 5px 5px;
+  border: solid black;
+  border-width: 1px;
+}
 .user-dashboard .main .header .user-profile .dropdown-item {
   color: black;
   font-family: inherit;
