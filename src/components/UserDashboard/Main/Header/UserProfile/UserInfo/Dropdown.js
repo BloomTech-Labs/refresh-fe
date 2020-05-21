@@ -160,9 +160,7 @@ const handleChanges = e =>{
 
       <DropdownMenu>
         
-        <DropdownItem onClick={() => props.logout()}>
-          <img src={Logoutimg} alt="logout button" ></img>
-        Logout</DropdownItem>
+     
 
         <DropdownItem> 
           <i className="add-team-button" onClick={() => setModalIsOpen(true)}    >Change Avatar</i>
@@ -204,7 +202,9 @@ const handleChanges = e =>{
           </CenterContainer>
 
       </Modal>
-
+      <DropdownItem onClick={() => props.logout()}>
+          <img src={Logoutimg} alt="logout button" ></img>
+        Logout</DropdownItem>
       </DropdownMenu>
     </ButtonDropdown>
   );
