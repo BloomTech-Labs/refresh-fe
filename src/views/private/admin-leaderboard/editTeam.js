@@ -31,7 +31,7 @@ font-size: 45px;
 font-weight: 500;
 color: black;
 font-family: "gopher",sans-serif;
-line-spacing: 3px;
+letter-spacing: 3px;
 `
 const ButtonStyle1 = styled.div`
 text-align: center;
