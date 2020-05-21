@@ -267,6 +267,7 @@ p {
   color: black;
   font-family: inherit;
   font-size: 24px;
+  margin: 5px;
 }
 .user-dashboard .main .header .user-profile .dropdown-item img {
   width: 30px;
@@ -301,10 +302,10 @@ p {
   /* mouse over link */
 }
 .user-dashboard .main .metrics-header a :link {
-  color: #3e98c7;
+  color: #3E98C7;
 }
 .user-dashboard .main .metrics-header a :visited {
-  color: #3e98c7;
+  color: #3E98C7;
   font-weight: 200;
 }
 .user-dashboard .main .metrics-header a :hover {
@@ -362,14 +363,14 @@ p {
 .user-dashboard .main .metric-card .metrics-card-content .progress-bar-text-complete {
   font-size: 24px;
   font-weight: 500;
-  margin-top: 15;
-  margin-bottom: 15;
+  margin-Top: 15;
+  margin-Bottom: 15;
 }
 .user-dashboard .main .metric-card .metrics-card-content .progress-bar-text-incomplete {
   font-size: 24px;
   font-weight: 500;
-  margin-top: 15;
-  margin-bottom: 15;
+  margin-Top: 15;
+  margin-Bottom: 15;
 }
 .user-dashboard .main .metric-card .metrics-card-content img {
   max-width: 90%;
@@ -439,7 +440,7 @@ p {
 }
 .user-dashboard .user-sidebar .personal-goals .complete {
   font-size: 24px;
-  color: #3e98c7;
+  color: #3E98C7;
 }
 .user-dashboard .user-sidebar .leader-board {
   width: 100%;
