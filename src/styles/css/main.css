@@ -1126,6 +1126,7 @@ p {
 }
 .user-list .user-avatar img {
   width: 35%;
+  border-radius: 50%;
 }
 .user-list .user-search-menu {
   display: flex;
