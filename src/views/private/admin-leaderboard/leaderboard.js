@@ -87,6 +87,7 @@ const Leaderboard = (props) => {
                         return b.total_points - a.total_points;
                       })
                       .map((user) => {
+                        console.log(user)
                         if (user.team_id === team.id) {
                           return (
                             <div className="accordian-user-card">
@@ -97,12 +98,10 @@ const Leaderboard = (props) => {
                                 {user.total_points}
                               </p>
                               <div className="user-avatar">
-                                {user.avatar ? (
-                                  <img src={user.avatar}></img>
-                                ) : (
-                                  <img src={UserAvatar}></img>
-                                )}
-                              </div>
+                             
+                          {(user.avatar ? <img src={`https://lab23-refresh-be.herokuapp.com/${user.avatar}`}></img> : <img src={UserAvatar}></img>)}
+                             </div>
+                          
                             </div>
                           );
                         }
