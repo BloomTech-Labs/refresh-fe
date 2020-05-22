@@ -35,6 +35,7 @@ const UserCard = props => {
             <div className='user-avatar'>
             {(props.info.avatar ? <img  src={`https://lab23-refresh-be.herokuapp.com/${props.info.avatar}`}></img> : <img src={UserAvatar}></img>)}
             </div>
+            {/*Test Merge Bug Comment */}
             {/* User Name */}
             <h2 className='user-name' onClick={passId}>{`${props.info.full_name}`}</h2>
 
