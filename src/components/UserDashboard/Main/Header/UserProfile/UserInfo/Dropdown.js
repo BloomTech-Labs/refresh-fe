@@ -18,13 +18,7 @@ align-items: center;
 width: 100%;
 height: 100%
 `
-const ButtonContainer = styled.div`
-display: flex;
-width: 100%;
-margin-top:15px;
-justify-content: space-evenly;
-margin-bottom: 20px;
-`
+
 const ButtonStyle1 = styled.button`
 text-align: center;
 color: black;
@@ -82,21 +76,7 @@ font-family: "gopher",sans-serif;
 margin-bottom: 20px;
 `
 
-const StyledInput = styled.input`
-    text-align: center;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    margin-top: 2%;
-    font-family: "gopher",sans-serif;
-    border: solid black 3px;
-    padding: 5px 20px;
-    width: 100%;
-`
-const StyledDiv = styled.div`
-display:flex;
-align-items:center;
-`
+
 const Dropdown = (props) => {
   const [dropdownOpen, setOpen] = useState(false);
   const [avatar, setAvatar] = useState({
@@ -168,10 +148,10 @@ const handleChanges = e =>{
      
 
         <DropdownItem> 
-          <StyledDiv>
+          <div className="image-container">
         <img src={Logoutimg} height="50%"alt="logout button" ></img>
           <i  onClick={() => setModalIsOpen(true)}    >Change<br/> Avatar</i>
-          </StyledDiv>
+          </div>
        
         </DropdownItem>
         <Modal  isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
@@ -183,14 +163,15 @@ const handleChanges = e =>{
                     <form 
                 
                     onSubmit={handleSubmit}>
-                      <StyledInput
+                      <input
+                        className="upload-avatar-input"
                         id="file"
                         type="file"
                         name="avatar"
                         value={avatar.avatarImage}
                         onChange={handleChanges}
                       />
-                   <ButtonContainer>
+                   <div className="button-container">
                   <ButtonStyle1
                       className='add-team-submit' 
                       ><p>Upload</p>
@@ -201,7 +182,7 @@ const handleChanges = e =>{
                   <p>Cancel</p>
                   </ButtonStyle2>
 
-              </ButtonContainer>
+              </div>
 
                     </form>
                 
