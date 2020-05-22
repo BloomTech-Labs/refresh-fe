@@ -93,6 +93,10 @@ const StyledInput = styled.input`
     padding: 5px 20px;
     width: 100%;
 `
+const StyledDiv = styled.div`
+display:flex;
+align-items:center;
+`
 const Dropdown = (props) => {
   const [dropdownOpen, setOpen] = useState(false);
   const [avatar, setAvatar] = useState({
@@ -164,11 +168,16 @@ const handleChanges = e =>{
      
 
         <DropdownItem> 
-          <i className="add-team-button" onClick={() => setModalIsOpen(true)}    >Change Avatar</i>
+          <StyledDiv>
+        <img src={Logoutimg} height="50%"alt="logout button" ></img>
+          <i  onClick={() => setModalIsOpen(true)}    >Change<br/> Avatar</i>
+          </StyledDiv>
+       
         </DropdownItem>
         <Modal  isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}>
             <CenterContainer>
+               
                 <Words className='add-team-title'>Change Your Avatar</Words>
                 <FileBox className='add-team-input'>
                     <form 
