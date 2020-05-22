@@ -20,11 +20,12 @@ height: 100%
 `
 const ButtonContainer = styled.div`
 display: flex;
-width: 75%;
+width: 100%;
+margin-top:15px;
 justify-content: space-evenly;
 margin-bottom: 20px;
 `
-const ButtonStyle1 = styled.div`
+const ButtonStyle1 = styled.button`
 text-align: center;
 color: black;
 background: white;
@@ -44,7 +45,7 @@ p {
     letter-spacing: 3px;
 }
 `
-const ButtonStyle2 = styled.div`
+const ButtonStyle2 = styled.button`
 text-align: center;
 color: white;
 background: black;
@@ -173,24 +174,18 @@ const handleChanges = e =>{
                     <form 
                 
                     onSubmit={handleSubmit}>
-                      <input
+                      <StyledInput
                         id="file"
                         type="file"
                         name="avatar"
                         value={avatar.avatarImage}
                         onChange={handleChanges}
                       />
-                <button
+                   <ButtonContainer>
+                  <ButtonStyle1
                       className='add-team-submit' 
                       ><p>Upload</p>
-                </button>
-                    </form>
-                  
-                </FileBox>
-              <ButtonContainer>
-
-               
-
+                </ButtonStyle1>
                 <ButtonStyle2 
                 className='add-team-cancel' 
                 onClick={() => setModalIsOpen(false)}>
@@ -198,6 +193,11 @@ const handleChanges = e =>{
                   </ButtonStyle2>
 
               </ButtonContainer>
+
+                    </form>
+                
+                </FileBox>
+              
 
           </CenterContainer>
 

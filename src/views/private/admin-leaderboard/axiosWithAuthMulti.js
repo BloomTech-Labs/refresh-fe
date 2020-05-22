@@ -6,7 +6,7 @@ export const axiosWithAuthMulti = () => {
     return axios.create({
         baseURL: `https://labs-refresh.herokuapp.com/`,
         headers: {
-            'Content-Type': 'multipart/form-data' || 'application/json',
+            'Content-Type': 'multipart/form-data',
             'Authorization': `${token}`
         }
     });
