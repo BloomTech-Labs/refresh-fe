@@ -51,7 +51,7 @@ export const SET_ERROR = "SET_ERROR";
 
 //this specific action maps to reducer-user.js, not reducer.js
 export const uploadAvatar =(userId, userAvatar)=>(dispatch)=>{
-  dispatch({type: FETCHING_START});
+  dispatch({type: UPLOAD_AVATAR_START});
 
   axiosWithAuthMulti()
   .put(`https://lab23-refresh-be.herokuapp.com/users/avatar/${userId}`,

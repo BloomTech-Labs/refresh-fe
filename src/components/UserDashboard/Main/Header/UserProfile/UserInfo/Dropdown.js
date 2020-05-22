@@ -180,10 +180,7 @@ const handleChanges = e =>{
                         value={avatar.avatarImage}
                         onChange={handleChanges}
                       />
-                <button
-                      className='add-team-submit' 
-                      ><p>Upload</p>
-                </button>
+                    <button>Upload</button>
                     </form>
                   
                 </FileBox>
