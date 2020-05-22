@@ -158,7 +158,7 @@ const handleChanges = e =>{
       <DropdownToggle caret size='lg'></DropdownToggle>
       
 
-      <DropdownMenu>
+      <DropdownMenu right>
         
      
 
