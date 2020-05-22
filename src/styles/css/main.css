@@ -675,6 +675,24 @@ p {
     flex-wrap: nowrap;
   }
 }
+.admin-app {
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.admin-app ::-webkit-scrollbar {
+  width: 10px;
+}
+.admin-app ::-webkit-scrollbar-track {
+  background: white;
+}
+.admin-app ::-webkit-scrollbar-thumb {
+  background: black;
+}
+.admin-app ::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
 .auth-container {
   width: 90%;
   display: flex;
@@ -1125,6 +1143,7 @@ p {
   padding: 0 0 10px 0;
 }
 .user-list .user-avatar img {
+  border-radius: 50%;
   width: 35%;
 }
 .user-list .user-search-menu {

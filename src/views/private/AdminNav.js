@@ -3,10 +3,8 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 //images
-import userimage from "./AdminNavImages/bxs-group.svg";
 import user from "./AdminNavImages/bxs-group.svg";
-// import logout from "./AdminNavImages/signout 1.png";
-import LeaderBoardImage from './AdminNavImages/bx-list-ul.svg'
+import LeaderBoardImage from './AdminNavImages/bxs-medal.svg'
 import LogoutImage from './AdminNavImages/bx-exit.svg'
 
 
