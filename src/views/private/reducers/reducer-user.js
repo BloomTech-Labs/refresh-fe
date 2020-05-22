@@ -141,6 +141,7 @@ function reducer(state = initialState, action) {
     case UPLOAD_AVATAR_SUCCESS: 
       return {
         ...state, 
+        isFetching:false,
         avatar: action.payload
       }
 
