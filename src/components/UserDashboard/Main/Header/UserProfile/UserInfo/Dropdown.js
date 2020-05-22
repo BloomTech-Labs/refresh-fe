@@ -20,11 +20,12 @@ height: 100%
 `
 const ButtonContainer = styled.div`
 display: flex;
-width: 75%;
+width: 100%;
+margin-top:15px;
 justify-content: space-evenly;
 margin-bottom: 20px;
 `
-const ButtonStyle1 = styled.div`
+const ButtonStyle1 = styled.button`
 text-align: center;
 color: black;
 background: white;
@@ -44,7 +45,7 @@ p {
     letter-spacing: 3px;
 }
 `
-const ButtonStyle2 = styled.div`
+const ButtonStyle2 = styled.button`
 text-align: center;
 color: white;
 background: black;
@@ -91,6 +92,10 @@ const StyledInput = styled.input`
     border: solid black 3px;
     padding: 5px 20px;
     width: 100%;
+`
+const StyledDiv = styled.div`
+display:flex;
+align-items:center;
 `
 const Dropdown = (props) => {
   const [dropdownOpen, setOpen] = useState(false);
@@ -163,31 +168,33 @@ const handleChanges = e =>{
      
 
         <DropdownItem> 
-          <i className="add-team-button" onClick={() => setModalIsOpen(true)}    >Change Avatar</i>
+          <StyledDiv>
+        <img src={Logoutimg} height="50%"alt="logout button" ></img>
+          <i  onClick={() => setModalIsOpen(true)}    >Change<br/> Avatar</i>
+          </StyledDiv>
+       
         </DropdownItem>
         <Modal  isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}>
             <CenterContainer>
+               
                 <Words className='add-team-title'>Change Your Avatar</Words>
                 <FileBox className='add-team-input'>
                     <form 
                 
                     onSubmit={handleSubmit}>
-                      <input
+                      <StyledInput
                         id="file"
                         type="file"
                         name="avatar"
                         value={avatar.avatarImage}
                         onChange={handleChanges}
                       />
-                    <button>Upload</button>
-                    </form>
-                  
-                </FileBox>
-              <ButtonContainer>
-
-               
-
+                   <ButtonContainer>
+                  <ButtonStyle1
+                      className='add-team-submit' 
+                      ><p>Upload</p>
+                </ButtonStyle1>
                 <ButtonStyle2 
                 className='add-team-cancel' 
                 onClick={() => setModalIsOpen(false)}>
@@ -195,6 +202,11 @@ const handleChanges = e =>{
                   </ButtonStyle2>
 
               </ButtonContainer>
+
+                    </form>
+                
+                </FileBox>
+              
 
           </CenterContainer>
 
