@@ -7,74 +7,9 @@ import {logout} from '../../../../../../views/private/actions/actions-user';
 import Logoutimg from './logoutuser.png';
 import {uploadAvatar} from '../../../../../../views/private/actions/actions';
 
+// Modals
 import Modal from 'react-modal';
 Modal.setAppElement('#root')
-
-const CenterContainer = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-width: 100%;
-height: 100%
-`
-
-const ButtonStyle1 = styled.button`
-text-align: center;
-color: black;
-background: white;
-padding: 5px 20px;
-border: solid black 5px;
-
-:hover {
-    cursor: pointer;
-    opacity: 50%;
-}
-p {
-    text-align: center;
-    margin: auto;
-    font-size: 25px ;
-    font-family: "gopher",sans-serif;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-`
-const ButtonStyle2 = styled.button`
-text-align: center;
-color: white;
-background: black;
-padding: 5px 20px;
-border: solid black 5px;
-
-:hover {
-    cursor: pointer;
-    opacity: 50%; 
-}
-p {
-    text-align: center;
-    margin: auto;
-    font-size: 25px ;
-    font-family: "gopher",sans-serif;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-`
-const Words = styled.div`
-font-size: 45px;
-color: black;
-font-family: "gopher",sans-serif;
-`
-const FileBox = styled.div`
-
-font-style: normal;
-font-weight: normal;
-width: 75%;
-font-size: 40px;
-line-height: 47px;
-color: #3B444B;
-font-family: "gopher",sans-serif;
-margin-bottom: 20px;
-`
 
 
 const Dropdown = (props) => {
@@ -141,28 +76,20 @@ const handleChanges = e =>{
     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
       
       <DropdownToggle caret size='lg'></DropdownToggle>
-      
 
       <DropdownMenu>
-        
-     
 
         <DropdownItem> 
-          <div className="image-container">
-        <img src={Logoutimg} height="50%"alt="logout button" ></img>
-          <i  onClick={() => setModalIsOpen(true)}    >Change<br/> Avatar</i>
-          </div>
-       
+          <i className="image-container"  onClick={() => setModalIsOpen(true)}    > <img src={Logoutimg} height="50%"alt="logout button" ></img>Change<br/> Avatar</i>
         </DropdownItem>
+
         <Modal  isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}>
-            <CenterContainer>
+            <div className='content-parent-container'>
                
-                <Words className='add-team-title'>Change Your Avatar</Words>
-                <FileBox className='add-team-input'>
-                    <form 
-                
-                    onSubmit={handleSubmit}>
+                <div className='avatar-modal-title'>Change Your Avatar</div>
+                <div className='form-container'>
+                    <form onSubmit={handleSubmit}>
                       <input
                         className="upload-avatar-input"
                         id="file"
@@ -172,24 +99,15 @@ const handleChanges = e =>{
                         onChange={handleChanges}
                       />
                    <div className="button-container">
-                  <ButtonStyle1
-                      className='add-team-submit' 
-                      ><p>Upload</p>
-                </ButtonStyle1>
-                <ButtonStyle2 
-                className='add-team-cancel' 
-                onClick={() => setModalIsOpen(false)}>
-                  <p>Cancel</p>
-                  </ButtonStyle2>
-
-              </div>
-
-                    </form>
-                
-                </FileBox>
-              
-
-          </CenterContainer>
+                  <button className='avatar-upload-button'><p>Upload</p></button>
+                <button 
+                  className='avatar-cancel-button' 
+                  onClick={() => setModalIsOpen(false)}>
+                  <p>Cancel</p></button>
+                  </div>
+                  </form>
+                </div>
+            </div>
 
       </Modal>
       <DropdownItem onClick={() => props.logout()}>
