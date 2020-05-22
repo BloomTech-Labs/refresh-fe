@@ -27,7 +27,11 @@ const UserCard = props => {
 
             {/* Delete Button */}
             <div className=' delete-button'>
-            <DeleteUserButton id={props.info.id} makeRender={props.rerender} />
+            <DeleteUserButton 
+                id={props.info.id} 
+                makeRender={props.rerender} 
+                render={props.update} 
+            />
             </div>
             
 
