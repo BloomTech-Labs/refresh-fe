@@ -77,7 +77,9 @@ const handleChanges = e =>{
       
       <DropdownToggle caret size='lg'></DropdownToggle>
 
-      <DropdownMenu>
+      <DropdownMenu right>
+        
+     
 
         <DropdownItem> 
           <i className="image-container"  onClick={() => setModalIsOpen(true)}    > <img src={Logoutimg} height="50%"alt="logout button" ></img>Change<br/> Avatar</i>
