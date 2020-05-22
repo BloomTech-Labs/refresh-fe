@@ -27,13 +27,13 @@ const UserCard = props => {
 
             {/* Delete Button */}
             <div className=' delete-button'>
-            <DeleteUserButton/>
+            <DeleteUserButton id={props.info.id} makeRender={props.rerender} />
             </div>
             
 
             {/* User Avatar */}
             <div className='user-avatar'>
-            {(props.info.avatar ? <img src={`https://lab23-refresh-be.herokuapp.com/${props.info.avatar}`}></img> : <img src={UserAvatar}></img>)}
+            {(props.info.avatar ? <img alt="avatar" src={`https://lab23-refresh-be.herokuapp.com/${props.info.avatar}`}></img> : <img alt="avatar"src={UserAvatar}></img>)}
             </div>
 
             {/* User Name */}
