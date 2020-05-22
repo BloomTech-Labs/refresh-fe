@@ -226,7 +226,7 @@ p {
 }
 .user-dashboard .main .header h3 {
   font-size: 24px;
-  padding-left: 20px;
+  margin-left: 20px;
 }
 .user-dashboard .main .header .daily-points h2 {
   font-size: 44px;
@@ -243,11 +243,11 @@ p {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
-  padding: 5px;
   box-shadow: 10px 10px;
 }
 .user-dashboard .main .header .user-profile .profile-pic {
   border-radius: 50%;
+  margin: 10px 0px 10px 10px;
 }
 .user-dashboard .main .header .user-profile .dropdown-toggle {
   margin-top: 40px;
@@ -258,7 +258,7 @@ p {
   height: 50px;
 }
 .user-dashboard .main .header .user-profile .dropdown-menu {
-  width: 376px;
+  width: 362px;
   box-shadow: 5px 5px;
   border: 1px solid black;
 }
@@ -277,7 +277,12 @@ p {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-around;
-  padding: 0 10px 0 10px;
+}
+.user-dashboard .main .header .user-profile .user-info h3:first-of-type {
+  margin-top: 10px;
+}
+.user-dashboard .main .header .user-profile .btn-group {
+  position: unset;
 }
 .user-dashboard .main .metrics-container {
   height: 100%;

@@ -36,7 +36,7 @@
 
       h3 {
         font-size: 24px;
-        padding-left: 20px;
+        margin-left: 20px;
       }
 
       .daily-points {
@@ -58,11 +58,11 @@
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-around;
-        padding: 5px;
         box-shadow: 10px 10px;
 
         .profile-pic {
           border-radius: 50%;
+          margin: 10px 0px 10px 10px;
         }
 
         .dropdown-toggle {
@@ -74,7 +74,7 @@
           height: 50px;
         }
         .dropdown-menu {
-          width: 376px;
+          width: 362px;
           box-shadow: 5px 5px;
           border: 1px solid black;
         }
@@ -96,7 +96,14 @@
           flex-direction: column;
           flex-wrap: nowrap;
           justify-content: space-around;
-          padding: 0 10px 0 10px;
+
+          h3:first-of-type {
+            margin-top: 10px;
+          }
+        }
+
+        .btn-group {
+          position: unset;
         }
       }
     }
