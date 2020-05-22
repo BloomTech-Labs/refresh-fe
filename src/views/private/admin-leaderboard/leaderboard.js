@@ -97,11 +97,7 @@ const Leaderboard = (props) => {
                                 {user.total_points}
                               </p>
                               <div className="user-avatar">
-                                {user.avatar ? (
-                                  <img src={user.avatar}></img>
-                                ) : (
-                                  <img src={UserAvatar}></img>
-                                )}
+                              {(user.avatar ? <img style={{'borderRadius':'50%'}}src={`https://lab23-refresh-be.herokuapp.com/${user.avatar}`}></img> : <img src={UserAvatar}></img>)}
                               </div>
                             </div>
                           );

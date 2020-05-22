@@ -7,91 +7,11 @@ import {logout} from '../../../../../../views/private/actions/actions-user';
 import Logoutimg from './logoutuser.png';
 import {uploadAvatar} from '../../../../../../views/private/actions/actions';
 
+// Modals
 import Modal from 'react-modal';
 Modal.setAppElement('#root')
 
-const CenterContainer = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-width: 100%;
-height: 100%
-`
-const ButtonContainer = styled.div`
-display: flex;
-width: 75%;
-justify-content: space-evenly;
-margin-bottom: 20px;
-`
-const ButtonStyle1 = styled.div`
-text-align: center;
-color: black;
-background: white;
-padding: 5px 20px;
-border: solid black 5px;
 
-:hover {
-    cursor: pointer;
-    opacity: 50%;
-}
-p {
-    text-align: center;
-    margin: auto;
-    font-size: 25px ;
-    font-family: "gopher",sans-serif;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-`
-const ButtonStyle2 = styled.div`
-text-align: center;
-color: white;
-background: black;
-padding: 5px 20px;
-border: solid black 5px;
-
-:hover {
-    cursor: pointer;
-    opacity: 50%; 
-}
-p {
-    text-align: center;
-    margin: auto;
-    font-size: 25px ;
-    font-family: "gopher",sans-serif;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-`
-const Words = styled.div`
-font-size: 45px;
-color: black;
-font-family: "gopher",sans-serif;
-`
-const FileBox = styled.div`
-
-font-style: normal;
-font-weight: normal;
-width: 75%;
-font-size: 40px;
-line-height: 47px;
-color: #3B444B;
-font-family: "gopher",sans-serif;
-margin-bottom: 20px;
-`
-
-const StyledInput = styled.input`
-    text-align: center;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    margin-top: 2%;
-    font-family: "gopher",sans-serif;
-    border: solid black 3px;
-    padding: 5px 20px;
-    width: 100%;
-`
 const Dropdown = (props) => {
   const [dropdownOpen, setOpen] = useState(false);
   const [avatar, setAvatar] = useState({
@@ -156,50 +76,40 @@ const handleChanges = e =>{
     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
       
       <DropdownToggle caret size='lg'></DropdownToggle>
-      
 
       <DropdownMenu right>
         
      
 
         <DropdownItem> 
-          <i className="add-team-button" onClick={() => setModalIsOpen(true)}    >Change Avatar</i>
+          <i className="image-container"  onClick={() => setModalIsOpen(true)}    > <img src={Logoutimg} height="50%"alt="logout button" ></img>Change<br/> Avatar</i>
         </DropdownItem>
+
         <Modal  isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}
                 style={modalStyle}>
-            <CenterContainer>
-                <Words className='add-team-title'>Change Your Avatar</Words>
-                <FileBox className='add-team-input'>
-                    <form 
-                
-                    onSubmit={handleSubmit}>
+            <div className='content-parent-container'>
+               
+                <div className='avatar-modal-title'>Change Your Avatar</div>
+                <div className='form-container'>
+                    <form onSubmit={handleSubmit}>
                       <input
+                        className="upload-avatar-input"
                         id="file"
                         type="file"
                         name="avatar"
                         value={avatar.avatarImage}
                         onChange={handleChanges}
                       />
-                <button
-                      className='add-team-submit' 
-                      ><p>Upload</p>
-                </button>
-                    </form>
-                  
-                </FileBox>
-              <ButtonContainer>
-
-               
-
-                <ButtonStyle2 
-                className='add-team-cancel' 
-                onClick={() => setModalIsOpen(false)}>
-                  <p>Cancel</p>
-                  </ButtonStyle2>
-
-              </ButtonContainer>
-
-          </CenterContainer>
+                   <div className="button-container">
+                  <button className='avatar-upload-button'><p>Upload</p></button>
+                <button 
+                  className='avatar-cancel-button' 
+                  onClick={() => setModalIsOpen(false)}>
+                  <p>Cancel</p></button>
+                  </div>
+                  </form>
+                </div>
+            </div>
 
       </Modal>
       <DropdownItem onClick={() => props.logout()}>
