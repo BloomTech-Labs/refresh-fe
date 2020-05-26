@@ -77,6 +77,7 @@ Additional libraries/dependencies:
 
 - Moment
 - LESS
+- Reactstrap
 - React Testing Library
 - Circular Progress Bar
 - React-Redux
