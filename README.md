@@ -48,10 +48,10 @@ You can find the deployed project at [AWS Amplify](https://www.refresh-app.com/)
 <br>
 <br>
 
-|                                                                                           [Suffyan Tariq]([https://github.com/Suffyan-T](https://github.com/Suffyan-T))                                                                                       |                        |
+|                                                                                           [Suffyan Tariq]([https://github.com/Suffyan-T](https://github.com/Suffyan-T)|
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: |
-|                                                                  [<img src="https://avatars3.githubusercontent.com/u/16059907?s=460&u=adccfccaf4545a3928953c122ad801063e7c1f13&v=4" width = "200" />]([https://github.com/Suffyan-T](https://github.com/Suffyan-T))                                                                   | | | |                                                        
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Suffyan-T) [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/suffyan-tariq/) | | | |
+|[<img src="https://avatars3.githubusercontent.com/u/16059907?s=460&u=adccfccaf4545a3928953c122ad801063e7c1f13&v=4" width = "200" />]([https://github.com/Suffyan-T](https://github.com/Suffyan-T)                                     
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Suffyan-T) [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/suffyan-tariq/)  |
 
 <br>
 <br>
