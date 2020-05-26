@@ -86,6 +86,7 @@ Additional libraries/dependencies:
 - React-Popup
 - redux-mock-store
 - redux
+- react router
 
 
 #### Front end deployed to AWS Amplify
