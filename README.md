@@ -49,12 +49,16 @@ Unfortunately, this perspective can easily lead to burn-out and health consequen
 
 ### Key Features
 
-- Pomodoro Clock
-- Team Based Accounts
-- Custom Missions/Quests
-- Points System/Leaderboard
-- Push Notification Reminders
 - Admin login
+- User login
+- Team Based Accounts 
+- Points System/Leaderboard
+- User photo avatars
+- User health metrics tracking
+- Daily retro form
+
+
+
 
 ## Tech Stack
 
@@ -72,10 +76,7 @@ Why React?
 Additional libraries/dependencies:
 
 - Moment
-- Formidable
-- React Slider
-- React Timer Hook
-- Styled Components
+- LESS
 - React Testing Library
 - Circular Progress Bar
 - React-Redux
