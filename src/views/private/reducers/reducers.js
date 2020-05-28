@@ -171,7 +171,6 @@ function reducer(state = initialState, action) {
       };
 
     case UPDATE_TEAM_POINTS:
-console.log("addwater", action.payload)
       return {
         ...state,
         isFetching: false,
