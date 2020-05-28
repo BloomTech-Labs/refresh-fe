@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllUsers, fetchTeams, fetchUserTeamName } from '../actions/actions';
-// import { Body, Title, SearchFlex, SearchFlex2, List, Dropdown, Input, Photo } from '../styled-components/user-list-styles'
 import UserCard from './user-card';
 import Search from './search.svg'
 

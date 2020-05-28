@@ -1,9 +1,5 @@
 import React from "react";
 
-// import PrivateViewCanvas from "./views/private";
-// import PublicViewCanvas from "./views/public";
-// import AdminViewCanvas from "./views/private"
-// import ContextRouter from "./contexts/ContextRouter";
 import PrivateRoute from './helpers/PrivateRoute'
 import PrivateRouteAdmin from './helpers/PrivateRouteAdmin'
 import UserDashboard from './components/UserDashboard/UserDashboard'
@@ -16,10 +12,6 @@ import UserSignUp from './components/Auth/UserSignUp.js'
 import Leaderboard from '../src/views/private/admin-leaderboard/leaderboard.js'
 import UserList from '../src/views/private/user-list/user-list.js'
 import UserProfile from '../src/views/private/user-profile/user-profile.js'
-
-//next 2 imports are for testing only, remove these imports later as they won't be used. routes will be pulled out from them into this app.js component
-import AdminView from '../src/views/private/index.js'
-import AdminDash from '../src/views/private/admin-dashboard/AdminDash.js'
 
 const App = props => {
   return (

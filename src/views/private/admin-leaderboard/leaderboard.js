@@ -5,12 +5,7 @@ import { fetchTeams, editTeamName, fetchAllUsers } from "../actions/actions";
 import TeamCard from "./teamCard";
 import AddTeamButton from "./addTeam";
 import UserAvatar from "../user-list/useravatar.svg";
-import {
-  Container,
-  Title,
-  BlueFlex,
-  AddTeam,
-} from "../styled-components/leaderboard-styles";
+
 
 const Leaderboard = (props) => {
   const [render, setRender] = useState(false);
