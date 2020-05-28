@@ -155,7 +155,6 @@ const DeleteUserButton = props => {
 
 const mapStatetoProps = state => {
     return {
-        teams: state.team
     }
 }
 

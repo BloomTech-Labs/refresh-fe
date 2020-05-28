@@ -145,10 +145,49 @@ export const updateUserTeam = (userId, editedTeamId, oldTeamId, usersPoints) => 
 
 export const deleteUser = (userId) => (dispatch) => {
   dispatch({ type: DELETE_USER_START });
+
+  //first GET information about employee that is going to be deleted
+  //this is needed in order to update teams points if that user was on a team
+  let teamId = 0;
+  let usersPoints = 0;
+
+  axios
+    .get(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
+    .then((response) => {
+      teamId = response.data.team_id;
+      usersPoints = response.data.total_points;
+    })
+    .catch((error) => {
+      console.log("error when fetching user to delete")
+    })
+
+
+  //delete user from the database
   axios
     .delete(`https://lab23-refresh-be.herokuapp.com/users/${userId}`)
     .then((response) => {
       dispatch({ type: DELETE_USER_SUCCESS, payload: response });
+
+      //then update that user's teams points, backend and front end (IF user was assigned to a team)
+      //first GET existing total points of team, in order to use when adjusting the teams total points due to deletion of user
+      if (teamId !== null) {
+        axios
+        .get(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`)
+        .then((response => {
+          const teamTotalPoints = response.data.points
+
+          //update team's points
+          axios
+          .put(`https://lab23-refresh-be.herokuapp.com/teams/${teamId}`, {points: (teamTotalPoints - usersPoints)})
+          .then((response) => {
+            dispatch({ type: UPDATE_TEAM_POINTS, payload: {id: parseInt(teamId), points: (teamTotalPoints - usersPoints)} });
+          })
+          .catch((error) => {
+            console.log("Error when updating team's points", error)
+          });
+        }))
+      }
+
     })
     .catch((error) => dispatch({ type: DELETE_USER_FAILURE, payload: error }));
 };
